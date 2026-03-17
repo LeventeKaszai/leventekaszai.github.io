@@ -1,0 +1,492 @@
+---
+title: "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)"
+format: 
+  html:
+    theme: darkly
+    toc: true
+    toc-title: "Tartalom"
+    toc-depth: 2
+    page-layout: full
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(plotly)
+
+con <- dbConnect(RSQLite::SQLite(), "/Users/kaszailevente/Library/Mobile Documents/com~apple~CloudDocs/Kosárlabda/bball_10_tables.db")
+
+off_stats <- dbGetQuery(con, "SELECT CAST(Season AS INTEGER) as Season, Csapat,
+                               `Gy%`     as Win_Pct,
+                               `EFG%`    as Off_eFG,
+                               `TOV%`    as Off_TOV,
+                               `ORB%`    as Off_ORB,
+                               `DRB%`    as Def_DRB,
+                               `FT rate` as Off_FTR
+                               FROM team_stats")
+
+def_stats <- dbGetQuery(con, "SELECT CAST(Season AS INTEGER) as Season, Csapat,
+                               `EFG%`         as Def_eFG,
+                               `TOV%`         as Def_TOV,
+                               `FT att. rate` as Def_FTR
+                               FROM opponent_stats")
+
+dbDisconnect(con)
+
+ff_data <- off_stats %>%
+  inner_join(def_stats, by = c("Season", "Csapat")) %>%
+  mutate(
+    Szezon  = paste0("20", substr(as.character(Season), 1, 2), "-", substr(as.character(Season), 3, 4)),
+    Net_eFG = Off_eFG - Def_eFG,
+    Net_TOV = Def_TOV - Off_TOV,
+    Net_FTR = Off_FTR - Def_FTR
+  )
+
+szinek  <- c("2022-23" = "#00e676", "2023-24" = "#00b0ff", "2024-25" = "#ff9100")
+szezons <- names(szinek)
+```
+
+## A Rendszer Alapja
+
+A kosárlabda-analitika atyja, **Dean Oliver** szerint a győzelmet négy fő faktor határozza meg, mindkét oldalon vizsgálva:
+
+| \# | Faktor          | Támadó    | Védő                   |
+|----|-----------------|-----------|------------------------|
+| 1  | Dobóhatékonyság | eFG% ↑    | Ellenfél eFG% ↓        |
+| 2  | Eladott labdák  | TOV% ↓    | Kikényszerített TOV% ↑ |
+| 3  | Lepattanózás    | ORB% ↑    | DRB% ↑                 |
+| 4  | Büntetők        | FT rate ↑ | Ellenfél FT rate ↓     |
+
+---
+
+## 1. Melyik Faktor Számít a Legjobban?
+```{r}
+#| fig-height: 6
+
+cor_data <- data.frame(
+  Faktor = c(
+    "Tám. dobóhatékonyság (Off eFG%)",
+    "Védő dobóhatékonyság (Def eFG%)",
+    "Védő lepattanó (Def DRB%)",
+    "Tám. lepattanó (Off ORB%)",
+    "Saját labdaveszteség (Off TOV%)",
+    "Kikényszerített labdaveszteség (Def TOV%)",
+    "Tám. büntetőarány (Off FTR)",
+    "Védő büntetőarány (Def FTR)"
+  ),
+  Korreláció = c(0.719, -0.652, 0.569, 0.549, -0.382, 0.295, 0.101, -0.118),
+  Oldal = c("Támadó", "Védő", "Védő", "Támadó", "Támadó", "Védő", "Támadó", "Védő")
+) %>%
+  arrange(desc(abs(Korreláció)))
+
+plot_ly(cor_data,
+        x = ~Korreláció,
+        y = ~reorder(Faktor, abs(Korreláció)),
+        type = "bar",
+        orientation = "h",
+        color = ~Oldal,
+        colors = c("Támadó" = "#00b0ff", "Védő" = "#ff9100"),
+        text = ~paste0(ifelse(Korreláció > 0, "+", ""), round(Korreláció, 3)),
+        textposition = "outside",
+        hovertemplate = "<b>%{y}</b><br>Korreláció: %{x:.3f}<extra></extra>") %>%
+  layout(
+    title = list(
+      text = "A Nyolc Faktor Korrelációja a Győzelmi %-kal<br><sup>Magyar kosárlabda bajnokság, 2022-2025 (n=42)</sup>",
+      font = list(color = "#ffffff", size = 16)
+    ),
+    xaxis = list(
+      title = "Pearson-korreláció",
+      color = "#aaaaaa",
+      range = c(-0.9, 0.9),
+      zeroline = TRUE,
+      zerolinecolor = "#555555",
+      zerolinewidth = 2,
+      gridcolor = "#333333"
+    ),
+    yaxis = list(title = "", color = "#aaaaaa", tickfont = list(size = 11)),
+    paper_bgcolor = "#222222",
+    plot_bgcolor  = "#2a2a2a",
+    font = list(color = "#dddddd"),
+    legend = list(title = list(text = "Oldal"), bgcolor = "#333333",
+                  bordercolor = "#555555", borderwidth = 1),
+    margin = list(l = 280, r = 80)
+  )
+```
+
+A magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (+0.72), mind védő (−0.65) oldalon. Ez megegyezik az NBA trendjével.
+
+A **magyar anomália** a lepattanózásban rejlik: az Off ORB% (+0.55) és Def DRB% (+0.57) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.
+
+A büntetők mindkét oldalon gyenge összefüggést mutatnak.
+
+---
+
+## 2. Csapat-összehasonlítás
+
+Minden pont egy csapat egy szezonban. Válts a faktorok között a dropdownnal, szűrj szezonra a jelmagyarázatban.
+```{r}
+#| fig-height: 6
+
+faktorok <- list(
+  list(label = "Tám. dobóhatékonyság (Off eFG%)", col = "Off_eFG"),
+  list(label = "Védő dobóhatékonyság (Def eFG%)", col = "Def_eFG"),
+  list(label = "Tám. lepattanó (Off ORB%)",       col = "Off_ORB"),
+  list(label = "Védő lepattanó (Def DRB%)",        col = "Def_DRB"),
+  list(label = "Saját labdaveszteség (Off TOV%)",  col = "Off_TOV"),
+  list(label = "Kikényszerített TOV% (Def TOV%)",  col = "Def_TOV"),
+  list(label = "Tám. büntetőarány (Off FTR)",      col = "Off_FTR"),
+  list(label = "Védő büntetőarány (Def FTR)",      col = "Def_FTR")
+)
+
+szinek  <- c("2022-23" = "#00e676", "2023-24" = "#00b0ff", "2024-25" = "#ff9100")
+szezons <- names(szinek)
+
+p <- plot_ly()
+
+for (szezon in szezons) {
+  szezon_data <- ff_data %>% filter(Szezon == szezon)
+  p <- p %>% add_trace(
+    x             = szezon_data[["Off_eFG"]],
+    y             = szezon_data$Win_Pct,
+    type          = "scatter",
+    mode          = "markers+text",
+    name          = szezon,
+    legendgroup   = szezon,
+    showlegend    = TRUE,
+    marker        = list(
+      size    = 10,
+      color   = szinek[szezon],
+      opacity = 0.85,
+      line    = list(color = "#ffffff", width = 0.5)
+    ),
+    text          = szezon_data$Csapat,
+    textposition  = "top center",
+    textfont      = list(size = 9, color = "#cccccc"),
+    hovertemplate = paste0(
+      "<b>%{text}</b> (", szezon, ")<br>",
+      "Győzelmi %: %{y:.1f}<br>",
+      "%{xaxis.title.text}: %{x}<extra></extra>"
+    )
+  )
+}
+
+# Dropdown: csak x adatot és tengelycímet cserél — visible soha nem resetelődik
+buttons <- lapply(faktorok, function(f) {
+  col    <- f$col
+  x_vals <- lapply(szezons, function(sz) {
+    ff_data %>% filter(Szezon == sz) %>% pull(!!sym(col))
+  })
+  list(
+    method = "update",
+    args   = list(
+      list(x = x_vals),
+      list(xaxis = list(
+        title     = f$label,
+        color     = "#aaaaaa",
+        gridcolor = "#333333",
+        zeroline  = FALSE
+      ))
+    ),
+    label = f$label
+  )
+})
+
+p %>% layout(
+  annotations = list(list(
+    text      = "Csapat-összehasonlítás — Magyar bajnokság, 2022-2025",
+    x         = 0.5,
+    y         = 1.0,
+    xref      = "paper",
+    yref      = "paper",
+    xanchor   = "center",
+    yanchor   = "bottom",
+    showarrow = FALSE,
+    font      = list(color = "#ffffff", size = 15)
+  )),
+  xaxis = list(
+    title     = faktorok[[1]]$label,
+    color     = "#aaaaaa",
+    gridcolor = "#333333",
+    zeroline  = FALSE
+  ),
+  yaxis = list(
+    title     = "Győzelmi %",
+    color     = "#aaaaaa",
+    gridcolor = "#333333",
+    zeroline  = FALSE
+  ),
+  paper_bgcolor = "#222222",
+  plot_bgcolor  = "#2a2a2a",
+  font          = list(color = "#dddddd"),
+  legend = list(
+    orientation = "h",
+    x           = 0.5,
+    xanchor     = "center",
+    y           = -0.18,
+    yanchor     = "top",
+    bgcolor     = "#333333",
+    bordercolor = "#555555",
+    borderwidth = 1,
+    title       = list(text = "Szezon — kattints a szűréshez")
+  ),
+  margin = list(l = 60, t = 110, r = 60, b = 120),
+  updatemenus = list(list(
+    type        = "dropdown",
+    active      = 0,
+    x           = 0.5,
+    y           = 1.13,
+    xanchor     = "center",
+    yanchor     = "bottom",
+    bgcolor     = "#333333",
+    bordercolor = "#555555",
+    font        = list(color = "#ffffff"),
+    buttons     = buttons
+  ))
+)
+```
+
+---
+
+## 3. Outlier Csapatok
+```{r}
+#| fig-height: 6
+
+tengelyek <- list(
+  list(label = "Net eFG%",                       col = "Net_eFG"),
+  list(label = "Tám. lepattanó (Off ORB%)",       col = "Off_ORB"),
+  list(label = "Védő lepattanó (Def DRB%)",        col = "Def_DRB"),
+  list(label = "Net labdaveszteség (Net TOV%)",    col = "Net_TOV"),
+  list(label = "Net büntetőarány (Net FTR)",       col = "Net_FTR")
+)
+
+ff_scored <- ff_data %>%
+  mutate(across(c(Net_eFG, Off_ORB, Def_DRB, Net_TOV, Net_FTR),
+                ~ as.numeric(scale(.)), .names = "z_{.col}"))
+
+p             <- plot_ly()
+trace_counter <- 0
+tengely_trace_idx <- list()
+
+for (xi in seq_along(tengelyek)) {
+  for (yi in seq_along(tengelyek)) {
+    if (xi == yi) next
+
+    x_col   <- tengelyek[[xi]]$col
+    y_col   <- tengelyek[[yi]]$col
+    x_label <- tengelyek[[xi]]$label
+    y_label <- tengelyek[[yi]]$label
+    x_z_col <- paste0("z_", x_col)
+    y_z_col <- paste0("z_", y_col)
+    vis      <- (xi == 1 && yi == 2)
+    is_first <- (xi == 1 && yi == 2)
+
+    df <- ff_scored %>%
+      mutate(is_outlier = abs(.data[[x_z_col]]) > 1.5 | abs(.data[[y_z_col]]) > 1.5)
+
+    nd <- df %>% filter(!is_outlier)
+    od <- df %>% filter(is_outlier)
+
+    # Tooltip szöveg előre összerakva
+    nd_hover <- paste0(
+      "<b>", nd$Csapat, " (", nd$Szezon, ")</b><br>",
+      x_label, ": ", round(nd[[x_col]], 3), "<br>",
+      y_label, ": ", round(nd[[y_col]], 3), "<br>",
+      "Győzelmi %: ", round(nd$Win_Pct, 1)
+    )
+
+    od_hover <- paste0(
+      "<b>", od$Csapat, " (", od$Szezon, ")</b><br>",
+      x_label, ": ", round(od[[x_col]], 3), "<br>",
+      y_label, ": ", round(od[[y_col]], 3), "<br>",
+      "Győzelmi %: ", round(od$Win_Pct, 1)
+    )
+
+    idx <- c()
+
+    # Normál pontok
+    p <- p %>% add_trace(
+      x           = nd[[x_col]],
+      y           = nd[[y_col]],
+      type        = "scatter",
+      mode        = "markers",
+      name        = "Átlagos",
+      legendgroup = "normal",
+      showlegend  = is_first,
+      visible     = vis,
+      text        = nd_hover,
+      hoverinfo   = "text",
+      marker      = list(size = 7, color = "#555555", opacity = 0.6,
+                         line = list(color = "#888888", width = 0.5))
+    )
+    trace_counter <- trace_counter + 1
+    idx           <- c(idx, trace_counter)
+
+    # Outlier pontok
+    p <- p %>% add_trace(
+      x           = od[[x_col]],
+      y           = od[[y_col]],
+      type        = "scatter",
+      mode        = "markers+text",
+      name        = "Outlier",
+      legendgroup = "outlier",
+      showlegend  = is_first,
+      visible     = vis,
+      text        = od_hover,
+      hoverinfo   = "text",
+      texttemplate = paste0(od$Csapat, " (", od$Szezon, ")"),
+      textposition = "top center",
+      textfont     = list(size = 9, color = "#ffffff"),
+      marker = list(
+        size       = 14,
+        color      = od$Win_Pct,
+        colorscale = list(
+          list(0,   "#ff4d4d"),
+          list(0.5, "#ffff00"),
+          list(1,   "#00e676")
+        ),
+        showscale = is_first,
+        colorbar  = list(
+          title     = "Győzelmi %",
+          tickfont  = list(color = "#dddddd"),
+          titlefont = list(color = "#dddddd")
+        ),
+        line = list(color = "#ffffff", width = 1)
+      )
+    )
+    trace_counter <- trace_counter + 1
+    idx           <- c(idx, trace_counter)
+
+    key <- paste0(xi, "_", yi)
+    tengely_trace_idx[[key]] <- idx
+  }
+}
+
+total_traces <- trace_counter
+
+x_buttons <- lapply(seq_along(tengelyek), function(xi) {
+  yi_default <- if (xi != 2) 2 else 1
+  key     <- paste0(xi, "_", yi_default)
+  vis_vec <- rep(FALSE, total_traces)
+  if (!is.null(tengely_trace_idx[[key]])) {
+    vis_vec[tengely_trace_idx[[key]]] <- TRUE
+  }
+  list(
+    method = "update",
+    args   = list(
+      list(visible = as.list(vis_vec)),
+      list(xaxis = list(title = tengelyek[[xi]]$label, color = "#aaaaaa",
+                        gridcolor = "#333333", zeroline = TRUE,
+                        zerolinecolor = "#555555"))
+    ),
+    label = tengelyek[[xi]]$label
+  )
+})
+
+y_buttons <- lapply(seq_along(tengelyek), function(yi) {
+  xi_default <- if (yi != 1) 1 else 2
+  key     <- paste0(xi_default, "_", yi)
+  vis_vec <- rep(FALSE, total_traces)
+  if (!is.null(tengely_trace_idx[[key]])) {
+    vis_vec[tengely_trace_idx[[key]]] <- TRUE
+  }
+  list(
+    method = "update",
+    args   = list(
+      list(visible = as.list(vis_vec)),
+      list(yaxis = list(title = tengelyek[[yi]]$label, color = "#aaaaaa",
+                        gridcolor = "#333333", zeroline = TRUE,
+                        zerolinecolor = "#555555"))
+    ),
+    label = tengelyek[[yi]]$label
+  )
+})
+
+p %>% layout(
+  annotations = list(
+    list(text = "Outlier Csapatok — Magyar bajnokság, 2022-2025",
+         x = 0.5, y = 1.0, xref = "paper", yref = "paper",
+         xanchor = "center", yanchor = "bottom", showarrow = FALSE,
+         font = list(color = "#ffffff", size = 15)),
+    list(text = "X tengely",
+         x = 0.2, y = 1.22,
+         xref = "paper", yref = "paper",
+         xanchor = "center", yanchor = "bottom",
+         showarrow = FALSE,
+         font = list(color = "#aaaaaa", size = 11)),
+    list(text = "Y tengely",
+         x = 0.65, y = 1.22,
+         xref = "paper", yref = "paper",
+         xanchor = "center", yanchor = "bottom",
+         showarrow = FALSE,
+         font = list(color = "#aaaaaa", size = 11))
+  ),
+  xaxis = list(title = tengelyek[[1]]$label, color = "#aaaaaa",
+               gridcolor = "#333333", zeroline = TRUE, zerolinecolor = "#555555"),
+  yaxis = list(title = tengelyek[[2]]$label, color = "#aaaaaa",
+               gridcolor = "#333333", zeroline = TRUE, zerolinecolor = "#555555"),
+  paper_bgcolor = "#222222",
+  plot_bgcolor  = "#2a2a2a",
+  font          = list(color = "#dddddd"),
+  legend = list(x = 0.01, y = 0.99, xanchor = "left", yanchor = "top",
+                bgcolor = "#333333", bordercolor = "#555555", borderwidth = 1),
+  margin = list(l = 70, t = 150, r = 60, b = 80),
+  updatemenus = list(
+    list(type = "dropdown", active = 0,
+         x = 0.2, y = 1.21,
+         xanchor = "center", yanchor = "top",
+         bgcolor = "#333333", bordercolor = "#555555",
+         font = list(color = "#ffffff"), buttons = x_buttons),
+    list(type = "dropdown", active = 1,
+         x = 0.65, y = 1.21,
+         xanchor = "center", yanchor = "top",
+         bgcolor = "#333333", bordercolor = "#555555",
+         font = list(color = "#ffffff"), buttons = y_buttons)
+  )
+)
+```
+
+---
+
+## 4. Teljes Adatbázis
+```{r}
+ff_display <- ff_data %>%
+  select(Szezon, Csapat, Win_Pct, Net_eFG, Off_eFG, Def_eFG,
+         Off_ORB, Def_DRB, Off_TOV, Def_TOV, Off_FTR, Def_FTR) %>%
+  arrange(desc(Szezon), desc(Win_Pct))
+
+datatable(ff_display,
+          filter   = "top",
+          rownames = FALSE,
+          colnames = c("Szezon", "Csapat", "Győzelmi %", "Net eFG%",
+                       "Tám. eFG%", "Védő eFG%", "Tám. ORB%", "Védő DRB%",
+                       "Tám. TOV%", "Kiharcolt TOV%", "Tám. FTR", "Védő FTR"),
+          options = list(
+            pageLength = 15,
+            autoWidth  = TRUE,
+            scrollX    = TRUE,
+            dom        = "frtip",
+            initComplete = JS("function(settings, json) {
+              $(this.api().table().header()).css({
+                'background-color': '#2a2a2a',
+                'color': '#fff'
+              });
+            }")
+          )) %>%
+  formatRound(c("Net_eFG", "Off_eFG", "Def_eFG", "Off_FTR", "Def_FTR"), 3) %>%
+  formatRound(c("Win_Pct", "Off_ORB", "Def_DRB", "Off_TOV", "Def_TOV"), 1) %>%
+  formatStyle("Net_eFG",
+              color      = styleInterval(0, c("#ff4d4d", "#00e676")),
+              fontWeight = "bold") %>%
+  formatStyle("Win_Pct",
+              background         = styleColorBar(ff_display$Win_Pct, "#00b0ff"),
+              backgroundSize     = "100% 90%",
+              backgroundRepeat   = "no-repeat",
+              backgroundPosition = "center")
+```

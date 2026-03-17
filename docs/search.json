@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "four_factors_1.html",
+    "href": "four_factors_1.html",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "",
+    "text": "A kosárlabda-analitika atyja, Dean Oliver szerint a győzelmet négy fő faktor határozza meg, mindkét oldalon vizsgálva:\n\n\n\n#\nFaktor\nTámadó\nVédő\n\n\n\n\n1\nDobóhatékonyság\neFG% ↑\nEllenfél eFG% ↓\n\n\n2\nEladott labdák\nTOV% ↓\nKikényszerített TOV% ↑\n\n\n3\nLepattanózás\nORB% ↑\nDRB% ↑\n\n\n4\nBüntetők\nFT rate ↑\nEllenfél FT rate ↓"
+  },
+  {
+    "objectID": "four_factors_1.html#a-rendszer-alapja",
+    "href": "four_factors_1.html#a-rendszer-alapja",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "",
+    "text": "A kosárlabda-analitika atyja, Dean Oliver szerint a győzelmet négy fő faktor határozza meg, mindkét oldalon vizsgálva:\n\n\n\n#\nFaktor\nTámadó\nVédő\n\n\n\n\n1\nDobóhatékonyság\neFG% ↑\nEllenfél eFG% ↓\n\n\n2\nEladott labdák\nTOV% ↓\nKikényszerített TOV% ↑\n\n\n3\nLepattanózás\nORB% ↑\nDRB% ↑\n\n\n4\nBüntetők\nFT rate ↑\nEllenfél FT rate ↓"
+  },
+  {
+    "objectID": "four_factors_1.html#melyik-faktor-számít-a-legjobban",
+    "href": "four_factors_1.html#melyik-faktor-számít-a-legjobban",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "1. Melyik Faktor Számít a Legjobban?",
+    "text": "1. Melyik Faktor Számít a Legjobban?\n\n\n\n\n\n\nA magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (+0.72), mind védő (−0.65) oldalon. Ez megegyezik az NBA trendjével.\nA magyar anomália a lepattanózásban rejlik: az Off ORB% (+0.55) és Def DRB% (+0.57) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.\nA büntetők mindkét oldalon gyenge összefüggést mutatnak."
+  },
+  {
+    "objectID": "four_factors_1.html#csapat-összehasonlítás",
+    "href": "four_factors_1.html#csapat-összehasonlítás",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "2. Csapat-összehasonlítás",
+    "text": "2. Csapat-összehasonlítás\nMinden pont egy csapat egy szezonban. Válts a faktorok között a dropdownnal, szűrj szezonra a jelmagyarázatban."
+  },
+  {
+    "objectID": "four_factors_1.html#outlier-csapatok",
+    "href": "four_factors_1.html#outlier-csapatok",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "3. Outlier Csapatok",
+    "text": "3. Outlier Csapatok"
+  },
+  {
+    "objectID": "four_factors_1.html#teljes-adatbázis",
+    "href": "four_factors_1.html#teljes-adatbázis",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "4. Teljes Adatbázis",
+    "text": "4. Teljes Adatbázis"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Levente Kaszai",
+    "section": "",
+    "text": "I analyze Hungarian basketball through the lens of modern analytics. My work focuses on uncovering what actually drives winning in the Hungarian league — and where it diverges from NBA trends."
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Levente Kaszai",
+    "section": "",
+    "text": "I analyze Hungarian basketball through the lens of modern analytics. My work focuses on uncovering what actually drives winning in the Hungarian league — and where it diverges from NBA trends."
+  },
+  {
+    "objectID": "index.html#work",
+    "href": "index.html#work",
+    "title": "Levente Kaszai",
+    "section": "Work",
+    "text": "Work\n\nFour Factors Analysis (2022-2025) — What drives winning in Hungarian basketball?"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Levente Kaszai",
+    "section": "Contact",
+    "text": "Contact\nLinkedIn · Email"
+  }
+]

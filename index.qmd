@@ -1,0 +1,21 @@
+---
+title: "Levente Kaszai"
+subtitle: "Hungarian Basketball Analytics"
+page-layout: full
+toc: false
+---
+
+## About
+
+I analyze Hungarian basketball through the lens of modern analytics.
+My work focuses on uncovering what actually drives winning in the
+Hungarian league — and where it diverges from NBA trends.
+
+## Work
+
+- [Four Factors Analysis (2022-2025)](four_factors_1.qmd) —
+  What drives winning in Hungarian basketball?
+
+## Contact
+
+[LinkedIn](www.linkedin.com/in/levente-kaszai-9488bb156) · [Email](mailto:email@email.com)

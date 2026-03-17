@@ -1,0 +1,22 @@
+.dataTables_wrapper {
+  color: #dddddd !important;
+  background-color: #222222 !important;
+}
+table.dataTable thead th {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #444 !important;
+}
+table.dataTable tbody tr {
+  background-color: #2a2a2a !important;
+  color: #dddddd !important;
+}
+table.dataTable tbody tr:hover {
+  background-color: #333333 !important;
+}
+.dataTables_filter input,
+.dataTables_length select {
+  background-color: #333333 !important;
+  color: #dddddd !important;
+  border: 1px solid #555 !important;
+}
