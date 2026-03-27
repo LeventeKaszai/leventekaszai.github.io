@@ -1,22 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* ── Alap paletta ── */
+:root {
+  --bg-main:    #F6F4F0;
+  --bg-card:    #EDE9E3;
+  --accent:     #7A9BBF;
+  --accent-dark:#5A7D9F;
+  --text:       #2E2B26;
+  --text-muted: #7A756D;
+  --border:     #D4CFC6;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text);
+}
+
+/* ── Navbar ── */
+.navbar {
+  background-color: var(--bg-card) !important;
+  border-bottom: 1px solid var(--border);
+}
+.navbar-brand,
+.nav-link {
+  color: var(--text) !important;
+}
+.nav-link:hover {
+  color: var(--accent-dark) !important;
+}
+
+/* ── Linkek ── */
+a {
+  color: var(--accent-dark);
+}
+a:hover {
+  color: var(--accent);
+}
+
+/* ── Footer ── */
+.nav-footer {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* ── TOC ── */
+#TOC {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid var(--border);
+}
+#TOC a {
+  color: var(--text-muted);
+}
+#TOC a:hover,
+#TOC a.active {
+  color: var(--accent-dark);
+}
+
+/* ── DataTables ── */
 .dataTables_wrapper {
-  color: #dddddd !important;
-  background-color: #222222 !important;
+  color: var(--text) !important;
+  background-color: var(--bg-main) !important;
 }
 table.dataTable thead th {
-  background-color: #2a2a2a !important;
-  color: #ffffff !important;
-  border-bottom: 1px solid #444 !important;
+  background-color: var(--bg-card) !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--border) !important;
 }
 table.dataTable tbody tr {
-  background-color: #2a2a2a !important;
-  color: #dddddd !important;
+  background-color: #FAFAF6 !important;
+  color: var(--text) !important;
 }
 table.dataTable tbody tr:hover {
-  background-color: #333333 !important;
+  background-color: var(--bg-card) !important;
+}
+table.dataTable tbody tr.odd {
+  background-color: var(--bg-main) !important;
 }
 .dataTables_filter input,
 .dataTables_length select {
-  background-color: #333333 !important;
-  color: #dddddd !important;
-  border: 1px solid #555 !important;
+  background-color: #FAFAF6 !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px;
+}
+
+/* ── Plotly dropdown (ha van) ── */
+.plot-container {
+  font-family: 'Montserrat', sans-serif;
+}
+.updatemenu-item-text {
+  fill: var(--text) !important;
+}
+.updatemenu-dropdown-button rect {
+  fill: var(--bg-card) !important;
+}
+.updatemenu-item rect:hover {
+  fill: var(--border) !important;
 }

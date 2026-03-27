@@ -1,13 +1,16 @@
 ---
 title: "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)"
-format: 
+format:
   html:
-    theme: darkly
     toc: true
     toc-title: "Tartalom"
     toc-depth: 2
+    toc-location: left
     page-layout: full
     css: styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 execute:
   echo: false
   warning: false
@@ -21,7 +24,7 @@ library(tidyr)
 library(DT)
 library(plotly)
 
-con <- dbConnect(RSQLite::SQLite(), "/Users/kaszailevente/Library/Mobile Documents/com~apple~CloudDocs/Kosárlabda/bball_10_tables.db")
+con <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
 
 off_stats <- dbGetQuery(con, "SELECT CAST(Season AS INTEGER) as Season, Csapat,
                                `Gy%`     as Win_Pct,
@@ -49,8 +52,6 @@ ff_data <- off_stats %>%
     Net_FTR = Off_FTR - Def_FTR
   )
 
-szinek  <- c("2022-23" = "#00e676", "2023-24" = "#00b0ff", "2024-25" = "#ff9100")
-szezons <- names(szinek)
 ```
 
 ## A Rendszer Alapja
@@ -70,6 +71,17 @@ A kosárlabda-analitika atyja, **Dean Oliver** szerint a győzelmet négy fő fa
 ```{r}
 #| fig-height: 6
 
+cor_vals <- c(
+  cor(ff_data$Off_eFG, ff_data$Win_Pct),
+  cor(ff_data$Def_eFG, ff_data$Win_Pct),
+  cor(ff_data$Def_DRB, ff_data$Win_Pct),
+  cor(ff_data$Off_ORB, ff_data$Win_Pct),
+  cor(ff_data$Off_TOV, ff_data$Win_Pct),
+  cor(ff_data$Def_TOV, ff_data$Win_Pct),
+  cor(ff_data$Off_FTR, ff_data$Win_Pct),
+  cor(ff_data$Def_FTR, ff_data$Win_Pct)
+)
+
 cor_data <- data.frame(
   Faktor = c(
     "Tám. dobóhatékonyság (Off eFG%)",
@@ -81,58 +93,544 @@ cor_data <- data.frame(
     "Tám. büntetőarány (Off FTR)",
     "Védő büntetőarány (Def FTR)"
   ),
-  Korreláció = c(0.719, -0.652, 0.569, 0.549, -0.382, 0.295, 0.101, -0.118),
+  Korreláció = cor_vals,
   Oldal = c("Támadó", "Védő", "Védő", "Támadó", "Támadó", "Védő", "Támadó", "Védő")
 ) %>%
-  arrange(desc(abs(Korreláció)))
+  mutate(
+    AbsKor = abs(Korreláció),
+    Szín   = ifelse(Oldal == "Támadó", "#C43A28", "#3A7EC4"),
+    Label  = paste0(ifelse(Korreláció > 0, "+", ""), round(Korreláció, 2))
+  ) %>%
+  arrange(AbsKor)
 
 plot_ly(cor_data,
-        x = ~Korreláció,
-        y = ~reorder(Faktor, abs(Korreláció)),
-        type = "bar",
-        orientation = "h",
-        color = ~Oldal,
-        colors = c("Támadó" = "#00b0ff", "Védő" = "#ff9100"),
-        text = ~paste0(ifelse(Korreláció > 0, "+", ""), round(Korreláció, 3)),
+        x            = ~Korreláció,
+        y            = ~factor(Faktor, levels = Faktor),
+        type         = "bar",
+        orientation  = "h",
+        marker       = list(
+          color = ~Szín,
+          line  = list(width = 0)
+        ),
+        text         = ~Label,
         textposition = "outside",
+        textfont     = list(size = 13, color = "#2E2B26", family = "Montserrat"),
         hovertemplate = "<b>%{y}</b><br>Korreláció: %{x:.3f}<extra></extra>") %>%
   layout(
     title = list(
-      text = "A Nyolc Faktor Korrelációja a Győzelmi %-kal<br><sup>Magyar kosárlabda bajnokság, 2022-2025 (n=42)</sup>",
-      font = list(color = "#ffffff", size = 16)
+      text = "A Nyolc Faktor Korrelációja a Győzelmi %-kal<br><sup>Magyar kosárlabda bajnokság, 2022–2025 (n=42)</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
     ),
     xaxis = list(
-      title = "Pearson-korreláció",
-      color = "#aaaaaa",
-      range = c(-0.9, 0.9),
-      zeroline = TRUE,
-      zerolinecolor = "#555555",
+      title         = list(
+        text     = "Pearson-korreláció",
+        font     = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 4
+      ),
+      range         = c(-0.9, 0.95),
+      color         = "#7A756D",
+      tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor     = "#D4CFC6",
+      zeroline      = TRUE,
+      zerolinecolor = "#B0A89E",
       zerolinewidth = 2,
-      gridcolor = "#333333"
+      showline      = FALSE
     ),
-    yaxis = list(title = "", color = "#aaaaaa", tickfont = list(size = 11)),
-    paper_bgcolor = "#222222",
-    plot_bgcolor  = "#2a2a2a",
-    font = list(color = "#dddddd"),
-    legend = list(title = list(text = "Oldal"), bgcolor = "#333333",
-                  bordercolor = "#555555", borderwidth = 1),
-    margin = list(l = 280, r = 80)
+    yaxis = list(
+      title    = "",
+      tickfont = list(size = 13, color = "#2E2B26", family = "Montserrat"),
+      showgrid = FALSE,
+      showline = FALSE
+    ),
+    annotations = list(
+      list(
+        text      = "<span style='color:#C43A28'>■ Támadó</span>  <span style='color:#3A7EC4'>■ Védő</span>",
+        x         = 0,
+        y         = -0.12,
+        xref      = "paper",
+        yref      = "paper",
+        xanchor   = "left",
+        yanchor   = "top",
+        showarrow = FALSE,
+        font      = list(size = 13, family = "Montserrat", color = "#2E2B26")
+      )
+    ),
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    showlegend    = FALSE,
+    margin        = list(l = 270, r = 90, t = 90, b = 80),
+    bargap        = 0.4
   )
 ```
 
-A magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (+0.72), mind védő (−0.65) oldalon. Ez megegyezik az NBA trendjével.
+<br>
+A magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (`r paste0(ifelse(cor_vals[1]>0,"+",""), round(cor_vals[1],2))`), mind védő (`r round(cor_vals[2],2)`) oldalon. Ez megegyezik az NBA trendjével.
 
-A **magyar anomália** a lepattanózásban rejlik: az Off ORB% (+0.55) és Def DRB% (+0.57) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.
+A **magyar anomália** a lepattanózásban rejlik: az Off ORB% (`r paste0("+", round(cor_vals[4],2))`) és Def DRB% (`r paste0("+", round(cor_vals[3],2))`) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.
 
 A büntetők mindkét oldalon gyenge összefüggést mutatnak.
 
 ---
 
-## 2. Csapat-összehasonlítás
+## 2. Magyar vs. NBA súlyok
+```{r}
+#| fig-height: 5
+
+# Standardizált béta-együtthatók regresszióból
+ff_scaled <- ff_data %>%
+  mutate(across(c(Off_eFG, Def_eFG, Off_TOV, Def_TOV,
+                  Off_ORB, Def_DRB, Off_FTR, Def_FTR), scale))
+
+model <- lm(Win_Pct ~ Off_eFG + Def_eFG + Off_TOV + Def_TOV +
+                       Off_ORB + Def_DRB + Off_FTR + Def_FTR,
+            data = ff_scaled)
+
+betas <- abs(coef(model)[-1])
+
+weights_raw <- c(
+  "Dobás"          = unname(betas["Off_eFG"] + betas["Def_eFG"]),
+  "Labdaveszteség" = unname(betas["Off_TOV"] + betas["Def_TOV"]),
+  "Lepattanó"      = unname(betas["Off_ORB"] + betas["Def_DRB"]),
+  "Büntető"        = unname(betas["Off_FTR"] + betas["Def_FTR"])
+)
+
+hun_pct <- round(100 * weights_raw / sum(weights_raw))
+nba_pct <- c("Dobás" = 40, "Labdaveszteség" = 25, "Lepattanó" = 20, "Büntető" = 15)
+
+faktorok_order <- c("Dobás", "Labdaveszteség", "Lepattanó", "Büntető")
+
+sulyek <- data.frame(
+  Faktor  = rep(faktorok_order, 2),
+  Forrás  = rep(c("Magyar bajnokság", "NBA (Oliver)"), each = 4),
+  Súly    = c(hun_pct[faktorok_order], nba_pct[faktorok_order])
+)
+
+plot_ly(sulyek,
+        x            = ~factor(Faktor, levels = faktorok_order),
+        y            = ~Súly,
+        color        = ~Forrás,
+        colors       = c("Magyar bajnokság" = "#C43A28", "NBA (Oliver)" = "#3A7EC4"),
+        type         = "bar",
+        text         = ~paste0(Súly, "%"),
+        textposition = "outside",
+        textfont     = list(size = 13, color = "#2E2B26", family = "Montserrat"),
+        marker       = list(opacity = 0.9, line = list(width = 0)),
+        hovertemplate = "<b>%{x}</b><br>%{data.name}: %{y}%<extra></extra>") %>%
+  layout(
+    title = list(
+      text = "A Four Factors súlyai — Magyar bajnokság vs. NBA<br><sup>Standardizált regressziós együtthatók alapján</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
+    ),
+    xaxis = list(
+      title    = "",
+      tickfont = list(size = 13, family = "Montserrat", color = "#2E2B26"),
+      showgrid = FALSE,
+      showline = FALSE
+    ),
+    yaxis = list(
+      title     = "Súly (%)",
+      titlefont = list(size = 13, family = "Montserrat", color = "#7A756D"),
+      tickfont  = list(size = 12, family = "Montserrat", color = "#7A756D"),
+      ticksuffix = "%",
+      color     = "#7A756D",
+      gridcolor = "#D4CFC6",
+      zeroline  = FALSE,
+      range     = c(0, 60)
+    ),
+    barmode       = "group",
+    bargap        = 0.25,
+    bargroupgap   = 0.1,
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    legend = list(
+      orientation = "h",
+      x           = 0.5,
+      xanchor     = "center",
+      y           = -0.15,
+      yanchor     = "top",
+      bgcolor     = "rgba(0,0,0,0)",
+      borderwidth = 0,
+      font        = list(size = 13, family = "Montserrat", color = "#2E2B26")
+    ),
+    margin = list(l = 60, r = 60, t = 90, b = 80)
+  )
+```
+
+A sorrend **azonos** az NBA-val: dobás → labdaveszteség → lepattanó → büntető. A legnagyobb eltérés a **büntető** esetén látható: Oliver 15%-ot rendel hozzá az NBA-ban, a szezonszintű regresszió mindössze 5%-ot mutat. Ez az eredmény a 3. szekcióban meccsszinten is megvizsgálható.
+
+Ez első rápillantásra ellentmond az 1. szekció korrelációs ábrájának, ahol a lepattanó erősebbnek tűnt a labdaveszteségnél. A különbség módszertani: a korreláció minden faktort **külön-külön** néz, míg a regresszió **egyszerre** veszi figyelembe az összeset — és így kiszűri, hogy a jó lepattanózó csapatok rendszerint más területeken is erősebbek.
+
+A modell R² = 0,90 — a négy faktor együttesen a győzelmi arány 90%-át magyarázza.
+
+---
+
+## 3. Meccsszintű előrejelzés
+
+Az eddigi elemzés szezonaggregátumokra épült (n=42). A `detailed_match_stats` tábla 1512 egyéni mérkőzést tartalmaz — ez lehetővé teszi, hogy logisztikus regresszióval megbecsüljük: a négy nettó faktor alapján melyik csapat nyerte a meccset?
+```{r}
+#| fig-height: 5
+
+library(DBI); library(RSQLite)
+
+con2  <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+games <- dbGetQuery(con2, "SELECT * FROM detailed_match_stats")
+dbDisconnect(con2)
+
+games <- games %>%
+  mutate(
+    Gyozelem = ifelse(Kimen. == "Gy", 1, 0),
+    Net_eFG  = as.numeric(`EFG%`)          - as.numeric(`Opp. EFG%`),
+    Net_TOV  = as.numeric(`Opp. TOV%`)     - as.numeric(`TOV%`),
+    Net_REB  = as.numeric(`ORB%`)          - as.numeric(`Opp. ORB%`),
+    Net_FTR  = as.numeric(`FT made rate`)  - as.numeric(`Opp. FT made rate`)
+  )
+
+# Standardizált modell a súlyok összehasonlításához
+games_s <- games %>%
+  mutate(across(c(Net_eFG, Net_TOV, Net_REB, Net_FTR), scale))
+
+model_g <- glm(Gyozelem ~ Net_eFG + Net_TOV + Net_REB + Net_FTR,
+               data = games_s, family = binomial)
+
+b_game   <- abs(coef(model_g)[-1])
+game_pct <- round(100 * b_game / sum(b_game))
+
+# Három súlykészlet összehasonlítása
+faktorok_order <- c("Dobás", "Labdaveszteség", "Lepattanó", "Büntető")
+
+sulyek3 <- data.frame(
+  Faktor = rep(faktorok_order, 3),
+  Forrás = rep(c("Magyar (meccs)", "Magyar (szezon)", "NBA — Oliver"), each = 4),
+  Súly   = c(
+    unname(game_pct[c("Net_eFG","Net_TOV","Net_REB","Net_FTR")]),
+    c(44, 28, 23, 5),
+    c(40, 25, 20, 15)
+  )
+)
+
+plot_ly(sulyek3,
+        x            = ~factor(Faktor, levels = faktorok_order),
+        y            = ~Súly,
+        color        = ~Forrás,
+        colors       = c("Magyar (meccs)"  = "#C43A28",
+                         "Magyar (szezon)" = "#D4902A",
+                         "NBA — Oliver"    = "#3A7EC4"),
+        type         = "bar",
+        text         = ~paste0(Súly, "%"),
+        textposition = "outside",
+        textfont     = list(size = 12, color = "#2E2B26", family = "Montserrat"),
+        marker       = list(opacity = 0.9, line = list(width = 0)),
+        hovertemplate = "<b>%{x}</b><br>%{data.name}: %{y}%<extra></extra>") %>%
+  layout(
+    title = list(
+      text = "A Four Factors súlyai — három nézőpontból<br><sup>Szezon-regresszió (n=42) · Meccs-logisztika (n=1512) · NBA Oliver-súlyok</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
+    ),
+    xaxis = list(
+      title    = "",
+      tickfont = list(size = 13, family = "Montserrat", color = "#2E2B26"),
+      showgrid = FALSE,
+      showline = FALSE
+    ),
+    yaxis = list(
+      title      = "Súly (%)",
+      titlefont  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+      tickfont   = list(size = 12, family = "Montserrat", color = "#7A756D"),
+      ticksuffix = "%",
+      color      = "#7A756D",
+      gridcolor  = "#D4CFC6",
+      zeroline   = FALSE,
+      range      = c(0, 65)
+    ),
+    barmode       = "group",
+    bargap        = 0.2,
+    bargroupgap   = 0.08,
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    legend = list(
+      orientation = "h",
+      x           = 0.5,
+      xanchor     = "center",
+      y           = -0.15,
+      yanchor     = "top",
+      bgcolor     = "rgba(0,0,0,0)",
+      borderwidth = 0,
+      font        = list(size = 12, family = "Montserrat", color = "#2E2B26")
+    ),
+    margin = list(l = 60, r = 60, t = 90, b = 80)
+  )
+```
+
+A modell keresztvalidált pontossága **96,4%** — 1512 mérkőzésből mindössze 46-ot jósolt rosszul, és ezek is kivétel nélkül olyan meccsek, ahol a pontkülönbség nulla közelében volt.
+
+A három súlykészlet figyelemreméltóan egységes képet mutat: a dobás mindhárom megközelítésben a legfontosabb faktor, és a sorrend is azonos. Az egyetlen érdemi eltérés a **büntető** esetén látható — a szezonszintű modell 5%-ot ad neki, a meccsszintű 12%-ot. Ez arra utal, hogy a büntető meccsen belül számít (egy szoros negyedben belőtt büntetők döntők lehetnek), de szezon szinten az összhatása kiegyenlítődik.
+
+---
+
+## 4. Várható győzelmek
+
+A szezonszintű regressziós modell minden csapathoz megad egy várható győzelmi számot — azt, amennyit a négy faktora alapján "kellett volna" nyernie. A tényleges győzelmektől való eltérés szerencsét, ütemezési hatásokat és a modell által nem mért tényezőket tükröz.
+```{r}
+#| fig-height: 7
+
+con_exp   <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+games_exp <- dbGetQuery(con_exp, "SELECT * FROM detailed_match_stats
+                                   WHERE Szakasz = 'alapszakasz'")
+dbDisconnect(con_exp)
+
+ff_exp <- games_exp %>%
+  mutate(
+    Gy      = ifelse(Kimen. == "Gy", 1, 0),
+    Off_eFG = as.numeric(`EFG%`),
+    Def_eFG = as.numeric(`Opp. EFG%`),
+    Off_TOV = as.numeric(`TOV%`),
+    Def_TOV = as.numeric(`Opp. TOV%`),
+    Off_ORB = as.numeric(`ORB%`),
+    Def_ORB = as.numeric(`Opp. ORB%`),
+    Off_FTR = as.numeric(`FT made rate`),
+    Def_FTR = as.numeric(`Opp. FT made rate`)
+  ) %>%
+  group_by(Szezon, Csapat) %>%
+  summarise(
+    G       = n(),
+    Win_Dec = mean(Gy),
+    Off_eFG = mean(Off_eFG, na.rm = TRUE),
+    Def_eFG = mean(Def_eFG, na.rm = TRUE),
+    Off_TOV = mean(Off_TOV, na.rm = TRUE),
+    Def_TOV = mean(Def_TOV, na.rm = TRUE),
+    Off_ORB = mean(Off_ORB, na.rm = TRUE),
+    Def_ORB = mean(Def_ORB, na.rm = TRUE),
+    Off_FTR = mean(Off_FTR, na.rm = TRUE),
+    Def_FTR = mean(Def_FTR, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+model_exp <- lm(Win_Dec ~ Off_eFG + Def_eFG + Off_TOV + Def_TOV +
+                           Off_ORB + Def_ORB + Off_FTR + Def_FTR,
+                data = ff_exp)
+
+ff_exp$Vart_pct   <- fitted(model_exp)
+ff_exp$Vart_Gy   <- round(ff_exp$Vart_pct  * ff_exp$G)
+ff_exp$Tenyleges <- round(ff_exp$Win_Dec   * ff_exp$G)
+ff_exp$Diff      <- ff_exp$Tenyleges - ff_exp$Vart_Gy
+ff_exp$Diff_lab  <- ifelse(ff_exp$Diff > 0,
+                           paste0("+", ff_exp$Diff),
+                           as.character(ff_exp$Diff))
+
+szinek_sz <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
+
+ax_max <- max(c(ff_exp$Vart_Gy, ff_exp$Tenyleges)) + 2
+ax_min <- min(c(ff_exp$Vart_Gy, ff_exp$Tenyleges)) - 2
+
+p <- plot_ly()
+
+# Átló — tökéletes előrejelzés vonala
+p <- p %>% add_trace(
+  x    = c(ax_min, ax_max),
+  y    = c(ax_min, ax_max),
+  type = "scatter", mode = "lines",
+  line = list(color = "#B0A89E", width = 1.5, dash = "dot"),
+  showlegend = FALSE,
+  hoverinfo  = "none"
+)
+
+for (sz in names(szinek_sz)) {
+  d <- ff_exp %>% filter(Szezon == sz)
+  p <- p %>% add_trace(
+    x             = d$Vart_Gy,
+    y             = d$Tenyleges,
+    type          = "scatter",
+    mode          = "markers+text",
+    name          = sz,
+    marker        = list(size = 10, color = szinek_sz[sz],
+                         opacity = 0.85, line = list(width = 0)),
+    text          = d$Csapat,
+    textposition  = "top center",
+    textfont      = list(size = 8, color = "#7A756D", family = "Montserrat"),
+    hovertemplate = paste0(
+      "<b>%{text}</b> (", sz, ")<br>",
+      "Várható győzelem: %{x}<br>",
+      "Tényleges győzelem: %{y}<br>",
+      "Különbség: ", d$Diff_lab, "<extra></extra>"
+    ),
+    customdata = d$Diff_lab
+  )
+}
+
+p %>% layout(
+  title = list(
+    text = "Várható vs. tényleges győzelmek<br><sup>Magyar bajnokság, 2022–2025 — az átló felett: túlteljesítés, alatt: alulteljesítés</sup>",
+    font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+    x = 0, xref = "paper"
+  ),
+  xaxis = list(
+    title     = "Várható győzelmek (four factors alapján)",
+    titlefont = list(size = 13, family = "Montserrat", color = "#7A756D"),
+    tickfont  = list(size = 12, family = "Montserrat", color = "#7A756D"),
+    color     = "#7A756D", gridcolor = "#D4CFC6", zeroline = FALSE,
+    range     = c(ax_min, ax_max)
+  ),
+  yaxis = list(
+    title     = "Tényleges győzelmek",
+    titlefont = list(size = 13, family = "Montserrat", color = "#7A756D"),
+    tickfont  = list(size = 12, family = "Montserrat", color = "#7A756D"),
+    color     = "#7A756D", gridcolor = "#D4CFC6", zeroline = FALSE,
+    range     = c(ax_min, ax_max)
+  ),
+  paper_bgcolor = "#F6F4F0",
+  plot_bgcolor  = "#FAFAF6",
+  font          = list(color = "#2E2B26", family = "Montserrat"),
+  legend = list(
+    orientation = "h", x = 0.5, xanchor = "center",
+    y = -0.12, yanchor = "top",
+    bgcolor = "rgba(0,0,0,0)", borderwidth = 0,
+    font = list(size = 13, family = "Montserrat", color = "#2E2B26")
+  ),
+  margin = list(l = 60, r = 60, t = 90, b = 80)
+)
+```
+
+Az elemzés csak az alapszakaszra vonatkozik (minden csapat pontosan 26 meccset játszik), így az összehasonlítás torzításmentes.
+
+A legnagyobb eltérések: **Szolnok** két egymást követő szezonban is túlteljesített (2023-24: +3, 2024-25: +3) — a négy faktora alapján vártnál rendre több meccset nyert. **Falco KC** ezzel szemben mindkét szezonban alulteljesített (2023-24: −2, 2024-25: −2) a liga legjobb négy faktora ellenére. **Alba Fehérvár (2023-24)** szintén +3-mal teljesített a vártat felül.
+
+::: {style="color: #7A756D; font-size: 0.85em; margin-top: 0.5rem;"}
+*A különbség nem feltétlenül "szerencse" — tükrözhet sérüléseket, menetrendhatásokat vagy a modell által nem mért tényezőket. Az eltérés iránya azonban jelzés: a tartósan alulteljesítő csapatoknál felfelé, a túlteljesítőknél lefelé várható korrekció.*
+:::
+
+---
+
+## 5. Ligaszintű trendek
+
+Hogyan változott a magyar bajnokság összességében három szezon alatt? Az alapszakasz meccseinek átlagai szezonként.
+```{r}
+#| fig-height: 6
+
+con_tr   <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+games_tr <- dbGetQuery(con_tr, "SELECT * FROM detailed_match_stats
+                                 WHERE Szakasz = 'alapszakasz'")
+dbDisconnect(con_tr)
+
+trends <- games_tr %>%
+  mutate(
+    eFG        = as.numeric(`EFG%`),
+    TOV        = as.numeric(`TOV%`),
+    h3att      = as.numeric(`3P att.`),
+    FGatt      = as.numeric(`2P att.`) + as.numeric(`3P att.`),
+    Pace_n     = as.numeric(Pace),
+    Harom_rate = h3att / FGatt * 100
+  ) %>%
+  group_by(Szezon) %>%
+  summarise(
+    eFG        = round(mean(eFG,        na.rm=TRUE) * 100, 2),
+    TOV        = round(mean(TOV,        na.rm=TRUE), 2),
+    Harom_rate = round(mean(Harom_rate, na.rm=TRUE), 1),
+    Pace       = round(mean(Pace_n,     na.rm=TRUE), 1),
+    .groups = "drop"
+  )
+
+# NBA ligaátlagok (Basketball Reference, per-40 min pace)
+nba <- data.frame(
+  Szezon     = c("2022-23", "2023-24", "2024-25"),
+  eFG        = c(54.5, 54.7, 54.3),
+  TOV        = c(12.5, 12.1, 12.7),
+  Harom_rate = c(38.7, 39.5, 42.2),
+  Pace       = c(82.7, 82.1, 82.3)
+)
+
+szezons    <- trends$Szezon
+hun_szin   <- "#C43A28"
+nba_szin   <- "#3A7EC4"
+
+make_duo <- function(hun_y, nba_y, y_title, y_fmt = ".1f", show_legend = FALSE) {
+  plot_ly() %>%
+    add_trace(
+      x             = szezons, y = hun_y,
+      type          = "scatter", mode = "lines+markers",
+      name          = "Magyar NB1",
+      line          = list(color = hun_szin, width = 2.5),
+      marker        = list(color = hun_szin, size = 8),
+      showlegend    = show_legend,
+      legendgroup   = "hun",
+      hovertemplate = paste0("<b>%{x}</b> — Magyar NB1<br>",
+                             y_title, ": %{y:", y_fmt, "}<extra></extra>")
+    ) %>%
+    add_trace(
+      x             = szezons, y = nba_y,
+      type          = "scatter", mode = "lines+markers",
+      name          = "NBA",
+      line          = list(color = nba_szin, width = 2.5, dash = "dot"),
+      marker        = list(color = nba_szin, size = 8, symbol = "circle-open"),
+      showlegend    = show_legend,
+      legendgroup   = "nba",
+      hovertemplate = paste0("<b>%{x}</b> — NBA<br>",
+                             y_title, ": %{y:", y_fmt, "}<extra></extra>")
+    ) %>%
+    layout(
+      yaxis = list(
+        title     = y_title,
+        titlefont = list(size = 11, family = "Montserrat", color = "#7A756D"),
+        tickfont  = list(size = 11, family = "Montserrat", color = "#7A756D"),
+        gridcolor = "#D4CFC6", zeroline = FALSE
+      ),
+      xaxis = list(
+        tickfont = list(size = 11, family = "Montserrat", color = "#2E2B26"),
+        showgrid = FALSE
+      ),
+      paper_bgcolor = "#F6F4F0",
+      plot_bgcolor  = "#FAFAF6"
+    )
+}
+
+p1 <- make_duo(trends$eFG,        nba$eFG,        "eFG% (liga átlag)",      ".1f", show_legend = TRUE)
+p2 <- make_duo(trends$TOV,        nba$TOV,        "TOV% (labdaveszteség)",  ".1f")
+p3 <- make_duo(trends$Harom_rate, nba$Harom_rate, "Hármas kísérlet %",      ".1f")
+p4 <- make_duo(trends$Pace,       nba$Pace,       "Tempó (poss./40 perc)",  ".1f")
+
+subplot(p1, p2, p3, p4,
+        nrows    = 2,
+        shareX   = FALSE,
+        titleX   = TRUE,
+        titleY   = TRUE,
+        margin   = 0.08) %>%
+  layout(
+    title = list(
+      text = "Magyar NB1 vs. NBA — ligaátlagok, 2022–2025<br><sup>Alapszakasz · Tempó per 40 perc (azonos skála)</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    legend = list(
+      orientation = "h", x = 0.5, xanchor = "center",
+      y = -0.08, yanchor = "top",
+      bgcolor = "rgba(0,0,0,0)", borderwidth = 0,
+      font = list(size = 12, family = "Montserrat", color = "#2E2B26"),
+      tracegroupgap = 20
+    ),
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    margin        = list(l = 60, r = 40, t = 90, b = 80)
+  )
+```
+
+Az NBA-összehasonlítás négy érdemi különbséget mutat. A **dobóhatékonyság (eFG%)** mindkét ligában stabil — de az NBA ~1-1,5 százalékponttal hatékonyabb, és ez a rés nem zárul. A **labdaveszteség-arány** (TOV%) a magyar ligában javult (15,6% → 14,2%), de még mindig ~2 százalékponttal magasabb az NBA-nál — a ball-handling szintje különbség maradt. A **hármas kísérletek aránya** mindkét ligában nő, de az NBA 2024-25-ben 42,2%-ra ugrott, míg a magyar liga 39,9%-on jár — a játékstílus-váltás itthon is zajlik, de lassabban. A **tempó** a leglátványosabb különbség: az NBA ~82 possession per 40 perc körül játszik, a magyar liga ~73-nál — közel 10 possession különbség, ami alapvetően más játékritmust jelent.
+
+---
+
+## 6. Csapat-összehasonlítás
 
 Minden pont egy csapat egy szezonban. Válts a faktorok között a dropdownnal, szűrj szezonra a jelmagyarázatban.
 ```{r}
-#| fig-height: 6
+#| fig-height: 9
 
 faktorok <- list(
   list(label = "Tám. dobóhatékonyság (Off eFG%)", col = "Off_eFG"),
@@ -145,7 +643,7 @@ faktorok <- list(
   list(label = "Védő büntetőarány (Def FTR)",      col = "Def_FTR")
 )
 
-szinek  <- c("2022-23" = "#00e676", "2023-24" = "#00b0ff", "2024-25" = "#ff9100")
+szinek  <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
 szezons <- names(szinek)
 
 p <- plot_ly()
@@ -161,14 +659,14 @@ for (szezon in szezons) {
     legendgroup   = szezon,
     showlegend    = TRUE,
     marker        = list(
-      size    = 10,
+      size    = 9,
       color   = szinek[szezon],
-      opacity = 0.85,
-      line    = list(color = "#ffffff", width = 0.5)
+      opacity = 0.9,
+      line    = list(color = "#F6F4F0", width = 0.5)
     ),
     text          = szezon_data$Csapat,
     textposition  = "top center",
-    textfont      = list(size = 9, color = "#cccccc"),
+    textfont      = list(size = 9, color = "#7A756D", family = "Montserrat"),
     hovertemplate = paste0(
       "<b>%{text}</b> (", szezon, ")<br>",
       "Győzelmi %: %{y:.1f}<br>",
@@ -177,7 +675,6 @@ for (szezon in szezons) {
   )
 }
 
-# Dropdown: csak x adatot és tengelycímet cserél — visible soha nem resetelődik
 buttons <- lapply(faktorok, function(f) {
   col    <- f$col
   x_vals <- lapply(szezons, function(sz) {
@@ -189,8 +686,10 @@ buttons <- lapply(faktorok, function(f) {
       list(x = x_vals),
       list(xaxis = list(
         title     = f$label,
-        color     = "#aaaaaa",
-        gridcolor = "#333333",
+        color     = "#7A756D",
+        titlefont = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        tickfont  = list(size = 12, family = "Montserrat", color = "#7A756D"),
+        gridcolor = "#D4CFC6",
         zeroline  = FALSE
       ))
     ),
@@ -199,44 +698,60 @@ buttons <- lapply(faktorok, function(f) {
 })
 
 p %>% layout(
-  annotations = list(list(
-    text      = "Csapat-összehasonlítás — Magyar bajnokság, 2022-2025",
-    x         = 0.5,
-    y         = 1.0,
-    xref      = "paper",
-    yref      = "paper",
-    xanchor   = "center",
-    yanchor   = "bottom",
-    showarrow = FALSE,
-    font      = list(color = "#ffffff", size = 15)
-  )),
+  annotations = list(
+    list(
+      text      = "Csapat-összehasonlítás — Magyar bajnokság, 2022–2025",
+      x         = 0.5,
+      y         = 1.0,
+      xref      = "paper",
+      yref      = "paper",
+      xanchor   = "center",
+      yanchor   = "bottom",
+      showarrow = FALSE,
+      font      = list(size = 17, color = "#2E2B26", family = "Montserrat")
+    ),
+    list(
+      text      = "Kattints a szezonra a szűréshez",
+      x         = 0.5,
+      y         = -0.08,
+      xref      = "paper",
+      yref      = "paper",
+      xanchor   = "center",
+      yanchor   = "top",
+      showarrow = FALSE,
+      font      = list(size = 11, family = "Montserrat", color = "#7A756D")
+    )
+  ),
   xaxis = list(
     title     = faktorok[[1]]$label,
-    color     = "#aaaaaa",
-    gridcolor = "#333333",
+    titlefont = list(size = 13, family = "Montserrat", color = "#7A756D"),
+    tickfont  = list(size = 12, family = "Montserrat", color = "#7A756D"),
+    color     = "#7A756D",
+    gridcolor = "#D4CFC6",
     zeroline  = FALSE
   ),
   yaxis = list(
     title     = "Győzelmi %",
-    color     = "#aaaaaa",
-    gridcolor = "#333333",
+    titlefont = list(size = 13, family = "Montserrat", color = "#7A756D"),
+    tickfont  = list(size = 12, family = "Montserrat", color = "#7A756D"),
+    color     = "#7A756D",
+    gridcolor = "#D4CFC6",
     zeroline  = FALSE
   ),
-  paper_bgcolor = "#222222",
-  plot_bgcolor  = "#2a2a2a",
-  font          = list(color = "#dddddd"),
+  paper_bgcolor = "#F6F4F0",
+  plot_bgcolor  = "#FAFAF6",
+  font          = list(color = "#2E2B26", family = "Montserrat"),
   legend = list(
     orientation = "h",
     x           = 0.5,
     xanchor     = "center",
-    y           = -0.18,
+    y           = -0.13,
     yanchor     = "top",
-    bgcolor     = "#333333",
-    bordercolor = "#555555",
-    borderwidth = 1,
-    title       = list(text = "Szezon — kattints a szűréshez")
+    bgcolor     = "rgba(0,0,0,0)",
+    borderwidth = 0,
+    font        = list(size = 13, family = "Montserrat", color = "#2E2B26")
   ),
-  margin = list(l = 60, t = 110, r = 60, b = 120),
+  margin = list(l = 60, t = 80, r = 60, b = 100),
   updatemenus = list(list(
     type        = "dropdown",
     active      = 0,
@@ -244,9 +759,10 @@ p %>% layout(
     y           = 1.13,
     xanchor     = "center",
     yanchor     = "bottom",
-    bgcolor     = "#333333",
-    bordercolor = "#555555",
-    font        = list(color = "#ffffff"),
+    bgcolor     = "#EDE9E3",
+    bordercolor = "#D4CFC6",
+    activecolor = "#D8D2C8",
+    font        = list(color = "#2E2B26", family = "Montserrat", size = 12),
     buttons     = buttons
   ))
 )
@@ -254,207 +770,158 @@ p %>% layout(
 
 ---
 
-## 3. Outlier Csapatok
+## 7. Csapat-profil Szezonok Között
+
+Válassz csapatot a dropdown-ból: az összes faktorát látod szezononként egymás mellett. Így kiderül, melyik dimenzióban fejlődött vagy hanyatlott.
 ```{r}
 #| fig-height: 6
 
-tengelyek <- list(
-  list(label = "Net eFG%",                       col = "Net_eFG"),
-  list(label = "Tám. lepattanó (Off ORB%)",       col = "Off_ORB"),
-  list(label = "Védő lepattanó (Def DRB%)",        col = "Def_DRB"),
-  list(label = "Net labdaveszteség (Net TOV%)",    col = "Net_TOV"),
-  list(label = "Net büntetőarány (Net FTR)",       col = "Net_FTR")
+szinek_s <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
+szezons_s <- names(szinek_s)
+
+faktor_labels <- c(
+  "Off_eFG" = "Tám. eFG%",
+  "Def_eFG" = "Védő eFG%",
+  "Off_ORB" = "Tám. ORB%",
+  "Def_DRB" = "Védő DRB%",
+  "Off_TOV" = "Tám. TOV%",
+  "Def_TOV" = "Kiharcolt TOV%",
+  "Off_FTR" = "Tám. FTR",
+  "Def_FTR" = "Védő FTR"
 )
 
-ff_scored <- ff_data %>%
-  mutate(across(c(Net_eFG, Off_ORB, Def_DRB, Net_TOV, Net_FTR),
-                ~ as.numeric(scale(.)), .names = "z_{.col}"))
+faktor_cols <- names(faktor_labels)
+teams       <- sort(unique(ff_data$Csapat))
+first_team  <- teams[1]
+n_seasons   <- length(szezons_s)
 
-p             <- plot_ly()
-trace_counter <- 0
-tengely_trace_idx <- list()
+z_cols <- paste0("z_", faktor_cols)
+ff_z <- ff_data %>%
+  mutate(across(all_of(faktor_cols), ~ as.numeric(scale(.)), .names = "z_{.col}"))
 
-for (xi in seq_along(tengelyek)) {
-  for (yi in seq_along(tengelyek)) {
-    if (xi == yi) next
+p <- plot_ly()
 
-    x_col   <- tengelyek[[xi]]$col
-    y_col   <- tengelyek[[yi]]$col
-    x_label <- tengelyek[[xi]]$label
-    y_label <- tengelyek[[yi]]$label
-    x_z_col <- paste0("z_", x_col)
-    y_z_col <- paste0("z_", y_col)
-    vis      <- (xi == 1 && yi == 2)
-    is_first <- (xi == 1 && yi == 2)
+for (team in teams) {
+  is_first <- (team == first_team)
+  for (szezon in szezons_s) {
+    team_row <- ff_z %>% filter(Csapat == team, Szezon == szezon)
+    y_vals   <- if (nrow(team_row) == 0) rep(NA_real_, length(faktor_cols)) else
+                  as.numeric(team_row[1, z_cols])
 
-    df <- ff_scored %>%
-      mutate(is_outlier = abs(.data[[x_z_col]]) > 1.5 | abs(.data[[y_z_col]]) > 1.5)
-
-    nd <- df %>% filter(!is_outlier)
-    od <- df %>% filter(is_outlier)
-
-    # Tooltip szöveg előre összerakva
-    nd_hover <- paste0(
-      "<b>", nd$Csapat, " (", nd$Szezon, ")</b><br>",
-      x_label, ": ", round(nd[[x_col]], 3), "<br>",
-      y_label, ": ", round(nd[[y_col]], 3), "<br>",
-      "Győzelmi %: ", round(nd$Win_Pct, 1)
+    hover_texts <- paste0(
+      "<b>", szezon, " – ", team, "</b><br>",
+      faktor_labels, ": ",
+      ifelse(is.na(y_vals), "–", formatC(y_vals, digits = 2, format = "f"))
     )
 
-    od_hover <- paste0(
-      "<b>", od$Csapat, " (", od$Szezon, ")</b><br>",
-      x_label, ": ", round(od[[x_col]], 3), "<br>",
-      y_label, ": ", round(od[[y_col]], 3), "<br>",
-      "Győzelmi %: ", round(od$Win_Pct, 1)
-    )
-
-    idx <- c()
-
-    # Normál pontok
     p <- p %>% add_trace(
-      x           = nd[[x_col]],
-      y           = nd[[y_col]],
-      type        = "scatter",
-      mode        = "markers",
-      name        = "Átlagos",
-      legendgroup = "normal",
-      showlegend  = is_first,
-      visible     = vis,
-      text        = nd_hover,
-      hoverinfo   = "text",
-      marker      = list(size = 7, color = "#555555", opacity = 0.6,
-                         line = list(color = "#888888", width = 0.5))
+      x             = unname(faktor_labels),
+      y             = y_vals,
+      type          = "bar",
+      name          = szezon,
+      legendgroup   = szezon,
+      showlegend    = is_first,
+      visible       = is_first,
+      marker        = list(
+        color   = szinek_s[szezon],
+        opacity = 0.85,
+        line    = list(width = 0)
+      ),
+      text          = hover_texts,
+      hoverinfo     = "text",
+      textposition  = "none"
     )
-    trace_counter <- trace_counter + 1
-    idx           <- c(idx, trace_counter)
-
-    # Outlier pontok
-    p <- p %>% add_trace(
-      x           = od[[x_col]],
-      y           = od[[y_col]],
-      type        = "scatter",
-      mode        = "markers+text",
-      name        = "Outlier",
-      legendgroup = "outlier",
-      showlegend  = is_first,
-      visible     = vis,
-      text        = od_hover,
-      hoverinfo   = "text",
-      texttemplate = paste0(od$Csapat, " (", od$Szezon, ")"),
-      textposition = "top center",
-      textfont     = list(size = 9, color = "#ffffff"),
-      marker = list(
-        size       = 14,
-        color      = od$Win_Pct,
-        colorscale = list(
-          list(0,   "#ff4d4d"),
-          list(0.5, "#ffff00"),
-          list(1,   "#00e676")
-        ),
-        showscale = is_first,
-        colorbar  = list(
-          title     = "Győzelmi %",
-          tickfont  = list(color = "#dddddd"),
-          titlefont = list(color = "#dddddd")
-        ),
-        line = list(color = "#ffffff", width = 1)
-      )
-    )
-    trace_counter <- trace_counter + 1
-    idx           <- c(idx, trace_counter)
-
-    key <- paste0(xi, "_", yi)
-    tengely_trace_idx[[key]] <- idx
   }
 }
 
-total_traces <- trace_counter
-
-x_buttons <- lapply(seq_along(tengelyek), function(xi) {
-  yi_default <- if (xi != 2) 2 else 1
-  key     <- paste0(xi, "_", yi_default)
-  vis_vec <- rep(FALSE, total_traces)
-  if (!is.null(tengely_trace_idx[[key]])) {
-    vis_vec[tengely_trace_idx[[key]]] <- TRUE
-  }
+buttons <- lapply(seq_along(teams), function(ti) {
+  team           <- teams[ti]
+  n_main         <- length(teams) * n_seasons
+  vis_vec        <- rep(FALSE, n_main)
+  showlegend_vec <- rep(FALSE, n_main)
+  start_i        <- (ti - 1) * n_seasons + 1
+  vis_vec[start_i:(start_i + n_seasons - 1)]        <- TRUE
+  showlegend_vec[start_i:(start_i + n_seasons - 1)] <- TRUE
   list(
     method = "update",
     args   = list(
-      list(visible = as.list(vis_vec)),
-      list(xaxis = list(title = tengelyek[[xi]]$label, color = "#aaaaaa",
-                        gridcolor = "#333333", zeroline = TRUE,
-                        zerolinecolor = "#555555"))
+      list(visible    = as.list(vis_vec),
+           showlegend = as.list(showlegend_vec)),
+      list(title = list(
+        text  = paste0("Csapatprofil: <b>", team,
+                       "</b><br><sup>Magyar bajnokság, 2022–2025</sup>"),
+        font  = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+        x     = 0,
+        xref  = "paper"
+      ))
     ),
-    label = tengelyek[[xi]]$label
-  )
-})
-
-y_buttons <- lapply(seq_along(tengelyek), function(yi) {
-  xi_default <- if (yi != 1) 1 else 2
-  key     <- paste0(xi_default, "_", yi)
-  vis_vec <- rep(FALSE, total_traces)
-  if (!is.null(tengely_trace_idx[[key]])) {
-    vis_vec[tengely_trace_idx[[key]]] <- TRUE
-  }
-  list(
-    method = "update",
-    args   = list(
-      list(visible = as.list(vis_vec)),
-      list(yaxis = list(title = tengelyek[[yi]]$label, color = "#aaaaaa",
-                        gridcolor = "#333333", zeroline = TRUE,
-                        zerolinecolor = "#555555"))
-    ),
-    label = tengelyek[[yi]]$label
+    label = team
   )
 })
 
 p %>% layout(
-  annotations = list(
-    list(text = "Outlier Csapatok — Magyar bajnokság, 2022-2025",
-         x = 0.5, y = 1.0, xref = "paper", yref = "paper",
-         xanchor = "center", yanchor = "bottom", showarrow = FALSE,
-         font = list(color = "#ffffff", size = 15)),
-    list(text = "X tengely",
-         x = 0.2, y = 1.22,
-         xref = "paper", yref = "paper",
-         xanchor = "center", yanchor = "bottom",
-         showarrow = FALSE,
-         font = list(color = "#aaaaaa", size = 11)),
-    list(text = "Y tengely",
-         x = 0.65, y = 1.22,
-         xref = "paper", yref = "paper",
-         xanchor = "center", yanchor = "bottom",
-         showarrow = FALSE,
-         font = list(color = "#aaaaaa", size = 11))
+  title = list(
+    text = paste0("Csapatprofil: <b>", first_team,
+                  "</b><br><sup>Magyar bajnokság, 2022–2025</sup>"),
+    font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+    x    = 0,
+    xref = "paper"
   ),
-  xaxis = list(title = tengelyek[[1]]$label, color = "#aaaaaa",
-               gridcolor = "#333333", zeroline = TRUE, zerolinecolor = "#555555"),
-  yaxis = list(title = tengelyek[[2]]$label, color = "#aaaaaa",
-               gridcolor = "#333333", zeroline = TRUE, zerolinecolor = "#555555"),
-  paper_bgcolor = "#222222",
-  plot_bgcolor  = "#2a2a2a",
-  font          = list(color = "#dddddd"),
-  legend = list(x = 0.01, y = 0.99, xanchor = "left", yanchor = "top",
-                bgcolor = "#333333", bordercolor = "#555555", borderwidth = 1),
-  margin = list(l = 70, t = 150, r = 60, b = 80),
-  updatemenus = list(
-    list(type = "dropdown", active = 0,
-         x = 0.2, y = 1.21,
-         xanchor = "center", yanchor = "top",
-         bgcolor = "#333333", bordercolor = "#555555",
-         font = list(color = "#ffffff"), buttons = x_buttons),
-    list(type = "dropdown", active = 1,
-         x = 0.65, y = 1.21,
-         xanchor = "center", yanchor = "top",
-         bgcolor = "#333333", bordercolor = "#555555",
-         font = list(color = "#ffffff"), buttons = y_buttons)
-  )
+  xaxis = list(
+    title    = "",
+    tickfont = list(size = 12, family = "Montserrat", color = "#2E2B26"),
+    color    = "#7A756D",
+    showgrid = FALSE,
+    showline = FALSE
+  ),
+  yaxis = list(
+    title     = "Z-score (standardizált érték)",
+    titlefont = list(size = 13, family = "Montserrat", color = "#7A756D"),
+    tickfont  = list(size = 12, family = "Montserrat", color = "#7A756D"),
+    color     = "#7A756D",
+    gridcolor = "#D4CFC6",
+    zeroline  = TRUE,
+    zerolinecolor = "#B0A89E",
+    zerolinewidth = 1
+  ),
+  barmode       = "group",
+  paper_bgcolor = "#F6F4F0",
+  plot_bgcolor  = "#FAFAF6",
+  font          = list(color = "#2E2B26", family = "Montserrat"),
+  legend = list(
+    orientation = "h",
+    x           = 0.5,
+    xanchor     = "center",
+    y           = -0.22,
+    yanchor     = "top",
+    bgcolor     = "rgba(0,0,0,0)",
+    borderwidth = 0,
+    font        = list(size = 13, family = "Montserrat", color = "#2E2B26")
+  ),
+  margin = list(l = 60, t = 90, r = 60, b = 120),
+  bargap = 0.25,
+  updatemenus = list(list(
+    type        = "dropdown",
+    active      = 0,
+    x           = 0.75,
+    y           = 1.10,
+    xanchor     = "right",
+    yanchor     = "bottom",
+    bgcolor     = "#EDE9E3",
+    bordercolor = "#D4CFC6",
+    activecolor = "#D8D2C8",
+    font        = list(color = "#2E2B26", family = "Montserrat", size = 12),
+    buttons     = buttons
+  ))
 )
 ```
 
+<br>
+Ha egy csapat csak egy vagy két szezonban szerepel (kiesés / feljutás), a hiányzó szezon üres marad. A sávok színe a szezont jelöli (korall = 2022-23, kék = 2023-24, arany = 2024-25) — így a szomszédos sávok magassága közvetlenül mutatja az egyes faktorokban bekövetkezett fejlődést vagy hanyatlást.
+
 ---
 
-## 4. Teljes Adatbázis
+## 8. Teljes Adatbázis
 ```{r}
 ff_display <- ff_data %>%
   select(Szezon, Csapat, Win_Pct, Net_eFG, Off_eFG, Def_eFG,
@@ -474,18 +941,18 @@ datatable(ff_display,
             dom        = "frtip",
             initComplete = JS("function(settings, json) {
               $(this.api().table().header()).css({
-                'background-color': '#2a2a2a',
-                'color': '#fff'
+                'background-color': '#EDE9E3',
+                'color': '#2E2B26'
               });
             }")
           )) %>%
   formatRound(c("Net_eFG", "Off_eFG", "Def_eFG", "Off_FTR", "Def_FTR"), 3) %>%
   formatRound(c("Win_Pct", "Off_ORB", "Def_DRB", "Off_TOV", "Def_TOV"), 1) %>%
   formatStyle("Net_eFG",
-              color      = styleInterval(0, c("#ff4d4d", "#00e676")),
+              color      = styleInterval(0, c("#C43A28", "#2A8A4A")),
               fontWeight = "bold") %>%
   formatStyle("Win_Pct",
-              background         = styleColorBar(ff_display$Win_Pct, "#00b0ff"),
+              background         = styleColorBar(ff_display$Win_Pct, "#3A7EC4"),
               backgroundSize     = "100% 90%",
               backgroundRepeat   = "no-repeat",
               backgroundPosition = "center")

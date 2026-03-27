@@ -18,6 +18,6 @@ website:
 
 format:
   html:
-    theme: darkly
+    theme: flatly
     css: styles.css
     toc: true

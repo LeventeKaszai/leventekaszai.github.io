@@ -18,28 +18,56 @@
     "href": "four_factors_1.html#melyik-faktor-számít-a-legjobban",
     "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
     "section": "1. Melyik Faktor Számít a Legjobban?",
-    "text": "1. Melyik Faktor Számít a Legjobban?\n\n\n\n\n\n\nA magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (+0.72), mind védő (−0.65) oldalon. Ez megegyezik az NBA trendjével.\nA magyar anomália a lepattanózásban rejlik: az Off ORB% (+0.55) és Def DRB% (+0.57) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.\nA büntetők mindkét oldalon gyenge összefüggést mutatnak."
+    "text": "1. Melyik Faktor Számít a Legjobban?\n\n\n\n\n\n\n A magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (+0.72), mind védő (-0.65) oldalon. Ez megegyezik az NBA trendjével.\nA magyar anomália a lepattanózásban rejlik: az Off ORB% (+0.55) és Def DRB% (+0.57) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.\nA büntetők mindkét oldalon gyenge összefüggést mutatnak."
+  },
+  {
+    "objectID": "four_factors_1.html#magyar-vs.-nba-súlyok",
+    "href": "four_factors_1.html#magyar-vs.-nba-súlyok",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "2. Magyar vs. NBA súlyok",
+    "text": "2. Magyar vs. NBA súlyok\n\n\n\n\n\n\nA sorrend azonos az NBA-val: dobás → labdaveszteség → lepattanó → büntető. A legnagyobb eltérés a büntető esetén látható: Oliver 15%-ot rendel hozzá az NBA-ban, a szezonszintű regresszió mindössze 5%-ot mutat. Ez az eredmény a 3. szekcióban meccsszinten is megvizsgálható.\nEz első rápillantásra ellentmond az 1. szekció korrelációs ábrájának, ahol a lepattanó erősebbnek tűnt a labdaveszteségnél. A különbség módszertani: a korreláció minden faktort külön-külön néz, míg a regresszió egyszerre veszi figyelembe az összeset — és így kiszűri, hogy a jó lepattanózó csapatok rendszerint más területeken is erősebbek.\nA modell R² = 0,90 — a négy faktor együttesen a győzelmi arány 90%-át magyarázza."
+  },
+  {
+    "objectID": "four_factors_1.html#meccsszintű-előrejelzés",
+    "href": "four_factors_1.html#meccsszintű-előrejelzés",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "3. Meccsszintű előrejelzés",
+    "text": "3. Meccsszintű előrejelzés\nAz eddigi elemzés szezonaggregátumokra épült (n=42). A detailed_match_stats tábla 1512 egyéni mérkőzést tartalmaz — ez lehetővé teszi, hogy logisztikus regresszióval megbecsüljük: a négy nettó faktor alapján melyik csapat nyerte a meccset?\n\n\n\n\n\n\nA modell keresztvalidált pontossága 96,4% — 1512 mérkőzésből mindössze 46-ot jósolt rosszul, és ezek is kivétel nélkül olyan meccsek, ahol a pontkülönbség nulla közelében volt.\nA három súlykészlet figyelemreméltóan egységes képet mutat: a dobás mindhárom megközelítésben a legfontosabb faktor, és a sorrend is azonos. Az egyetlen érdemi eltérés a büntető esetén látható — a szezonszintű modell 5%-ot ad neki, a meccsszintű 12%-ot. Ez arra utal, hogy a büntető meccsen belül számít (egy szoros negyedben belőtt büntetők döntők lehetnek), de szezon szinten az összhatása kiegyenlítődik."
+  },
+  {
+    "objectID": "four_factors_1.html#várható-győzelmek",
+    "href": "four_factors_1.html#várható-győzelmek",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "4. Várható győzelmek",
+    "text": "4. Várható győzelmek\nA szezonszintű regressziós modell minden csapathoz megad egy várható győzelmi számot — azt, amennyit a négy faktora alapján “kellett volna” nyernie. A tényleges győzelmektől való eltérés szerencsét, ütemezési hatásokat és a modell által nem mért tényezőket tükröz.\n\n\n\n\n\n\nAz elemzés csak az alapszakaszra vonatkozik (minden csapat pontosan 26 meccset játszik), így az összehasonlítás torzításmentes.\nA legnagyobb eltérések: Szolnok két egymást követő szezonban is túlteljesített (2023-24: +3, 2024-25: +3) — a négy faktora alapján vártnál rendre több meccset nyert. Falco KC ezzel szemben mindkét szezonban alulteljesített (2023-24: −2, 2024-25: −2) a liga legjobb négy faktora ellenére. Alba Fehérvár (2023-24) szintén +3-mal teljesített a vártat felül.\n\nA különbség nem feltétlenül “szerencse” — tükrözhet sérüléseket, menetrendhatásokat vagy a modell által nem mért tényezőket. Az eltérés iránya azonban jelzés: a tartósan alulteljesítő csapatoknál felfelé, a túlteljesítőknél lefelé várható korrekció."
+  },
+  {
+    "objectID": "four_factors_1.html#ligaszintű-trendek",
+    "href": "four_factors_1.html#ligaszintű-trendek",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "section": "5. Ligaszintű trendek",
+    "text": "5. Ligaszintű trendek\nHogyan változott a magyar bajnokság összességében három szezon alatt? Az alapszakasz meccseinek átlagai szezonként.\n\n\n\n\n\n\nAz NBA-összehasonlítás négy érdemi különbséget mutat. A dobóhatékonyság (eFG%) mindkét ligában stabil — de az NBA ~1-1,5 százalékponttal hatékonyabb, és ez a rés nem zárul. A labdaveszteség-arány (TOV%) a magyar ligában javult (15,6% → 14,2%), de még mindig ~2 százalékponttal magasabb az NBA-nál — a ball-handling szintje különbség maradt. A hármas kísérletek aránya mindkét ligában nő, de az NBA 2024-25-ben 42,2%-ra ugrott, míg a magyar liga 39,9%-on jár — a játékstílus-váltás itthon is zajlik, de lassabban. A tempó a leglátványosabb különbség: az NBA ~82 possession per 40 perc körül játszik, a magyar liga ~73-nál — közel 10 possession különbség, ami alapvetően más játékritmust jelent."
   },
   {
     "objectID": "four_factors_1.html#csapat-összehasonlítás",
     "href": "four_factors_1.html#csapat-összehasonlítás",
     "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
-    "section": "2. Csapat-összehasonlítás",
-    "text": "2. Csapat-összehasonlítás\nMinden pont egy csapat egy szezonban. Válts a faktorok között a dropdownnal, szűrj szezonra a jelmagyarázatban."
+    "section": "6. Csapat-összehasonlítás",
+    "text": "6. Csapat-összehasonlítás\nMinden pont egy csapat egy szezonban. Válts a faktorok között a dropdownnal, szűrj szezonra a jelmagyarázatban."
   },
   {
-    "objectID": "four_factors_1.html#outlier-csapatok",
-    "href": "four_factors_1.html#outlier-csapatok",
+    "objectID": "four_factors_1.html#csapat-profil-szezonok-között",
+    "href": "four_factors_1.html#csapat-profil-szezonok-között",
     "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
-    "section": "3. Outlier Csapatok",
-    "text": "3. Outlier Csapatok"
+    "section": "7. Csapat-profil Szezonok Között",
+    "text": "7. Csapat-profil Szezonok Között\nVálassz csapatot a dropdown-ból: az összes faktorát látod szezononként egymás mellett. Így kiderül, melyik dimenzióban fejlődött vagy hanyatlott.\n\n\n\n\n\n\n Ha egy csapat csak egy vagy két szezonban szerepel (kiesés / feljutás), a hiányzó szezon üres marad. A sávok színe a szezont jelöli (korall = 2022-23, kék = 2023-24, arany = 2024-25) — így a szomszédos sávok magassága közvetlenül mutatja az egyes faktorokban bekövetkezett fejlődést vagy hanyatlást."
   },
   {
     "objectID": "four_factors_1.html#teljes-adatbázis",
     "href": "four_factors_1.html#teljes-adatbázis",
     "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
-    "section": "4. Teljes Adatbázis",
-    "text": "4. Teljes Adatbázis"
+    "section": "8. Teljes Adatbázis",
+    "text": "8. Teljes Adatbázis"
   },
   {
     "objectID": "index.html",
