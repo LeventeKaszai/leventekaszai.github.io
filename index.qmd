@@ -16,6 +16,12 @@ Hungarian league — and where it diverges from NBA trends.
 - [Four Factors Analysis (2022-2025)](four_factors_1.qmd) —
   What drives winning in Hungarian basketball?
 
+- [Scoring Efficiency (2022-2025)](scoring_efficiency.qmd) —
+  eFG%, TS%, and the volume-efficiency tradeoff in Hungarian basketball.
+
+- [Játékritmus & Hatékonyság (2022-2025)](pace_efficiency.qmd) —
+  Miért nem elég a pontozás? A per-100 szállítás logikája és a tempó szerepe.
+
 ## Contact
 
-[LinkedIn](www.linkedin.com/in/levente-kaszai-9488bb156) · [Email](mailto:email@email.com)
+[LinkedIn](https://www.linkedin.com/in/levente-kaszai-9488bb156) · [Email](mailto:leventekaszai@gmail.com)

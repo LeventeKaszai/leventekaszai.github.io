@@ -1,0 +1,503 @@
+---
+title: "Analytics"
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <script>
+        (function() {
+          if (sessionStorage.getItem("analytics_auth") !== "ok") {
+            var pwd = prompt("Jelszó:");
+            if (pwd === "magyarsport") {
+              sessionStorage.setItem("analytics_auth", "ok");
+            } else {
+              document.documentElement.innerHTML = "";
+              window.location.replace("index.html");
+            }
+          }
+        })();
+        </script>
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(DT)
+library(htmltools)
+library(crosstalk)
+library(yaml)
+
+# --- Profil URL térkép ---
+build_profile_map <- function() {
+  files <- list.files("jatekosok", pattern = "\\.qmd$", full.names = TRUE)
+  files <- files[!grepl("^_", basename(files))]
+  result <- list()
+  for (f in files) {
+    lines  <- readLines(f, encoding = "UTF-8", warn = FALSE)
+    delims <- which(lines == "---")
+    if (length(delims) < 2) next
+    meta <- tryCatch(
+      yaml::yaml.load(paste(lines[(delims[1]+1):(delims[2]-1)], collapse = "\n")),
+      error = function(e) NULL
+    )
+    if (is.null(meta$profile$nev)) next
+    result[[meta$profile$nev]] <- sub("\\.qmd$", ".html", paste0("jatekosok/", basename(f)))
+  }
+  result
+}
+profile_map <- build_profile_map()
+
+# --- DB lekérdezés ---
+con <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+
+raw <- dbGetQuery(con, '
+  SELECT
+    s.Játékos, s.Szezon, s.Csapat,
+    CAST(s.Min AS INTEGER)           AS Perc,
+    s.[Min PG]                       AS min_pg,
+    s.[PTS PG]                       AS pts_pg,
+    a.[TRB PG]                       AS trb_pg,
+    s.[PTS 100]                      AS pts_100,
+    s.[TS%]                          AS ts_pct,
+    s.[3P%]                          AS threep_pct,
+    s.[Close att. rate]              AS close_att_rate,
+    s.[Mid. att. rate]               AS mid_att_rate,
+    s.[3P att. rate]                 AS threep_att_rate,
+    s.[FT rate]                      AS ft_rate,
+    s.[Close %]                      AS close_pct,
+    s.[Mid. %]                       AS mid_pct,
+    s.[FT%]                          AS ft_pct,
+    a.[AST PG]                       AS ast_pg,
+    a.[AST%]                         AS ast_pct,
+    a.[AST/ TOV]                     AS ast_tov,
+    a.[TOV%]                         AS tov_pct,
+    a.[AST 100]                      AS ast_100,
+    a.[TOV 100]                      AS tov_100,
+    s.[2P att. 100]                  AS twop_att_100,
+    s.[3P att. 100]                  AS threep_att_100,
+    s.[FG att. 100]                  AS fga_100,
+    s.[FT att. 100]                  AS fta_100,
+    a.[DRB%]                         AS drb_pct,
+    a.[ORB%]                         AS orb_pct,
+    a.[STL%]                         AS stl_pct,
+    a.[BLK%]                         AS blk_pct,
+    a.[ORB 100]                      AS orb_100,
+    a.[DRB 100]                      AS drb_100,
+    a.[BLK 100]                      AS blk_100,
+    a.[PF 100]                       AS pf_100,
+    a.STL                            AS stl_raw,
+    a.TOV                            AS tov_raw,
+    adv.[USG%]                       AS usg_pct,
+    adv.[ORtg]                       AS ortg,
+    adv.[Net Rtg]                    AS net_rtg,
+    COALESCE(i.Poszt,   i2.Poszt2)   AS Poszt,
+    COALESCE(i.Státusz, i2.Státusz2) AS Státusz,
+    CAST(COALESCE(i."Szül. év.", i2.szul_ev2) AS INTEGER) AS szul_ev
+  FROM player_scoring_stats s
+  JOIN player_ast_reb_stats  a   USING(Játékos, Szezon, Csapat)
+  JOIN player_advanced_stats adv USING(Játékos, Szezon, Csapat)
+  LEFT JOIN (
+    SELECT Játékos, Csapat, Poszt, Státusz,
+           MAX("Szül. év.") AS "Szül. év."
+    FROM player_info
+    GROUP BY Játékos, Csapat
+  ) i ON s.Játékos = i.Játékos AND s.Csapat = i.Csapat
+  LEFT JOIN (
+    SELECT Játékos, Poszt AS Poszt2, Státusz AS Státusz2,
+           MAX("Szül. év.") AS szul_ev2
+    FROM player_info
+    GROUP BY Játékos
+  ) i2 ON s.Játékos = i2.Játékos
+  ORDER BY s.Szezon DESC, s.[PTS PG] DESC
+')
+
+dbDisconnect(con)
+
+# --- Percentilis: referenciamezőny = 200+ perces játékosok, de minden sorra kiszámítva ---
+pct_rank_ref <- function(v, ref_v, higher_better = TRUE) {
+  ref_clean <- ref_v[!is.na(ref_v)]
+  if (length(ref_clean) == 0) return(rep(NA_real_, length(v)))
+  fn <- ecdf(ref_clean)
+  p  <- fn(v)
+  if (!higher_better) 1 - p else p
+}
+
+raw <- raw %>%
+  mutate(
+    threep_prof  = (2 / (1 + exp(-threep_att_100)) - 1) * threep_pct,
+    box_creation = ast_100 * 0.1843 +
+                   (pts_100 + tov_100) * 0.0969 -
+                   2.3021 * threep_prof +
+                   0.0582 * (ast_100 * (pts_100 + tov_100) * threep_prof) -
+                   1.1942,
+    off_load = ((ast_100 - (0.38 * box_creation)) * 0.75) +
+               fga_100 + fta_100 * 0.44 + box_creation + tov_100
+  )
+
+# --- BPM számítás (Myers-stílusú, ligára normalizálva) ---
+raw <- raw %>%
+  group_by(Szezon) %>%
+  mutate(
+    lg_ortg  = weighted.mean(ortg[Perc >= 200], Perc[Perc >= 200], na.rm = TRUE),
+    obpm_raw = (ortg - lg_ortg) * (usg_pct / 100) * 0.55 +
+               ast_pct * 0.09 -
+               tov_pct * 0.10 +
+               orb_pct * 0.10,
+    dbpm_raw = drb_pct * 0.045 +
+               stl_pct * 0.70 +
+               blk_pct * 0.35,
+    lg_obpm  = mean(obpm_raw[Perc >= 200], na.rm = TRUE),
+    lg_dbpm  = mean(dbpm_raw[Perc >= 200], na.rm = TRUE),
+    OBPM     = round(obpm_raw - lg_obpm, 1),
+    DBPM     = round(dbpm_raw - lg_dbpm, 1),
+    BPM      = round(OBPM + DBPM, 1)
+  ) %>%
+  ungroup() %>%
+  select(-lg_ortg, -obpm_raw, -dbpm_raw, -lg_obpm, -lg_dbpm)
+
+# --- DRE számítás (Daily RAPM Estimate, Myers 2017) ---
+raw <- raw %>%
+  mutate(
+    stl_100 = ifelse(tov_raw > 0, stl_raw * (tov_100 / tov_raw), NA_real_),
+    DRE = round(
+      -8.424 +
+      0.792 * pts_100 -
+      0.719 * twop_att_100 -
+      0.552 * threep_att_100 -
+      0.159 * fta_100 +
+      0.135 * orb_100 +
+      0.400 * drb_100 +
+      0.544 * ast_100 +
+      1.680 * stl_100 +
+      0.764 * blk_100 -
+      1.360 * tov_100 -
+      0.108 * pf_100,
+      1
+    )
+  )
+
+stats <- raw %>%
+  group_by(Szezon) %>%
+  mutate(
+    p_mpg       = pct_rank_ref(min_pg,           min_pg[Perc >= 200]),
+    p_ppg       = pct_rank_ref(pts_pg,          pts_pg[Perc >= 200]),
+    p_rpg       = pct_rank_ref(trb_pg,          trb_pg[Perc >= 200]),
+    p_net       = pct_rank_ref(net_rtg,         net_rtg[Perc >= 200]),
+    p_clr       = pct_rank_ref(close_att_rate,  close_att_rate[Perc >= 200]),
+    p_midr      = pct_rank_ref(mid_att_rate,    mid_att_rate[Perc >= 200]),
+    p_3par      = pct_rank_ref(threep_att_rate, threep_att_rate[Perc >= 200]),
+    p_ftr       = pct_rank_ref(ft_rate,         ft_rate[Perc >= 200]),
+    p_close_pct = pct_rank_ref(close_pct,       close_pct[Perc >= 200]),
+    p_mid_pct   = pct_rank_ref(mid_pct,         mid_pct[Perc >= 200]),
+    p_3p        = pct_rank_ref(threep_pct,      threep_pct[Perc >= 200]),
+    p_ft_pct    = pct_rank_ref(ft_pct,          ft_pct[Perc >= 200]),
+    p_pts100  = pct_rank_ref(pts_100,     pts_100[Perc >= 200]),
+    p_ts      = pct_rank_ref(ts_pct,      ts_pct[Perc >= 200]),
+    p_ast     = pct_rank_ref(ast_pg,      ast_pg[Perc >= 200]),
+    p_ast_pct = pct_rank_ref(ast_pct,     ast_pct[Perc >= 200]),
+    p_atov    = pct_rank_ref(ast_tov,     ast_tov[Perc >= 200]),
+    p_tov     = pct_rank_ref(tov_pct,     tov_pct[Perc >= 200], FALSE),
+    p_box_cr  = pct_rank_ref(box_creation, box_creation[Perc >= 200]),
+    p_off_load = pct_rank_ref(off_load,   off_load[Perc >= 200]),
+    p_drb     = pct_rank_ref(drb_pct,     drb_pct[Perc >= 200]),
+    p_orb     = pct_rank_ref(orb_pct,     orb_pct[Perc >= 200]),
+    p_stl     = pct_rank_ref(stl_pct,     stl_pct[Perc >= 200]),
+    p_blk     = pct_rank_ref(blk_pct,     blk_pct[Perc >= 200]),
+    p_usg     = pct_rank_ref(usg_pct,     usg_pct[Perc >= 200]),
+    p_obpm    = pct_rank_ref(OBPM,        OBPM[Perc >= 200]),
+    p_dbpm    = pct_rank_ref(DBPM,        DBPM[Perc >= 200]),
+    p_bpm     = pct_rank_ref(BPM,         BPM[Perc >= 200]),
+    p_dre     = pct_rank_ref(DRE,         DRE[Perc >= 200])
+  ) %>%
+  ungroup()
+
+# --- Segédfüggvények ---
+make_link <- function(nev) {
+  url <- profile_map[[nev]]
+  if (!is.null(url))
+    paste0('<a href="', url,
+           '" style="color:var(--accent-dark);font-weight:600;text-decoration:none;"',
+           ' onmouseover="this.style.textDecoration=\'underline\'"',
+           ' onmouseout="this.style.textDecoration=\'none\'">', nev, '</a>')
+  else nev
+}
+
+fmt_dec <- function(x) ifelse(!is.na(x) & x > 0, paste0(round(x * 100, 1), "%"), "\u2014")
+fmt_pct <- function(x) ifelse(!is.na(x), paste0(round(x, 1), "%"), "\u2014")
+
+# Stat cella: nyers érték + CSS tooltip hover esetén
+stat_cell <- function(val_str, pct, invert = FALSE) {
+  mapply(function(v, p) {
+    if (is.na(p) || v == "\u2014") return(v)
+    note  <- if (invert) " \u2193 (alacsony = jobb)" else ""
+    tip   <- paste0(round(p * 100), ". percentilis", note)
+    paste0('<span class="pct-tip" data-tip="', tip, '">', v, '</span>')
+  }, val_str, pct, SIMPLIFY = TRUE, USE.NAMES = FALSE)
+}
+
+# --- Megjelenítési tábla ---
+# Oszlopindexek (0-alapú):
+#  0-4  : Játékos, Szezon, Csapat, Poszt, Státusz              → bal igazítás
+#  5-6  : Életkor, Perc                                         → középre
+#  7-36 : stat oszlopok (Általános 5, Shooting 8, Efficiency 2, Irányítás 6, Lep. 2, Véd. 2, USG 1, Impact 4) → középre
+#  37-65: rejtett percentilis oszlopok
+display <- stats %>%
+  mutate(Jatekos_html = sapply(Játékos, make_link)) %>%
+  transmute(
+    Játékos   = Jatekos_html,
+    Szezon,
+    Csapat,
+    Poszt     = ifelse(is.na(Poszt)   | Poszt   == "", "\u2014", Poszt),
+    Státusz   = ifelse(is.na(Státusz) | Státusz == "", "\u2014", Státusz),
+    Életkor   = ifelse(!is.na(szul_ev), as.integer(substr(Szezon, 1, 4)) - szul_ev, NA_integer_),
+    Perc,
+    # Általános
+    `MPG`     = stat_cell(as.character(round(min_pg,  1)), p_mpg),
+    `PPG`     = stat_cell(as.character(round(pts_pg,  1)), p_ppg),
+    `RPG`     = stat_cell(as.character(round(trb_pg,  1)), p_rpg),
+    `APG`     = stat_cell(as.character(round(ast_pg,  1)), p_ast),
+    `Net`     = stat_cell(as.character(round(net_rtg, 1)), p_net),
+    # Shooting – eloszlás
+    `Clr`     = stat_cell(fmt_pct(close_att_rate),         p_clr),
+    `Midr`    = stat_cell(fmt_pct(mid_att_rate),           p_midr),
+    `3PAr`    = stat_cell(fmt_pct(threep_att_rate),        p_3par),
+    `FTr`     = stat_cell(as.character(round(ft_rate, 2)), p_ftr),
+    # Shooting – zóna hatékonyság
+    `Close%`  = stat_cell(fmt_dec(close_pct),              p_close_pct),
+    `Mid%`    = stat_cell(fmt_dec(mid_pct),                p_mid_pct),
+    `3P%`     = stat_cell(fmt_dec(threep_pct),             p_3p),
+    `FT%`     = stat_cell(fmt_dec(ft_pct),                 p_ft_pct),
+    # Efficiency
+    `PTS/100` = stat_cell(as.character(round(pts_100, 1)), p_pts100),
+    `TS%`     = stat_cell(fmt_dec(ts_pct),                 p_ts),
+    # Irányítás
+    `AST/M`   = stat_cell(as.character(round(ast_pg,  1)), p_ast),
+    `AST%`    = stat_cell(fmt_pct(ast_pct),                p_ast_pct),
+    `AST/TOV` = stat_cell(as.character(round(ast_tov, 2)), p_atov),
+    `TOV%`    = stat_cell(fmt_pct(tov_pct),                p_tov,  invert = TRUE),
+    `Box Cr.` = stat_cell(as.character(round(box_creation, 1)), p_box_cr),
+    `Off. Load` = stat_cell(as.character(round(off_load, 1)), p_off_load),
+    # Lepattanó
+    `DRB%`    = stat_cell(fmt_pct(drb_pct),                p_drb),
+    `ORB%`    = stat_cell(fmt_pct(orb_pct),                p_orb),
+    # Védekezés
+    `STL%`    = stat_cell(fmt_pct(stl_pct),                p_stl),
+    `BLK%`    = stat_cell(fmt_pct(blk_pct),                p_blk),
+    # Egyéb
+    `USG%`    = stat_cell(fmt_pct(usg_pct),                p_usg),
+    # Impact
+    `OBPM`    = stat_cell(as.character(OBPM),              p_obpm),
+    `DBPM`    = stat_cell(as.character(DBPM),              p_dbpm),
+    `BPM`     = stat_cell(as.character(BPM),               p_bpm),
+    `DRE`     = stat_cell(as.character(DRE),               p_dre),
+    p_mpg, p_ppg, p_rpg, p_net,
+    p_clr, p_midr, p_3par, p_ftr,
+    p_close_pct, p_mid_pct, p_3p, p_ft_pct,
+    p_pts100, p_ts,
+    p_ast, p_ast_pct, p_atov, p_tov, p_box_cr, p_off_load,
+    p_drb, p_orb, p_stl, p_blk, p_usg,
+    p_obpm, p_dbpm, p_bpm, p_dre
+  )
+
+sd <- SharedData$new(display)
+
+bg_colors <- c(
+  "#F9C8C5", "#FBD5C0", "#FCE5C0", "#FEF2D0", "#FEFEE8",
+  "#F0F9D5", "#DBEFBD", "#C2E2BB", "#A5D5A8", "#87C893"
+)
+breaks <- seq(0.1, 0.9, by = 0.1)
+
+stat_pct <- list(
+  "MPG"     = "p_mpg",
+  "PPG"     = "p_ppg",
+  "RPG"     = "p_rpg",
+  "APG"     = "p_ast",
+  "Net"     = "p_net",
+  "Clr"     = "p_clr",
+  "Midr"    = "p_midr",
+  "3PAr"    = "p_3par",
+  "FTr"     = "p_ftr",
+  "Close%"  = "p_close_pct",
+  "Mid%"    = "p_mid_pct",
+  "3P%"     = "p_3p",
+  "FT%"     = "p_ft_pct",
+  "PTS/100" = "p_pts100",
+  "TS%"     = "p_ts",
+  "AST/M"   = "p_ast",
+  "AST%"    = "p_ast_pct",
+  "AST/TOV" = "p_atov",
+  "TOV%"    = "p_tov",
+  "Box Cr."   = "p_box_cr",
+  "Off. Load" = "p_off_load",
+  "DRB%"      = "p_drb",
+  "ORB%"    = "p_orb",
+  "STL%"    = "p_stl",
+  "BLK%"    = "p_blk",
+  "USG%"    = "p_usg",
+  "OBPM"    = "p_obpm",
+  "DBPM"    = "p_dbpm",
+  "BPM"     = "p_bpm",
+  "DRE"     = "p_dre"
+)
+```
+
+```{r render}
+legend_html <- tags$div(
+  style = paste0("display:flex;align-items:center;gap:10px;",
+                 "font-size:12px;color:var(--text-muted);",
+                 "font-family:Montserrat,sans-serif;margin-bottom:14px;"),
+  tags$span(style = "font-weight:600;", "Percentilis:"),
+  tags$span("0%"),
+  tags$div(
+    style = paste0(
+      "width:180px;height:14px;border-radius:4px;",
+      "background:linear-gradient(to right,",
+      "#F9C8C5,#FBD5C0,#FCE5C0,#FEF2D0,#FEFEE8,",
+      "#F0F9D5,#DBEFBD,#C2E2BB,#A5D5A8,#87C893);"
+    )
+  ),
+  tags$span("100%"),
+  tags$span(style = "margin-left:8px;font-style:italic;",
+            "Hover a cell\u00e1n a pontos \u00e9rt\u00e9khez")
+)
+
+controls_html <- tags$div(
+  style = "display:flex;gap:20px;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;",
+  tags$div(style = "min-width:160px;",
+    filter_select("szezon_sel", "Szezon", sd, ~Szezon, multiple = FALSE)
+  ),
+  tags$div(style = "min-width:160px;",
+    filter_select("csapat_sel", "Csapat", sd, ~Csapat, multiple = TRUE)
+  ),
+  tags$div(style = "min-width:140px;",
+    filter_select("poszt_sel", "Poszt", sd, ~Poszt, multiple = TRUE)
+  ),
+  tags$div(style = "min-width:160px;",
+    filter_select("status_sel", "St\u00e1tusz", sd, ~Státusz, multiple = TRUE)
+  ),
+  tags$div(style = "min-width:220px;",
+    filter_slider("perc_slider", "Minimum percek", sd, ~Perc,
+                  min = 0, max = max(display$Perc, na.rm = TRUE), step = 50)
+  ),
+  tags$div(style = "min-width:200px;",
+    filter_slider("eletkor_slider", "\u00c9letkor", sd, ~Életkor,
+                  min = min(display$Életkor, na.rm = TRUE),
+                  max = max(display$Életkor, na.rm = TRUE), step = 1)
+  )
+)
+
+cat_sketch <- htmltools::withTags(table(
+  class = "display",
+  thead(
+    tr(
+      th(rowspan = 2, "Játékos"),
+      th(rowspan = 2, "Szezon"),
+      th(rowspan = 2, "Csapat"),
+      th(rowspan = 2, "Poszt"),
+      th(rowspan = 2, "St\u00e1tusz"),
+      th(rowspan = 2, "\u00c9letkor"),
+      th(rowspan = 2, "Perc"),
+      th(colspan = 5, style = "text-align:center;background:#F1F5F9;color:#475569;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #CBD5E1;", "\u00c1LTAl\u00c1NOS"),
+      th(colspan = 8, style = "text-align:center;background:#EFF6FF;color:#1D4ED8;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #BFDBFE;", "SHOOTING"),
+      th(colspan = 2, style = "text-align:center;background:#DBEAFE;color:#1E40AF;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #93C5FD;", "EFFICIENCY"),
+      th(colspan = 6, style = "text-align:center;background:#F0FDF4;color:#15803D;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #BBF7D0;", "IR\u00c1NY\u00cdT\u00c1S"),
+      th(colspan = 2, style = "text-align:center;background:#FFF7ED;color:#C2410C;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #FED7AA;", "LEPATTAN\u00d3"),
+      th(colspan = 2, style = "text-align:center;background:#FAF5FF;color:#7E22CE;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #E9D5FF;", "V\u00c9DEKEZ\u00c9S"),
+      th(rowspan = 2, "USG%"),
+      th(colspan = 4, style = "text-align:center;background:#FFFBEB;color:#B45309;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #FCD34D;", "IMPACT"),
+      # rejtett percentilis oszlopok
+      th(rowspan = 2, style = "display:none;", "p_mpg"),
+      th(rowspan = 2, style = "display:none;", "p_ppg"),
+      th(rowspan = 2, style = "display:none;", "p_rpg"),
+      th(rowspan = 2, style = "display:none;", "p_net"),
+      th(rowspan = 2, style = "display:none;", "p_clr"),
+      th(rowspan = 2, style = "display:none;", "p_midr"),
+      th(rowspan = 2, style = "display:none;", "p_3par"),
+      th(rowspan = 2, style = "display:none;", "p_ftr"),
+      th(rowspan = 2, style = "display:none;", "p_close_pct"),
+      th(rowspan = 2, style = "display:none;", "p_mid_pct"),
+      th(rowspan = 2, style = "display:none;", "p_3p"),
+      th(rowspan = 2, style = "display:none;", "p_ft_pct"),
+      th(rowspan = 2, style = "display:none;", "p_pts100"),
+      th(rowspan = 2, style = "display:none;", "p_ts"),
+      th(rowspan = 2, style = "display:none;", "p_ast"),
+      th(rowspan = 2, style = "display:none;", "p_ast_pct"),
+      th(rowspan = 2, style = "display:none;", "p_atov"),
+      th(rowspan = 2, style = "display:none;", "p_tov"),
+      th(rowspan = 2, style = "display:none;", "p_box_cr"),
+      th(rowspan = 2, style = "display:none;", "p_off_load"),
+      th(rowspan = 2, style = "display:none;", "p_drb"),
+      th(rowspan = 2, style = "display:none;", "p_orb"),
+      th(rowspan = 2, style = "display:none;", "p_stl"),
+      th(rowspan = 2, style = "display:none;", "p_blk"),
+      th(rowspan = 2, style = "display:none;", "p_usg"),
+      th(rowspan = 2, style = "display:none;", "p_obpm"),
+      th(rowspan = 2, style = "display:none;", "p_dbpm"),
+      th(rowspan = 2, style = "display:none;", "p_bpm"),
+      th(rowspan = 2, style = "display:none;", "p_dre")
+    ),
+    tr(
+      th("MPG"), th("PPG"), th("RPG"), th("APG"), th("Net"),
+      th("Clr"), th("Midr"), th("3PAr"), th("FTr"),
+      th("Close%"), th("Mid%"), th("3P%"), th("FT%"),
+      th("PTS/100"), th("TS%"),
+      th("AST/M"), th("AST%"), th("AST/TOV"), th("TOV%"), th("Box Cr."), th("Off. Load"),
+      th("DRB%"), th("ORB%"),
+      th("STL%"), th("BLK%"),
+      th("OBPM"), th("DBPM"), th("BPM"), th("DRE")
+    )
+  )
+))
+
+dt_base <- DT::datatable(
+  sd,
+  container = cat_sketch,
+  rownames  = FALSE,
+  escape    = FALSE,
+  selection = "none",
+  options = list(
+    dom        = "ft",
+    pageLength = 500,
+    ordering   = TRUE,
+    scrollX    = TRUE,
+    language   = list(search = "Keres\u00e9s:"),
+    columnDefs = list(
+      list(visible    = FALSE,       targets = 37:65),
+      list(className = "dt-center",  targets = 5:36),
+      list(className = "dt-left",    targets = 0:4)
+    )
+  )
+)
+
+dt_styled <- Reduce(function(d, stat) {
+  d %>% formatStyle(
+    columns         = stat,
+    valueColumns    = stat_pct[[stat]],
+    backgroundColor = styleInterval(breaks, bg_colors)
+  )
+}, names(stat_pct), dt_base)
+
+tagList(
+  legend_html,
+  controls_html,
+  dt_styled,
+  tags$p(
+    style = paste0("font-size:11px;color:#9CA3AF;margin-top:8px;",
+                   "font-family:Montserrat,sans-serif;"),
+    "Percentilisek referenci\u00e1ja: az adott szezon 200+ perces j\u00e1t\u00e9kosai. Az \u00e9rt\u00e9kek minden j\u00e1t\u00e9kosn\u00e1l l\u00e1that\u00f3k.",
+    " TOV%: alacsonyabb = jobb, a h\u00e1tt\u00e9rsz\u00edn ennek megfelel\u0151en ford\u00edtott.",
+    " BPM (Box Plus/Minus): pontokban m\u00e9rt hat\u00e1s 100 birtok alatt, 0 = ligaatlag, +5 = All-Star szint.",
+    " DRE (Daily RAPM Estimate): RAPM-regresszi\u00f3n alapul\u00f3 box-score becs\u00e9sl\u00e9s (Myers 2017)."
+  )
+)
+```

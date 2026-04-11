@@ -1,0 +1,221 @@
+---
+title: "Játékosértékelés"
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(htmltools)
+library(jsonlite)
+library(scales)
+library(yaml)
+
+# --- Manuális értékelések ---
+ratings <- read.csv("player_ratings.csv", encoding = "UTF-8", stringsAsFactors = FALSE)
+
+# --- Profil URL térkép: játékos neve → jatekosok/*.html ---
+build_profile_map <- function() {
+  files <- list.files("jatekosok", pattern = "\\.qmd$", full.names = TRUE)
+  files <- files[!grepl("^_", basename(files))]
+  result <- list()
+  for (f in files) {
+    lines  <- readLines(f, encoding = "UTF-8", warn = FALSE)
+    delims <- which(lines == "---")
+    if (length(delims) < 2) next
+    meta <- tryCatch(
+      yaml::yaml.load(paste(lines[(delims[1]+1):(delims[2]-1)], collapse = "\n")),
+      error = function(e) NULL
+    )
+    if (is.null(meta$profile$nev)) next
+    url <- sub("\\.qmd$", ".html", paste0("jatekosok/", basename(f)))
+    result[[meta$profile$nev]] <- url
+  }
+  result
+}
+profile_map <- build_profile_map()
+
+# --- DB adatok ---
+con <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+
+player_info <- dbGetQuery(con, "
+  SELECT DISTINCT Játékos, Poszt, Státusz,
+         CAST(\"Szül. év.\" AS INTEGER) AS Szul_ev
+  FROM player_info
+")
+
+player_stats <- dbGetQuery(con, "
+  SELECT s.Játékos, s.Szezon, s.Csapat,
+         s.Min         AS Min_tot,
+         s.[Min PG]    AS Min_PG,
+         s.[PTS PG]    AS PTS_PG,
+         s.[TS%]       AS TS_pct,
+         s.[EFG%]      AS eFG_pct,
+         a.[USG%]      AS USG_pct
+  FROM player_scoring_stats s
+  JOIN player_advanced_stats a USING(Játékos, Szezon, Csapat)
+")
+
+dbDisconnect(con)
+
+# --- Összekötés ---
+info_dedup <- player_info %>%
+  group_by(Játékos) %>%
+  slice(1) %>%
+  ungroup()
+
+table_data <- ratings %>%
+  left_join(info_dedup, by = "Játékos") %>%
+  mutate(
+    Besorolás = factor(Besorolás,
+      levels = c("Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"))
+  ) %>%
+  arrange(Besorolás, Játékos) %>%
+  select(Játékos, `Szül. év` = Szul_ev, Poszt, Státusz, Besorolás)
+
+# --- Stat összefoglaló profilhoz ---
+profile_stats <- player_stats %>%
+  filter(Játékos %in% ratings$Játékos) %>%
+  arrange(Játékos, Szezon)
+
+rating_notes <- ratings %>%
+  select(Játékos, Megjegyzés)
+
+# --- Besorolás badge színek ---
+badge_color <- function(r) {
+  switch(as.character(r),
+    "Strong Buy"  = "#1a7a4a",
+    "Buy"         = "#4caf50",
+    "Hold"        = "#D4902A",
+    "Sell"        = "#e57373",
+    "Strong Sell" = "#C43A28",
+    "#7A756D"
+  )
+}
+
+# --- Child row HTML felépítése ---
+make_child <- function(jatekos) {
+  stats <- profile_stats %>% filter(Játékos == jatekos)
+  note  <- rating_notes %>% filter(Játékos == jatekos) %>% pull(Megjegyzés)
+  note  <- if (length(note) == 0 || is.na(note) || note == "") NULL else note
+
+  if (nrow(stats) == 0) {
+    return(paste0('<div style="padding:12px 24px;color:#7A756D;font-family:Montserrat,sans-serif;">',
+                  'Nincs adat a DB-ben ehhez a játékoshoz.</div>'))
+  }
+
+  c_td <- 'style="text-align:center;padding:4px 8px;"'
+  l_td <- 'style="text-align:left;padding:4px 8px;"'
+  rows <- apply(stats, 1, function(r) {
+    paste0(
+      '<tr>',
+      '<td ', l_td, '>', r["Szezon"], '</td>',
+      '<td ', l_td, '>', r["Csapat"], '</td>',
+      '<td ', c_td, '>', as.integer(r["Min_tot"]), '</td>',
+      '<td ', c_td, '>', round(as.numeric(r["Min_PG"]), 1), '</td>',
+      '<td ', c_td, '>', round(as.numeric(r["PTS_PG"]), 1), '</td>',
+      '<td ', c_td, '>', scales::percent(as.numeric(r["TS_pct"]),  accuracy = 0.1), '</td>',
+      '<td ', c_td, '>', scales::percent(as.numeric(r["eFG_pct"]), accuracy = 0.1), '</td>',
+      '<td ', c_td, '>', round(as.numeric(r["USG_pct"]), 1), '%</td>',
+      '</tr>'
+    )
+  })
+
+  note_html <- if (!is.null(note)) {
+    paste0('<p style="margin:12px 0 4px;color:#2E2B26;font-style:italic;">', note, '</p>')
+  } else ""
+
+  paste0(
+    '<div style="padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;">',
+    note_html,
+    '<table style="width:100%;border-collapse:collapse;font-size:13px;">',
+    '<thead><tr style="color:#7A756D;border-bottom:1px solid #D4CFC6;">',
+    '<th style="text-align:left;padding:4px 8px;">Szezon</th>',
+    '<th style="text-align:left;padding:4px 8px;">Csapat</th>',
+    '<th style="text-align:center;padding:4px 8px;">Min</th>',
+    '<th style="text-align:center;padding:4px 8px;">Min/M</th>',
+    '<th style="text-align:center;padding:4px 8px;">PTS/M</th>',
+    '<th style="text-align:center;padding:4px 8px;">TS%</th>',
+    '<th style="text-align:center;padding:4px 8px;">eFG%</th>',
+    '<th style="text-align:center;padding:4px 8px;">USG%</th>',
+    '</tr></thead>',
+    '<tbody>', paste(rows, collapse = ""), '</tbody>',
+    '</table></div>'
+  )
+}
+
+child_rows <- sapply(table_data$Játékos, make_child)
+
+# --- Badge HTML + profil link ---
+table_display <- table_data %>%
+  mutate(
+    Játékos = mapply(function(nev) {
+      url <- profile_map[[nev]]
+      if (!is.null(url)) {
+        paste0('<a href="', url, '" style="color:var(--accent-dark);font-weight:600;',
+               'text-decoration:none;" onmouseover="this.style.textDecoration=\'underline\'"',
+               ' onmouseout="this.style.textDecoration=\'none\'">',  nev, '</a>')
+      } else {
+        nev
+      }
+    }, Játékos),
+    Besorolás = mapply(function(r) {
+      col <- badge_color(r)
+      paste0('<span style="background:', col,
+             ';color:#fff;padding:2px 10px;border-radius:12px;',
+             'font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;">',
+             r, '</span>')
+    }, as.character(Besorolás))
+  )
+```
+
+```{r tabla}
+child_json <- jsonlite::toJSON(child_rows, auto_unbox = TRUE)
+
+DT::datatable(
+  table_display,
+  rownames  = FALSE,
+  escape    = FALSE,
+  selection = "none",
+  callback  = DT::JS(paste0("
+    var childData = ", child_json, ";
+    table.on('click', 'tr', function(e) {
+      if ($(e.target).closest('a').length > 0) return;
+      var row = table.row(this);
+      var idx = row.index();
+      if (typeof idx === 'undefined') return;
+      if (row.child.isShown()) {
+        row.child.hide();
+        $(this).removeClass('shown');
+      } else {
+        row.child(childData[idx]).show();
+        $(this).addClass('shown');
+      }
+    });
+  ")),
+  options = list(
+    dom        = "ft",
+    pageLength = 100,
+    ordering   = TRUE,
+    language   = list(search = "Keresés:"),
+    columnDefs = list(
+      list(className = "dt-center", targets = c(1, 2, 3, 4)),
+      list(orderable = FALSE, targets = 4)
+    )
+  )
+)
+```

@@ -1,0 +1,423 @@
+---
+title: "NB1 Csatár Szerepdetekció"
+subtitle: "2025/26 — Ki milyen típusú csatár? Twelve Football adatok alapján"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    page-layout: article
+    css: ../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(DBI); library(RSQLite)
+library(dplyr); library(tidyr)
+library(ggplot2); library(plotly)
+library(uwot); library(DT); library(knitr)
+
+BG <- "#FAF8F4"; GRID <- "#E8E4DE"; MUTED <- "#7A756D"
+
+# ── Szerepek definíciója ──────────────────────────────────────────────────────
+# Minden érték 0–100 skálán (a dimenzió átlagos percentilise az adott szerepnél)
+# temperature: softmax "élességét" szabályozza — alacsonyabb = határozottabb elsődleges szerep
+
+TEMP <- 22
+
+roles <- list(
+  list(
+    id    = "target_man",
+    name  = "Célponttámadó",
+    color = "#2E6DA4",
+    desc  = "Fizikai dominancia, fejelés, labdatartás. Hosszú labdák célpontja, a védelmet köti le.",
+    strengths = c("Légi fölény", "Labdatartás", "Jelenlét"),
+    profile = c(aerialthreat=86, finishing=58, holdupplay=83,
+                involvement=68, poaching=44, pressing=26,
+                providingteammates=34, runquality=30)
+  ),
+  list(
+    id    = "poacher",
+    name  = "Befejező",
+    color = "#C43A28",
+    desc  = "Gólhelyzeteket érez meg, pontosan fejez be. Minimális részvétel, maximális hatékonyság a tizenhatoson belül.",
+    strengths = c("Befejezés", "Poaching", "Légi fölény"),
+    profile = c(aerialthreat=52, finishing=90, holdupplay=33,
+                involvement=44, poaching=90, pressing=24,
+                providingteammates=26, runquality=40)
+  ),
+  list(
+    id    = "pressing_fwd",
+    name  = "Presszingcsatár",
+    color = "#1a7a4a",
+    desc  = "Az első védelmi vonal. Magas intenzitású labdaszerzés, folyamatos mozgás, az ellenfél építőjátékát zavarja.",
+    strengths = c("Pressing", "Futások", "Jelenlét"),
+    profile = c(aerialthreat=26, finishing=52, holdupplay=30,
+                involvement=76, poaching=36, pressing=90,
+                providingteammates=46, runquality=84)
+  ),
+  list(
+    id    = "creative_fwd",
+    name  = "Kreatív csatár",
+    color = "#7B4EA6",
+    desc  = "Társaknak ad lehetőséget, mélységből épít. Technikai játékos aki nem csak gólban gondolkodik.",
+    strengths = c("Assziszt", "Jelenlét", "Futások"),
+    profile = c(aerialthreat=20, finishing=52, holdupplay=40,
+                involvement=82, poaching=38, pressing=54,
+                providingteammates=86, runquality=70)
+  ),
+  list(
+    id    = "complete_fwd",
+    name  = "Komplett csatár",
+    color = "#D4902A",
+    desc  = "Kiegyensúlyozott profil, minden dimenzióban közepesen erős. Nehezen kiszámítható, sokoldalú.",
+    strengths = c("Befejezés", "Jelenlét", "Futások"),
+    profile = c(aerialthreat=52, finishing=72, holdupplay=56,
+                involvement=72, poaching=60, pressing=60,
+                providingteammates=56, runquality=66)
+  )
+)
+
+role_names  <- sapply(roles, `[[`, "name")
+role_ids    <- sapply(roles, `[[`, "id")
+role_colors <- setNames(sapply(roles, `[[`, "color"), role_names)
+
+quality_dims <- c("aerialthreat","finishing","holdupplay","involvement",
+                  "poaching","pressing","providingteammates","runquality")
+dim_hu <- c(aerialthreat="Légi fölény", finishing="Befejezés",
+            holdupplay="Labdatartás", involvement="Jelenlét",
+            poaching="Poaching", pressing="Pressing",
+            providingteammates="Assziszt", runquality="Futások")
+
+# ── Adatok betöltése ──────────────────────────────────────────────────────────
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+ps  <- dbGetQuery(con, "SELECT * FROM player_stats")
+pm  <- dbGetQuery(con, "SELECT player_id, label, player_name, team_name FROM player_map")
+dbDisconnect(con)
+ps <- ps |> left_join(pm, by = c("player_id", "label"))
+N  <- nrow(ps)
+
+# ── Dimenzió-percentilisek ────────────────────────────────────────────────────
+rank_cols <- grep("^rank_", names(ps), value = TRUE)
+qual_df <- ps |>
+  select(player_id, label, player_name, team_name, all_of(rank_cols)) |>
+  mutate(across(all_of(rank_cols), ~ (N - .x) / (N - 1) * 100)) |>
+  mutate(
+    aerialthreat       = rowMeans(across(starts_with("rank_aerialthreat_")),       na.rm=TRUE),
+    finishing          = rowMeans(across(starts_with("rank_finishing_")),           na.rm=TRUE),
+    holdupplay         = rowMeans(across(starts_with("rank_holdupplay_")),          na.rm=TRUE),
+    involvement        = rowMeans(across(starts_with("rank_involvement_")),         na.rm=TRUE),
+    poaching           = rowMeans(across(starts_with("rank_poaching_")),            na.rm=TRUE),
+    pressing           = rowMeans(across(starts_with("rank_pressing_")),            na.rm=TRUE),
+    providingteammates = rowMeans(across(starts_with("rank_providingteammates_")), na.rm=TRUE),
+    runquality         = rowMeans(across(starts_with("rank_runquality_")),          na.rm=TRUE)
+  ) |>
+  select(player_id, label, player_name, team_name, all_of(quality_dims))
+
+# ── Szereppontozás: softmax távolság alapján ──────────────────────────────────
+player_mat  <- qual_df |> select(all_of(quality_dims)) |> as.matrix()
+profile_mat <- do.call(rbind, lapply(roles, function(r) r$profile[quality_dims]))
+rownames(profile_mat) <- role_names
+
+# Euklideszi távolság minden játékos × szerep párra
+dist_mat <- matrix(NA_real_, N, length(roles))
+for (k in seq_along(roles)) {
+  diff_k <- sweep(player_mat, 2, profile_mat[k, ], "-")
+  dist_mat[, k] <- sqrt(rowSums(diff_k^2))
+}
+
+# Softmax → szerep-valószínűségek
+softmax_mat <- exp(-dist_mat / TEMP)
+softmax_mat <- softmax_mat / rowSums(softmax_mat)
+colnames(softmax_mat) <- role_names
+
+# Elsődleges és másodlagos szerep
+primary_idx  <- apply(softmax_mat, 1, which.max)
+secondary_idx <- apply(softmax_mat, 1, function(x) order(x, decreasing=TRUE)[2])
+
+role_df <- qual_df |>
+  mutate(
+    primary_role   = role_names[primary_idx],
+    secondary_role = role_names[secondary_idx],
+    p_primary      = apply(softmax_mat, 1, max),
+    p_secondary    = softmax_mat[cbind(seq_len(N), secondary_idx)],
+    is_hybrid      = p_secondary > 0.22
+  )
+
+# Szerepmix szöveg (> 10%-os szerepek)
+role_mix_text <- apply(softmax_mat, 1, function(probs) {
+  ord  <- order(probs, decreasing=TRUE)
+  sig  <- ord[probs[ord] > 0.10]
+  paste0(role_names[sig], " (", round(probs[sig] * 100), "%)", collapse = " · ")
+})
+role_df$role_mix <- role_mix_text
+
+# ── UMAP a vizualizációhoz ────────────────────────────────────────────────────
+val_cols   <- grep("^value_per90_", names(ps), value = TRUE)
+feat_short <- gsub("^value_per90_[^_]+_", "", val_cols)
+feat_dim   <- gsub("^value_per90_([^_]+)_.*", "\\1", val_cols)
+feat_names <- ifelse(duplicated(feat_short) | duplicated(feat_short, fromLast=TRUE),
+                     paste0(feat_dim, ": ", feat_short), feat_short)
+mat0 <- as.matrix(ps[, val_cols]); colnames(mat0) <- feat_names
+keep <- colMeans(is.na(mat0)) < 0.15 & apply(mat0, 2, var, na.rm=TRUE) > 1e-8
+mat1 <- mat0[, keep]
+for (j in seq_len(ncol(mat1))) {
+  bad <- is.na(mat1[,j])
+  if (any(bad)) mat1[bad, j] <- median(mat1[,j], na.rm=TRUE)
+}
+mat_s <- scale(apply(mat1, 2, function(x) {
+  lo <- quantile(x,.025); hi <- quantile(x,.975); pmax(pmin(x,hi),lo)
+}))
+set.seed(42)
+umap_xy <- umap(mat_s, n_neighbors=12, min_dist=0.25, n_epochs=500, verbose=FALSE)
+role_df$U1 <- umap_xy[, 1]; role_df$U2 <- umap_xy[, 2]
+```
+
+Az NB1 2025/26-os szezonjának 59 csatárát öt szerepkörbe soroltuk a **Twelve Football** per-90 statisztikák alapján. Minden játékos egy *szerepmixet* kap: az elsődleges szerepen kívül a másodlagos affinitások is láthatók — mert a futballban ritkán „tiszta" archetípusok játszanak.
+
+---
+
+## A szerepek
+
+```{r role-cards}
+role_counts <- table(role_df$primary_role)[role_names]
+role_counts[is.na(role_counts)] <- 0
+
+tbl_roles <- data.frame(
+  Szerep      = role_names,
+  Leírás      = sapply(roles, `[[`, "desc"),
+  Erősségek   = sapply(roles, function(r) paste(r$strengths, collapse = " · ")),
+  `Játékosok` = as.integer(role_counts),
+  check.names = FALSE
+)
+
+kable(tbl_roles, align = c("l","l","l","c"))
+```
+
+---
+
+## Szerepprofilok
+
+```{r role-radars}
+# Tényleges átlagprofil az adott szerephez rendelt játékosoknál
+actual_means <- role_df |>
+  group_by(primary_role) |>
+  summarise(across(all_of(quality_dims), mean), n = n(), .groups="drop") |>
+  mutate(primary_role = factor(primary_role, levels = role_names))
+
+figs <- lapply(seq_along(roles), function(i) {
+  rn   <- role_names[i]
+  col  <- role_colors[[rn]]
+  n    <- as.integer(role_counts[rn])
+  prof <- roles[[i]]$profile[quality_dims]
+
+  row_actual <- actual_means |> filter(primary_role == rn)
+  vals_actual <- if (nrow(row_actual) > 0) as.numeric(row_actual[, quality_dims]) else rep(50, 8)
+  vals_prof   <- as.numeric(prof)
+  theta_labels <- c(unname(dim_hu), unname(dim_hu)[1])
+
+  plot_ly() |>
+    add_trace(type="scatterpolar",
+      r = c(vals_prof, vals_prof[1]), theta = theta_labels,
+      fill = "none", name = "Archetípus",
+      line = list(color = "#D4CFC6", width = 1.5, dash = "dot"),
+      hovertemplate = "<b>%{theta}</b> — archetípus: %{r:.0f}<extra></extra>"
+    ) |>
+    add_trace(type="scatterpolar",
+      r = c(vals_actual, vals_actual[1]), theta = theta_labels,
+      fill = "toself", name = rn,
+      fillcolor = paste0(col, "30"),
+      line = list(color = col, width = 2.5),
+      hovertemplate = "<b>%{theta}</b><br>%{r:.1f}<extra></extra>"
+    ) |>
+    layout(
+      polar = list(
+        radialaxis = list(visible=TRUE, range=c(0,100),
+                          tickfont=list(size=7), gridcolor="#D4CFC6"),
+        angularaxis = list(tickfont=list(size=9))
+      ),
+      showlegend = FALSE,
+      title = list(
+        text = paste0("<b>", rn, "</b>",
+                      "  <span style='font-size:11px;color:", MUTED, "'>n=", n, "</span>"),
+        font = list(family="Montserrat", size=13, color=col)
+      ),
+      paper_bgcolor = BG,
+      margin = list(t=55, b=15, l=35, r=35)
+    )
+})
+
+do.call(subplot, c(figs, list(nrows=2, margin=0.08)))
+```
+
+*Szaggatott vonal: elméleti archetípus. Teli vonal: az NB1-es játékosok tényleges átlaga az adott szerepen.*
+
+---
+
+## Játékos-térkép
+
+```{r umap-plot}
+tt <- paste0(
+  "<b>", role_df$label, "</b>",
+  ifelse(!is.na(role_df$team_name), paste0("<br>", role_df$team_name), ""),
+  "<br><i>", role_df$role_mix, "</i>",
+  "<br>─────────────────",
+  "<br>Légi fölény: ",  round(role_df$aerialthreat, 1),
+  "<br>Befejezés: ",    round(role_df$finishing, 1),
+  "<br>Labdatartás: ",  round(role_df$holdupplay, 1),
+  "<br>Jelenlét: ",     round(role_df$involvement, 1),
+  "<br>Poaching: ",     round(role_df$poaching, 1),
+  "<br>Pressing: ",     round(role_df$pressing, 1),
+  "<br>Assziszt: ",     round(role_df$providingteammates, 1),
+  "<br>Futások: ",      round(role_df$runquality, 1)
+)
+
+ctrd <- role_df |>
+  group_by(primary_role) |>
+  summarise(U1=mean(U1), U2=mean(U2), .groups="drop")
+
+plot_ly(role_df, x=~U1, y=~U2,
+  color  = ~primary_role, colors = role_colors,
+  size   = ~p_primary, sizes  = c(7, 18),
+  type   = "scatter", mode = "markers",
+  marker = list(opacity=0.85, sizemode="diameter"),
+  text   = tt, hoverinfo = "text"
+) |>
+  add_annotations(data=ctrd, x=~U1, y=~U2, text=~primary_role,
+    showarrow=FALSE,
+    font=list(family="Montserrat", size=11, color="#2E2B26"),
+    bgcolor=paste0(BG,"DD"), borderpad=3
+  ) |>
+  layout(
+    xaxis = list(title="", zeroline=FALSE, gridcolor=GRID, showticklabels=FALSE),
+    yaxis = list(title="", zeroline=FALSE, gridcolor=GRID, showticklabels=FALSE),
+    paper_bgcolor=BG, plot_bgcolor=BG,
+    legend=list(title=list(text="Elsődleges szerep")),
+    font=list(family="Montserrat", size=12)
+  )
+```
+
+*Pontméret = az elsődleges szerepbe tartozás biztonsága. Kisebb pont = hibrid, több szerepet ötvöző játékos.*
+
+---
+
+## Hibrid játékosok
+
+Azok a játékosok, akiknél a másodlagos szerep valószínűsége meghaladja a 22%-ot — ők nem sorolhatók be egyértelműen:
+
+```{r hybrids}
+hybrids <- role_df |>
+  filter(is_hybrid) |>
+  arrange(desc(p_secondary)) |>
+  mutate(
+    Szerepmix = role_mix,
+    Csapat    = if_else(is.na(team_name), "—", team_name)
+  ) |>
+  select(
+    Játékos  = label,
+    Csapat,
+    Szerepmix
+  )
+
+if (nrow(hybrids) == 0) {
+  cat("*Nincs markáns hibrid profil — a szerepek jól elkülönülnek.*")
+} else {
+  kable(hybrids, align=c("l","l","l"))
+}
+```
+
+---
+
+## Csapatok és szerepek
+
+```{r team-roles}
+team_role <- role_df |>
+  filter(!is.na(team_name)) |>
+  count(team_name, primary_role) |>
+  mutate(primary_role = factor(primary_role, levels=role_names))
+
+plot_ly(team_role, x=~team_name, y=~n, color=~primary_role,
+  colors=role_colors, type="bar",
+  hovertemplate="%{x}<br>%{fullData.name}: %{y} játékos<extra></extra>"
+) |>
+  layout(
+    barmode="stack",
+    xaxis=list(title=NULL, tickangle=-35, gridcolor=GRID),
+    yaxis=list(title="Csatárok száma", gridcolor=GRID),
+    paper_bgcolor=BG, plot_bgcolor=BG,
+    legend=list(title=list(text="Szerep"), orientation="h", y=-0.28),
+    font=list(family="Montserrat", size=11),
+    margin=list(b=120)
+  )
+```
+
+---
+
+## Teljes játékostábla
+
+```{r table}
+tbl <- role_df |>
+  arrange(primary_role, desc(p_primary)) |>
+  mutate(
+    Csapat = if_else(is.na(team_name), "—", team_name),
+    across(all_of(quality_dims), ~round(.x, 1))
+  ) |>
+  select(
+    Játékos         = label,
+    Csapat,
+    `Elsőd. szerep` = primary_role,
+    Szerepmix       = role_mix,
+    `Légi`          = aerialthreat,
+    `Befej.`        = finishing,
+    `Hold-up`       = holdupplay,
+    `Jelenlét`      = involvement,
+    Poaching        = poaching,
+    Pressing        = pressing,
+    Assziszt        = providingteammates,
+    Futások         = runquality
+  )
+
+DT::datatable(
+  tbl, rownames=FALSE, escape=FALSE, selection="none",
+  options=list(
+    dom="ftp", pageLength=30, ordering=TRUE,
+    language=list(search="Keresés:"),
+    columnDefs=list(
+      list(className="dt-center", targets=2:11),
+      list(width="200px", targets=3)
+    )
+  )
+) |>
+  DT::formatStyle("Elsőd. szerep",
+    backgroundColor = DT::styleEqual(
+      role_names, paste0(unname(role_colors), "28")
+    ),
+    fontWeight = "600"
+  ) |>
+  DT::formatStyle(
+    c("Légi","Befej.","Hold-up","Jelenlét","Poaching","Pressing","Assziszt","Futások"),
+    background=DT::styleColorBar(c(0,100), "#4caf5044"),
+    backgroundSize="100% 80%", backgroundRepeat="no-repeat", backgroundPosition="center"
+  )
+```
+
+---
+
+::: {.callout-note collapse="true"}
+## Módszertan
+
+**Adatok:** Twelve Football, NB1 2025/26, 59 csatár (STRIKER pozíció), per-90 statisztikák.
+
+**Szerepdefiníció:** 5 archetípust definiáltunk a 8 Twelve-dimenzió alapján domain knowledge szerint (Célponttámadó, Befejező, Presszingcsatár, Kreatív csatár, Komplett csatár).
+
+**Pontozás:** Minden játékos 8 dimenziós percentilisvektora és az 5 szerepprofil közötti Euklideszi távolságból softmax-transzformációval kapjuk a szerepvalószínűségeket. Hőmérséklet-paraméter: T=`r TEMP` — ez szabályozza, mennyire "éles" az elsődleges szerep dominanciája.
+
+**Vizualizáció:** UMAP 2D levetítés a per-90 értékek z-score standardizált és korreláció-szűrt terén.
+
+**Megjegyzés:** Ez a megközelítés szándékosan eltér az adatvezérelt klaszterezéstől (pl. k-means, GMM). Az NbClust elemzés k=2-t javasolt mint természetes struktúra — az 5 szerepkör meghatározása ezért domain knowledge alapú, nem statisztikai.
+:::

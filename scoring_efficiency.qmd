@@ -1,0 +1,805 @@
+---
+title: "Dobóhatékonyság a magyar kosárlabda bajnokságban"
+format:
+  html:
+    toc: true
+    toc-title: "Tartalom"
+    toc-depth: 2
+    toc-location: left
+    page-layout: full
+    css: styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(plotly)
+
+con <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+
+scoring <- dbGetQuery(con, "
+  SELECT s.Játékos, s.Szezon, s.Csapat, s.G,
+         s.[Min PG]        AS Min_PG,
+         s.[PTS PG]        AS PTS_PG,
+         s.[FG%]           AS FG_pct,
+         s.[EFG%]          AS eFG_pct,
+         s.[TS%]           AS TS_pct,
+         s.[3P%]           AS ThreeP_pct,
+         s.[FT%]           AS FT_pct,
+         s.[FT rate]       AS FT_rate,
+         s.[3P att. rate]  AS ThreeP_rate,
+         a.[USG%]          AS USG_pct,
+         p.Státusz         AS Statusz,
+         p.[Szül. év.]     AS Szul_ev
+  FROM player_scoring_stats s
+  JOIN player_advanced_stats a USING(Játékos, Szezon, Csapat)
+  LEFT JOIN player_info p ON s.Játékos = p.Játékos
+  WHERE s.Min >= 400
+") %>%
+  mutate(
+    Kategoria = case_when(
+      Statusz == "Hazai" & Szul_ev >= as.integer(substr(Szezon, 1, 4)) - 22 ~ "Hazai fiatal",
+      Statusz == "Hazai"                   ~ "Hazai",
+      TRUE                                 ~ "Légiós"
+    ),
+    Kat_szin = case_when(
+      Kategoria == "Hazai fiatal" ~ "#C43A28",
+      Kategoria == "Hazai"        ~ "#D4902A",
+      TRUE                        ~ "#7A756D"
+    )
+  )
+
+dbDisconnect(con)
+
+league_avg <- scoring %>%
+  group_by(Szezon) %>%
+  summarise(
+    avg_FG  = mean(FG_pct,  na.rm = TRUE),
+    avg_eFG = mean(eFG_pct, na.rm = TRUE),
+    avg_TS  = mean(TS_pct,  na.rm = TRUE),
+    n       = n()
+  )
+```
+
+## A probléma a FG%-kal
+
+A kosárlabdában a legismertebb indikátor dobóhatékonyság mérésére a mezőnykosár-százalék (FG%). A mutató népszerűsége egyszerűségében rejlik:
+
+FG% = Értékesített dobás / Összes dobás. 
+
+A probléma: **ez a mutató vak a dobások értékének különbözőségére.**
+
+Ennek szemléltetésére nézzünk egy szélsőséges példát:
+
+| Játékos típusa | FG% | Mit dob? | Pont/kísérlet |
+|---|---|---|---|
+| Kettes specialista | 50% | Csak 2P | **1,00** |
+| Tripla specialista | 33% | Csak 3P | **1,00** |
+| Büntetőspecialista | — | Csak büntető | **0,50–0,90** |
+
+Egy 33%-os triplás statisztikailag **ugyanolyan hatékony**, mint egy 50%-os kettes dobó — mégis a FG% alapján az előbbi messze alulmúlja az utóbbit. Az FG% tehát nem alkalmas a dobóhatékonyság pontos mérésére.
+
+---
+
+## 1. eFG% — A triplák súlyozása
+
+Az **Effective Field Goal Percentage (eFG%)** egyszerű korrekciót vezet be: a hárompontos dobást 1,5-szeres súllyal számolja, hiszen 50%-kal több pontot ér.
+
+$$eFG\% = \frac{FGM + 0{,}5 \times 3PM}{FGA}$$
+Az FGM a debott mezőnykísérletek, míg a 3PM a bedobott triplákat jelöli.
+
+Az alábbi ábrán jól látható, hogy az eFG% megszünteti az FG% torzítását, megfelelően értékeli azokat a játékosokat, akik nagy arányban kísérleteznek távoli dobásokkal.
+
+```{r}
+#| fig-height: 6
+
+gap_data <- scoring %>%
+  mutate(
+    gap        = eFG_pct - FG_pct,
+    label_text = paste0(
+      "<b>", Játékos, "</b> (", Szezon, ")<br>",
+      "Csapat: ", Csapat, "<br>",
+      Kategoria, "<br>",
+      "FG%: ", scales::percent(FG_pct, accuracy = 0.1), "<br>",
+      "eFG%: ", scales::percent(eFG_pct, accuracy = 0.1), "<br>",
+      "3P arány: ", round(ThreeP_rate, 1), "%<br>",
+      "USG%: ", round(USG_pct, 1), "%"
+    )
+  ) %>%
+  arrange(desc(gap)) %>%
+  head(15)
+
+plot_ly() %>%
+  add_segments(
+    data        = gap_data,
+    x           = ~FG_pct,
+    xend        = ~eFG_pct,
+    y           = ~reorder(paste0(Játékos, " (", substr(Szezon, 3, 7), ")"), gap),
+    yend        = ~reorder(paste0(Játékos, " (", substr(Szezon, 3, 7), ")"), gap),
+    line        = list(color = "#D4902A", width = 2.5),
+    showlegend  = FALSE,
+    hoverinfo   = "none"
+  ) %>%
+  add_markers(
+    data        = gap_data,
+    x           = ~FG_pct,
+    y           = ~reorder(paste0(Játékos, " (", substr(Szezon, 3, 7), ")"), gap),
+    marker      = list(color = "#7A756D", size = 9, symbol = "circle"),
+    name        = "FG%",
+    text        = ~label_text,
+    hovertemplate = "%{text}<extra></extra>"
+  ) %>%
+  add_markers(
+    data        = gap_data,
+    x           = ~eFG_pct,
+    y           = ~reorder(paste0(Játékos, " (", substr(Szezon, 3, 7), ")"), gap),
+    marker      = list(color = "#C43A28", size = 9, symbol = "circle"),
+    name        = "eFG%",
+    text        = ~label_text,
+    hovertemplate = "%{text}<extra></extra>"
+  ) %>%
+  layout(
+    title = list(
+      text = "A 15 legnagyobb FG% → eFG% ugrás<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
+    ),
+    xaxis = list(
+      title         = list(
+        text  = "Mezőnykosár-százalék",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 4
+      ),
+      tickformat    = ".0%",
+      color         = "#7A756D",
+      tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor     = "#D4CFC6",
+      zeroline      = FALSE,
+      showline      = FALSE
+    ),
+    yaxis = list(
+      title    = "",
+      tickfont = list(size = 12, color = "#2E2B26", family = "Montserrat"),
+      showgrid = FALSE,
+      showline = FALSE
+    ),
+    annotations = list(
+      list(
+        text      = "<span style='color:#7A756D'>● FG%</span>  →  <span style='color:#C43A28'>● eFG%</span>",
+        x         = 0,
+        y         = -0.10,
+        xref      = "paper",
+        yref      = "paper",
+        xanchor   = "left",
+        yanchor   = "top",
+        showarrow = FALSE,
+        font      = list(size = 13, family = "Montserrat", color = "#2E2B26")
+      )
+    ),
+    hoverlabel    = list(
+      bgcolor     = "#F2EDE4",
+      bordercolor = "#D4CFC6",
+      font        = list(family = "Montserrat", size = 12, color = "#2E2B26")
+    ),
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    showlegend    = FALSE,
+    margin        = list(l = 230, r = 80, t = 90, b = 80)
+  )
+```
+
+<br>
+A lista élén szinte kizárólag olyan játékosok állnak, akiknek a szerepe pontszerzésben elsősorban a távoli dobások értékesítése és a pálya megnyitása a csapattársak számára. A FG% alapján sokan átlagosnak tűnnének, az eFG% azonban feltárja valódi hatékonyságukat.
+
+---
+
+## 2. TS% — Az aranystandard
+
+Az eFG% azonban még mindig figyelmen kívül hagyja a büntetőket. A **True Shooting Percentage (TS%)** mind a három dobástípust egyetlen mutatóba sűríti:
+
+$$TS\% = \frac{PTS}{2 \times (FGA + 0{,}44 \times FTA)}$$
+
+A 0,44-es szorzó egy olyan állandó érték, amely az egy, két vagy három büntetővel járó esetek súlyozására szolgál.
+
+```{r}
+#| fig-height: 6
+
+ts_data <- scoring %>%
+  mutate(
+    ts_vs_avg  = TS_pct - mean(TS_pct, na.rm = TRUE),
+    bar_color  = ifelse(ts_vs_avg >= 0, "#C43A28", "#3A7EC4"),
+    label_text = paste0(
+      "<b>", Játékos, "</b> (", Szezon, ")<br>",
+      "Csapat: ", Csapat, "<br>",
+      "FG%: ", scales::percent(FG_pct, accuracy = 0.1), "<br>",
+      "eFG%: ", scales::percent(eFG_pct, accuracy = 0.1), "<br>",
+      "TS%: ", scales::percent(TS_pct, accuracy = 0.1), "<br>",
+      "FT%: ", scales::percent(FT_pct, accuracy = 0.1), "<br>",
+      "FT/dobás: ", round(FT_rate, 2), "<br>",
+      "USG%: ", round(USG_pct, 1), "%"
+    )
+  ) %>%
+  arrange(desc(TS_pct)) %>%
+  head(20)
+
+overall_avg <- mean(scoring$TS_pct, na.rm = TRUE)
+
+plot_ly(ts_data,
+        x             = ~ts_vs_avg,
+        y             = ~reorder(paste0(Játékos, " (", substr(Szezon, 3, 7), ")"), ts_vs_avg),
+        type          = "bar",
+        orientation   = "h",
+        marker        = list(color = ~bar_color, line = list(width = 0)),
+        text          = ~scales::percent(TS_pct, accuracy = 0.1),
+        textposition  = "outside",
+        textfont      = list(size = 12, color = "#2E2B26", family = "Montserrat"),
+        hovertext     = ~label_text,
+        hovertemplate = "%{hovertext}<extra></extra>") %>%
+  layout(
+    title = list(
+      text = paste0("Top 20 TS% — eltérés a ligaátlagtól<br><sup>Ligaátlag: ",
+                    scales::percent(overall_avg, accuracy = 0.1),
+                    " · Magyar bajnokság 2022–2025 · Min. 400 perc/szezon</sup>"),
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
+    ),
+    xaxis = list(
+      title         = list(
+        text  = "TS% eltérés a ligaátlagtól",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 4
+      ),
+      tickformat    = "+.0%",
+      color         = "#7A756D",
+      tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor     = "#D4CFC6",
+      zeroline      = TRUE,
+      zerolinecolor = "#B0A89E",
+      zerolinewidth = 2,
+      showline      = FALSE
+    ),
+    yaxis = list(
+      title    = "",
+      tickfont = list(size = 12, color = "#2E2B26", family = "Montserrat"),
+      showgrid = FALSE,
+      showline = FALSE
+    ),
+    hoverlabel    = list(
+      bgcolor     = "#F2EDE4",
+      bordercolor = "#D4CFC6",
+      font        = list(family = "Montserrat", size = 12, color = "#2E2B26")
+    ),
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    showlegend    = FALSE,
+    margin        = list(l = 230, r = 90, t = 90, b = 80),
+    bargap        = 0.35
+  )
+```
+
+<br>
+A TS% feltárja, hogy a **büntetők** mennyire tudják felfelé húzni a valós hatékonyságot. Azok a játékosok, akik sokat járnak a vonalra és ott magas százalékkal teljesítenek, FG%-uk alapján alulértékeltnek tűnnek.
+
+---
+
+## 3. FG% vs TS% — Négy Negyed
+
+Ha a FG%-ot a vízszintes tengelyre, a TS%-ot a függőleges tengelyre tesszük, a ligaátlagok keresztezésénél négy negyed alakul ki. A bal felső negyed érdekes tanulságokkal szolgál: alacsony FG%, mégis átlag feletti TS% — ők azok a játékosok, akiket a FG% alapján alulértékelnénk.
+
+Az ábra értelmezéséhez szükség van egy további mutatóra: a **használati arányra (USG%)**. Ez az arányszám azt méri, hogy a csapat labdabirtoklásainak hány százaléka fejeződik be a játékos kezében — dobáskísérlettel, büntetővel vagy eladott labdával. Egy 30%-os USG% azt jelenti, hogy a csapat minden 10 támadásából 3-at ez a játékos zár le. Mivel egyszerre 5 játékos van a pályán és minden labdabirtoklást valaki lezár, a ligaátlag 20%.
+
+$$USG\% = \frac{FGA + 0{,}44 \times FTA + TOV}{Team\ possessions} \times 100$$
+
+Az alábbi ábrán a **pontméret az USG%-ot** tükrözi — a nagyobb pont magasabb terhelést jelent.
+
+```{r}
+#| fig-height: 6
+
+avg_fg <- mean(scoring$FG_pct, na.rm = TRUE)
+avg_ts <- mean(scoring$TS_pct, na.rm = TRUE)
+
+scatter_data <- scoring %>%
+  mutate(
+    quadrant = case_when(
+      FG_pct >= avg_fg & TS_pct >= avg_ts ~ "Mindkettő átlag felett",
+      FG_pct <  avg_fg & TS_pct >= avg_ts ~ "Alacsony FG%, magas TS%",
+      FG_pct >= avg_fg & TS_pct <  avg_ts ~ "Magas FG%, alacsony TS%",
+      TRUE                                ~ "Mindkettő átlag alatt"
+    ),
+    point_color = case_when(
+      quadrant == "Alacsony FG%, magas TS%" ~ "#C43A28",
+      quadrant == "Mindkettő átlag felett"  ~ "#D4902A",
+      TRUE                                  ~ "#7A756D"
+    ),
+    label_text = paste0(
+      "<b>", Játékos, "</b> (", Szezon, ")<br>",
+      "Csapat: ", Csapat, "<br>",
+      "FG%: ", scales::percent(FG_pct, accuracy = 0.1), "<br>",
+      "TS%: ", scales::percent(TS_pct, accuracy = 0.1), "<br>",
+      "eFG%: ", scales::percent(eFG_pct, accuracy = 0.1), "<br>",
+      "FT/dobás: ", round(FT_rate, 2), "<br>",
+      "3P arány: ", round(ThreeP_rate, 1), "%<br>",
+      "USG%: ", round(USG_pct, 1), "%"
+    )
+  )
+
+plot_ly(scatter_data,
+        x             = ~FG_pct,
+        y             = ~TS_pct,
+        type          = "scatter",
+        mode          = "markers",
+        marker        = list(
+          color   = ~point_color,
+          size    = ~(USG_pct / 3),
+          opacity = 0.75,
+          line    = list(width = 0)
+        ),
+        hovertext     = ~label_text,
+        hovertemplate = "%{hovertext}<extra></extra>") %>%
+  add_lines(
+    data      = data.frame(x = c(avg_fg, avg_fg), y = c(0.43, 0.78)),
+    x         = ~x, y = ~y,
+    inherit   = FALSE,
+    line      = list(color = "#B0A89E", width = 1.5, dash = "dot"),
+    showlegend = FALSE, hoverinfo = "none"
+  ) %>%
+  add_lines(
+    data      = data.frame(x = c(0.33, 0.74), y = c(avg_ts, avg_ts)),
+    x         = ~x, y = ~y,
+    inherit   = FALSE,
+    line      = list(color = "#B0A89E", width = 1.5, dash = "dot"),
+    showlegend = FALSE, hoverinfo = "none"
+  ) %>%
+  layout(
+    title = list(
+      text = "FG% vs TS% — Pontméret: USG%<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon · Pontozott vonalak: ligaátlagok</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
+    ),
+    xaxis = list(
+      title         = list(
+        text  = "Mezőnykosár-százalék (FG%)",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 4
+      ),
+      tickformat    = ".0%",
+      range         = c(0.33, 0.74),
+      color         = "#7A756D",
+      tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor     = "#D4CFC6",
+      zeroline      = FALSE,
+      showline      = FALSE
+    ),
+    yaxis = list(
+      title         = list(
+        text  = "Súlyozott dobószázalék (TS%)",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 8
+      ),
+      tickformat    = ".0%",
+      range         = c(0.43, 0.78),
+      color         = "#7A756D",
+      tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor     = "#D4CFC6",
+      zeroline      = FALSE,
+      showline      = FALSE
+    ),
+    annotations = list(
+      list(
+        text      = "<span style='color:#C43A28'>● Alacsony FG%, magas TS%</span>  <span style='color:#D4902A'>● Mindkettő átlag felett</span>  <span style='color:#7A756D'>● Átlag alatti TS%</span>",
+        x         = 0,
+        y         = -0.12,
+        xref      = "paper",
+        yref      = "paper",
+        xanchor   = "left",
+        yanchor   = "top",
+        showarrow = FALSE,
+        font      = list(size = 13, family = "Montserrat", color = "#2E2B26")
+      )
+    ),
+    hoverlabel    = list(
+      bgcolor     = "#F2EDE4",
+      bordercolor = "#D4CFC6",
+      font        = list(family = "Montserrat", size = 12, color = "#2E2B26")
+    ),
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    showlegend    = FALSE,
+    margin        = list(l = 80, r = 60, t = 90, b = 80)
+  )
+```
+
+<br>
+A **bal felső negyed** (piros pontok) tartalmazza azokat, akiket a FG% félrevezető módon jellemez: alacsony mezőnyszázalékuk van, de a triplák és/vagy büntetők miatt a TS%-uk átlag feletti. A pontméret az USG%-t mutatja — a nagy piros pontok a liga legértékesebb, legterheltebb és mégis hatékony játékosai.
+
+---
+
+## 4. Mennyiség vagy hatékonyság?
+
+Bár a **hatékonyság** nagyon fontos mutató, a **volumen** bevonása az elemzésbe új dimenziókat nyit meg.
+Ahogy egy játékosnak egyre nagyobb felelőssége lesz pontszerzésben, a védekezés is jobban ráfókuszál. Ennek következtében a hatékonyság csökkenhet. Gyakori kérdés a játékosok elemzése során, hogy mennyire tudják felskálázni a teljesítményüket, tudják-e tartani hatékonyságukat magasabb dobásszám mellett is.
+
+Az alábbi ábra mutatja, az összefüggést a volumen és hatékonyság között.
+
+```{r}
+#| fig-height: 6
+
+skill_data <- scoring %>%
+  mutate(
+    ts_above_avg = TS_pct - mean(TS_pct, na.rm = TRUE),
+    point_color  = case_when(
+      ts_above_avg >  0.05 ~ "#C43A28",
+      ts_above_avg < -0.05 ~ "#3A7EC4",
+      TRUE                 ~ "#7A756D"
+    ),
+    label_text = paste0(
+      "<b>", Játékos, "</b> (", Szezon, ")<br>",
+      "Csapat: ", Csapat, "<br>",
+      "USG%: ", round(USG_pct, 1), "%<br>",
+      "TS%: ", scales::percent(TS_pct, accuracy = 0.1), "<br>",
+      "FG%: ", scales::percent(FG_pct, accuracy = 0.1), "<br>",
+      "PTS/meccs: ", round(PTS_PG, 1)
+    )
+  )
+
+# LOESS trend fit
+loess_fit <- loess(TS_pct ~ USG_pct, data = skill_data, span = 0.7)
+usg_seq   <- seq(min(skill_data$USG_pct, na.rm = TRUE),
+                 max(skill_data$USG_pct, na.rm = TRUE), length.out = 100)
+ts_pred   <- predict(loess_fit, newdata = data.frame(USG_pct = usg_seq))
+
+plot_ly() %>%
+  add_markers(
+    data          = skill_data,
+    x             = ~USG_pct,
+    y             = ~TS_pct,
+    marker        = list(
+      color   = ~point_color,
+      size    = 8,
+      opacity = 0.65,
+      line    = list(width = 0)
+    ),
+    hovertext     = ~label_text,
+    hovertemplate = "%{hovertext}<extra></extra>",
+    showlegend    = FALSE
+  ) %>%
+  add_lines(
+    data       = data.frame(x = usg_seq, y = ts_pred),
+    x          = ~x,
+    y          = ~y,
+    inherit    = FALSE,
+    line       = list(color = "#2E2B26", width = 2.5),
+    name       = "Trend (LOESS)",
+    showlegend = FALSE,
+    hoverinfo  = "none"
+  ) %>%
+  add_lines(
+    data       = data.frame(x = c(10, 35),
+                            y = rep(mean(scoring$TS_pct, na.rm = TRUE), 2)),
+    x          = ~x,
+    y          = ~y,
+    inherit    = FALSE,
+    line       = list(color = "#B0A89E", width = 1.5, dash = "dot"),
+    name       = "Ligaátlag TS%",
+    showlegend = FALSE,
+    hoverinfo  = "none"
+  ) %>%
+  layout(
+    title = list(
+      text = "USG% vs TS%<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon · Vonal: LOESS trend</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
+    ),
+    xaxis = list(
+      title         = list(
+        text  = "Használati arány (USG%)",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 4
+      ),
+      ticksuffix    = "%",
+      color         = "#7A756D",
+      tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor     = "#D4CFC6",
+      zeroline      = FALSE,
+      showline      = FALSE
+    ),
+    yaxis = list(
+      title         = list(
+        text  = "Súlyozott dobószázalék (TS%)",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 8
+      ),
+      tickformat    = ".0%",
+      color         = "#7A756D",
+      tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor     = "#D4CFC6",
+      zeroline      = FALSE,
+      showline      = FALSE
+    ),
+    annotations = list(
+      list(
+        text      = "<span style='color:#C43A28'>● Átlag felett (+5%)</span>  <span style='color:#7A756D'>● Átlag körül</span>  <span style='color:#3A7EC4'>● Átlag alatt (-5%)</span>",
+        x         = 0,
+        y         = -0.12,
+        xref      = "paper",
+        yref      = "paper",
+        xanchor   = "left",
+        yanchor   = "top",
+        showarrow = FALSE,
+        font      = list(size = 13, family = "Montserrat", color = "#2E2B26")
+      )
+    ),
+    hoverlabel    = list(
+      bgcolor     = "#F2EDE4",
+      bordercolor = "#D4CFC6",
+      font        = list(family = "Montserrat", size = 12, color = "#2E2B26")
+    ),
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    showlegend    = FALSE,
+    margin        = list(l = 80, r = 60, t = 90, b = 80)
+  )
+```
+
+```{r}
+skill_cor <- cor(skill_data$USG_pct, skill_data$TS_pct, use = "complete.obs")
+```
+
+<br>
+Az ábrán minden pont egy játékos-szezon. Az **vízszintes tengely (USG%)** azt mutatja, mekkora volumennel dolgozott a játékos. A **függőleges tengely (TS%)** pedig a pontszerzés hatékonyságát mutatja. A pontozott vízszintes vonal a ligaátlagos TS%.
+
+A sok labdával dolgozó, **20% feletti USG%-kal rendelkező, mégis átlag feletti TS%-ot mutató játékosok** az ábra jobb felső sarkában vannak piros színnel. A kék pontok pedig a kevésbé hatékony játékosokat jelölik. A jobb alsó sarokban vannak azok a játékosok, akik sok labdabirtoklást fejeznek be, de ezeket alacsony hatékonysággal váltják pontokra.
+
+---
+
+## 5. U23 játékosok pontszerzése a magyar bajnokságban
+
+```{r}
+#| fig-height: 6
+
+u23_data <- scoring %>%
+  mutate(
+    szezon_ev  = as.integer(substr(Szezon, 1, 4)),
+    u23        = !is.na(Szul_ev) & Szul_ev >= (szezon_ev - 22),
+    pont_szin  = ifelse(u23, "#C43A28", "#D4CFC6"),
+    pont_meret = ifelse(u23, 10, 6),
+    pont_alpha = ifelse(u23, 0.9, 0.4),
+    label_text = paste0(
+      "<b>", Játékos, "</b> (", Szezon, ")<br>",
+      "Csapat: ", Csapat, "<br>",
+      if_else(u23, paste0("U23 (", as.integer(Szul_ev), ")"), "Nem U23"), "<br>",
+      "USG%: ", round(USG_pct, 1), "%<br>",
+      "TS%: ", scales::percent(TS_pct, accuracy = 0.1), "<br>",
+      "PTS/meccs: ", round(PTS_PG, 1)
+    )
+  )
+
+avg_ts_u23 <- mean(scoring$TS_pct, na.rm = TRUE)
+
+plot_ly() %>%
+  add_markers(
+    data          = filter(u23_data, !u23),
+    x             = ~USG_pct,
+    y             = ~TS_pct,
+    name          = "Nem U23",
+    marker        = list(color = "#D4CFC6", size = 6, opacity = 0.4,
+                         line = list(width = 0)),
+    hovertext     = ~label_text,
+    hovertemplate = "%{hovertext}<extra></extra>",
+    showlegend    = TRUE
+  ) %>%
+  add_markers(
+    data          = filter(u23_data, u23),
+    x             = ~USG_pct,
+    y             = ~TS_pct,
+    name          = "U23",
+    marker        = list(color = "#C43A28", size = 10, opacity = 0.85,
+                         line = list(color = "#2E2B26", width = 0.5)),
+    hovertext     = ~label_text,
+    hovertemplate = "%{hovertext}<extra></extra>",
+    showlegend    = TRUE
+  ) %>%
+  add_lines(
+    data       = data.frame(x = c(10, 35), y = c(avg_ts_u23, avg_ts_u23)),
+    x = ~x, y = ~y,
+    inherit    = FALSE,
+    line       = list(color = "#B0A89E", width = 1.5, dash = "dot"),
+    showlegend = FALSE, hoverinfo = "none"
+  ) %>%
+  layout(
+    title = list(
+      text = "U23 játékosok használata és hatékonysága<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon · Piros: az adott szezon U23-asai</sup>",
+      font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
+      x    = 0,
+      xref = "paper"
+    ),
+    xaxis = list(
+      title     = list(
+        text  = "Használati arány (USG%)",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 4
+      ),
+      ticksuffix = "%",
+      color      = "#7A756D",
+      tickfont   = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor  = "#D4CFC6",
+      zeroline   = FALSE,
+      showline   = FALSE
+    ),
+    yaxis = list(
+      title     = list(
+        text  = "Valódi dobószázalék (TS%)",
+        font  = list(size = 13, family = "Montserrat", color = "#7A756D"),
+        standoff = 8
+      ),
+      tickformat = ".0%",
+      color      = "#7A756D",
+      tickfont   = list(family = "Montserrat", size = 12, color = "#7A756D"),
+      gridcolor  = "#D4CFC6",
+      zeroline   = FALSE,
+      showline   = FALSE
+    ),
+    legend = list(
+      orientation = "h",
+      x           = 0.5,
+      xanchor     = "center",
+      y           = -0.12,
+      yanchor     = "top",
+      bgcolor     = "rgba(0,0,0,0)",
+      borderwidth = 0,
+      font        = list(size = 13, family = "Montserrat", color = "#2E2B26")
+    ),
+    hoverlabel    = list(
+      bgcolor     = "#F2EDE4",
+      bordercolor = "#D4CFC6",
+      font        = list(family = "Montserrat", size = 12, color = "#2E2B26")
+    ),
+    paper_bgcolor = "#F6F4F0",
+    plot_bgcolor  = "#FAFAF6",
+    font          = list(color = "#2E2B26", family = "Montserrat"),
+    showlegend    = TRUE,
+    margin        = list(l = 80, r = 60, t = 90, b = 80)
+  )
+```
+
+```{r}
+u23_n       <- sum(u23_data$u23)
+u23_avg_usg <- mean(u23_data$USG_pct[u23_data$u23], na.rm = TRUE)
+all_avg_usg <- mean(u23_data$USG_pct, na.rm = TRUE)
+```
+
+<br>
+Az ábra az U23-as játékosokat emeli ki pirossal a teljes minta szürkével látható. Minden szezonban az adott év U23-asai szerepelnek — tehát a 2022-23-as szezonban a 2000-ben vagy később születettek, 2023-24-ben a 2001-esek, 2024-25-ben a 2002-esek.
+
+A három szezonban összesen **`r u23_n` U23-as játékos-szezon** felel meg a 400 perces szűrőnek. Átlagos USG%-uk `r round(u23_avg_usg, 1)`%, — az U23-asok tehát átlagosan kb. **`r round(all_avg_usg - u23_avg_usg, 1)` százalékponttal** kevesebb labdabirtoklást fejeznek be.
+
+---
+
+## 6. Ligaátlagok évről évre
+
+```{r}
+avg_table <- league_avg %>%
+  mutate(
+    Szezon  = Szezon,
+    `FG%`   = scales::percent(avg_FG,  accuracy = 0.1),
+    `eFG%`  = scales::percent(avg_eFG, accuracy = 0.1),
+    `TS%`   = scales::percent(avg_TS,  accuracy = 0.1),
+    `n`     = n
+  ) %>%
+  select(Szezon, `FG%`, `eFG%`, `TS%`, `n`)
+
+DT::datatable(
+  avg_table,
+  rownames  = FALSE,
+  options   = list(
+    dom        = "t",
+    ordering   = FALSE,
+    pageLength = 5
+  ),
+  colnames = c("Szezon", "FG%", "eFG%", "TS%", "Játékosok száma")
+)
+```
+
+```{r}
+ts_22 <- league_avg$avg_TS[league_avg$Szezon == "2022-23"]
+ts_25 <- league_avg$avg_TS[league_avg$Szezon == "2024-25"]
+ts_dir <- ifelse(ts_25 > ts_22, "emelkedett", "csökkent")
+```
+
+<br>
+A három szezon alatt a ligaátlagos TS% `r ts_dir` (`r scales::percent(ts_22, accuracy = 0.1)` → `r scales::percent(ts_25, accuracy = 0.1)`). A mutatók közötti rés stabil: az eFG% mindig a FG% felett van (a triplások hatása), a TS% pedig az eFG% felett (a büntetők hatása).
+
+---
+
+## 7. Hazai U23 vs Légiós vs NBA
+
+```{r}
+nba_avg <- data.frame(
+  Szezon  = c("2022-23", "2023-24", "2024-25"),
+  avg_TS  = c(0.579, 0.582, 0.580),
+  Csoport = "NBA átlag",
+  n       = NA_integer_
+)
+
+comp_data <- scoring %>%
+  mutate(
+    szezon_ev = as.integer(substr(Szezon, 1, 4)),
+    Csoport   = case_when(
+      Statusz == "Hazai" & Szul_ev >= (szezon_ev - 22) ~ "Hazai U23",
+      Statusz == "Hazai"                               ~ "Hazai (idősebb)",
+      TRUE                                             ~ "Légiós"
+    )
+  ) %>%
+  group_by(Szezon, Csoport) %>%
+  summarise(avg_TS = mean(TS_pct, na.rm = TRUE), n = n(), .groups = "drop") %>%
+  bind_rows(nba_avg) %>%
+  mutate(Csoport = factor(Csoport,
+                          levels = c("Hazai U23", "Hazai (idősebb)",
+                                     "Légiós", "NBA átlag")))
+
+comp_table <- comp_data %>%
+  group_by(Csoport) %>%
+  summarise(
+    avg_TS = mean(avg_TS, na.rm = TRUE),
+    n_total = sum(n, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    `TS%` = scales::percent(avg_TS, accuracy = 0.1),
+    `Játékosok száma` = ifelse(n_total == 0, "—", as.character(n_total))
+  ) %>%
+  arrange(Csoport) %>%
+  select(Csoport, `TS%`, `Játékosok száma`)
+
+DT::datatable(
+  comp_table,
+  rownames = FALSE,
+  options  = list(
+    dom        = "t",
+    ordering   = FALSE,
+    pageLength = 20
+  )
+)
+```
+
+```{r}
+gap_u23_legios <- mean(comp_data$avg_TS[comp_data$Csoport == "Légiós"]) -
+                  mean(comp_data$avg_TS[comp_data$Csoport == "Hazai U23"])
+gap_u23_nba    <- mean(comp_data$avg_TS[comp_data$Csoport == "NBA átlag"]) -
+                  mean(comp_data$avg_TS[comp_data$Csoport == "Hazai U23"])
+```
+
+<br>
+A légiósok TS%-a mindhárom szezonban közel van az NBA ligaátlaghoz — ez azt jelzi, hogy a magyar bajnokságba érkező külföldi játékosok átlagosan NBA-szintű hatékonysággal teljesítenek, ami a liga kompetitivitása szempontjából pozitív jel. Valószínűleg, ha ezek a légiósok az NBA-ben játszananák, a hatékonyságuk csökkenne. :)
+
+A Hazai U23-asok átlagosan **`r scales::percent(gap_u23_legios, accuracy = 0.1)`-kal** maradnak el a légiósoktól és **`r scales::percent(gap_u23_nba, accuracy = 0.1)`-kal** az NBA átlagtól. Látható, hogy a fiatal játékosok mind hatékonyságban, mind volumenben elmaradnak a NBI-es átlagtól. Így kinyílik egy ördögi kör. A fiatalok felé alacsony a bizalom (játéklehetőség, USG%), mert nem elég hatékonyak, de így a fejlődés is megrekedhet.
+
+---
+
+## Összefoglalás
+
+| Mutató | Mit mér? | Korlát |
+|---|---|---|
+| **FG%** | Mezőnykosár-arány | Nem különbözteti meg a 2P/3P dobásokat, büntetőt nem tartalmaz |
+| **eFG%** | Kiigazított mezőnykosár | Nem tartalmazza a büntetőket |
+| **TS%** | Teljes pontszerzési hatékonyság | — |
+
+A TS% a legjobb egyváltozós mérőszám egy játékos dobóhatékonyságának megítélésére. A kontextushoz azonban érdemes mellé nézni az USG%-ot is — egy 62%-os TS% alacsony terheléssel lenyűgöző, de egész más, mint ugyanaz a szám 30%-os USG% mellett.

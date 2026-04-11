@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: docs
+  execute-dir: project
 
 website:
   title: "Levente Kaszai"
@@ -8,13 +9,35 @@ website:
     left:
       - href: index.qmd
         text: "Home"
-      - href: four_factors_1.qmd
-        text: "Four Factors"
+      - text: "Kosárlabda"
+        menu:
+          - href: four_factors_1.qmd
+            text: "Four Factors"
+          - href: scoring_efficiency.qmd
+            text: "Scoring Efficiency"
+          - href: pace_efficiency.qmd
+            text: "Játékritmus & Hatékonyság"
+          - href: analytics.qmd
+            text: "🔒 Analytics"
+          - href: player_ratings.qmd
+            text: "Játékosértékelés"
+          - href: jatekosok.qmd
+            text: "Játékos profilok"
+      - text: "Labdarúgás"
+        menu:
+          - href: futball/analytics.qmd
+            text: "🔒 Analytics"
+          - href: futball/striker_clustering.qmd
+            text: "Csatár klaszterezés"
+          - href: futball/player_ratings.qmd
+            text: "Játékosértékelés"
+          - href: futball/jatekosok.qmd
+            text: "Játékos profilok"
     right:
       - icon: github
         href: https://github.com/leventekaszai
   page-footer:
-    center: "Levente Kaszai — Hungarian Basketball Analytics"
+    center: "Levente Kaszai — Hungarian Sports Analytics"
 
 format:
   html:

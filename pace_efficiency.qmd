@@ -1,0 +1,868 @@
+---
+title: "Játékritmus & Hatékonyság"
+subtitle: "Miért nem elég a pontozás? A per-100 labdabirtok logikája, 2022–2025"
+format:
+  html:
+    toc: true
+    toc-title: "Tartalom"
+    toc-depth: 2
+    toc-location: left
+    page-layout: full
+    css: styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(DBI); library(RSQLite)
+library(dplyr); library(tidyr)
+library(plotly); library(knitr)
+
+BG    <- "#F6F4F0"
+BG2   <- "#FAFAF6"
+GRID  <- "#D4CFC6"
+MUTED <- "#7A756D"
+DARK  <- "#2E2B26"
+HUN   <- "#C43A28"
+NBA   <- "#3A7EC4"
+SZ    <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
+
+con   <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+games <- dbGetQuery(con, "SELECT * FROM detailed_match_stats WHERE Szakasz = 'alapszakasz'")
+dbDisconnect(con)
+
+games <- games |>
+  mutate(
+    Gy   = ifelse(`Kimen.` == "Gy", 1L, 0L),
+    ORTG = as.numeric(ORTG),
+    DRTG = as.numeric(DRTG),
+    Pace = as.numeric(Pace),
+    POSS = as.numeric(POSS),
+    PTS  = as.numeric(PTS)
+  )
+
+team_sz <- games |>
+  group_by(Szezon, Csapat) |>
+  summarise(
+    G       = n(),
+    Win_pct = mean(Gy),
+    ORtg    = mean(ORTG, na.rm = TRUE),
+    DRtg    = mean(DRTG, na.rm = TRUE),
+    Net     = ORtg - DRtg,
+    Pace    = mean(Pace, na.rm = TRUE),
+    POSS    = mean(POSS, na.rm = TRUE),
+    PTS_pg  = mean(PTS,  na.rm = TRUE),
+    PTS_diff = mean(PTS - as.numeric(`Opp. PTS`), na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  mutate(across(c(ORtg, DRtg, Net, Pace, POSS, PTS_pg, PTS_diff), round, 2))
+
+# Ligaátlagok szezonként
+liga_avg <- team_sz |>
+  group_by(Szezon) |>
+  summarise(avg_ORtg = mean(ORtg), avg_DRtg = mean(DRtg),
+            avg_Pace = mean(Pace), .groups = "drop")
+```
+
+A kosárlabda-statisztika legnagyobb tévhite: a jobb csapat több pontot szerez mérkőzésenként.
+Ez igaz — de csak akkor, ha a csapatok ugyanolyan tempóban játszanak. Egy lassú, kontrollált kosárlabdát játszó csapat 78 pontja és egy gyors transíciós csapat 78 pontja teljesen eltérő hatékonyságot takar.
+
+**Dean Oliver** felismerése: a kosárlabda valójában **labdabirtok-alapú** játék. Az egyetlen értelmes hatékonysági mérőszám a **100 labdabirtokra vetített pontszám** — ez a tempótól független, csapatok és korszakok között összehasonlítható.
+
+---
+
+## A rangsor csapdája
+
+Melyik csapat hatékonyabb — amelyik többet pontoz, vagy amelyik 100 labdabirtokból többet csinál belőle?
+
+```{r ranking-shift}
+#| fig-height: 8
+# 2024-25 rangsorcsere pts_pg vs ORtg
+rk <- team_sz |>
+  filter(Szezon == "2024-25") |>
+  arrange(desc(PTS_pg)) |>
+  mutate(rk_pts = row_number()) |>
+  arrange(desc(ORtg)) |>
+  mutate(rk_ortg = row_number()) |>
+  mutate(shift = rk_pts - rk_ortg) |>   # pozitív = ORtg-ben jobban áll
+  arrange(rk_pts)
+
+n_teams <- nrow(rk)
+
+# Slope chart: bal oldal = pts/game rang, jobb oldal = ORtg rang
+fig <- plot_ly()
+
+for (i in seq_len(n_teams)) {
+  r       <- rk[i, ]
+  col_line <- if (r$shift > 1) "#1a7a4a" else if (r$shift < -1) HUN else MUTED
+  lwd     <- if (abs(r$shift) > 1) 2 else 1
+
+  fig <- fig |>
+    add_trace(
+      x    = c(0, 1),
+      y    = c(r$rk_pts, r$rk_ortg),
+      type = "scatter", mode = "lines",
+      line = list(color = col_line, width = lwd),
+      showlegend = FALSE,
+      hoverinfo  = "none"
+    ) |>
+    add_trace(
+      x    = c(0, 1),
+      y    = c(r$rk_pts, r$rk_ortg),
+      type = "scatter", mode = "markers",
+      marker = list(color = col_line, size = 7),
+      showlegend = FALSE,
+      hovertemplate = paste0(
+        "<b>", r$Csapat, "</b><br>",
+        "Pont/meccs rang: ", r$rk_pts,
+        " (", round(r$PTS_pg, 1), " pt)<br>",
+        "ORtg rang: ", r$rk_ortg,
+        " (", round(r$ORtg, 1), ")<br>",
+        "Tempó: ", round(r$POSS, 1), " labdabirtok/meccs<br>",
+        if (r$shift > 0) paste0("+", r$shift, " helyet javít ORtg-ben")
+        else if (r$shift < 0) paste0(abs(r$shift), " helyet veszít ORtg-ben")
+        else "Azonos helyen áll",
+        "<extra></extra>"
+      )
+    ) |>
+    add_annotations(
+      x = -0.04, y = r$rk_pts,
+      text = r$Csapat,
+      xanchor = "right", showarrow = FALSE,
+      font = list(size = 11, family = "Montserrat",
+                  color = if (abs(r$shift) > 1) col_line else MUTED)
+    ) |>
+    add_annotations(
+      x = 1.04, y = r$rk_ortg,
+      text = r$Csapat,
+      xanchor = "left", showarrow = FALSE,
+      font = list(size = 11, family = "Montserrat",
+                  color = if (abs(r$shift) > 1) col_line else MUTED)
+    )
+}
+
+fig |>
+  add_annotations(
+    x = 0, y = -0.9, xref = "x", yref = "y",
+    text = "<b>Pont / meccs</b>", showarrow = FALSE,
+    font = list(size = 12, family = "Montserrat", color = DARK)
+  ) |>
+  add_annotations(
+    x = 1, y = -0.9, xref = "x", yref = "y",
+    text = "<b>ORtg (per 100 labdabirtok)</b>", showarrow = FALSE,
+    font = list(size = 12, family = "Montserrat", color = DARK)
+  ) |>
+  layout(
+    title = list(
+      text = "Rangsorcsere: Pont/meccs vs. Támadóhatékonyság (ORtg)<br><sup>Magyar bajnokság, 2024–25 alapszakasz · Zöld = ORtg-ben felfelé lép, piros = lefelé</sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      range = c(-0.5, 1.5), showgrid = FALSE, showticklabels = FALSE,
+      zeroline = FALSE, showline = FALSE, title = ""
+    ),
+    yaxis = list(
+      range = c(n_teams + 0.5, -1.5),
+      showgrid = FALSE, showticklabels = FALSE,
+      zeroline = FALSE, showline = FALSE, title = ""
+    ),
+    paper_bgcolor = BG, plot_bgcolor = BG2,
+    font = list(family = "Montserrat", color = DARK),
+    margin = list(l = 140, r = 140, t = 90, b = 60),
+    height = 700
+  )
+```
+
+A **<span style="color:#1a7a4a">zöld vonalak</span>** olyan csapatokat jelölnek, amelyek pontszám alapján hátrébb állnak, de hatékonysági szempontból előrébb. A **<span style="color:#C43A28">piros vonalak</span>** a fordítottját jelzik.
+
+```{r illusztracio-szoveg, results='asis'}
+ex <- team_sz |>
+  filter(Szezon == "2024-25") |>
+  arrange(desc(PTS_pg)) |>
+  mutate(rk_pts = row_number()) |>
+  arrange(desc(ORtg)) |>
+  mutate(rk_ortg = row_number()) |>
+  mutate(shift = rk_pts - rk_ortg) |>
+  filter(shift == max(shift, na.rm = TRUE)) |>
+  slice(1)
+
+cat(paste0(
+  "> **Legszembetűnőbb eltérés: ", ex$Csapat, "** — pontszám alapján a ",
+  ex$rk_pts, ". helyen áll (", round(ex$PTS_pg, 1), " pt/meccs), ",
+  "de ORtg szerint a ", ex$rk_ortg, ". legjobb csapat (", round(ex$ORtg, 1), "). ",
+  "Oka: meccsenként átlag ", round(ex$POSS, 1), " labdabirtokot játszanak — ",
+  "a liga leglassabb tempóinak egyike. Kevesebbet pontoz, de amit dob, azt hatékonyabban csinálja."
+))
+```
+
+---
+
+## A liga tempója
+
+Hány labdabirtokot játszik egy csapat 40 percenként? Ez határozza meg azt az "ütemet", amellyel az adatok értelmezhetők.
+
+```{r pace-chart}
+#| fig-height: 8
+# categoryarray[1] = alul, categoryarray[n] = felül → rev(sort) → A felül, Z alul
+pace_order <- rev(sort(unique(team_sz$Csapat)))
+
+pace_df <- team_sz
+
+fig_pace <- plot_ly()
+
+for (sz in names(SZ)) {
+  d <- pace_df |> filter(Szezon == sz)
+  fig_pace <- fig_pace |>
+    add_trace(
+      x             = d$Pace,
+      y             = d$Csapat,
+      type          = "bar",
+      orientation   = "h",
+      name          = sz,
+      marker        = list(color = SZ[sz], opacity = 0.85, line = list(width = 0)),
+      hovertemplate = paste0("<b>%{y}</b> (", sz, ")<br>Tempó: %{x:.1f} labdabirtok/40 perc<extra></extra>")
+    )
+}
+
+# NBA referenciavonal szezonként – shapes + közvetlen felirat
+nba_pace_sz <- c("2022-23" = round(99.1 * 40/48, 1),
+                 "2023-24" = round(98.5 * 40/48, 1),
+                 "2024-25" = round(98.8 * 40/48, 1))
+
+nba_shapes <- lapply(names(SZ), function(sz) {
+  list(type = "line",
+       x0 = nba_pace_sz[sz], x1 = nba_pace_sz[sz],
+       y0 = 0, y1 = 1, xref = "x", yref = "paper",
+       line = list(color = SZ[sz], width = 1.2, dash = "dot"))
+})
+
+nba_annotations <- list(
+  list(x = mean(nba_pace_sz), y = 1, xref = "x", yref = "paper",
+       text = "<b>NBA</b>",
+       showarrow = FALSE, xanchor = "center", yanchor = "bottom",
+       font = list(size = 10, color = MUTED, family = "Montserrat"))
+)
+
+# Láthatatlan trace-ek a legend bejegyzésekhez
+for (sz in names(SZ)) {
+  fig_pace <- fig_pace |>
+    add_trace(
+      x = NA, y = NA, type = "scatter", mode = "lines",
+      line = list(color = SZ[sz], width = 1.2, dash = "dot"),
+      name = paste0("NBA (", sz, ")"),
+      showlegend = TRUE, hoverinfo = "none"
+    )
+}
+
+fig_pace |>
+  layout(
+    title = list(
+      text = "Tempó csapatonként és szezonként<br><sup>Labdabirtok száma 40 percenként · NBA referenciával</sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      title     = "Labdabirtok / 40 perc",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      range     = c(65, 88), gridcolor = GRID, zeroline = FALSE
+    ),
+    yaxis = list(
+      title = "", tickfont = list(size = 11, family = "Montserrat", color = DARK),
+      showgrid = FALSE,
+      categoryorder = "array", categoryarray = pace_order
+    ),
+    barmode       = "group",
+    bargroupgap   = 0.1,
+    paper_bgcolor = BG,
+    plot_bgcolor  = BG2,
+    font          = list(family = "Montserrat", color = DARK),
+    legend = list(
+      orientation = "h", x = 0.5, xanchor = "center",
+      y = -0.12, yanchor = "top",
+      font = list(size = 12, family = "Montserrat")
+    ),
+    shapes        = nba_shapes,
+    annotations   = nba_annotations,
+    margin = list(l = 120, r = 60, t = 90, b = 80),
+    height = 700
+  )
+```
+
+Az NBA-val összevetve (~82 labdabirtok/40 perc) a magyar bajnokság körülbelül **8–10 labdabirtokkal lassabb** meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között 4–6 labdabirtok-különbség lehet, ami szezon végén akár 100+ labdabirtok-eltérést jelent a statisztikák mögött.
+
+---
+
+## Hatékonysági térkép
+
+A négy negyedes ábrán minden pont egy csapat egy szezonjának szezonátlagát mutatja. A vízszintes tengely a **támadóhatékonyságot** (ORtg), a függőleges a **védőhatékonyságot** mutatja — mindkét irányban jobb, ha az adott érték kedvező.
+
+```{r quadrant-map}
+#| fig-height: 8
+# Ligaátlag alapján negyedek
+all_avg_ortg <- mean(team_sz$ORtg)
+all_avg_drtg <- mean(team_sz$DRtg)
+
+tt_quad <- paste0(
+  "<b>", team_sz$Csapat, " (", team_sz$Szezon, ")</b>",
+  "<br>ORtg: ", team_sz$ORtg,
+  "<br>DRtg: ", team_sz$DRtg,
+  "<br>Net: ", ifelse(team_sz$Net >= 0, "+", ""), team_sz$Net,
+  "<br>Győzelmek: ", round(team_sz$Win_pct * team_sz$G), "/", team_sz$G,
+  "<extra></extra>"
+)
+
+# Dinamikus tengelytartomány adatoktól függően
+x_rng  <- c(min(team_sz$ORtg) - 3, max(team_sz$ORtg) + 3)
+y_rng  <- c(max(team_sz$DRtg) + 3, min(team_sz$DRtg) - 5)  # fordított; extra tér felül a labeleknek
+
+fig_quad <- plot_ly()
+
+for (sz in names(SZ)) {
+  d  <- team_sz |> filter(Szezon == sz)
+  tt <- tt_quad[team_sz$Szezon == sz]
+  fig_quad <- fig_quad |>
+    add_trace(
+      x             = d$ORtg,
+      y             = d$DRtg,
+      type          = "scatter",
+      mode          = "markers+text",
+      name          = sz,
+      marker        = list(size = 10, color = SZ[sz], opacity = 0.85,
+                           line = list(width = 1, color = "#ffffff60")),
+      text          = d$Csapat,
+      textposition  = "top center",
+      textfont      = list(size = 8, color = MUTED, family = "Montserrat"),
+      hovertemplate = tt
+    )
+}
+
+# Negyedhatárok (ligaátlag)
+fig_quad |>
+  add_segments(x = all_avg_ortg, xend = all_avg_ortg,
+               y = y_rng[1], yend = y_rng[2],
+               line = list(color = GRID, width = 1.5, dash = "dash"),
+               showlegend = FALSE) |>
+  add_segments(x = x_rng[1], xend = x_rng[2],
+               y = all_avg_drtg, yend = all_avg_drtg,
+               line = list(color = GRID, width = 1.5, dash = "dash"),
+               showlegend = FALSE) |>
+  add_annotations(x = 0.98, y = 0.98, xref = "paper", yref = "paper",
+    xanchor = "right", yanchor = "top",
+    text = "🏆 Elit", showarrow = FALSE,
+    font = list(size = 11, color = "#1a7a4a", family = "Montserrat")) |>
+  add_annotations(x = 0.02, y = 0.98, xref = "paper", yref = "paper",
+    xanchor = "left", yanchor = "top",
+    text = "Védő", showarrow = FALSE,
+    font = list(size = 11, color = MUTED, family = "Montserrat")) |>
+  add_annotations(x = 0.98, y = 0.02, xref = "paper", yref = "paper",
+    xanchor = "right", yanchor = "bottom",
+    text = "Támadó", showarrow = FALSE,
+    font = list(size = 11, color = MUTED, family = "Montserrat")) |>
+  add_annotations(x = 0.02, y = 0.02, xref = "paper", yref = "paper",
+    xanchor = "left", yanchor = "bottom",
+    text = "Alacsony", showarrow = FALSE,
+    font = list(size = 11, color = HUN, family = "Montserrat")) |>
+  layout(
+    title = list(
+      text = "Csapatok hatékonysági térképe<br><sup>ORtg = 100 labdabirtokra szerzett pont · DRtg = 100 labdabirtokra kapott pont · Jobb fent = erős támadás, jobb védekezés</sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      title     = "Támadóhatékonyság (ORtg) →",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      range     = x_rng, gridcolor = GRID, zeroline = FALSE
+    ),
+    yaxis = list(
+      title     = "← Védőhatékonyság (DRtg) — alacsonyabb = jobb",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      range     = y_rng, gridcolor = GRID, zeroline = FALSE
+    ),
+    paper_bgcolor = BG,
+    plot_bgcolor  = BG2,
+    font   = list(family = "Montserrat", color = DARK),
+    legend = list(
+      orientation = "h", x = 0.5, xanchor = "center",
+      y = -0.12, yanchor = "top",
+      font = list(size = 12, family = "Montserrat")
+    ),
+    margin = list(l = 80, r = 60, t = 100, b = 80),
+    height = 700
+  )
+```
+
+A jobb felső sarokba — magas ORtg és alacsony DRtg — jutni a liga élcsapatainak feladata. A **Falco KC** mindhárom vizsgált szezonban ebben a negyedben tűnik fel, egyre jobbodó értékekkel. Az Y-tengely fordított: feljebb = jobb védekezés.
+
+---
+
+## Net Rating és győzelmek
+
+A videóban elhangzik Dean Oliver állítása: a **Net Rating** (ORtg − DRtg) jobb előrejelzője a jövőbeli sikereknek, mint az aktuális győzelmi arány. A magyar adaton tesztelhetjük, mennyire szoros ez a kapcsolat.
+
+```{r net-rating-wins}
+#| fig-height: 8
+cor_net <- round(cor(team_sz$Net, team_sz$Win_pct), 3)
+cor_pts <- round(cor(team_sz$PTS_diff, team_sz$Win_pct), 3)
+
+# Lineáris trendvonal
+lm_net <- lm(Win_pct ~ Net, data = team_sz)
+x_seq  <- seq(min(team_sz$Net) - 2, max(team_sz$Net) + 2, length.out = 100)
+y_pred <- predict(lm_net, newdata = data.frame(Net = x_seq))
+
+tt_nr <- paste0(
+  "<b>", team_sz$Csapat, " (", team_sz$Szezon, ")</b>",
+  "<br>Net Rating: ", ifelse(team_sz$Net >= 0, "+", ""), team_sz$Net,
+  "<br>Győzelmi arány: ", round(team_sz$Win_pct * 100, 1), "%",
+  "<extra></extra>"
+)
+
+fig_nr <- plot_ly()
+
+for (sz in names(SZ)) {
+  d  <- team_sz |> filter(Szezon == sz)
+  tt <- tt_nr[team_sz$Szezon == sz]
+  fig_nr <- fig_nr |>
+    add_trace(
+      x             = d$Net,
+      y             = d$Win_pct * 100,
+      type          = "scatter",
+      mode          = "markers",
+      name          = sz,
+      marker        = list(size = 9, color = SZ[sz], opacity = 0.85),
+      hovertemplate = tt
+    )
+}
+
+fig_nr |>
+  add_trace(
+    x          = x_seq,
+    y          = y_pred * 100,
+    type       = "scatter",
+    mode       = "lines",
+    name       = "Trend",
+    line       = list(color = DARK, width = 1.5, dash = "dot"),
+    showlegend = FALSE,
+    hoverinfo  = "none"
+  ) |>
+  add_annotations(
+    x = 0.02, y = 0.96, xref = "paper", yref = "paper",
+    xanchor = "left", yanchor = "top",
+    text = paste0("<b>r = ", cor_net, "</b>"),
+    showarrow = FALSE,
+    font = list(size = 14, family = "Montserrat", color = DARK),
+    bgcolor = paste0(BG, "CC"), borderpad = 4
+  ) |>
+  layout(
+    title = list(
+      text = "Net Rating és győzelmi arány összefüggése<br><sup>Magyar bajnokság, 2022–2025 · Minden pont egy csapat egy szezonja (n=42)</sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      title     = "Net Rating (ORtg − DRtg)",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      zeroline  = TRUE, zerolinecolor = GRID, zerolinewidth = 1.5,
+      gridcolor = GRID
+    ),
+    yaxis = list(
+      title      = "Győzelmi arány (%)",
+      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
+      ticksuffix = "%",
+      range      = c(-5, 105), gridcolor = GRID, zeroline = FALSE
+    ),
+    paper_bgcolor = BG,
+    plot_bgcolor  = BG2,
+    font   = list(family = "Montserrat", color = DARK),
+    legend = list(
+      orientation = "h", x = 0.5, xanchor = "center",
+      y = -0.15, yanchor = "top",
+      font = list(size = 12, family = "Montserrat")
+    ),
+    margin = list(l = 70, r = 60, t = 90, b = 80),
+    height = 700
+  )
+```
+
+```{r net-vs-pts-text, results='asis'}
+cat(paste0(
+  "A Net Rating korrelációja a győzelmi aránnyal: **r = ", cor_net, "**. ",
+  "Összehasonlításképpen a nyers pontegyenleg (PTS − Opp. PTS) korrelációja: **r = ", cor_pts, "**. ",
+  "A különbség kis, de szisztematikus — a per-100-labdabirtok normalizálás ",
+  if (abs(cor_net) > abs(cor_pts)) "javít a prediktív erőn" else "hasonló prediktív erőt ad",
+  " a magyar bajnokságban is."
+))
+```
+
+A Net Rating szinte tökéletesen lineárisan magyarázza a győzelmeket — nincsenek meglepetések, kivételek csak a szélső értékeknél jelennek meg (ahol a szerencse, sérülések vagy a rövid minta torzít).
+
+---
+
+## Tempó és siker
+
+Összekapcsolódik-e a játékritmus és a hatékonyság? Gyorsabban játszani egyben hatékonyabbat is jelent?
+
+```{r pace-vs-net}
+#| fig-height: 8
+cor_pace_net  <- round(cor(team_sz$Pace, team_sz$Net), 3)
+cor_pace_ortg <- round(cor(team_sz$Pace, team_sz$ORtg), 3)
+cor_pace_drtg <- round(cor(team_sz$Pace, team_sz$DRtg), 3)
+
+tt_pn <- paste0(
+  "<b>", team_sz$Csapat, " (", team_sz$Szezon, ")</b>",
+  "<br>Tempó: ", team_sz$Pace, " labdabirtok/40 perc",
+  "<br>Net Rating: ", ifelse(team_sz$Net >= 0, "+", ""), team_sz$Net,
+  "<extra></extra>"
+)
+
+fig_pn <- plot_ly()
+
+for (sz in names(SZ)) {
+  d  <- team_sz |> filter(Szezon == sz)
+  tt <- tt_pn[team_sz$Szezon == sz]
+  fig_pn <- fig_pn |>
+    add_trace(
+      x             = d$Pace,
+      y             = d$Net,
+      type          = "scatter",
+      mode          = "markers+text",
+      name          = sz,
+      marker        = list(size = 9, color = SZ[sz], opacity = 0.85),
+      text          = d$Csapat,
+      textposition  = "top center",
+      textfont      = list(size = 7.5, color = MUTED, family = "Montserrat"),
+      hovertemplate = tt
+    )
+}
+
+fig_pn |>
+  add_segments(
+    x = min(team_sz$Pace) - 1, xend = max(team_sz$Pace) + 1,
+    y = 0, yend = 0,
+    line = list(color = GRID, width = 1.5),
+    showlegend = FALSE
+  ) |>
+  add_annotations(
+    x    = max(team_sz$Pace) - 0.5,
+    y    = max(team_sz$Net) - 1,
+    text = paste0("r = ", cor_pace_net),
+    showarrow = FALSE,
+    font = list(size = 13, family = "Montserrat", color = DARK)
+  ) |>
+  layout(
+    title = list(
+      text = "Tempó és Net Rating kapcsolata<br><sup>Magyar bajnokság, 2022–2025 — van-e összefüggés a játékritmus és a siker között?</sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      title     = "Tempó (labdabirtok / 40 perc)",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      gridcolor = GRID, zeroline = FALSE
+    ),
+    yaxis = list(
+      title     = "Net Rating (ORtg − DRtg)",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      gridcolor = GRID, zeroline = FALSE
+    ),
+    paper_bgcolor = BG,
+    plot_bgcolor  = BG2,
+    font   = list(family = "Montserrat", color = DARK),
+    legend = list(
+      orientation = "h", x = 0.5, xanchor = "center",
+      y = -0.15, yanchor = "top",
+      font = list(size = 12, family = "Montserrat")
+    ),
+    margin = list(l = 70, r = 60, t = 90, b = 80),
+    height = 700
+  )
+```
+
+```{r pace-conclusion, results='asis'}
+interpretation <- if (abs(cor_pace_net) < 0.2) {
+  paste0(
+    "A korreláció **r = ", cor_pace_net, "** — gyakorlatilag nulla. ",
+    "A tempó **nem jósolja meg** a csapat sikerét az NB1-ben. ",
+    "Ez egybeesik az NBA tanulságával: gyorsan és lassan is lehet jól vagy rosszul játszani. ",
+    "A tempó stílusbeli döntés, nem hatékonysági eszköz."
+  )
+} else if (cor_pace_net > 0.2) {
+  paste0(
+    "A korreláció **r = ", cor_pace_net, "** — mérsékelt pozitív összefüggés. ",
+    "A gyorsabb csapatok az NB1-ben valamivel eredményesebbek is. ",
+    "Érdemes megvizsgálni, hogy ez okozati összefüggés-e, vagy csak tükrözi, ",
+    "hogy az erősebb csapatok megengedhetik maguknak a gyorsabb játékot."
+  )
+} else {
+  paste0(
+    "A korreláció **r = ", cor_pace_net, "** — mérsékelt negatív összefüggés. ",
+    "A lassabb, kontrolláltabb csapatok az NB1-ben valamivel eredményesebbek. ",
+    "Ez eltér az NBA trendtől, és arra utalhat, hogy a magyar ligában ",
+    "a fegyelmezett lassítás védekezési előnyt jelent."
+  )
+}
+cat(interpretation)
+```
+
+---
+
+## Egyéni hatékonyság
+
+A csapatszintű minták mögött egyéni játékosok állnak. Az alábbi ábrák az NB1 játékosait páros hatékonysági mutatókon helyezik el — **U23-as hazai fiatalok kiemelve**.
+
+```{r player-data}
+con2 <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
+
+player_scoring <- dbGetQuery(con2, "SELECT * FROM player_scoring_stats")
+player_reb     <- dbGetQuery(con2, "SELECT * FROM player_ast_reb_stats")
+player_info    <- dbGetQuery(con2, "SELECT * FROM player_info")
+dbDisconnect(con2)
+
+player_info <- player_info |>
+  rename(Szul_ev = `Szül. év.`, Statusz = Státusz) |>
+  mutate(Szul_ev = as.integer(Szul_ev)) |>
+  # Névhasonló játékosoknál (pl. két BALOGH Zoltán) a legfiatalabbat tartjuk meg,
+  # mivel az NB1 2022-25 aktív játékosai a fiatalabbak
+  group_by(Játékos) |>
+  slice_max(Szul_ev, n = 1, with_ties = FALSE) |>
+  ungroup() |>
+  select(Játékos, Szul_ev, Statusz)
+
+add_categories <- function(df) {
+  df |>
+    mutate(
+      Szul_ev   = as.integer(Szul_ev),
+      U23       = Statusz == "Hazai" &
+                    Szul_ev >= as.integer(substr(Szezon, 1, 4)) - 22,
+      Kategoria = case_when(
+        U23                 ~ "Hazai U23",
+        Statusz == "Hazai"  ~ "Hazai",
+        Statusz == "Honosított" ~ "Hazai",
+        TRUE                ~ "Légiós"
+      )
+    )
+}
+
+pts_data <- player_scoring |>
+  left_join(player_info, by = "Játékos") |>
+  filter(as.numeric(Min) >= 400) |>
+  mutate(
+    PTS100 = as.numeric(`PTS 100`),
+    TS     = as.numeric(`TS%`)
+  ) |>
+  add_categories() |>
+  filter(!is.na(PTS100), !is.na(TS))
+
+reb_data <- player_reb |>
+  left_join(player_info, by = "Játékos") |>
+  filter(as.numeric(Min) >= 400) |>
+  mutate(
+    DRB = as.numeric(`DRB%`),
+    ORB = as.numeric(`ORB%`),
+    STL = as.numeric(`STL%`),
+    BLK = as.numeric(`BLK%`)
+  ) |>
+  add_categories() |>
+  filter(!is.na(DRB), !is.na(ORB), !is.na(STL), !is.na(BLK))
+
+KAT_ORDER  <- c("Légiós", "Hazai", "Hazai U23")
+KAT_COLORS <- c("Légiós" = MUTED, "Hazai" = "#D4902A", "Hazai U23" = HUN)
+KAT_ALPHA  <- c("Légiós" = 0.55,   "Hazai" = 0.70,     "Hazai U23" = 0.95)
+KAT_SIZE   <- c("Légiós" = 7,      "Hazai" = 8,         "Hazai U23" = 10)
+```
+
+```{r player-pts-ts}
+#| fig-height: 8
+fig <- plot_ly()
+for (kat in KAT_ORDER) {
+  d <- pts_data[pts_data$Kategoria == kat, ]
+  if (nrow(d) == 0) next
+  fig <- fig |> add_trace(
+    x    = d$PTS100,
+    y    = d$TS,
+    type = "scatter", mode = "markers",
+    name = kat,
+    marker = list(
+      color   = KAT_COLORS[kat],
+      opacity = KAT_ALPHA[kat],
+      size    = KAT_SIZE[kat]
+    ),
+    hovertemplate = paste0(
+      "<b>", d$Játékos, "</b> (", d$Csapat, ", ", d$Szezon, ")<br>",
+      "PTS/100: ", round(d$PTS100, 1),
+      "<br>TS%: ", round(d$TS, 1), "%",
+      "<extra>", kat, "</extra>"
+    )
+  )
+}
+fig |>
+  layout(
+    title = list(
+      text = "Pontozás mennyisége vs. hatékonysága<br><sup>NB1 alapszakasz, 2022–2025 · min. 400 perc · <span style='color:#C43A28'>● Hazai U23</span></sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      title     = "PTS / 100 labdabirtok",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      gridcolor = GRID, zeroline = FALSE
+    ),
+    yaxis = list(
+      title      = "True Shooting% (TS%)",
+      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
+      ticksuffix = "%",
+      gridcolor  = GRID, zeroline = FALSE
+    ),
+    paper_bgcolor = BG, plot_bgcolor = BG2,
+    font   = list(family = "Montserrat", color = DARK),
+    legend = list(orientation = "h", x = 0.5, xanchor = "center",
+                  y = -0.12, yanchor = "top",
+                  font = list(size = 12, family = "Montserrat")),
+    margin = list(l = 70, r = 40, t = 90, b = 70),
+    height = 700
+  )
+```
+
+```{r player-reb}
+#| fig-height: 8
+fig <- plot_ly()
+for (kat in KAT_ORDER) {
+  d <- reb_data[reb_data$Kategoria == kat, ]
+  if (nrow(d) == 0) next
+  fig <- fig |> add_trace(
+    x    = d$ORB,
+    y    = d$DRB,
+    type = "scatter", mode = "markers",
+    name = kat,
+    marker = list(
+      color   = KAT_COLORS[kat],
+      opacity = KAT_ALPHA[kat],
+      size    = KAT_SIZE[kat]
+    ),
+    hovertemplate = paste0(
+      "<b>", d$Játékos, "</b> (", d$Csapat, ", ", d$Szezon, ")<br>",
+      "ORB%: ", round(d$ORB, 1), "%",
+      "<br>DRB%: ", round(d$DRB, 1), "%",
+      "<extra>", kat, "</extra>"
+    )
+  )
+}
+fig |>
+  layout(
+    title = list(
+      text = "Támadó vs. védekező pattanás-részesedés<br><sup>NB1 alapszakasz, 2022–2025 · min. 400 perc · <span style='color:#C43A28'>● Hazai U23</span></sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      title     = "Támadó pattanás% (ORB%)",
+      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
+      ticksuffix = "%",
+      gridcolor = GRID, zeroline = FALSE
+    ),
+    yaxis = list(
+      title      = "Védekező pattanás% (DRB%)",
+      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
+      ticksuffix = "%",
+      gridcolor  = GRID, zeroline = FALSE
+    ),
+    paper_bgcolor = BG, plot_bgcolor = BG2,
+    font   = list(family = "Montserrat", color = DARK),
+    legend = list(orientation = "h", x = 0.5, xanchor = "center",
+                  y = -0.12, yanchor = "top",
+                  font = list(size = 12, family = "Montserrat")),
+    margin = list(l = 70, r = 40, t = 90, b = 70),
+    height = 700
+  )
+```
+
+```{r player-stl-blk}
+#| fig-height: 8
+fig <- plot_ly()
+for (kat in KAT_ORDER) {
+  d <- reb_data[reb_data$Kategoria == kat, ]
+  if (nrow(d) == 0) next
+  fig <- fig |> add_trace(
+    x    = d$STL,
+    y    = d$BLK,
+    type = "scatter", mode = "markers",
+    name = kat,
+    marker = list(
+      color   = KAT_COLORS[kat],
+      opacity = KAT_ALPHA[kat],
+      size    = KAT_SIZE[kat]
+    ),
+    hovertemplate = paste0(
+      "<b>", d$Játékos, "</b> (", d$Csapat, ", ", d$Szezon, ")<br>",
+      "STL%: ", round(d$STL, 1), "%",
+      "<br>BLK%: ", round(d$BLK, 1), "%",
+      "<extra>", kat, "</extra>"
+    )
+  )
+}
+fig |>
+  layout(
+    title = list(
+      text = "Védekezési aktivitás — szerzések és blokkok<br><sup>NB1 alapszakasz, 2022–2025 · min. 400 perc · <span style='color:#C43A28'>● Hazai U23</span></sup>",
+      font = list(size = 16, color = DARK, family = "Montserrat"),
+      x = 0, xref = "paper"
+    ),
+    xaxis = list(
+      title      = "Szerzés% (STL%)",
+      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
+      ticksuffix = "%",
+      gridcolor  = GRID, zeroline = FALSE
+    ),
+    yaxis = list(
+      title      = "Blokk% (BLK%)",
+      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
+      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
+      ticksuffix = "%",
+      gridcolor  = GRID, zeroline = FALSE
+    ),
+    paper_bgcolor = BG, plot_bgcolor = BG2,
+    font   = list(family = "Montserrat", color = DARK),
+    legend = list(orientation = "h", x = 0.5, xanchor = "center",
+                  y = -0.12, yanchor = "top",
+                  font = list(size = 12, family = "Montserrat")),
+    margin = list(l = 70, r = 40, t = 90, b = 70),
+    height = 700
+  )
+```
+
+---
+
+::: {.callout-note collapse="true"}
+## Módszertan
+
+**Adatok:** Magyar NB1, 2022–2025, alapszakasz. Összesen `r nrow(games)` mérkőzés-bejegyzés, `r nrow(team_sz)` csapat-szezon aggregátum.
+
+**Tempó (Pace):** Labdabirtok száma 40 percenként. A labdabirtok (possession) becsült értéke meccsstatisztikákból: FGA − ORB + TOV + 0.44×FTA.
+
+**ORtg / DRtg:** 100 labdabirtokra vetített szerzett / kapott pontok meccsenként, majd szezonátlag.
+
+**Net Rating:** ORtg − DRtg. Pozitív = a csapat nettó labdabirtok-előnnyel rendelkezik.
+
+**Egyéni mutatók:** PTS/100 = pontok per 100 csapat-labdabirtok. TRB% = megszerzett pattanások aránya a lehetséges pattanásokból (mindkét vége). BLK% = blokkolt dobások aránya az ellenfél kísérleteiből. STL% = szerzett labdák aránya az ellenfél labdabirtokai közül. Küszöb: min. 400 perc.
+
+**U23:** Hazai játékos, akinek születési éve ≥ szezon kezdő éve − 22.
+
+**NBA referencia:** Basketball Reference ligaátlagok, 2022–25 szezonok.
+:::

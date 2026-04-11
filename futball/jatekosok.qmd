@@ -1,0 +1,12 @@
+---
+title: "Labdarúgó Profilok"
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: ../styles.css
+execute:
+  echo: false
+---
+
+*Hamarosan.*

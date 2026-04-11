@@ -88,6 +88,422 @@ table.dataTable tbody tr.odd {
   border-radius: 4px;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   JÁTÉKOS PROFILOK
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Vissza-navigáció ── */
+.pp-back-nav {
+  margin-bottom: 1.5rem;
+}
+.pp-back-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.pp-back-nav a:hover {
+  color: var(--accent-dark);
+}
+
+/* ── Fejléc ── */
+.pp-header {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.pp-header-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.875rem;
+  flex-wrap: wrap;
+}
+.pp-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ── Besorolás badge (profil + lista + történet) ── */
+.pp-rating-badge {
+  display: inline-block;
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ── Meta badge-ek ── */
+.pp-meta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pp-badge {
+  display: inline-block;
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.pp-badge-sport {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+  color: #fff;
+}
+.pp-badge-valogatott {
+  background: #5A7D9F;
+  border-color: #4a6d8f;
+  color: #fff;
+}
+.pp-badge-small {
+  font-size: 12px;
+  padding: 2px 8px;
+}
+
+/* ── Tézis ── */
+.pp-tezis {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 0.875rem 1.25rem;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.65;
+}
+
+/* ── Szekciók ── */
+.pp-section {
+  margin-bottom: 2.25rem;
+}
+.pp-section > h3 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.pp-type-label {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
+}
+
+/* ── Statisztika sor (percek, szerződés) ── */
+.pp-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.875rem;
+}
+.pp-stat-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pp-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.pp-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ── Posztspecifikus mutatók ── */
+.pp-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.875rem;
+}
+.pp-metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.pp-metric-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.pp-metric-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.pp-metric-context {
+  font-size: 12px;
+  color: var(--accent-dark);
+  font-weight: 500;
+}
+
+/* ── Elemzés ── */
+.pp-elemzes p {
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 15px;
+}
+.pp-elemzes p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Forgatókönyvek ── */
+.pp-scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+}
+.pp-scenario {
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid transparent;
+}
+.pp-scenario-bull {
+  background: #e8f5e9;
+  border-color: #a5d6a7;
+}
+.pp-scenario-base {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+.pp-scenario-bear {
+  background: #fdecea;
+  border-color: #f5c6c4;
+}
+.pp-scenario-header {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.75rem;
+}
+.pp-scenario-bull  .pp-scenario-header { color: #2e7d32; }
+.pp-scenario-base  .pp-scenario-header { color: var(--text-muted); }
+.pp-scenario-bear  .pp-scenario-header { color: #c62828; }
+.pp-scenario p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 0.875rem;
+}
+.pp-scenario-metric {
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.pp-scenario-bull  .pp-scenario-metric { color: #2e7d32; }
+.pp-scenario-base  .pp-scenario-metric { color: var(--text-muted); }
+.pp-scenario-bear  .pp-scenario-metric { color: #c62828; }
+
+/* ── Értékelés-történet ── */
+.pp-rating-history {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.pp-history-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.875rem 1.25rem;
+}
+.pp-history-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 190px;
+  flex-shrink: 0;
+}
+.pp-history-date {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pp-history-right {
+  flex: 1;
+}
+.pp-history-indok {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 0.2rem;
+}
+.pp-history-kimenet {
+  font-size: 12px;
+  margin-top: 0.2rem;
+}
+
+/* ── Lábléc info ── */
+.pp-footer-info {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.pp-footer-item {
+  font-size: 13px;
+  color: var(--text);
+}
+.pp-footer-label {
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-right: 0.35rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   JÁTÉKOS LISTA OLDAL
+   ══════════════════════════════════════════════════════════════ */
+
+.pp-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.pp-list-card-link {
+  text-decoration: none !important;
+  color: inherit;
+}
+.pp-list-card-link:hover .pp-list-card {
+  border-color: var(--accent);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+.pp-list-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+}
+.pp-list-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.pp-list-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.pp-list-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+.pp-list-tezis {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESZPONZÍV
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .pp-scenarios {
+    grid-template-columns: 1fr;
+  }
+  .pp-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pp-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pp-history-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .pp-history-left {
+    min-width: unset;
+  }
+  .pp-footer-info {
+    gap: 1rem;
+  }
+}
+
+/* ── Analytics percentilis tooltip ── */
+.pct-tip {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+.pct-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 9999;
+}
+.pct-tip:hover::after {
+  opacity: 1;
+}
+
 /* ── Plotly dropdown (ha van) ── */
 .plot-container {
   font-family: 'Montserrat', sans-serif;

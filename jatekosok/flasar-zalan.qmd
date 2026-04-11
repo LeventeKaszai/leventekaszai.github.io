@@ -1,0 +1,57 @@
+---
+title: "FLASÁR Zalán — Profil"
+profile:
+  nev: "FLASÁR Zalán"
+  sport: basketball
+  valogatott: igen
+
+  besorolas: "strong-buy"
+
+  tezis: >
+    Flasár a hazai bajnokság legjobb fiatal irányítója: olvasottsága,
+    pick & roll kezelése és az általa vezetéssel töltött percek mind fejlettebb
+    szintre mutatnak, mint amit korosztálya elvárna.
+
+  elemzes: |
+    Flasár Zalán a 2024-25-ös szezonban végleg kinőtte a fejlődőben lévő tehetség kategóriáját. A Falco keretén belül ő a legfontosabb labdahozó és pályaszervező, mérkőzésenként átlagosan 28 percet tölt a pályán.
+
+    A pick & roll szituációkban különösen kiemelkedő: az 1.12 pont per possession érték a liga legjobb negyedébe sorolja. Döntéshozatala érett — az assziszt/góldobás arány javulása azt jelzi, hogy egyre ritkábban kockáztat erőltetett passzokat.
+
+    Fő fejlesztendő területe a három pontos dobás konzisztenciája (32.4% kísérletekből, alacsony volumen mellett). Ha ezt a mutatót az átlag fölé tudja tornázni, a válogatott alapemberének pozícióját hosszú távon bebetonozhatja.
+
+  bull_case:
+    szoveg: >
+      Három pontos százaléka 37% fölé emelkedik, defenzív fejlődése folytatódik,
+      és a válogatott alapemberévé válik — ami külföldi érdeklődést is generálhat.
+    meroeszam: "Legalább 1 konkrét külföldi ajánlat 18 hónapon belül"
+
+  base_case:
+    szoveg: >
+      Flasár megmarad a Falco kulcsjátékosaként, stabilan vezető szinten teljesít,
+      de külföldi szereplés nélkül.
+    meroeszam: "Assziszt/mérkőzés 7.0 fölött a következő szezonban"
+
+  bear_case:
+    szoveg: >
+      Sérülés vagy a csapat kontextusának gyengülése megakadályozza a fejlődési
+      pályán való előrehaladást.
+    meroeszam: "Játékpercek 20% alá esnek, statisztikák stagnálnak"
+
+  horizont: 18
+  kovetkezo_felulvizsgalat: "2025-10-01"
+  felulvizsgalat_trigger: "Szezonkezdő mérkőzések (első 10) értékelése"
+
+  rating_history:
+    - besorolas: "buy"
+      datum: "2024-02-15"
+      indok: "Erős első félév, de még kérdéses a pick & roll hatékonysága magas nyomású szituációkban."
+    - besorolas: "strong-buy"
+      datum: "2024-09-01"
+      indok: "Nyári fejlődés egyértelmű, megnövekedett szerepkör a Falcónál + válogatott keretbe hívás."
+      kimenet: "bejött"
+---
+
+```{r}
+source("_player_profile_utils.R")
+render_player_profile(rmarkdown::metadata$profile, db_path = "bball_10_tables.db")
+```

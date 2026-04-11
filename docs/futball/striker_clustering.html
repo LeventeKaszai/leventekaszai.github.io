@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Levente Kaszai - NB1 Csatár Szerepdetekció</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.33/datatables.js"></script>
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Levente Kaszai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-kosárlabda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Kosárlabda</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-kosárlabda">    
+        <li>
+    <a class="dropdown-item" href="../four_factors_1.html" rel="" target="">
+ <span class="dropdown-text">Four Factors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../scoring_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Scoring Efficiency</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pace_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Játékritmus &amp; Hatékonyság</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labdarúgás" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Labdarúgás</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labdarúgás">    
+        <li>
+    <a class="dropdown-item" href="../futball/striker_clustering.html" rel="" target="">
+ <span class="dropdown-text">Csatár klaszterezés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/leventekaszai" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#a-szerepek" id="toc-a-szerepek" class="nav-link active" data-scroll-target="#a-szerepek">A szerepek</a></li>
+  <li><a href="#szerepprofilok" id="toc-szerepprofilok" class="nav-link" data-scroll-target="#szerepprofilok">Szerepprofilok</a></li>
+  <li><a href="#játékos-térkép" id="toc-játékos-térkép" class="nav-link" data-scroll-target="#játékos-térkép">Játékos-térkép</a></li>
+  <li><a href="#hibrid-játékosok" id="toc-hibrid-játékosok" class="nav-link" data-scroll-target="#hibrid-játékosok">Hibrid játékosok</a></li>
+  <li><a href="#csapatok-és-szerepek" id="toc-csapatok-és-szerepek" class="nav-link" data-scroll-target="#csapatok-és-szerepek">Csapatok és szerepek</a></li>
+  <li><a href="#teljes-játékostábla" id="toc-teljes-játékostábla" class="nav-link" data-scroll-target="#teljes-játékostábla">Teljes játékostábla</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">NB1 Csatár Szerepdetekció</h1>
+<p class="subtitle lead">2025/26 — Ki milyen típusú csatár? Twelve Football adatok alapján</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Az NB1 2025/26-os szezonjának 59 csatárát öt szerepkörbe soroltuk a <strong>Twelve Football</strong> per-90 statisztikák alapján. Minden játékos egy <em>szerepmixet</em> kap: az elsődleges szerepen kívül a másodlagos affinitások is láthatók — mert a futballban ritkán „tiszta” archetípusok játszanak.</p>
+<hr>
+<section id="a-szerepek" class="level2">
+<h2 class="anchored" data-anchor-id="a-szerepek">A szerepek</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 63%">
+<col style="width: 21%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Szerep</th>
+<th style="text-align: left;">Leírás</th>
+<th style="text-align: left;">Erősségek</th>
+<th style="text-align: center;">Játékosok</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Célponttámadó</td>
+<td style="text-align: left;">Fizikai dominancia, fejelés, labdatartás. Hosszú labdák célpontja, a védelmet köti le.</td>
+<td style="text-align: left;">Légi fölény · Labdatartás · Jelenlét</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Befejező</td>
+<td style="text-align: left;">Gólhelyzeteket érez meg, pontosan fejez be. Minimális részvétel, maximális hatékonyság a tizenhatoson belül.</td>
+<td style="text-align: left;">Befejezés · Poaching · Légi fölény</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Presszingcsatár</td>
+<td style="text-align: left;">Az első védelmi vonal. Magas intenzitású labdaszerzés, folyamatos mozgás, az ellenfél építőjátékát zavarja.</td>
+<td style="text-align: left;">Pressing · Futások · Jelenlét</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kreatív csatár</td>
+<td style="text-align: left;">Társaknak ad lehetőséget, mélységből épít. Technikai játékos aki nem csak gólban gondolkodik.</td>
+<td style="text-align: left;">Assziszt · Jelenlét · Futások</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Komplett csatár</td>
+<td style="text-align: left;">Kiegyensúlyozott profil, minden dimenzióban közepesen erős. Nehezen kiszámítható, sokoldalú.</td>
+<td style="text-align: left;">Befejezés · Jelenlét · Futások</td>
+<td style="text-align: center;">18</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+<section id="szerepprofilok" class="level2">
+<h2 class="anchored" data-anchor-id="szerepprofilok">Szerepprofilok</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-913bc3ce468d09e2c644" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-913bc3ce468d09e2c644">{"x":{"data":[{"type":"scatterpolar","r":[86,58,83,68,44,26,34,30,86],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":["<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"frame":null},{"fillcolor":"#2E6DA430","type":"scatterpolar","r":[72.57294429708223,36.240053050397876,59.151193633952253,48.309018567639257,45.523872679045091,41.942970822281168,38.063660477453581,31.591511936339522,72.57294429708223],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Célponttámadó","line":{"color":"#2E6DA4","width":2.5},"hovertemplate":["<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"frame":null},{"type":"scatterpolar","r":[52,90,33,44,90,24,26,40,52],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":["<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"frame":null},{"fillcolor":"#C43A2830","type":"scatterpolar","r":[55.21072796934866,81.70498084291188,51.181353767560665,31.944444444444443,81.465517241379303,45.88122605363985,39.878671775223502,43.180076628352488,55.21072796934866],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Befejező","line":{"color":"#C43A28","width":2.5},"hovertemplate":["<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"frame":null},{"type":"scatterpolar","r":[26,52,30,76,36,90,46,84,26],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":["<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(148,103,189,1)","line":{"color":"rgba(148,103,189,1)"}},"frame":null},{"fillcolor":"#1a7a4a30","type":"scatterpolar","r":[17.03448275862069,38.53448275862069,39.137931034482762,55.258620689655174,32.327586206896555,65.603448275862064,49.137931034482762,67.931034482758619,17.03448275862069],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Presszingcsatár","line":{"color":"#1a7a4a","width":2.5},"hovertemplate":["<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(140,86,75,1)","line":{"color":"rgba(140,86,75,1)"}},"frame":null},{"type":"scatterpolar","r":[20,52,40,82,38,54,86,70,20],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":["<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(227,119,194,1)","line":{"color":"rgba(227,119,194,1)"}},"frame":null},{"fillcolor":"#7B4EA630","type":"scatterpolar","r":[29.433497536945811,34.88300492610837,41.687192118226598,55.018472906403936,27.555418719211822,54.310344827586206,73.296387520525457,52.438423645320199,29.433497536945811],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Kreatív csatár","line":{"color":"#7B4EA6","width":2.5},"hovertemplate":["<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(127,127,127,1)","line":{"color":"rgba(127,127,127,1)"}},"frame":null},{"type":"scatterpolar","r":[52,72,56,72,60,60,56,66,52],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":["<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(188,189,34,1)","line":{"color":"rgba(188,189,34,1)"}},"frame":null},{"fillcolor":"#D4902A30","type":"scatterpolar","r":[56.609195402298852,60.177203065134094,52.426564495530009,54.885057471264368,60.392720306513411,59.243295019157088,60.376756066411239,59.904214559386972,56.609195402298852],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Komplett csatár","line":{"color":"#D4902A","width":2.5},"hovertemplate":["<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>"],"mode":"markers+lines","marker":{"color":"rgba(23,190,207,1)","line":{"color":"rgba(23,190,207,1)"}},"frame":null}],"layout":{"NA":{"anchor":[],"domain":[0.57999999999999996,1]},"NA2":{"anchor":[],"domain":[0.57999999999999996,1]},"NA3":{"anchor":[],"domain":[0.57999999999999996,1]},"NA4":{"anchor":[],"domain":[0,0.41999999999999998]},"NA5":{"anchor":[],"domain":[0,0.41999999999999998]},"margin":{"b":15,"l":35,"t":55,"r":35},"polar":{"radialaxis":{"visible":true,"range":[0,100],"tickfont":{"size":7},"gridcolor":"#D4CFC6"},"angularaxis":{"tickfont":{"size":9}}},"showlegend":false,"title":{"text":"<b>Komplett csatár<\/b>  <span style='font-size:11px;color:#7A756D'>n=18<\/span>","font":{"family":"Montserrat","size":13,"color":"#D4902A"}},"paper_bgcolor":"#FAF8F4","hovermode":"closest"},"attrs":{"1b1018e73584":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[86,58,83,68,44,26,34,30,86],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":"<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","inherit":true},"1b1018e73584.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[72.57294429708223,36.240053050397876,59.151193633952253,48.309018567639257,45.523872679045091,41.942970822281168,38.063660477453581,31.591511936339522,72.57294429708223],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Célponttámadó","fillcolor":"#2E6DA430","line":{"color":"#2E6DA4","width":2.5},"hovertemplate":"<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","inherit":true},"1b10736a79e1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[52,90,33,44,90,24,26,40,52],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":"<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","inherit":true},"1b10736a79e1.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[55.21072796934866,81.70498084291188,51.181353767560665,31.944444444444443,81.465517241379303,45.88122605363985,39.878671775223502,43.180076628352488,55.21072796934866],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Befejező","fillcolor":"#C43A2830","line":{"color":"#C43A28","width":2.5},"hovertemplate":"<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","inherit":true},"1b105367ddf9":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[26,52,30,76,36,90,46,84,26],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":"<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","inherit":true},"1b105367ddf9.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[17.03448275862069,38.53448275862069,39.137931034482762,55.258620689655174,32.327586206896555,65.603448275862064,49.137931034482762,67.931034482758619,17.03448275862069],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Presszingcsatár","fillcolor":"#1a7a4a30","line":{"color":"#1a7a4a","width":2.5},"hovertemplate":"<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","inherit":true},"1b10481e3136":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[20,52,40,82,38,54,86,70,20],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":"<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","inherit":true},"1b10481e3136.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[29.433497536945811,34.88300492610837,41.687192118226598,55.018472906403936,27.555418719211822,54.310344827586206,73.296387520525457,52.438423645320199,29.433497536945811],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Kreatív csatár","fillcolor":"#7B4EA630","line":{"color":"#7B4EA6","width":2.5},"hovertemplate":"<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","inherit":true},"1b103630f537":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[52,72,56,72,60,60,56,66,52],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"none","name":"Archetípus","line":{"color":"#D4CFC6","width":1.5,"dash":"dot"},"hovertemplate":"<b>%{theta}<\/b> — archetípus: %{r:.0f}<extra><\/extra>","inherit":true},"1b103630f537.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatterpolar","r":[56.609195402298852,60.177203065134094,52.426564495530009,54.885057471264368,60.392720306513411,59.243295019157088,60.376756066411239,59.904214559386972,56.609195402298852],"theta":["Légi fölény","Befejezés","Labdatartás","Jelenlét","Poaching","Pressing","Assziszt","Futások","Légi fölény"],"fill":"toself","name":"Komplett csatár","fillcolor":"#D4902A30","line":{"color":"#D4902A","width":2.5},"hovertemplate":"<b>%{theta}<\/b><br>%{r:.1f}<extra><\/extra>","inherit":true}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><em>Szaggatott vonal: elméleti archetípus. Teli vonal: az NB1-es játékosok tényleges átlaga az adott szerepen.</em></p>
+<hr>
+</section>
+<section id="játékos-térkép" class="level2">
+<h2 class="anchored" data-anchor-id="játékos-térkép">Játékos-térkép</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-57a584143ef1e82202c8" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-57a584143ef1e82202c8">{"x":{"visdat":{"1b1067844ab4":["function () ","plotlyVisDat"],"1b101e44a484":["function () ","data"]},"cur_data":"1b101e44a484","attrs":{"1b1067844ab4":{"x":{},"y":{},"mode":"markers","marker":{"opacity":0.84999999999999998,"sizemode":"diameter"},"text":["<b>K. Németh<\/b><br>MTK Budapest<br><i>Komplett csatár (33%) · Célponttámadó (30%) · Kreatív csatár (23%)<\/i><br>─────────────────<br>Légi fölény: 79.3<br>Befejezés: 42.7<br>Labdatartás: 60.1<br>Jelenlét: 45.7<br>Poaching: 34.1<br>Pressing: 30.6<br>Assziszt: 86.5<br>Futások: 61","<b>Y. Croizet<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (40%) · Kreatív csatár (22%) · Komplett csatár (20%)<\/i><br>─────────────────<br>Légi fölény: 47.9<br>Befejezés: 19.8<br>Labdatartás: 54<br>Jelenlét: 46.1<br>Poaching: 21.1<br>Pressing: 23.3<br>Assziszt: 53.7<br>Futások: 28.6","<b>Iuri Medeiros<\/b><br>Újpest FC<br><i>Kreatív csatár (55%) · Presszingcsatár (22%) · Komplett csatár (14%)<\/i><br>─────────────────<br>Légi fölény: 20.7<br>Befejezés: 9.1<br>Labdatartás: 46<br>Jelenlét: 60.8<br>Poaching: 9.1<br>Pressing: 64.2<br>Assziszt: 85.3<br>Futások: 31","<b>J. Mešanović<\/b><br><i>Célponttámadó (31%) · Komplett csatár (30%) · Kreatív csatár (23%) · Presszingcsatár (12%)<\/i><br>─────────────────<br>Légi fölény: 72.1<br>Befejezés: 36.2<br>Labdatartás: 56.3<br>Jelenlét: 64.2<br>Poaching: 22<br>Pressing: 59.1<br>Assziszt: 72.1<br>Futások: 33.8","<b>N. Könyves<\/b><br><i>Presszingcsatár (28%) · Kreatív csatár (22%) · Komplett csatár (22%) · Befejező (20%)<\/i><br>─────────────────<br>Légi fölény: 14.1<br>Befejezés: 26.7<br>Labdatartás: 28.7<br>Jelenlét: 22.8<br>Poaching: 49.6<br>Pressing: 34.9<br>Assziszt: 28.2<br>Futások: 70.7","<b>I. Bognár<\/b><br>MTK Budapest<br><i>Kreatív csatár (58%) · Komplett csatár (21%) · Presszingcsatár (14%)<\/i><br>─────────────────<br>Légi fölény: 32.4<br>Befejezés: 45.7<br>Labdatartás: 29.3<br>Jelenlét: 66.8<br>Poaching: 45.3<br>Pressing: 61.6<br>Assziszt: 93.4<br>Futások: 34.8","<b>D. Böde<\/b><br>Paksi FC<br><i>Befejező (47%) · Komplett csatár (34%)<\/i><br>─────────────────<br>Légi fölény: 85.5<br>Befejezés: 93.5<br>Labdatartás: 35.6<br>Jelenlét: 41.4<br>Poaching: 97<br>Pressing: 43.5<br>Assziszt: 67.2<br>Futások: 63.4","<b>S. Novothny<\/b><br><i>Célponttámadó (61%) · Komplett csatár (15%) · Befejező (14%)<\/i><br>─────────────────<br>Légi fölény: 70<br>Befejezés: 30.6<br>Labdatartás: 58.9<br>Jelenlét: 35.8<br>Poaching: 41.8<br>Pressing: 37.1<br>Assziszt: 22.7<br>Futások: 20.7","<b>A. Pešić<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (35%) · Komplett csatár (29%) · Célponttámadó (14%) · Befejező (12%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 37.9<br>Befejezés: 39.7<br>Labdatartás: 50<br>Jelenlét: 38.4<br>Poaching: 41.8<br>Pressing: 15.1<br>Assziszt: 68.1<br>Futások: 66.6","<b>B. Dzsudzsák<\/b><br>Debreceni VSC<br><i>Kreatív csatár (44%) · Komplett csatár (23%) · Presszingcsatár (16%) · Befejező (12%)<\/i><br>─────────────────<br>Légi fölény: 19.7<br>Befejezés: 46.1<br>Labdatartás: 21.6<br>Jelenlét: 50.9<br>Poaching: 48.3<br>Pressing: 50<br>Assziszt: 73.9<br>Futások: 24.1","<b>D. Babunski<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (62%) · Komplett csatár (19%)<\/i><br>─────────────────<br>Légi fölény: 92.1<br>Befejezés: 29.7<br>Labdatartás: 52.9<br>Jelenlét: 59.1<br>Poaching: 44.8<br>Pressing: 44.4<br>Assziszt: 28.2<br>Futások: 40.7","<b>G. Molnár<\/b><br><i>Kreatív csatár (51%) · Komplett csatár (23%)<\/i><br>─────────────────<br>Légi fölény: 23.1<br>Befejezés: 49.6<br>Labdatartás: 43.1<br>Jelenlét: 54.3<br>Poaching: 38.4<br>Pressing: 32.8<br>Assziszt: 79<br>Futások: 35.2","<b>E. Acolatse<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (56%) · Komplett csatár (24%) · Presszingcsatár (14%)<\/i><br>─────────────────<br>Légi fölény: 26.2<br>Befejezés: 50.9<br>Labdatartás: 53.2<br>Jelenlét: 45.7<br>Poaching: 35.8<br>Pressing: 45.3<br>Assziszt: 84.8<br>Futások: 74.5","<b>B. Edomwonyi<\/b><br>Nyíregyháza Spartacus<br><i>Komplett csatár (45%) · Befejező (23%) · Célponttámadó (17%)<\/i><br>─────────────────<br>Légi fölény: 64.8<br>Befejezés: 61.2<br>Labdatartás: 62.4<br>Jelenlét: 42.2<br>Poaching: 77.2<br>Pressing: 30.6<br>Assziszt: 54<br>Futások: 75.5","<b>M. Jurina<\/b><br>MTK Budapest<br><i>Célponttámadó (69%) · Komplett csatár (15%)<\/i><br>─────────────────<br>Légi fölény: 81.4<br>Befejezés: 17.2<br>Labdatartás: 85.3<br>Jelenlét: 31.9<br>Poaching: 55.6<br>Pressing: 36.6<br>Assziszt: 34.5<br>Futások: 35.9","<b>J. Hahn<\/b><br>Paksi FC<br><i>Befejező (56%) · Komplett csatár (24%)<\/i><br>─────────────────<br>Légi fölény: 39.3<br>Befejezés: 79.7<br>Labdatartás: 35.3<br>Jelenlét: 23.3<br>Poaching: 74.6<br>Pressing: 44.8<br>Assziszt: 50<br>Futások: 45.2","<b>F. Brodić<\/b><br>Újpest FC<br><i>Komplett csatár (35%) · Kreatív csatár (22%) · Célponttámadó (20%) · Presszingcsatár (15%)<\/i><br>─────────────────<br>Légi fölény: 57.2<br>Befejezés: 28<br>Labdatartás: 50.6<br>Jelenlét: 63.8<br>Poaching: 53.9<br>Pressing: 72<br>Assziszt: 64.7<br>Futások: 21.7","<b>G. Beridze<\/b><br>Újpest FC<br><i>Presszingcsatár (48%) · Kreatív csatár (37%) · Komplett csatár (12%)<\/i><br>─────────────────<br>Légi fölény: 12.8<br>Befejezés: 34.9<br>Labdatartás: 44<br>Jelenlét: 61.2<br>Poaching: 16.8<br>Pressing: 75.9<br>Assziszt: 62.4<br>Futások: 74.8","<b>M. Sajbán<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (34%) · Komplett csatár (28%) · Presszingcsatár (15%) · Kreatív csatár (13%)<\/i><br>─────────────────<br>Légi fölény: 70<br>Befejezés: 12.9<br>Labdatartás: 46.6<br>Jelenlét: 53.9<br>Poaching: 48.3<br>Pressing: 52.2<br>Assziszt: 38.2<br>Futások: 43.1","<b>M. Kvasina<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (69%) · Komplett csatár (15%) · Befejező (11%)<\/i><br>─────────────────<br>Légi fölény: 84.5<br>Befejezés: 82.3<br>Labdatartás: 66.1<br>Jelenlét: 56.9<br>Poaching: 28.9<br>Pressing: 44<br>Assziszt: 20.4<br>Futások: 23.1","<b>I. Šaponjić<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (57%) · Komplett csatár (19%) · Befejező (14%)<\/i><br>─────────────────<br>Légi fölény: 85.5<br>Befejezés: 13.8<br>Labdatartás: 79.3<br>Jelenlét: 26.7<br>Poaching: 77.6<br>Pressing: 32.3<br>Assziszt: 59.2<br>Futások: 28.3","<b>A. Keita<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (33%) · Komplett csatár (31%) · Befejező (16%) · Presszingcsatár (13%)<\/i><br>─────────────────<br>Légi fölény: 77.2<br>Befejezés: 37.1<br>Labdatartás: 46.8<br>Jelenlét: 69.4<br>Poaching: 69<br>Pressing: 86.6<br>Assziszt: 26.4<br>Futások: 7.9","<b>R. Polievka<\/b><br>MTK Budapest<br><i>Komplett csatár (39%) · Kreatív csatár (32%) · Presszingcsatár (11%)<\/i><br>─────────────────<br>Légi fölény: 53.4<br>Befejezés: 51.7<br>Labdatartás: 41.1<br>Jelenlét: 47<br>Poaching: 51.3<br>Pressing: 32.8<br>Assziszt: 76.7<br>Futások: 77.9","<b>L. Colley<\/b><br>Puskás Akadémia FC<br><i>Komplett csatár (60%) · Presszingcsatár (14%) · Kreatív csatár (11%)<\/i><br>─────────────────<br>Légi fölény: 62.8<br>Befejezés: 63.4<br>Labdatartás: 69.5<br>Jelenlét: 41.4<br>Poaching: 63.8<br>Pressing: 68.1<br>Assziszt: 58.9<br>Futások: 87.2","<b>B. Bíró<\/b><br>ETO FC<br><i>Komplett csatár (40%) · Befejező (21%) · Presszingcsatár (18%) · Kreatív csatár (11%) · Célponttámadó (11%)<\/i><br>─────────────────<br>Légi fölény: 40<br>Befejezés: 75<br>Labdatartás: 42.8<br>Jelenlét: 59.1<br>Poaching: 65.5<br>Pressing: 87.5<br>Assziszt: 37.9<br>Futások: 16.6","<b>T. Yordanov<\/b><br><i>Befejező (38%) · Komplett csatár (29%) · Kreatív csatár (12%) · Célponttámadó (11%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 21.7<br>Befejezés: 63.8<br>Labdatartás: 45.7<br>Jelenlét: 39.2<br>Poaching: 63.4<br>Pressing: 45.7<br>Assziszt: 37.1<br>Futások: 31.4","<b>D. Lukács<\/b><br>Puskás Akadémia FC<br><i>Komplett csatár (34%) · Kreatív csatár (29%) · Presszingcsatár (19%) · Befejező (16%)<\/i><br>─────────────────<br>Légi fölény: 11<br>Befejezés: 91.8<br>Labdatartás: 32.5<br>Jelenlét: 39.2<br>Poaching: 58.6<br>Pressing: 55.6<br>Assziszt: 67.2<br>Futások: 69.3","<b>G. Vlijter<\/b><br>Újpest FC<br><i>Kreatív csatár (45%) · Presszingcsatár (35%) · Komplett csatár (15%)<\/i><br>─────────────────<br>Légi fölény: 7.2<br>Befejezés: 25<br>Labdatartás: 45.1<br>Jelenlét: 44<br>Poaching: 32.8<br>Pressing: 81.9<br>Assziszt: 77.3<br>Futások: 57.9","<b>A. Matko<\/b><br>Újpest FC<br><i>Befejező (63%) · Komplett csatár (21%)<\/i><br>─────────────────<br>Légi fölény: 35.5<br>Befejezés: 90.5<br>Labdatartás: 38.2<br>Jelenlét: 21.1<br>Poaching: 78.4<br>Pressing: 48.3<br>Assziszt: 31.6<br>Futások: 59.7","<b>B. Tóth<\/b><br><i>Komplett csatár (49%) · Célponttámadó (25%) · Kreatív csatár (11%)<\/i><br>─────────────────<br>Légi fölény: 91<br>Befejezés: 51.3<br>Labdatartás: 53.2<br>Jelenlét: 68.1<br>Poaching: 64.7<br>Pressing: 45.3<br>Assziszt: 69.3<br>Futások: 62.8","<b>J. Fameyeh<\/b><br>Puskás Akadémia FC<br><i>Komplett csatár (48%) · Presszingcsatár (16%) · Befejező (14%) · Kreatív csatár (13%)<\/i><br>─────────────────<br>Légi fölény: 36.6<br>Befejezés: 56<br>Labdatartás: 57.5<br>Jelenlét: 40.5<br>Poaching: 62.1<br>Pressing: 60.8<br>Assziszt: 44.3<br>Futások: 56.9","<b>B. Kártik<\/b><br><i>Kreatív csatár (37%) · Presszingcsatár (29%) · Komplett csatár (18%) · Célponttámadó (12%)<\/i><br>─────────────────<br>Légi fölény: 37.2<br>Befejezés: 10.3<br>Labdatartás: 38.2<br>Jelenlét: 72.4<br>Poaching: 8.2<br>Pressing: 64.7<br>Assziszt: 56<br>Futások: 28.6","<b>B. Varga<\/b><br>Ferencvárosi TC<br><i>Befejező (39%) · Célponttámadó (33%) · Komplett csatár (23%)<\/i><br>─────────────────<br>Légi fölény: 92.4<br>Befejezés: 93.1<br>Labdatartás: 72.7<br>Jelenlét: 30.6<br>Poaching: 81.9<br>Pressing: 45.7<br>Assziszt: 40.2<br>Futások: 38.3","<b>F. Kovačević<\/b><br>Ferencvárosi TC<br><i>Befejező (76%) · Komplett csatár (11%) · Célponttámadó (10%)<\/i><br>─────────────────<br>Légi fölény: 71.7<br>Befejezés: 93.5<br>Labdatartás: 56.3<br>Jelenlét: 18.5<br>Poaching: 96.6<br>Pressing: 36.6<br>Assziszt: 26.7<br>Futások: 34.1","<b>M. Tučić<\/b><br>Újpest FC<br><i>Komplett csatár (49%) · Befejező (22%) · Célponttámadó (12%) · Kreatív csatár (11%)<\/i><br>─────────────────<br>Légi fölény: 61.4<br>Befejezés: 65.5<br>Labdatartás: 51.4<br>Jelenlét: 46.1<br>Poaching: 80.6<br>Pressing: 54.3<br>Assziszt: 70.1<br>Futások: 42.4","<b>D. Bárány<\/b><br>Debreceni VSC<br><i>Befejező (48%) · Komplett csatár (32%) · Célponttámadó (10%)<\/i><br>─────────────────<br>Légi fölény: 46.2<br>Befejezés: 86.6<br>Labdatartás: 61.2<br>Jelenlét: 39.7<br>Poaching: 82.8<br>Pressing: 59.9<br>Assziszt: 28.2<br>Futások: 42.1","<b>S. Szuhodovszki<\/b><br>Debreceni VSC<br><i>Presszingcsatár (43%) · Kreatív csatár (33%) · Komplett csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 21.4<br>Befejezés: 42.7<br>Labdatartás: 43.4<br>Jelenlét: 69.4<br>Poaching: 25.9<br>Pressing: 67.7<br>Assziszt: 50.6<br>Futások: 61.7","<b>M. Šlogar<\/b><br><i>Kreatív csatár (40%) · Presszingcsatár (37%) · Komplett csatár (16%)<\/i><br>─────────────────<br>Légi fölény: 18.3<br>Befejezés: 43.5<br>Labdatartás: 24.4<br>Jelenlét: 49.6<br>Poaching: 11.6<br>Pressing: 49.6<br>Assziszt: 52.3<br>Futások: 68.3","<b>A. Németh<\/b><br>Puskás Akadémia FC<br><i>Kreatív csatár (42%) · Komplett csatár (25%) · Presszingcsatár (16%) · Célponttámadó (14%)<\/i><br>─────────────────<br>Légi fölény: 46.9<br>Befejezés: 26.3<br>Labdatartás: 62.6<br>Jelenlét: 52.2<br>Poaching: 15.9<br>Pressing: 36.2<br>Assziszt: 71.6<br>Futások: 71.7","<b>L. Joseph<\/b><br>Ferencvárosi TC<br><i>Komplett csatár (33%) · Presszingcsatár (26%) · Kreatív csatár (24%) · Célponttámadó (15%)<\/i><br>─────────────────<br>Légi fölény: 71.4<br>Befejezés: 16.8<br>Labdatartás: 60.9<br>Jelenlét: 53.4<br>Poaching: 31.9<br>Pressing: 72.4<br>Assziszt: 65.5<br>Futások: 70.7","<b>M. Tijani<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (35%) · Komplett csatár (30%) · Befejező (26%)<\/i><br>─────────────────<br>Légi fölény: 91<br>Befejezés: 82.3<br>Labdatartás: 51.4<br>Jelenlét: 34.9<br>Poaching: 50.4<br>Pressing: 56<br>Assziszt: 34.8<br>Futások: 41.4","<b>Á. Bényei<\/b><br>Diósgyőri VTK<br><i>Kreatív csatár (38%) · Presszingcsatár (34%) · Komplett csatár (17%)<\/i><br>─────────────────<br>Légi fölény: 35.2<br>Befejezés: 25.4<br>Labdatartás: 24.4<br>Jelenlét: 70.3<br>Poaching: 13.4<br>Pressing: 70.3<br>Assziszt: 59.8<br>Futások: 32.1","<b>M. Matanović<\/b><br><i>Kreatív csatár (41%) · Presszingcsatár (33%) · Komplett csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 54.8<br>Befejezés: 9.9<br>Labdatartás: 55.5<br>Jelenlét: 74.6<br>Poaching: 8.2<br>Pressing: 84.9<br>Assziszt: 83.9<br>Futások: 65.2","<b>Á. Szendrei<\/b><br>Paksi FC<br><i>Komplett csatár (48%) · Befejező (20%) · Kreatív csatár (17%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 40<br>Befejezés: 82.3<br>Labdatartás: 44.8<br>Jelenlét: 45.7<br>Poaching: 65.1<br>Pressing: 34.9<br>Assziszt: 60.3<br>Futások: 84.8","<b>D. Yusuf<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (39%) · Komplett csatár (29%) · Presszingcsatár (24%)<\/i><br>─────────────────<br>Légi fölény: 36.6<br>Befejezés: 40.9<br>Labdatartás: 41.7<br>Jelenlét: 44.4<br>Poaching: 46.1<br>Pressing: 50.9<br>Assziszt: 70.4<br>Futások: 87.6","<b>João Victor<\/b><br>Zalaegerszegi TE FC<br><i>Komplett csatár (40%) · Kreatív csatár (21%) · Befejező (18%) · Presszingcsatár (15%)<\/i><br>─────────────────<br>Légi fölény: 23.8<br>Befejezés: 58.2<br>Labdatartás: 41.7<br>Jelenlét: 62.9<br>Poaching: 66.4<br>Pressing: 39.2<br>Assziszt: 42.2<br>Futások: 61.4","<b>M. Ubochioma<\/b><br><i>Presszingcsatár (58%) · Kreatív csatár (21%) · Komplett csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 24.5<br>Befejezés: 56<br>Labdatartás: 35.3<br>Jelenlét: 67.2<br>Poaching: 36.2<br>Pressing: 82.3<br>Assziszt: 53.4<br>Futások: 65.5","<b>N. Gradišar<\/b><br>Újpest FC<br><i>Célponttámadó (59%) · Befejező (22%) · Komplett csatár (16%)<\/i><br>─────────────────<br>Légi fölény: 66.9<br>Befejezés: 64.2<br>Labdatartás: 74.1<br>Jelenlét: 68.1<br>Poaching: 72<br>Pressing: 18.1<br>Assziszt: 25.6<br>Futások: 34.1","<b>M. Mucsányi<\/b><br><i>Befejező (44%) · Komplett csatár (25%) · Célponttámadó (14%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 43.8<br>Befejezés: 45.7<br>Labdatartás: 43.1<br>Jelenlét: 30.6<br>Poaching: 77.6<br>Pressing: 58.2<br>Assziszt: 18.1<br>Futások: 33.8","<b>H. Németh<\/b><br>MTK Budapest<br><i>Komplett csatár (34%) · Presszingcsatár (31%) · Kreatív csatár (27%)<\/i><br>─────────────────<br>Légi fölény: 34.5<br>Befejezés: 56.5<br>Labdatartás: 44.5<br>Jelenlét: 78<br>Poaching: 49.6<br>Pressing: 97<br>Assziszt: 66.1<br>Futások: 32.1","<b>N. Benbouali<\/b><br>ETO FC<br><i>Komplett csatár (63%) · Célponttámadó (12%) · Kreatív csatár (10%)<\/i><br>─────────────────<br>Légi fölény: 70.7<br>Befejezés: 73.7<br>Labdatartás: 58.6<br>Jelenlét: 53<br>Poaching: 62.1<br>Pressing: 62.5<br>Assziszt: 71.6<br>Futások: 54.5","<b>O. Pishchur<\/b><br><i>Komplett csatár (49%) · Célponttámadó (21%) · Befejező (19%)<\/i><br>─────────────────<br>Légi fölény: 97.9<br>Befejezés: 72.8<br>Labdatartás: 57.8<br>Jelenlét: 59.5<br>Poaching: 86.6<br>Pressing: 61.2<br>Assziszt: 47.4<br>Futások: 65.2","<b>Daniel Lima<\/b><br>Zalaegerszegi TE FC<br><i>Komplett csatár (59%) · Befejező (18%)<\/i><br>─────────────────<br>Légi fölény: 53.8<br>Befejezés: 74.6<br>Labdatartás: 55.7<br>Jelenlét: 63.8<br>Poaching: 75.9<br>Pressing: 65.5<br>Assziszt: 34.2<br>Futások: 54.1","<b>Z. Gruber<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (46%) · Komplett csatár (27%) · Presszingcsatár (18%)<\/i><br>─────────────────<br>Légi fölény: 15.9<br>Befejezés: 65.9<br>Labdatartás: 48.6<br>Jelenlét: 46.1<br>Poaching: 31<br>Pressing: 53<br>Assziszt: 70.4<br>Futások: 56.6","<b>M. Klausz<\/b><br>Zalaegerszegi TE FC<br><i>Befejező (39%) · Komplett csatár (31%) · Célponttámadó (22%)<\/i><br>─────────────────<br>Légi fölény: 60.7<br>Befejezés: 88.8<br>Labdatartás: 72.4<br>Jelenlét: 43.1<br>Poaching: 81<br>Pressing: 30.2<br>Assziszt: 59.8<br>Futások: 40.7","<b>Alegria<\/b><br>Zalaegerszegi TE FC<br><i>Presszingcsatár (44%) · Kreatív csatár (34%) · Komplett csatár (17%)<\/i><br>─────────────────<br>Légi fölény: 12.4<br>Befejezés: 32.3<br>Labdatartás: 44.3<br>Jelenlét: 55.6<br>Poaching: 33.2<br>Pressing: 67.2<br>Assziszt: 51.1<br>Futások: 66.9","<b>D. Gilbert<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (45%) · Komplett csatár (22%) · Kreatív csatár (17%)<\/i><br>─────────────────<br>Légi fölény: 69<br>Befejezés: 24.1<br>Labdatartás: 48.3<br>Jelenlét: 55.6<br>Poaching: 31<br>Pressing: 25.9<br>Assziszt: 58.3<br>Futások: 37.2","<b>A. Pinter<\/b><br><i>Célponttámadó (32%) · Komplett csatár (20%) · Befejező (19%) · Kreatív csatár (14%) · Presszingcsatár (14%)<\/i><br>─────────────────<br>Légi fölény: 35.9<br>Befejezés: 20.7<br>Labdatartás: 48.9<br>Jelenlét: 25.4<br>Poaching: 29.3<br>Pressing: 29.7<br>Assziszt: 20.7<br>Futások: 35.9","<b>N. Njie<\/b><br>ETO FC<br><i>Komplett csatár (43%) · Presszingcsatár (33%) · Kreatív csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 69.3<br>Befejezés: 61.6<br>Labdatartás: 58.6<br>Jelenlét: 78.4<br>Poaching: 37.9<br>Pressing: 96.1<br>Assziszt: 69.8<br>Futások: 84.1"],"hoverinfo":"text","color":{},"size":{},"colors":["#2E6DA4","#C43A28","#1a7a4a","#7B4EA6","#D4902A"],"alpha_stroke":1,"sizes":[7,18],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"text":"Befejező","x":1.6718058406520926,"y":-1.4433102419989257,"showarrow":false,"font":{"family":"Montserrat","size":11,"color":"#2E2B26"},"bgcolor":"#FAF8F4DD","borderpad":3},{"text":"Célponttámadó","x":0.91058016880239356,"y":-0.59881495316227529,"showarrow":false,"font":{"family":"Montserrat","size":11,"color":"#2E2B26"},"bgcolor":"#FAF8F4DD","borderpad":3},{"text":"Komplett csatár","x":0.4152767611088729,"y":-0.16473145892391095,"showarrow":false,"font":{"family":"Montserrat","size":11,"color":"#2E2B26"},"bgcolor":"#FAF8F4DD","borderpad":3},{"text":"Kreatív csatár","x":-1.8489027127226669,"y":1.2244311169908353,"showarrow":false,"font":{"family":"Montserrat","size":11,"color":"#2E2B26"},"bgcolor":"#FAF8F4DD","borderpad":3},{"text":"Presszingcsatár","x":-1.6948276964284603,"y":1.319503438371723,"showarrow":false,"font":{"family":"Montserrat","size":11,"color":"#2E2B26"},"bgcolor":"#FAF8F4DD","borderpad":3}],"xaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"gridcolor":"#E8E4DE","showticklabels":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"gridcolor":"#E8E4DE","showticklabels":false},"paper_bgcolor":"#FAF8F4","plot_bgcolor":"#FAF8F4","legend":{"title":{"text":"Elsődleges szerep"}},"font":{"family":"Montserrat","size":12},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1.7381939443491277,1.8358141931436833,1.3161208185098943,1.493532851590949,2.1982104333780583,2.2888359578989323,1.7128765138529118,0.55000634516699876,1.9126615079782781],"y":[0.14342358102232722,-2.0119687081393547,-2.0526275397357292,-2.4589092494067497,-0.44143613288968298,-1.5188668728885004,-1.5343907834109614,-2.0049994946536369,-1.1100169778880427],"mode":"markers","marker":{"color":"rgba(196,58,40,1)","size":[11.273172102653295,13.41235712084605,9.4104742175063407,14.939847933664559,9.6590916385013497,18,11.683421938788616,10.678615638137956,9.6130154710201463],"sizemode":"diameter","opacity":0.84999999999999998,"line":{"color":"rgba(196,58,40,1)"}},"text":["<b>D. Böde<\/b><br>Paksi FC<br><i>Befejező (47%) · Komplett csatár (34%)<\/i><br>─────────────────<br>Légi fölény: 85.5<br>Befejezés: 93.5<br>Labdatartás: 35.6<br>Jelenlét: 41.4<br>Poaching: 97<br>Pressing: 43.5<br>Assziszt: 67.2<br>Futások: 63.4","<b>J. Hahn<\/b><br>Paksi FC<br><i>Befejező (56%) · Komplett csatár (24%)<\/i><br>─────────────────<br>Légi fölény: 39.3<br>Befejezés: 79.7<br>Labdatartás: 35.3<br>Jelenlét: 23.3<br>Poaching: 74.6<br>Pressing: 44.8<br>Assziszt: 50<br>Futások: 45.2","<b>T. Yordanov<\/b><br><i>Befejező (38%) · Komplett csatár (29%) · Kreatív csatár (12%) · Célponttámadó (11%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 21.7<br>Befejezés: 63.8<br>Labdatartás: 45.7<br>Jelenlét: 39.2<br>Poaching: 63.4<br>Pressing: 45.7<br>Assziszt: 37.1<br>Futások: 31.4","<b>A. Matko<\/b><br>Újpest FC<br><i>Befejező (63%) · Komplett csatár (21%)<\/i><br>─────────────────<br>Légi fölény: 35.5<br>Befejezés: 90.5<br>Labdatartás: 38.2<br>Jelenlét: 21.1<br>Poaching: 78.4<br>Pressing: 48.3<br>Assziszt: 31.6<br>Futások: 59.7","<b>B. Varga<\/b><br>Ferencvárosi TC<br><i>Befejező (39%) · Célponttámadó (33%) · Komplett csatár (23%)<\/i><br>─────────────────<br>Légi fölény: 92.4<br>Befejezés: 93.1<br>Labdatartás: 72.7<br>Jelenlét: 30.6<br>Poaching: 81.9<br>Pressing: 45.7<br>Assziszt: 40.2<br>Futások: 38.3","<b>F. Kovačević<\/b><br>Ferencvárosi TC<br><i>Befejező (76%) · Komplett csatár (11%) · Célponttámadó (10%)<\/i><br>─────────────────<br>Légi fölény: 71.7<br>Befejezés: 93.5<br>Labdatartás: 56.3<br>Jelenlét: 18.5<br>Poaching: 96.6<br>Pressing: 36.6<br>Assziszt: 26.7<br>Futások: 34.1","<b>D. Bárány<\/b><br>Debreceni VSC<br><i>Befejező (48%) · Komplett csatár (32%) · Célponttámadó (10%)<\/i><br>─────────────────<br>Légi fölény: 46.2<br>Befejezés: 86.6<br>Labdatartás: 61.2<br>Jelenlét: 39.7<br>Poaching: 82.8<br>Pressing: 59.9<br>Assziszt: 28.2<br>Futások: 42.1","<b>M. Mucsányi<\/b><br><i>Befejező (44%) · Komplett csatár (25%) · Célponttámadó (14%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 43.8<br>Befejezés: 45.7<br>Labdatartás: 43.1<br>Jelenlét: 30.6<br>Poaching: 77.6<br>Pressing: 58.2<br>Assziszt: 18.1<br>Futások: 33.8","<b>M. Klausz<\/b><br>Zalaegerszegi TE FC<br><i>Befejező (39%) · Komplett csatár (31%) · Célponttámadó (22%)<\/i><br>─────────────────<br>Légi fölény: 60.7<br>Befejezés: 88.8<br>Labdatartás: 72.4<br>Jelenlét: 43.1<br>Poaching: 81<br>Pressing: 30.2<br>Assziszt: 59.8<br>Futások: 40.7"],"hoverinfo":["text","text","text","text","text","text","text","text","text"],"type":"scatter","name":"Befejező","textfont":{"color":"rgba(196,58,40,1)","size":[11.273172102653295,13.41235712084605,9.4104742175063407,14.939847933664559,9.6590916385013497,18,11.683421938788616,10.678615638137956,9.6130154710201463]},"error_y":{"color":"rgba(196,58,40,1)","width":[]},"error_x":{"color":"rgba(196,58,40,1)","width":[]},"line":{"color":"rgba(196,58,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[-0.73101238881127273,0.23563189829810227,0.59044308985694016,2.2854003461740788,1.3037578615091618,0.2175092252634343,2.8340062650583562,0.75261493052466477,0.23934598292334641,2.5700871499918279,1.7948767694376286,-0.0080914941884699942,-0.24702744160668288],"y":[-0.63300350914567205,1.5524887083950689,-1.1853459240016291,0.42628463496596125,-0.57666099677651617,-1.4424357176837275,-0.17782107601731512,-0.81318453560441228,-2.3983204127368278,-0.010032793980533805,-0.82106552134125921,-0.59542489657967779,-1.110072350603039],"mode":"markers","marker":{"color":"rgba(46,109,164,1)","size":[9.853542226641764,7.6604254575246955,14.586656768177651,14.639720859082612,16.212838262791486,8.4035048986367986,16.283139215842048,13.52072962870062,8.2621125790924097,8.6355635269189914,13.948715964427743,10.912459414944124,7.9447943415002227],"sizemode":"diameter","opacity":0.84999999999999998,"line":{"color":"rgba(46,109,164,1)"}},"text":["<b>Y. Croizet<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (40%) · Kreatív csatár (22%) · Komplett csatár (20%)<\/i><br>─────────────────<br>Légi fölény: 47.9<br>Befejezés: 19.8<br>Labdatartás: 54<br>Jelenlét: 46.1<br>Poaching: 21.1<br>Pressing: 23.3<br>Assziszt: 53.7<br>Futások: 28.6","<b>J. Mešanović<\/b><br><i>Célponttámadó (31%) · Komplett csatár (30%) · Kreatív csatár (23%) · Presszingcsatár (12%)<\/i><br>─────────────────<br>Légi fölény: 72.1<br>Befejezés: 36.2<br>Labdatartás: 56.3<br>Jelenlét: 64.2<br>Poaching: 22<br>Pressing: 59.1<br>Assziszt: 72.1<br>Futások: 33.8","<b>S. Novothny<\/b><br><i>Célponttámadó (61%) · Komplett csatár (15%) · Befejező (14%)<\/i><br>─────────────────<br>Légi fölény: 70<br>Befejezés: 30.6<br>Labdatartás: 58.9<br>Jelenlét: 35.8<br>Poaching: 41.8<br>Pressing: 37.1<br>Assziszt: 22.7<br>Futások: 20.7","<b>D. Babunski<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (62%) · Komplett csatár (19%)<\/i><br>─────────────────<br>Légi fölény: 92.1<br>Befejezés: 29.7<br>Labdatartás: 52.9<br>Jelenlét: 59.1<br>Poaching: 44.8<br>Pressing: 44.4<br>Assziszt: 28.2<br>Futások: 40.7","<b>M. Jurina<\/b><br>MTK Budapest<br><i>Célponttámadó (69%) · Komplett csatár (15%)<\/i><br>─────────────────<br>Légi fölény: 81.4<br>Befejezés: 17.2<br>Labdatartás: 85.3<br>Jelenlét: 31.9<br>Poaching: 55.6<br>Pressing: 36.6<br>Assziszt: 34.5<br>Futások: 35.9","<b>M. Sajbán<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (34%) · Komplett csatár (28%) · Presszingcsatár (15%) · Kreatív csatár (13%)<\/i><br>─────────────────<br>Légi fölény: 70<br>Befejezés: 12.9<br>Labdatartás: 46.6<br>Jelenlét: 53.9<br>Poaching: 48.3<br>Pressing: 52.2<br>Assziszt: 38.2<br>Futások: 43.1","<b>M. Kvasina<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (69%) · Komplett csatár (15%) · Befejező (11%)<\/i><br>─────────────────<br>Légi fölény: 84.5<br>Befejezés: 82.3<br>Labdatartás: 66.1<br>Jelenlét: 56.9<br>Poaching: 28.9<br>Pressing: 44<br>Assziszt: 20.4<br>Futások: 23.1","<b>I. Šaponjić<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (57%) · Komplett csatár (19%) · Befejező (14%)<\/i><br>─────────────────<br>Légi fölény: 85.5<br>Befejezés: 13.8<br>Labdatartás: 79.3<br>Jelenlét: 26.7<br>Poaching: 77.6<br>Pressing: 32.3<br>Assziszt: 59.2<br>Futások: 28.3","<b>A. Keita<\/b><br>Diósgyőri VTK<br><i>Célponttámadó (33%) · Komplett csatár (31%) · Befejező (16%) · Presszingcsatár (13%)<\/i><br>─────────────────<br>Légi fölény: 77.2<br>Befejezés: 37.1<br>Labdatartás: 46.8<br>Jelenlét: 69.4<br>Poaching: 69<br>Pressing: 86.6<br>Assziszt: 26.4<br>Futások: 7.9","<b>M. Tijani<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (35%) · Komplett csatár (30%) · Befejező (26%)<\/i><br>─────────────────<br>Légi fölény: 91<br>Befejezés: 82.3<br>Labdatartás: 51.4<br>Jelenlét: 34.9<br>Poaching: 50.4<br>Pressing: 56<br>Assziszt: 34.8<br>Futások: 41.4","<b>N. Gradišar<\/b><br>Újpest FC<br><i>Célponttámadó (59%) · Befejező (22%) · Komplett csatár (16%)<\/i><br>─────────────────<br>Légi fölény: 66.9<br>Befejezés: 64.2<br>Labdatartás: 74.1<br>Jelenlét: 68.1<br>Poaching: 72<br>Pressing: 18.1<br>Assziszt: 25.6<br>Futások: 34.1","<b>D. Gilbert<\/b><br>Nyíregyháza Spartacus<br><i>Célponttámadó (45%) · Komplett csatár (22%) · Kreatív csatár (17%)<\/i><br>─────────────────<br>Légi fölény: 69<br>Befejezés: 24.1<br>Labdatartás: 48.3<br>Jelenlét: 55.6<br>Poaching: 31<br>Pressing: 25.9<br>Assziszt: 58.3<br>Futások: 37.2","<b>A. Pinter<\/b><br><i>Célponttámadó (32%) · Komplett csatár (20%) · Befejező (19%) · Kreatív csatár (14%) · Presszingcsatár (14%)<\/i><br>─────────────────<br>Légi fölény: 35.9<br>Befejezés: 20.7<br>Labdatartás: 48.9<br>Jelenlét: 25.4<br>Poaching: 29.3<br>Pressing: 29.7<br>Assziszt: 20.7<br>Futások: 35.9"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","name":"Célponttámadó","textfont":{"color":"rgba(46,109,164,1)","size":[9.853542226641764,7.6604254575246955,14.586656768177651,14.639720859082612,16.212838262791486,8.4035048986367986,16.283139215842048,13.52072962870062,8.2621125790924097,8.6355635269189914,13.948715964427743,10.912459414944124,7.9447943415002227]},"error_y":{"color":"rgba(46,109,164,1)","width":[]},"error_x":{"color":"rgba(46,109,164,1)","width":[]},"line":{"color":"rgba(46,109,164,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0.4071754964731511,1.0684017690561589,-0.09171204243676101,-0.72840170537011062,0.36359782542212571,0.84839768733008469,1.8580965551279363,1.7088765653513249,0.90501447047217454,1.0920824560068425,-0.33439068470971023,0.55304522837622727,-1.3813834634877864,-2.3149705377675716,1.033649400129157,1.797962144269782,1.5497400316141423,-0.86019949589745437],"y":[0.012594425577228341,0.72599246491820124,-1.9051987887439081,0.63740339269072321,1.0862089632931402,-2.6644198657092399,-2.3496134043750114,0.74786772717863825,-1.7235530377444575,-1.3075686455783198,1.5600946186962774,0.69119247188002375,0.84095778455168513,0.58797522773176936,0.0022548078480413292,-0.01293895254700872,-1.410145855050976,1.515730404752796],"mode":"markers","marker":{"color":"rgba(212,144,42,1)","size":[8.2251129233087035,10.996003988092941,8.7008660728131328,9.6550925831847287,14.234240353746333,9.7157085386178021,8.3706761826780518,11.691458378351236,11.678987827622992,11.864654170058635,8.1669590564712298,11.502206289255252,9.7588232621521751,8.3377520161176371,14.908469457710595,11.861913983515576,13.996600925777173,10.352842414412031],"sizemode":"diameter","opacity":0.84999999999999998,"line":{"color":"rgba(212,144,42,1)"}},"text":["<b>K. Németh<\/b><br>MTK Budapest<br><i>Komplett csatár (33%) · Célponttámadó (30%) · Kreatív csatár (23%)<\/i><br>─────────────────<br>Légi fölény: 79.3<br>Befejezés: 42.7<br>Labdatartás: 60.1<br>Jelenlét: 45.7<br>Poaching: 34.1<br>Pressing: 30.6<br>Assziszt: 86.5<br>Futások: 61","<b>B. Edomwonyi<\/b><br>Nyíregyháza Spartacus<br><i>Komplett csatár (45%) · Befejező (23%) · Célponttámadó (17%)<\/i><br>─────────────────<br>Légi fölény: 64.8<br>Befejezés: 61.2<br>Labdatartás: 62.4<br>Jelenlét: 42.2<br>Poaching: 77.2<br>Pressing: 30.6<br>Assziszt: 54<br>Futások: 75.5","<b>F. Brodić<\/b><br>Újpest FC<br><i>Komplett csatár (35%) · Kreatív csatár (22%) · Célponttámadó (20%) · Presszingcsatár (15%)<\/i><br>─────────────────<br>Légi fölény: 57.2<br>Befejezés: 28<br>Labdatartás: 50.6<br>Jelenlét: 63.8<br>Poaching: 53.9<br>Pressing: 72<br>Assziszt: 64.7<br>Futások: 21.7","<b>R. Polievka<\/b><br>MTK Budapest<br><i>Komplett csatár (39%) · Kreatív csatár (32%) · Presszingcsatár (11%)<\/i><br>─────────────────<br>Légi fölény: 53.4<br>Befejezés: 51.7<br>Labdatartás: 41.1<br>Jelenlét: 47<br>Poaching: 51.3<br>Pressing: 32.8<br>Assziszt: 76.7<br>Futások: 77.9","<b>L. Colley<\/b><br>Puskás Akadémia FC<br><i>Komplett csatár (60%) · Presszingcsatár (14%) · Kreatív csatár (11%)<\/i><br>─────────────────<br>Légi fölény: 62.8<br>Befejezés: 63.4<br>Labdatartás: 69.5<br>Jelenlét: 41.4<br>Poaching: 63.8<br>Pressing: 68.1<br>Assziszt: 58.9<br>Futások: 87.2","<b>B. Bíró<\/b><br>ETO FC<br><i>Komplett csatár (40%) · Befejező (21%) · Presszingcsatár (18%) · Kreatív csatár (11%) · Célponttámadó (11%)<\/i><br>─────────────────<br>Légi fölény: 40<br>Befejezés: 75<br>Labdatartás: 42.8<br>Jelenlét: 59.1<br>Poaching: 65.5<br>Pressing: 87.5<br>Assziszt: 37.9<br>Futások: 16.6","<b>D. Lukács<\/b><br>Puskás Akadémia FC<br><i>Komplett csatár (34%) · Kreatív csatár (29%) · Presszingcsatár (19%) · Befejező (16%)<\/i><br>─────────────────<br>Légi fölény: 11<br>Befejezés: 91.8<br>Labdatartás: 32.5<br>Jelenlét: 39.2<br>Poaching: 58.6<br>Pressing: 55.6<br>Assziszt: 67.2<br>Futások: 69.3","<b>B. Tóth<\/b><br><i>Komplett csatár (49%) · Célponttámadó (25%) · Kreatív csatár (11%)<\/i><br>─────────────────<br>Légi fölény: 91<br>Befejezés: 51.3<br>Labdatartás: 53.2<br>Jelenlét: 68.1<br>Poaching: 64.7<br>Pressing: 45.3<br>Assziszt: 69.3<br>Futások: 62.8","<b>J. Fameyeh<\/b><br>Puskás Akadémia FC<br><i>Komplett csatár (48%) · Presszingcsatár (16%) · Befejező (14%) · Kreatív csatár (13%)<\/i><br>─────────────────<br>Légi fölény: 36.6<br>Befejezés: 56<br>Labdatartás: 57.5<br>Jelenlét: 40.5<br>Poaching: 62.1<br>Pressing: 60.8<br>Assziszt: 44.3<br>Futások: 56.9","<b>M. Tučić<\/b><br>Újpest FC<br><i>Komplett csatár (49%) · Befejező (22%) · Célponttámadó (12%) · Kreatív csatár (11%)<\/i><br>─────────────────<br>Légi fölény: 61.4<br>Befejezés: 65.5<br>Labdatartás: 51.4<br>Jelenlét: 46.1<br>Poaching: 80.6<br>Pressing: 54.3<br>Assziszt: 70.1<br>Futások: 42.4","<b>L. Joseph<\/b><br>Ferencvárosi TC<br><i>Komplett csatár (33%) · Presszingcsatár (26%) · Kreatív csatár (24%) · Célponttámadó (15%)<\/i><br>─────────────────<br>Légi fölény: 71.4<br>Befejezés: 16.8<br>Labdatartás: 60.9<br>Jelenlét: 53.4<br>Poaching: 31.9<br>Pressing: 72.4<br>Assziszt: 65.5<br>Futások: 70.7","<b>Á. Szendrei<\/b><br>Paksi FC<br><i>Komplett csatár (48%) · Befejező (20%) · Kreatív csatár (17%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 40<br>Befejezés: 82.3<br>Labdatartás: 44.8<br>Jelenlét: 45.7<br>Poaching: 65.1<br>Pressing: 34.9<br>Assziszt: 60.3<br>Futások: 84.8","<b>João Victor<\/b><br>Zalaegerszegi TE FC<br><i>Komplett csatár (40%) · Kreatív csatár (21%) · Befejező (18%) · Presszingcsatár (15%)<\/i><br>─────────────────<br>Légi fölény: 23.8<br>Befejezés: 58.2<br>Labdatartás: 41.7<br>Jelenlét: 62.9<br>Poaching: 66.4<br>Pressing: 39.2<br>Assziszt: 42.2<br>Futások: 61.4","<b>H. Németh<\/b><br>MTK Budapest<br><i>Komplett csatár (34%) · Presszingcsatár (31%) · Kreatív csatár (27%)<\/i><br>─────────────────<br>Légi fölény: 34.5<br>Befejezés: 56.5<br>Labdatartás: 44.5<br>Jelenlét: 78<br>Poaching: 49.6<br>Pressing: 97<br>Assziszt: 66.1<br>Futások: 32.1","<b>N. Benbouali<\/b><br>ETO FC<br><i>Komplett csatár (63%) · Célponttámadó (12%) · Kreatív csatár (10%)<\/i><br>─────────────────<br>Légi fölény: 70.7<br>Befejezés: 73.7<br>Labdatartás: 58.6<br>Jelenlét: 53<br>Poaching: 62.1<br>Pressing: 62.5<br>Assziszt: 71.6<br>Futások: 54.5","<b>O. Pishchur<\/b><br><i>Komplett csatár (49%) · Célponttámadó (21%) · Befejező (19%)<\/i><br>─────────────────<br>Légi fölény: 97.9<br>Befejezés: 72.8<br>Labdatartás: 57.8<br>Jelenlét: 59.5<br>Poaching: 86.6<br>Pressing: 61.2<br>Assziszt: 47.4<br>Futások: 65.2","<b>Daniel Lima<\/b><br>Zalaegerszegi TE FC<br><i>Komplett csatár (59%) · Befejező (18%)<\/i><br>─────────────────<br>Légi fölény: 53.8<br>Befejezés: 74.6<br>Labdatartás: 55.7<br>Jelenlét: 63.8<br>Poaching: 75.9<br>Pressing: 65.5<br>Assziszt: 34.2<br>Futások: 54.1","<b>N. Njie<\/b><br>ETO FC<br><i>Komplett csatár (43%) · Presszingcsatár (33%) · Kreatív csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 69.3<br>Befejezés: 61.6<br>Labdatartás: 58.6<br>Jelenlét: 78.4<br>Poaching: 37.9<br>Pressing: 96.1<br>Assziszt: 69.8<br>Futások: 84.1"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","name":"Komplett csatár","textfont":{"color":"rgba(212,144,42,1)","size":[8.2251129233087035,10.996003988092941,8.7008660728131328,9.6550925831847287,14.234240353746333,9.7157085386178021,8.3706761826780518,11.691458378351236,11.678987827622992,11.864654170058635,8.1669590564712298,11.502206289255252,9.7588232621521751,8.3377520161176371,14.908469457710595,11.861913983515576,13.996600925777173,10.352842414412031]},"error_y":{"color":"rgba(212,144,42,1)","width":[]},"error_x":{"color":"rgba(212,144,42,1)","width":[]},"line":{"color":"rgba(212,144,42,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[-3.1266694513417903,-2.9935441461660091,-0.26898150120751296,-2.8849730936147395,-3.0393548456288997,-1.6908078638173762,-2.5563974825002376,-2.2482815233327571,-1.3898330179311458,-0.29188303624169265,-2.5501184908010188,-0.93928627644555007,-0.024570986375969994,-1.8799362627126399],"y":[1.1471891640606573,0.66749068488508967,0.044691139358585152,0.2425711094322851,1.3283169506970098,2.324971699613636,2.0431077717724495,0.84290864457518366,1.3423346518459967,1.2322938679638555,1.2726606368008306,1.8954711197796514,0.61394014348418025,2.1440880536022835],"mode":"markers","marker":{"color":"rgba(123,78,166,1)","size":[13.263865172688849,13.770190366467627,8.5504164629501709,10.565200432457186,12.143862820618335,13.305928081215942,10.999742576869231,9.1018546902877766,9.6677763603122848,10.125684480767088,9.3774169890019614,9.9535504906769283,9.5423486239738828,11.054730358237153],"sizemode":"diameter","opacity":0.84999999999999998,"line":{"color":"rgba(123,78,166,1)"}},"text":["<b>Iuri Medeiros<\/b><br>Újpest FC<br><i>Kreatív csatár (55%) · Presszingcsatár (22%) · Komplett csatár (14%)<\/i><br>─────────────────<br>Légi fölény: 20.7<br>Befejezés: 9.1<br>Labdatartás: 46<br>Jelenlét: 60.8<br>Poaching: 9.1<br>Pressing: 64.2<br>Assziszt: 85.3<br>Futások: 31","<b>I. Bognár<\/b><br>MTK Budapest<br><i>Kreatív csatár (58%) · Komplett csatár (21%) · Presszingcsatár (14%)<\/i><br>─────────────────<br>Légi fölény: 32.4<br>Befejezés: 45.7<br>Labdatartás: 29.3<br>Jelenlét: 66.8<br>Poaching: 45.3<br>Pressing: 61.6<br>Assziszt: 93.4<br>Futások: 34.8","<b>A. Pešić<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (35%) · Komplett csatár (29%) · Célponttámadó (14%) · Befejező (12%) · Presszingcsatár (10%)<\/i><br>─────────────────<br>Légi fölény: 37.9<br>Befejezés: 39.7<br>Labdatartás: 50<br>Jelenlét: 38.4<br>Poaching: 41.8<br>Pressing: 15.1<br>Assziszt: 68.1<br>Futások: 66.6","<b>B. Dzsudzsák<\/b><br>Debreceni VSC<br><i>Kreatív csatár (44%) · Komplett csatár (23%) · Presszingcsatár (16%) · Befejező (12%)<\/i><br>─────────────────<br>Légi fölény: 19.7<br>Befejezés: 46.1<br>Labdatartás: 21.6<br>Jelenlét: 50.9<br>Poaching: 48.3<br>Pressing: 50<br>Assziszt: 73.9<br>Futások: 24.1","<b>G. Molnár<\/b><br><i>Kreatív csatár (51%) · Komplett csatár (23%)<\/i><br>─────────────────<br>Légi fölény: 23.1<br>Befejezés: 49.6<br>Labdatartás: 43.1<br>Jelenlét: 54.3<br>Poaching: 38.4<br>Pressing: 32.8<br>Assziszt: 79<br>Futások: 35.2","<b>E. Acolatse<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (56%) · Komplett csatár (24%) · Presszingcsatár (14%)<\/i><br>─────────────────<br>Légi fölény: 26.2<br>Befejezés: 50.9<br>Labdatartás: 53.2<br>Jelenlét: 45.7<br>Poaching: 35.8<br>Pressing: 45.3<br>Assziszt: 84.8<br>Futások: 74.5","<b>G. Vlijter<\/b><br>Újpest FC<br><i>Kreatív csatár (45%) · Presszingcsatár (35%) · Komplett csatár (15%)<\/i><br>─────────────────<br>Légi fölény: 7.2<br>Befejezés: 25<br>Labdatartás: 45.1<br>Jelenlét: 44<br>Poaching: 32.8<br>Pressing: 81.9<br>Assziszt: 77.3<br>Futások: 57.9","<b>B. Kártik<\/b><br><i>Kreatív csatár (37%) · Presszingcsatár (29%) · Komplett csatár (18%) · Célponttámadó (12%)<\/i><br>─────────────────<br>Légi fölény: 37.2<br>Befejezés: 10.3<br>Labdatartás: 38.2<br>Jelenlét: 72.4<br>Poaching: 8.2<br>Pressing: 64.7<br>Assziszt: 56<br>Futások: 28.6","<b>M. Šlogar<\/b><br><i>Kreatív csatár (40%) · Presszingcsatár (37%) · Komplett csatár (16%)<\/i><br>─────────────────<br>Légi fölény: 18.3<br>Befejezés: 43.5<br>Labdatartás: 24.4<br>Jelenlét: 49.6<br>Poaching: 11.6<br>Pressing: 49.6<br>Assziszt: 52.3<br>Futások: 68.3","<b>A. Németh<\/b><br>Puskás Akadémia FC<br><i>Kreatív csatár (42%) · Komplett csatár (25%) · Presszingcsatár (16%) · Célponttámadó (14%)<\/i><br>─────────────────<br>Légi fölény: 46.9<br>Befejezés: 26.3<br>Labdatartás: 62.6<br>Jelenlét: 52.2<br>Poaching: 15.9<br>Pressing: 36.2<br>Assziszt: 71.6<br>Futások: 71.7","<b>Á. Bényei<\/b><br>Diósgyőri VTK<br><i>Kreatív csatár (38%) · Presszingcsatár (34%) · Komplett csatár (17%)<\/i><br>─────────────────<br>Légi fölény: 35.2<br>Befejezés: 25.4<br>Labdatartás: 24.4<br>Jelenlét: 70.3<br>Poaching: 13.4<br>Pressing: 70.3<br>Assziszt: 59.8<br>Futások: 32.1","<b>M. Matanović<\/b><br><i>Kreatív csatár (41%) · Presszingcsatár (33%) · Komplett csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 54.8<br>Befejezés: 9.9<br>Labdatartás: 55.5<br>Jelenlét: 74.6<br>Poaching: 8.2<br>Pressing: 84.9<br>Assziszt: 83.9<br>Futások: 65.2","<b>D. Yusuf<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (39%) · Komplett csatár (29%) · Presszingcsatár (24%)<\/i><br>─────────────────<br>Légi fölény: 36.6<br>Befejezés: 40.9<br>Labdatartás: 41.7<br>Jelenlét: 44.4<br>Poaching: 46.1<br>Pressing: 50.9<br>Assziszt: 70.4<br>Futások: 87.6","<b>Z. Gruber<\/b><br>Ferencvárosi TC<br><i>Kreatív csatár (46%) · Komplett csatár (27%) · Presszingcsatár (18%)<\/i><br>─────────────────<br>Légi fölény: 15.9<br>Befejezés: 65.9<br>Labdatartás: 48.6<br>Jelenlét: 46.1<br>Poaching: 31<br>Pressing: 53<br>Assziszt: 70.4<br>Futások: 56.6"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","name":"Kreatív csatár","textfont":{"color":"rgba(123,78,166,1)","size":[13.263865172688849,13.770190366467627,8.5504164629501709,10.565200432457186,12.143862820618335,13.305928081215942,10.999742576869231,9.1018546902877766,9.6677763603122848,10.125684480767088,9.3774169890019614,9.9535504906769283,9.5423486239738828,11.054730358237153]},"error_y":{"color":"rgba(123,78,166,1)","width":[]},"error_x":{"color":"rgba(123,78,166,1)","width":[]},"line":{"color":"rgba(123,78,166,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[-1.126347109422845,-2.0842805353261653,-1.9656568018056575,-1.6848030534841243,-1.6130509821035091],"y":[0.10388561477095393,1.7819988964977911,1.5065855025234869,1.3696508645001104,1.8353963135662725],"mode":"markers","marker":{"color":"rgba(26,122,74,1)","size":[7,11.601052397261233,10.496726324380859,13.860083376739425,10.635778347578276],"sizemode":"diameter","opacity":0.84999999999999998,"line":{"color":"rgba(26,122,74,1)"}},"text":["<b>N. Könyves<\/b><br><i>Presszingcsatár (28%) · Kreatív csatár (22%) · Komplett csatár (22%) · Befejező (20%)<\/i><br>─────────────────<br>Légi fölény: 14.1<br>Befejezés: 26.7<br>Labdatartás: 28.7<br>Jelenlét: 22.8<br>Poaching: 49.6<br>Pressing: 34.9<br>Assziszt: 28.2<br>Futások: 70.7","<b>G. Beridze<\/b><br>Újpest FC<br><i>Presszingcsatár (48%) · Kreatív csatár (37%) · Komplett csatár (12%)<\/i><br>─────────────────<br>Légi fölény: 12.8<br>Befejezés: 34.9<br>Labdatartás: 44<br>Jelenlét: 61.2<br>Poaching: 16.8<br>Pressing: 75.9<br>Assziszt: 62.4<br>Futások: 74.8","<b>S. Szuhodovszki<\/b><br>Debreceni VSC<br><i>Presszingcsatár (43%) · Kreatív csatár (33%) · Komplett csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 21.4<br>Befejezés: 42.7<br>Labdatartás: 43.4<br>Jelenlét: 69.4<br>Poaching: 25.9<br>Pressing: 67.7<br>Assziszt: 50.6<br>Futások: 61.7","<b>M. Ubochioma<\/b><br><i>Presszingcsatár (58%) · Kreatív csatár (21%) · Komplett csatár (18%)<\/i><br>─────────────────<br>Légi fölény: 24.5<br>Befejezés: 56<br>Labdatartás: 35.3<br>Jelenlét: 67.2<br>Poaching: 36.2<br>Pressing: 82.3<br>Assziszt: 53.4<br>Futások: 65.5","<b>Alegria<\/b><br>Zalaegerszegi TE FC<br><i>Presszingcsatár (44%) · Kreatív csatár (34%) · Komplett csatár (17%)<\/i><br>─────────────────<br>Légi fölény: 12.4<br>Befejezés: 32.3<br>Labdatartás: 44.3<br>Jelenlét: 55.6<br>Poaching: 33.2<br>Pressing: 67.2<br>Assziszt: 51.1<br>Futások: 66.9"],"hoverinfo":["text","text","text","text","text"],"type":"scatter","name":"Presszingcsatár","textfont":{"color":"rgba(26,122,74,1)","size":[7,11.601052397261233,10.496726324380859,13.860083376739425,10.635778347578276]},"error_y":{"color":"rgba(26,122,74,1)","width":[]},"error_x":{"color":"rgba(26,122,74,1)","width":[]},"line":{"color":"rgba(26,122,74,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><em>Pontméret = az elsődleges szerepbe tartozás biztonsága. Kisebb pont = hibrid, több szerepet ötvöző játékos.</em></p>
+<hr>
+</section>
+<section id="hibrid-játékosok" class="level2">
+<h2 class="anchored" data-anchor-id="hibrid-játékosok">Hibrid játékosok</h2>
+<p>Azok a játékosok, akiknél a másodlagos szerep valószínűsége meghaladja a 22%-ot — ők nem sorolhatók be egyértelműen:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Játékos</th>
+<th style="text-align: left;">Csapat</th>
+<th style="text-align: left;">Szerepmix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">G. Beridze</td>
+<td style="text-align: left;">Újpest FC</td>
+<td style="text-align: left;">Presszingcsatár (48%) · Kreatív csatár (37%) · Komplett csatár (12%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M. Šlogar</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Kreatív csatár (40%) · Presszingcsatár (37%) · Komplett csatár (16%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G. Vlijter</td>
+<td style="text-align: left;">Újpest FC</td>
+<td style="text-align: left;">Kreatív csatár (45%) · Presszingcsatár (35%) · Komplett csatár (15%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D. Böde</td>
+<td style="text-align: left;">Paksi FC</td>
+<td style="text-align: left;">Befejező (47%) · Komplett csatár (34%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Á. Bényei</td>
+<td style="text-align: left;">Diósgyőri VTK</td>
+<td style="text-align: left;">Kreatív csatár (38%) · Presszingcsatár (34%) · Komplett csatár (17%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alegria</td>
+<td style="text-align: left;">Zalaegerszegi TE FC</td>
+<td style="text-align: left;">Presszingcsatár (44%) · Kreatív csatár (34%) · Komplett csatár (17%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S. Szuhodovszki</td>
+<td style="text-align: left;">Debreceni VSC</td>
+<td style="text-align: left;">Presszingcsatár (43%) · Kreatív csatár (33%) · Komplett csatár (18%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M. Matanović</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Kreatív csatár (41%) · Presszingcsatár (33%) · Komplett csatár (18%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N. Njie</td>
+<td style="text-align: left;">ETO FC</td>
+<td style="text-align: left;">Komplett csatár (43%) · Presszingcsatár (33%) · Kreatív csatár (18%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B. Varga</td>
+<td style="text-align: left;">Ferencvárosi TC</td>
+<td style="text-align: left;">Befejező (39%) · Célponttámadó (33%) · Komplett csatár (23%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R. Polievka</td>
+<td style="text-align: left;">MTK Budapest</td>
+<td style="text-align: left;">Komplett csatár (39%) · Kreatív csatár (32%) · Presszingcsatár (11%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D. Bárány</td>
+<td style="text-align: left;">Debreceni VSC</td>
+<td style="text-align: left;">Befejező (48%) · Komplett csatár (32%) · Célponttámadó (10%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M. Klausz</td>
+<td style="text-align: left;">Zalaegerszegi TE FC</td>
+<td style="text-align: left;">Befejező (39%) · Komplett csatár (31%) · Célponttámadó (22%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H. Németh</td>
+<td style="text-align: left;">MTK Budapest</td>
+<td style="text-align: left;">Komplett csatár (34%) · Presszingcsatár (31%) · Kreatív csatár (27%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A. Keita</td>
+<td style="text-align: left;">Diósgyőri VTK</td>
+<td style="text-align: left;">Célponttámadó (33%) · Komplett csatár (31%) · Befejező (16%) · Presszingcsatár (13%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M. Tijani</td>
+<td style="text-align: left;">Nyíregyháza Spartacus</td>
+<td style="text-align: left;">Célponttámadó (35%) · Komplett csatár (30%) · Befejező (26%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">J. Mešanović</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Célponttámadó (31%) · Komplett csatár (30%) · Kreatív csatár (23%) · Presszingcsatár (12%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K. Németh</td>
+<td style="text-align: left;">MTK Budapest</td>
+<td style="text-align: left;">Komplett csatár (33%) · Célponttámadó (30%) · Kreatív csatár (23%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B. Kártik</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Kreatív csatár (37%) · Presszingcsatár (29%) · Komplett csatár (18%) · Célponttámadó (12%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D. Yusuf</td>
+<td style="text-align: left;">Ferencvárosi TC</td>
+<td style="text-align: left;">Kreatív csatár (39%) · Komplett csatár (29%) · Presszingcsatár (24%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A. Pešić</td>
+<td style="text-align: left;">Ferencvárosi TC</td>
+<td style="text-align: left;">Kreatív csatár (35%) · Komplett csatár (29%) · Célponttámadó (14%) · Befejező (12%) · Presszingcsatár (10%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T. Yordanov</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Befejező (38%) · Komplett csatár (29%) · Kreatív csatár (12%) · Célponttámadó (11%) · Presszingcsatár (10%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">D. Lukács</td>
+<td style="text-align: left;">Puskás Akadémia FC</td>
+<td style="text-align: left;">Komplett csatár (34%) · Kreatív csatár (29%) · Presszingcsatár (19%) · Befejező (16%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M. Sajbán</td>
+<td style="text-align: left;">Diósgyőri VTK</td>
+<td style="text-align: left;">Célponttámadó (34%) · Komplett csatár (28%) · Presszingcsatár (15%) · Kreatív csatár (13%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Z. Gruber</td>
+<td style="text-align: left;">Ferencvárosi TC</td>
+<td style="text-align: left;">Kreatív csatár (46%) · Komplett csatár (27%) · Presszingcsatár (18%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L. Joseph</td>
+<td style="text-align: left;">Ferencvárosi TC</td>
+<td style="text-align: left;">Komplett csatár (33%) · Presszingcsatár (26%) · Kreatív csatár (24%) · Célponttámadó (15%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M. Mucsányi</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Befejező (44%) · Komplett csatár (25%) · Célponttámadó (14%) · Presszingcsatár (10%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A. Németh</td>
+<td style="text-align: left;">Puskás Akadémia FC</td>
+<td style="text-align: left;">Kreatív csatár (42%) · Komplett csatár (25%) · Presszingcsatár (16%) · Célponttámadó (14%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B. Tóth</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Komplett csatár (49%) · Célponttámadó (25%) · Kreatív csatár (11%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">J. Hahn</td>
+<td style="text-align: left;">Paksi FC</td>
+<td style="text-align: left;">Befejező (56%) · Komplett csatár (24%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">E. Acolatse</td>
+<td style="text-align: left;">Ferencvárosi TC</td>
+<td style="text-align: left;">Kreatív csatár (56%) · Komplett csatár (24%) · Presszingcsatár (14%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B. Edomwonyi</td>
+<td style="text-align: left;">Nyíregyháza Spartacus</td>
+<td style="text-align: left;">Komplett csatár (45%) · Befejező (23%) · Célponttámadó (17%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G. Molnár</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Kreatív csatár (51%) · Komplett csatár (23%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B. Dzsudzsák</td>
+<td style="text-align: left;">Debreceni VSC</td>
+<td style="text-align: left;">Kreatív csatár (44%) · Komplett csatár (23%) · Presszingcsatár (16%) · Befejező (12%)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N. Könyves</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">Presszingcsatár (28%) · Kreatív csatár (22%) · Komplett csatár (22%) · Befejező (20%)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D. Gilbert</td>
+<td style="text-align: left;">Nyíregyháza Spartacus</td>
+<td style="text-align: left;">Célponttámadó (45%) · Komplett csatár (22%) · Kreatív csatár (17%)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+<section id="csapatok-és-szerepek" class="level2">
+<h2 class="anchored" data-anchor-id="csapatok-és-szerepek">Csapatok és szerepek</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-bffe2c5a1cdae62910e1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-bffe2c5a1cdae62910e1">{"x":{"visdat":{"1b10dda201a":["function () ","plotlyVisDat"]},"cur_data":"1b10dda201a","attrs":{"1b10dda201a":{"x":{},"y":{},"hovertemplate":"%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","color":{},"colors":["#2E6DA4","#C43A28","#1a7a4a","#7B4EA6","#D4902A"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":120,"l":60,"t":25,"r":10},"barmode":"stack","xaxis":{"domain":[0,1],"automargin":true,"title":"team_name","tickangle":-35,"gridcolor":"#E8E4DE","type":"category","categoryorder":"array","categoryarray":["Debreceni VSC","Diósgyőri VTK","ETO FC","Ferencvárosi TC","MTK Budapest","Nyíregyháza Spartacus","Paksi FC","Puskás Akadémia FC","Újpest FC","Zalaegerszegi TE FC"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Csatárok száma","gridcolor":"#E8E4DE"},"paper_bgcolor":"#FAF8F4","plot_bgcolor":"#FAF8F4","legend":{"title":{"text":"Szerep"},"orientation":"h","y":-0.28000000000000003},"font":{"family":"Montserrat","size":11},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Diósgyőri VTK","MTK Budapest","Nyíregyháza Spartacus","Újpest FC"],"y":[4,1,4,1],"hovertemplate":["%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>"],"type":"bar","name":"Célponttámadó","marker":{"color":"rgba(46,109,164,1)","line":{"color":"rgba(46,109,164,1)"}},"textfont":{"color":"rgba(46,109,164,1)"},"error_y":{"color":"rgba(46,109,164,1)"},"error_x":{"color":"rgba(46,109,164,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Debreceni VSC","Ferencvárosi TC","Paksi FC","Zalaegerszegi TE FC","Újpest FC"],"y":[1,2,2,1,1],"hovertemplate":["%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>"],"type":"bar","name":"Befejező","marker":{"color":"rgba(196,58,40,1)","line":{"color":"rgba(196,58,40,1)"}},"textfont":{"color":"rgba(196,58,40,1)"},"error_y":{"color":"rgba(196,58,40,1)"},"error_x":{"color":"rgba(196,58,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Debreceni VSC","Zalaegerszegi TE FC","Újpest FC"],"y":[1,1,1],"hovertemplate":["%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>"],"type":"bar","name":"Presszingcsatár","marker":{"color":"rgba(26,122,74,1)","line":{"color":"rgba(26,122,74,1)"}},"textfont":{"color":"rgba(26,122,74,1)"},"error_y":{"color":"rgba(26,122,74,1)"},"error_x":{"color":"rgba(26,122,74,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Debreceni VSC","Diósgyőri VTK","Ferencvárosi TC","MTK Budapest","Puskás Akadémia FC","Újpest FC"],"y":[1,1,4,1,1,2],"hovertemplate":["%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>"],"type":"bar","name":"Kreatív csatár","marker":{"color":"rgba(123,78,166,1)","line":{"color":"rgba(123,78,166,1)"}},"textfont":{"color":"rgba(123,78,166,1)"},"error_y":{"color":"rgba(123,78,166,1)"},"error_x":{"color":"rgba(123,78,166,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["ETO FC","Ferencvárosi TC","MTK Budapest","Nyíregyháza Spartacus","Paksi FC","Puskás Akadémia FC","Zalaegerszegi TE FC","Újpest FC"],"y":[3,1,3,1,1,3,2,2],"hovertemplate":["%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>","%{x}<br>%{fullData.name}: %{y} játékos<extra><\/extra>"],"type":"bar","name":"Komplett csatár","marker":{"color":"rgba(212,144,42,1)","line":{"color":"rgba(212,144,42,1)"}},"textfont":{"color":"rgba(212,144,42,1)"},"error_y":{"color":"rgba(212,144,42,1)"},"error_x":{"color":"rgba(212,144,42,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<hr>
+</section>
+<section id="teljes-játékostábla" class="level2">
+<h2 class="anchored" data-anchor-id="teljes-játékostábla">Teljes játékostábla</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item" id="htmlwidget-13bfb0d94b57d7e59dd5" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-13bfb0d94b57d7e59dd5">{"x":{"filter":"none","vertical":false,"data":[["F. Kovačević","A. Matko","J. Hahn","D. Bárány","D. Böde","M. Mucsányi","B. Varga","M. Klausz","T. Yordanov","M. Kvasina","M. Jurina","D. Babunski","S. Novothny","N. Gradišar","I. Šaponjić","D. Gilbert","Y. Croizet","M. Tijani","M. Sajbán","A. Keita","A. Pinter","J. Mešanović","N. Benbouali","L. Colley","Daniel Lima","M. Tučić","O. Pishchur","B. Tóth","J. Fameyeh","Á. Szendrei","B. Edomwonyi","N. Njie","João Victor","B. Bíró","R. Polievka","F. Brodić","D. Lukács","H. Németh","K. Németh","L. Joseph","I. Bognár","E. Acolatse","Iuri Medeiros","G. Molnár","Z. Gruber","G. Vlijter","B. Dzsudzsák","A. Németh","M. Matanović","M. Šlogar","D. Yusuf","Á. Bényei","B. Kártik","A. Pešić","M. Ubochioma","G. Beridze","Alegria","S. Szuhodovszki","N. Könyves"],["Ferencvárosi TC","Újpest FC","Paksi FC","Debreceni VSC","Paksi FC","—","Ferencvárosi TC","Zalaegerszegi TE FC","—","Nyíregyháza Spartacus","MTK Budapest","Nyíregyháza Spartacus","—","Újpest FC","Diósgyőri VTK","Nyíregyháza Spartacus","Diósgyőri VTK","Nyíregyháza Spartacus","Diósgyőri VTK","Diósgyőri VTK","—","—","ETO FC","Puskás Akadémia FC","Zalaegerszegi TE FC","Újpest FC","—","—","Puskás Akadémia FC","Paksi FC","Nyíregyháza Spartacus","ETO FC","Zalaegerszegi TE FC","ETO FC","MTK Budapest","Újpest FC","Puskás Akadémia FC","MTK Budapest","MTK Budapest","Ferencvárosi TC","MTK Budapest","Ferencvárosi TC","Újpest FC","—","Ferencvárosi TC","Újpest FC","Debreceni VSC","Puskás Akadémia FC","—","—","Ferencvárosi TC","Diósgyőri VTK","—","Ferencvárosi TC","—","Újpest FC","Zalaegerszegi TE FC","Debreceni VSC","—"],["Befejező","Befejező","Befejező","Befejező","Befejező","Befejező","Befejező","Befejező","Befejező","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Célponttámadó","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Komplett csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Kreatív csatár","Presszingcsatár","Presszingcsatár","Presszingcsatár","Presszingcsatár","Presszingcsatár"],["Befejező (76%) · Komplett csatár (11%) · Célponttámadó (10%)","Befejező (63%) · Komplett csatár (21%)","Befejező (56%) · Komplett csatár (24%)","Befejező (48%) · Komplett csatár (32%) · Célponttámadó (10%)","Befejező (47%) · Komplett csatár (34%)","Befejező (44%) · Komplett csatár (25%) · Célponttámadó (14%) · Presszingcsatár (10%)","Befejező (39%) · Célponttámadó (33%) · Komplett csatár (23%)","Befejező (39%) · Komplett csatár (31%) · Célponttámadó (22%)","Befejező (38%) · Komplett csatár (29%) · Kreatív csatár (12%) · Célponttámadó (11%) · Presszingcsatár (10%)","Célponttámadó (69%) · Komplett csatár (15%) · Befejező (11%)","Célponttámadó (69%) · Komplett csatár (15%)","Célponttámadó (62%) · Komplett csatár (19%)","Célponttámadó (61%) · Komplett csatár (15%) · Befejező (14%)","Célponttámadó (59%) · Befejező (22%) · Komplett csatár (16%)","Célponttámadó (57%) · Komplett csatár (19%) · Befejező (14%)","Célponttámadó (45%) · Komplett csatár (22%) · Kreatív csatár (17%)","Célponttámadó (40%) · Kreatív csatár (22%) · Komplett csatár (20%)","Célponttámadó (35%) · Komplett csatár (30%) · Befejező (26%)","Célponttámadó (34%) · Komplett csatár (28%) · Presszingcsatár (15%) · Kreatív csatár (13%)","Célponttámadó (33%) · Komplett csatár (31%) · Befejező (16%) · Presszingcsatár (13%)","Célponttámadó (32%) · Komplett csatár (20%) · Befejező (19%) · Kreatív csatár (14%) · Presszingcsatár (14%)","Célponttámadó (31%) · Komplett csatár (30%) · Kreatív csatár (23%) · Presszingcsatár (12%)","Komplett csatár (63%) · Célponttámadó (12%) · Kreatív csatár (10%)","Komplett csatár (60%) · Presszingcsatár (14%) · Kreatív csatár (11%)","Komplett csatár (59%) · Befejező (18%)","Komplett csatár (49%) · Befejező (22%) · Célponttámadó (12%) · Kreatív csatár (11%)","Komplett csatár (49%) · Célponttámadó (21%) · Befejező (19%)","Komplett csatár (49%) · Célponttámadó (25%) · Kreatív csatár (11%)","Komplett csatár (48%) · Presszingcsatár (16%) · Befejező (14%) · Kreatív csatár (13%)","Komplett csatár (48%) · Befejező (20%) · Kreatív csatár (17%) · Presszingcsatár (10%)","Komplett csatár (45%) · Befejező (23%) · Célponttámadó (17%)","Komplett csatár (43%) · Presszingcsatár (33%) · Kreatív csatár (18%)","Komplett csatár (40%) · Kreatív csatár (21%) · Befejező (18%) · Presszingcsatár (15%)","Komplett csatár (40%) · Befejező (21%) · Presszingcsatár (18%) · Kreatív csatár (11%) · Célponttámadó (11%)","Komplett csatár (39%) · Kreatív csatár (32%) · Presszingcsatár (11%)","Komplett csatár (35%) · Kreatív csatár (22%) · Célponttámadó (20%) · Presszingcsatár (15%)","Komplett csatár (34%) · Kreatív csatár (29%) · Presszingcsatár (19%) · Befejező (16%)","Komplett csatár (34%) · Presszingcsatár (31%) · Kreatív csatár (27%)","Komplett csatár (33%) · Célponttámadó (30%) · Kreatív csatár (23%)","Komplett csatár (33%) · Presszingcsatár (26%) · Kreatív csatár (24%) · Célponttámadó (15%)","Kreatív csatár (58%) · Komplett csatár (21%) · Presszingcsatár (14%)","Kreatív csatár (56%) · Komplett csatár (24%) · Presszingcsatár (14%)","Kreatív csatár (55%) · Presszingcsatár (22%) · Komplett csatár (14%)","Kreatív csatár (51%) · Komplett csatár (23%)","Kreatív csatár (46%) · Komplett csatár (27%) · Presszingcsatár (18%)","Kreatív csatár (45%) · Presszingcsatár (35%) · Komplett csatár (15%)","Kreatív csatár (44%) · Komplett csatár (23%) · Presszingcsatár (16%) · Befejező (12%)","Kreatív csatár (42%) · Komplett csatár (25%) · Presszingcsatár (16%) · Célponttámadó (14%)","Kreatív csatár (41%) · Presszingcsatár (33%) · Komplett csatár (18%)","Kreatív csatár (40%) · Presszingcsatár (37%) · Komplett csatár (16%)","Kreatív csatár (39%) · Komplett csatár (29%) · Presszingcsatár (24%)","Kreatív csatár (38%) · Presszingcsatár (34%) · Komplett csatár (17%)","Kreatív csatár (37%) · Presszingcsatár (29%) · Komplett csatár (18%) · Célponttámadó (12%)","Kreatív csatár (35%) · Komplett csatár (29%) · Célponttámadó (14%) · Befejező (12%) · Presszingcsatár (10%)","Presszingcsatár (58%) · Kreatív csatár (21%) · Komplett csatár (18%)","Presszingcsatár (48%) · Kreatív csatár (37%) · Komplett csatár (12%)","Presszingcsatár (44%) · Kreatív csatár (34%) · Komplett csatár (17%)","Presszingcsatár (43%) · Kreatív csatár (33%) · Komplett csatár (18%)","Presszingcsatár (28%) · Kreatív csatár (22%) · Komplett csatár (22%) · Befejező (20%)"],[71.7,35.5,39.3,46.2,85.5,43.8,92.40000000000001,60.7,21.7,84.5,81.40000000000001,92.09999999999999,70,66.90000000000001,85.5,69,47.9,91,70,77.2,35.9,72.09999999999999,70.7,62.8,53.8,61.4,97.90000000000001,91,36.6,40,64.8,69.3,23.8,40,53.4,57.2,11,34.5,79.3,71.40000000000001,32.4,26.2,20.7,23.1,15.9,7.2,19.7,46.9,54.8,18.3,36.6,35.2,37.2,37.9,24.5,12.8,12.4,21.4,14.1],[93.5,90.5,79.7,86.59999999999999,93.5,45.7,93.09999999999999,88.8,63.8,82.3,17.2,29.7,30.6,64.2,13.8,24.1,19.8,82.3,12.9,37.1,20.7,36.2,73.7,63.4,74.59999999999999,65.5,72.8,51.3,56,82.3,61.2,61.6,58.2,75,51.7,28,91.8,56.5,42.7,16.8,45.7,50.9,9.1,49.6,65.90000000000001,25,46.1,26.3,9.9,43.5,40.9,25.4,10.3,39.7,56,34.9,32.3,42.7,26.7],[56.3,38.2,35.3,61.2,35.6,43.1,72.7,72.40000000000001,45.7,66.09999999999999,85.3,52.9,58.9,74.09999999999999,79.3,48.3,54,51.4,46.6,46.8,48.9,56.3,58.6,69.5,55.7,51.4,57.8,53.2,57.5,44.8,62.4,58.6,41.7,42.8,41.1,50.6,32.5,44.5,60.1,60.9,29.3,53.2,46,43.1,48.6,45.1,21.6,62.6,55.5,24.4,41.7,24.4,38.2,50,35.3,44,44.3,43.4,28.7],[18.5,21.1,23.3,39.7,41.4,30.6,30.6,43.1,39.2,56.9,31.9,59.1,35.8,68.09999999999999,26.7,55.6,46.1,34.9,53.9,69.40000000000001,25.4,64.2,53,41.4,63.8,46.1,59.5,68.09999999999999,40.5,45.7,42.2,78.40000000000001,62.9,59.1,47,63.8,39.2,78,45.7,53.4,66.8,45.7,60.8,54.3,46.1,44,50.9,52.2,74.59999999999999,49.6,44.4,70.3,72.40000000000001,38.4,67.2,61.2,55.6,69.40000000000001,22.8],[96.59999999999999,78.40000000000001,74.59999999999999,82.8,97,77.59999999999999,81.90000000000001,81,63.4,28.9,55.6,44.8,41.8,72,77.59999999999999,31,21.1,50.4,48.3,69,29.3,22,62.1,63.8,75.90000000000001,80.59999999999999,86.59999999999999,64.7,62.1,65.09999999999999,77.2,37.9,66.40000000000001,65.5,51.3,53.9,58.6,49.6,34.1,31.9,45.3,35.8,9.1,38.4,31,32.8,48.3,15.9,8.199999999999999,11.6,46.1,13.4,8.199999999999999,41.8,36.2,16.8,33.2,25.9,49.6],[36.6,48.3,44.8,59.9,43.5,58.2,45.7,30.2,45.7,44,36.6,44.4,37.1,18.1,32.3,25.9,23.3,56,52.2,86.59999999999999,29.7,59.1,62.5,68.09999999999999,65.5,54.3,61.2,45.3,60.8,34.9,30.6,96.09999999999999,39.2,87.5,32.8,72,55.6,97,30.6,72.40000000000001,61.6,45.3,64.2,32.8,53,81.90000000000001,50,36.2,84.90000000000001,49.6,50.9,70.3,64.7,15.1,82.3,75.90000000000001,67.2,67.7,34.9],[26.7,31.6,50,28.2,67.2,18.1,40.2,59.8,37.1,20.4,34.5,28.2,22.7,25.6,59.2,58.3,53.7,34.8,38.2,26.4,20.7,72.09999999999999,71.59999999999999,58.9,34.2,70.09999999999999,47.4,69.3,44.3,60.3,54,69.8,42.2,37.9,76.7,64.7,67.2,66.09999999999999,86.5,65.5,93.40000000000001,84.8,85.3,79,70.40000000000001,77.3,73.90000000000001,71.59999999999999,83.90000000000001,52.3,70.40000000000001,59.8,56,68.09999999999999,53.4,62.4,51.1,50.6,28.2],[34.1,59.7,45.2,42.1,63.4,33.8,38.3,40.7,31.4,23.1,35.9,40.7,20.7,34.1,28.3,37.2,28.6,41.4,43.1,7.9,35.9,33.8,54.5,87.2,54.1,42.4,65.2,62.8,56.9,84.8,75.5,84.09999999999999,61.4,16.6,77.90000000000001,21.7,69.3,32.1,61,70.7,34.8,74.5,31,35.2,56.6,57.9,24.1,71.7,65.2,68.3,87.59999999999999,32.1,28.6,66.59999999999999,65.5,74.8,66.90000000000001,61.7,70.7]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Játékos<\/th>\n      <th>Csapat<\/th>\n      <th>Elsőd. szerep<\/th>\n      <th>Szerepmix<\/th>\n      <th>Légi<\/th>\n      <th>Befej.<\/th>\n      <th>Hold-up<\/th>\n      <th>Jelenlét<\/th>\n      <th>Poaching<\/th>\n      <th>Pressing<\/th>\n      <th>Assziszt<\/th>\n      <th>Futások<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"ftp","pageLength":30,"ordering":true,"language":{"search":"Keresés:"},"columnDefs":[{"className":"dt-center","targets":[2,3,4,5,6,7,8,9,10,11]},{"width":"200px","targets":3},{"name":"Játékos","targets":0},{"name":"Csapat","targets":1},{"name":"Elsőd. szerep","targets":2},{"name":"Szerepmix","targets":3},{"name":"Légi","targets":4},{"name":"Befej.","targets":5},{"name":"Hold-up","targets":6},{"name":"Jelenlét","targets":7},{"name":"Poaching","targets":8},{"name":"Pressing","targets":9},{"name":"Assziszt","targets":10},{"name":"Futások","targets":11}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,25,30,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'font-weight':'600','background-color':value == \"Célponttámadó\" ? \"#2E6DA428\" : value == \"Befejező\" ? \"#C43A2828\" : value == \"Presszingcsatár\" ? \"#1a7a4a28\" : value == \"Kreatív csatár\" ? \"#7B4EA628\" : value == \"Komplett csatár\" ? \"#D4902A28\" : null});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[8]; $(this.api().cell(row, 8).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[9]; $(this.api().cell(row, 9).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[10]; $(this.api().cell(row, 10).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[11]; $(this.api().cell(row, 11).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%, #4caf5044 ' + Math.max(100.000000 - value, 0)/100.000000 * 100 + '%)','background-size':'100% 80%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Módszertan
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Adatok:</strong> Twelve Football, NB1 2025/26, 59 csatár (STRIKER pozíció), per-90 statisztikák.</p>
+<p><strong>Szerepdefiníció:</strong> 5 archetípust definiáltunk a 8 Twelve-dimenzió alapján domain knowledge szerint (Célponttámadó, Befejező, Presszingcsatár, Kreatív csatár, Komplett csatár).</p>
+<p><strong>Pontozás:</strong> Minden játékos 8 dimenziós percentilisvektora és az 5 szerepprofil közötti Euklideszi távolságból softmax-transzformációval kapjuk a szerepvalószínűségeket. Hőmérséklet-paraméter: T=22 — ez szabályozza, mennyire “éles” az elsődleges szerep dominanciája.</p>
+<p><strong>Vizualizáció:</strong> UMAP 2D levetítés a per-90 értékek z-score standardizált és korreláció-szűrt terén.</p>
+<p><strong>Megjegyzés:</strong> Ez a megközelítés szándékosan eltér az adatvezérelt klaszterezéstől (pl. k-means, GMM). Az NbClust elemzés k=2-t javasolt mint természetes struktúra — az 5 szerepkör meghatározása ezért domain knowledge alapú, nem statisztikai.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Levente Kaszai — Hungarian Sports Analytics</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

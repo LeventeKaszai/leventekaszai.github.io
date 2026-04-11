@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Levente Kaszai - Játékosértékelés</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Levente Kaszai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-kosárlabda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Kosárlabda</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-kosárlabda">    
+        <li>
+    <a class="dropdown-item" href="./four_factors_1.html" rel="" target="">
+ <span class="dropdown-text">Four Factors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./scoring_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Scoring Efficiency</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pace_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Játékritmus &amp; Hatékonyság</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labdarúgás" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Labdarúgás</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labdarúgás">    
+        <li>
+    <a class="dropdown-item" href="./futball/analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./futball/striker_clustering.html" rel="" target="">
+ <span class="dropdown-text">Csatár klaszterezés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./futball/player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./futball/jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/leventekaszai" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Játékosértékelés</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item" id="htmlwidget-068819a0a89c22cfd56e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-068819a0a89c22cfd56e">{"x":{"filter":"none","vertical":false,"data":[["<a href=\"jatekosok/flasar-zalan.html\" style=\"color:var(--accent-dark);font-weight:600;text-decoration:none;\" onmouseover=\"this.style.textDecoration='underline'\" onmouseout=\"this.style.textDecoration='none'\">FLASÁR Zalán<\/a>","MEZŐFI Márk","HALMAI Dániel","HŐGYE Patrik","KOVÁCS Ákos","MESZLÉNYI Róbert","REIZINGER Máté","TAKÁCS Zsolt","BOR Gábor","CSEH Botond","GÁL Csongor","KOLLÁR Bence","LUKÁCSI Gábor","MOLNÁR Mátyás","RADÓ Ádám","SCHÖLL Richárd","SZABADFI Márk","TAKÁCS Kristóf","TANOH DEZ András","COHILL Eric","CSENDES Péter","CSUTI Kornél","HAJDU Péter","IVKOVICS Milán","MERKL Barna","NEUWIRTH Bence","SZALAY Domonkos","TÓTH Barna","DÓCS Benedek","KASS Balázs","RÁTGÉBER Tamás"],[2007,2007,2004,2005,2001,2004,2004,2003,2005,2004,2007,2002,2007,2002,2005,2002,2004,2002,2002,2003,2004,2004,2004,2003,2004,2002,2005,2003,2004,2002,2003],["FC","F","PG","G","G","SG","GF","PF","SG","GF","SG","GF","PG","SG","FC","C","SG","GF","SG","SF","G","FC","F","SF","SG","GF","SF","G","PF","G","SG"],["Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai","Hazai"],["<span style=\"background:#1a7a4a;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Strong Buy<\/span>","<span style=\"background:#1a7a4a;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Strong Buy<\/span>","<span style=\"background:#4caf50;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Buy<\/span>","<span style=\"background:#4caf50;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Buy<\/span>","<span style=\"background:#4caf50;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Buy<\/span>","<span style=\"background:#4caf50;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Buy<\/span>","<span style=\"background:#4caf50;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Buy<\/span>","<span style=\"background:#4caf50;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Buy<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#D4902A;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Hold<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#e57373;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Sell<\/span>","<span style=\"background:#C43A28;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Strong Sell<\/span>","<span style=\"background:#C43A28;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Strong Sell<\/span>","<span style=\"background:#C43A28;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;font-family:Montserrat,sans-serif;\">Strong Sell<\/span>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Játékos<\/th>\n      <th>Szül. év<\/th>\n      <th>Poszt<\/th>\n      <th>Státusz<\/th>\n      <th>Besorolás<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"ft","pageLength":100,"ordering":true,"language":{"search":"Keresés:"},"columnDefs":[{"className":"dt-center","targets":[1,2,3,4]},{"orderable":false,"targets":4},{"name":"Játékos","targets":0},{"name":"Szül. év","targets":1},{"name":"Poszt","targets":2},{"name":"Státusz","targets":3},{"name":"Besorolás","targets":4}],"order":[],"autoWidth":false,"orderClasses":false},"callback":"function(table) {\n\n    var childData = [\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><p style=\\\"margin:12px 0 4px;color:#2E2B26;font-style:italic;\\\">Példa megjegyzés — töltsd ki<\\/p><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">22<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">25.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">25.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.2%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">190<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">7.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">71.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">71.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.7%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">150<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">76.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">74.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.4%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kaposvár<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">339<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">61.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">57.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.4%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kaposvár<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">502<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">58.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">55.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.7%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Atomerőmű SE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">502<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">53.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">46.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.3%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">0<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">NA<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">NA<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">0%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">407<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">405<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.5%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Atomerőmű SE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">536<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">28.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">48.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">22.7%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">237<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">45.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">40.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.7%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Atomerőmű SE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">490<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">18.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">6.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">48.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">44.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">19.4%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">399<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">57.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">56.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.9%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Atomerőmű SE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">87<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">4.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">37.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">37.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.9%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">560<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">39.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">37.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.2%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">544<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.3%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">66.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">65.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.6%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">385<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">43.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.1%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">385<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.1%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Falco KC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">0.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">33.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">33.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.4%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Falco KC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">0.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">66.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">66.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.5%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Oroszlány<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">517<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">18.2%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">73.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">70.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.5%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">292<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">44.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">42.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.4%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Szedeák<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">793<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">23.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">7.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">48.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">45.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.5%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">6.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">46.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.6%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">187<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">58.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">56.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.1%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">55<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.4%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">24.5%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">PVSK<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">293<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">56.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.1%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">PVSK<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">341<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">4.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">54.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.2%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">100<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">55.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.2%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">96<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">0.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">38.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">8.8%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kecskemét<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">545<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">60.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">67.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.4%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Oroszlány<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">255<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">8.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">38.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">34.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">18.8%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Oroszlány<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">379<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">56.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.8%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Oroszlány<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">262<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.3%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Körmend<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">301<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">60.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">58.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.7%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Körmend<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">685<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">19.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">7.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">59.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">55.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.2%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">692<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">20.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">7.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">53.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">51.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">20%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">905<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">26.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">55.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">55.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">23.4%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Falco KC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">583<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">5.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">59.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">57.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.8%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">377<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">25.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">56.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">53.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">24.5%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">48.5%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Szedeák<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">387<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">54.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.2%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Szedeák<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">409<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">43.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">40.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.6%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">224<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">54.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.6%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">576<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.9%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Sopron<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">296<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">ZTE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">195<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">6.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">66.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">64.3%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.6%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">ZTE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">238<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">7.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">48.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">17.1%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Oroszlány<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">438<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">46.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">44.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.9%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">424<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">43.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">43.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.8%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">432<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.3%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">556<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">45.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">45.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.5%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kecskemét<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">486<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">39.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">36.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.6%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kecskemét<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">740<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">20.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">39.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.4%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kecskemét<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">683<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">21.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">6.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.8%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">PVSK<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">282<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.4%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">245<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">42.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">39.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.6%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">343<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">53.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">53.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.9%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">DEAC<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">219<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">53.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">14.2%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">ZTE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">92<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">4.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">48.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">45.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.8%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">ZTE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">325<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.6%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">ZTE<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">249<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">47.8%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">42.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.7%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kecskemét<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">193<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">10.2<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">46.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">16.5%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kecskemét<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">373<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">2.6<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">53.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">50.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.4%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Kecskemét<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">376<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">42.6%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">38.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">19.9%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Bp. Honvéd<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">210<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">44.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">41.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">12.3%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2022-23<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NYBS<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">635<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">20.5<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">4.8<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">48.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">46.2%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.1%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Alba Fehérvár<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">482<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">3.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">56.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">55.7%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.7%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">Alba Fehérvár<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">301<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">9.1<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">49.4%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">43.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.2%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\",\"<div style=\\\"padding:12px 24px;font-family:Montserrat,sans-serif;background:#F6F4F0;\\\"><table style=\\\"width:100%;border-collapse:collapse;font-size:13px;\\\"><thead><tr style=\\\"color:#7A756D;border-bottom:1px solid #D4CFC6;\\\"><th style=\\\"text-align:left;padding:4px 8px;\\\">Szezon<\\/th><th style=\\\"text-align:left;padding:4px 8px;\\\">Csapat<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">Min/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">PTS/M<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">TS%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">eFG%<\\/th><th style=\\\"text-align:center;padding:4px 8px;\\\">USG%<\\/th><\\/tr><\\/thead><tbody><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2023-24<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">52<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">4.7<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">0.4<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.5%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">0.0%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">15.3%<\\/td><\\/tr><tr><td style=\\\"text-align:left;padding:4px 8px;\\\">2024-25<\\/td><td style=\\\"text-align:left;padding:4px 8px;\\\">NKA Pécs<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">158<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">11.3<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">1.9<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">33.9%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">31.1%<\\/td><td style=\\\"text-align:center;padding:4px 8px;\\\">13.4%<\\/td><\\/tr><\\/tbody><\\/table><\\/div>\"];\n    table.on('click', 'tr', function(e) {\n      if ($(e.target).closest('a').length > 0) return;\n      var row = table.row(this);\n      var idx = row.index();\n      if (typeof idx === 'undefined') return;\n      if (row.child.isShown()) {\n        row.child.hide();\n        $(this).removeClass('shown');\n      } else {\n        row.child(childData[idx]).show();\n        $(this).addClass('shown');\n      }\n    });\n  \n}"},"evals":["callback"],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Levente Kaszai — Hungarian Sports Analytics</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

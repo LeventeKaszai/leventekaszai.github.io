@@ -1,0 +1,433 @@
+---
+title: "Analytics – Labdarúgás"
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: ../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <script>
+        (function() {
+          if (sessionStorage.getItem("analytics_auth") !== "ok") {
+            var pwd = prompt("Jelszó:");
+            if (pwd === "magyarsport") {
+              sessionStorage.setItem("analytics_auth", "ok");
+            } else {
+              document.documentElement.innerHTML = "";
+              window.location.replace("../index.html");
+            }
+          }
+        })();
+        </script>
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(htmltools)
+library(crosstalk)
+
+# ── Adatok betöltése ──────────────────────────────────────────────────────────
+db_path <- file.path(dirname(knitr::current_input(dir = TRUE)), "futball.db")
+con     <- dbConnect(RSQLite::SQLite(), db_path)
+
+raw_long <- dbGetQuery(con, "
+  SELECT player_id, label, position, szezon, quality, kpi, value_per90, rank, rank_of
+  FROM player_stats_long
+")
+
+dbDisconnect(con)
+
+# ── Deduplikáció: ha egy KPI több quality-ben is szerepel → legnagyobb rank_of marad ──
+df <- raw_long %>%
+  group_by(player_id, label, position, szezon, kpi) %>%
+  slice_max(rank_of, n = 1, with_ties = FALSE) %>%
+  ungroup() %>%
+  mutate(pct = (rank_of + 1 - rank) / rank_of)
+
+# ── Wide pivot ────────────────────────────────────────────────────────────────
+vals <- df %>% pivot_wider(
+  id_cols     = c(player_id, label, position, szezon),
+  names_from  = kpi, values_from = value_per90, names_prefix = "v_"
+)
+pcts <- df %>% pivot_wider(
+  id_cols     = c(player_id, label, position, szezon),
+  names_from  = kpi, values_from = pct, names_prefix = "p_"
+)
+wide <- vals %>% left_join(pcts, by = c("player_id", "label", "position", "szezon"))
+
+# ── Formázók ──────────────────────────────────────────────────────────────────
+fmt_val     <- function(x) ifelse(!is.na(x), as.character(round(x, 2)), "\u2014")
+fmt_pct_val <- function(x) ifelse(!is.na(x), paste0(round(x * 100, 0), "%"), "\u2014")
+
+stat_cell <- function(val_str, pct) {
+  mapply(function(v, p) {
+    if (is.na(p) || v == "\u2014") return(v)
+    tip <- paste0(round(p * 100), ". percentilis")
+    paste0('<span class="pct-tip" data-tip="', tip, '">', v, "</span>")
+  }, val_str, pct, SIMPLIFY = TRUE, USE.NAMES = FALSE)
+}
+
+# ── KPI-k, amelyek 0-1 skálán (arányként) vannak tárolva ─────────────────────
+pct_kpis_set <- c(
+  "Defending 1v1 %", "Aerials won %", "Attacking aerials won %",
+  "Defensive aerials won %", "Shot conversion %", "Tackle success %",
+  "Dribbles success %", "Pressure resistance %",
+  "Opposition progressive passes from defensive area %",
+  "Opposition pass success % into defensive area"
+)
+
+# ── KPI metaadat ──────────────────────────────────────────────────────────────
+# kpi_var_map: KPI neve → biztonságos R azonosító (a rejtett pp_ oszlopokhoz)
+kpi_var_map <- c(
+  "Touches"                                             = "Touches",
+  "xGBuildup"                                           = "xGBuildup",
+  "Aerials"                                             = "Aerials",
+  "Defensive actions"                                   = "DefAct",
+  "Ball progression (xT)"                               = "BallProg",
+  "Passes into third (xT)"                              = "Pass3rd",
+  "Playmaking passes"                                   = "Playmaking",
+  "Creative passes"                                     = "Creative",
+  "Crosses (xT)"                                        = "Crosses",
+  "Passes (xT)"                                         = "PassesxT",
+  "Passes third (xT)"                                   = "PassThrd",
+  "Ball runs (xT)"                                      = "BallRuns",
+  "Box entries"                                         = "BoxEnt",
+  "Carries (xT)"                                        = "Carries",
+  "Deep runs (xT)"                                      = "DeepRuns",
+  "Penalty area receptions"                             = "PARecep",
+  "Assists"                                             = "Assists",
+  "Deep completions"                                    = "DeepCmp",
+  "Key passes"                                          = "KeyPass",
+  "Second assists"                                      = "SecAsst",
+  "xA"                                                  = "xA",
+  "xGCreated"                                           = "xGCreated",
+  "Carries (xT) per 100 receptions"                     = "Car100",
+  "High turnovers per low reception"                    = "HTO_LR",
+  "Passes (xT) per 100 receptions"                      = "Pas100",
+  "Possessions won per opponent possession"             = "PW_OPP",
+  "xG + xA per 100 touches"                             = "xGxA100",
+  "xG per shot"                                         = "xGPerSh",
+  "xGChain per possession"                              = "xGChain",
+  "Goals"                                               = "Goals",
+  "Touches in box"                                      = "TchBox",
+  "xG"                                                  = "xG",
+  "Goals - xG"                                          = "GoalsxG",
+  "Shot conversion %"                                   = "ShConv",
+  "xGOT"                                                = "xGOT",
+  "Goals per box touch"                                 = "GBTch",
+  "xG per box touch"                                    = "xGBTch",
+  "Aerials won"                                         = "AerWon",
+  "Aerials won %"                                       = "AerWonPct",
+  "Attacking aerials won"                               = "AtkAer",
+  "Attacking aerials won %"                             = "AtkAerPct",
+  "Headed plays"                                        = "Headed",
+  "Defensive aerials won"                               = "DefAer",
+  "Defensive aerials won %"                             = "DefAerPct",
+  "High turnovers"                                      = "HTurn",
+  "Linkups"                                             = "Linkups",
+  "Long ball receptions"                                = "LBRecep",
+  "Losses"                                              = "Losses",
+  "Pressure resistance %"                               = "PresRes",
+  "Under pressure retention"                            = "UPres",
+  "Dribbles (xT)"                                       = "DribxT",
+  "Dribbles success %"                                  = "DribPct",
+  "xGDribble"                                           = "xGDribble",
+  "Defending 1v1 %"                                     = "Def1v1",
+  "Possessions won"                                     = "PossWon",
+  "Tackle success %"                                    = "TacklePct",
+  "Ball recoveries"                                     = "BallRec",
+  "Counterpressing"                                     = "Counterprs",
+  "Interceptions"                                       = "Intercept",
+  "Defensive intensity"                                 = "DefInt",
+  "High recoveries"                                     = "HRecov",
+  "Opposition progressive passes from defensive area %" = "OppProgPct",
+  "Opposition xG after defensive action"                = "OppxGDA",
+  "Opposition xG from defensive area"                   = "OppxGfDA",
+  "Opposition xT from defensive area"                   = "OppxTfDA",
+  "Defensive area (m^2)"                                = "DefArea",
+  "Defensive line height (m)"                           = "DefLine",
+  "Opposition pass success % into defensive area"       = "OppPassPct",
+  "Opposition xT into defensive area"                   = "OppxT"
+)
+
+# kpi_disp_map: KPI neve → rövid megjelenítési név (oszlopfej)
+kpi_disp_map <- c(
+  "Touches"                                             = "Touches",
+  "xGBuildup"                                           = "xGBuild.",
+  "Aerials"                                             = "Aerials",
+  "Defensive actions"                                   = "Def.act.",
+  "Ball progression (xT)"                               = "Ball prog.",
+  "Passes into third (xT)"                              = "Pass.3rd",
+  "Playmaking passes"                                   = "Playmaking",
+  "Creative passes"                                     = "Creative",
+  "Crosses (xT)"                                        = "Crosses",
+  "Passes (xT)"                                         = "Passes(xT)",
+  "Passes third (xT)"                                   = "Pass.thrd",
+  "Ball runs (xT)"                                      = "Ball runs",
+  "Box entries"                                         = "Box ent.",
+  "Carries (xT)"                                        = "Carries",
+  "Deep runs (xT)"                                      = "Deep runs",
+  "Penalty area receptions"                             = "PA recep.",
+  "Assists"                                             = "Assists",
+  "Deep completions"                                    = "Deep cmp.",
+  "Key passes"                                          = "Key pass.",
+  "Second assists"                                      = "2nd asst.",
+  "xA"                                                  = "xA",
+  "xGCreated"                                           = "xGCreated",
+  "Carries (xT) per 100 receptions"                     = "Car./100",
+  "High turnovers per low reception"                    = "HTO/LR",
+  "Passes (xT) per 100 receptions"                      = "Pas./100",
+  "Possessions won per opponent possession"             = "PW/OPP",
+  "xG + xA per 100 touches"                             = "xG+A/100",
+  "xG per shot"                                         = "xG/sh",
+  "xGChain per possession"                              = "xGChain",
+  "Goals"                                               = "Goals",
+  "Touches in box"                                      = "Tch.box",
+  "xG"                                                  = "xG",
+  "Goals - xG"                                          = "Goals-xG",
+  "Shot conversion %"                                   = "Sh.conv%",
+  "xGOT"                                                = "xGOT",
+  "Goals per box touch"                                 = "G/BTch",
+  "xG per box touch"                                    = "xG/BTch",
+  "Aerials won"                                         = "Aer.won",
+  "Aerials won %"                                       = "Aer.won%",
+  "Attacking aerials won"                               = "Atk.aer.",
+  "Attacking aerials won %"                             = "Atk.aer%",
+  "Headed plays"                                        = "Headed",
+  "Defensive aerials won"                               = "Def.aer.",
+  "Defensive aerials won %"                             = "Def.aer%",
+  "High turnovers"                                      = "H.turn.",
+  "Linkups"                                             = "Linkups",
+  "Long ball receptions"                                = "LB.recep.",
+  "Losses"                                              = "Losses",
+  "Pressure resistance %"                               = "Pres.res%",
+  "Under pressure retention"                            = "U.Pres.",
+  "Dribbles (xT)"                                       = "Drib(xT)",
+  "Dribbles success %"                                  = "Drib.%",
+  "xGDribble"                                           = "xGDribble",
+  "Defending 1v1 %"                                     = "Def.1v1%",
+  "Possessions won"                                     = "Poss.won",
+  "Tackle success %"                                    = "Tackle%",
+  "Ball recoveries"                                     = "Ball rec.",
+  "Counterpressing"                                     = "Counterprs",
+  "Interceptions"                                       = "Intercept.",
+  "Defensive intensity"                                 = "Def.int.",
+  "High recoveries"                                     = "H.recov.",
+  "Opposition progressive passes from defensive area %" = "Opp.prog%",
+  "Opposition xG after defensive action"                = "Opp.xGDA",
+  "Opposition xG from defensive area"                   = "Opp.xGfDA",
+  "Opposition xT from defensive area"                   = "Opp.xTfDA",
+  "Defensive area (m^2)"                                = "Def.area",
+  "Defensive line height (m)"                           = "Def.line",
+  "Opposition pass success % into defensive area"       = "Opp.ps%",
+  "Opposition xT into defensive area"                   = "Opp.xT"
+)
+
+# ── Oszlopcsoportok (kategória fejlécek) ──────────────────────────────────────
+col_groups <- list(
+  list(name = "R\u00c9SZV\u00c9TEL",           bg = "#F1F5F9", fg = "#475569", border = "#CBD5E1",
+    kpis = c("Touches", "xGBuildup", "Aerials", "Defensive actions")),
+  list(name = "PROGRESSZI\u00d3",              bg = "#EFF6FF", fg = "#1D4ED8", border = "#BFDBFE",
+    kpis = c("Ball progression (xT)", "Passes into third (xT)", "Playmaking passes")),
+  list(name = "PASSMINS\u00c9G",               bg = "#DBEAFE", fg = "#1E40AF", border = "#93C5FD",
+    kpis = c("Creative passes", "Crosses (xT)", "Passes (xT)", "Passes third (xT)")),
+  list(name = "FUT\u00d3MINS\u00c9G",          bg = "#F0FDF4", fg = "#15803D", border = "#BBF7D0",
+    kpis = c("Ball runs (xT)", "Box entries", "Carries (xT)", "Deep runs (xT)", "Penalty area receptions")),
+  list(name = "KREATIVIT\u00c1S",              bg = "#DCFCE7", fg = "#166534", border = "#86EFAC",
+    kpis = c("Assists", "Deep completions", "Key passes", "Second assists", "xA", "xGCreated")),
+  list(name = "HAT\u00c9KONYS\u00c1G",         bg = "#FFFBEB", fg = "#B45309", border = "#FDE68A",
+    kpis = c("Carries (xT) per 100 receptions", "High turnovers per low reception",
+             "Passes (xT) per 100 receptions", "Possessions won per opponent possession",
+             "xG + xA per 100 touches", "xG per shot", "xGChain per possession")),
+  list(name = "BOX FENYEGET\u00c9S",           bg = "#F0FDF4", fg = "#15803D", border = "#BBF7D0",
+    kpis = c("Goals", "Touches in box", "xG")),
+  list(name = "BEFEJEZ\u00c9S",                bg = "#DCFCE7", fg = "#166534", border = "#86EFAC",
+    kpis = c("Goals - xG", "Shot conversion %", "xGOT")),
+  list(name = "CIRK\u00c1L\u00d3",             bg = "#ECFDF5", fg = "#065F46", border = "#6EE7B7",
+    kpis = c("Goals per box touch", "xG per box touch")),
+  list(name = "FEJJ\u00c1T\u00c9K",            bg = "#FFF7ED", fg = "#C2410C", border = "#FED7AA",
+    kpis = c("Aerials won", "Aerials won %", "Attacking aerials won", "Attacking aerials won %",
+             "Headed plays", "Defensive aerials won", "Defensive aerials won %")),
+  list(name = "LABDATART\u00c1S",              bg = "#FFEDD5", fg = "#9A3412", border = "#FDBA74",
+    kpis = c("High turnovers", "Linkups", "Long ball receptions", "Losses",
+             "Pressure resistance %", "Under pressure retention")),
+  list(name = "CSELEZ\u00c9S",                 bg = "#FFFBEB", fg = "#B45309", border = "#FDE68A",
+    kpis = c("Dribbles (xT)", "Dribbles success %", "xGDribble")),
+  list(name = "AKT\u00cdV V\u00c9DEKEZ\u00c9S", bg = "#FAF5FF", fg = "#7E22CE", border = "#E9D5FF",
+    kpis = c("Defending 1v1 %", "Possessions won", "Tackle success %")),
+  list(name = "OKOS V\u00c9DEKEZ\u00c9S",      bg = "#F3E8FF", fg = "#6B21A8", border = "#D8B4FE",
+    kpis = c("Ball recoveries", "Counterpressing", "Interceptions")),
+  list(name = "SAJTO\u00cdL\u00c1S",           bg = "#FAF5FF", fg = "#7E22CE", border = "#E9D5FF",
+    kpis = c("Defensive intensity", "High recoveries")),
+  list(name = "TER\u00dcLETV\u00c9DELEM",      bg = "#F0F9FF", fg = "#075985", border = "#BAE6FD",
+    kpis = c("Opposition progressive passes from defensive area %",
+             "Opposition xG after defensive action",
+             "Opposition xG from defensive area",
+             "Opposition xT from defensive area",
+             "Defensive area (m^2)",
+             "Defensive line height (m)",
+             "Opposition pass success % into defensive area",
+             "Opposition xT into defensive area"))
+)
+
+kpi_order <- unlist(lapply(col_groups, `[[`, "kpis"))
+
+# ── Display tábla felépítése ──────────────────────────────────────────────────
+display <- wide %>% transmute(
+  Jatekos = label,
+  Pozicio = position,
+  Szezon  = szezon
+)
+
+for (kpi_name in kpi_order) {
+  disp_name <- kpi_disp_map[[kpi_name]]
+  v_col     <- paste0("v_", kpi_name)
+  p_col     <- paste0("p_", kpi_name)
+  fmt_fn    <- if (kpi_name %in% pct_kpis_set) fmt_pct_val else fmt_val
+  display[[disp_name]] <- if (v_col %in% names(wide)) {
+    stat_cell(fmt_fn(wide[[v_col]]), wide[[p_col]])
+  } else {
+    rep("\u2014", nrow(display))
+  }
+}
+
+for (kpi_name in kpi_order) {
+  pp_name        <- paste0("pp_", kpi_var_map[[kpi_name]])
+  p_col          <- paste0("p_", kpi_name)
+  display[[pp_name]] <- if (p_col %in% names(wide)) wide[[p_col]] else rep(NA_real_, nrow(display))
+}
+
+# ── stat_pct: display_name → pp_varname (a formatStyle-hoz) ──────────────────
+stat_pct <- setNames(
+  paste0("pp_", kpi_var_map[kpi_order]),
+  kpi_disp_map[kpi_order]
+)
+
+sd <- SharedData$new(display)
+
+bg_colors <- c(
+  "#F9C8C5", "#FBD5C0", "#FCE5C0", "#FEF2D0", "#FEFEE8",
+  "#F0F9D5", "#DBEFBD", "#C2E2BB", "#A5D5A8", "#87C893"
+)
+breaks <- seq(0.1, 0.9, by = 0.1)
+```
+
+```{r render}
+# ── Legenda ───────────────────────────────────────────────────────────────────
+legend_html <- tags$div(
+  style = paste0("display:flex;align-items:center;gap:10px;",
+                 "font-size:12px;color:var(--text-muted);",
+                 "font-family:Montserrat,sans-serif;margin-bottom:14px;"),
+  tags$span(style = "font-weight:600;", "Percentilis:"),
+  tags$span("0%"),
+  tags$div(style = paste0(
+    "width:180px;height:14px;border-radius:4px;",
+    "background:linear-gradient(to right,",
+    "#F9C8C5,#FBD5C0,#FCE5C0,#FEF2D0,#FEFEE8,",
+    "#F0F9D5,#DBEFBD,#C2E2BB,#A5D5A8,#87C893);"
+  )),
+  tags$span("100%"),
+  tags$span(style = "margin-left:8px;font-style:italic;",
+            "Hover a cell\u00e1n a pontos \u00e9rt\u00e9khez")
+)
+
+# ── Szűrők ────────────────────────────────────────────────────────────────────
+controls_html <- tags$div(
+  style = "display:flex;gap:20px;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;",
+  tags$div(style = "min-width:160px;",
+    filter_select("szezon_sel", "Szezon", sd, ~Szezon, multiple = FALSE)
+  ),
+  tags$div(style = "min-width:140px;",
+    filter_select("poz_sel", "Poz\u00edci\u00f3", sd, ~Pozicio, multiple = TRUE)
+  )
+)
+
+# ── Táblafej (programatikusan) ────────────────────────────────────────────────
+n_stat  <- length(kpi_order)   # 69
+n_fixed <- 3L                  # Jatekos, Pozicio, Szezon
+
+row1_ths <- c(
+  list(
+    tags$th(rowspan = "2", "J\u00e1t\u00e9kos"),
+    tags$th(rowspan = "2", "Poz."),
+    tags$th(rowspan = "2", "Szezon")
+  ),
+  lapply(col_groups, function(g) {
+    tags$th(
+      colspan = as.character(length(g$kpis)),
+      style   = paste0(
+        "text-align:center;background:", g$bg, ";color:", g$fg,
+        ";font-size:11px;letter-spacing:.04em;border-bottom:2px solid ", g$border, ";"
+      ),
+      g$name
+    )
+  }),
+  lapply(paste0("pp_", kpi_var_map[kpi_order]), function(pp) {
+    tags$th(rowspan = "2", style = "display:none;", pp)
+  })
+)
+
+row2_ths <- lapply(unname(kpi_disp_map[kpi_order]), function(d) tags$th(d))
+
+cat_sketch <- tags$table(
+  class = "display",
+  tags$thead(
+    do.call(tags$tr, row1_ths),
+    do.call(tags$tr, row2_ths)
+  )
+)
+
+# ── DT ────────────────────────────────────────────────────────────────────────
+stat_end  <- n_fixed + n_stat - 1L
+pct_start <- n_fixed + n_stat
+pct_end   <- n_fixed + 2L * n_stat - 1L
+
+dt_base <- DT::datatable(
+  sd,
+  container = cat_sketch,
+  rownames  = FALSE,
+  escape    = FALSE,
+  selection = "none",
+  options   = list(
+    dom        = "ft",
+    pageLength = 500,
+    ordering   = TRUE,
+    scrollX    = TRUE,
+    language   = list(search = "Keres\u00e9s:"),
+    columnDefs = list(
+      list(visible    = FALSE,      targets = seq(pct_start, pct_end)),
+      list(className = "dt-center", targets = seq(1L, stat_end)),
+      list(className = "dt-left",   targets = 0L)
+    )
+  )
+)
+
+dt_styled <- Reduce(function(d, stat_name) {
+  d %>% formatStyle(
+    columns         = stat_name,
+    valueColumns    = stat_pct[[stat_name]],
+    backgroundColor = styleInterval(breaks, bg_colors)
+  )
+}, names(stat_pct), dt_base)
+
+tagList(
+  legend_html,
+  controls_html,
+  dt_styled,
+  tags$p(
+    style = "font-size:11px;color:#9CA3AF;margin-top:8px;font-family:Montserrat,sans-serif;",
+    "Percentilis: pozíción és szezonon belüli rangsor alapján (Twelve). \u2014 = nincs adat az adott pozícióra."
+  )
+)
+```

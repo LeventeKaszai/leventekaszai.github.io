@@ -70,6 +70,76 @@
     "text": "8. Teljes Adatbázis"
   },
   {
+    "objectID": "scoring_efficiency.html",
+    "href": "scoring_efficiency.html",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "",
+    "text": "A kosárlabdában a legismertebb indikátor dobóhatékonyság mérésére a mezőnykosár-százalék (FG%). A mutató népszerűsége egyszerűségében rejlik:\nFG% = Értékesített dobás / Összes dobás.\nA probléma: ez a mutató vak a dobások értékének különbözőségére.\nEnnek szemléltetésére nézzünk egy szélsőséges példát:\n\n\n\nJátékos típusa\nFG%\nMit dob?\nPont/kísérlet\n\n\n\n\nKettes specialista\n50%\nCsak 2P\n1,00\n\n\nTripla specialista\n33%\nCsak 3P\n1,00\n\n\nBüntetőspecialista\n—\nCsak büntető\n0,50–0,90\n\n\n\nEgy 33%-os triplás statisztikailag ugyanolyan hatékony, mint egy 50%-os kettes dobó — mégis a FG% alapján az előbbi messze alulmúlja az utóbbit. Az FG% tehát nem alkalmas a dobóhatékonyság pontos mérésére."
+  },
+  {
+    "objectID": "scoring_efficiency.html#a-probléma-a-fg-kal",
+    "href": "scoring_efficiency.html#a-probléma-a-fg-kal",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "",
+    "text": "A kosárlabdában a legismertebb indikátor dobóhatékonyság mérésére a mezőnykosár-százalék (FG%). A mutató népszerűsége egyszerűségében rejlik:\nFG% = Értékesített dobás / Összes dobás.\nA probléma: ez a mutató vak a dobások értékének különbözőségére.\nEnnek szemléltetésére nézzünk egy szélsőséges példát:\n\n\n\nJátékos típusa\nFG%\nMit dob?\nPont/kísérlet\n\n\n\n\nKettes specialista\n50%\nCsak 2P\n1,00\n\n\nTripla specialista\n33%\nCsak 3P\n1,00\n\n\nBüntetőspecialista\n—\nCsak büntető\n0,50–0,90\n\n\n\nEgy 33%-os triplás statisztikailag ugyanolyan hatékony, mint egy 50%-os kettes dobó — mégis a FG% alapján az előbbi messze alulmúlja az utóbbit. Az FG% tehát nem alkalmas a dobóhatékonyság pontos mérésére."
+  },
+  {
+    "objectID": "scoring_efficiency.html#efg-a-triplák-súlyozása",
+    "href": "scoring_efficiency.html#efg-a-triplák-súlyozása",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "1. eFG% — A triplák súlyozása",
+    "text": "1. eFG% — A triplák súlyozása\nAz Effective Field Goal Percentage (eFG%) egyszerű korrekciót vezet be: a hárompontos dobást 1,5-szeres súllyal számolja, hiszen 50%-kal több pontot ér.\n\\[eFG\\% = \\frac{FGM + 0{,}5 \\times 3PM}{FGA}\\] Az FGM a debott mezőnykísérletek, míg a 3PM a bedobott triplákat jelöli.\nAz alábbi ábrán jól látható, hogy az eFG% megszünteti az FG% torzítását, megfelelően értékeli azokat a játékosokat, akik nagy arányban kísérleteznek távoli dobásokkal.\n\n\n\n\n\n\n A lista élén szinte kizárólag olyan játékosok állnak, akiknek a szerepe pontszerzésben elsősorban a távoli dobások értékesítése és a pálya megnyitása a csapattársak számára. A FG% alapján sokan átlagosnak tűnnének, az eFG% azonban feltárja valódi hatékonyságukat."
+  },
+  {
+    "objectID": "scoring_efficiency.html#ts-az-aranystandard",
+    "href": "scoring_efficiency.html#ts-az-aranystandard",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "2. TS% — Az aranystandard",
+    "text": "2. TS% — Az aranystandard\nAz eFG% azonban még mindig figyelmen kívül hagyja a büntetőket. A True Shooting Percentage (TS%) mind a három dobástípust egyetlen mutatóba sűríti:\n\\[TS\\% = \\frac{PTS}{2 \\times (FGA + 0{,}44 \\times FTA)}\\]\nA 0,44-es szorzó egy olyan állandó érték, amely az egy, két vagy három büntetővel járó esetek súlyozására szolgál.\n\n\n\n\n\n\n A TS% feltárja, hogy a büntetők mennyire tudják felfelé húzni a valós hatékonyságot. Azok a játékosok, akik sokat járnak a vonalra és ott magas százalékkal teljesítenek, FG%-uk alapján alulértékeltnek tűnnek."
+  },
+  {
+    "objectID": "scoring_efficiency.html#fg-vs-ts-négy-negyed",
+    "href": "scoring_efficiency.html#fg-vs-ts-négy-negyed",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "3. FG% vs TS% — Négy Negyed",
+    "text": "3. FG% vs TS% — Négy Negyed\nHa a FG%-ot a vízszintes tengelyre, a TS%-ot a függőleges tengelyre tesszük, a ligaátlagok keresztezésénél négy negyed alakul ki. A bal felső negyed érdekes tanulságokkal szolgál: alacsony FG%, mégis átlag feletti TS% — ők azok a játékosok, akiket a FG% alapján alulértékelnénk.\nAz ábra értelmezéséhez szükség van egy további mutatóra: a használati arányra (USG%). Ez az arányszám azt méri, hogy a csapat labdabirtoklásainak hány százaléka fejeződik be a játékos kezében — dobáskísérlettel, büntetővel vagy eladott labdával. Egy 30%-os USG% azt jelenti, hogy a csapat minden 10 támadásából 3-at ez a játékos zár le. Mivel egyszerre 5 játékos van a pályán és minden labdabirtoklást valaki lezár, a ligaátlag 20%.\n\\[USG\\% = \\frac{FGA + 0{,}44 \\times FTA + TOV}{Team\\ possessions} \\times 100\\]\nAz alábbi ábrán a pontméret az USG%-ot tükrözi — a nagyobb pont magasabb terhelést jelent.\n\n\n\n\n\n\n A bal felső negyed (piros pontok) tartalmazza azokat, akiket a FG% félrevezető módon jellemez: alacsony mezőnyszázalékuk van, de a triplák és/vagy büntetők miatt a TS%-uk átlag feletti. A pontméret az USG%-t mutatja — a nagy piros pontok a liga legértékesebb, legterheltebb és mégis hatékony játékosai."
+  },
+  {
+    "objectID": "scoring_efficiency.html#mennyiség-vagy-hatékonyság",
+    "href": "scoring_efficiency.html#mennyiség-vagy-hatékonyság",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "4. Mennyiség vagy hatékonyság?",
+    "text": "4. Mennyiség vagy hatékonyság?\nBár a hatékonyság nagyon fontos mutató, a volumen bevonása az elemzésbe új dimenziókat nyit meg. Ahogy egy játékosnak egyre nagyobb felelőssége lesz pontszerzésben, a védekezés is jobban ráfókuszál. Ennek következtében a hatékonyság csökkenhet. Gyakori kérdés a játékosok elemzése során, hogy mennyire tudják felskálázni a teljesítményüket, tudják-e tartani hatékonyságukat magasabb dobásszám mellett is.\nAz alábbi ábra mutatja, az összefüggést a volumen és hatékonyság között.\n\n\n\n\n\n\n Az ábrán minden pont egy játékos-szezon. Az vízszintes tengely (USG%) azt mutatja, mekkora volumennel dolgozott a játékos. A függőleges tengely (TS%) pedig a pontszerzés hatékonyságát mutatja. A pontozott vízszintes vonal a ligaátlagos TS%.\nA sok labdával dolgozó, 20% feletti USG%-kal rendelkező, mégis átlag feletti TS%-ot mutató játékosok az ábra jobb felső sarkában vannak piros színnel. A kék pontok pedig a kevésbé hatékony játékosokat jelölik. A jobb alsó sarokban vannak azok a játékosok, akik sok labdabirtoklást fejeznek be, de ezeket alacsony hatékonysággal váltják pontokra."
+  },
+  {
+    "objectID": "scoring_efficiency.html#u23-játékosok-pontszerzése-a-magyar-bajnokságban",
+    "href": "scoring_efficiency.html#u23-játékosok-pontszerzése-a-magyar-bajnokságban",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "5. U23 játékosok pontszerzése a magyar bajnokságban",
+    "text": "5. U23 játékosok pontszerzése a magyar bajnokságban\n\n\n\n\n\n\n Az ábra az U23-as játékosokat emeli ki pirossal a teljes minta szürkével látható. Minden szezonban az adott év U23-asai szerepelnek — tehát a 2022-23-as szezonban a 2000-ben vagy később születettek, 2023-24-ben a 2001-esek, 2024-25-ben a 2002-esek.\nA három szezonban összesen 52 U23-as játékos-szezon felel meg a 400 perces szűrőnek. Átlagos USG%-uk 14.8%, — az U23-asok tehát átlagosan kb. 5 százalékponttal kevesebb labdabirtoklást fejeznek be."
+  },
+  {
+    "objectID": "scoring_efficiency.html#ligaátlagok-évről-évre",
+    "href": "scoring_efficiency.html#ligaátlagok-évről-évre",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "6. Ligaátlagok évről évre",
+    "text": "6. Ligaátlagok évről évre\n\n\n\n\n\n\n\n A három szezon alatt a ligaátlagos TS% emelkedett (56.2% → 56.6%). A mutatók közötti rés stabil: az eFG% mindig a FG% felett van (a triplások hatása), a TS% pedig az eFG% felett (a büntetők hatása)."
+  },
+  {
+    "objectID": "scoring_efficiency.html#hazai-u23-vs-légiós-vs-nba",
+    "href": "scoring_efficiency.html#hazai-u23-vs-légiós-vs-nba",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "7. Hazai U23 vs Légiós vs NBA",
+    "text": "7. Hazai U23 vs Légiós vs NBA\n\n\n\n\n\n\n\n A légiósok TS%-a mindhárom szezonban közel van az NBA ligaátlaghoz — ez azt jelzi, hogy a magyar bajnokságba érkező külföldi játékosok átlagosan NBA-szintű hatékonysággal teljesítenek, ami a liga kompetitivitása szempontjából pozitív jel. Valószínűleg, ha ezek a légiósok az NBA-ben játszananák, a hatékonyságuk csökkenne. :)\nA Hazai U23-asok átlagosan 6.8%-kal maradnak el a légiósoktól és 6.5%-kal az NBA átlagtól. Látható, hogy a fiatal játékosok mind hatékonyságban, mind volumenben elmaradnak a NBI-es átlagtól. Így kinyílik egy ördögi kör. A fiatalok felé alacsony a bizalom (játéklehetőség, USG%), mert nem elég hatékonyak, de így a fejlődés is megrekedhet."
+  },
+  {
+    "objectID": "scoring_efficiency.html#összefoglalás",
+    "href": "scoring_efficiency.html#összefoglalás",
+    "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
+    "section": "Összefoglalás",
+    "text": "Összefoglalás\n\n\n\n\n\n\n\n\nMutató\nMit mér?\nKorlát\n\n\n\n\nFG%\nMezőnykosár-arány\nNem különbözteti meg a 2P/3P dobásokat, büntetőt nem tartalmaz\n\n\neFG%\nKiigazított mezőnykosár\nNem tartalmazza a büntetőket\n\n\nTS%\nTeljes pontszerzési hatékonyság\n—\n\n\n\nA TS% a legjobb egyváltozós mérőszám egy játékos dobóhatékonyságának megítélésére. A kontextushoz azonban érdemes mellé nézni az USG%-ot is — egy 62%-os TS% alacsony terheléssel lenyűgöző, de egész más, mint ugyanaz a szám 30%-os USG% mellett."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Levente Kaszai",
@@ -88,7 +158,7 @@
     "href": "index.html#work",
     "title": "Levente Kaszai",
     "section": "Work",
-    "text": "Work\n\nFour Factors Analysis (2022-2025) — What drives winning in Hungarian basketball?"
+    "text": "Work\n\nFour Factors Analysis (2022-2025) — What drives winning in Hungarian basketball?\nScoring Efficiency (2022-2025) — eFG%, TS%, and the volume-efficiency tradeoff in Hungarian basketball.\nJátékritmus & Hatékonyság (2022-2025) — Miért nem elég a pontozás? A per-100 szállítás logikája és a tempó szerepe."
   },
   {
     "objectID": "index.html#contact",
@@ -96,5 +166,145 @@
     "title": "Levente Kaszai",
     "section": "Contact",
     "text": "Contact\nLinkedIn · Email"
+  },
+  {
+    "objectID": "futball/player_ratings.html",
+    "href": "futball/player_ratings.html",
+    "title": "Labdarúgó Értékelések",
+    "section": "",
+    "text": "Hamarosan."
+  },
+  {
+    "objectID": "jatekosok/flasar-zalan.html",
+    "href": "jatekosok/flasar-zalan.html",
+    "title": "FLASÁR Zalán — Profil",
+    "section": "",
+    "text": "← Vissza a listához\n\n\n\nFLASÁR Zalán\nStrong Buy\n\n\nKosárlabda\nSopron KC\n2007\nFC\nVálogatott\n\n\nFlasár a hazai bajnokság legjobb fiatal irányítója: olvasottsága, pick & roll kezelése és az általa vezetéssel töltött percek mind fejlettebb szintre mutatnak, mint amit korosztálya elvárna.\n\n\nJátékpercek\n\n\n212\nÖsszes felnőtt perc\n\n\n190\nBajnoki perc (aktuális szezon)\n\n\n25\nMérkőzés\n\n\n7.6\nPerc/mérkőzés\n\n\n\n\n\n\n\n2.9\nPont/mérkőzés\n\n\n71.5%\nTrue Shooting %\nLiga top 10%\n\n\n13.5%\nLepattanó arány\nLiga top 20%\n\n\n0.1\nBlokk/mérkőzés\n\n\n\n\nElemzés\n\nFlasár Zalán a 2024-25-ös szezonban végleg kinőtte a fejlődőben lévő tehetség kategóriáját. A Falco keretén belül ő a legfontosabb labdahozó és pályaszervező, mérkőzésenként átlagosan 28 percet tölt a pályán.\nA pick & roll szituációkban különösen kiemelkedő: az 1.12 pont per possession érték a liga legjobb negyedébe sorolja. Döntéshozatala érett — az assziszt/góldobás arány javulása azt jelzi, hogy egyre ritkábban kockáztat erőltetett passzokat.\nFő fejlesztendő területe a három pontos dobás konzisztenciája (32.4% kísérletekből, alacsony volumen mellett). Ha ezt a mutatót az átlag fölé tudja tornázni, a válogatott alapemberének pozícióját hosszú távon bebetonozhatja.\n\n\n\n\nForgatókönyvek\n\n\nBull case\nHárom pontos százaléka 37% fölé emelkedik, defenzív fejlődése folytatódik, és a válogatott alapemberévé válik — ami külföldi érdeklődést is generálhat.\n\nLegalább 1 konkrét külföldi ajánlat 18 hónapon belül\n\n\nBase case\nFlasár megmarad a Falco kulcsjátékosaként, stabilan vezető szinten teljesít, de külföldi szereplés nélkül.\n\nAssziszt/mérkőzés 7.0 fölött a következő szezonban\n\n\nBear case\nSérülés vagy a csapat kontextusának gyengülése megakadályozza a fejlődési pályán való előrehaladást.\n\nJátékpercek 20% alá esnek, statisztikák stagnálnak\n\n\n\n\nÉrtékelés-történet\n\n\n\n2024-09-01\nStrong Buy\n\n\nNyári fejlődés egyértelmű, megnövekedett szerepkör a Falcónál + válogatott keretbe hívás.\nbejött\n\n\n\n\n2024-02-15\nBuy\n\n\nErős első félév, de még kérdéses a pick & roll hatékonysága magas nyomású szituációkban.\n\n\n\n\n\n\nÉrtékelés dátuma:\n2024-09-01"
+  },
+  {
+    "objectID": "futball/striker_clustering.html",
+    "href": "futball/striker_clustering.html",
+    "title": "NB1 Csatár Szerepdetekció",
+    "section": "",
+    "text": "Az NB1 2025/26-os szezonjának 59 csatárát öt szerepkörbe soroltuk a Twelve Football per-90 statisztikák alapján. Minden játékos egy szerepmixet kap: az elsődleges szerepen kívül a másodlagos affinitások is láthatók — mert a futballban ritkán „tiszta” archetípusok játszanak."
+  },
+  {
+    "objectID": "futball/striker_clustering.html#a-szerepek",
+    "href": "futball/striker_clustering.html#a-szerepek",
+    "title": "NB1 Csatár Szerepdetekció",
+    "section": "A szerepek",
+    "text": "A szerepek\n\n\n\n\n\n\n\n\n\n\n\nSzerep\nLeírás\nErősségek\nJátékosok\n\n\n\n\nCélponttámadó\nFizikai dominancia, fejelés, labdatartás. Hosszú labdák célpontja, a védelmet köti le.\nLégi fölény · Labdatartás · Jelenlét\n13\n\n\nBefejező\nGólhelyzeteket érez meg, pontosan fejez be. Minimális részvétel, maximális hatékonyság a tizenhatoson belül.\nBefejezés · Poaching · Légi fölény\n9\n\n\nPresszingcsatár\nAz első védelmi vonal. Magas intenzitású labdaszerzés, folyamatos mozgás, az ellenfél építőjátékát zavarja.\nPressing · Futások · Jelenlét\n5\n\n\nKreatív csatár\nTársaknak ad lehetőséget, mélységből épít. Technikai játékos aki nem csak gólban gondolkodik.\nAssziszt · Jelenlét · Futások\n14\n\n\nKomplett csatár\nKiegyensúlyozott profil, minden dimenzióban közepesen erős. Nehezen kiszámítható, sokoldalú.\nBefejezés · Jelenlét · Futások\n18"
+  },
+  {
+    "objectID": "futball/striker_clustering.html#szerepprofilok",
+    "href": "futball/striker_clustering.html#szerepprofilok",
+    "title": "NB1 Csatár Szerepdetekció",
+    "section": "Szerepprofilok",
+    "text": "Szerepprofilok\n\n\n\n\n\n\nSzaggatott vonal: elméleti archetípus. Teli vonal: az NB1-es játékosok tényleges átlaga az adott szerepen."
+  },
+  {
+    "objectID": "futball/striker_clustering.html#játékos-térkép",
+    "href": "futball/striker_clustering.html#játékos-térkép",
+    "title": "NB1 Csatár Szerepdetekció",
+    "section": "Játékos-térkép",
+    "text": "Játékos-térkép\n\n\n\n\n\n\nPontméret = az elsődleges szerepbe tartozás biztonsága. Kisebb pont = hibrid, több szerepet ötvöző játékos."
+  },
+  {
+    "objectID": "futball/striker_clustering.html#hibrid-játékosok",
+    "href": "futball/striker_clustering.html#hibrid-játékosok",
+    "title": "NB1 Csatár Szerepdetekció",
+    "section": "Hibrid játékosok",
+    "text": "Hibrid játékosok\nAzok a játékosok, akiknél a másodlagos szerep valószínűsége meghaladja a 22%-ot — ők nem sorolhatók be egyértelműen:\n\n\n\n\n\n\n\n\n\n\nJátékos\nCsapat\nSzerepmix\n\n\n\n\nG. Beridze\nÚjpest FC\nPresszingcsatár (48%) · Kreatív csatár (37%) · Komplett csatár (12%)\n\n\nM. Šlogar\n—\nKreatív csatár (40%) · Presszingcsatár (37%) · Komplett csatár (16%)\n\n\nG. Vlijter\nÚjpest FC\nKreatív csatár (45%) · Presszingcsatár (35%) · Komplett csatár (15%)\n\n\nD. Böde\nPaksi FC\nBefejező (47%) · Komplett csatár (34%)\n\n\nÁ. Bényei\nDiósgyőri VTK\nKreatív csatár (38%) · Presszingcsatár (34%) · Komplett csatár (17%)\n\n\nAlegria\nZalaegerszegi TE FC\nPresszingcsatár (44%) · Kreatív csatár (34%) · Komplett csatár (17%)\n\n\nS. Szuhodovszki\nDebreceni VSC\nPresszingcsatár (43%) · Kreatív csatár (33%) · Komplett csatár (18%)\n\n\nM. Matanović\n—\nKreatív csatár (41%) · Presszingcsatár (33%) · Komplett csatár (18%)\n\n\nN. Njie\nETO FC\nKomplett csatár (43%) · Presszingcsatár (33%) · Kreatív csatár (18%)\n\n\nB. Varga\nFerencvárosi TC\nBefejező (39%) · Célponttámadó (33%) · Komplett csatár (23%)\n\n\nR. Polievka\nMTK Budapest\nKomplett csatár (39%) · Kreatív csatár (32%) · Presszingcsatár (11%)\n\n\nD. Bárány\nDebreceni VSC\nBefejező (48%) · Komplett csatár (32%) · Célponttámadó (10%)\n\n\nM. Klausz\nZalaegerszegi TE FC\nBefejező (39%) · Komplett csatár (31%) · Célponttámadó (22%)\n\n\nH. Németh\nMTK Budapest\nKomplett csatár (34%) · Presszingcsatár (31%) · Kreatív csatár (27%)\n\n\nA. Keita\nDiósgyőri VTK\nCélponttámadó (33%) · Komplett csatár (31%) · Befejező (16%) · Presszingcsatár (13%)\n\n\nM. Tijani\nNyíregyháza Spartacus\nCélponttámadó (35%) · Komplett csatár (30%) · Befejező (26%)\n\n\nJ. Mešanović\n—\nCélponttámadó (31%) · Komplett csatár (30%) · Kreatív csatár (23%) · Presszingcsatár (12%)\n\n\nK. Németh\nMTK Budapest\nKomplett csatár (33%) · Célponttámadó (30%) · Kreatív csatár (23%)\n\n\nB. Kártik\n—\nKreatív csatár (37%) · Presszingcsatár (29%) · Komplett csatár (18%) · Célponttámadó (12%)\n\n\nD. Yusuf\nFerencvárosi TC\nKreatív csatár (39%) · Komplett csatár (29%) · Presszingcsatár (24%)\n\n\nA. Pešić\nFerencvárosi TC\nKreatív csatár (35%) · Komplett csatár (29%) · Célponttámadó (14%) · Befejező (12%) · Presszingcsatár (10%)\n\n\nT. Yordanov\n—\nBefejező (38%) · Komplett csatár (29%) · Kreatív csatár (12%) · Célponttámadó (11%) · Presszingcsatár (10%)\n\n\nD. Lukács\nPuskás Akadémia FC\nKomplett csatár (34%) · Kreatív csatár (29%) · Presszingcsatár (19%) · Befejező (16%)\n\n\nM. Sajbán\nDiósgyőri VTK\nCélponttámadó (34%) · Komplett csatár (28%) · Presszingcsatár (15%) · Kreatív csatár (13%)\n\n\nZ. Gruber\nFerencvárosi TC\nKreatív csatár (46%) · Komplett csatár (27%) · Presszingcsatár (18%)\n\n\nL. Joseph\nFerencvárosi TC\nKomplett csatár (33%) · Presszingcsatár (26%) · Kreatív csatár (24%) · Célponttámadó (15%)\n\n\nM. Mucsányi\n—\nBefejező (44%) · Komplett csatár (25%) · Célponttámadó (14%) · Presszingcsatár (10%)\n\n\nA. Németh\nPuskás Akadémia FC\nKreatív csatár (42%) · Komplett csatár (25%) · Presszingcsatár (16%) · Célponttámadó (14%)\n\n\nB. Tóth\n—\nKomplett csatár (49%) · Célponttámadó (25%) · Kreatív csatár (11%)\n\n\nJ. Hahn\nPaksi FC\nBefejező (56%) · Komplett csatár (24%)\n\n\nE. Acolatse\nFerencvárosi TC\nKreatív csatár (56%) · Komplett csatár (24%) · Presszingcsatár (14%)\n\n\nB. Edomwonyi\nNyíregyháza Spartacus\nKomplett csatár (45%) · Befejező (23%) · Célponttámadó (17%)\n\n\nG. Molnár\n—\nKreatív csatár (51%) · Komplett csatár (23%)\n\n\nB. Dzsudzsák\nDebreceni VSC\nKreatív csatár (44%) · Komplett csatár (23%) · Presszingcsatár (16%) · Befejező (12%)\n\n\nN. Könyves\n—\nPresszingcsatár (28%) · Kreatív csatár (22%) · Komplett csatár (22%) · Befejező (20%)\n\n\nD. Gilbert\nNyíregyháza Spartacus\nCélponttámadó (45%) · Komplett csatár (22%) · Kreatív csatár (17%)"
+  },
+  {
+    "objectID": "futball/striker_clustering.html#csapatok-és-szerepek",
+    "href": "futball/striker_clustering.html#csapatok-és-szerepek",
+    "title": "NB1 Csatár Szerepdetekció",
+    "section": "Csapatok és szerepek",
+    "text": "Csapatok és szerepek"
+  },
+  {
+    "objectID": "futball/striker_clustering.html#teljes-játékostábla",
+    "href": "futball/striker_clustering.html#teljes-játékostábla",
+    "title": "NB1 Csatár Szerepdetekció",
+    "section": "Teljes játékostábla",
+    "text": "Teljes játékostábla\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMódszertan\n\n\n\n\n\nAdatok: Twelve Football, NB1 2025/26, 59 csatár (STRIKER pozíció), per-90 statisztikák.\nSzerepdefiníció: 5 archetípust definiáltunk a 8 Twelve-dimenzió alapján domain knowledge szerint (Célponttámadó, Befejező, Presszingcsatár, Kreatív csatár, Komplett csatár).\nPontozás: Minden játékos 8 dimenziós percentilisvektora és az 5 szerepprofil közötti Euklideszi távolságból softmax-transzformációval kapjuk a szerepvalószínűségeket. Hőmérséklet-paraméter: T=22 — ez szabályozza, mennyire “éles” az elsődleges szerep dominanciája.\nVizualizáció: UMAP 2D levetítés a per-90 értékek z-score standardizált és korreláció-szűrt terén.\nMegjegyzés: Ez a megközelítés szándékosan eltér az adatvezérelt klaszterezéstől (pl. k-means, GMM). Az NbClust elemzés k=2-t javasolt mint természetes struktúra — az 5 szerepkör meghatározása ezért domain knowledge alapú, nem statisztikai."
+  },
+  {
+    "objectID": "futball/jatekosok.html",
+    "href": "futball/jatekosok.html",
+    "title": "Labdarúgó Profilok",
+    "section": "",
+    "text": "Hamarosan."
+  },
+  {
+    "objectID": "jatekosok.html",
+    "href": "jatekosok.html",
+    "title": "Játékos profilok",
+    "section": "",
+    "text": "FLASÁR Zalán\nStrong Buy\n\n\nKosárlabda\nSopron KC\nFC\n\nFlasár a hazai bajnokság legjobb fiatal irányítója: olvasottsága, pick & roll kezelése és az általa vezetéssel töltött percek mind fejlettebb szintre mutatnak, mint amit korosztálya elvárna."
+  },
+  {
+    "objectID": "pace_efficiency.html",
+    "href": "pace_efficiency.html",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "",
+    "text": "A kosárlabda-statisztika legnagyobb tévhite: a jobb csapat több pontot szerez mérkőzésenként. Ez igaz — de csak akkor, ha a csapatok ugyanolyan tempóban játszanak. Egy lassú, kontrollált kosárlabdát játszó csapat 78 pontja és egy gyors transíciós csapat 78 pontja teljesen eltérő hatékonyságot takar.\nDean Oliver felismerése: a kosárlabda valójában labdabirtok-alapú játék. Az egyetlen értelmes hatékonysági mérőszám a 100 labdabirtokra vetített pontszám — ez a tempótól független, csapatok és korszakok között összehasonlítható."
+  },
+  {
+    "objectID": "pace_efficiency.html#a-rangsor-csapdája",
+    "href": "pace_efficiency.html#a-rangsor-csapdája",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "A rangsor csapdája",
+    "text": "A rangsor csapdája\nMelyik csapat hatékonyabb — amelyik többet pontoz, vagy amelyik 100 labdabirtokból többet csinál belőle?\n\n\n\n\n\n\nA zöld vonalak olyan csapatokat jelölnek, amelyek pontszám alapján hátrébb állnak, de hatékonysági szempontból előrébb. A piros vonalak a fordítottját jelzik.\n\nLegszembetűnőbb eltérés: Kecskemét — pontszám alapján a 12. helyen áll (75.1 pt/meccs), de ORtg szerint a 8. legjobb csapat (107.5). Oka: meccsenként átlag 70 labdabirtokot játszanak — a liga leglassabb tempóinak egyike. Kevesebbet pontoz, de amit dob, azt hatékonyabban csinálja."
+  },
+  {
+    "objectID": "pace_efficiency.html#a-liga-tempója",
+    "href": "pace_efficiency.html#a-liga-tempója",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "A liga tempója",
+    "text": "A liga tempója\nHány labdabirtokot játszik egy csapat 40 percenként? Ez határozza meg azt az “ütemet”, amellyel az adatok értelmezhetők.\n\n\n\n\n\n\nAz NBA-val összevetve (~82 labdabirtok/40 perc) a magyar bajnokság körülbelül 8–10 labdabirtokkal lassabb meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között 4–6 labdabirtok-különbség lehet, ami szezon végén akár 100+ labdabirtok-eltérést jelent a statisztikák mögött."
+  },
+  {
+    "objectID": "pace_efficiency.html#hatékonysági-térkép",
+    "href": "pace_efficiency.html#hatékonysági-térkép",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Hatékonysági térkép",
+    "text": "Hatékonysági térkép\nA négy negyedes ábrán minden pont egy csapat egy szezonjának szezonátlagát mutatja. A vízszintes tengely a támadóhatékonyságot (ORtg), a függőleges a védőhatékonyságot mutatja — mindkét irányban jobb, ha az adott érték kedvező.\n\n\n\n\n\n\nA jobb felső sarokba — magas ORtg és alacsony DRtg — jutni a liga élcsapatainak feladata. A Falco KC mindhárom vizsgált szezonban ebben a negyedben tűnik fel, egyre jobbodó értékekkel. Az Y-tengely fordított: feljebb = jobb védekezés."
+  },
+  {
+    "objectID": "pace_efficiency.html#net-rating-és-győzelmek",
+    "href": "pace_efficiency.html#net-rating-és-győzelmek",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Net Rating és győzelmek",
+    "text": "Net Rating és győzelmek\nA videóban elhangzik Dean Oliver állítása: a Net Rating (ORtg − DRtg) jobb előrejelzője a jövőbeli sikereknek, mint az aktuális győzelmi arány. A magyar adaton tesztelhetjük, mennyire szoros ez a kapcsolat.\n\n\n\n\n\n\nA Net Rating korrelációja a győzelmi aránnyal: r = 0.95. Összehasonlításképpen a nyers pontegyenleg (PTS − Opp. PTS) korrelációja: r = 0.95. A különbség kis, de szisztematikus — a per-100-labdabirtok normalizálás hasonló prediktív erőt ad a magyar bajnokságban is.\nA Net Rating szinte tökéletesen lineárisan magyarázza a győzelmeket — nincsenek meglepetések, kivételek csak a szélső értékeknél jelennek meg (ahol a szerencse, sérülések vagy a rövid minta torzít)."
+  },
+  {
+    "objectID": "pace_efficiency.html#tempó-és-siker",
+    "href": "pace_efficiency.html#tempó-és-siker",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Tempó és siker",
+    "text": "Tempó és siker\nÖsszekapcsolódik-e a játékritmus és a hatékonyság? Gyorsabban játszani egyben hatékonyabbat is jelent?\n\n\n\n\n\n\nA korreláció r = 0.148 — gyakorlatilag nulla. A tempó nem jósolja meg a csapat sikerét az NB1-ben. Ez egybeesik az NBA tanulságával: gyorsan és lassan is lehet jól vagy rosszul játszani. A tempó stílusbeli döntés, nem hatékonysági eszköz."
+  },
+  {
+    "objectID": "pace_efficiency.html#egyéni-hatékonyság",
+    "href": "pace_efficiency.html#egyéni-hatékonyság",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Egyéni hatékonyság",
+    "text": "Egyéni hatékonyság\nA csapatszintű minták mögött egyéni játékosok állnak. Az alábbi ábrák az NB1 játékosait páros hatékonysági mutatókon helyezik el — U23-as hazai fiatalok kiemelve.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMódszertan\n\n\n\n\n\nAdatok: Magyar NB1, 2022–2025, alapszakasz. Összesen 1092 mérkőzés-bejegyzés, 42 csapat-szezon aggregátum.\nTempó (Pace): Labdabirtok száma 40 percenként. A labdabirtok (possession) becsült értéke meccsstatisztikákból: FGA − ORB + TOV + 0.44×FTA.\nORtg / DRtg: 100 labdabirtokra vetített szerzett / kapott pontok meccsenként, majd szezonátlag.\nNet Rating: ORtg − DRtg. Pozitív = a csapat nettó labdabirtok-előnnyel rendelkezik.\nEgyéni mutatók: PTS/100 = pontok per 100 csapat-labdabirtok. TRB% = megszerzett pattanások aránya a lehetséges pattanásokból (mindkét vége). BLK% = blokkolt dobások aránya az ellenfél kísérleteiből. STL% = szerzett labdák aránya az ellenfél labdabirtokai közül. Küszöb: min. 400 perc.\nU23: Hazai játékos, akinek születési éve ≥ szezon kezdő éve − 22.\nNBA referencia: Basketball Reference ligaátlagok, 2022–25 szezonok."
+  },
+  {
+    "objectID": "analytics.html",
+    "href": "analytics.html",
+    "title": "Analytics",
+    "section": "",
+    "text": "Percentilis:\n0%\n\n100%\nHover a cellán a pontos értékhez\n\n\n\n\nSzezon\n\n\n\n\n\n\n\n\nCsapat\n\n\n\n\n\n\n\n\nPoszt\n\n\n\n\n\n\n\n\nStátusz\n\n\n\n\n\n\n\n\nMinimum percek\n\n\n\n\n\n\nÉletkor\n\n\n\n\n\n\n\n\nPercentilisek referenciája: az adott szezon 200+ perces játékosai. Az értékek minden játékosnál láthatók.\n TOV%: alacsonyabb = jobb, a háttérszín ennek megfelelően fordított.\n BPM (Box Plus/Minus): pontokban mért hatás 100 birtok alatt, 0 = ligaatlag, +5 = All-Star szint.\n DRE (Daily RAPM Estimate): RAPM-regresszión alapuló box-score becséslés (Myers 2017)."
+  },
+  {
+    "objectID": "futball/analytics.html",
+    "href": "futball/analytics.html",
+    "title": "Analytics – Labdarúgás",
+    "section": "",
+    "text": "Percentilis:\n0%\n\n100%\nHover a cellán a pontos értékhez\n\n\n\n\nSzezon\n\n\n\n\n\n\n\n\nPozíció\n\n\n\n\n\n\n\n\n\nPercentilis: pozíción és szezonon belüli rangsor alapján (Twelve). — = nincs adat az adott pozícióra."
   }
 ]
