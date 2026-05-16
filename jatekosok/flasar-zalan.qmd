@@ -40,6 +40,9 @@ profile:
       Nehezen illeszkedik be, fejlődése kicsit megreked. Szórványosan játszik, főként garbage time-ban kerül pályára.
     meroeszam: "5 MPG alatt marad a szezon átlag."
     
+  publikalt: "2026-03-17"
+  frissitve: "2026-05-16"
+
   rating_history:
 
 ---

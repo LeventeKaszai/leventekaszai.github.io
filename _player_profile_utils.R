@@ -432,15 +432,20 @@ render_player_profile <- function(profile, db_path = "bball_10_tables.db") {
       )
     },
 
-    # ── Értékelés dátuma
-    if (!is.null(p$rating_history) && length(p$rating_history) > 0) {
-      latest_date <- p$rating_history[[length(p$rating_history)]]$datum
+    # ── Dátum footer
+    if (!is.null(p$publikalt) || !is.null(p$frissitve)) {
       tags$div(
         class = "pp-footer-info",
-        tags$div(class = "pp-footer-item",
-          tags$span(class = "pp-footer-label", "\u00c9rt\u00e9kel\u00e9s d\u00e1tuma:"),
-          tags$span(as.character(latest_date))
-        )
+        if (!is.null(p$publikalt))
+          tags$div(class = "pp-footer-item",
+            tags$span(class = "pp-footer-label", "Publik\u00e1lva:"),
+            tags$span(as.character(p$publikalt))
+          ),
+        if (!is.null(p$frissitve))
+          tags$div(class = "pp-footer-item",
+            tags$span(class = "pp-footer-label", "Utolj\u00e1ra szerkesztve:"),
+            tags$span(as.character(p$frissitve))
+          )
       )
     }
 
