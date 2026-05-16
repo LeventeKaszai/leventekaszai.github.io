@@ -1,0 +1,1013 @@
+{
+    "plot_type": "distribution",
+    "title": "Dribbling of Adin Molnár",
+    "subtitle": "Hungarian NB I 2025/2026 | 1978 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Jasmin Mešanović",
+            "János Ferenczi",
+            "Soma Novothny",
+            "Claudiu Bumba",
+            "Matija Ljujić",
+            "Nemanja Antonov",
+            "Gábor Molnár",
+            "Elton-Ofoi Acolatse",
+            "Ante Roguljić",
+            "Zsolt Nagy",
+            "Callum O'Dowda",
+            "Giorgi Beridze",
+            "Máté Sajbán",
+            "Róbert Polievka",
+            "Mikael Soisalo",
+            "Bence Bíró",
+            "Tonislav Yordanov",
+            "Dániel Lukács",
+            "Gleofilo Vlijter",
+            "Zsombor Bévárdi",
+            "Bence Kiss",
+            "Bogdan Melnyk",
+            "Aljoša Matko",
+            "Márk Kovácsréti",
+            "Bálint Kártik",
+            "Palko Dárdai",
+            "Alen Skribek",
+            "Szabolcs Schön",
+            "Álex Bermejo",
+            "Jonathan Levi",
+            "Barnabás Nagy",
+            "Branimir Cipetić",
+            "Soma Szuhodovszki",
+            "Krisztofer Horváth",
+            "Martin Šlogar",
+            "György Komáromi",
+            "Rajmund Molnár",
+            "Ronald Schuszter",
+            "Zalán Kerezsi",
+            "Dominik Kocsis",
+            "Marko Matanović",
+            "Gábor Jurek",
+            "Mátyás Katona",
+            "João Victor",
+            "Meshack Ubochioma",
+            "Bálint Katona",
+            "Márk Mucsányi",
+            "Hunor Németh",
+            "Csanad Denes",
+            "Djordje Gordić",
+            "Ábel Krajcsovics",
+            "Balázs Bakti",
+            "Marcell Major",
+            "Adin Molnár",
+            "Martin Kern",
+            "Alegria",
+            "Kevin Mondovics",
+            "Botond Vajda",
+            "Milán Pető",
+            "Bence Babós",
+            "Istvan Atrok",
+            "Balázs Manner",
+            "Flórián Cibla",
+            "Kevin Banati",
+            "Kevin Horváth",
+            "Bence Vekony",
+            "Nfansu Njie"
+        ],
+        "target_identifiers": [
+            72691,
+            74982,
+            76218,
+            84036,
+            128206,
+            140066,
+            145212,
+            149221,
+            238160,
+            238711,
+            249034,
+            258379,
+            266739,
+            333635,
+            351313,
+            352229,
+            372091,
+            375251,
+            379877,
+            400719,
+            404804,
+            420958,
+            422527,
+            432732,
+            444899,
+            448246,
+            475816,
+            476385,
+            483388,
+            483796,
+            492158,
+            517869,
+            553144,
+            561550,
+            567961,
+            586798,
+            586811,
+            586951,
+            620094,
+            631593,
+            631851,
+            641513,
+            653443,
+            661881,
+            673720,
+            694818,
+            696314,
+            703498,
+            706432,
+            747471,
+            759569,
+            759632,
+            759646,
+            769345,
+            790584,
+            801548,
+            810317,
+            830435,
+            831685,
+            836144,
+            850295,
+            850300,
+            869638,
+            872405,
+            894503,
+            925706,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Dribbles (xT)",
+                "description": "Accumulated location-based xT from successful dribbles adjusted by possession.",
+                "display_name": "Dribbles (xT)"
+            },
+            {
+                "name": "Dribbles success %",
+                "description": "The ratio between successful dribbles and total dribbles.",
+                "display_name": "Dribbles success %"
+            },
+            {
+                "name": "Pressure resistance %",
+                "description": "Percentage of successful actions under pressure in the first or second thirds of the pitch.",
+                "display_name": "Pressure resistance %"
+            },
+            {
+                "name": "xGDribble",
+                "description": "Accumulated xG of shots within 5s of dribbles in the same possession assigned to the dribbler adjusted by possession.",
+                "display_name": "xGDribble"
+            }
+        ],
+        "focal_target_indices": [
+            53
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -1.2385183572769165,
+                0.11634009331464767,
+                0.27200043201446533,
+                -1.011971354484558
+            ],
+            [
+                -0.9437912702560425,
+                -0.9609289169311523,
+                -0.6096006631851196,
+                0.8455391526222229
+            ],
+            [
+                -1.346861720085144,
+                0.20611251890659332,
+                0.4995101988315582,
+                -0.936305582523346
+            ],
+            [
+                0.5431341528892517,
+                1.0216350555419922,
+                1.0540655851364136,
+                1.358670949935913
+            ],
+            [
+                -0.7331080436706543,
+                0.7896329164505005,
+                0.6077160239219666,
+                -0.8861023783683777
+            ],
+            [
+                -0.6709434986114502,
+                -0.5490319728851318,
+                0.21986275911331177,
+                -0.9556992650032043
+            ],
+            [
+                -0.493335098028183,
+                0.3289591372013092,
+                1.0019279718399048,
+                0.8510056138038635
+            ],
+            [
+                3.3347461223602295,
+                0.9916210174560547,
+                0.7120035290718079,
+                3.543997049331665
+            ],
+            [
+                -0.7830772399902344,
+                0.9242918491363525,
+                1.0540655851364136,
+                -0.6346331238746643
+            ],
+            [
+                -0.46823960542678833,
+                -0.1998150795698166,
+                -1.30903959274292,
+                -0.7654882669448853
+            ],
+            [
+                0.5915095210075378,
+                0.7896329164505005,
+                -3.0126736164093018,
+                0.058399099856615067
+            ],
+            [
+                -0.030987834557890892,
+                0.43952080607414246,
+                -0.23989683389663696,
+                -0.6490283012390137
+            ],
+            [
+                -0.8517211079597473,
+                -0.08564800024032593,
+                -0.08970490097999573,
+                -0.7700905203819275
+            ],
+            [
+                -0.4182071089744568,
+                -0.4007489085197449,
+                -2.0997321605682373,
+                0.9998632073402405
+            ],
+            [
+                0.5463553667068481,
+                -0.46076831221580505,
+                -3.0126736164093018,
+                -0.12317395210266113
+            ],
+            [
+                -1.150239109992981,
+                -1.3499431610107422,
+                -0.2665768265724182,
+                -0.5379683375358582
+            ],
+            [
+                -0.9079451560974121,
+                1.585343599319458,
+                1.0540655851364136,
+                -0.32746079564094543
+            ],
+            [
+                0.8259603977203369,
+                1.0230412483215332,
+                0.3560429513454437,
+                0.38277769088745117
+            ],
+            [
+                0.9170598983764648,
+                1.613426923751831,
+                0.43521392345428467,
+                1.385380506515503
+            ],
+            [
+                1.8470160961151123,
+                1.3985246419906616,
+                -0.9793038964271545,
+                0.22625203430652618
+            ],
+            [
+                -0.6647030711174011,
+                -0.3430834710597992,
+                0.7097043991088867,
+                -0.726614236831665
+            ],
+            [
+                -0.921324610710144,
+                0.7896329164505005,
+                1.8674132823944092,
+                -0.6662526726722717
+            ],
+            [
+                -0.9307688474655151,
+                -0.9609289169311523,
+                -0.780387818813324,
+                -0.3790796101093292
+            ],
+            [
+                1.0081164836883545,
+                0.5481761693954468,
+                0.07503566890954971,
+                0.5929772853851318
+            ],
+            [
+                -0.7072644829750061,
+                -0.43245771527290344,
+                0.41194868087768555,
+                -0.30358654260635376
+            ],
+            [
+                -0.3539464473724365,
+                0.36708369851112366,
+                -0.20992086827754974,
+                -0.5717853307723999
+            ],
+            [
+                -1.1499329805374146,
+                0.7896329164505005,
+                1.509820818901062,
+                -0.7454717755317688
+            ],
+            [
+                0.1819785088300705,
+                -0.4185011684894562,
+                0.4600474536418915,
+                0.1557920128107071
+            ],
+            [
+                0.8416568040847778,
+                0.9646896123886108,
+                1.63502836227417,
+                0.11708609014749527
+            ],
+            [
+                -0.09286218136548996,
+                0.20611251890659332,
+                0.6333682537078857,
+                1.0214664936065674
+            ],
+            [
+                -0.5006399154663086,
+                -0.03610366955399513,
+                0.1503458470106125,
+                -0.5826092958450317
+            ],
+            [
+                0.07037615776062012,
+                0.7292692065238953,
+                0.8692140579223633,
+                -0.7641706466674805
+            ],
+            [
+                -0.6290176510810852,
+                0.9646896123886108,
+                0.3597443699836731,
+                -0.4372962415218353
+            ],
+            [
+                0.5430560111999512,
+                -0.024581847712397575,
+                0.8281356692314148,
+                -0.15729694068431854
+            ],
+            [
+                -0.23075811564922333,
+                -2.1279704570770264,
+                -1.1855882406234741,
+                -0.5348670482635498
+            ],
+            [
+                0.6136735677719116,
+                0.11634009331464767,
+                0.2633105218410492,
+                -0.3043678402900696
+            ],
+            [
+                -0.015948301181197166,
+                -2.055030584335327,
+                -0.16595619916915894,
+                -0.18648958206176758
+            ],
+            [
+                -1.1622021198272705,
+                -4,
+                -1.213923692703247,
+                -1.026724934577942
+            ],
+            [
+                0.05881163850426674,
+                -0.22385038435459137,
+                -0.8908970355987549,
+                0.15484367311000824
+            ],
+            [
+                3.2965378761291504,
+                1.107917308807373,
+                0.22800910472869873,
+                2.367556571960449
+            ],
+            [
+                2.098175287246704,
+                0.5154487490653992,
+                -0.1401355117559433,
+                2.338092803955078
+            ],
+            [
+                1.0825001001358032,
+                1.9724452495574951,
+                -0.6582460403442383,
+                0.6779350638389587
+            ],
+            [
+                -0.26893675327301025,
+                -0.08564800024032593,
+                1.7318555116653442,
+                -0.940788984298706
+            ],
+            [
+                -0.5726144909858704,
+                -0.4281492233276367,
+                -0.5069051384925842,
+                0.40711677074432373
+            ],
+            [
+                0.4739716351032257,
+                -1.073868989944458,
+                -0.3692929744720459,
+                -0.07741934806108475
+            ],
+            [
+                0.02336481586098671,
+                0.6766935586929321,
+                0.45927056670188904,
+                -0.32227998971939087
+            ],
+            [
+                -0.7860719561576843,
+                -1.661153793334961,
+                -0.418374627828598,
+                0.49415382742881775
+            ],
+            [
+                -0.6509366035461426,
+                0.20611251890659332,
+                0.4301908612251282,
+                -0.6356028318405151
+            ],
+            [
+                1.47160804271698,
+                -0.17035254836082458,
+                -0.8228908181190491,
+                0.26165446639060974
+            ],
+            [
+                -0.09923704713582993,
+                -0.7421088814735413,
+                -0.6780643463134766,
+                -0.7076554298400879
+            ],
+            [
+                1.225805640220642,
+                -0.24010953307151794,
+                -0.725132942199707,
+                2.8102357387542725
+            ],
+            [
+                -0.35206547379493713,
+                0.11634009331464767,
+                0.9693419933319092,
+                -0.931304395198822
+            ],
+            [
+                -1.3225289583206177,
+                -1.3985697031021118,
+                -0.06779346615076065,
+                -1.026724934577942
+            ],
+            [
+                1.9796123504638672,
+                1.22727370262146,
+                0.963019073009491,
+                1.575278401374817
+            ],
+            [
+                -0.35858353972435,
+                -0.08564800024032593,
+                -1.9959889650344849,
+                -0.9788310527801514
+            ],
+            [
+                -0.06821906566619873,
+                -0.4813227951526642,
+                -0.1736292541027069,
+                -0.18435390293598175
+            ],
+            [
+                -0.9063572883605957,
+                -0.08564800024032593,
+                -1.2697852849960327,
+                -1.0035005807876587
+            ],
+            [
+                -0.2024981677532196,
+                0.43952080607414246,
+                0.5848265290260315,
+                -0.7861048579216003
+            ],
+            [
+                0.8276212215423584,
+                -0.08564800024032593,
+                -1.0482317209243774,
+                0.2386697381734848
+            ],
+            [
+                0.14117339253425598,
+                -1.1200714111328125,
+                -0.6582460403442383,
+                -0.6215072274208069
+            ],
+            [
+                -0.176129549741745,
+                -1.035421371459961,
+                0.2781742811203003,
+                0.9026616215705872
+            ],
+            [
+                0.894769549369812,
+                -0.35728728771209717,
+                0.182621568441391,
+                2.071012020111084
+            ],
+            [
+                0.17435093224048615,
+                1.3282674551010132,
+                1.271926760673523,
+                -0.7621617317199707
+            ],
+            [
+                -0.4411938786506653,
+                0.38565734028816223,
+                -0.5899356603622437,
+                -0.4645939767360687
+            ],
+            [
+                -0.6559679508209229,
+                -0.5339629054069519,
+                1.3302019834518433,
+                -0.33037030696868896
+            ],
+            [
+                -1.1045814752578735,
+                -0.9609289169311523,
+                0.3597443699836731,
+                -0.5073330402374268
+            ],
+            [
+                -0.2506678104400635,
+                0.5203156471252441,
+                0.3597443699836731,
+                -0.5733568072319031
+            ]
+        ],
+        "hover_strings": [
+            [
+                "J. Mešanović\nRank: 65/67\n0.02 Dribbles (xT) per 90",
+                "J. Mešanović\nRank: 31/67\n0.77 Dribbles success %",
+                "J. Mešanović\nRank: 31/67\n0.72 Pressure resistance %",
+                "J. Mešanović\nRank: 65/67\n0.00 xGDribble per 90"
+            ],
+            [
+                "J. Ferenczi\nRank: 60/67\n0.03 Dribbles (xT) per 90",
+                "J. Ferenczi\nRank: 56/67\n0.67 Dribbles success %",
+                "J. Ferenczi\nRank: 50/67\n0.64 Pressure resistance %",
+                "J. Ferenczi\nRank: 13/67\n0.13 xGDribble per 90"
+            ],
+            [
+                "S. Novothny\nRank: 67/67\n0.01 Dribbles (xT) per 90",
+                "S. Novothny\nRank: 28/67\n0.78 Dribbles success %",
+                "S. Novothny\nRank: 20/67\n0.75 Pressure resistance %",
+                "S. Novothny\nRank: 60/67\n0.01 xGDribble per 90"
+            ],
+            [
+                "C. Bumba\nRank: 18/67\n0.09 Dribbles (xT) per 90",
+                "C. Bumba\nRank: 9/67\n0.86 Dribbles success %",
+                "C. Bumba\nRank: 7/67\n0.80 Pressure resistance %",
+                "C. Bumba\nRank: 8/67\n0.16 xGDribble per 90"
+            ],
+            [
+                "M. Ljujić\nRank: 52/67\n0.04 Dribbles (xT) per 90",
+                "M. Ljujić\nRank: 14/67\n0.83 Dribbles success %",
+                "M. Ljujić\nRank: 18/67\n0.76 Pressure resistance %",
+                "M. Ljujić\nRank: 58/67\n0.01 xGDribble per 90"
+            ],
+            [
+                "N. Antonov\nRank: 50/67\n0.04 Dribbles (xT) per 90",
+                "N. Antonov\nRank: 54/67\n0.71 Dribbles success %",
+                "N. Antonov\nRank: 34/67\n0.72 Pressure resistance %",
+                "N. Antonov\nRank: 62/67\n0.00 xGDribble per 90"
+            ],
+            [
+                "G. Molnár\nRank: 43/67\n0.05 Dribbles (xT) per 90",
+                "G. Molnár\nRank: 27/67\n0.79 Dribbles success %",
+                "G. Molnár\nRank: 10/67\n0.79 Pressure resistance %",
+                "G. Molnár\nRank: 12/67\n0.13 xGDribble per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 1/67\n0.21 Dribbles (xT) per 90",
+                "E. Acolatse\nRank: 10/67\n0.85 Dribbles success %",
+                "E. Acolatse\nRank: 15/67\n0.77 Pressure resistance %",
+                "E. Acolatse\nRank: 1/67\n0.31 xGDribble per 90"
+            ],
+            [
+                "A. Roguljić\nRank: 53/67\n0.03 Dribbles (xT) per 90",
+                "A. Roguljić\nRank: 13/67\n0.85 Dribbles success %",
+                "A. Roguljić\nRank: 7/67\n0.80 Pressure resistance %",
+                "A. Roguljić\nRank: 46/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "Z. Nagy\nRank: 42/67\n0.05 Dribbles (xT) per 90",
+                "Z. Nagy\nRank: 42/67\n0.74 Dribbles success %",
+                "Z. Nagy\nRank: 63/67\n0.57 Pressure resistance %",
+                "Z. Nagy\nRank: 55/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "C. O'Dowda\nRank: 16/67\n0.09 Dribbles (xT) per 90",
+                "C. O'Dowda\nRank: 14/67\n0.83 Dribbles success %",
+                "C. O'Dowda\nRank: 66/67\n0.40 Pressure resistance %",
+                "C. O'Dowda\nRank: 25/67\n0.07 xGDribble per 90"
+            ],
+            [
+                "G. Beridze\nRank: 28/67\n0.07 Dribbles (xT) per 90",
+                "G. Beridze\nRank: 23/67\n0.80 Dribbles success %",
+                "G. Beridze\nRank: 44/67\n0.67 Pressure resistance %",
+                "G. Beridze\nRank: 48/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "M. Sajbán\nRank: 55/67\n0.03 Dribbles (xT) per 90",
+                "M. Sajbán\nRank: 36/67\n0.75 Dribbles success %",
+                "M. Sajbán\nRank: 39/67\n0.69 Pressure resistance %",
+                "M. Sajbán\nRank: 56/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "R. Polievka\nRank: 40/67\n0.05 Dribbles (xT) per 90",
+                "R. Polievka\nRank: 47/67\n0.72 Dribbles success %",
+                "R. Polievka\nRank: 65/67\n0.49 Pressure resistance %",
+                "R. Polievka\nRank: 10/67\n0.14 xGDribble per 90"
+            ],
+            [
+                "M. Soisalo\nRank: 17/67\n0.09 Dribbles (xT) per 90",
+                "M. Soisalo\nRank: 51/67\n0.71 Dribbles success %",
+                "M. Soisalo\nRank: 66/67\n0.40 Pressure resistance %",
+                "M. Soisalo\nRank: 27/67\n0.06 xGDribble per 90"
+            ],
+            [
+                "B. Bíró\nRank: 63/67\n0.02 Dribbles (xT) per 90",
+                "B. Bíró\nRank: 62/67\n0.63 Dribbles success %",
+                "B. Bíró\nRank: 45/67\n0.67 Pressure resistance %",
+                "B. Bíró\nRank: 41/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "T. Yordanov\nRank: 57/67\n0.03 Dribbles (xT) per 90",
+                "T. Yordanov\nRank: 3/67\n0.91 Dribbles success %",
+                "T. Yordanov\nRank: 7/67\n0.80 Pressure resistance %",
+                "T. Yordanov\nRank: 34/67\n0.05 xGDribble per 90"
+            ],
+            [
+                "D. Lukács\nRank: 14/67\n0.10 Dribbles (xT) per 90",
+                "D. Lukács\nRank: 8/67\n0.86 Dribbles success %",
+                "D. Lukács\nRank: 29/67\n0.73 Pressure resistance %",
+                "D. Lukács\nRank: 18/67\n0.10 xGDribble per 90"
+            ],
+            [
+                "G. Vlijter\nRank: 10/67\n0.11 Dribbles (xT) per 90",
+                "G. Vlijter\nRank: 2/67\n0.91 Dribbles success %",
+                "G. Vlijter\nRank: 23/67\n0.74 Pressure resistance %",
+                "G. Vlijter\nRank: 7/67\n0.16 xGDribble per 90"
+            ],
+            [
+                "Z. Bévárdi\nRank: 5/67\n0.15 Dribbles (xT) per 90",
+                "Z. Bévárdi\nRank: 4/67\n0.89 Dribbles success %",
+                "Z. Bévárdi\nRank: 58/67\n0.60 Pressure resistance %",
+                "Z. Bévárdi\nRank: 21/67\n0.08 xGDribble per 90"
+            ],
+            [
+                "B. Kiss\nRank: 49/67\n0.04 Dribbles (xT) per 90",
+                "B. Kiss\nRank: 45/67\n0.73 Dribbles success %",
+                "B. Kiss\nRank: 16/67\n0.77 Pressure resistance %",
+                "B. Kiss\nRank: 51/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "B. Melnyk\nRank: 58/67\n0.03 Dribbles (xT) per 90",
+                "B. Melnyk\nRank: 14/67\n0.83 Dribbles success %",
+                "B. Melnyk\nRank: 1/67\n0.88 Pressure resistance %",
+                "B. Melnyk\nRank: 49/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "A. Matko\nRank: 59/67\n0.03 Dribbles (xT) per 90",
+                "A. Matko\nRank: 56/67\n0.67 Dribbles success %",
+                "A. Matko\nRank: 55/67\n0.62 Pressure resistance %",
+                "A. Matko\nRank: 36/67\n0.04 xGDribble per 90"
+            ],
+            [
+                "M. Kovácsréti\nRank: 9/67\n0.11 Dribbles (xT) per 90",
+                "M. Kovácsréti\nRank: 20/67\n0.81 Dribbles success %",
+                "M. Kovácsréti\nRank: 37/67\n0.70 Pressure resistance %",
+                "M. Kovácsréti\nRank: 15/67\n0.11 xGDribble per 90"
+            ],
+            [
+                "B. Kártik\nRank: 51/67\n0.04 Dribbles (xT) per 90",
+                "B. Kártik\nRank: 50/67\n0.72 Dribbles success %",
+                "B. Kártik\nRank: 25/67\n0.74 Pressure resistance %",
+                "B. Kártik\nRank: 31/67\n0.05 xGDribble per 90"
+            ],
+            [
+                "P. Dárdai\nRank: 38/67\n0.05 Dribbles (xT) per 90",
+                "P. Dárdai\nRank: 26/67\n0.79 Dribbles success %",
+                "P. Dárdai\nRank: 43/67\n0.68 Pressure resistance %",
+                "P. Dárdai\nRank: 42/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "A. Skribek\nRank: 62/67\n0.02 Dribbles (xT) per 90",
+                "A. Skribek\nRank: 14/67\n0.83 Dribbles success %",
+                "A. Skribek\nRank: 4/67\n0.84 Pressure resistance %",
+                "A. Skribek\nRank: 52/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "S. Schön\nRank: 21/67\n0.08 Dribbles (xT) per 90",
+                "S. Schön\nRank: 48/67\n0.72 Dribbles success %",
+                "S. Schön\nRank: 21/67\n0.74 Pressure resistance %",
+                "S. Schön\nRank: 22/67\n0.08 xGDribble per 90"
+            ],
+            [
+                "Álex Bermejo\nRank: 12/67\n0.10 Dribbles (xT) per 90",
+                "Álex Bermejo\nRank: 11/67\n0.85 Dribbles success %",
+                "Álex Bermejo\nRank: 3/67\n0.86 Pressure resistance %",
+                "Álex Bermejo\nRank: 24/67\n0.08 xGDribble per 90"
+            ],
+            [
+                "J. Levi\nRank: 30/67\n0.06 Dribbles (xT) per 90",
+                "J. Levi\nRank: 28/67\n0.78 Dribbles success %",
+                "J. Levi\nRank: 17/67\n0.76 Pressure resistance %",
+                "J. Levi\nRank: 9/67\n0.14 xGDribble per 90"
+            ],
+            [
+                "B. Nagy\nRank: 44/67\n0.05 Dribbles (xT) per 90",
+                "B. Nagy\nRank: 35/67\n0.75 Dribbles success %",
+                "B. Nagy\nRank: 36/67\n0.71 Pressure resistance %",
+                "B. Nagy\nRank: 44/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "B. Cipetić\nRank: 24/67\n0.07 Dribbles (xT) per 90",
+                "B. Cipetić\nRank: 18/67\n0.83 Dribbles success %",
+                "B. Cipetić\nRank: 13/67\n0.78 Pressure resistance %",
+                "B. Cipetić\nRank: 54/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 46/67\n0.04 Dribbles (xT) per 90",
+                "S. Szuhodovszki\nRank: 11/67\n0.85 Dribbles success %",
+                "S. Szuhodovszki\nRank: 26/67\n0.73 Pressure resistance %",
+                "S. Szuhodovszki\nRank: 37/67\n0.04 xGDribble per 90"
+            ],
+            [
+                "K. Horváth\nRank: 19/67\n0.09 Dribbles (xT) per 90",
+                "K. Horváth\nRank: 34/67\n0.76 Dribbles success %",
+                "K. Horváth\nRank: 14/67\n0.78 Pressure resistance %",
+                "K. Horváth\nRank: 28/67\n0.06 xGDribble per 90"
+            ],
+            [
+                "M. Šlogar\nRank: 34/67\n0.06 Dribbles (xT) per 90",
+                "M. Šlogar\nRank: 66/67\n0.56 Dribbles success %",
+                "M. Šlogar\nRank: 60/67\n0.58 Pressure resistance %",
+                "M. Šlogar\nRank: 40/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "G. Komáromi\nRank: 15/67\n0.09 Dribbles (xT) per 90",
+                "G. Komáromi\nRank: 31/67\n0.77 Dribbles success %",
+                "G. Komáromi\nRank: 32/67\n0.72 Pressure resistance %",
+                "G. Komáromi\nRank: 32/67\n0.05 xGDribble per 90"
+            ],
+            [
+                "R. Molnár\nRank: 27/67\n0.07 Dribbles (xT) per 90",
+                "R. Molnár\nRank: 65/67\n0.56 Dribbles success %",
+                "R. Molnár\nRank: 41/67\n0.68 Pressure resistance %",
+                "R. Molnár\nRank: 30/67\n0.06 xGDribble per 90"
+            ],
+            [
+                "R. Schuszter\nRank: 64/67\n0.02 Dribbles (xT) per 90",
+                "R. Schuszter\nRank: 67/67\n0.38 Dribbles success %",
+                "R. Schuszter\nRank: 61/67\n0.58 Pressure resistance %",
+                "R. Schuszter\nRank: 66/67\n0.00 xGDribble per 90"
+            ],
+            [
+                "Z. Kerezsi\nRank: 25/67\n0.07 Dribbles (xT) per 90",
+                "Z. Kerezsi\nRank: 43/67\n0.74 Dribbles success %",
+                "Z. Kerezsi\nRank: 57/67\n0.61 Pressure resistance %",
+                "Z. Kerezsi\nRank: 23/67\n0.08 xGDribble per 90"
+            ],
+            [
+                "D. Kocsis\nRank: 2/67\n0.21 Dribbles (xT) per 90",
+                "D. Kocsis\nRank: 7/67\n0.86 Dribbles success %",
+                "D. Kocsis\nRank: 33/67\n0.72 Pressure resistance %",
+                "D. Kocsis\nRank: 3/67\n0.23 xGDribble per 90"
+            ],
+            [
+                "M. Matanović\nRank: 3/67\n0.16 Dribbles (xT) per 90",
+                "M. Matanović\nRank: 22/67\n0.81 Dribbles success %",
+                "M. Matanović\nRank: 40/67\n0.68 Pressure resistance %",
+                "M. Matanović\nRank: 4/67\n0.23 xGDribble per 90"
+            ],
+            [
+                "G. Jurek\nRank: 8/67\n0.11 Dribbles (xT) per 90",
+                "G. Jurek\nRank: 1/67\n0.95 Dribbles success %",
+                "G. Jurek\nRank: 51/67\n0.63 Pressure resistance %",
+                "G. Jurek\nRank: 14/67\n0.12 xGDribble per 90"
+            ],
+            [
+                "M. Katona\nRank: 36/67\n0.06 Dribbles (xT) per 90",
+                "M. Katona\nRank: 36/67\n0.75 Dribbles success %",
+                "M. Katona\nRank: 2/67\n0.87 Pressure resistance %",
+                "M. Katona\nRank: 61/67\n0.01 xGDribble per 90"
+            ],
+            [
+                "João Victor\nRank: 45/67\n0.04 Dribbles (xT) per 90",
+                "João Victor\nRank: 49/67\n0.72 Dribbles success %",
+                "João Victor\nRank: 48/67\n0.65 Pressure resistance %",
+                "João Victor\nRank: 17/67\n0.10 xGDribble per 90"
+            ],
+            [
+                "M. Ubochioma\nRank: 20/67\n0.09 Dribbles (xT) per 90",
+                "M. Ubochioma\nRank: 60/67\n0.66 Dribbles success %",
+                "M. Ubochioma\nRank: 46/67\n0.66 Pressure resistance %",
+                "M. Ubochioma\nRank: 26/67\n0.06 xGDribble per 90"
+            ],
+            [
+                "B. Katona\nRank: 26/67\n0.07 Dribbles (xT) per 90",
+                "B. Katona\nRank: 19/67\n0.82 Dribbles success %",
+                "B. Katona\nRank: 22/67\n0.74 Pressure resistance %",
+                "B. Katona\nRank: 33/67\n0.05 xGDribble per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 54/67\n0.03 Dribbles (xT) per 90",
+                "M. Mucsányi\nRank: 64/67\n0.60 Dribbles success %",
+                "M. Mucsányi\nRank: 47/67\n0.66 Pressure resistance %",
+                "M. Mucsányi\nRank: 16/67\n0.10 xGDribble per 90"
+            ],
+            [
+                "H. Németh\nRank: 47/67\n0.04 Dribbles (xT) per 90",
+                "H. Németh\nRank: 28/67\n0.78 Dribbles success %",
+                "H. Németh\nRank: 24/67\n0.74 Pressure resistance %",
+                "H. Németh\nRank: 47/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "C. Denes\nRank: 6/67\n0.13 Dribbles (xT) per 90",
+                "C. Denes\nRank: 41/67\n0.74 Dribbles success %",
+                "C. Denes\nRank: 56/67\n0.62 Pressure resistance %",
+                "C. Denes\nRank: 19/67\n0.09 xGDribble per 90"
+            ],
+            [
+                "D. Gordić\nRank: 31/67\n0.06 Dribbles (xT) per 90",
+                "D. Gordić\nRank: 55/67\n0.69 Dribbles success %",
+                "D. Gordić\nRank: 53/67\n0.63 Pressure resistance %",
+                "D. Gordić\nRank: 50/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "Á. Krajcsovics\nRank: 7/67\n0.12 Dribbles (xT) per 90",
+                "Á. Krajcsovics\nRank: 44/67\n0.74 Dribbles success %",
+                "Á. Krajcsovics\nRank: 54/67\n0.62 Pressure resistance %",
+                "Á. Krajcsovics\nRank: 2/67\n0.26 xGDribble per 90"
+            ],
+            [
+                "B. Bakti\nRank: 37/67\n0.05 Dribbles (xT) per 90",
+                "B. Bakti\nRank: 31/67\n0.77 Dribbles success %",
+                "B. Bakti\nRank: 11/67\n0.79 Pressure resistance %",
+                "B. Bakti\nRank: 59/67\n0.01 xGDribble per 90"
+            ],
+            [
+                "M. Major\nRank: 66/67\n0.01 Dribbles (xT) per 90",
+                "M. Major\nRank: 63/67\n0.62 Dribbles success %",
+                "M. Major\nRank: 38/67\n0.69 Pressure resistance %",
+                "M. Major\nRank: 66/67\n0.00 xGDribble per 90"
+            ],
+            [
+                "A. Molnár\nRank: 4/67\n0.15 Dribbles (xT) per 90",
+                "A. Molnár\nRank: 6/67\n0.88 Dribbles success %",
+                "A. Molnár\nRank: 12/67\n0.79 Pressure resistance %",
+                "A. Molnár\nRank: 6/67\n0.18 xGDribble per 90"
+            ],
+            [
+                "M. Kern\nRank: 39/67\n0.05 Dribbles (xT) per 90",
+                "M. Kern\nRank: 36/67\n0.75 Dribbles success %",
+                "M. Kern\nRank: 64/67\n0.50 Pressure resistance %",
+                "M. Kern\nRank: 63/67\n0.00 xGDribble per 90"
+            ],
+            [
+                "Alegria\nRank: 29/67\n0.06 Dribbles (xT) per 90",
+                "Alegria\nRank: 52/67\n0.71 Dribbles success %",
+                "Alegria\nRank: 42/67\n0.68 Pressure resistance %",
+                "Alegria\nRank: 29/67\n0.06 xGDribble per 90"
+            ],
+            [
+                "K. Mondovics\nRank: 56/67\n0.03 Dribbles (xT) per 90",
+                "K. Mondovics\nRank: 36/67\n0.75 Dribbles success %",
+                "K. Mondovics\nRank: 62/67\n0.57 Pressure resistance %",
+                "K. Mondovics\nRank: 64/67\n0.00 xGDribble per 90"
+            ],
+            [
+                "B. Vajda\nRank: 33/67\n0.06 Dribbles (xT) per 90",
+                "B. Vajda\nRank: 23/67\n0.80 Dribbles success %",
+                "B. Vajda\nRank: 19/67\n0.75 Pressure resistance %",
+                "B. Vajda\nRank: 57/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "M. Pető\nRank: 13/67\n0.10 Dribbles (xT) per 90",
+                "M. Pető\nRank: 36/67\n0.75 Dribbles success %",
+                "M. Pető\nRank: 59/67\n0.59 Pressure resistance %",
+                "M. Pető\nRank: 20/67\n0.09 xGDribble per 90"
+            ],
+            [
+                "B. Babós\nRank: 23/67\n0.07 Dribbles (xT) per 90",
+                "B. Babós\nRank: 61/67\n0.65 Dribbles success %",
+                "B. Babós\nRank: 51/67\n0.63 Pressure resistance %",
+                "B. Babós\nRank: 45/67\n0.03 xGDribble per 90"
+            ],
+            [
+                "I. Atrok\nRank: 32/67\n0.06 Dribbles (xT) per 90",
+                "I. Atrok\nRank: 59/67\n0.66 Dribbles success %",
+                "I. Atrok\nRank: 30/67\n0.72 Pressure resistance %",
+                "I. Atrok\nRank: 11/67\n0.13 xGDribble per 90"
+            ],
+            [
+                "B. Manner\nRank: 11/67\n0.11 Dribbles (xT) per 90",
+                "B. Manner\nRank: 46/67\n0.72 Dribbles success %",
+                "B. Manner\nRank: 35/67\n0.71 Pressure resistance %",
+                "B. Manner\nRank: 5/67\n0.21 xGDribble per 90"
+            ],
+            [
+                "F. Cibla\nRank: 22/67\n0.08 Dribbles (xT) per 90",
+                "F. Cibla\nRank: 5/67\n0.88 Dribbles success %",
+                "F. Cibla\nRank: 6/67\n0.82 Pressure resistance %",
+                "F. Cibla\nRank: 53/67\n0.02 xGDribble per 90"
+            ],
+            [
+                "K. Banati\nRank: 41/67\n0.05 Dribbles (xT) per 90",
+                "K. Banati\nRank: 25/67\n0.79 Dribbles success %",
+                "K. Banati\nRank: 49/67\n0.64 Pressure resistance %",
+                "K. Banati\nRank: 38/67\n0.04 xGDribble per 90"
+            ],
+            [
+                "K. Horváth\nRank: 48/67\n0.04 Dribbles (xT) per 90",
+                "K. Horváth\nRank: 53/67\n0.71 Dribbles success %",
+                "K. Horváth\nRank: 5/67\n0.83 Pressure resistance %",
+                "K. Horváth\nRank: 35/67\n0.05 xGDribble per 90"
+            ],
+            [
+                "B. Vekony\nRank: 61/67\n0.02 Dribbles (xT) per 90",
+                "B. Vekony\nRank: 56/67\n0.67 Dribbles success %",
+                "B. Vekony\nRank: 26/67\n0.73 Pressure resistance %",
+                "B. Vekony\nRank: 39/67\n0.04 xGDribble per 90"
+            ],
+            [
+                "N. Njie\nRank: 35/67\n0.06 Dribbles (xT) per 90",
+                "N. Njie\nRank: 21/67\n0.81 Dribbles success %",
+                "N. Njie\nRank: 26/67\n0.73 Pressure resistance %",
+                "N. Njie\nRank: 43/67\n0.03 xGDribble per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Wingers",
+            "Adin Molnár"
+        ],
+        "minutes_played": 1978,
+        "axis_labels": [
+            "Dribbles (xT) per 90 | 0.15",
+            "Dribbles success % | 0.88",
+            "Pressure resistance % | 0.79",
+            "xGDribble per 90 | 0.18"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null
+    },
+    "player_info": {
+        "id": 769345,
+        "name": "A. Molnár",
+        "full_name": "Adin Molnár",
+        "synthesized_name": "Adin Molnár",
+        "birth_date": "2004-08-16",
+        "age": 21,
+        "foot": null,
+        "position": "WINGER",
+        "detailed_position": "RIGHT_WINGER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

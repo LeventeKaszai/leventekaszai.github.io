@@ -1,0 +1,901 @@
+{
+    "plot_type": "distribution",
+    "title": "Finishing of Zsombor Gruber",
+    "subtitle": "Hungarian NB I 2025/2026 | 1158 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "K. Németh",
+            "Y. Croizet",
+            "Iuri Medeiros",
+            "J. Mešanović",
+            "N. Könyves",
+            "I. Bognár",
+            "D. Böde",
+            "S. Novothny",
+            "A. Pešić",
+            "B. Dzsudzsák",
+            "D. Babunski",
+            "G. Molnár",
+            "E. Acolatse",
+            "B. Edomwonyi",
+            "M. Jurina",
+            "J. Hahn",
+            "F. Brodić",
+            "G. Beridze",
+            "M. Sajbán",
+            "M. Kvasina",
+            "I. Šaponjić",
+            "A. Keita",
+            "R. Polievka",
+            "L. Colley",
+            "B. Bíró",
+            "T. Yordanov",
+            "D. Lukács",
+            "G. Vlijter",
+            "A. Matko",
+            "B. Tóth",
+            "J. Fameyeh",
+            "B. Kártik",
+            "B. Varga",
+            "F. Kovačević",
+            "M. Tučić",
+            "D. Bárány",
+            "S. Szuhodovszki",
+            "M. Šlogar",
+            "A. Németh",
+            "L. Joseph",
+            "M. Tijani",
+            "Á. Bényei",
+            "M. Matanović",
+            "Á. Szendrei",
+            "D. Yusuf",
+            "João Victor",
+            "M. Ubochioma",
+            "N. Gradišar",
+            "M. Mucsányi",
+            "H. Németh",
+            "N. Benbouali",
+            "O. Pishchur",
+            "Daniel Lima",
+            "Z. Gruber",
+            "M. Klausz",
+            "Alegria",
+            "D. Gilbert",
+            "A. Pinter",
+            "N. Njie"
+        ],
+        "target_identifiers": [
+            354,
+            25733,
+            70974,
+            72691,
+            75028,
+            75054,
+            75137,
+            76218,
+            80985,
+            101690,
+            136109,
+            145212,
+            149221,
+            213391,
+            231833,
+            238092,
+            238159,
+            258379,
+            266739,
+            278866,
+            283078,
+            285458,
+            333635,
+            350886,
+            352229,
+            372091,
+            375251,
+            379877,
+            422527,
+            423082,
+            423550,
+            444899,
+            474522,
+            511739,
+            512314,
+            542799,
+            553144,
+            567961,
+            586800,
+            592988,
+            610752,
+            620092,
+            631851,
+            635060,
+            659549,
+            661881,
+            673720,
+            677652,
+            696314,
+            703498,
+            707818,
+            731798,
+            752714,
+            753770,
+            778732,
+            801548,
+            817828,
+            852022,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Goals",
+                "description": "Number of non-penalty goals adjusted by possession.",
+                "display_name": "Goals"
+            },
+            {
+                "name": "Goals - xG",
+                "description": "The difference between non-penalty goals scored and non-penalty expected goals.",
+                "display_name": "Goals - xG"
+            },
+            {
+                "name": "Shot conversion %",
+                "description": "Percentage of non-penalty shots that are goals.",
+                "display_name": "Shot conversion %"
+            },
+            {
+                "name": "xGOT",
+                "description": "Accumulated non-penalty expected goals on target adjusted by possession.",
+                "display_name": "xGOT"
+            }
+        ],
+        "focal_target_indices": [
+            53
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.5280225276947021,
+                -0.39950886368751526,
+                -0.7252759337425232,
+                0.26994603872299194
+            ],
+            [
+                -1.4157837629318237,
+                -0.5486421585083008,
+                -1.530853509902954,
+                -0.4242720603942871
+            ],
+            [
+                -1.4157837629318237,
+                -0.892155647277832,
+                -1.530853509902954,
+                -1.1103289127349854
+            ],
+            [
+                -0.6274691820144653,
+                0.1290009319782257,
+                -0.18822428584098816,
+                -1.1176438331604004
+            ],
+            [
+                -0.6341525316238403,
+                -1.6801496744155884,
+                -0.8776825666427612,
+                0.12137968838214874
+            ],
+            [
+                -0.17378166317939758,
+                0.329372763633728,
+                -0.49511095881462097,
+                -0.5620717406272888
+            ],
+            [
+                3.3199777603149414,
+                0.741396427154541,
+                1.6214063167572021,
+                3.777594566345215
+            ],
+            [
+                -0.7134118676185608,
+                -0.4489723742008209,
+                -0.3224872052669525,
+                -0.8512574434280396
+            ],
+            [
+                -0.3540438413619995,
+                -0.3407139480113983,
+                -0.667734682559967,
+                -0.2472282499074936
+            ],
+            [
+                -0.29665035009384155,
+                1.3850417137145996,
+                -0.34618064761161804,
+                -0.9556140303611755
+            ],
+            [
+                -0.8233265280723572,
+                -0.5441826581954956,
+                -0.7756245732307434,
+                -0.1204509288072586
+            ],
+            [
+                -0.1685243397951126,
+                0.3707222640514374,
+                -0.18822428584098816,
+                -0.6547127962112427
+            ],
+            [
+                -0.0450354628264904,
+                -0.2563965320587158,
+                -0.15770995616912842,
+                -0.30130377411842346
+            ],
+            [
+                0.49569612741470337,
+                -0.8405358195304871,
+                0.028328755870461464,
+                2.3963205814361572
+            ],
+            [
+                -0.7397186756134033,
+                -1.6021528244018555,
+                -0.840358555316925,
+                -0.6177878975868225
+            ],
+            [
+                0.8974549174308777,
+                0.307211697101593,
+                0.9692147970199585,
+                1.021484375
+            ],
+            [
+                -0.7438802719116211,
+                -0.9230542182922363,
+                -0.8948712348937988,
+                0.16764168441295624
+            ],
+            [
+                -0.7303313612937927,
+                -0.21625567972660065,
+                -0.5238815546035767,
+                -0.48232918977737427
+            ],
+            [
+                -0.9480854272842407,
+                -1.083196997642517,
+                -0.8595389723777771,
+                -0.8038102388381958
+            ],
+            [
+                1.0638015270233154,
+                1.8469821214675903,
+                1.3123613595962524,
+                -0.01473025232553482
+            ],
+            [
+                -0.769189178943634,
+                -1.5246185064315796,
+                -0.7756245732307434,
+                -1.0325852632522583
+            ],
+            [
+                -0.5670214891433716,
+                -0.4718053638935089,
+                -0.18822428584098816,
+                -0.5622838139533997
+            ],
+            [
+                0.1368076652288437,
+                -0.3497602045536041,
+                -0.3224872052669525,
+                0.12608760595321655
+            ],
+            [
+                0.7503191828727722,
+                -0.6351875066757202,
+                0.1474330872297287,
+                1.0081480741500854
+            ],
+            [
+                0.26613086462020874,
+                1.4505071640014648,
+                2.313948392868042,
+                -0.39648741483688354
+            ],
+            [
+                0.12057270854711533,
+                0.055577974766492844,
+                0.045276422053575516,
+                0.42209210991859436
+            ],
+            [
+                1.5906792879104614,
+                3.7799642086029053,
+                2.300551652908325,
+                0.36351558566093445
+            ],
+            [
+                -0.8018949031829834,
+                -0.45268988609313965,
+                -0.6013409495353699,
+                -0.6921597123146057
+            ],
+            [
+                1.0559287071228027,
+                1.7561925649642944,
+                1.9216217994689941,
+                0.6641132235527039
+            ],
+            [
+                0.5563941597938538,
+                -2.5321269035339355,
+                -0.36146682500839233,
+                2.1561853885650635
+            ],
+            [
+                -0.08275092393159866,
+                -0.2896865904331207,
+                0.08030162751674652,
+                0.00038654881063848734
+            ],
+            [
+                -1.4157837629318237,
+                -0.6157376170158386,
+                -1.530853509902954,
+                -1.5315546989440918
+            ],
+            [
+                1.5695650577545166,
+                1.720215916633606,
+                1.8257197141647339,
+                1.190330982208252
+            ],
+            [
+                2.477821111679077,
+                0.7247480154037476,
+                1.8257197141647339,
+                2.8557937145233154
+            ],
+            [
+                0.17391911149024963,
+                -0.3030053377151489,
+                0.734833300113678,
+                0.387891560792923
+            ],
+            [
+                1.3029276132583618,
+                0.6576225161552429,
+                0.8858790993690491,
+                1.3019132614135742
+            ],
+            [
+                -0.3455481231212616,
+                0.452112078666687,
+                -0.25888898968696594,
+                -1.0727547407150269
+            ],
+            [
+                -0.5352233052253723,
+                0.4794209599494934,
+                -0.25888898968696594,
+                -0.890802800655365
+            ],
+            [
+                -0.7447091937065125,
+                -0.20350342988967896,
+                -0.8200498819351196,
+                -0.859727144241333
+            ],
+            [
+                -0.9037580490112305,
+                -1.0262863636016846,
+                -1.0273674726486206,
+                -0.4153646230697632
+            ],
+            [
+                1.605907678604126,
+                1.362078070640564,
+                1.4900622367858887,
+                -0.07487720996141434
+            ],
+            [
+                -0.8849366307258606,
+                0.22067102789878845,
+                -0.667734682559967,
+                -1.6133708953857422
+            ],
+            [
+                -1.4157837629318237,
+                -0.9420852661132812,
+                -1.530853509902954,
+                -0.9386100172996521
+            ],
+            [
+                1.122596263885498,
+                0.375044047832489,
+                0.8858790993690491,
+                0.9199631214141846
+            ],
+            [
+                -0.2932533919811249,
+                -0.636151134967804,
+                -0.3224872052669525,
+                -0.09077552706003189
+            ],
+            [
+                0.24296124279499054,
+                -0.18858270347118378,
+                0.28169599175453186,
+                -0.3187865614891052
+            ],
+            [
+                -0.12642914056777954,
+                0.4801481366157532,
+                0.19538412988185883,
+                -0.5845454335212708
+            ],
+            [
+                0.2675052583217621,
+                0.25721102952957153,
+                0.6661761999130249,
+                -0.1840263456106186
+            ],
+            [
+                -0.5610792636871338,
+                -0.591425895690918,
+                -0.18822428584098816,
+                0.25420859456062317
+            ],
+            [
+                -0.2332756072282791,
+                0.5429900884628296,
+                -0.02039564587175846,
+                -0.3860020637512207
+            ],
+            [
+                0.6403058171272278,
+                0.3690866529941559,
+                0.7220327854156494,
+                0.30082011222839355
+            ],
+            [
+                1.014143705368042,
+                -0.08193621784448624,
+                0.32817164063453674,
+                0.49588674306869507
+            ],
+            [
+                0.7128368020057678,
+                0.3197227120399475,
+                0.8858790993690491,
+                0.29803770780563354
+            ],
+            [
+                0.2276865690946579,
+                1.0798420906066895,
+                0.24615581333637238,
+                -0.3454492688179016
+            ],
+            [
+                1.681358814239502,
+                0.9148995876312256,
+                1.6914567947387695,
+                0.4749198853969574
+            ],
+            [
+                -0.5774952173233032,
+                -0.638782799243927,
+                -0.5238815546035767,
+                -0.2962365746498108
+            ],
+            [
+                -1.4157837629318237,
+                -0.5896587371826172,
+                -1.530853509902954,
+                -0.11051913350820541
+            ],
+            [
+                -1.4157837629318237,
+                -0.3925537168979645,
+                -1.530853509902954,
+                -0.5642372369766235
+            ],
+            [
+                0.154403418302536,
+                0.13371843099594116,
+                -0.02039564587175846,
+                0.2500450909137726
+            ]
+        ],
+        "hover_strings": [
+            [
+                "K. Németh\nRank: 36/59\n0.17 Goals per 90",
+                "K. Németh\nRank: 38/59\n-1.05 Goals - xG",
+                "K. Németh\nRank: 45/59\n0.07 Shot conversion %",
+                "K. Németh\nRank: 18/59\n0.33 xGOT per 90"
+            ],
+            [
+                "Y. Croizet\nRank: 54/59\n0.00 Goals per 90",
+                "Y. Croizet\nRank: 43/59\n-1.30 Goals - xG",
+                "Y. Croizet\nRank: 54/59\n0.00 Shot conversion %",
+                "Y. Croizet\nRank: 39/59\n0.21 xGOT per 90"
+            ],
+            [
+                "Iuri Medeiros\nRank: 54/59\n0.00 Goals per 90",
+                "Iuri Medeiros\nRank: 51/59\n-1.90 Goals - xG",
+                "Iuri Medeiros\nRank: 54/59\n0.00 Shot conversion %",
+                "Iuri Medeiros\nRank: 56/59\n0.09 xGOT per 90"
+            ],
+            [
+                "J. Mešanović\nRank: 41/59\n0.15 Goals per 90",
+                "J. Mešanović\nRank: 26/59\n-0.13 Goals - xG",
+                "J. Mešanović\nRank: 28/59\n0.11 Shot conversion %",
+                "J. Mešanović\nRank: 57/59\n0.09 xGOT per 90"
+            ],
+            [
+                "N. Könyves\nRank: 42/59\n0.15 Goals per 90",
+                "N. Könyves\nRank: 58/59\n-3.26 Goals - xG",
+                "N. Könyves\nRank: 51/59\n0.05 Shot conversion %",
+                "N. Könyves\nRank: 23/59\n0.31 xGOT per 90"
+            ],
+            [
+                "I. Bognár\nRank: 30/59\n0.23 Goals per 90",
+                "I. Bognár\nRank: 20/59\n0.21 Goals - xG",
+                "I. Bognár\nRank: 39/59\n0.09 Shot conversion %",
+                "I. Bognár\nRank: 41/59\n0.19 xGOT per 90"
+            ],
+            [
+                "D. Böde\nRank: 1/59\n0.89 Goals per 90",
+                "D. Böde\nRank: 10/59\n0.92 Goals - xG",
+                "D. Böde\nRank: 7/59\n0.26 Shot conversion %",
+                "D. Böde\nRank: 1/59\n0.96 xGOT per 90"
+            ],
+            [
+                "S. Novothny\nRank: 43/59\n0.13 Goals per 90",
+                "S. Novothny\nRank: 39/59\n-1.13 Goals - xG",
+                "S. Novothny\nRank: 34/59\n0.10 Shot conversion %",
+                "S. Novothny\nRank: 49/59\n0.14 xGOT per 90"
+            ],
+            [
+                "A. Pešić\nRank: 35/59\n0.20 Goals per 90",
+                "A. Pešić\nRank: 35/59\n-0.95 Goals - xG",
+                "A. Pešić\nRank: 43/59\n0.07 Shot conversion %",
+                "A. Pešić\nRank: 31/59\n0.24 xGOT per 90"
+            ],
+            [
+                "B. Dzsudzsák\nRank: 33/59\n0.21 Goals per 90",
+                "B. Dzsudzsák\nRank: 6/59\n2.03 Goals - xG",
+                "B. Dzsudzsák\nRank: 37/59\n0.10 Shot conversion %",
+                "B. Dzsudzsák\nRank: 53/59\n0.12 xGOT per 90"
+            ],
+            [
+                "D. Babunski\nRank: 50/59\n0.11 Goals per 90",
+                "D. Babunski\nRank: 42/59\n-1.30 Goals - xG",
+                "D. Babunski\nRank: 46/59\n0.06 Shot conversion %",
+                "D. Babunski\nRank: 29/59\n0.27 xGOT per 90"
+            ],
+            [
+                "G. Molnár\nRank: 29/59\n0.24 Goals per 90",
+                "G. Molnár\nRank: 18/59\n0.28 Goals - xG",
+                "G. Molnár\nRank: 28/59\n0.11 Shot conversion %",
+                "G. Molnár\nRank: 46/59\n0.17 xGOT per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 26/59\n0.26 Goals per 90",
+                "E. Acolatse\nRank: 32/59\n-0.80 Goals - xG",
+                "E. Acolatse\nRank: 27/59\n0.11 Shot conversion %",
+                "E. Acolatse\nRank: 33/59\n0.23 xGOT per 90"
+            ],
+            [
+                "B. Edomwonyi\nRank: 17/59\n0.36 Goals per 90",
+                "B. Edomwonyi\nRank: 50/59\n-1.81 Goals - xG",
+                "B. Edomwonyi\nRank: 24/59\n0.13 Shot conversion %",
+                "B. Edomwonyi\nRank: 3/59\n0.71 xGOT per 90"
+            ],
+            [
+                "M. Jurina\nRank: 45/59\n0.13 Goals per 90",
+                "M. Jurina\nRank: 57/59\n-3.12 Goals - xG",
+                "M. Jurina\nRank: 49/59\n0.06 Shot conversion %",
+                "M. Jurina\nRank: 45/59\n0.18 xGOT per 90"
+            ],
+            [
+                "J. Hahn\nRank: 12/59\n0.44 Goals per 90",
+                "J. Hahn\nRank: 22/59\n0.17 Goals - xG",
+                "J. Hahn\nRank: 10/59\n0.21 Shot conversion %",
+                "J. Hahn\nRank: 7/59\n0.47 xGOT per 90"
+            ],
+            [
+                "F. Brodić\nRank: 46/59\n0.13 Goals per 90",
+                "F. Brodić\nRank: 52/59\n-1.95 Goals - xG",
+                "F. Brodić\nRank: 52/59\n0.05 Shot conversion %",
+                "F. Brodić\nRank: 21/59\n0.32 xGOT per 90"
+            ],
+            [
+                "G. Beridze\nRank: 44/59\n0.13 Goals per 90",
+                "G. Beridze\nRank: 31/59\n-0.73 Goals - xG",
+                "G. Beridze\nRank: 40/59\n0.08 Shot conversion %",
+                "G. Beridze\nRank: 40/59\n0.20 xGOT per 90"
+            ],
+            [
+                "M. Sajbán\nRank: 53/59\n0.09 Goals per 90",
+                "M. Sajbán\nRank: 55/59\n-2.23 Goals - xG",
+                "M. Sajbán\nRank: 50/59\n0.06 Shot conversion %",
+                "M. Sajbán\nRank: 48/59\n0.14 xGOT per 90"
+            ],
+            [
+                "M. Kvasina\nRank: 9/59\n0.47 Goals per 90",
+                "M. Kvasina\nRank: 2/59\n2.83 Goals - xG",
+                "M. Kvasina\nRank: 9/59\n0.24 Shot conversion %",
+                "M. Kvasina\nRank: 25/59\n0.28 xGOT per 90"
+            ],
+            [
+                "I. Šaponjić\nRank: 48/59\n0.12 Goals per 90",
+                "I. Šaponjić\nRank: 56/59\n-2.99 Goals - xG",
+                "I. Šaponjić\nRank: 46/59\n0.06 Shot conversion %",
+                "I. Šaponjić\nRank: 54/59\n0.10 xGOT per 90"
+            ],
+            [
+                "A. Keita\nRank: 39/59\n0.16 Goals per 90",
+                "A. Keita\nRank: 41/59\n-1.17 Goals - xG",
+                "A. Keita\nRank: 28/59\n0.11 Shot conversion %",
+                "A. Keita\nRank: 42/59\n0.19 xGOT per 90"
+            ],
+            [
+                "R. Polievka\nRank: 24/59\n0.29 Goals per 90",
+                "R. Polievka\nRank: 36/59\n-0.96 Goals - xG",
+                "R. Polievka\nRank: 34/59\n0.10 Shot conversion %",
+                "R. Polievka\nRank: 22/59\n0.31 xGOT per 90"
+            ],
+            [
+                "L. Colley\nRank: 13/59\n0.41 Goals per 90",
+                "L. Colley\nRank: 47/59\n-1.45 Goals - xG",
+                "L. Colley\nRank: 21/59\n0.14 Shot conversion %",
+                "L. Colley\nRank: 8/59\n0.47 xGOT per 90"
+            ],
+            [
+                "B. Bíró\nRank: 19/59\n0.32 Goals per 90",
+                "B. Bíró\nRank: 5/59\n2.15 Goals - xG",
+                "B. Bíró\nRank: 1/59\n0.32 Shot conversion %",
+                "B. Bíró\nRank: 37/59\n0.22 xGOT per 90"
+            ],
+            [
+                "T. Yordanov\nRank: 25/59\n0.29 Goals per 90",
+                "T. Yordanov\nRank: 27/59\n-0.26 Goals - xG",
+                "T. Yordanov\nRank: 23/59\n0.13 Shot conversion %",
+                "T. Yordanov\nRank: 13/59\n0.36 xGOT per 90"
+            ],
+            [
+                "D. Lukács\nRank: 5/59\n0.57 Goals per 90",
+                "D. Lukács\nRank: 1/59\n6.17 Goals - xG",
+                "D. Lukács\nRank: 2/59\n0.32 Shot conversion %",
+                "D. Lukács\nRank: 15/59\n0.35 xGOT per 90"
+            ],
+            [
+                "G. Vlijter\nRank: 49/59\n0.12 Goals per 90",
+                "G. Vlijter\nRank: 40/59\n-1.14 Goals - xG",
+                "G. Vlijter\nRank: 42/59\n0.08 Shot conversion %",
+                "G. Vlijter\nRank: 47/59\n0.16 xGOT per 90"
+            ],
+            [
+                "A. Matko\nRank: 10/59\n0.47 Goals per 90",
+                "A. Matko\nRank: 3/59\n2.67 Goals - xG",
+                "A. Matko\nRank: 3/59\n0.29 Shot conversion %",
+                "A. Matko\nRank: 10/59\n0.40 xGOT per 90"
+            ],
+            [
+                "B. Tóth\nRank: 16/59\n0.37 Goals per 90",
+                "B. Tóth\nRank: 59/59\n-4.73 Goals - xG",
+                "B. Tóth\nRank: 38/59\n0.10 Shot conversion %",
+                "B. Tóth\nRank: 4/59\n0.67 xGOT per 90"
+            ],
+            [
+                "J. Fameyeh\nRank: 27/59\n0.25 Goals per 90",
+                "J. Fameyeh\nRank: 33/59\n-0.86 Goals - xG",
+                "J. Fameyeh\nRank: 22/59\n0.13 Shot conversion %",
+                "J. Fameyeh\nRank: 24/59\n0.29 xGOT per 90"
+            ],
+            [
+                "B. Kártik\nRank: 54/59\n0.00 Goals per 90",
+                "B. Kártik\nRank: 46/59\n-1.42 Goals - xG",
+                "B. Kártik\nRank: 54/59\n0.00 Shot conversion %",
+                "B. Kártik\nRank: 58/59\n0.02 xGOT per 90"
+            ],
+            [
+                "B. Varga\nRank: 6/59\n0.56 Goals per 90",
+                "B. Varga\nRank: 4/59\n2.61 Goals - xG",
+                "B. Varga\nRank: 4/59\n0.28 Shot conversion %",
+                "B. Varga\nRank: 6/59\n0.50 xGOT per 90"
+            ],
+            [
+                "F. Kovačević\nRank: 2/59\n0.73 Goals per 90",
+                "F. Kovačević\nRank: 11/59\n0.89 Goals - xG",
+                "F. Kovačević\nRank: 4/59\n0.28 Shot conversion %",
+                "F. Kovačević\nRank: 2/59\n0.79 xGOT per 90"
+            ],
+            [
+                "M. Tučić\nRank: 22/59\n0.30 Goals per 90",
+                "M. Tučić\nRank: 34/59\n-0.88 Goals - xG",
+                "M. Tučić\nRank: 14/59\n0.19 Shot conversion %",
+                "M. Tučić\nRank: 14/59\n0.36 xGOT per 90"
+            ],
+            [
+                "D. Bárány\nRank: 7/59\n0.51 Goals per 90",
+                "D. Bárány\nRank: 12/59\n0.78 Goals - xG",
+                "D. Bárány\nRank: 11/59\n0.20 Shot conversion %",
+                "D. Bárány\nRank: 5/59\n0.52 xGOT per 90"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 34/59\n0.20 Goals per 90",
+                "S. Szuhodovszki\nRank: 16/59\n0.42 Goals - xG",
+                "S. Szuhodovszki\nRank: 32/59\n0.11 Shot conversion %",
+                "S. Szuhodovszki\nRank: 55/59\n0.10 xGOT per 90"
+            ],
+            [
+                "M. Šlogar\nRank: 37/59\n0.17 Goals per 90",
+                "M. Šlogar\nRank: 15/59\n0.47 Goals - xG",
+                "M. Šlogar\nRank: 32/59\n0.11 Shot conversion %",
+                "M. Šlogar\nRank: 51/59\n0.13 xGOT per 90"
+            ],
+            [
+                "A. Németh\nRank: 47/59\n0.13 Goals per 90",
+                "A. Németh\nRank: 30/59\n-0.71 Goals - xG",
+                "A. Németh\nRank: 48/59\n0.06 Shot conversion %",
+                "A. Németh\nRank: 50/59\n0.13 xGOT per 90"
+            ],
+            [
+                "L. Joseph\nRank: 52/59\n0.10 Goals per 90",
+                "L. Joseph\nRank: 54/59\n-2.13 Goals - xG",
+                "L. Joseph\nRank: 53/59\n0.04 Shot conversion %",
+                "L. Joseph\nRank: 38/59\n0.21 xGOT per 90"
+            ],
+            [
+                "M. Tijani\nRank: 4/59\n0.57 Goals per 90",
+                "M. Tijani\nRank: 7/59\n1.99 Goals - xG",
+                "M. Tijani\nRank: 8/59\n0.25 Shot conversion %",
+                "M. Tijani\nRank: 26/59\n0.27 xGOT per 90"
+            ],
+            [
+                "Á. Bényei\nRank: 51/59\n0.10 Goals per 90",
+                "Á. Bényei\nRank: 24/59\n0.02 Goals - xG",
+                "Á. Bényei\nRank: 43/59\n0.07 Shot conversion %",
+                "Á. Bényei\nRank: 59/59\n0.00 xGOT per 90"
+            ],
+            [
+                "M. Matanović\nRank: 54/59\n0.00 Goals per 90",
+                "M. Matanović\nRank: 53/59\n-1.98 Goals - xG",
+                "M. Matanović\nRank: 54/59\n0.00 Shot conversion %",
+                "M. Matanović\nRank: 52/59\n0.12 xGOT per 90"
+            ],
+            [
+                "Á. Szendrei\nRank: 8/59\n0.48 Goals per 90",
+                "Á. Szendrei\nRank: 17/59\n0.29 Goals - xG",
+                "Á. Szendrei\nRank: 11/59\n0.20 Shot conversion %",
+                "Á. Szendrei\nRank: 9/59\n0.45 xGOT per 90"
+            ],
+            [
+                "D. Yusuf\nRank: 32/59\n0.21 Goals per 90",
+                "D. Yusuf\nRank: 48/59\n-1.46 Goals - xG",
+                "D. Yusuf\nRank: 34/59\n0.10 Shot conversion %",
+                "D. Yusuf\nRank: 27/59\n0.27 xGOT per 90"
+            ],
+            [
+                "João Victor\nRank: 20/59\n0.31 Goals per 90",
+                "João Victor\nRank: 29/59\n-0.68 Goals - xG",
+                "João Victor\nRank: 18/59\n0.15 Shot conversion %",
+                "João Victor\nRank: 34/59\n0.23 xGOT per 90"
+            ],
+            [
+                "M. Ubochioma\nRank: 28/59\n0.24 Goals per 90",
+                "M. Ubochioma\nRank: 14/59\n0.47 Goals - xG",
+                "M. Ubochioma\nRank: 20/59\n0.14 Shot conversion %",
+                "M. Ubochioma\nRank: 44/59\n0.18 xGOT per 90"
+            ],
+            [
+                "N. Gradišar\nRank: 18/59\n0.32 Goals per 90",
+                "N. Gradišar\nRank: 23/59\n0.09 Goals - xG",
+                "N. Gradišar\nRank: 16/59\n0.18 Shot conversion %",
+                "N. Gradišar\nRank: 30/59\n0.25 xGOT per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 38/59\n0.16 Goals per 90",
+                "M. Mucsányi\nRank: 45/59\n-1.38 Goals - xG",
+                "M. Mucsányi\nRank: 28/59\n0.11 Shot conversion %",
+                "M. Mucsányi\nRank: 19/59\n0.33 xGOT per 90"
+            ],
+            [
+                "H. Németh\nRank: 31/59\n0.22 Goals per 90",
+                "H. Németh\nRank: 13/59\n0.58 Goals - xG",
+                "H. Németh\nRank: 25/59\n0.12 Shot conversion %",
+                "H. Németh\nRank: 36/59\n0.22 xGOT per 90"
+            ],
+            [
+                "N. Benbouali\nRank: 15/59\n0.39 Goals per 90",
+                "N. Benbouali\nRank: 19/59\n0.28 Goals - xG",
+                "N. Benbouali\nRank: 15/59\n0.19 Shot conversion %",
+                "N. Benbouali\nRank: 16/59\n0.34 xGOT per 90"
+            ],
+            [
+                "O. Pishchur\nRank: 11/59\n0.46 Goals per 90",
+                "O. Pishchur\nRank: 28/59\n-0.50 Goals - xG",
+                "O. Pishchur\nRank: 17/59\n0.15 Shot conversion %",
+                "O. Pishchur\nRank: 11/59\n0.37 xGOT per 90"
+            ],
+            [
+                "Daniel Lima\nRank: 14/59\n0.40 Goals per 90",
+                "Daniel Lima\nRank: 21/59\n0.19 Goals - xG",
+                "Daniel Lima\nRank: 11/59\n0.20 Shot conversion %",
+                "Daniel Lima\nRank: 17/59\n0.34 xGOT per 90"
+            ],
+            [
+                "Z. Gruber\nRank: 21/59\n0.31 Goals per 90",
+                "Z. Gruber\nRank: 8/59\n1.51 Goals - xG",
+                "Z. Gruber\nRank: 19/59\n0.15 Shot conversion %",
+                "Z. Gruber\nRank: 35/59\n0.23 xGOT per 90"
+            ],
+            [
+                "M. Klausz\nRank: 3/59\n0.58 Goals per 90",
+                "M. Klausz\nRank: 9/59\n1.22 Goals - xG",
+                "M. Klausz\nRank: 6/59\n0.27 Shot conversion %",
+                "M. Klausz\nRank: 12/59\n0.37 xGOT per 90"
+            ],
+            [
+                "Alegria\nRank: 40/59\n0.16 Goals per 90",
+                "Alegria\nRank: 49/59\n-1.46 Goals - xG",
+                "Alegria\nRank: 40/59\n0.08 Shot conversion %",
+                "Alegria\nRank: 32/59\n0.23 xGOT per 90"
+            ],
+            [
+                "D. Gilbert\nRank: 54/59\n0.00 Goals per 90",
+                "D. Gilbert\nRank: 44/59\n-1.37 Goals - xG",
+                "D. Gilbert\nRank: 54/59\n0.00 Shot conversion %",
+                "D. Gilbert\nRank: 28/59\n0.27 xGOT per 90"
+            ],
+            [
+                "A. Pinter\nRank: 54/59\n0.00 Goals per 90",
+                "A. Pinter\nRank: 37/59\n-1.03 Goals - xG",
+                "A. Pinter\nRank: 54/59\n0.00 Shot conversion %",
+                "A. Pinter\nRank: 43/59\n0.19 xGOT per 90"
+            ],
+            [
+                "N. Njie\nRank: 23/59\n0.30 Goals per 90",
+                "N. Njie\nRank: 25/59\n-0.13 Goals - xG",
+                "N. Njie\nRank: 25/59\n0.12 Shot conversion %",
+                "N. Njie\nRank: 20/59\n0.33 xGOT per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Strikers",
+            "Z. Gruber"
+        ],
+        "minutes_played": 1158,
+        "axis_labels": [
+            "Goals per 90 | 0.31",
+            "Goals - xG | 1.51",
+            "Shot conversion % | 0.15",
+            "xGOT per 90 | 0.23"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null
+    },
+    "player_info": {
+        "id": 753770,
+        "name": "Z. Gruber",
+        "full_name": "Zsombor Gruber",
+        "synthesized_name": "Zsombor Gruber",
+        "birth_date": "2004-09-07",
+        "age": 21,
+        "foot": null,
+        "position": "STRIKER",
+        "detailed_position": "STRIKER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g-266476_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

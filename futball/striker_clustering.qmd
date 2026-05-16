@@ -1,5 +1,7 @@
 ---
 title: "NB1 Csatár Szerepdetekció"
+date: 2026-04-11
+description: "Ki milyen típusú csatár az NB1-ben? Klaszterezés Twelve Football adatok alapján."
 subtitle: "2025/26 — Ki milyen típusú csatár? Twelve Football adatok alapján"
 format:
   html:

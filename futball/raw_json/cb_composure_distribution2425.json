@@ -1,0 +1,1013 @@
+{
+    "plot_type": "distribution",
+    "title": "Composure of Áron Alaxai",
+    "subtitle": "Hungarian NB I 2024/2025 | 2532 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Tamás Kádár",
+            "Maximilian Hofmann",
+            "Bence Batik",
+            "Barnabás Bese",
+            "Attila Fiola",
+            "Gergő Gengeliczki",
+            "János Szabó",
+            "Levente Vágó",
+            "Ákos Kinyik",
+            "Bálint Vécsei",
+            "Ádám Lang",
+            "Wojciech Golla",
+            "Dušan Lagator",
+            "João Nunes",
+            "Deian Boldor",
+            "Csaba Spandler",
+            "Endre Botka",
+            "Csaba Szatmári",
+            "Sinan Medgyes",
+            "Bozhidar Chorbadzhiyski",
+            "Gergő Kocsis",
+            "Ákos Baki",
+            "Patrizio Stronati",
+            "Eneo Bitri",
+            "Csaba Belényesi",
+            "Siniša Saničanin",
+            "Stefan Gartenmann",
+            "Ibrahim Cissé",
+            "Henrik Castegren",
+            "Bence Lenzsér",
+            "Davit Kobouri",
+            "Ilia Beriashvili",
+            "Stefanos Evangelou",
+            "Bence Gergényi",
+            "Marco Lund",
+            "Mykhaylo Ryashko",
+            "Zsombor Nagy",
+            "Bence Ötvös",
+            "János Szépe",
+            "Ranko Jokić",
+            "Daniel Csoka",
+            "Meldin Drešković",
+            "Jorgo Pëllumbi",
+            "Oleksandr Safronov",
+            "André Duarte",
+            "Pavlos Correa",
+            "Attila Temesvári",
+            "Bence Bárdos",
+            "Norbert Szendrei",
+            "Benedek Varju",
+            "Nikola Serafimov",
+            "Aleksandre Kalandadze",
+            "Alex Szabó",
+            "András Huszti",
+            "Simeon Petrov",
+            "Krisztián Keresztes",
+            "Heitor",
+            "Raul Gustavo",
+            "Bence Várkonyi",
+            "Georgiy Harutyunyan",
+            "Áron Alaxai",
+            "Gábor Vas",
+            "Levente Katona",
+            "Gábor Szalai",
+            "Dominik Kaczvinszki",
+            "Miljan Krpić",
+            "Bence Végh"
+        ],
+        "target_identifiers": [
+            7980,
+            66163,
+            74813,
+            75014,
+            75131,
+            75164,
+            75513,
+            76048,
+            76056,
+            76142,
+            76201,
+            99416,
+            128808,
+            135905,
+            137143,
+            165504,
+            205441,
+            209914,
+            209948,
+            224047,
+            224969,
+            231771,
+            252012,
+            253383,
+            277466,
+            278823,
+            281244,
+            300138,
+            329511,
+            334416,
+            340730,
+            341217,
+            347275,
+            352217,
+            361162,
+            367358,
+            367362,
+            404780,
+            409904,
+            418319,
+            444417,
+            452686,
+            478240,
+            499666,
+            500774,
+            506855,
+            525962,
+            531585,
+            536305,
+            542918,
+            544472,
+            557594,
+            574843,
+            574867,
+            575508,
+            586948,
+            595101,
+            616932,
+            634677,
+            639992,
+            656445,
+            656447,
+            678833,
+            757419,
+            790591,
+            841356,
+            844699
+        ],
+        "kpis": [
+            {
+                "name": "High turnovers",
+                "description": "Number of possessions lost (failed passes, bad ball touches or lost attacking duels) in own 40% of the pitch adjusted by possession.",
+                "display_name": "High turnovers"
+            },
+            {
+                "name": "Losses",
+                "description": "Number of actions that end the possession of a team (passes, offensive duels, touches) adjusted by possession.",
+                "display_name": "Losses"
+            },
+            {
+                "name": "Pressure resistance %",
+                "description": "Percentage of successful actions under pressure in the first or second thirds of the pitch.",
+                "display_name": "Pressure resistance %"
+            },
+            {
+                "name": "Under pressure retention",
+                "description": "Number of successful actions under pressure in the first or second thirds of the pitch adjusted by possession.",
+                "display_name": "Under pressure retention"
+            }
+        ],
+        "focal_target_indices": [
+            60
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.717519998550415,
+                1.0685088634490967,
+                0.8191457390785217,
+                -1.0176888704299927
+            ],
+            [
+                1.2344143390655518,
+                0.542357325553894,
+                -0.22034886479377747,
+                -1.010292649269104
+            ],
+            [
+                -0.3872581422328949,
+                -0.46946975588798523,
+                -3.1010091304779053,
+                -0.5186825394630432
+            ],
+            [
+                -0.6017156839370728,
+                -1.6832550764083862,
+                1.2784576416015625,
+                0.0223073847591877
+            ],
+            [
+                -0.4445135295391083,
+                -0.36201196908950806,
+                0.008404495194554329,
+                0.05913321301341057
+            ],
+            [
+                0.9363180994987488,
+                0.5070286393165588,
+                0.278361052274704,
+                -0.4773235619068146
+            ],
+            [
+                0.504302442073822,
+                -1.8807426691055298,
+                -0.5112631320953369,
+                -0.8468078374862671
+            ],
+            [
+                0.1799841821193695,
+                0.521409809589386,
+                0.7642835974693298,
+                2.2281086444854736
+            ],
+            [
+                0.9876346588134766,
+                0.7847040891647339,
+                -0.6934840083122253,
+                -0.5782845616340637
+            ],
+            [
+                0.3511224687099457,
+                -1.0210603475570679,
+                0.5453780293464661,
+                2.8207907676696777
+            ],
+            [
+                1.5277960300445557,
+                1.7242931127548218,
+                -0.40496736764907837,
+                -0.4475696384906769
+            ],
+            [
+                0.5719735026359558,
+                0.23588871955871582,
+                -0.48888519406318665,
+                -0.9402919411659241
+            ],
+            [
+                -0.26571810245513916,
+                0.3526935577392578,
+                0.33910173177719116,
+                1.2091331481933594
+            ],
+            [
+                -0.6223998069763184,
+                0.012223811820149422,
+                -0.8003867864608765,
+                -0.8785014748573303
+            ],
+            [
+                0.5058259963989258,
+                -0.1569829136133194,
+                -1.6167365312576294,
+                -0.2511284351348877
+            ],
+            [
+                0.3548813760280609,
+                -0.13962756097316742,
+                -0.7096810936927795,
+                -0.8499553799629211
+            ],
+            [
+                -1.0430234670639038,
+                -0.4229637682437897,
+                1.4093879461288452,
+                0.04296889528632164
+            ],
+            [
+                1.2626925706863403,
+                -0.2350294291973114,
+                -0.3922116160392761,
+                -0.16353747248649597
+            ],
+            [
+                -0.8259291052818298,
+                -2.640552043914795,
+                0.510983943939209,
+                0.5115743279457092
+            ],
+            [
+                0.31491410732269287,
+                1.2752512693405151,
+                -0.7018617391586304,
+                -0.5987995862960815
+            ],
+            [
+                -0.6987173557281494,
+                -0.811397135257721,
+                -0.008774906396865845,
+                0.7070868611335754
+            ],
+            [
+                -0.4780908524990082,
+                -1.012473225593567,
+                -1.7367879152297974,
+                -0.7169143557548523
+            ],
+            [
+                1.088735818862915,
+                1.5470343828201294,
+                -0.5745881795883179,
+                -0.8764512538909912
+            ],
+            [
+                0.01799657940864563,
+                -0.23778796195983887,
+                0.5344554781913757,
+                0.6779906749725342
+            ],
+            [
+                0.5173426270484924,
+                1.1204420328140259,
+                -1.1365307569503784,
+                -1.3047221899032593
+            ],
+            [
+                -1.3370943069458008,
+                -1.866366982460022,
+                -0.8406295776367188,
+                0.32858535647392273
+            ],
+            [
+                0.5978187322616577,
+                0.32454654574394226,
+                0.7642835974693298,
+                -0.2898781895637512
+            ],
+            [
+                0.9840863943099976,
+                1.5896412134170532,
+                1.2205768823623657,
+                0.3380798101425171
+            ],
+            [
+                1.0693027973175049,
+                0.006844391115009785,
+                -0.9364449381828308,
+                -0.54131680727005
+            ],
+            [
+                0.575059711933136,
+                -0.7734987139701843,
+                1.3908679485321045,
+                0.8710317611694336
+            ],
+            [
+                -0.5947444438934326,
+                -0.09919492900371552,
+                0.4241380989551544,
+                0.5949259400367737
+            ],
+            [
+                0.1470058262348175,
+                1.2884364128112793,
+                0.6096720099449158,
+                -0.5594392418861389
+            ],
+            [
+                1.3830028772354126,
+                -0.28645411133766174,
+                0.8705793023109436,
+                -0.6573436260223389
+            ],
+            [
+                -1.2964293956756592,
+                -1.1904844045639038,
+                -1.3400079011917114,
+                -0.13737832009792328
+            ],
+            [
+                -0.4891499876976013,
+                0.6918845772743225,
+                -0.15149319171905518,
+                -0.5071669220924377
+            ],
+            [
+                -0.6585846543312073,
+                -1.4355312585830688,
+                1.6800609827041626,
+                0.07138531655073166
+            ],
+            [
+                0.31704583764076233,
+                0.8518372774124146,
+                0.06398376822471619,
+                -0.31228506565093994
+            ],
+            [
+                0.20772139728069305,
+                -2.4108879566192627,
+                0.6282253861427307,
+                1.6136599779129028
+            ],
+            [
+                0.6570135951042175,
+                1.5127503871917725,
+                0.7642835974693298,
+                -0.5839821696281433
+            ],
+            [
+                -4,
+                -0.5024564266204834,
+                -0.08608069270849228,
+                0.34127530455589294
+            ],
+            [
+                -0.09065040946006775,
+                0.30409368872642517,
+                -0.3179980516433716,
+                -0.7946431636810303
+            ],
+            [
+                -1.7888933420181274,
+                0.5630948543548584,
+                1.298798680305481,
+                1.158345103263855
+            ],
+            [
+                0.7041295170783997,
+                1.0346695184707642,
+                0.6096720099449158,
+                -0.1497495174407959
+            ],
+            [
+                -0.8193756341934204,
+                0.1525077074766159,
+                0.7642835974693298,
+                -0.9046943187713623
+            ],
+            [
+                -0.3089883625507355,
+                0.3336001932621002,
+                0.18636594712734222,
+                1.2981542348861694
+            ],
+            [
+                0.5103275179862976,
+                0.48757368326187134,
+                -1.1794065237045288,
+                -1.0734723806381226
+            ],
+            [
+                -1.8571197986602783,
+                -0.9443899393081665,
+                -2.637174129486084,
+                -1.0217591524124146
+            ],
+            [
+                -0.3923269212245941,
+                -0.7733120322227478,
+                -1.106518268585205,
+                -1.2283213138580322
+            ],
+            [
+                -0.8553796410560608,
+                -2.0178656578063965,
+                0.7421963810920715,
+                1.2349241971969604
+            ],
+            [
+                -1.5948131084442139,
+                -0.562970757484436,
+                0.7492329478263855,
+                2.6799895763397217
+            ],
+            [
+                0.6139270663261414,
+                0.9983176589012146,
+                0.35376307368278503,
+                -0.8360745906829834
+            ],
+            [
+                0.13136234879493713,
+                -0.040345970541238785,
+                1.614648461341858,
+                -0.44154825806617737
+            ],
+            [
+                1.344181776046753,
+                -0.7923365831375122,
+                -1.0672705173492432,
+                -0.9356024861335754
+            ],
+            [
+                -0.8609062433242798,
+                -0.4096926748752594,
+                0.08399204164743423,
+                1.8815698623657227
+            ],
+            [
+                -1.8986059427261353,
+                0.6233469843864441,
+                1.7847211360931396,
+                -0.4460628032684326
+            ],
+            [
+                -0.028533903881907463,
+                -1.1439619064331055,
+                0.9532539248466492,
+                1.9013200998306274
+            ],
+            [
+                0.23145408928394318,
+                0.22499988973140717,
+                0.5516926646232605,
+                0.30423685908317566
+            ],
+            [
+                -0.08753891289234161,
+                0.31311291456222534,
+                0.24667054414749146,
+                -0.42142733931541443
+            ],
+            [
+                0.6628589034080505,
+                1.3511085510253906,
+                -0.008774906396865845,
+                -0.5909884572029114
+            ],
+            [
+                -0.5654945969581604,
+                0.4413149356842041,
+                -0.8445137143135071,
+                0.5633724927902222
+            ],
+            [
+                0.27368825674057007,
+                0.632799506187439,
+                0.8776658177375793,
+                -0.010821422562003136
+            ],
+            [
+                1.0729032754898071,
+                1.021530032157898,
+                -0.9364449381828308,
+                -0.5475311279296875
+            ],
+            [
+                -0.7649498581886292,
+                -0.6244298219680786,
+                0.07957448065280914,
+                0.6062349677085876
+            ],
+            [
+                0.9539273977279663,
+                0.325278103351593,
+                -1.1365307569503784,
+                -0.9534502625465393
+            ],
+            [
+                0.9052278399467468,
+                0.14639580249786377,
+                -0.9364449381828308,
+                -1.2781853675842285
+            ],
+            [
+                1.069993495941162,
+                1.4113277196884155,
+                1.418410301208496,
+                0.2622045874595642
+            ],
+            [
+                0.541145920753479,
+                0.6247007846832275,
+                -0.5962994694709778,
+                2.3716800212860107
+            ]
+        ],
+        "hover_strings": [
+            [
+                "T. Kádár\nRank: 15/67\n0.43 High turnovers per 90",
+                "T. Kádár\nRank: 10/67\n2.93 Losses per 90",
+                "T. Kádár\nRank: 13/67\n0.84 Pressure resistance %",
+                "T. Kádár\nRank: 62/67\n0.94 Under pressure retention per 90"
+            ],
+            [
+                "M. Hofmann\nRank: 5/67\n0.27 High turnovers per 90",
+                "M. Hofmann\nRank: 21/67\n3.72 Losses per 90",
+                "M. Hofmann\nRank: 41/67\n0.74 Pressure resistance %",
+                "M. Hofmann\nRank: 61/67\n0.95 Under pressure retention per 90"
+            ],
+            [
+                "B. Batik\nRank: 44/67\n0.79 High turnovers per 90",
+                "B. Batik\nRank: 48/67\n5.24 Losses per 90",
+                "B. Batik\nRank: 67/67\n0.45 Pressure resistance %",
+                "B. Batik\nRank: 41/67\n1.31 Under pressure retention per 90"
+            ],
+            [
+                "B. Bese\nRank: 51/67\n0.85 High turnovers per 90",
+                "B. Bese\nRank: 62/67\n7.05 Losses per 90",
+                "B. Bese\nRank: 8/67\n0.88 Pressure resistance %",
+                "B. Bese\nRank: 27/67\n1.71 Under pressure retention per 90"
+            ],
+            [
+                "A. Fiola\nRank: 46/67\n0.80 High turnovers per 90",
+                "A. Fiola\nRank: 45/67\n5.08 Losses per 90",
+                "A. Fiola\nRank: 36/67\n0.76 Pressure resistance %",
+                "A. Fiola\nRank: 25/67\n1.73 Under pressure retention per 90"
+            ],
+            [
+                "G. Gengeliczki\nRank: 13/67\n0.37 High turnovers per 90",
+                "G. Gengeliczki\nRank: 23/67\n3.78 Losses per 90",
+                "G. Gengeliczki\nRank: 30/67\n0.79 Pressure resistance %",
+                "G. Gengeliczki\nRank: 39/67\n1.34 Under pressure retention per 90"
+            ],
+            [
+                "J. Szabó\nRank: 27/67\n0.50 High turnovers per 90",
+                "J. Szabó\nRank: 64/67\n7.35 Losses per 90",
+                "J. Szabó\nRank: 46/67\n0.71 Pressure resistance %",
+                "J. Szabó\nRank: 53/67\n1.07 Under pressure retention per 90"
+            ],
+            [
+                "L. Vágó\nRank: 35/67\n0.61 High turnovers per 90",
+                "L. Vágó\nRank: 22/67\n3.75 Losses per 90",
+                "L. Vágó\nRank: 14/67\n0.83 Pressure resistance %",
+                "L. Vágó\nRank: 4/67\n3.33 Under pressure retention per 90"
+            ],
+            [
+                "Á. Kinyik\nRank: 10/67\n0.35 High turnovers per 90",
+                "Á. Kinyik\nRank: 15/67\n3.36 Losses per 90",
+                "Á. Kinyik\nRank: 49/67\n0.69 Pressure resistance %",
+                "Á. Kinyik\nRank: 45/67\n1.27 Under pressure retention per 90"
+            ],
+            [
+                "B. Vécsei\nRank: 29/67\n0.55 High turnovers per 90",
+                "B. Vécsei\nRank: 58/67\n6.06 Losses per 90",
+                "B. Vécsei\nRank: 24/67\n0.81 Pressure resistance %",
+                "B. Vécsei\nRank: 1/67\n3.77 Under pressure retention per 90"
+            ],
+            [
+                "Á. Lang\nRank: 1/67\n0.18 High turnovers per 90",
+                "Á. Lang\nRank: 1/67\n1.95 Losses per 90",
+                "Á. Lang\nRank: 44/67\n0.72 Pressure resistance %",
+                "Á. Lang\nRank: 38/67\n1.36 Under pressure retention per 90"
+            ],
+            [
+                "W. Golla\nRank: 22/67\n0.48 High turnovers per 90",
+                "W. Golla\nRank: 32/67\n4.18 Losses per 90",
+                "W. Golla\nRank: 45/67\n0.71 Pressure resistance %",
+                "W. Golla\nRank: 59/67\n1.00 Under pressure retention per 90"
+            ],
+            [
+                "D. Lagator\nRank: 42/67\n0.75 High turnovers per 90",
+                "D. Lagator\nRank: 26/67\n4.01 Losses per 90",
+                "D. Lagator\nRank: 29/67\n0.79 Pressure resistance %",
+                "D. Lagator\nRank: 10/67\n2.58 Under pressure retention per 90"
+            ],
+            [
+                "João Nunes\nRank: 52/67\n0.86 High turnovers per 90",
+                "João Nunes\nRank: 36/67\n4.52 Losses per 90",
+                "João Nunes\nRank: 52/67\n0.68 Pressure resistance %",
+                "João Nunes\nRank: 56/67\n1.04 Under pressure retention per 90"
+            ],
+            [
+                "D. Boldor\nRank: 26/67\n0.50 High turnovers per 90",
+                "D. Boldor\nRank: 41/67\n4.77 Losses per 90",
+                "D. Boldor\nRank: 64/67\n0.60 Pressure resistance %",
+                "D. Boldor\nRank: 32/67\n1.51 Under pressure retention per 90"
+            ],
+            [
+                "C. Spandler\nRank: 28/67\n0.55 High turnovers per 90",
+                "C. Spandler\nRank: 40/67\n4.74 Losses per 90",
+                "C. Spandler\nRank: 51/67\n0.69 Pressure resistance %",
+                "C. Spandler\nRank: 54/67\n1.07 Under pressure retention per 90"
+            ],
+            [
+                "E. Botka\nRank: 60/67\n0.99 High turnovers per 90",
+                "E. Botka\nRank: 47/67\n5.17 Losses per 90",
+                "E. Botka\nRank: 5/67\n0.90 Pressure resistance %",
+                "E. Botka\nRank: 26/67\n1.72 Under pressure retention per 90"
+            ],
+            [
+                "C. Szatmári\nRank: 4/67\n0.26 High turnovers per 90",
+                "C. Szatmári\nRank: 42/67\n4.89 Losses per 90",
+                "C. Szatmári\nRank: 43/67\n0.72 Pressure resistance %",
+                "C. Szatmári\nRank: 31/67\n1.57 Under pressure retention per 90"
+            ],
+            [
+                "S. Medgyes\nRank: 57/67\n0.92 High turnovers per 90",
+                "S. Medgyes\nRank: 67/67\n8.49 Losses per 90",
+                "S. Medgyes\nRank: 26/67\n0.81 Pressure resistance %",
+                "S. Medgyes\nRank: 18/67\n2.07 Under pressure retention per 90"
+            ],
+            [
+                "B. Chorbadzhiyski\nRank: 31/67\n0.56 High turnovers per 90",
+                "B. Chorbadzhiyski\nRank: 8/67\n2.63 Losses per 90",
+                "B. Chorbadzhiyski\nRank: 50/67\n0.69 Pressure resistance %",
+                "B. Chorbadzhiyski\nRank: 48/67\n1.25 Under pressure retention per 90"
+            ],
+            [
+                "G. Kocsis\nRank: 54/67\n0.88 High turnovers per 90",
+                "G. Kocsis\nRank: 55/67\n5.75 Losses per 90",
+                "G. Kocsis\nRank: 37/67\n0.76 Pressure resistance %",
+                "G. Kocsis\nRank: 13/67\n2.21 Under pressure retention per 90"
+            ],
+            [
+                "A. Baki\nRank: 47/67\n0.81 High turnovers per 90",
+                "A. Baki\nRank: 57/67\n6.05 Losses per 90",
+                "A. Baki\nRank: 65/67\n0.59 Pressure resistance %",
+                "A. Baki\nRank: 50/67\n1.16 Under pressure retention per 90"
+            ],
+            [
+                "P. Stronati\nRank: 6/67\n0.32 High turnovers per 90",
+                "P. Stronati\nRank: 3/67\n2.22 Losses per 90",
+                "P. Stronati\nRank: 47/67\n0.70 Pressure resistance %",
+                "P. Stronati\nRank: 55/67\n1.05 Under pressure retention per 90"
+            ],
+            [
+                "E. Bitri\nRank: 38/67\n0.66 High turnovers per 90",
+                "E. Bitri\nRank: 43/67\n4.89 Losses per 90",
+                "E. Bitri\nRank: 25/67\n0.81 Pressure resistance %",
+                "E. Bitri\nRank: 14/67\n2.19 Under pressure retention per 90"
+            ],
+            [
+                "C. Belényesi\nRank: 24/67\n0.50 High turnovers per 90",
+                "C. Belényesi\nRank: 9/67\n2.86 Losses per 90",
+                "C. Belényesi\nRank: 60/67\n0.65 Pressure resistance %",
+                "C. Belényesi\nRank: 67/67\n0.73 Under pressure retention per 90"
+            ],
+            [
+                "S. Saničanin\nRank: 62/67\n1.09 High turnovers per 90",
+                "S. Saničanin\nRank: 63/67\n7.33 Losses per 90",
+                "S. Saničanin\nRank: 53/67\n0.68 Pressure resistance %",
+                "S. Saničanin\nRank: 21/67\n1.93 Under pressure retention per 90"
+            ],
+            [
+                "S. Gartenmann\nRank: 20/67\n0.47 High turnovers per 90",
+                "S. Gartenmann\nRank: 29/67\n4.05 Losses per 90",
+                "S. Gartenmann\nRank: 14/67\n0.83 Pressure resistance %",
+                "S. Gartenmann\nRank: 33/67\n1.48 Under pressure retention per 90"
+            ],
+            [
+                "I. Cissé\nRank: 11/67\n0.35 High turnovers per 90",
+                "I. Cissé\nRank: 2/67\n2.15 Losses per 90",
+                "I. Cissé\nRank: 9/67\n0.88 Pressure resistance %",
+                "I. Cissé\nRank: 20/67\n1.94 Under pressure retention per 90"
+            ],
+            [
+                "H. Castegren\nRank: 9/67\n0.32 High turnovers per 90",
+                "H. Castegren\nRank: 37/67\n4.52 Losses per 90",
+                "H. Castegren\nRank: 55/67\n0.67 Pressure resistance %",
+                "H. Castegren\nRank: 42/67\n1.29 Under pressure retention per 90"
+            ],
+            [
+                "B. Lenzsér\nRank: 21/67\n0.48 High turnovers per 90",
+                "B. Lenzsér\nRank: 53/67\n5.69 Losses per 90",
+                "B. Lenzsér\nRank: 6/67\n0.89 Pressure resistance %",
+                "B. Lenzsér\nRank: 12/67\n2.33 Under pressure retention per 90"
+            ],
+            [
+                "D. Kobouri\nRank: 50/67\n0.85 High turnovers per 90",
+                "D. Kobouri\nRank: 39/67\n4.68 Losses per 90",
+                "D. Kobouri\nRank: 27/67\n0.80 Pressure resistance %",
+                "D. Kobouri\nRank: 16/67\n2.13 Under pressure retention per 90"
+            ],
+            [
+                "I. Beriashvili\nRank: 36/67\n0.62 High turnovers per 90",
+                "I. Beriashvili\nRank: 7/67\n2.61 Losses per 90",
+                "I. Beriashvili\nRank: 21/67\n0.82 Pressure resistance %",
+                "I. Beriashvili\nRank: 44/67\n1.28 Under pressure retention per 90"
+            ],
+            [
+                "S. Evangelou\nRank: 2/67\n0.22 High turnovers per 90",
+                "S. Evangelou\nRank: 44/67\n4.96 Losses per 90",
+                "S. Evangelou\nRank: 12/67\n0.84 Pressure resistance %",
+                "S. Evangelou\nRank: 49/67\n1.21 Under pressure retention per 90"
+            ],
+            [
+                "B. Gergényi\nRank: 61/67\n1.07 High turnovers per 90",
+                "B. Gergényi\nRank: 60/67\n6.32 Losses per 90",
+                "B. Gergényi\nRank: 63/67\n0.63 Pressure resistance %",
+                "B. Gergényi\nRank: 29/67\n1.59 Under pressure retention per 90"
+            ],
+            [
+                "M. Lund\nRank: 48/67\n0.82 High turnovers per 90",
+                "M. Lund\nRank: 16/67\n3.50 Losses per 90",
+                "M. Lund\nRank: 40/67\n0.74 Pressure resistance %",
+                "M. Lund\nRank: 40/67\n1.32 Under pressure retention per 90"
+            ],
+            [
+                "M. Ryashko\nRank: 53/67\n0.87 High turnovers per 90",
+                "M. Ryashko\nRank: 61/67\n6.68 Losses per 90",
+                "M. Ryashko\nRank: 2/67\n0.92 Pressure resistance %",
+                "M. Ryashko\nRank: 24/67\n1.74 Under pressure retention per 90"
+            ],
+            [
+                "Z. Nagy\nRank: 30/67\n0.56 High turnovers per 90",
+                "Z. Nagy\nRank: 14/67\n3.26 Losses per 90",
+                "Z. Nagy\nRank: 35/67\n0.76 Pressure resistance %",
+                "Z. Nagy\nRank: 34/67\n1.46 Under pressure retention per 90"
+            ],
+            [
+                "B. Ötvös\nRank: 34/67\n0.60 High turnovers per 90",
+                "B. Ötvös\nRank: 66/67\n8.14 Losses per 90",
+                "B. Ötvös\nRank: 20/67\n0.82 Pressure resistance %",
+                "B. Ötvös\nRank: 7/67\n2.88 Under pressure retention per 90"
+            ],
+            [
+                "J. Szépe\nRank: 18/67\n0.45 High turnovers per 90",
+                "J. Szépe\nRank: 4/67\n2.27 Losses per 90",
+                "J. Szépe\nRank: 14/67\n0.83 Pressure resistance %",
+                "J. Szépe\nRank: 46/67\n1.26 Under pressure retention per 90"
+            ],
+            [
+                "R. Jokić\nRank: 67/67\n2.05 High turnovers per 90",
+                "R. Jokić\nRank: 49/67\n5.29 Losses per 90",
+                "R. Jokić\nRank: 39/67\n0.75 Pressure resistance %",
+                "R. Jokić\nRank: 19/67\n1.94 Under pressure retention per 90"
+            ],
+            [
+                "Daniel Csoka\nRank: 41/67\n0.69 High turnovers per 90",
+                "Daniel Csoka\nRank: 31/67\n4.08 Losses per 90",
+                "Daniel Csoka\nRank: 42/67\n0.73 Pressure resistance %",
+                "Daniel Csoka\nRank: 51/67\n1.11 Under pressure retention per 90"
+            ],
+            [
+                "M. Drešković\nRank: 64/67\n1.23 High turnovers per 90",
+                "M. Drešković\nRank: 20/67\n3.69 Losses per 90",
+                "M. Drešković\nRank: 7/67\n0.89 Pressure resistance %",
+                "M. Drešković\nRank: 11/67\n2.54 Under pressure retention per 90"
+            ],
+            [
+                "J. Pëllumbi\nRank: 16/67\n0.44 High turnovers per 90",
+                "J. Pëllumbi\nRank: 11/67\n2.99 Losses per 90",
+                "J. Pëllumbi\nRank: 21/67\n0.82 Pressure resistance %",
+                "J. Pëllumbi\nRank: 30/67\n1.58 Under pressure retention per 90"
+            ],
+            [
+                "O. Safronov\nRank: 56/67\n0.92 High turnovers per 90",
+                "O. Safronov\nRank: 34/67\n4.31 Losses per 90",
+                "O. Safronov\nRank: 14/67\n0.83 Pressure resistance %",
+                "O. Safronov\nRank: 57/67\n1.03 Under pressure retention per 90"
+            ],
+            [
+                "André Duarte\nRank: 43/67\n0.76 High turnovers per 90",
+                "André Duarte\nRank: 27/67\n4.03 Losses per 90",
+                "André Duarte\nRank: 32/67\n0.78 Pressure resistance %",
+                "André Duarte\nRank: 8/67\n2.65 Under pressure retention per 90"
+            ],
+            [
+                "P. Correa\nRank: 25/67\n0.50 High turnovers per 90",
+                "P. Correa\nRank: 24/67\n3.80 Losses per 90",
+                "P. Correa\nRank: 62/67\n0.64 Pressure resistance %",
+                "P. Correa\nRank: 64/67\n0.90 Under pressure retention per 90"
+            ],
+            [
+                "A. Temesvári\nRank: 65/67\n1.25 High turnovers per 90",
+                "A. Temesvári\nRank: 56/67\n5.95 Losses per 90",
+                "A. Temesvári\nRank: 66/67\n0.50 Pressure resistance %",
+                "A. Temesvári\nRank: 63/67\n0.94 Under pressure retention per 90"
+            ],
+            [
+                "B. Bárdos\nRank: 45/67\n0.79 High turnovers per 90",
+                "B. Bárdos\nRank: 52/67\n5.69 Losses per 90",
+                "B. Bárdos\nRank: 59/67\n0.65 Pressure resistance %",
+                "B. Bárdos\nRank: 65/67\n0.79 Under pressure retention per 90"
+            ],
+            [
+                "N. Szendrei\nRank: 58/67\n0.93 High turnovers per 90",
+                "N. Szendrei\nRank: 65/67\n7.55 Losses per 90",
+                "N. Szendrei\nRank: 19/67\n0.83 Pressure resistance %",
+                "N. Szendrei\nRank: 9/67\n2.60 Under pressure retention per 90"
+            ],
+            [
+                "B. Varju\nRank: 63/67\n1.17 High turnovers per 90",
+                "B. Varju\nRank: 50/67\n5.38 Losses per 90",
+                "B. Varju\nRank: 18/67\n0.83 Pressure resistance %",
+                "B. Varju\nRank: 2/67\n3.66 Under pressure retention per 90"
+            ],
+            [
+                "N. Serafimov\nRank: 19/67\n0.47 High turnovers per 90",
+                "N. Serafimov\nRank: 13/67\n3.04 Losses per 90",
+                "N. Serafimov\nRank: 28/67\n0.79 Pressure resistance %",
+                "N. Serafimov\nRank: 52/67\n1.08 Under pressure retention per 90"
+            ],
+            [
+                "A. Kalandadze\nRank: 37/67\n0.62 High turnovers per 90",
+                "A. Kalandadze\nRank: 38/67\n4.59 Losses per 90",
+                "A. Kalandadze\nRank: 3/67\n0.92 Pressure resistance %",
+                "A. Kalandadze\nRank: 36/67\n1.37 Under pressure retention per 90"
+            ],
+            [
+                "A. Szabó\nRank: 3/67\n0.24 High turnovers per 90",
+                "A. Szabó\nRank: 54/67\n5.72 Losses per 90",
+                "A. Szabó\nRank: 58/67\n0.65 Pressure resistance %",
+                "A. Szabó\nRank: 58/67\n1.00 Under pressure retention per 90"
+            ],
+            [
+                "A. Huszti\nRank: 59/67\n0.94 High turnovers per 90",
+                "A. Huszti\nRank: 46/67\n5.15 Losses per 90",
+                "A. Huszti\nRank: 33/67\n0.77 Pressure resistance %",
+                "A. Huszti\nRank: 6/67\n3.07 Under pressure retention per 90"
+            ],
+            [
+                "S. Petrov\nRank: 66/67\n1.27 High turnovers per 90",
+                "S. Petrov\nRank: 19/67\n3.60 Losses per 90",
+                "S. Petrov\nRank: 1/67\n0.93 Pressure resistance %",
+                "S. Petrov\nRank: 37/67\n1.36 Under pressure retention per 90"
+            ],
+            [
+                "K. Keresztes\nRank: 39/67\n0.67 High turnovers per 90",
+                "K. Keresztes\nRank: 59/67\n6.25 Losses per 90",
+                "K. Keresztes\nRank: 10/67\n0.85 Pressure resistance %",
+                "K. Keresztes\nRank: 5/67\n3.09 Under pressure retention per 90"
+            ],
+            [
+                "Heitor\nRank: 33/67\n0.59 High turnovers per 90",
+                "Heitor\nRank: 33/67\n4.20 Losses per 90",
+                "Heitor\nRank: 23/67\n0.81 Pressure resistance %",
+                "Heitor\nRank: 22/67\n1.91 Under pressure retention per 90"
+            ],
+            [
+                "Raul Gustavo\nRank: 40/67\n0.69 High turnovers per 90",
+                "Raul Gustavo\nRank: 30/67\n4.07 Losses per 90",
+                "Raul Gustavo\nRank: 31/67\n0.78 Pressure resistance %",
+                "Raul Gustavo\nRank: 35/67\n1.38 Under pressure retention per 90"
+            ],
+            [
+                "B. Várkonyi\nRank: 17/67\n0.45 High turnovers per 90",
+                "B. Várkonyi\nRank: 6/67\n2.51 Losses per 90",
+                "B. Várkonyi\nRank: 37/67\n0.76 Pressure resistance %",
+                "B. Várkonyi\nRank: 47/67\n1.26 Under pressure retention per 90"
+            ],
+            [
+                "G. Harutyunyan\nRank: 49/67\n0.84 High turnovers per 90",
+                "G. Harutyunyan\nRank: 25/67\n3.87 Losses per 90",
+                "G. Harutyunyan\nRank: 54/67\n0.68 Pressure resistance %",
+                "G. Harutyunyan\nRank: 17/67\n2.11 Under pressure retention per 90"
+            ],
+            [
+                "Á. Alaxai\nRank: 32/67\n0.58 High turnovers per 90",
+                "Á. Alaxai\nRank: 17/67\n3.59 Losses per 90",
+                "Á. Alaxai\nRank: 11/67\n0.84 Pressure resistance %",
+                "Á. Alaxai\nRank: 28/67\n1.68 Under pressure retention per 90"
+            ],
+            [
+                "G. Vas\nRank: 7/67\n0.32 High turnovers per 90",
+                "G. Vas\nRank: 12/67\n3.01 Losses per 90",
+                "G. Vas\nRank: 55/67\n0.67 Pressure resistance %",
+                "G. Vas\nRank: 43/67\n1.29 Under pressure retention per 90"
+            ],
+            [
+                "L. Katona\nRank: 55/67\n0.91 High turnovers per 90",
+                "L. Katona\nRank: 51/67\n5.47 Losses per 90",
+                "L. Katona\nRank: 34/67\n0.77 Pressure resistance %",
+                "L. Katona\nRank: 15/67\n2.14 Under pressure retention per 90"
+            ],
+            [
+                "G. Szalai\nRank: 12/67\n0.36 High turnovers per 90",
+                "G. Szalai\nRank: 28/67\n4.05 Losses per 90",
+                "G. Szalai\nRank: 60/67\n0.65 Pressure resistance %",
+                "G. Szalai\nRank: 60/67\n0.99 Under pressure retention per 90"
+            ],
+            [
+                "D. Kaczvinszki\nRank: 14/67\n0.38 High turnovers per 90",
+                "D. Kaczvinszki\nRank: 35/67\n4.31 Losses per 90",
+                "D. Kaczvinszki\nRank: 55/67\n0.67 Pressure resistance %",
+                "D. Kaczvinszki\nRank: 66/67\n0.75 Under pressure retention per 90"
+            ],
+            [
+                "M. Krpić\nRank: 8/67\n0.32 High turnovers per 90",
+                "M. Krpić\nRank: 5/67\n2.42 Losses per 90",
+                "M. Krpić\nRank: 4/67\n0.90 Pressure resistance %",
+                "M. Krpić\nRank: 23/67\n1.88 Under pressure retention per 90"
+            ],
+            [
+                "B. Végh\nRank: 23/67\n0.49 High turnovers per 90",
+                "B. Végh\nRank: 18/67\n3.60 Losses per 90",
+                "B. Végh\nRank: 48/67\n0.70 Pressure resistance %",
+                "B. Végh\nRank: 3/67\n3.44 Under pressure retention per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Central Defenders",
+            "Áron Alaxai"
+        ],
+        "minutes_played": 2532,
+        "axis_labels": [
+            "High turnovers per 90 | 0.58",
+            "Losses per 90 | 3.59",
+            "Pressure resistance % | 0.84",
+            "Under pressure retention per 90 | 1.68"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null
+    },
+    "player_info": {
+        "id": 656445,
+        "name": "Á. Alaxai",
+        "full_name": "Áron Alaxai",
+        "synthesized_name": "Áron Alaxai",
+        "birth_date": "2003-04-11",
+        "age": 23,
+        "foot": null,
+        "position": "CENTRAL_DEFENDER",
+        "detailed_position": "CENTRAL_DEFENDER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

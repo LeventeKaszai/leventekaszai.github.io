@@ -9,6 +9,8 @@ website:
     left:
       - href: index.qmd
         text: "Home"
+      - href: archivum.qmd
+        text: "Archívum"
       - text: "Kosárlabda"
         menu:
           - href: four_factors_1.qmd
@@ -19,6 +21,10 @@ website:
             text: "Játékritmus & Hatékonyság"
           - href: analytics.qmd
             text: "🔒 Analytics"
+          - href: advanced_metrics.qmd
+            text: "Advanced Metrics"
+          - href: wdre_metodologia.qmd
+            text: "wDRE* Módszertan"
           - href: player_ratings.qmd
             text: "Játékosértékelés"
           - href: jatekosok.qmd

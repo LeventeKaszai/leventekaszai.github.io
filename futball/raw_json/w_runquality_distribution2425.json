@@ -1,0 +1,1169 @@
+{
+    "plot_type": "distribution",
+    "title": "Run Quality of Adin Molnár",
+    "subtitle": "Hungarian NB I 2024/2025 | 1517 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Zoltán Stieber",
+            "Jozsef Windecker",
+            "Kristóf Papp",
+            "Márk Szécsi",
+            "Claudiu Bumba",
+            "Rudi Požeg Vancaš",
+            "Balázs Dzsudzsák",
+            "Matija Ljujić",
+            "Dominik Nagy",
+            "Elton-Ofoi Acolatse",
+            "Maurides",
+            "Dániel Gera",
+            "Donát Zsótér",
+            "Zsolt Nagy",
+            "Filip Holender",
+            "Giorgi Beridze",
+            "Bence Bedi",
+            "Kristoffer Zachariassen",
+            "Mohammed Rharsalla",
+            "Nicolás Stefanelli",
+            "Adama Traore",
+            "Róbert Polievka",
+            "Mikael Soisalo",
+            "Bálint Szabó",
+            "Matyas Greso",
+            "Urho Nissilä",
+            "Dániel Lukács",
+            "Tosin Kehinde",
+            "Gergely Mim",
+            "Mamady Diarra",
+            "Bence Ötvös",
+            "Bence Kiss",
+            "Márk Kovácsréti",
+            "Marko Rakonjac",
+            "Franchu",
+            "Viktor Gey",
+            "Željko Gavrić",
+            "Jonathan Levi",
+            "Matheus Saldanha",
+            "Péter Beke",
+            "Soma Szuhodovszki",
+            "Wajdi Sahli",
+            "Krisztofer Horváth",
+            "Mamoudou Karamoko",
+            "Mohamed Ben Romdhane",
+            "Rajmund Molnár",
+            "Brandon Dominguès",
+            "Márk Kosznovszky",
+            "Mátyás Kovács",
+            "Ágoston Bényei",
+            "Zalán Kerezsi",
+            "Dominik Kocsis",
+            "Gábor Jurek",
+            "Mátyás Katona",
+            "Bálint Katona",
+            "Márk Mucsányi",
+            "Csanad Denes",
+            "Zsombor Gruber",
+            "Tamás Szűcs",
+            "Adrian Denes",
+            "Ábel Krajcsovics",
+            "Adin Molnár",
+            "Zétény Varga",
+            "Alex Tóth",
+            "Botond Vajda",
+            "Milán Pető",
+            "Marcell Huszár",
+            "Kevin Banati"
+        ],
+        "target_identifiers": [
+            15196,
+            75113,
+            75492,
+            76070,
+            84036,
+            85543,
+            101690,
+            128206,
+            136280,
+            149221,
+            208787,
+            209868,
+            231810,
+            238711,
+            255551,
+            258379,
+            289554,
+            298801,
+            301702,
+            326126,
+            331487,
+            333635,
+            351313,
+            352143,
+            352164,
+            370132,
+            375251,
+            397171,
+            400724,
+            403702,
+            404780,
+            404804,
+            432732,
+            452687,
+            461173,
+            471603,
+            481267,
+            483796,
+            487737,
+            542930,
+            553144,
+            557829,
+            561550,
+            563154,
+            565801,
+            586811,
+            603172,
+            605771,
+            620091,
+            620092,
+            620094,
+            631593,
+            641513,
+            653443,
+            694818,
+            696314,
+            706432,
+            753770,
+            759564,
+            759567,
+            759569,
+            769345,
+            790583,
+            817094,
+            830435,
+            831685,
+            869892,
+            872405
+        ],
+        "kpis": [
+            {
+                "name": "Ball runs (xT)",
+                "description": "Accumulated location-based xT from progressive runs and high speed runs with the ball adjusted by possession.",
+                "display_name": "Ball runs (xT)"
+            },
+            {
+                "name": "Box entries",
+                "description": "Number of ball carries into the penalty area adjusted by possession.",
+                "display_name": "Box entries"
+            },
+            {
+                "name": "Carries (xT)",
+                "description": "Accumulated action-based xT from ball carries adjusted by possession.",
+                "display_name": "Carries (xT)"
+            },
+            {
+                "name": "Deep runs (xT)",
+                "description": "Accumulated action-based xT from through ball receptions adjusted by possession.",
+                "display_name": "Deep runs (xT)"
+            },
+            {
+                "name": "Penalty area receptions",
+                "description": "Number of successful pass receptions inside the penalty area divided by the team's possession percentage and multiplied by 0.5.",
+                "display_name": "Penalty area receptions"
+            }
+        ],
+        "focal_target_indices": [
+            61
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.9200497269630432,
+                -0.694264829158783,
+                -1.6359294652938843,
+                -0.6556426882743835,
+                -0.060036905109882355
+            ],
+            [
+                -1.710898756980896,
+                -1.3930059671401978,
+                -1.819657802581787,
+                -1.0199546813964844,
+                0.5973708629608154
+            ],
+            [
+                -1.1369445323944092,
+                -1.2487224340438843,
+                -1.658134937286377,
+                -0.7446646094322205,
+                0.6606990694999695
+            ],
+            [
+                0.060084860771894455,
+                -0.7060719132423401,
+                -0.5785033106803894,
+                -0.9894245862960815,
+                -1.5498650074005127
+            ],
+            [
+                -0.00874875858426094,
+                0.49082839488983154,
+                -0.4393173158168793,
+                2.937295436859131,
+                1.3860220909118652
+            ],
+            [
+                0.24089501798152924,
+                0.06294967979192734,
+                0.5138294100761414,
+                -0.19006454944610596,
+                0.5215352177619934
+            ],
+            [
+                -1.342933177947998,
+                -1.1485729217529297,
+                -1.0814926624298096,
+                -1.285286545753479,
+                -1.6168750524520874
+            ],
+            [
+                -1.1280702352523804,
+                -0.6783607006072998,
+                -0.7411378622055054,
+                -0.6745391488075256,
+                -0.5943959355354309
+            ],
+            [
+                -1.0444260835647583,
+                -1.3867465257644653,
+                -1.0404400825500488,
+                0.03187201917171478,
+                0.03647925332188606
+            ],
+            [
+                1.3730508089065552,
+                1.3062516450881958,
+                1.5475631952285767,
+                0.7262207269668579,
+                -0.061519309878349304
+            ],
+            [
+                -1.5248074531555176,
+                -1.137080192565918,
+                -1.2794007062911987,
+                0.06650007516145706,
+                2.8444833755493164
+            ],
+            [
+                -1.2874665260314941,
+                -0.8887884616851807,
+                -1.3175801038742065,
+                -0.5910360217094421,
+                -0.15261894464492798
+            ],
+            [
+                -0.4440629184246063,
+                -0.7984204888343811,
+                -0.5939108729362488,
+                -0.47333618998527527,
+                -0.5833941102027893
+            ],
+            [
+                -0.9786942601203918,
+                -0.5829445719718933,
+                -0.657733142375946,
+                0.6860012412071228,
+                0.5259060859680176
+            ],
+            [
+                -0.1558501422405243,
+                -0.7000528573989868,
+                -0.6928694248199463,
+                -0.7419226169586182,
+                -0.8693079948425293
+            ],
+            [
+                -0.15524280071258545,
+                -0.07748822867870331,
+                -0.9185006618499756,
+                2.6052823066711426,
+                -0.2250165343284607
+            ],
+            [
+                -0.8155540227890015,
+                -0.7248738408088684,
+                -0.8847497701644897,
+                -1.0123887062072754,
+                -1.515480637550354
+            ],
+            [
+                -0.8466525673866272,
+                -0.9057722687721252,
+                -1.4715627431869507,
+                -0.24479591846466064,
+                0.7094237208366394
+            ],
+            [
+                1.4681662321090698,
+                1.279468297958374,
+                0.5904271006584167,
+                -1.285286545753479,
+                -0.32397183775901794
+            ],
+            [
+                0.9643436670303345,
+                0.5538395643234253,
+                1.1103609800338745,
+                1.382991909980774,
+                0.367116242647171
+            ],
+            [
+                0.8847821950912476,
+                1.871118187904358,
+                1.1947575807571411,
+                0.8223826885223389,
+                -0.04024382308125496
+            ],
+            [
+                0.693752110004425,
+                0.8513750433921814,
+                0.5839137434959412,
+                -0.00814517680555582,
+                1.4901421070098877
+            ],
+            [
+                0.854519248008728,
+                1.2003707885742188,
+                0.0872875452041626,
+                0.6912485361099243,
+                0.43838199973106384
+            ],
+            [
+                0.6914299726486206,
+                0.5266134738922119,
+                0.6031357049942017,
+                -0.36156022548675537,
+                -0.8336935043334961
+            ],
+            [
+                -0.30977863073349,
+                -1.1920430660247803,
+                0.0627070963382721,
+                1.2276594638824463,
+                0.3703511655330658
+            ],
+            [
+                -1.6704219579696655,
+                -1.0225286483764648,
+                -1.3968665599822998,
+                -0.8243003487586975,
+                -0.5870784521102905
+            ],
+            [
+                0.8119271993637085,
+                1.999901294708252,
+                1.5699416399002075,
+                2.691091775894165,
+                1.9646220207214355
+            ],
+            [
+                1.2867357730865479,
+                1.34679114818573,
+                1.1355881690979004,
+                0.4414251446723938,
+                1.208106279373169
+            ],
+            [
+                0.4727522134780884,
+                0.7846933603286743,
+                0.8012509942054749,
+                0.5221985578536987,
+                1.2185747623443604
+            ],
+            [
+                1.0440516471862793,
+                0.7767819166183472,
+                0.6468203663825989,
+                -0.1776818335056305,
+                0.5770712494850159
+            ],
+            [
+                -0.44721513986587524,
+                -0.7806878089904785,
+                1.013414740562439,
+                -1.1156253814697266,
+                -0.7710347175598145
+            ],
+            [
+                0.6755817532539368,
+                0.41675087809562683,
+                1.1471457481384277,
+                -1.285286545753479,
+                -1.092482089996338
+            ],
+            [
+                -0.5547933578491211,
+                -0.7627387642860413,
+                -0.3525853455066681,
+                -0.7129592895507812,
+                0.3500782549381256
+            ],
+            [
+                -1.426453709602356,
+                -0.977691650390625,
+                -1.5702077150344849,
+                1.3227616548538208,
+                1.0052193403244019
+            ],
+            [
+                0.2411079853773117,
+                -0.363086074590683,
+                -0.09643211960792542,
+                -1.285286545753479,
+                -0.4056653380393982
+            ],
+            [
+                -0.2663390040397644,
+                -1.1119517087936401,
+                -0.5157150626182556,
+                -1.0369460582733154,
+                -1.784436821937561
+            ],
+            [
+                -0.3454706370830536,
+                -0.39806675910949707,
+                -0.14581753313541412,
+                -0.21553654968738556,
+                -0.6591130495071411
+            ],
+            [
+                0.5340880155563354,
+                -0.4746231436729431,
+                1.0658422708511353,
+                -0.48170071840286255,
+                0.23562729358673096
+            ],
+            [
+                0.3361353278160095,
+                1.2720530033111572,
+                1.1968978643417358,
+                1.087450623512268,
+                3.007051706314087
+            ],
+            [
+                -0.40793076157569885,
+                -0.38527846336364746,
+                -0.015593057498335838,
+                0.41546493768692017,
+                0.9767939448356628
+            ],
+            [
+                -0.7385990023612976,
+                -0.30067843198776245,
+                -0.5891469717025757,
+                -0.465603768825531,
+                -0.593898594379425
+            ],
+            [
+                -0.9533634185791016,
+                -0.9088221192359924,
+                -0.7108839154243469,
+                0.4235006868839264,
+                -0.16817329823970795
+            ],
+            [
+                1.0336287021636963,
+                1.043105125427246,
+                0.8778342604637146,
+                0.10563015192747116,
+                -0.42478910088539124
+            ],
+            [
+                1.6794785261154175,
+                0.530415952205658,
+                0.686133086681366,
+                -0.30272096395492554,
+                -0.11648507416248322
+            ],
+            [
+                0.32110562920570374,
+                -0.21717317402362823,
+                0.4939608871936798,
+                -0.1710606813430786,
+                -0.04492006450891495
+            ],
+            [
+                1.6246700286865234,
+                1.1247107982635498,
+                0.6717007160186768,
+                -0.5303053259849548,
+                -0.0624234713613987
+            ],
+            [
+                0.829486072063446,
+                0.14818911254405975,
+                0.7603413462638855,
+                0.4442155659198761,
+                0.3146700859069824
+            ],
+            [
+                -0.41681158542633057,
+                -1.2716532945632935,
+                -0.2025434374809265,
+                -1.285286545753479,
+                -0.8484652638435364
+            ],
+            [
+                0.37398216128349304,
+                1.0473073720932007,
+                0.5110577344894409,
+                1.104185938835144,
+                0.5567275285720825
+            ],
+            [
+                -1.6387921571731567,
+                -0.9988132119178772,
+                -1.4939887523651123,
+                -0.6958348751068115,
+                -0.9473857879638672
+            ],
+            [
+                1.6121371984481812,
+                2.4946200847625732,
+                1.2586208581924438,
+                0.2269681841135025,
+                -1.0062344074249268
+            ],
+            [
+                2.7384862899780273,
+                0.9562832713127136,
+                0.8946902751922607,
+                2.089371681213379,
+                -1.115318775177002
+            ],
+            [
+                -0.11575847119092941,
+                0.18391123414039612,
+                0.5220754742622375,
+                -0.7164714336395264,
+                -0.41408467292785645
+            ],
+            [
+                -0.6968955993652344,
+                -0.24112655222415924,
+                -0.24559807777404785,
+                0.12597236037254333,
+                -0.29545095562934875
+            ],
+            [
+                -0.8141041994094849,
+                -0.6227562427520752,
+                -0.1535312384366989,
+                -1.04604172706604,
+                -0.7471957802772522
+            ],
+            [
+                -0.608485996723175,
+                -0.1569945514202118,
+                -0.23303574323654175,
+                0.8313190937042236,
+                -0.09171252697706223
+            ],
+            [
+                1.7020231485366821,
+                1.6633696556091309,
+                2.001270055770874,
+                1.4542350769042969,
+                2.1322851181030273
+            ],
+            [
+                0.9669947028160095,
+                0.7259305119514465,
+                2.211702585220337,
+                0.33755171298980713,
+                -0.25256210565567017
+            ],
+            [
+                -0.27887028455734253,
+                -0.7862566113471985,
+                -0.8607851266860962,
+                -0.7929133772850037,
+                -0.9158562421798706
+            ],
+            [
+                -0.7261095643043518,
+                0.12173602730035782,
+                -0.12221112847328186,
+                0.8658311367034912,
+                -0.4492049217224121
+            ],
+            [
+                1.7520188093185425,
+                2.946880340576172,
+                2.044982671737671,
+                1.1046355962753296,
+                1.9196209907531738
+            ],
+            [
+                0.9447368383407593,
+                -0.15522415935993195,
+                0.11537181586027145,
+                0.232149139046669,
+                -0.33027902245521545
+            ],
+            [
+                -0.19013428688049316,
+                -0.25116169452667236,
+                -1.0083608627319336,
+                -0.07383007556200027,
+                -0.7602214217185974
+            ],
+            [
+                -0.17743180692195892,
+                -0.7028681635856628,
+                0.24541057646274567,
+                -0.5540354251861572,
+                -0.477575421333313
+            ],
+            [
+                0.12541991472244263,
+                -0.7814905047416687,
+                0.32268428802490234,
+                -1.285286545753479,
+                -1.7193474769592285
+            ],
+            [
+                0.10114805400371552,
+                -0.7059574723243713,
+                -0.18493762612342834,
+                0.1732376664876938,
+                -0.314656138420105
+            ],
+            [
+                -1.350871205329895,
+                0.6065863370895386,
+                -1.668331503868103,
+                -1.285286545753479,
+                0.7012912034988403
+            ],
+            [
+                -0.8037063479423523,
+                0.30801302194595337,
+                -0.11121432483196259,
+                -0.558603048324585,
+                -0.29317232966423035
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Z. Stieber\nRank: 55/68\n0.02 Ball runs (xT) per 90",
+                "Z. Stieber\nRank: 44/68\n0.47 Box entries per 90",
+                "Z. Stieber\nRank: 65/68\n0.05 Carries (xT) per 90",
+                "Z. Stieber\nRank: 47/68\n0.01 Deep runs (xT) per 90",
+                "Z. Stieber\nRank: 29/68\n1.71 Penalty area receptions per 90"
+            ],
+            [
+                "J. Windecker\nRank: 68/68\n0.01 Ball runs (xT) per 90",
+                "J. Windecker\nRank: 68/68\n0.10 Box entries per 90",
+                "J. Windecker\nRank: 68/68\n0.04 Carries (xT) per 90",
+                "J. Windecker\nRank: 58/68\n0.01 Deep runs (xT) per 90",
+                "J. Windecker\nRank: 15/68\n2.22 Penalty area receptions per 90"
+            ],
+            [
+                "K. Papp\nRank: 60/68\n0.02 Ball runs (xT) per 90",
+                "K. Papp\nRank: 65/68\n0.17 Box entries per 90",
+                "K. Papp\nRank: 66/68\n0.05 Carries (xT) per 90",
+                "K. Papp\nRank: 53/68\n0.01 Deep runs (xT) per 90",
+                "K. Papp\nRank: 14/68\n2.27 Penalty area receptions per 90"
+            ],
+            [
+                "M. Szécsi\nRank: 31/68\n0.04 Ball runs (xT) per 90",
+                "M. Szécsi\nRank: 48/68\n0.46 Box entries per 90",
+                "M. Szécsi\nRank: 46/68\n0.08 Carries (xT) per 90",
+                "M. Szécsi\nRank: 56/68\n0.01 Deep runs (xT) per 90",
+                "M. Szécsi\nRank: 65/68\n0.55 Penalty area receptions per 90"
+            ],
+            [
+                "C. Bumba\nRank: 32/68\n0.04 Ball runs (xT) per 90",
+                "C. Bumba\nRank: 23/68\n1.09 Box entries per 90",
+                "C. Bumba\nRank: 44/68\n0.09 Carries (xT) per 90",
+                "C. Bumba\nRank: 1/68\n0.10 Deep runs (xT) per 90",
+                "C. Bumba\nRank: 7/68\n2.84 Penalty area receptions per 90"
+            ],
+            [
+                "R. Požeg Vancaš\nRank: 28/68\n0.04 Ball runs (xT) per 90",
+                "R. Požeg Vancaš\nRank: 29/68\n0.87 Box entries per 90",
+                "R. Požeg Vancaš\nRank: 25/68\n0.12 Carries (xT) per 90",
+                "R. Požeg Vancaš\nRank: 35/68\n0.03 Deep runs (xT) per 90",
+                "R. Požeg Vancaš\nRank: 19/68\n2.16 Penalty area receptions per 90"
+            ],
+            [
+                "B. Dzsudzsák\nRank: 62/68\n0.01 Ball runs (xT) per 90",
+                "B. Dzsudzsák\nRank: 63/68\n0.23 Box entries per 90",
+                "B. Dzsudzsák\nRank: 58/68\n0.06 Carries (xT) per 90",
+                "B. Dzsudzsák\nRank: 62/68\n0.00 Deep runs (xT) per 90",
+                "B. Dzsudzsák\nRank: 66/68\n0.50 Penalty area receptions per 90"
+            ],
+            [
+                "M. Ljujić\nRank: 59/68\n0.02 Ball runs (xT) per 90",
+                "M. Ljujić\nRank: 43/68\n0.48 Box entries per 90",
+                "M. Ljujić\nRank: 52/68\n0.08 Carries (xT) per 90",
+                "M. Ljujić\nRank: 48/68\n0.01 Deep runs (xT) per 90",
+                "M. Ljujić\nRank: 51/68\n1.30 Penalty area receptions per 90"
+            ],
+            [
+                "D. Nagy\nRank: 58/68\n0.02 Ball runs (xT) per 90",
+                "D. Nagy\nRank: 67/68\n0.10 Box entries per 90",
+                "D. Nagy\nRank: 57/68\n0.07 Carries (xT) per 90",
+                "D. Nagy\nRank: 30/68\n0.03 Deep runs (xT) per 90",
+                "D. Nagy\nRank: 26/68\n1.79 Penalty area receptions per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 8/68\n0.06 Ball runs (xT) per 90",
+                "E. Acolatse\nRank: 7/68\n1.52 Box entries per 90",
+                "E. Acolatse\nRank: 5/68\n0.15 Carries (xT) per 90",
+                "E. Acolatse\nRank: 15/68\n0.05 Deep runs (xT) per 90",
+                "E. Acolatse\nRank: 30/68\n1.71 Penalty area receptions per 90"
+            ],
+            [
+                "Maurides\nRank: 65/68\n0.01 Ball runs (xT) per 90",
+                "Maurides\nRank: 62/68\n0.23 Box entries per 90",
+                "Maurides\nRank: 59/68\n0.06 Carries (xT) per 90",
+                "Maurides\nRank: 29/68\n0.03 Deep runs (xT) per 90",
+                "Maurides\nRank: 2/68\n3.97 Penalty area receptions per 90"
+            ],
+            [
+                "D. Gera\nRank: 61/68\n0.01 Ball runs (xT) per 90",
+                "D. Gera\nRank: 55/68\n0.36 Box entries per 90",
+                "D. Gera\nRank: 60/68\n0.06 Carries (xT) per 90",
+                "D. Gera\nRank: 46/68\n0.02 Deep runs (xT) per 90",
+                "D. Gera\nRank: 34/68\n1.64 Penalty area receptions per 90"
+            ],
+            [
+                "D. Zsótér\nRank: 44/68\n0.03 Ball runs (xT) per 90",
+                "D. Zsótér\nRank: 54/68\n0.41 Box entries per 90",
+                "D. Zsótér\nRank: 48/68\n0.08 Carries (xT) per 90",
+                "D. Zsótér\nRank: 41/68\n0.02 Deep runs (xT) per 90",
+                "D. Zsótér\nRank: 48/68\n1.30 Penalty area receptions per 90"
+            ],
+            [
+                "Z. Nagy\nRank: 57/68\n0.02 Ball runs (xT) per 90",
+                "Z. Nagy\nRank: 41/68\n0.53 Box entries per 90",
+                "Z. Nagy\nRank: 49/68\n0.08 Carries (xT) per 90",
+                "Z. Nagy\nRank: 17/68\n0.05 Deep runs (xT) per 90",
+                "Z. Nagy\nRank: 18/68\n2.17 Penalty area receptions per 90"
+            ],
+            [
+                "F. Holender\nRank: 35/68\n0.03 Ball runs (xT) per 90",
+                "F. Holender\nRank: 45/68\n0.46 Box entries per 90",
+                "F. Holender\nRank: 50/68\n0.08 Carries (xT) per 90",
+                "F. Holender\nRank: 52/68\n0.01 Deep runs (xT) per 90",
+                "F. Holender\nRank: 58/68\n1.08 Penalty area receptions per 90"
+            ],
+            [
+                "G. Beridze\nRank: 34/68\n0.03 Ball runs (xT) per 90",
+                "G. Beridze\nRank: 30/68\n0.79 Box entries per 90",
+                "G. Beridze\nRank: 55/68\n0.07 Carries (xT) per 90",
+                "G. Beridze\nRank: 3/68\n0.09 Deep runs (xT) per 90",
+                "G. Beridze\nRank: 36/68\n1.58 Penalty area receptions per 90"
+            ],
+            [
+                "B. Bedi\nRank: 53/68\n0.02 Ball runs (xT) per 90",
+                "B. Bedi\nRank: 49/68\n0.45 Box entries per 90",
+                "B. Bedi\nRank: 54/68\n0.07 Carries (xT) per 90",
+                "B. Bedi\nRank: 57/68\n0.01 Deep runs (xT) per 90",
+                "B. Bedi\nRank: 64/68\n0.58 Penalty area receptions per 90"
+            ],
+            [
+                "K. Zachariassen\nRank: 54/68\n0.02 Ball runs (xT) per 90",
+                "K. Zachariassen\nRank: 56/68\n0.36 Box entries per 90",
+                "K. Zachariassen\nRank: 62/68\n0.05 Carries (xT) per 90",
+                "K. Zachariassen\nRank: 37/68\n0.02 Deep runs (xT) per 90",
+                "K. Zachariassen\nRank: 12/68\n2.31 Penalty area receptions per 90"
+            ],
+            [
+                "M. Rharsalla\nRank: 7/68\n0.07 Ball runs (xT) per 90",
+                "M. Rharsalla\nRank: 8/68\n1.51 Box entries per 90",
+                "M. Rharsalla\nRank: 22/68\n0.12 Carries (xT) per 90",
+                "M. Rharsalla\nRank: 62/68\n0.00 Deep runs (xT) per 90",
+                "M. Rharsalla\nRank: 41/68\n1.51 Penalty area receptions per 90"
+            ],
+            [
+                "N. Stefanelli\nRank: 13/68\n0.06 Ball runs (xT) per 90",
+                "N. Stefanelli\nRank: 20/68\n1.12 Box entries per 90",
+                "N. Stefanelli\nRank: 11/68\n0.14 Carries (xT) per 90",
+                "N. Stefanelli\nRank: 6/68\n0.06 Deep runs (xT) per 90",
+                "N. Stefanelli\nRank: 22/68\n2.04 Penalty area receptions per 90"
+            ],
+            [
+                "A. Traore\nRank: 15/68\n0.05 Ball runs (xT) per 90",
+                "A. Traore\nRank: 4/68\n1.82 Box entries per 90",
+                "A. Traore\nRank: 8/68\n0.14 Carries (xT) per 90",
+                "A. Traore\nRank: 14/68\n0.05 Deep runs (xT) per 90",
+                "A. Traore\nRank: 27/68\n1.73 Penalty area receptions per 90"
+            ],
+            [
+                "R. Polievka\nRank: 19/68\n0.05 Ball runs (xT) per 90",
+                "R. Polievka\nRank: 15/68\n1.28 Box entries per 90",
+                "R. Polievka\nRank: 23/68\n0.12 Carries (xT) per 90",
+                "R. Polievka\nRank: 31/68\n0.03 Deep runs (xT) per 90",
+                "R. Polievka\nRank: 6/68\n2.92 Penalty area receptions per 90"
+            ],
+            [
+                "M. Soisalo\nRank: 16/68\n0.05 Ball runs (xT) per 90",
+                "M. Soisalo\nRank: 10/68\n1.46 Box entries per 90",
+                "M. Soisalo\nRank: 31/68\n0.10 Carries (xT) per 90",
+                "M. Soisalo\nRank: 16/68\n0.05 Deep runs (xT) per 90",
+                "M. Soisalo\nRank: 20/68\n2.10 Penalty area receptions per 90"
+            ],
+            [
+                "B. Szabó\nRank: 20/68\n0.05 Ball runs (xT) per 90",
+                "B. Szabó\nRank: 22/68\n1.11 Box entries per 90",
+                "B. Szabó\nRank: 21/68\n0.12 Carries (xT) per 90",
+                "B. Szabó\nRank: 39/68\n0.02 Deep runs (xT) per 90",
+                "B. Szabó\nRank: 56/68\n1.11 Penalty area receptions per 90"
+            ],
+            [
+                "M. Greso\nRank: 40/68\n0.03 Ball runs (xT) per 90",
+                "M. Greso\nRank: 64/68\n0.20 Box entries per 90",
+                "M. Greso\nRank: 32/68\n0.10 Carries (xT) per 90",
+                "M. Greso\nRank: 8/68\n0.06 Deep runs (xT) per 90",
+                "M. Greso\nRank: 21/68\n2.05 Penalty area receptions per 90"
+            ],
+            [
+                "U. Nissilä\nRank: 67/68\n0.01 Ball runs (xT) per 90",
+                "U. Nissilä\nRank: 60/68\n0.29 Box entries per 90",
+                "U. Nissilä\nRank: 61/68\n0.05 Carries (xT) per 90",
+                "U. Nissilä\nRank: 55/68\n0.01 Deep runs (xT) per 90",
+                "U. Nissilä\nRank: 49/68\n1.30 Penalty area receptions per 90"
+            ],
+            [
+                "D. Lukács\nRank: 18/68\n0.05 Ball runs (xT) per 90",
+                "D. Lukács\nRank: 3/68\n1.89 Box entries per 90",
+                "D. Lukács\nRank: 4/68\n0.15 Carries (xT) per 90",
+                "D. Lukács\nRank: 2/68\n0.09 Deep runs (xT) per 90",
+                "D. Lukács\nRank: 4/68\n3.29 Penalty area receptions per 90"
+            ],
+            [
+                "T. Kehinde\nRank: 9/68\n0.06 Ball runs (xT) per 90",
+                "T. Kehinde\nRank: 6/68\n1.54 Box entries per 90",
+                "T. Kehinde\nRank: 10/68\n0.14 Carries (xT) per 90",
+                "T. Kehinde\nRank: 20/68\n0.04 Deep runs (xT) per 90",
+                "T. Kehinde\nRank: 9/68\n2.70 Penalty area receptions per 90"
+            ],
+            [
+                "G. Mim\nRank: 23/68\n0.05 Ball runs (xT) per 90",
+                "G. Mim\nRank: 16/68\n1.25 Box entries per 90",
+                "G. Mim\nRank: 16/68\n0.13 Carries (xT) per 90",
+                "G. Mim\nRank: 18/68\n0.04 Deep runs (xT) per 90",
+                "G. Mim\nRank: 8/68\n2.71 Penalty area receptions per 90"
+            ],
+            [
+                "M. Diarra\nRank: 10/68\n0.06 Ball runs (xT) per 90",
+                "M. Diarra\nRank: 17/68\n1.24 Box entries per 90",
+                "M. Diarra\nRank: 20/68\n0.12 Carries (xT) per 90",
+                "M. Diarra\nRank: 34/68\n0.03 Deep runs (xT) per 90",
+                "M. Diarra\nRank: 16/68\n2.21 Penalty area receptions per 90"
+            ],
+            [
+                "B. Ötvös\nRank: 45/68\n0.03 Ball runs (xT) per 90",
+                "B. Ötvös\nRank: 51/68\n0.42 Box entries per 90",
+                "B. Ötvös\nRank: 13/68\n0.13 Carries (xT) per 90",
+                "B. Ötvös\nRank: 61/68\n0.00 Deep runs (xT) per 90",
+                "B. Ötvös\nRank: 55/68\n1.16 Penalty area receptions per 90"
+            ],
+            [
+                "B. Kiss\nRank: 21/68\n0.05 Ball runs (xT) per 90",
+                "B. Kiss\nRank: 24/68\n1.05 Box entries per 90",
+                "B. Kiss\nRank: 9/68\n0.14 Carries (xT) per 90",
+                "B. Kiss\nRank: 62/68\n0.00 Deep runs (xT) per 90",
+                "B. Kiss\nRank: 62/68\n0.91 Penalty area receptions per 90"
+            ],
+            [
+                "M. Kovácsréti\nRank: 46/68\n0.03 Ball runs (xT) per 90",
+                "M. Kovácsréti\nRank: 50/68\n0.43 Box entries per 90",
+                "M. Kovácsréti\nRank: 43/68\n0.09 Carries (xT) per 90",
+                "M. Kovácsréti\nRank: 50/68\n0.01 Deep runs (xT) per 90",
+                "M. Kovácsréti\nRank: 23/68\n2.03 Penalty area receptions per 90"
+            ],
+            [
+                "M. Rakonjac\nRank: 64/68\n0.01 Ball runs (xT) per 90",
+                "M. Rakonjac\nRank: 58/68\n0.32 Box entries per 90",
+                "M. Rakonjac\nRank: 64/68\n0.05 Carries (xT) per 90",
+                "M. Rakonjac\nRank: 7/68\n0.06 Deep runs (xT) per 90",
+                "M. Rakonjac\nRank: 10/68\n2.54 Penalty area receptions per 90"
+            ],
+            [
+                "Franchu\nRank: 27/68\n0.04 Ball runs (xT) per 90",
+                "Franchu\nRank: 37/68\n0.64 Box entries per 90",
+                "Franchu\nRank: 34/68\n0.10 Carries (xT) per 90",
+                "Franchu\nRank: 62/68\n0.00 Deep runs (xT) per 90",
+                "Franchu\nRank: 43/68\n1.44 Penalty area receptions per 90"
+            ],
+            [
+                "V.Gey\nRank: 38/68\n0.03 Ball runs (xT) per 90",
+                "V.Gey\nRank: 61/68\n0.25 Box entries per 90",
+                "V.Gey\nRank: 45/68\n0.08 Carries (xT) per 90",
+                "V.Gey\nRank: 59/68\n0.01 Deep runs (xT) per 90",
+                "V.Gey\nRank: 68/68\n0.37 Penalty area receptions per 90"
+            ],
+            [
+                "Ž. Gavrić\nRank: 41/68\n0.03 Ball runs (xT) per 90",
+                "Ž. Gavrić\nRank: 39/68\n0.62 Box entries per 90",
+                "Ž. Gavrić\nRank: 37/68\n0.10 Carries (xT) per 90",
+                "Ž. Gavrić\nRank: 36/68\n0.02 Deep runs (xT) per 90",
+                "Ž. Gavrić\nRank: 52/68\n1.25 Penalty area receptions per 90"
+            ],
+            [
+                "J. Levi\nRank: 22/68\n0.05 Ball runs (xT) per 90",
+                "J. Levi\nRank: 40/68\n0.58 Box entries per 90",
+                "J. Levi\nRank: 12/68\n0.14 Carries (xT) per 90",
+                "J. Levi\nRank: 42/68\n0.02 Deep runs (xT) per 90",
+                "J. Levi\nRank: 25/68\n1.94 Penalty area receptions per 90"
+            ],
+            [
+                "Matheus Saldanha\nRank: 25/68\n0.04 Ball runs (xT) per 90",
+                "Matheus Saldanha\nRank: 9/68\n1.50 Box entries per 90",
+                "Matheus Saldanha\nRank: 7/68\n0.14 Carries (xT) per 90",
+                "Matheus Saldanha\nRank: 11/68\n0.05 Deep runs (xT) per 90",
+                "Matheus Saldanha\nRank: 1/68\n4.10 Penalty area receptions per 90"
+            ],
+            [
+                "P. Beke\nRank: 42/68\n0.03 Ball runs (xT) per 90",
+                "P. Beke\nRank: 38/68\n0.63 Box entries per 90",
+                "P. Beke\nRank: 33/68\n0.10 Carries (xT) per 90",
+                "P. Beke\nRank: 22/68\n0.04 Deep runs (xT) per 90",
+                "P. Beke\nRank: 11/68\n2.52 Penalty area receptions per 90"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 50/68\n0.02 Ball runs (xT) per 90",
+                "S. Szuhodovszki\nRank: 36/68\n0.67 Box entries per 90",
+                "S. Szuhodovszki\nRank: 47/68\n0.08 Carries (xT) per 90",
+                "S. Szuhodovszki\nRank: 40/68\n0.02 Deep runs (xT) per 90",
+                "S. Szuhodovszki\nRank: 50/68\n1.30 Penalty area receptions per 90"
+            ],
+            [
+                "W. Sahli\nRank: 56/68\n0.02 Ball runs (xT) per 90",
+                "W. Sahli\nRank: 57/68\n0.35 Box entries per 90",
+                "W. Sahli\nRank: 51/68\n0.08 Carries (xT) per 90",
+                "W. Sahli\nRank: 21/68\n0.04 Deep runs (xT) per 90",
+                "W. Sahli\nRank: 35/68\n1.63 Penalty area receptions per 90"
+            ],
+            [
+                "K. Horváth\nRank: 11/68\n0.06 Ball runs (xT) per 90",
+                "K. Horváth\nRank: 13/68\n1.38 Box entries per 90",
+                "K. Horváth\nRank: 15/68\n0.13 Carries (xT) per 90",
+                "K. Horváth\nRank: 28/68\n0.03 Deep runs (xT) per 90",
+                "K. Horváth\nRank: 45/68\n1.43 Penalty area receptions per 90"
+            ],
+            [
+                "M. Karamoko\nRank: 4/68\n0.07 Ball runs (xT) per 90",
+                "M. Karamoko\nRank: 21/68\n1.11 Box entries per 90",
+                "M. Karamoko\nRank: 18/68\n0.12 Carries (xT) per 90",
+                "M. Karamoko\nRank: 38/68\n0.02 Deep runs (xT) per 90",
+                "M. Karamoko\nRank: 33/68\n1.67 Penalty area receptions per 90"
+            ],
+            [
+                "M. Ben Romdhane\nRank: 26/68\n0.04 Ball runs (xT) per 90",
+                "M. Ben Romdhane\nRank: 33/68\n0.72 Box entries per 90",
+                "M. Ben Romdhane\nRank: 27/68\n0.12 Carries (xT) per 90",
+                "M. Ben Romdhane\nRank: 33/68\n0.03 Deep runs (xT) per 90",
+                "M. Ben Romdhane\nRank: 28/68\n1.72 Penalty area receptions per 90"
+            ],
+            [
+                "R. Molnár\nRank: 5/68\n0.07 Ball runs (xT) per 90",
+                "R. Molnár\nRank: 11/68\n1.42 Box entries per 90",
+                "R. Molnár\nRank: 19/68\n0.12 Carries (xT) per 90",
+                "R. Molnár\nRank: 43/68\n0.02 Deep runs (xT) per 90",
+                "R. Molnár\nRank: 31/68\n1.71 Penalty area receptions per 90"
+            ],
+            [
+                "B. Dominguès\nRank: 17/68\n0.05 Ball runs (xT) per 90",
+                "B. Dominguès\nRank: 27/68\n0.91 Box entries per 90",
+                "B. Dominguès\nRank: 17/68\n0.13 Carries (xT) per 90",
+                "B. Dominguès\nRank: 19/68\n0.04 Deep runs (xT) per 90",
+                "B. Dominguès\nRank: 24/68\n2.00 Penalty area receptions per 90"
+            ],
+            [
+                "M. Kosznovszky\nRank: 43/68\n0.03 Ball runs (xT) per 90",
+                "M. Kosznovszky\nRank: 66/68\n0.16 Box entries per 90",
+                "M. Kosznovszky\nRank: 40/68\n0.09 Carries (xT) per 90",
+                "M. Kosznovszky\nRank: 62/68\n0.00 Deep runs (xT) per 90",
+                "M. Kosznovszky\nRank: 57/68\n1.10 Penalty area receptions per 90"
+            ],
+            [
+                "M. Kovács\nRank: 24/68\n0.04 Ball runs (xT) per 90",
+                "M. Kovács\nRank: 12/68\n1.38 Box entries per 90",
+                "M. Kovács\nRank: 26/68\n0.12 Carries (xT) per 90",
+                "M. Kovács\nRank: 10/68\n0.05 Deep runs (xT) per 90",
+                "M. Kovács\nRank: 17/68\n2.19 Penalty area receptions per 90"
+            ],
+            [
+                "Á. Bényei\nRank: 66/68\n0.01 Ball runs (xT) per 90",
+                "Á. Bényei\nRank: 59/68\n0.31 Box entries per 90",
+                "Á. Bényei\nRank: 63/68\n0.05 Carries (xT) per 90",
+                "Á. Bényei\nRank: 49/68\n0.01 Deep runs (xT) per 90",
+                "Á. Bényei\nRank: 60/68\n1.02 Penalty area receptions per 90"
+            ],
+            [
+                "Z. Kerezsi\nRank: 6/68\n0.07 Ball runs (xT) per 90",
+                "Z. Kerezsi\nRank: 2/68\n2.15 Box entries per 90",
+                "Z. Kerezsi\nRank: 6/68\n0.14 Carries (xT) per 90",
+                "Z. Kerezsi\nRank: 25/68\n0.03 Deep runs (xT) per 90",
+                "Z. Kerezsi\nRank: 61/68\n0.98 Penalty area receptions per 90"
+            ],
+            [
+                "D. Kocsis\nRank: 1/68\n0.09 Ball runs (xT) per 90",
+                "D. Kocsis\nRank: 14/68\n1.34 Box entries per 90",
+                "D. Kocsis\nRank: 14/68\n0.13 Carries (xT) per 90",
+                "D. Kocsis\nRank: 4/68\n0.08 Deep runs (xT) per 90",
+                "D. Kocsis\nRank: 63/68\n0.89 Penalty area receptions per 90"
+            ],
+            [
+                "G. Jurek\nRank: 33/68\n0.04 Ball runs (xT) per 90",
+                "G. Jurek\nRank: 26/68\n0.93 Box entries per 90",
+                "G. Jurek\nRank: 24/68\n0.12 Carries (xT) per 90",
+                "G. Jurek\nRank: 51/68\n0.01 Deep runs (xT) per 90",
+                "G. Jurek\nRank: 44/68\n1.44 Penalty area receptions per 90"
+            ],
+            [
+                "M. Katona\nRank: 48/68\n0.02 Ball runs (xT) per 90",
+                "M. Katona\nRank: 34/68\n0.71 Box entries per 90",
+                "M. Katona\nRank: 42/68\n0.09 Carries (xT) per 90",
+                "M. Katona\nRank: 27/68\n0.03 Deep runs (xT) per 90",
+                "M. Katona\nRank: 39/68\n1.53 Penalty area receptions per 90"
+            ],
+            [
+                "B. Katona\nRank: 52/68\n0.02 Ball runs (xT) per 90",
+                "B. Katona\nRank: 42/68\n0.50 Box entries per 90",
+                "B. Katona\nRank: 38/68\n0.10 Carries (xT) per 90",
+                "B. Katona\nRank: 60/68\n0.01 Deep runs (xT) per 90",
+                "B. Katona\nRank: 53/68\n1.18 Penalty area receptions per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 47/68\n0.03 Ball runs (xT) per 90",
+                "M. Mucsányi\nRank: 32/68\n0.75 Box entries per 90",
+                "M. Mucsányi\nRank: 41/68\n0.09 Carries (xT) per 90",
+                "M. Mucsányi\nRank: 13/68\n0.05 Deep runs (xT) per 90",
+                "M. Mucsányi\nRank: 32/68\n1.69 Penalty area receptions per 90"
+            ],
+            [
+                "C. Denes\nRank: 3/68\n0.07 Ball runs (xT) per 90",
+                "C. Denes\nRank: 5/68\n1.71 Box entries per 90",
+                "C. Denes\nRank: 3/68\n0.17 Carries (xT) per 90",
+                "C. Denes\nRank: 5/68\n0.06 Deep runs (xT) per 90",
+                "C. Denes\nRank: 3/68\n3.42 Penalty area receptions per 90"
+            ],
+            [
+                "Z. Gruber\nRank: 12/68\n0.06 Ball runs (xT) per 90",
+                "Z. Gruber\nRank: 18/68\n1.21 Box entries per 90",
+                "Z. Gruber\nRank: 1/68\n0.17 Carries (xT) per 90",
+                "Z. Gruber\nRank: 23/68\n0.04 Deep runs (xT) per 90",
+                "Z. Gruber\nRank: 37/68\n1.56 Penalty area receptions per 90"
+            ],
+            [
+                "T. Szűcs\nRank: 39/68\n0.03 Ball runs (xT) per 90",
+                "T. Szűcs\nRank: 53/68\n0.42 Box entries per 90",
+                "T. Szűcs\nRank: 53/68\n0.07 Carries (xT) per 90",
+                "T. Szűcs\nRank: 54/68\n0.01 Deep runs (xT) per 90",
+                "T. Szűcs\nRank: 59/68\n1.05 Penalty area receptions per 90"
+            ],
+            [
+                "A. Denes\nRank: 49/68\n0.02 Ball runs (xT) per 90",
+                "A. Denes\nRank: 28/68\n0.90 Box entries per 90",
+                "A. Denes\nRank: 36/68\n0.10 Carries (xT) per 90",
+                "A. Denes\nRank: 12/68\n0.05 Deep runs (xT) per 90",
+                "A. Denes\nRank: 46/68\n1.41 Penalty area receptions per 90"
+            ],
+            [
+                "Á. Krajcsovics\nRank: 2/68\n0.07 Ball runs (xT) per 90",
+                "Á. Krajcsovics\nRank: 1/68\n2.38 Box entries per 90",
+                "Á. Krajcsovics\nRank: 2/68\n0.17 Carries (xT) per 90",
+                "Á. Krajcsovics\nRank: 9/68\n0.05 Deep runs (xT) per 90",
+                "Á. Krajcsovics\nRank: 5/68\n3.25 Penalty area receptions per 90"
+            ],
+            [
+                "A. Molnár\nRank: 14/68\n0.06 Ball runs (xT) per 90",
+                "A. Molnár\nRank: 31/68\n0.75 Box entries per 90",
+                "A. Molnár\nRank: 30/68\n0.10 Carries (xT) per 90",
+                "A. Molnár\nRank: 24/68\n0.03 Deep runs (xT) per 90",
+                "A. Molnár\nRank: 42/68\n1.50 Penalty area receptions per 90"
+            ],
+            [
+                "Z. Varga\nRank: 37/68\n0.03 Ball runs (xT) per 90",
+                "Z. Varga\nRank: 35/68\n0.70 Box entries per 90",
+                "Z. Varga\nRank: 56/68\n0.07 Carries (xT) per 90",
+                "Z. Varga\nRank: 32/68\n0.03 Deep runs (xT) per 90",
+                "Z. Varga\nRank: 54/68\n1.17 Penalty area receptions per 90"
+            ],
+            [
+                "A. Tóth\nRank: 36/68\n0.03 Ball runs (xT) per 90",
+                "A. Tóth\nRank: 46/68\n0.46 Box entries per 90",
+                "A. Tóth\nRank: 29/68\n0.11 Carries (xT) per 90",
+                "A. Tóth\nRank: 44/68\n0.02 Deep runs (xT) per 90",
+                "A. Tóth\nRank: 47/68\n1.39 Penalty area receptions per 90"
+            ],
+            [
+                "B. Vajda\nRank: 29/68\n0.04 Ball runs (xT) per 90",
+                "B. Vajda\nRank: 52/68\n0.42 Box entries per 90",
+                "B. Vajda\nRank: 28/68\n0.11 Carries (xT) per 90",
+                "B. Vajda\nRank: 62/68\n0.00 Deep runs (xT) per 90",
+                "B. Vajda\nRank: 67/68\n0.42 Penalty area receptions per 90"
+            ],
+            [
+                "M. Pető\nRank: 30/68\n0.04 Ball runs (xT) per 90",
+                "M. Pető\nRank: 47/68\n0.46 Box entries per 90",
+                "M. Pető\nRank: 39/68\n0.09 Carries (xT) per 90",
+                "M. Pető\nRank: 26/68\n0.03 Deep runs (xT) per 90",
+                "M. Pető\nRank: 40/68\n1.51 Penalty area receptions per 90"
+            ],
+            [
+                "M. Huszár\nRank: 63/68\n0.01 Ball runs (xT) per 90",
+                "M. Huszár\nRank: 19/68\n1.15 Box entries per 90",
+                "M. Huszár\nRank: 67/68\n0.05 Carries (xT) per 90",
+                "M. Huszár\nRank: 62/68\n0.00 Deep runs (xT) per 90",
+                "M. Huszár\nRank: 13/68\n2.30 Penalty area receptions per 90"
+            ],
+            [
+                "K. Banati\nRank: 51/68\n0.02 Ball runs (xT) per 90",
+                "K. Banati\nRank: 25/68\n0.99 Box entries per 90",
+                "K. Banati\nRank: 35/68\n0.10 Carries (xT) per 90",
+                "K. Banati\nRank: 45/68\n0.02 Deep runs (xT) per 90",
+                "K. Banati\nRank: 38/68\n1.53 Penalty area receptions per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Wingers",
+            "Adin Molnár"
+        ],
+        "minutes_played": 1517,
+        "axis_labels": [
+            "Ball runs (xT) per 90 | 0.06",
+            "Box entries per 90 | 0.75",
+            "Carries (xT) per 90 | 0.10",
+            "Deep runs (xT) per 90 | 0.03",
+            "Penalty area receptions per 90 | 1.50"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null
+    },
+    "player_info": {
+        "id": 769345,
+        "name": "A. Molnár",
+        "full_name": "Adin Molnár",
+        "synthesized_name": "Adin Molnár",
+        "birth_date": "2004-08-16",
+        "age": 21,
+        "foot": null,
+        "position": "WINGER",
+        "detailed_position": "RIGHT_WINGER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

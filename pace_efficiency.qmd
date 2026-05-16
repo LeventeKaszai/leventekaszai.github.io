@@ -1,5 +1,7 @@
 ---
 title: "Játékritmus & Hatékonyság"
+date: 2026-04-08
+description: "Miért nem elég a pontozás? A per-100 labdabirtok logikája és a tempó szerepe."
 subtitle: "Miért nem elég a pontozás? A per-100 labdabirtok logikája, 2022–2025"
 format:
   html:

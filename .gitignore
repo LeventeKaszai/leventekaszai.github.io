@@ -8,3 +8,6 @@
 .quarto/
 basketball_database/
 /.quarto/
+--allowedTools
+Rplots.pdf
+futball/striker_clustering_cache/

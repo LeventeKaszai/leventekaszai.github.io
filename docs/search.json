@@ -2,70 +2,70 @@
   {
     "objectID": "four_factors_1.html",
     "href": "four_factors_1.html",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "",
     "text": "A kosárlabda-analitika atyja, Dean Oliver szerint a győzelmet négy fő faktor határozza meg, mindkét oldalon vizsgálva:\n\n\n\n#\nFaktor\nTámadó\nVédő\n\n\n\n\n1\nDobóhatékonyság\neFG% ↑\nEllenfél eFG% ↓\n\n\n2\nEladott labdák\nTOV% ↓\nKikényszerített TOV% ↑\n\n\n3\nLepattanózás\nORB% ↑\nDRB% ↑\n\n\n4\nBüntetők\nFT rate ↑\nEllenfél FT rate ↓"
   },
   {
     "objectID": "four_factors_1.html#a-rendszer-alapja",
     "href": "four_factors_1.html#a-rendszer-alapja",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "",
     "text": "A kosárlabda-analitika atyja, Dean Oliver szerint a győzelmet négy fő faktor határozza meg, mindkét oldalon vizsgálva:\n\n\n\n#\nFaktor\nTámadó\nVédő\n\n\n\n\n1\nDobóhatékonyság\neFG% ↑\nEllenfél eFG% ↓\n\n\n2\nEladott labdák\nTOV% ↓\nKikényszerített TOV% ↑\n\n\n3\nLepattanózás\nORB% ↑\nDRB% ↑\n\n\n4\nBüntetők\nFT rate ↑\nEllenfél FT rate ↓"
   },
   {
     "objectID": "four_factors_1.html#melyik-faktor-számít-a-legjobban",
     "href": "four_factors_1.html#melyik-faktor-számít-a-legjobban",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "1. Melyik Faktor Számít a Legjobban?",
-    "text": "1. Melyik Faktor Számít a Legjobban?\n\n\n\n\n\n\n A magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (+0.72), mind védő (-0.65) oldalon. Ez megegyezik az NBA trendjével.\nA magyar anomália a lepattanózásban rejlik: az Off ORB% (+0.55) és Def DRB% (+0.57) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.\nA büntetők mindkét oldalon gyenge összefüggést mutatnak."
+    "text": "1. Melyik Faktor Számít a Legjobban?\n\n\n\n\n\n\n A magyar bajnokságban a dobóhatékonyság (eFG%) dominálja a mezőnyt — mind támadó (+0.76), mind védő (-0.66) oldalon. Ez megegyezik az NBA trendjével.\nA magyar anomália a lepattanózásban rejlik: az Off ORB% (+0.38) és Def DRB% (+0.52) együttesen erősebb prediktora a győzelemnek mint a labdaveszteség — ami az NBA-ban fordított. Ennek oka a kevesebb elit tripladobó: a védekezések beesnek a festékbe, így a gyűrű alatti harc dönt.\nA büntetők mindkét oldalon gyenge összefüggést mutatnak."
   },
   {
     "objectID": "four_factors_1.html#magyar-vs.-nba-súlyok",
     "href": "four_factors_1.html#magyar-vs.-nba-súlyok",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "2. Magyar vs. NBA súlyok",
     "text": "2. Magyar vs. NBA súlyok\n\n\n\n\n\n\nA sorrend azonos az NBA-val: dobás → labdaveszteség → lepattanó → büntető. A legnagyobb eltérés a büntető esetén látható: Oliver 15%-ot rendel hozzá az NBA-ban, a szezonszintű regresszió mindössze 5%-ot mutat. Ez az eredmény a 3. szekcióban meccsszinten is megvizsgálható.\nEz első rápillantásra ellentmond az 1. szekció korrelációs ábrájának, ahol a lepattanó erősebbnek tűnt a labdaveszteségnél. A különbség módszertani: a korreláció minden faktort külön-külön néz, míg a regresszió egyszerre veszi figyelembe az összeset — és így kiszűri, hogy a jó lepattanózó csapatok rendszerint más területeken is erősebbek.\nA modell R² = 0,90 — a négy faktor együttesen a győzelmi arány 90%-át magyarázza."
   },
   {
     "objectID": "four_factors_1.html#meccsszintű-előrejelzés",
     "href": "four_factors_1.html#meccsszintű-előrejelzés",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "3. Meccsszintű előrejelzés",
-    "text": "3. Meccsszintű előrejelzés\nAz eddigi elemzés szezonaggregátumokra épült (n=42). A detailed_match_stats tábla 1512 egyéni mérkőzést tartalmaz — ez lehetővé teszi, hogy logisztikus regresszióval megbecsüljük: a négy nettó faktor alapján melyik csapat nyerte a meccset?\n\n\n\n\n\n\nA modell keresztvalidált pontossága 96,4% — 1512 mérkőzésből mindössze 46-ot jósolt rosszul, és ezek is kivétel nélkül olyan meccsek, ahol a pontkülönbség nulla közelében volt.\nA három súlykészlet figyelemreméltóan egységes képet mutat: a dobás mindhárom megközelítésben a legfontosabb faktor, és a sorrend is azonos. Az egyetlen érdemi eltérés a büntető esetén látható — a szezonszintű modell 5%-ot ad neki, a meccsszintű 12%-ot. Ez arra utal, hogy a büntető meccsen belül számít (egy szoros negyedben belőtt büntetők döntők lehetnek), de szezon szinten az összhatása kiegyenlítődik."
+    "text": "3. Meccsszintű előrejelzés\nAz eddigi elemzés szezonaggregátumokra épült. A detailed_match_stats tábla négy szezon egyéni mérkőzéseit tartalmaz — ez lehetővé teszi, hogy logisztikus regresszióval megbecsüljük: a négy nettó faktor alapján melyik csapat nyerte a meccset?\n\n\n\n\n\n\nA modell keresztvalidált pontossága 96,4% — 1512 mérkőzésből mindössze 46-ot jósolt rosszul, és ezek is kivétel nélkül olyan meccsek, ahol a pontkülönbség nulla közelében volt.\nA három súlykészlet figyelemreméltóan egységes képet mutat: a dobás mindhárom megközelítésben a legfontosabb faktor, és a sorrend is azonos. Az egyetlen érdemi eltérés a büntető esetén látható — a szezonszintű modell 5%-ot ad neki, a meccsszintű 12%-ot. Ez arra utal, hogy a büntető meccsen belül számít (egy szoros negyedben belőtt büntetők döntők lehetnek), de szezon szinten az összhatása kiegyenlítődik."
   },
   {
     "objectID": "four_factors_1.html#várható-győzelmek",
     "href": "four_factors_1.html#várható-győzelmek",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "4. Várható győzelmek",
     "text": "4. Várható győzelmek\nA szezonszintű regressziós modell minden csapathoz megad egy várható győzelmi számot — azt, amennyit a négy faktora alapján “kellett volna” nyernie. A tényleges győzelmektől való eltérés szerencsét, ütemezési hatásokat és a modell által nem mért tényezőket tükröz.\n\n\n\n\n\n\nAz elemzés csak az alapszakaszra vonatkozik (minden csapat pontosan 26 meccset játszik), így az összehasonlítás torzításmentes.\nA legnagyobb eltérések: Szolnok két egymást követő szezonban is túlteljesített (2023-24: +3, 2024-25: +3) — a négy faktora alapján vártnál rendre több meccset nyert. Falco KC ezzel szemben mindkét szezonban alulteljesített (2023-24: −2, 2024-25: −2) a liga legjobb négy faktora ellenére. Alba Fehérvár (2023-24) szintén +3-mal teljesített a vártat felül.\n\nA különbség nem feltétlenül “szerencse” — tükrözhet sérüléseket, menetrendhatásokat vagy a modell által nem mért tényezőket. Az eltérés iránya azonban jelzés: a tartósan alulteljesítő csapatoknál felfelé, a túlteljesítőknél lefelé várható korrekció."
   },
   {
     "objectID": "four_factors_1.html#ligaszintű-trendek",
     "href": "four_factors_1.html#ligaszintű-trendek",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "5. Ligaszintű trendek",
-    "text": "5. Ligaszintű trendek\nHogyan változott a magyar bajnokság összességében három szezon alatt? Az alapszakasz meccseinek átlagai szezonként.\n\n\n\n\n\n\nAz NBA-összehasonlítás négy érdemi különbséget mutat. A dobóhatékonyság (eFG%) mindkét ligában stabil — de az NBA ~1-1,5 százalékponttal hatékonyabb, és ez a rés nem zárul. A labdaveszteség-arány (TOV%) a magyar ligában javult (15,6% → 14,2%), de még mindig ~2 százalékponttal magasabb az NBA-nál — a ball-handling szintje különbség maradt. A hármas kísérletek aránya mindkét ligában nő, de az NBA 2024-25-ben 42,2%-ra ugrott, míg a magyar liga 39,9%-on jár — a játékstílus-váltás itthon is zajlik, de lassabban. A tempó a leglátványosabb különbség: az NBA ~82 possession per 40 perc körül játszik, a magyar liga ~73-nál — közel 10 possession különbség, ami alapvetően más játékritmust jelent."
+    "text": "5. Ligaszintű trendek\nHogyan változott a magyar bajnokság összességében négy szezon alatt? Az alapszakasz meccseinek átlagai szezonként.\n\n\n\n\n\n\nAz NBA-összehasonlítás négy érdemi különbséget mutat. A dobóhatékonyság (eFG%) mindkét ligában stabil — de az NBA ~1-1,5 százalékponttal hatékonyabb, és ez a rés nem zárul. A labdaveszteség-arány (TOV%) a magyar ligában javult (15,6% → 14,2%), de még mindig ~2 százalékponttal magasabb az NBA-nál — a ball-handling szintje különbség maradt. A hármas kísérletek aránya mindkét ligában nő, de az NBA 2024-25-ben 42,2%-ra ugrott, míg a magyar liga 39,9%-on jár — a játékstílus-váltás itthon is zajlik, de lassabban. A tempó a leglátványosabb különbség: az NBA ~82 possession per 40 perc körül játszik, a magyar liga ~73-nál — közel 10 possession különbség, ami alapvetően más játékritmust jelent."
   },
   {
     "objectID": "four_factors_1.html#csapat-összehasonlítás",
     "href": "four_factors_1.html#csapat-összehasonlítás",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "6. Csapat-összehasonlítás",
     "text": "6. Csapat-összehasonlítás\nMinden pont egy csapat egy szezonban. Válts a faktorok között a dropdownnal, szűrj szezonra a jelmagyarázatban."
   },
   {
     "objectID": "four_factors_1.html#csapat-profil-szezonok-között",
     "href": "four_factors_1.html#csapat-profil-szezonok-között",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "7. Csapat-profil Szezonok Között",
-    "text": "7. Csapat-profil Szezonok Között\nVálassz csapatot a dropdown-ból: az összes faktorát látod szezononként egymás mellett. Így kiderül, melyik dimenzióban fejlődött vagy hanyatlott.\n\n\n\n\n\n\n Ha egy csapat csak egy vagy két szezonban szerepel (kiesés / feljutás), a hiányzó szezon üres marad. A sávok színe a szezont jelöli (korall = 2022-23, kék = 2023-24, arany = 2024-25) — így a szomszédos sávok magassága közvetlenül mutatja az egyes faktorokban bekövetkezett fejlődést vagy hanyatlást."
+    "text": "7. Csapat-profil Szezonok Között\nVálassz csapatot a dropdown-ból: az összes faktorát látod szezononként egymás mellett. Így kiderül, melyik dimenzióban fejlődött vagy hanyatlott.\n\n\n\n\n\n\n Ha egy csapat csak egy vagy két szezonban szerepel (kiesés / feljutás), a hiányzó szezon üres marad. A sávok színe a szezont jelöli (korall = 2022-23, kék = 2023-24, arany = 2024-25, zöld = 2025-26) — így a szomszédos sávok magassága közvetlenül mutatja az egyes faktorokban bekövetkezett fejlődést vagy hanyatlást."
   },
   {
     "objectID": "four_factors_1.html#teljes-adatbázis",
     "href": "four_factors_1.html#teljes-adatbázis",
-    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)",
+    "title": "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)",
     "section": "8. Teljes Adatbázis",
     "text": "8. Teljes Adatbázis"
   },
@@ -116,21 +116,21 @@
     "href": "scoring_efficiency.html#u23-játékosok-pontszerzése-a-magyar-bajnokságban",
     "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
     "section": "5. U23 játékosok pontszerzése a magyar bajnokságban",
-    "text": "5. U23 játékosok pontszerzése a magyar bajnokságban\n\n\n\n\n\n\n Az ábra az U23-as játékosokat emeli ki pirossal a teljes minta szürkével látható. Minden szezonban az adott év U23-asai szerepelnek — tehát a 2022-23-as szezonban a 2000-ben vagy később születettek, 2023-24-ben a 2001-esek, 2024-25-ben a 2002-esek.\nA három szezonban összesen 52 U23-as játékos-szezon felel meg a 400 perces szűrőnek. Átlagos USG%-uk 14.8%, — az U23-asok tehát átlagosan kb. 5 százalékponttal kevesebb labdabirtoklást fejeznek be."
+    "text": "5. U23 játékosok pontszerzése a magyar bajnokságban\n\n\n\n\n\n\n Az ábra az U23-as játékosokat emeli ki pirossal a teljes minta szürkével látható. Minden szezonban az adott év U23-asai szerepelnek — tehát a 2022-23-as szezonban a 2000-ben vagy később születettek, 2023-24-ben a 2001-esek, 2024-25-ben a 2002-esek.\nA négy szezonban összesen 63 U23-as játékos-szezon felel meg a 400 perces szűrőnek. Átlagos USG%-uk 15.2%, — az U23-asok tehát átlagosan kb. 4.7 százalékponttal kevesebb labdabirtoklást fejeznek be."
   },
   {
     "objectID": "scoring_efficiency.html#ligaátlagok-évről-évre",
     "href": "scoring_efficiency.html#ligaátlagok-évről-évre",
     "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
     "section": "6. Ligaátlagok évről évre",
-    "text": "6. Ligaátlagok évről évre\n\n\n\n\n\n\n\n A három szezon alatt a ligaátlagos TS% emelkedett (56.2% → 56.6%). A mutatók közötti rés stabil: az eFG% mindig a FG% felett van (a triplások hatása), a TS% pedig az eFG% felett (a büntetők hatása)."
+    "text": "6. Ligaátlagok évről évre\n\n\n\n\n\n\n\n A négy szezon alatt a ligaátlagos TS% emelkedett (56.2% → 57.6%). A mutatók közötti rés stabil: az eFG% mindig a FG% felett van (a triplások hatása), a TS% pedig az eFG% felett (a büntetők hatása)."
   },
   {
     "objectID": "scoring_efficiency.html#hazai-u23-vs-légiós-vs-nba",
     "href": "scoring_efficiency.html#hazai-u23-vs-légiós-vs-nba",
     "title": "Dobóhatékonyság a magyar kosárlabda bajnokságban",
     "section": "7. Hazai U23 vs Légiós vs NBA",
-    "text": "7. Hazai U23 vs Légiós vs NBA\n\n\n\n\n\n\n\n A légiósok TS%-a mindhárom szezonban közel van az NBA ligaátlaghoz — ez azt jelzi, hogy a magyar bajnokságba érkező külföldi játékosok átlagosan NBA-szintű hatékonysággal teljesítenek, ami a liga kompetitivitása szempontjából pozitív jel. Valószínűleg, ha ezek a légiósok az NBA-ben játszananák, a hatékonyságuk csökkenne. :)\nA Hazai U23-asok átlagosan 6.8%-kal maradnak el a légiósoktól és 6.5%-kal az NBA átlagtól. Látható, hogy a fiatal játékosok mind hatékonyságban, mind volumenben elmaradnak a NBI-es átlagtól. Így kinyílik egy ördögi kör. A fiatalok felé alacsony a bizalom (játéklehetőség, USG%), mert nem elég hatékonyak, de így a fejlődés is megrekedhet."
+    "text": "7. Hazai U23 vs Légiós vs NBA\n\n\n\n\n\n\n\n A légiósok TS%-a mind a négy szezonban közel van az NBA ligaátlaghoz — ez azt jelzi, hogy a magyar bajnokságba érkező külföldi játékosok átlagosan NBA-szintű hatékonysággal teljesítenek, ami a liga kompetitivitása szempontjából pozitív jel. Valószínűleg, ha ezek a légiósok az NBA-ben játszananák, a hatékonyságuk csökkenne. :)\nA Hazai U23-asok átlagosan 7.3%-kal maradnak el a légiósoktól és 6.5%-kal az NBA átlagtól. Látható, hogy a fiatal játékosok mind hatékonyságban, mind volumenben elmaradnak a NBI-es átlagtól. Így kinyílik egy ördögi kör. A fiatalok felé alacsony a bizalom (játéklehetőség, USG%), mert nem elég hatékonyak, de így a fejlődés is megrekedhet."
   },
   {
     "objectID": "scoring_efficiency.html#összefoglalás",
@@ -140,25 +140,67 @@
     "text": "Összefoglalás\n\n\n\n\n\n\n\n\nMutató\nMit mér?\nKorlát\n\n\n\n\nFG%\nMezőnykosár-arány\nNem különbözteti meg a 2P/3P dobásokat, büntetőt nem tartalmaz\n\n\neFG%\nKiigazított mezőnykosár\nNem tartalmazza a büntetőket\n\n\nTS%\nTeljes pontszerzési hatékonyság\n—\n\n\n\nA TS% a legjobb egyváltozós mérőszám egy játékos dobóhatékonyságának megítélésére. A kontextushoz azonban érdemes mellé nézni az USG%-ot is — egy 62%-os TS% alacsony terheléssel lenyűgöző, de egész más, mint ugyanaz a szám 30%-os USG% mellett."
   },
   {
+    "objectID": "pace_efficiency.html",
+    "href": "pace_efficiency.html",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "",
+    "text": "A kosárlabda-statisztika legnagyobb tévhite: a jobb csapat több pontot szerez mérkőzésenként. Ez igaz — de csak akkor, ha a csapatok ugyanolyan tempóban játszanak. Egy lassú, kontrollált kosárlabdát játszó csapat 78 pontja és egy gyors transíciós csapat 78 pontja teljesen eltérő hatékonyságot takar.\nDean Oliver felismerése: a kosárlabda valójában labdabirtok-alapú játék. Az egyetlen értelmes hatékonysági mérőszám a 100 labdabirtokra vetített pontszám — ez a tempótól független, csapatok és korszakok között összehasonlítható."
+  },
+  {
+    "objectID": "pace_efficiency.html#a-rangsor-csapdája",
+    "href": "pace_efficiency.html#a-rangsor-csapdája",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "A rangsor csapdája",
+    "text": "A rangsor csapdája\nMelyik csapat hatékonyabb — amelyik többet pontoz, vagy amelyik 100 labdabirtokból többet csinál belőle?\n\n\n\n\n\n\nA zöld vonalak olyan csapatokat jelölnek, amelyek pontszám alapján hátrébb állnak, de hatékonysági szempontból előrébb. A piros vonalak a fordítottját jelzik.\n\nLegszembetűnőbb eltérés: Kecskemét — pontszám alapján a 12. helyen áll (75.1 pt/meccs), de ORtg szerint a 8. legjobb csapat (107.5). Oka: meccsenként átlag 70 labdabirtokot játszanak — a liga leglassabb tempóinak egyike. Kevesebbet pontoz, de amit dob, azt hatékonyabban csinálja."
+  },
+  {
+    "objectID": "pace_efficiency.html#a-liga-tempója",
+    "href": "pace_efficiency.html#a-liga-tempója",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "A liga tempója",
+    "text": "A liga tempója\nHány labdabirtokot játszik egy csapat 40 percenként? Ez határozza meg azt az “ütemet”, amellyel az adatok értelmezhetők.\n\n\n\n\n\n\nAz NBA-val összevetve (~82 labdabirtok/40 perc) a magyar bajnokság körülbelül 8–10 labdabirtokkal lassabb meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között 4–6 labdabirtok-különbség lehet, ami szezon végén akár 100+ labdabirtok-eltérést jelent a statisztikák mögött."
+  },
+  {
+    "objectID": "pace_efficiency.html#hatékonysági-térkép",
+    "href": "pace_efficiency.html#hatékonysági-térkép",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Hatékonysági térkép",
+    "text": "Hatékonysági térkép\nA négy negyedes ábrán minden pont egy csapat egy szezonjának szezonátlagát mutatja. A vízszintes tengely a támadóhatékonyságot (ORtg), a függőleges a védőhatékonyságot mutatja — mindkét irányban jobb, ha az adott érték kedvező.\n\n\n\n\n\n\nA jobb felső sarokba — magas ORtg és alacsony DRtg — jutni a liga élcsapatainak feladata. A Falco KC mindhárom vizsgált szezonban ebben a negyedben tűnik fel, egyre jobbodó értékekkel. Az Y-tengely fordított: feljebb = jobb védekezés."
+  },
+  {
+    "objectID": "pace_efficiency.html#net-rating-és-győzelmek",
+    "href": "pace_efficiency.html#net-rating-és-győzelmek",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Net Rating és győzelmek",
+    "text": "Net Rating és győzelmek\nA videóban elhangzik Dean Oliver állítása: a Net Rating (ORtg − DRtg) jobb előrejelzője a jövőbeli sikereknek, mint az aktuális győzelmi arány. A magyar adaton tesztelhetjük, mennyire szoros ez a kapcsolat.\n\n\n\n\n\n\nA Net Rating korrelációja a győzelmi aránnyal: r = 0.951. Összehasonlításképpen a nyers pontegyenleg (PTS − Opp. PTS) korrelációja: r = 0.951. A különbség kis, de szisztematikus — a per-100-labdabirtok normalizálás hasonló prediktív erőt ad a magyar bajnokságban is.\nA Net Rating szinte tökéletesen lineárisan magyarázza a győzelmeket — nincsenek meglepetések, kivételek csak a szélső értékeknél jelennek meg (ahol a szerencse, sérülések vagy a rövid minta torzít)."
+  },
+  {
+    "objectID": "pace_efficiency.html#tempó-és-siker",
+    "href": "pace_efficiency.html#tempó-és-siker",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Tempó és siker",
+    "text": "Tempó és siker\nÖsszekapcsolódik-e a játékritmus és a hatékonyság? Gyorsabban játszani egyben hatékonyabbat is jelent?\n\n\n\n\n\n\nA korreláció r = 0.189 — gyakorlatilag nulla. A tempó nem jósolja meg a csapat sikerét az NB1-ben. Ez egybeesik az NBA tanulságával: gyorsan és lassan is lehet jól vagy rosszul játszani. A tempó stílusbeli döntés, nem hatékonysági eszköz."
+  },
+  {
+    "objectID": "pace_efficiency.html#egyéni-hatékonyság",
+    "href": "pace_efficiency.html#egyéni-hatékonyság",
+    "title": "Játékritmus & Hatékonyság",
+    "section": "Egyéni hatékonyság",
+    "text": "Egyéni hatékonyság\nA csapatszintű minták mögött egyéni játékosok állnak. Az alábbi ábrák az NB1 játékosait páros hatékonysági mutatókon helyezik el — U23-as hazai fiatalok kiemelve.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMódszertan\n\n\n\n\n\nAdatok: Magyar NB1, 2022–2025, alapszakasz. Összesen 1456 mérkőzés-bejegyzés, 56 csapat-szezon aggregátum.\nTempó (Pace): Labdabirtok száma 40 percenként. A labdabirtok (possession) becsült értéke meccsstatisztikákból: FGA − ORB + TOV + 0.44×FTA.\nORtg / DRtg: 100 labdabirtokra vetített szerzett / kapott pontok meccsenként, majd szezonátlag.\nNet Rating: ORtg − DRtg. Pozitív = a csapat nettó labdabirtok-előnnyel rendelkezik.\nEgyéni mutatók: PTS/100 = pontok per 100 csapat-labdabirtok. TRB% = megszerzett pattanások aránya a lehetséges pattanásokból (mindkét vége). BLK% = blokkolt dobások aránya az ellenfél kísérleteiből. STL% = szerzett labdák aránya az ellenfél labdabirtokai közül. Küszöb: min. 400 perc.\nU23: Hazai játékos, akinek születési éve ≥ szezon kezdő éve − 22.\nNBA referencia: Basketball Reference ligaátlagok, 2022–25 szezonok."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Levente Kaszai",
     "section": "",
-    "text": "I analyze Hungarian basketball through the lens of modern analytics. My work focuses on uncovering what actually drives winning in the Hungarian league — and where it diverges from NBA trends."
+    "text": "Kaszai Levente vagyok, sportközgazdász és adatelemző.\nEz az oldal egy nyitott szakmai napló, ahol a sport elemzésén keresztül a döntések és teljesítmények mögötti mintázatokat keresem. A célom, hogy átlátható módon mutassam be a gondolkodási folyamatomat: milyen kérdések mentén érdemes elindulni, milyen módszerekkel lehet dolgozni, és milyen következtetések vonhatók le.\nA fókusz jelenleg a magyar labdarúgáson és kosárlabdán van, a makroszintű trendektől egészen az egyéni játékosok teljesítményének elemzéséig.\nAz oldal egy folyamatosan épülő portfólió, amely idővel új témákkal és megközelítésekkel bővül.\nI’m a sports economist and data analyst. This is an open professional log where I explore sport through data — from macro-level trends to individual player analysis, focusing on Hungarian football and basketball."
   },
   {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
+    "objectID": "index.html#rólam",
+    "href": "index.html#rólam",
     "title": "Levente Kaszai",
     "section": "",
-    "text": "I analyze Hungarian basketball through the lens of modern analytics. My work focuses on uncovering what actually drives winning in the Hungarian league — and where it diverges from NBA trends."
-  },
-  {
-    "objectID": "index.html#work",
-    "href": "index.html#work",
-    "title": "Levente Kaszai",
-    "section": "Work",
-    "text": "Work\n\nFour Factors Analysis (2022-2025) — What drives winning in Hungarian basketball?\nScoring Efficiency (2022-2025) — eFG%, TS%, and the volume-efficiency tradeoff in Hungarian basketball.\nJátékritmus & Hatékonyság (2022-2025) — Miért nem elég a pontozás? A per-100 szállítás logikája és a tempó szerepe."
+    "text": "Kaszai Levente vagyok, sportközgazdász és adatelemző.\nEz az oldal egy nyitott szakmai napló, ahol a sport elemzésén keresztül a döntések és teljesítmények mögötti mintázatokat keresem. A célom, hogy átlátható módon mutassam be a gondolkodási folyamatomat: milyen kérdések mentén érdemes elindulni, milyen módszerekkel lehet dolgozni, és milyen következtetések vonhatók le.\nA fókusz jelenleg a magyar labdarúgáson és kosárlabdán van, a makroszintű trendektől egészen az egyéni játékosok teljesítményének elemzéséig.\nAz oldal egy folyamatosan épülő portfólió, amely idővel új témákkal és megközelítésekkel bővül.\nI’m a sports economist and data analyst. This is an open professional log where I explore sport through data — from macro-level trends to individual player analysis, focusing on Hungarian football and basketball."
   },
   {
     "objectID": "index.html#contact",
@@ -168,18 +210,11 @@
     "text": "Contact\nLinkedIn · Email"
   },
   {
-    "objectID": "futball/player_ratings.html",
-    "href": "futball/player_ratings.html",
-    "title": "Labdarúgó Értékelések",
+    "objectID": "futball/jatekosok.html",
+    "href": "futball/jatekosok.html",
+    "title": "Labdarúgó Profilok",
     "section": "",
     "text": "Hamarosan."
-  },
-  {
-    "objectID": "jatekosok/flasar-zalan.html",
-    "href": "jatekosok/flasar-zalan.html",
-    "title": "FLASÁR Zalán — Profil",
-    "section": "",
-    "text": "← Vissza a listához\n\n\n\nFLASÁR Zalán\nStrong Buy\n\n\nKosárlabda\nSopron KC\n2007\nFC\nVálogatott\n\n\nFlasár a hazai bajnokság legjobb fiatal irányítója: olvasottsága, pick & roll kezelése és az általa vezetéssel töltött percek mind fejlettebb szintre mutatnak, mint amit korosztálya elvárna.\n\n\nJátékpercek\n\n\n212\nÖsszes felnőtt perc\n\n\n190\nBajnoki perc (aktuális szezon)\n\n\n25\nMérkőzés\n\n\n7.6\nPerc/mérkőzés\n\n\n\n\n\n\n\n2.9\nPont/mérkőzés\n\n\n71.5%\nTrue Shooting %\nLiga top 10%\n\n\n13.5%\nLepattanó arány\nLiga top 20%\n\n\n0.1\nBlokk/mérkőzés\n\n\n\n\nElemzés\n\nFlasár Zalán a 2024-25-ös szezonban végleg kinőtte a fejlődőben lévő tehetség kategóriáját. A Falco keretén belül ő a legfontosabb labdahozó és pályaszervező, mérkőzésenként átlagosan 28 percet tölt a pályán.\nA pick & roll szituációkban különösen kiemelkedő: az 1.12 pont per possession érték a liga legjobb negyedébe sorolja. Döntéshozatala érett — az assziszt/góldobás arány javulása azt jelzi, hogy egyre ritkábban kockáztat erőltetett passzokat.\nFő fejlesztendő területe a három pontos dobás konzisztenciája (32.4% kísérletekből, alacsony volumen mellett). Ha ezt a mutatót az átlag fölé tudja tornázni, a válogatott alapemberének pozícióját hosszú távon bebetonozhatja.\n\n\n\n\nForgatókönyvek\n\n\nBull case\nHárom pontos százaléka 37% fölé emelkedik, defenzív fejlődése folytatódik, és a válogatott alapemberévé válik — ami külföldi érdeklődést is generálhat.\n\nLegalább 1 konkrét külföldi ajánlat 18 hónapon belül\n\n\nBase case\nFlasár megmarad a Falco kulcsjátékosaként, stabilan vezető szinten teljesít, de külföldi szereplés nélkül.\n\nAssziszt/mérkőzés 7.0 fölött a következő szezonban\n\n\nBear case\nSérülés vagy a csapat kontextusának gyengülése megakadályozza a fejlődési pályán való előrehaladást.\n\nJátékpercek 20% alá esnek, statisztikák stagnálnak\n\n\n\n\nÉrtékelés-történet\n\n\n\n2024-09-01\nStrong Buy\n\n\nNyári fejlődés egyértelmű, megnövekedett szerepkör a Falcónál + válogatott keretbe hívás.\nbejött\n\n\n\n\n2024-02-15\nBuy\n\n\nErős első félév, de még kérdéses a pick & roll hatékonysága magas nyomású szituációkban.\n\n\n\n\n\n\nÉrtékelés dátuma:\n2024-09-01"
   },
   {
     "objectID": "futball/striker_clustering.html",
@@ -231,11 +266,32 @@
     "text": "Teljes játékostábla\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMódszertan\n\n\n\n\n\nAdatok: Twelve Football, NB1 2025/26, 59 csatár (STRIKER pozíció), per-90 statisztikák.\nSzerepdefiníció: 5 archetípust definiáltunk a 8 Twelve-dimenzió alapján domain knowledge szerint (Célponttámadó, Befejező, Presszingcsatár, Kreatív csatár, Komplett csatár).\nPontozás: Minden játékos 8 dimenziós percentilisvektora és az 5 szerepprofil közötti Euklideszi távolságból softmax-transzformációval kapjuk a szerepvalószínűségeket. Hőmérséklet-paraméter: T=22 — ez szabályozza, mennyire “éles” az elsődleges szerep dominanciája.\nVizualizáció: UMAP 2D levetítés a per-90 értékek z-score standardizált és korreláció-szűrt terén.\nMegjegyzés: Ez a megközelítés szándékosan eltér az adatvezérelt klaszterezéstől (pl. k-means, GMM). Az NbClust elemzés k=2-t javasolt mint természetes struktúra — az 5 szerepkör meghatározása ezért domain knowledge alapú, nem statisztikai."
   },
   {
-    "objectID": "futball/jatekosok.html",
-    "href": "futball/jatekosok.html",
-    "title": "Labdarúgó Profilok",
+    "objectID": "jatekosok/flasar-zalan.html",
+    "href": "jatekosok/flasar-zalan.html",
+    "title": "FLASÁR Zalán — Profil",
+    "section": "",
+    "text": "← Vissza a listához\n\n\n\nFLASÁR Zalán\nStrong Buy\n\n\nKosárlabda\nSopron KC\n2007\nFC\n205 cm\n100 kg\nVálogatott\n\n\nFlasár a hazai bajnokság legjobb fiatal irányítója: olvasottsága, pick & roll kezelése és az általa vezetéssel töltött percek mind fejlettebb szintre mutatnak, mint amit korosztálya elvárna.\n\n\nJátékpercek\n\n\n651\nÖsszes felnőtt perc\n\n\n439\nBajnoki perc (aktuális szezon)\n\n\n26\nMérkőzés\n\n\n16.9\nPerc/mérkőzés\n\n\n\n\n\n\n\n6\nPont/mérkőzés\n\n\n62.2%\nTrue Shooting %\n\n\n10.7%\nLepattanó arány\n\n\n0.3\nBlokk/mérkőzés\nLiga felső negyed\n\n\n\n\nElemzés\n\nFlasár Zalán a 2024-25-ös szezonban végleg kinőtte a fejlődőben lévő tehetség kategóriáját. A Falco keretén belül ő a legfontosabb labdahozó és pályaszervező, mérkőzésenként átlagosan 28 percet tölt a pályán.\nA pick & roll szituációkban különösen kiemelkedő: az 1.12 pont per possession érték a liga legjobb negyedébe sorolja. Döntéshozatala érett — az assziszt/góldobás arány javulása azt jelzi, hogy egyre ritkábban kockáztat erőltetett passzokat.\nFő fejlesztendő területe a három pontos dobás konzisztenciája (32.4% kísérletekből, alacsony volumen mellett). Ha ezt a mutatót az átlag fölé tudja tornázni, a válogatott alapemberének pozícióját hosszú távon bebetonozhatja.\n\n\n\n\nForgatókönyvek\n\n\nBull case\nHárom pontos százaléka 37% fölé emelkedik, defenzív fejlődése folytatódik, és a válogatott alapemberévé válik — ami külföldi érdeklődést is generálhat.\n\nLegalább 1 konkrét külföldi ajánlat 18 hónapon belül\n\n\nBase case\nFlasár megmarad a Falco kulcsjátékosaként, stabilan vezető szinten teljesít, de külföldi szereplés nélkül.\n\nAssziszt/mérkőzés 7.0 fölött a következő szezonban\n\n\nBear case\nSérülés vagy a csapat kontextusának gyengülése megakadályozza a fejlődési pályán való előrehaladást.\n\nJátékpercek 20% alá esnek, statisztikák stagnálnak\n\n\n\n\nÉrtékelés-történet\n\n\n\n2024-09-01\nStrong Buy\n\n\nNyári fejlődés egyértelmű, megnövekedett szerepkör a Falcónál + válogatott keretbe hívás.\nbejött\n\n\n\n\n2024-02-15\nBuy\n\n\nErős első félév, de még kérdéses a pick & roll hatékonysága magas nyomású szituációkban.\n\n\n\n\n\n\nÉrtékelés dátuma:\n2024-09-01"
+  },
+  {
+    "objectID": "archivum.html",
+    "href": "archivum.html",
+    "title": "Archívum",
+    "section": "",
+    "text": "wDRE* — Módszertani dokumentáció\n\n\nWeighted, Bayesian-shrunk, age-adjusted Daily RAPM Estimate\n\n\nA wDRE* mutató felépítése: Bayesian shrinkage, korrekciók és az értékelési logika.\n\n\n\n\n\n\nApr 20, 2026\n\n\n\n\n\n\n\n\nAdvanced Metrics\n\n\n\n\n\nHaladó mutatók a magyar kosárlabda bajnokságból: RAPM, BPM és egyéb box score metrikák.\n\n\n\n\n\n\nApr 15, 2026\n\n\n\n\n\n\n\n\nNB1 Csatár Szerepdetekció\n\n\n2025/26 — Ki milyen típusú csatár? Twelve Football adatok alapján\n\n\nKi milyen típusú csatár az NB1-ben? Klaszterezés Twelve Football adatok alapján.\n\n\n\n\n\n\nApr 11, 2026\n\n\n\n\n\n\n\n\nJátékritmus & Hatékonyság\n\n\nMiért nem elég a pontozás? A per-100 labdabirtok logikája, 2022–2025\n\n\nMiért nem elég a pontozás? A per-100 labdabirtok logikája és a tempó szerepe.\n\n\n\n\n\n\nApr 8, 2026\n\n\n\n\n\n\n\n\nDobóhatékonyság a magyar kosárlabda bajnokságban\n\n\n\n\n\neFG%, TS% és a volumen-hatékonyság kompromisszuma a magyar ligában.\n\n\n\n\n\n\nApr 5, 2026\n\n\n\n\n\n\n\n\nA Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)\n\n\n\n\n\nMit hajt igazán a győzelmet a magyar bajnokságban? A four factors modell négy szezon adatán.\n\n\n\n\n\n\nApr 1, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "futball/player_ratings.html",
+    "href": "futball/player_ratings.html",
+    "title": "Labdarúgó Értékelések",
     "section": "",
     "text": "Hamarosan."
+  },
+  {
+    "objectID": "futball/analytics.html",
+    "href": "futball/analytics.html",
+    "title": "Analytics – Labdarúgás",
+    "section": "",
+    "text": "Percentilis:\n0%\n\n100%\nHover a cellán a pontos értékhez\n\n\n\n\nSzezon\n\n\n\n\n\n\n\n\nPozíció\n\n\n\n\n\n\n\n\n\nPercentilis: pozíción és szezonon belüli rangsor alapján (Twelve). — = nincs adat az adott pozícióra."
   },
   {
     "objectID": "jatekosok.html",
@@ -245,53 +301,67 @@
     "text": "FLASÁR Zalán\nStrong Buy\n\n\nKosárlabda\nSopron KC\nFC\n\nFlasár a hazai bajnokság legjobb fiatal irányítója: olvasottsága, pick & roll kezelése és az általa vezetéssel töltött percek mind fejlettebb szintre mutatnak, mint amit korosztálya elvárna."
   },
   {
-    "objectID": "pace_efficiency.html",
-    "href": "pace_efficiency.html",
-    "title": "Játékritmus & Hatékonyság",
+    "objectID": "wdre_metodologia.html",
+    "href": "wdre_metodologia.html",
+    "title": "wDRE* — Módszertani dokumentáció",
     "section": "",
-    "text": "A kosárlabda-statisztika legnagyobb tévhite: a jobb csapat több pontot szerez mérkőzésenként. Ez igaz — de csak akkor, ha a csapatok ugyanolyan tempóban játszanak. Egy lassú, kontrollált kosárlabdát játszó csapat 78 pontja és egy gyors transíciós csapat 78 pontja teljesen eltérő hatékonyságot takar.\nDean Oliver felismerése: a kosárlabda valójában labdabirtok-alapú játék. Az egyetlen értelmes hatékonysági mérőszám a 100 labdabirtokra vetített pontszám — ez a tempótól független, csapatok és korszakok között összehasonlítható."
+    "text": "A wDRE* (Weighted, age-adjusted Daily RAPM Estimate) egy több szezonon alapuló játékosértékelő metrika, amely az NB1 2022–23 és 2025–26 közötti négy szezonjának box-score adatait használja. A módszertan három egymásra épülő lépésből áll:\n\nDRE — szezonon belüli RAPM-becslés box-score adatból, Bayesian shrinkage-gel\nwDRE — szezonsúlyozott karrierátlag exponenciális decay-vel\nwDRE* — életkori kiigazítással korrigált végső metrika\n\nA modell paramétereinek egy részét empirikusan, az NB1 adataiból vezettük le; ahol az adatmennyiség ezt nem tette lehetővé, ott az elméleti indoklást és a korlátokat is jelezzük."
   },
   {
-    "objectID": "pace_efficiency.html#a-rangsor-csapdája",
-    "href": "pace_efficiency.html#a-rangsor-csapdája",
-    "title": "Játékritmus & Hatékonyság",
-    "section": "A rangsor csapdája",
-    "text": "A rangsor csapdája\nMelyik csapat hatékonyabb — amelyik többet pontoz, vagy amelyik 100 labdabirtokból többet csinál belőle?\n\n\n\n\n\n\nA zöld vonalak olyan csapatokat jelölnek, amelyek pontszám alapján hátrébb állnak, de hatékonysági szempontból előrébb. A piros vonalak a fordítottját jelzik.\n\nLegszembetűnőbb eltérés: Kecskemét — pontszám alapján a 12. helyen áll (75.1 pt/meccs), de ORtg szerint a 8. legjobb csapat (107.5). Oka: meccsenként átlag 70 labdabirtokot játszanak — a liga leglassabb tempóinak egyike. Kevesebbet pontoz, de amit dob, azt hatékonyabban csinálja."
+    "objectID": "wdre_metodologia.html#áttekintés",
+    "href": "wdre_metodologia.html#áttekintés",
+    "title": "wDRE* — Módszertani dokumentáció",
+    "section": "",
+    "text": "A wDRE* (Weighted, age-adjusted Daily RAPM Estimate) egy több szezonon alapuló játékosértékelő metrika, amely az NB1 2022–23 és 2025–26 közötti négy szezonjának box-score adatait használja. A módszertan három egymásra épülő lépésből áll:\n\nDRE — szezonon belüli RAPM-becslés box-score adatból, Bayesian shrinkage-gel\nwDRE — szezonsúlyozott karrierátlag exponenciális decay-vel\nwDRE* — életkori kiigazítással korrigált végső metrika\n\nA modell paramétereinek egy részét empirikusan, az NB1 adataiból vezettük le; ahol az adatmennyiség ezt nem tette lehetővé, ott az elméleti indoklást és a korlátokat is jelezzük."
   },
   {
-    "objectID": "pace_efficiency.html#a-liga-tempója",
-    "href": "pace_efficiency.html#a-liga-tempója",
-    "title": "Játékritmus & Hatékonyság",
-    "section": "A liga tempója",
-    "text": "A liga tempója\nHány labdabirtokot játszik egy csapat 40 percenként? Ez határozza meg azt az “ütemet”, amellyel az adatok értelmezhetők.\n\n\n\n\n\n\nAz NBA-val összevetve (~82 labdabirtok/40 perc) a magyar bajnokság körülbelül 8–10 labdabirtokkal lassabb meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között 4–6 labdabirtok-különbség lehet, ami szezon végén akár 100+ labdabirtok-eltérést jelent a statisztikák mögött."
+    "objectID": "wdre_metodologia.html#az-alap-dre",
+    "href": "wdre_metodologia.html#az-alap-dre",
+    "title": "wDRE* — Módszertani dokumentáció",
+    "section": "1. Az alap: DRE",
+    "text": "1. Az alap: DRE\n\n1.1 Eredet\nA DRE (Daily RAPM Estimate) Ryan Myers 2017-es munkáján alapul. Az eredeti célja az NBA-ban mért RAPM (Regularized Adjusted Plus-Minus) közelítése kizárólag box-score adatokból, lineáris regresszión keresztül. A formula együtthatói NBA-szintű RAPM-adatokra illesztett OLS-regresszióból származnak.\n\n\n1.2 Formula\nA szezonon belüli nyers DRE:\n\\[\n\\text{DRE} = -8.424 + 0.792\\cdot\\text{PTS}_{100} - 0.719\\cdot\\text{2PA}_{100} - 0.552\\cdot\\text{3PA}_{100}\n\\] \\[\n- 0.159\\cdot\\text{FTA}_{100} + 0.135\\cdot\\text{ORB}_{100} + 0.400\\cdot\\text{DRB}_{100} + 0.544\\cdot\\text{AST}_{100}\n\\] \\[\n+ 1.680\\cdot\\text{STL}_{100} + 0.764\\cdot\\text{BLK}_{100} - 1.360\\cdot\\text{TOV}_{100} - 0.108\\cdot\\text{PF}_{100}\n\\]\nAhol minden stat 100 csapatbirtoklásra normalizált. Az STL/100 speciálisan számított:\n\\[\n\\text{STL}_{100} = \\text{STL}_{\\text{raw}} \\times \\frac{\\text{TOV}_{100}}{\\text{TOV}_{\\text{raw}}}\n\\]\nMértékegység: a 0 a ligaátlagot jelenti, +5 körülbelül All-Star szintnek felel meg NBA-ban. Az NB1 esetén a skála hasonló, de az abszolút értékek nem közvetlenül összehasonlíthatók NBA-metrikákkal.\n\n\n1.3 Validáció az NB1-en\nAz alábbi teszt megmutatja, hogy a DRE és a BPM (Box Plus/Minus) közül melyik közelíti jobban az NB1 valóságát:\n\n\n\nDRE vs BPM validáció — NB1 2022–2026 (min. 200 perc)\n\n\nTeszt\nBPM R²\nDRE R²\nGyőztes\n\n\n\n\nCsapat Gy% korreláció\n0.760\n0.738\nBPM\n\n\nOn-off Net RTG korreláció\n0.199\n0.215\nDRE ✓\n\n\nÉv-év stabilitás (R²)\n0.464\n0.512\nDRE ✓\n\n\n\n\n\nA DRE 2–1-re győz. A BPM csapat Gy%-ban mutatott előnye részben annak köszönhető, hogy az ORtg — amely közvetlen bemenete — erősen korrelál a győzelemmel, ez azonban egy részbeni körforgást okoz. Az on-off Net RTG ezzel szemben független mérés, ezért a legmegbízhatóbb benchmark."
   },
   {
-    "objectID": "pace_efficiency.html#hatékonysági-térkép",
-    "href": "pace_efficiency.html#hatékonysági-térkép",
-    "title": "Játékritmus & Hatékonyság",
-    "section": "Hatékonysági térkép",
-    "text": "Hatékonysági térkép\nA négy negyedes ábrán minden pont egy csapat egy szezonjának szezonátlagát mutatja. A vízszintes tengely a támadóhatékonyságot (ORtg), a függőleges a védőhatékonyságot mutatja — mindkét irányban jobb, ha az adott érték kedvező.\n\n\n\n\n\n\nA jobb felső sarokba — magas ORtg és alacsony DRtg — jutni a liga élcsapatainak feladata. A Falco KC mindhárom vizsgált szezonban ebben a negyedben tűnik fel, egyre jobbodó értékekkel. Az Y-tengely fordított: feljebb = jobb védekezés."
+    "objectID": "wdre_metodologia.html#bayesian-shrinkage",
+    "href": "wdre_metodologia.html#bayesian-shrinkage",
+    "title": "wDRE* — Módszertani dokumentáció",
+    "section": "2. Bayesian shrinkage",
+    "text": "2. Bayesian shrinkage\n\n2.1 Probléma\nKis mintánál (kevés perc) a nyers DRE-komponensek torzítottak: egy 100 perces játékos 3P%-a nem megbízható. Bayesian regresszióval a megfigyelést a ligaátlag felé húzzuk, az együttsúlya a mintamérettől függ.\n\n\n2.2 Formula\nMinden DRE-komponensre külön:\n\\[\n\\hat{x}_i = \\frac{\\text{Min}_i \\cdot x_i + k \\cdot \\bar{x}_{\\text{liga}}}{\\text{Min}_i + k}\n\\]\nAhol:\n\n\\(x_i\\) — a játékos megfigyelt statisztikája\n\\(\\bar{x}_{\\text{liga}}\\) — a szezon ligaátlaga (200+ perces játékosok)\n\\(k\\) — shrinkage paraméter (percben mérve)\n\\(\\text{Min}_i\\) — a játékos percei\n\n\n\n2.3 k-értékek empirikus levezetése\nA k-értékeket ICC (Intraclass Correlation Coefficient) alapján vezettük le az NB1 adataiból (2022–2026, 200+ perces játékosok, legalább 2 szezon):\n\\[\n\\text{ICC} = \\frac{\\sigma^2_{\\text{tehetség}}}{\\sigma^2_{\\text{tehetség}} + \\sigma^2_{\\text{hiba}}}\n\\qquad\nk = \\frac{1 - \\text{ICC}}{\\text{ICC}} \\times \\bar{\\text{Min}}_{\\text{szn}}\n\\]\nAhol \\(\\bar{\\text{Min}}_{\\text{szn}} \\approx 604\\) perc (NB1 átlag, 200+ min játékosok).\n\n\n\nEmpirikus k-értékek — NB1 ICC-alapú variancia-dekompozíció\n\n\nStat\nICC\nk (perc)\nStabilitás\n\n\n\n\nPTS/100\n0.829\n125\nNagyon stabil\n\n\n2PA/100\n0.850\n110\nNagyon stabil\n\n\n3PA/100\n0.870\n90\nNagyon stabil\n\n\nFTA/100\n0.741\n210\nStabil\n\n\nORB/100\n0.822\n130\nNagyon stabil\n\n\nDRB/100\n0.792\n160\nStabil\n\n\nAST/100\n0.864\n95\nNagyon stabil\n\n\nSTL/100\n0.454\n730\nLeginstabilabb\n\n\nBLK/100\n0.694\n265\nKözepes\n\n\nTOV/100\n0.680\n285\nKözepes\n\n\nPF/100\n0.793\n160\nStabil\n\n\n\n\n\nFőbb tanulság: Az NB1 statisztikák általában rendkívül stabilak szezonok között (ICC 0.45–0.87), ami azt jelenti, hogy kevés shrinkage szükséges. Az egyetlen kivétel a STL/100 (ICC=0.454), ahol a legnagyobb a véletlen játéka — ez konzisztens az NBA-szintű stabilitás-kutatásokkal (Krishna Narsu, 2015)."
   },
   {
-    "objectID": "pace_efficiency.html#net-rating-és-győzelmek",
-    "href": "pace_efficiency.html#net-rating-és-győzelmek",
-    "title": "Játékritmus & Hatékonyság",
-    "section": "Net Rating és győzelmek",
-    "text": "Net Rating és győzelmek\nA videóban elhangzik Dean Oliver állítása: a Net Rating (ORtg − DRtg) jobb előrejelzője a jövőbeli sikereknek, mint az aktuális győzelmi arány. A magyar adaton tesztelhetjük, mennyire szoros ez a kapcsolat.\n\n\n\n\n\n\nA Net Rating korrelációja a győzelmi aránnyal: r = 0.95. Összehasonlításképpen a nyers pontegyenleg (PTS − Opp. PTS) korrelációja: r = 0.95. A különbség kis, de szisztematikus — a per-100-labdabirtok normalizálás hasonló prediktív erőt ad a magyar bajnokságban is.\nA Net Rating szinte tökéletesen lineárisan magyarázza a győzelmeket — nincsenek meglepetések, kivételek csak a szélső értékeknél jelennek meg (ahol a szerencse, sérülések vagy a rövid minta torzít)."
+    "objectID": "wdre_metodologia.html#decay-súlyozás",
+    "href": "wdre_metodologia.html#decay-súlyozás",
+    "title": "wDRE* — Módszertani dokumentáció",
+    "section": "3. Decay-súlyozás",
+    "text": "3. Decay-súlyozás\n\n3.1 Motiváció\nEgy játékos 3 évvel ezelőtti teljesítménye kevésbé releváns a jelenlegi értékeléshez, mint a legutóbbi szezoné. Az exponenciális decay ezt formalizálja:\n\\[\nw_t = \\beta^{\\,\\Delta t}\n\\]\nAhol \\(\\Delta t\\) az évek száma a legfrissebb szezonhoz képest, \\(\\beta \\in (0, 1)\\).\n\n\n3.2 Empirikus megállapítás: β nem azonosítható 4 szezonból\nA \\(\\beta\\) optimalizálásához minden egymást követő szezonpáron (N→N+1) kereszt-validáltuk a súlyozott múlt-DRE → következő szezon korrelációt:\n\n\n\nCross-validáció eredménye: β nem befolyásolja a prediktív erőt\n\n\nβ\nR²\n\n\n\n\n0.20\n0.5128\n\n\n0.35\n0.5128\n\n\n0.50\n0.5128\n\n\n0.65\n0.5128\n\n\n0.80\n0.5128\n\n\n0.95\n0.5128\n\n\n\n\n\nAz eredmény: minden β értéknél azonos R² = 0.5128. Ez nem hibát jelez, hanem egy adatkorlátot: négy szezonban a páronkénti N→N+1 struktúra miatt a súlyozási séma nem különböztethető meg statisztikailag. A modell a következő wDRE-számítást alkalmazza:\n\\[\n\\text{wDRE} = \\frac{\\text{eff\\_min}}{\\text{eff\\_min} + k_{\\text{DRE}}} \\cdot \\frac{\\sum_t \\text{DRE}^{\\text{shr}}_t \\cdot \\text{Min}_t \\cdot \\beta^{\\Delta t}}{\\sum_t \\text{Min}_t \\cdot \\beta^{\\Delta t}}\n\\qquad \\beta = 0.5,\\quad k_{\\text{DRE}} = 400\\ \\text{perc}\n\\]\nA \\(k_{\\text{DRE}}\\) paraméter egy második körös, DRE-szintű Bayesian shrinkage-et valósít meg. Motiváció: a stat-szintű shrinkage csökkenti az egyedi komponensek mintavételi zajját, de a DRE-formula maga NBA-adatokon kalibrált — az NB1-re vonatkozó maradék bizonytalanságot a DRE-szintű prior (0 = ligaátlag) felé húzás kezeli.\nEmpirikus alap: ICC(DRE_raw) = 0.514 az NB1 adatokon → k_raw = 570 perc. Mivel a stat-szintű shrinkage már elvégzi az első körös zajcsökkentést, konzervatív \\(k_{\\text{DRE}} = 400\\) percet alkalmazunk.\nHatás eff. percek szerint:\n\n\n\nEff. perc\nSzorzó (\\(\\frac{\\text{eff\\_min}}{\\text{eff\\_min}+400}\\))\n\n\n\n\n128 (Gál Csongor)\n0.24× — szinte teljesen 0-ra húzva\n\n\n400\n0.50×\n\n\n540 (Flasár Zalán)\n0.57×\n\n\n800\n0.67×\n\n\n1400\n0.78×\n\n\n\nMinimális megjelenítési küszöb: 200 eff. perc (kb. fél szezon starters percek).\nA \\(\\beta = 0.5\\)/szezon értéket elméleti alapon tartjuk meg (DARKO-hoz hasonló elvek, recency-bias). Pontosabb kalibráláshoz legalább 6–8 szezon szükséges.\nAlkalmazott súlyok (β=0.5):\n\n\n\nSzezon\nSúly\n\n\n\n\n2025–26\n1.000\n\n\n2024–25\n0.500\n\n\n2023–24\n0.250\n\n\n2022–23\n0.125"
   },
   {
-    "objectID": "pace_efficiency.html#tempó-és-siker",
-    "href": "pace_efficiency.html#tempó-és-siker",
-    "title": "Játékritmus & Hatékonyság",
-    "section": "Tempó és siker",
-    "text": "Tempó és siker\nÖsszekapcsolódik-e a játékritmus és a hatékonyság? Gyorsabban játszani egyben hatékonyabbat is jelent?\n\n\n\n\n\n\nA korreláció r = 0.148 — gyakorlatilag nulla. A tempó nem jósolja meg a csapat sikerét az NB1-ben. Ez egybeesik az NBA tanulságával: gyorsan és lassan is lehet jól vagy rosszul játszani. A tempó stílusbeli döntés, nem hatékonysági eszköz."
+    "objectID": "wdre_metodologia.html#életkori-kiigazítás-aging-curve",
+    "href": "wdre_metodologia.html#életkori-kiigazítás-aging-curve",
+    "title": "wDRE* — Módszertani dokumentáció",
+    "section": "4. Életkori kiigazítás (Aging Curve)",
+    "text": "4. Életkori kiigazítás (Aging Curve)\n\n4.1 Módszer\nAz NB1 2022–2026 adataiból, 200+ perces, egymást követő szezonokban szereplő játékosok esetén mértük a DRE évközi változását (ΔDRE/szezon) életkori csoportonként:\n\n\n\nEmpirikus aging curve — NB1 2022–2026\n\n\nKorcsoport\nn (páros)\nΔDRE/szezon\nSD\n\n\n\n\n18–21\n46\n0.925\n2.460\n\n\n22–24\n46\n0.330\n3.035\n\n\n25–27\n43\n0.275\n3.029\n\n\n28–30\n39\n-0.389\n3.070\n\n\n31–33\n17\n-0.552\n3.152\n\n\n34+\n21\n-0.331\n2.036\n\n\n\n\n\n\n\n4.2 Értelmezés és korlátok\n\nA csúcs körülbelül 25–27 éves kor körül van, ami közel esik az NBA 26.5 éves csúcsához\nA 18–21 éveseknél a legélesebb az emelkedés (+0.925), de a mintaszám és a szelekcióbias jelentős: csak azok a fiatalok szerepelnek, akik 200+ percet kaptak, tehát már eleve tehetségesebben\nA 34+ csoport kisebb mértékű hanyatlást mutat (–0.331 vs. –0.552 a 31–33-asoknál), ami szintén szelekciós hatás: az idős játékosok, akik még pályán vannak, kivételesen tartósak\n\n\n\n4.3 Alkalmazás a modellben\nAz életkori kiigazítás a játékos várható következő éves fejlődését/hanyatlását adja hozzá a wDRE-hez, ±1.5/2.0 DRE pontos korláttal:\n\\[\n\\text{wDRE}^* = \\text{wDRE} + \\delta_{\\text{kor}}\n\\]"
   },
   {
-    "objectID": "pace_efficiency.html#egyéni-hatékonyság",
-    "href": "pace_efficiency.html#egyéni-hatékonyság",
-    "title": "Játékritmus & Hatékonyság",
-    "section": "Egyéni hatékonyság",
-    "text": "Egyéni hatékonyság\nA csapatszintű minták mögött egyéni játékosok állnak. Az alábbi ábrák az NB1 játékosait páros hatékonysági mutatókon helyezik el — U23-as hazai fiatalok kiemelve.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMódszertan\n\n\n\n\n\nAdatok: Magyar NB1, 2022–2025, alapszakasz. Összesen 1092 mérkőzés-bejegyzés, 42 csapat-szezon aggregátum.\nTempó (Pace): Labdabirtok száma 40 percenként. A labdabirtok (possession) becsült értéke meccsstatisztikákból: FGA − ORB + TOV + 0.44×FTA.\nORtg / DRtg: 100 labdabirtokra vetített szerzett / kapott pontok meccsenként, majd szezonátlag.\nNet Rating: ORtg − DRtg. Pozitív = a csapat nettó labdabirtok-előnnyel rendelkezik.\nEgyéni mutatók: PTS/100 = pontok per 100 csapat-labdabirtok. TRB% = megszerzett pattanások aránya a lehetséges pattanásokból (mindkét vége). BLK% = blokkolt dobások aránya az ellenfél kísérleteiből. STL% = szerzett labdák aránya az ellenfél labdabirtokai közül. Küszöb: min. 400 perc.\nU23: Hazai játékos, akinek születési éve ≥ szezon kezdő éve − 22.\nNBA referencia: Basketball Reference ligaátlagok, 2022–25 szezonok."
+    "objectID": "wdre_metodologia.html#a-teljes-wdre-pipeline",
+    "href": "wdre_metodologia.html#a-teljes-wdre-pipeline",
+    "title": "wDRE* — Módszertani dokumentáció",
+    "section": "5. A teljes wDRE* pipeline",
+    "text": "5. A teljes wDRE* pipeline\nSzezonos box-score adatok\n        │\n        ▼\nSTL/100 korrekció  →  DRE_raw (per szezon)\n        │\n        ▼\nBayesian shrinkage (stat-specifikus k, ligaátlag felé)\n        │\n        ▼\nDRE_shrunk (per szezon)\n        │\n        ▼\nDecay-súlyozott átlag (β=0.5, perc-súlyozással)\n        │\n        ▼\nwDRE (karrierszintű, regresszált, recency-súlyozott)\n        │\n        ▼\nÉletkori kiigazítás (empirikus ΔDRE/szn, kor szerint)\n        │\n        ▼\nwDRE* (végső, forward-looking metrika)\nReferencia-tartomány (NB1, 300+ eff. perc):\n\n\n\nwDRE*\nÉrtelmezés\n\n\n\n\n&gt; +4\nLigaelite\n\n\n+2 – +4\nErős starter\n\n\n0 – +2\nÁtlag starter\n\n\n−2 – 0\nRotációs játékos\n\n\n&lt; −2\nFejlesztési fázis"
+  },
+  {
+    "objectID": "wdre_metodologia.html#korlátok-és-jövőbeli-fejlesztések",
+    "href": "wdre_metodologia.html#korlátok-és-jövőbeli-fejlesztések",
+    "title": "wDRE* — Módszertani dokumentáció",
+    "section": "6. Korlátok és jövőbeli fejlesztések",
+    "text": "6. Korlátok és jövőbeli fejlesztések\n\nJelenlegi korlátok\nAdatkorlát — decay β: 4 szezon nem elegendő a β empirikus kalibrálásához. A cross-validáció minden β értéknél azonos R²-t ad. Megoldás: 6+ szezon adatával újrakalibrálni.\nDRE-formula NBA-ból: Az együtthatók (0.792, 1.680 stb.) NBA-szintű RAPM-regresszión alapulnak. Az NB1-re specifikus együtthatók becsléséhez RAPM vagy on-off adatokra lenne szükség mérkőzés szinten, egyéni játékosra lebontva — ez jelenleg nem áll rendelkezésre.\nSzelekciós bias az aging curve-ben: A 200+ perces szűrő a pályán lévő játékosokat emeli be, ami az extreme végeken (nagyon fiatalok, nagyon idősek) torzítja a görbe meredekségét.\nOn-off adatok: A jelenlegi on_off_stats tábla szezonszintű összesítéseket tartalmaz, nem mérkőzésenkénti on-off adatokat. Utóbbiak lehetővé tennék a DRE-együtthatók NB1-specifikus újrabecslését.\n\n\nTervezett fejlesztések\n\nβ kalibrálás — több szezon hozzáadásával automatikusan optimalizálható\nPozíció-specifikus shrinkage — centereknél más stabilitási profil, mint irányítóknál\nCsapatkontextus-korrekció — egy jó csapatban játszó play-maker magasabb AST%-ot mutat, mint egy rosszabb csapatban\n\n\nUtolsó frissítés: 2025–26-os alapszakasz végi adatok alapján. Forrás: NB1 box-score adatbázis (bball_10_tables.db)."
+  },
+  {
+    "objectID": "advanced_metrics.html",
+    "href": "advanced_metrics.html",
+    "title": "Advanced Metrics",
+    "section": "",
+    "text": "wDRE* percentilis:\n0%\n\n100%\n\n\nMódszertan ▾\n\nDRE\n (Daily RAPM Estimate, Myers 2017): box-score alapú RAPM-becslés.\n\nwDRE\n: szezonok exponenciális decay-súlyozással (2025-26=1.0 → 2022-23=0.125),\n     Bayesian regresszióval (stat-specifikus k-értékekkel, ligaátlag felé).\n\nKor adj.\n: csúcskor (26.5 év) előtt pozitív, utána negatív korrekció\n     (+0.06/év alatta, −0.05/év felette, ±1.5/2.0 DRE pontban limitálva).\n\nwDRE*\n = wDRE + kor adj. — ez a fő rendező metrika.\n\nTrend\n: legutóbbi szezon shrunk DRE mínusz korábbi szezons súlyozott átlaga.\n     ▲ ≥1.5 | ▼ ≤−1.5 | ► egyéb.\n\n\n\n\n\nCsapat\n\n\n\n\n\n\n\n\nPoszt\n\n\n\n\n\n\n\n\nMin. eff. perc\n\n\n\n\n\n\nSzezons\n\n\n\n\n\n\n\n\nReferencia: 300+ eff. perc. Minimum megjelenítési határ: 100 eff. perc.\n A Bayesian regresszió k-értékei stat-specifikusak (stl/blk: k=850-950, pts: k=600, többi: k=350-550)."
   },
   {
     "objectID": "analytics.html",
@@ -299,12 +369,5 @@
     "title": "Analytics",
     "section": "",
     "text": "Percentilis:\n0%\n\n100%\nHover a cellán a pontos értékhez\n\n\n\n\nSzezon\n\n\n\n\n\n\n\n\nCsapat\n\n\n\n\n\n\n\n\nPoszt\n\n\n\n\n\n\n\n\nStátusz\n\n\n\n\n\n\n\n\nMinimum percek\n\n\n\n\n\n\nÉletkor\n\n\n\n\n\n\n\n\nPercentilisek referenciája: az adott szezon 200+ perces játékosai. Az értékek minden játékosnál láthatók.\n TOV%: alacsonyabb = jobb, a háttérszín ennek megfelelően fordított.\n BPM (Box Plus/Minus): pontokban mért hatás 100 birtok alatt, 0 = ligaatlag, +5 = All-Star szint.\n DRE (Daily RAPM Estimate): RAPM-regresszión alapuló box-score becséslés (Myers 2017)."
-  },
-  {
-    "objectID": "futball/analytics.html",
-    "href": "futball/analytics.html",
-    "title": "Analytics – Labdarúgás",
-    "section": "",
-    "text": "Percentilis:\n0%\n\n100%\nHover a cellán a pontos értékhez\n\n\n\n\nSzezon\n\n\n\n\n\n\n\n\nPozíció\n\n\n\n\n\n\n\n\n\nPercentilis: pozíción és szezonon belüli rangsor alapján (Twelve). — = nincs adat az adott pozícióra."
   }
 ]

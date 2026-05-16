@@ -1,5 +1,7 @@
 ---
-title: "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2025)"
+title: "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)"
+date: 2026-04-01
+description: "Mit hajt igazán a győzelmet a magyar bajnokságban? A four factors modell négy szezon adatán."
 format:
   html:
     toc: true
@@ -25,28 +27,35 @@ library(DT)
 library(plotly)
 
 con <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
-
-off_stats <- dbGetQuery(con, "SELECT CAST(Season AS INTEGER) as Season, Csapat,
-                               `Gy%`     as Win_Pct,
-                               `EFG%`    as Off_eFG,
-                               `TOV%`    as Off_TOV,
-                               `ORB%`    as Off_ORB,
-                               `DRB%`    as Def_DRB,
-                               `FT rate` as Off_FTR
-                               FROM team_stats")
-
-def_stats <- dbGetQuery(con, "SELECT CAST(Season AS INTEGER) as Season, Csapat,
-                               `EFG%`         as Def_eFG,
-                               `TOV%`         as Def_TOV,
-                               `FT att. rate` as Def_FTR
-                               FROM opponent_stats")
-
+games_raw <- dbGetQuery(con, "SELECT * FROM detailed_match_stats WHERE Szakasz = 'alapszakasz'")
 dbDisconnect(con)
 
-ff_data <- off_stats %>%
-  inner_join(def_stats, by = c("Season", "Csapat")) %>%
+ff_data <- games_raw %>%
   mutate(
-    Szezon  = paste0("20", substr(as.character(Season), 1, 2), "-", substr(as.character(Season), 3, 4)),
+    Gy      = ifelse(Kimen. == "Gy", 1, 0),
+    Off_eFG = as.numeric(`EFG%`),
+    Def_eFG = as.numeric(`Opp. EFG%`),
+    Off_TOV = as.numeric(`TOV%`),
+    Def_TOV = as.numeric(`Opp. TOV%`),
+    Off_ORB = as.numeric(`ORB%`),
+    Def_DRB = as.numeric(`DRB%`),
+    Off_FTR = as.numeric(`FT made rate`),
+    Def_FTR = as.numeric(`Opp. FT made rate`)
+  ) %>%
+  group_by(Szezon, Csapat) %>%
+  summarise(
+    Win_Pct = mean(Gy) * 100,
+    Off_eFG = mean(Off_eFG, na.rm = TRUE),
+    Def_eFG = mean(Def_eFG, na.rm = TRUE),
+    Off_TOV = mean(Off_TOV, na.rm = TRUE),
+    Def_TOV = mean(Def_TOV, na.rm = TRUE),
+    Off_ORB = mean(Off_ORB, na.rm = TRUE),
+    Def_DRB = mean(Def_DRB, na.rm = TRUE),
+    Off_FTR = mean(Off_FTR, na.rm = TRUE),
+    Def_FTR = mean(Def_FTR, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(
     Net_eFG = Off_eFG - Def_eFG,
     Net_TOV = Def_TOV - Off_TOV,
     Net_FTR = Off_FTR - Def_FTR
@@ -118,7 +127,7 @@ plot_ly(cor_data,
         hovertemplate = "<b>%{y}</b><br>Korreláció: %{x:.3f}<extra></extra>") %>%
   layout(
     title = list(
-      text = "A Nyolc Faktor Korrelációja a Győzelmi %-kal<br><sup>Magyar kosárlabda bajnokság, 2022–2025 (n=42)</sup>",
+      text = paste0("A Nyolc Faktor Korrelációja a Győzelmi %-kal<br><sup>Magyar kosárlabda bajnokság, 2022–2026 (n=", nrow(ff_data), ")</sup>"),
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -221,7 +230,7 @@ plot_ly(sulyek,
         hovertemplate = "<b>%{x}</b><br>%{data.name}: %{y}%<extra></extra>") %>%
   layout(
     title = list(
-      text = "A Four Factors súlyai — Magyar bajnokság vs. NBA<br><sup>Standardizált regressziós együtthatók alapján</sup>",
+      text = paste0("A Four Factors súlyai — Magyar bajnokság vs. NBA<br><sup>Standardizált regressziós együtthatók alapján, 2022–2026 (n=", nrow(ff_data), ")</sup>"),
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -272,14 +281,14 @@ A modell R² = 0,90 — a négy faktor együttesen a győzelmi arány 90%-át ma
 
 ## 3. Meccsszintű előrejelzés
 
-Az eddigi elemzés szezonaggregátumokra épült (n=42). A `detailed_match_stats` tábla 1512 egyéni mérkőzést tartalmaz — ez lehetővé teszi, hogy logisztikus regresszióval megbecsüljük: a négy nettó faktor alapján melyik csapat nyerte a meccset?
+Az eddigi elemzés szezonaggregátumokra épült. A `detailed_match_stats` tábla négy szezon egyéni mérkőzéseit tartalmaz — ez lehetővé teszi, hogy logisztikus regresszióval megbecsüljük: a négy nettó faktor alapján melyik csapat nyerte a meccset?
 ```{r}
 #| fig-height: 5
 
 library(DBI); library(RSQLite)
 
 con2  <- dbConnect(RSQLite::SQLite(), "bball_10_tables.db")
-games <- dbGetQuery(con2, "SELECT * FROM detailed_match_stats")
+games <- dbGetQuery(con2, "SELECT * FROM detailed_match_stats WHERE Szakasz = 'alapszakasz'")
 dbDisconnect(con2)
 
 games <- games %>%
@@ -309,7 +318,7 @@ sulyek3 <- data.frame(
   Forrás = rep(c("Magyar (meccs)", "Magyar (szezon)", "NBA — Oliver"), each = 4),
   Súly   = c(
     unname(game_pct[c("Net_eFG","Net_TOV","Net_REB","Net_FTR")]),
-    c(44, 28, 23, 5),
+    unname(hun_pct[faktorok_order]),
     c(40, 25, 20, 15)
   )
 )
@@ -329,7 +338,7 @@ plot_ly(sulyek3,
         hovertemplate = "<b>%{x}</b><br>%{data.name}: %{y}%<extra></extra>") %>%
   layout(
     title = list(
-      text = "A Four Factors súlyai — három nézőpontból<br><sup>Szezon-regresszió (n=42) · Meccs-logisztika (n=1512) · NBA Oliver-súlyok</sup>",
+      text = paste0("A Four Factors súlyai — három nézőpontból<br><sup>Szezon-regresszió (n=", nrow(ff_data), ") · Meccs-logisztika (n=", nrow(games_s), ") · NBA Oliver-súlyok</sup>"),
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -426,7 +435,7 @@ ff_exp$Diff_lab  <- ifelse(ff_exp$Diff > 0,
                            paste0("+", ff_exp$Diff),
                            as.character(ff_exp$Diff))
 
-szinek_sz <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
+szinek_sz <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A", "2025-26" = "#2A8A4A")
 
 ax_max <- max(c(ff_exp$Vart_Gy, ff_exp$Tenyleges)) + 2
 ax_min <- min(c(ff_exp$Vart_Gy, ff_exp$Tenyleges)) - 2
@@ -468,7 +477,7 @@ for (sz in names(szinek_sz)) {
 
 p %>% layout(
   title = list(
-    text = "Várható vs. tényleges győzelmek<br><sup>Magyar bajnokság, 2022–2025 — az átló felett: túlteljesítés, alatt: alulteljesítés</sup>",
+    text = "Várható vs. tényleges győzelmek<br><sup>Magyar bajnokság, 2022–2026 — az átló felett: túlteljesítés, alatt: alulteljesítés</sup>",
     font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
     x = 0, xref = "paper"
   ),
@@ -511,7 +520,7 @@ A legnagyobb eltérések: **Szolnok** két egymást követő szezonban is túlte
 
 ## 5. Ligaszintű trendek
 
-Hogyan változott a magyar bajnokság összességében három szezon alatt? Az alapszakasz meccseinek átlagai szezonként.
+Hogyan változott a magyar bajnokság összességében négy szezon alatt? Az alapszakasz meccseinek átlagai szezonként.
 ```{r}
 #| fig-height: 6
 
@@ -540,11 +549,11 @@ trends <- games_tr %>%
 
 # NBA ligaátlagok (Basketball Reference, per-40 min pace)
 nba <- data.frame(
-  Szezon     = c("2022-23", "2023-24", "2024-25"),
-  eFG        = c(54.5, 54.7, 54.3),
-  TOV        = c(12.5, 12.1, 12.7),
-  Harom_rate = c(38.7, 39.5, 42.2),
-  Pace       = c(82.7, 82.1, 82.3)
+  Szezon     = c("2022-23", "2023-24", "2024-25", "2025-26"),
+  eFG        = c(54.5, 54.7, 54.3, 54.6),
+  TOV        = c(12.5, 12.1, 12.7, 12.7),
+  Harom_rate = c(38.7, 39.5, 42.2, 41.5),
+  Pace       = c(82.7, 82.1, 82.3, round(99.4 * 40/48, 1))
 )
 
 szezons    <- trends$Szezon
@@ -604,7 +613,7 @@ subplot(p1, p2, p3, p4,
         margin   = 0.08) %>%
   layout(
     title = list(
-      text = "Magyar NB1 vs. NBA — ligaátlagok, 2022–2025<br><sup>Alapszakasz · Tempó per 40 perc (azonos skála)</sup>",
+      text = "Magyar NB1 vs. NBA — ligaátlagok, 2022–2026<br><sup>Alapszakasz · Tempó per 40 perc (azonos skála)</sup>",
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x = 0, xref = "paper"
     ),
@@ -643,7 +652,7 @@ faktorok <- list(
   list(label = "Védő büntetőarány (Def FTR)",      col = "Def_FTR")
 )
 
-szinek  <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
+szinek  <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A", "2025-26" = "#2A8A4A")
 szezons <- names(szinek)
 
 p <- plot_ly()
@@ -700,7 +709,7 @@ buttons <- lapply(faktorok, function(f) {
 p %>% layout(
   annotations = list(
     list(
-      text      = "Csapat-összehasonlítás — Magyar bajnokság, 2022–2025",
+      text      = "Csapat-összehasonlítás — Magyar bajnokság, 2022–2026",
       x         = 0.5,
       y         = 1.0,
       xref      = "paper",
@@ -776,7 +785,7 @@ Válassz csapatot a dropdown-ból: az összes faktorát látod szezononként egy
 ```{r}
 #| fig-height: 6
 
-szinek_s <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
+szinek_s <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A", "2025-26" = "#2A8A4A")
 szezons_s <- names(szinek_s)
 
 faktor_labels <- c(
@@ -849,7 +858,7 @@ buttons <- lapply(seq_along(teams), function(ti) {
            showlegend = as.list(showlegend_vec)),
       list(title = list(
         text  = paste0("Csapatprofil: <b>", team,
-                       "</b><br><sup>Magyar bajnokság, 2022–2025</sup>"),
+                       "</b><br><sup>Magyar bajnokság, 2022–2026</sup>"),
         font  = list(size = 17, color = "#2E2B26", family = "Montserrat"),
         x     = 0,
         xref  = "paper"
@@ -862,7 +871,7 @@ buttons <- lapply(seq_along(teams), function(ti) {
 p %>% layout(
   title = list(
     text = paste0("Csapatprofil: <b>", first_team,
-                  "</b><br><sup>Magyar bajnokság, 2022–2025</sup>"),
+                  "</b><br><sup>Magyar bajnokság, 2022–2026</sup>"),
     font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
     x    = 0,
     xref = "paper"
@@ -917,7 +926,7 @@ p %>% layout(
 ```
 
 <br>
-Ha egy csapat csak egy vagy két szezonban szerepel (kiesés / feljutás), a hiányzó szezon üres marad. A sávok színe a szezont jelöli (korall = 2022-23, kék = 2023-24, arany = 2024-25) — így a szomszédos sávok magassága közvetlenül mutatja az egyes faktorokban bekövetkezett fejlődést vagy hanyatlást.
+Ha egy csapat csak egy vagy két szezonban szerepel (kiesés / feljutás), a hiányzó szezon üres marad. A sávok színe a szezont jelöli (korall = 2022-23, kék = 2023-24, arany = 2024-25, zöld = 2025-26) — így a szomszédos sávok magassága közvetlenül mutatja az egyes faktorokban bekövetkezett fejlődést vagy hanyatlást.
 
 ---
 

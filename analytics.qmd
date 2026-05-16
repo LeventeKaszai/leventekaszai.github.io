@@ -102,19 +102,25 @@ raw <- dbGetQuery(con, '
     adv.[Net Rtg]                    AS net_rtg,
     COALESCE(i.Poszt,   i2.Poszt2)   AS Poszt,
     COALESCE(i.Státusz, i2.Státusz2) AS Státusz,
-    CAST(COALESCE(i."Szül. év.", i2.szul_ev2) AS INTEGER) AS szul_ev
+    CAST(COALESCE(i."Szül. év.", i2.szul_ev2) AS INTEGER) AS szul_ev,
+    COALESCE(i."Mag.", i2.mag2)      AS mag,
+    COALESCE(i."Tom.", i2.tom2)      AS tom
   FROM player_scoring_stats s
   JOIN player_ast_reb_stats  a   USING(Játékos, Szezon, Csapat)
   JOIN player_advanced_stats adv USING(Játékos, Szezon, Csapat)
   LEFT JOIN (
     SELECT Játékos, Csapat, Poszt, Státusz,
-           MAX("Szül. év.") AS "Szül. év."
+           MAX("Szül. év.") AS "Szül. év.",
+           MAX("Mag.")      AS "Mag.",
+           MAX("Töm.")      AS "Tom."
     FROM player_info
     GROUP BY Játékos, Csapat
   ) i ON s.Játékos = i.Játékos AND s.Csapat = i.Csapat
   LEFT JOIN (
     SELECT Játékos, Poszt AS Poszt2, Státusz AS Státusz2,
-           MAX("Szül. év.") AS szul_ev2
+           MAX("Szül. év.") AS szul_ev2,
+           MAX("Mag.")      AS mag2,
+           MAX("Töm.")      AS tom2
     FROM player_info
     GROUP BY Játékos
   ) i2 ON s.Játékos = i2.Játékos
@@ -221,6 +227,15 @@ stats <- raw %>%
   ) %>%
   ungroup()
 
+# --- Pozícionális percentilis: magasság és tömeg ---
+stats <- stats %>%
+  group_by(Szezon, Poszt) %>%
+  mutate(
+    p_mag = pct_rank_ref(mag, mag[Perc >= 200]),
+    p_tom = pct_rank_ref(tom, tom[Perc >= 200])
+  ) %>%
+  ungroup()
+
 # --- Segédfüggvények ---
 make_link <- function(nev) {
   url <- profile_map[[nev]]
@@ -259,8 +274,10 @@ display <- stats %>%
     Csapat,
     Poszt     = ifelse(is.na(Poszt)   | Poszt   == "", "\u2014", Poszt),
     Státusz   = ifelse(is.na(Státusz) | Státusz == "", "\u2014", Státusz),
-    Életkor   = ifelse(!is.na(szul_ev), as.integer(substr(Szezon, 1, 4)) - szul_ev, NA_integer_),
+    Életkor   = ifelse(!is.na(szul_ev), as.integer(substr(Szezon, 1, 4)) + 1L - szul_ev, NA_integer_),
     Perc,
+    `Mag`     = stat_cell(ifelse(!is.na(mag), paste0(as.integer(mag), " cm"), "\u2014"), p_mag),
+    `Tom`     = stat_cell(ifelse(!is.na(tom), paste0(as.integer(tom), " kg"), "\u2014"), p_tom),
     # Általános
     `MPG`     = stat_cell(as.character(round(min_pg,  1)), p_mpg),
     `PPG`     = stat_cell(as.character(round(pts_pg,  1)), p_ppg),
@@ -300,6 +317,7 @@ display <- stats %>%
     `DBPM`    = stat_cell(as.character(DBPM),              p_dbpm),
     `BPM`     = stat_cell(as.character(BPM),               p_bpm),
     `DRE`     = stat_cell(as.character(DRE),               p_dre),
+    p_mag, p_tom,
     p_mpg, p_ppg, p_rpg, p_net,
     p_clr, p_midr, p_3par, p_ftr,
     p_close_pct, p_mid_pct, p_3p, p_ft_pct,
@@ -318,6 +336,8 @@ bg_colors <- c(
 breaks <- seq(0.1, 0.9, by = 0.1)
 
 stat_pct <- list(
+  "Mag"     = "p_mag",
+  "Tom"     = "p_tom",
   "MPG"     = "p_mpg",
   "PPG"     = "p_ppg",
   "RPG"     = "p_rpg",
@@ -407,6 +427,8 @@ cat_sketch <- htmltools::withTags(table(
       th(rowspan = 2, "St\u00e1tusz"),
       th(rowspan = 2, "\u00c9letkor"),
       th(rowspan = 2, "Perc"),
+      th(rowspan = 2, "Mag"),
+      th(rowspan = 2, "Tom"),
       th(colspan = 5, style = "text-align:center;background:#F1F5F9;color:#475569;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #CBD5E1;", "\u00c1LTAl\u00c1NOS"),
       th(colspan = 8, style = "text-align:center;background:#EFF6FF;color:#1D4ED8;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #BFDBFE;", "SHOOTING"),
       th(colspan = 2, style = "text-align:center;background:#DBEAFE;color:#1E40AF;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #93C5FD;", "EFFICIENCY"),
@@ -416,6 +438,8 @@ cat_sketch <- htmltools::withTags(table(
       th(rowspan = 2, "USG%"),
       th(colspan = 4, style = "text-align:center;background:#FFFBEB;color:#B45309;font-size:11px;letter-spacing:.04em;border-bottom:2px solid #FCD34D;", "IMPACT"),
       # rejtett percentilis oszlopok
+      th(rowspan = 2, style = "display:none;", "p_mag"),
+      th(rowspan = 2, style = "display:none;", "p_tom"),
       th(rowspan = 2, style = "display:none;", "p_mpg"),
       th(rowspan = 2, style = "display:none;", "p_ppg"),
       th(rowspan = 2, style = "display:none;", "p_rpg"),
@@ -472,8 +496,8 @@ dt_base <- DT::datatable(
     scrollX    = TRUE,
     language   = list(search = "Keres\u00e9s:"),
     columnDefs = list(
-      list(visible    = FALSE,       targets = 37:65),
-      list(className = "dt-center",  targets = 5:36),
+      list(visible    = FALSE,       targets = 39:69),
+      list(className = "dt-center",  targets = 5:38),
       list(className = "dt-left",    targets = 0:4)
     )
   )

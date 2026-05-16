@@ -1,26 +1,21 @@
 ---
 title: "Levente Kaszai"
-subtitle: "Hungarian Basketball Analytics"
+subtitle: "Hungarian Sports Analytics"
 page-layout: full
 toc: false
 ---
 
-## About
+## Rólam
 
-I analyze Hungarian basketball through the lens of modern analytics.
-My work focuses on uncovering what actually drives winning in the
-Hungarian league — and where it diverges from NBA trends.
+Kaszai Levente vagyok, sportközgazdász és adatelemző.
 
-## Work
+Ez az oldal egy nyitott szakmai napló, ahol a sport elemzésén keresztül a döntések és teljesítmények mögötti mintázatokat keresem. A célom, hogy átlátható módon mutassam be a gondolkodási folyamatomat: milyen kérdések mentén érdemes elindulni, milyen módszerekkel lehet dolgozni, és milyen következtetések vonhatók le.
 
-- [Four Factors Analysis (2022-2025)](four_factors_1.qmd) —
-  What drives winning in Hungarian basketball?
+A fókusz jelenleg a magyar labdarúgáson és kosárlabdán van, a makroszintű trendektől egészen az egyéni játékosok teljesítményének elemzéséig.
 
-- [Scoring Efficiency (2022-2025)](scoring_efficiency.qmd) —
-  eFG%, TS%, and the volume-efficiency tradeoff in Hungarian basketball.
+Az oldal egy folyamatosan épülő portfólió, amely idővel új témákkal és megközelítésekkel bővül.
 
-- [Játékritmus & Hatékonyság (2022-2025)](pace_efficiency.qmd) —
-  Miért nem elég a pontozás? A per-100 szállítás logikája és a tempó szerepe.
+*I'm a sports economist and data analyst. This is an open professional log where I explore sport through data — from macro-level trends to individual player analysis, focusing on Hungarian football and basketball.*
 
 ## Contact
 

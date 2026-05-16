@@ -1,0 +1,1433 @@
+{
+    "plot_type": "distribution",
+    "title": "Effectiveness of Adin Molnár",
+    "subtitle": "Hungarian NB I 2025/2026 | 1978 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Jasmin Mešanović",
+            "János Ferenczi",
+            "Soma Novothny",
+            "Claudiu Bumba",
+            "Matija Ljujić",
+            "Nemanja Antonov",
+            "Gábor Molnár",
+            "Elton-Ofoi Acolatse",
+            "Ante Roguljić",
+            "Zsolt Nagy",
+            "Callum O'Dowda",
+            "Giorgi Beridze",
+            "Máté Sajbán",
+            "Róbert Polievka",
+            "Mikael Soisalo",
+            "Bence Bíró",
+            "Tonislav Yordanov",
+            "Dániel Lukács",
+            "Gleofilo Vlijter",
+            "Zsombor Bévárdi",
+            "Bence Kiss",
+            "Bogdan Melnyk",
+            "Aljoša Matko",
+            "Márk Kovácsréti",
+            "Bálint Kártik",
+            "Palko Dárdai",
+            "Alen Skribek",
+            "Szabolcs Schön",
+            "Álex Bermejo",
+            "Jonathan Levi",
+            "Barnabás Nagy",
+            "Branimir Cipetić",
+            "Soma Szuhodovszki",
+            "Krisztofer Horváth",
+            "Martin Šlogar",
+            "György Komáromi",
+            "Rajmund Molnár",
+            "Ronald Schuszter",
+            "Zalán Kerezsi",
+            "Dominik Kocsis",
+            "Marko Matanović",
+            "Gábor Jurek",
+            "Mátyás Katona",
+            "João Victor",
+            "Meshack Ubochioma",
+            "Bálint Katona",
+            "Márk Mucsányi",
+            "Hunor Németh",
+            "Csanad Denes",
+            "Djordje Gordić",
+            "Ábel Krajcsovics",
+            "Balázs Bakti",
+            "Marcell Major",
+            "Adin Molnár",
+            "Martin Kern",
+            "Alegria",
+            "Kevin Mondovics",
+            "Botond Vajda",
+            "Milán Pető",
+            "Bence Babós",
+            "Istvan Atrok",
+            "Balázs Manner",
+            "Flórián Cibla",
+            "Kevin Banati",
+            "Kevin Horváth",
+            "Bence Vekony",
+            "Nfansu Njie"
+        ],
+        "target_identifiers": [
+            72691,
+            74982,
+            76218,
+            84036,
+            128206,
+            140066,
+            145212,
+            149221,
+            238160,
+            238711,
+            249034,
+            258379,
+            266739,
+            333635,
+            351313,
+            352229,
+            372091,
+            375251,
+            379877,
+            400719,
+            404804,
+            420958,
+            422527,
+            432732,
+            444899,
+            448246,
+            475816,
+            476385,
+            483388,
+            483796,
+            492158,
+            517869,
+            553144,
+            561550,
+            567961,
+            586798,
+            586811,
+            586951,
+            620094,
+            631593,
+            631851,
+            641513,
+            653443,
+            661881,
+            673720,
+            694818,
+            696314,
+            703498,
+            706432,
+            747471,
+            759569,
+            759632,
+            759646,
+            769345,
+            790584,
+            801548,
+            810317,
+            830435,
+            831685,
+            836144,
+            850295,
+            850300,
+            869638,
+            872405,
+            894503,
+            925706,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Carries (xT) per 100 receptions",
+                "description": "Accumulated expected threat from carries compared to the number of shots and multiplied by 100.",
+                "display_name": "Carries (xT) per 100 receptions"
+            },
+            {
+                "name": "High turnovers per low reception",
+                "description": "Number of possessions lost (failed passes, bad ball touches or lost attacking duels) compared to total number of ball receptions in own 40% of the pitch.",
+                "display_name": "High turnovers per low reception"
+            },
+            {
+                "name": "Passes (xT) per 100 receptions",
+                "description": "Accumulated expected threat from passes compared to the number of shots and multiplied by 100.",
+                "display_name": "Passes (xT) per 100 receptions"
+            },
+            {
+                "name": "Possessions won per opponent possession",
+                "description": "Number of recovered possessions divided by total number of opponent possessions. ",
+                "display_name": "Possessions won per opponent possession"
+            },
+            {
+                "name": "xG + xA per 100 touches",
+                "description": "The sum of accumulated non-penalty xG and xA divided by the number of touches and multiplied by 100.",
+                "display_name": "xG + xA per 100 touches"
+            },
+            {
+                "name": "xG per shot",
+                "description": "Accumulated non-penalty xG compared to the number of shots.",
+                "display_name": "xG per shot"
+            },
+            {
+                "name": "xGChain per possession",
+                "description": "Accumulated non-penalty xG for possessions in which a player is involved in at least one event divided by total number of possession involvements.",
+                "display_name": "xGChain per possession"
+            }
+        ],
+        "focal_target_indices": [
+            53
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.1317952275276184,
+                0.29967090487480164,
+                -0.5252145528793335,
+                -0.3181874454021454,
+                -0.18948116898536682,
+                -0.11739862710237503,
+                -0.8308988213539124
+            ],
+            [
+                -1.467333436012268,
+                -0.16083526611328125,
+                1.609699010848999,
+                1.2958409786224365,
+                -0.30817675590515137,
+                -1.104557752609253,
+                -1.2132909297943115
+            ],
+            [
+                -1.8064751625061035,
+                -0.21743929386138916,
+                -1.8356070518493652,
+                -1.3699536323547363,
+                1.0119917392730713,
+                0.7244714498519897,
+                -0.22693869471549988
+            ],
+            [
+                -0.4493860602378845,
+                0.13556329905986786,
+                0.964142918586731,
+                -0.8046241998672485,
+                0.36343929171562195,
+                -0.297558069229126,
+                1.0726085901260376
+            ],
+            [
+                -1.3601183891296387,
+                1.3234444856643677,
+                1.3965487480163574,
+                1.4021354913711548,
+                -0.5919060111045837,
+                -1.1757129430770874,
+                -0.9607679843902588
+            ],
+            [
+                -0.10575702786445618,
+                0.646466076374054,
+                0.5021131634712219,
+                1.0606238842010498,
+                0.13912823796272278,
+                -1.0190578699111938,
+                -1.7959471940994263
+            ],
+            [
+                -1.0209273099899292,
+                1.6953818798065186,
+                2.057785987854004,
+                -0.34153908491134644,
+                0.26739293336868286,
+                -0.3896290957927704,
+                -1.1838260889053345
+            ],
+            [
+                3.139444589614868,
+                -0.09136687219142914,
+                -0.00793179776519537,
+                -1.246063470840454,
+                1.690838098526001,
+                0.2731616199016571,
+                1.8261840343475342
+            ],
+            [
+                0.11855178326368332,
+                -0.4695838987827301,
+                1.1855627298355103,
+                0.04907839372754097,
+                1.3260143995285034,
+                0.7647810578346252,
+                0.35021254420280457
+            ],
+            [
+                -0.6487030386924744,
+                -0.7721573710441589,
+                0.11984744668006897,
+                1.0378071069717407,
+                0.24441897869110107,
+                -0.2133922427892685,
+                -0.3847888708114624
+            ],
+            [
+                -1.0293128490447998,
+                -0.6136665344238281,
+                -0.03720444068312645,
+                1.3079077005386353,
+                -0.6692742109298706,
+                0.8064104318618774,
+                -0.4029202461242676
+            ],
+            [
+                -0.442147433757782,
+                0.22049613296985626,
+                -0.5886449813842773,
+                -0.5601139664649963,
+                -0.4555579721927643,
+                -0.05536484345793724,
+                0.034097615629434586
+            ],
+            [
+                0.7901713848114014,
+                -0.21743929386138916,
+                -1.0296638011932373,
+                -1.3309937715530396,
+                1.871820330619812,
+                1.0210174322128296,
+                1.5588525533676147
+            ],
+            [
+                0.45726439356803894,
+                -1.6042345762252808,
+                -0.49331575632095337,
+                -1.6159021854400635,
+                2.0480151176452637,
+                0.27708762884140015,
+                2.6254723072052
+            ],
+            [
+                1.5413395166397095,
+                -1.437819004058838,
+                1.232895851135254,
+                -0.5525057911872864,
+                0.5992949604988098,
+                -0.4788166284561157,
+                0.49200570583343506
+            ],
+            [
+                -1.459500789642334,
+                -0.26977115869522095,
+                -1.4038870334625244,
+                0.3901006579399109,
+                -0.023582538589835167,
+                1.8899996280670166,
+                -0.0093134306371212
+            ],
+            [
+                -0.8851951956748962,
+                -2.066499948501587,
+                -0.8407934308052063,
+                -0.9849129319190979,
+                0.9626705050468445,
+                0.4548642635345459,
+                -0.2297360599040985
+            ],
+            [
+                0.9701212048530579,
+                -0.4695838987827301,
+                0.650466799736023,
+                -1.1304882764816284,
+                1.3277509212493896,
+                0.8631508350372314,
+                0.9365798234939575
+            ],
+            [
+                0.6425994038581848,
+                -0.10649552941322327,
+                -0.7172391414642334,
+                0.029328007251024246,
+                1.394728183746338,
+                0.8681690096855164,
+                1.2476640939712524
+            ],
+            [
+                0.5674261450767517,
+                1.4825034141540527,
+                1.9603110551834106,
+                2.2472712993621826,
+                -0.39333948493003845,
+                -0.5926732420921326,
+                -0.585942268371582
+            ],
+            [
+                -0.2621259391307831,
+                1.0877798795700073,
+                1.0096354484558105,
+                0.2912392318248749,
+                -1.458845615386963,
+                -0.9003387689590454,
+                -0.3723490536212921
+            ],
+            [
+                -0.6982443332672119,
+                0.9302535057067871,
+                0.2509511709213257,
+                1.0431257486343384,
+                -1.4942573308944702,
+                -0.30715158581733704,
+                -1.2304387092590332
+            ],
+            [
+                0.5709417462348938,
+                -0.36341768503189087,
+                -1.4427648782730103,
+                -1.1575756072998047,
+                2.7579493522644043,
+                1.8985588550567627,
+                1.7824733257293701
+            ],
+            [
+                0.6035420894622803,
+                0.29967090487480164,
+                0.31322893500328064,
+                -0.26252681016921997,
+                0.2829011380672455,
+                -1.0230330228805542,
+                -0.39176684617996216
+            ],
+            [
+                -0.9809598326683044,
+                1.01407790184021,
+                -0.5071164965629578,
+                -0.043765030801296234,
+                -1.3180638551712036,
+                -0.3162899911403656,
+                -1.1801440715789795
+            ],
+            [
+                0.22718285024166107,
+                -0.5922488570213318,
+                -0.43994376063346863,
+                -0.9634268879890442,
+                1.8074545860290527,
+                1.2350035905838013,
+                0.6068910956382751
+            ],
+            [
+                -1.3817487955093384,
+                0.8493263721466064,
+                0.6946089267730713,
+                -0.867733359336853,
+                0.2366122007369995,
+                -0.6644942164421082,
+                0.2331782877445221
+            ],
+            [
+                0.41949769854545593,
+                0.3582116365432739,
+                1.1451084613800049,
+                0.6469159126281738,
+                0.3932722806930542,
+                0.33527857065200806,
+                1.1415495872497559
+            ],
+            [
+                -0.6824319958686829,
+                -0.21743929386138916,
+                -0.4264600872993469,
+                -0.5934028625488281,
+                -0.4755078852176666,
+                -0.9806959629058838,
+                -1.0913176536560059
+            ],
+            [
+                -0.6111666560173035,
+                -0.004086186643689871,
+                1.4196447134017944,
+                -0.6221268177032471,
+                -0.0900147333741188,
+                -0.3875676095485687,
+                0.5050733685493469
+            ],
+            [
+                -0.7691217064857483,
+                0.9069893956184387,
+                -0.24027012288570404,
+                -0.2606918513774872,
+                -0.5398871898651123,
+                0.2703074812889099,
+                -0.061291247606277466
+            ],
+            [
+                -0.6340562701225281,
+                1.573624849319458,
+                0.25087490677833557,
+                2.7596402168273926,
+                -1.738741397857666,
+                -1.6627633571624756,
+                -1.8112865686416626
+            ],
+            [
+                -0.2548590302467346,
+                -0.9738731384277344,
+                1.6498759984970093,
+                -0.2754838168621063,
+                -0.7785505652427673,
+                -0.6156405806541443,
+                -0.2143206000328064
+            ],
+            [
+                -0.692864179611206,
+                0.4351702332496643,
+                0.325626403093338,
+                0.611088216304779,
+                -0.3736023008823395,
+                -0.8404128551483154,
+                -0.5436335802078247
+            ],
+            [
+                0.5789585709571838,
+                -0.490891695022583,
+                -1.2524415254592896,
+                -1.029781460762024,
+                -0.7149427533149719,
+                -0.6608026027679443,
+                -0.9714850783348083
+            ],
+            [
+                -0.4973267912864685,
+                2.5561513900756836,
+                0.02713893912732601,
+                -1.817043423652649,
+                -0.058371689170598984,
+                0.17989195883274078,
+                0.08012719452381134
+            ],
+            [
+                -0.06783924251794815,
+                -2.564323663711548,
+                -1.4153369665145874,
+                -0.1583656370639801,
+                1.8336584568023682,
+                1.0051010847091675,
+                1.2767611742019653
+            ],
+            [
+                -1.076254963874817,
+                0.12925969064235687,
+                0.5083655118942261,
+                0.7174395322799683,
+                -0.17633850872516632,
+                3.4356436729431152,
+                0.6438883543014526
+            ],
+            [
+                0.5063716173171997,
+                -0.12796847522258759,
+                -1.651726484298706,
+                -0.4387054443359375,
+                -0.20335565507411957,
+                1.0862398147583008,
+                0.1522221714258194
+            ],
+            [
+                2.4448843002319336,
+                1.276032567024231,
+                0.07947594672441483,
+                -1.0015572309494019,
+                -0.22058254480361938,
+                -0.6555663347244263,
+                0.18632914125919342
+            ],
+            [
+                0.08985999971628189,
+                0.8919969797134399,
+                0.16535572707653046,
+                -0.1103745847940445,
+                -0.4221303462982178,
+                -0.7372777462005615,
+                -0.2884316146373749
+            ],
+            [
+                0.3243440091609955,
+                -0.7721573710441589,
+                -0.5547761917114258,
+                0.15363039076328278,
+                -0.4961407482624054,
+                -0.603819727897644,
+                0.23651652038097382
+            ],
+            [
+                0.11363261938095093,
+                0.42262002825737,
+                0.14741018414497375,
+                1.1442972421646118,
+                -0.9127697348594666,
+                -0.7640800476074219,
+                -0.9148587584495544
+            ],
+            [
+                0.508012056350708,
+                -1.0687391757965088,
+                -0.6326487064361572,
+                -0.9922230243682861,
+                0.755531370639801,
+                1.114551067352295,
+                1.5081223249435425
+            ],
+            [
+                0.7288879156112671,
+                0.0074465409852564335,
+                -0.468879759311676,
+                0.18149960041046143,
+                -0.7090593576431274,
+                0.16765792667865753,
+                -0.4475109875202179
+            ],
+            [
+                -0.43248939514160156,
+                0.5750152468681335,
+                0.18491476774215698,
+                0.08783052116632462,
+                -1.5736559629440308,
+                -1.3782705068588257,
+                -1.2332110404968262
+            ],
+            [
+                -0.4424457252025604,
+                -1.3595060110092163,
+                -1.3522677421569824,
+                -1.0370649099349976,
+                1.6335748434066772,
+                2.6834888458251953,
+                1.2402340173721313
+            ],
+            [
+                -0.7986807823181152,
+                1.0658639669418335,
+                0.27466267347335815,
+                0.8942667245864868,
+                -0.9058800339698792,
+                -0.3634204864501953,
+                -0.31454047560691833
+            ],
+            [
+                2.073421001434326,
+                -1.7851208448410034,
+                -0.557731568813324,
+                0.34788715839385986,
+                -0.02721632830798626,
+                -0.08132455497980118,
+                0.2865080237388611
+            ],
+            [
+                0.7681156992912292,
+                0.6810479164123535,
+                1.355073094367981,
+                0.005446431692689657,
+                -0.5858700275421143,
+                -0.3049887716770172,
+                -0.6696484088897705
+            ],
+            [
+                1.6139945983886719,
+                -0.6441455483436584,
+                -1.0643471479415894,
+                -0.3426159620285034,
+                0.15995851159095764,
+                -0.04012351110577583,
+                0.8882882595062256
+            ],
+            [
+                -0.8053232431411743,
+                1.6052061319351196,
+                1.110533356666565,
+                0.7241495847702026,
+                -1.2309174537658691,
+                -1.1411608457565308,
+                0.4375774562358856
+            ],
+            [
+                -1.4210774898529053,
+                0.24482578039169312,
+                -0.9767561554908752,
+                0.09530050307512283,
+                -0.49023598432540894,
+                1.800792932510376,
+                -0.7547563910484314
+            ],
+            [
+                1.4335100650787354,
+                -0.004086186643689871,
+                -0.9814628958702087,
+                -0.3739931881427765,
+                -0.17837567627429962,
+                0.16788174211978912,
+                0.13540665805339813
+            ],
+            [
+                -0.9161549806594849,
+                -0.4307924211025238,
+                1.112299919128418,
+                1.2943428754806519,
+                -1.5712262392044067,
+                -1.4862949848175049,
+                -1.6604245901107788
+            ],
+            [
+                1.4954699277877808,
+                -0.7374875545501709,
+                -0.9404605627059937,
+                -0.5619508624076843,
+                0.11555049568414688,
+                0.10244973748922348,
+                0.659335196018219
+            ],
+            [
+                -0.7446010112762451,
+                -0.21743929386138916,
+                -1.8028868436813354,
+                -2.0065042972564697,
+                1.1563900709152222,
+                0.586853563785553,
+                0.44219881296157837
+            ],
+            [
+                -0.15355649590492249,
+                1.1398499011993408,
+                -0.498196005821228,
+                2.472938060760498,
+                -1.8546407222747803,
+                -1.7750779390335083,
+                -1.9102468490600586
+            ],
+            [
+                0.558087170124054,
+                -0.09136687219142914,
+                -0.6098964810371399,
+                -0.46956413984298706,
+                -0.10108691453933716,
+                -0.4190499484539032,
+                -0.09261488914489746
+            ],
+            [
+                0.4882678687572479,
+                -0.9473314881324768,
+                -0.9322662353515625,
+                -1.223763108253479,
+                0.6518419981002808,
+                1.1044921875,
+                1.4390772581100464
+            ],
+            [
+                0.30552956461906433,
+                -1.5312453508377075,
+                0.07578431814908981,
+                0.5011662840843201,
+                0.2567324936389923,
+                0.17916058003902435,
+                0.6554951667785645
+            ],
+            [
+                0.7293879389762878,
+                -0.9473314881324768,
+                -0.6775553226470947,
+                -0.03254709020256996,
+                0.19311684370040894,
+                -0.4568759799003601,
+                -0.2374584972858429
+            ],
+            [
+                -0.4900498390197754,
+                1.7027390003204346,
+                -0.41722095012664795,
+                0.3982365131378174,
+                -0.7609573006629944,
+                -0.7116318941116333,
+                -1.0917290449142456
+            ],
+            [
+                -0.16838817298412323,
+                -0.9846026301383972,
+                0.17928826808929443,
+                0.7170774936676025,
+                -0.0677793025970459,
+                0.7723253965377808,
+                1.1767663955688477
+            ],
+            [
+                -0.5709825754165649,
+                0.8430513143539429,
+                2.6226894855499268,
+                0.902418315410614,
+                -0.3629344403743744,
+                -0.5161596536636353,
+                -0.28612807393074036
+            ],
+            [
+                -0.5727310180664062,
+                0.17878790199756622,
+                0.14910918474197388,
+                1.280334234237671,
+                -1.5068073272705078,
+                -1.0656577348709106,
+                -1.663450002670288
+            ],
+            [
+                2.123304605484009,
+                -1.226017713546753,
+                0.5918458104133606,
+                0.8077313303947449,
+                0.5480034351348877,
+                0.23534728586673737,
+                1.3997159004211426
+            ]
+        ],
+        "hover_strings": [
+            [
+                "J. Mešanović\nRank: 33/67\n0.34 Carries (xT) per 100 receptions",
+                "J. Mešanović\nRank: 24/67\n0.14 High turnovers per low reception",
+                "J. Mešanović\nRank: 45/67\n1.00 Passes (xT) per 100 receptions",
+                "J. Mešanović\nRank: 40/67\n0.02 Possessions won per opponent possession",
+                "J. Mešanović\nRank: 37/67\n0.82 xG + xA per 100 touches",
+                "J. Mešanović\nRank: 33/67\n0.11 xG per shot",
+                "J. Mešanović\nRank: 52/67\n0.01 xGChain per possession"
+            ],
+            [
+                "J. Ferenczi\nRank: 66/67\n0.17 Carries (xT) per 100 receptions",
+                "J. Ferenczi\nRank: 38/67\n0.16 High turnovers per low reception",
+                "J. Ferenczi\nRank: 5/67\n1.47 Passes (xT) per 100 receptions",
+                "J. Ferenczi\nRank: 6/67\n0.03 Possessions won per opponent possession",
+                "J. Ferenczi\nRank: 40/67\n0.77 xG + xA per 100 touches",
+                "J. Ferenczi\nRank: 61/67\n0.06 xG per shot",
+                "J. Ferenczi\nRank: 60/67\n0.01 xGChain per possession"
+            ],
+            [
+                "S. Novothny\nRank: 67/67\n0.12 Carries (xT) per 100 receptions",
+                "S. Novothny\nRank: 39/67\n0.17 High turnovers per low reception",
+                "S. Novothny\nRank: 67/67\n0.71 Passes (xT) per 100 receptions",
+                "S. Novothny\nRank: 64/67\n0.01 Possessions won per opponent possession",
+                "S. Novothny\nRank: 12/67\n1.32 xG + xA per 100 touches",
+                "S. Novothny\nRank: 17/67\n0.16 xG per shot",
+                "S. Novothny\nRank: 37/67\n0.02 xGChain per possession"
+            ],
+            [
+                "C. Bumba\nRank: 41/67\n0.30 Carries (xT) per 100 receptions",
+                "C. Bumba\nRank: 29/67\n0.15 High turnovers per low reception",
+                "C. Bumba\nRank: 15/67\n1.33 Passes (xT) per 100 receptions",
+                "C. Bumba\nRank: 51/67\n0.01 Possessions won per opponent possession",
+                "C. Bumba\nRank: 19/67\n1.05 xG + xA per 100 touches",
+                "C. Bumba\nRank: 35/67\n0.10 xG per shot",
+                "C. Bumba\nRank: 13/67\n0.03 xGChain per possession"
+            ],
+            [
+                "M. Ljujić\nRank: 62/67\n0.18 Carries (xT) per 100 receptions",
+                "M. Ljujić\nRank: 7/67\n0.07 High turnovers per low reception",
+                "M. Ljujić\nRank: 7/67\n1.42 Passes (xT) per 100 receptions",
+                "M. Ljujić\nRank: 4/67\n0.03 Possessions won per opponent possession",
+                "M. Ljujić\nRank: 51/67\n0.66 xG + xA per 100 touches",
+                "M. Ljujić\nRank: 63/67\n0.05 xG per shot",
+                "M. Ljujić\nRank: 54/67\n0.01 xGChain per possession"
+            ],
+            [
+                "N. Antonov\nRank: 32/67\n0.35 Carries (xT) per 100 receptions",
+                "N. Antonov\nRank: 19/67\n0.11 High turnovers per low reception",
+                "N. Antonov\nRank: 20/67\n1.23 Passes (xT) per 100 receptions",
+                "N. Antonov\nRank: 10/67\n0.03 Possessions won per opponent possession",
+                "N. Antonov\nRank: 27/67\n0.96 xG + xA per 100 touches",
+                "N. Antonov\nRank: 58/67\n0.06 xG per shot",
+                "N. Antonov\nRank: 65/67\n0.01 xGChain per possession"
+            ],
+            [
+                "G. Molnár\nRank: 59/67\n0.23 Carries (xT) per 100 receptions",
+                "G. Molnár\nRank: 3/67\n0.05 High turnovers per low reception",
+                "G. Molnár\nRank: 2/67\n1.57 Passes (xT) per 100 receptions",
+                "G. Molnár\nRank: 41/67\n0.02 Possessions won per opponent possession",
+                "G. Molnár\nRank: 21/67\n1.01 xG + xA per 100 touches",
+                "G. Molnár\nRank: 41/67\n0.10 xG per shot",
+                "G. Molnár\nRank: 59/67\n0.01 xGChain per possession"
+            ],
+            [
+                "E. Acolatse\nRank: 1/67\n0.77 Carries (xT) per 100 receptions",
+                "E. Acolatse\nRank: 34/67\n0.16 High turnovers per low reception",
+                "E. Acolatse\nRank: 35/67\n1.11 Passes (xT) per 100 receptions",
+                "E. Acolatse\nRank: 62/67\n0.01 Possessions won per opponent possession",
+                "E. Acolatse\nRank: 6/67\n1.59 xG + xA per 100 touches",
+                "E. Acolatse\nRank: 22/67\n0.13 xG per shot",
+                "E. Acolatse\nRank: 2/67\n0.03 xGChain per possession"
+            ],
+            [
+                "A. Roguljić\nRank: 28/67\n0.38 Carries (xT) per 100 receptions",
+                "A. Roguljić\nRank: 46/67\n0.18 High turnovers per low reception",
+                "A. Roguljić\nRank: 10/67\n1.38 Passes (xT) per 100 receptions",
+                "A. Roguljić\nRank: 30/67\n0.02 Possessions won per opponent possession",
+                "A. Roguljić\nRank: 10/67\n1.44 xG + xA per 100 touches",
+                "A. Roguljić\nRank: 16/67\n0.16 xG per shot",
+                "A. Roguljić\nRank: 24/67\n0.02 xGChain per possession"
+            ],
+            [
+                "Z. Nagy\nRank: 48/67\n0.28 Carries (xT) per 100 receptions",
+                "Z. Nagy\nRank: 53/67\n0.20 High turnovers per low reception",
+                "Z. Nagy\nRank: 31/67\n1.14 Passes (xT) per 100 receptions",
+                "Z. Nagy\nRank: 12/67\n0.03 Possessions won per opponent possession",
+                "Z. Nagy\nRank: 23/67\n1.00 xG + xA per 100 touches",
+                "Z. Nagy\nRank: 34/67\n0.11 xG per shot",
+                "Z. Nagy\nRank: 44/67\n0.02 xGChain per possession"
+            ],
+            [
+                "C. O'Dowda\nRank: 60/67\n0.23 Carries (xT) per 100 receptions",
+                "C. O'Dowda\nRank: 50/67\n0.19 High turnovers per low reception",
+                "C. O'Dowda\nRank: 36/67\n1.11 Passes (xT) per 100 receptions",
+                "C. O'Dowda\nRank: 5/67\n0.03 Possessions won per opponent possession",
+                "C. O'Dowda\nRank: 52/67\n0.63 xG + xA per 100 touches",
+                "C. O'Dowda\nRank: 14/67\n0.16 xG per shot",
+                "C. O'Dowda\nRank: 46/67\n0.02 xGChain per possession"
+            ],
+            [
+                "G. Beridze\nRank: 39/67\n0.30 Carries (xT) per 100 receptions",
+                "G. Beridze\nRank: 27/67\n0.14 High turnovers per low reception",
+                "G. Beridze\nRank: 48/67\n0.99 Passes (xT) per 100 receptions",
+                "G. Beridze\nRank: 47/67\n0.01 Possessions won per opponent possession",
+                "G. Beridze\nRank: 45/67\n0.71 xG + xA per 100 touches",
+                "G. Beridze\nRank: 31/67\n0.11 xG per shot",
+                "G. Beridze\nRank: 32/67\n0.02 xGChain per possession"
+            ],
+            [
+                "M. Sajbán\nRank: 10/67\n0.46 Carries (xT) per 100 receptions",
+                "M. Sajbán\nRank: 39/67\n0.17 High turnovers per low reception",
+                "M. Sajbán\nRank: 58/67\n0.89 Passes (xT) per 100 receptions",
+                "M. Sajbán\nRank: 63/67\n0.01 Possessions won per opponent possession",
+                "M. Sajbán\nRank: 3/67\n1.67 xG + xA per 100 touches",
+                "M. Sajbán\nRank: 10/67\n0.17 xG per shot",
+                "M. Sajbán\nRank: 4/67\n0.03 xGChain per possession"
+            ],
+            [
+                "R. Polievka\nRank: 23/67\n0.42 Carries (xT) per 100 receptions",
+                "R. Polievka\nRank: 64/67\n0.25 High turnovers per low reception",
+                "R. Polievka\nRank: 42/67\n1.01 Passes (xT) per 100 receptions",
+                "R. Polievka\nRank: 65/67\n0.01 Possessions won per opponent possession",
+                "R. Polievka\nRank: 2/67\n1.74 xG + xA per 100 touches",
+                "R. Polievka\nRank: 21/67\n0.13 xG per shot",
+                "R. Polievka\nRank: 1/67\n0.04 xGChain per possession"
+            ],
+            [
+                "M. Soisalo\nRank: 6/67\n0.56 Carries (xT) per 100 receptions",
+                "M. Soisalo\nRank: 62/67\n0.24 High turnovers per low reception",
+                "M. Soisalo\nRank: 9/67\n1.39 Passes (xT) per 100 receptions",
+                "M. Soisalo\nRank: 46/67\n0.01 Possessions won per opponent possession",
+                "M. Soisalo\nRank: 16/67\n1.15 xG + xA per 100 touches",
+                "M. Soisalo\nRank: 44/67\n0.09 xG per shot",
+                "M. Soisalo\nRank: 21/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Bíró\nRank: 65/67\n0.17 Carries (xT) per 100 receptions",
+                "B. Bíró\nRank: 43/67\n0.17 High turnovers per low reception",
+                "B. Bíró\nRank: 62/67\n0.81 Passes (xT) per 100 receptions",
+                "B. Bíró\nRank: 23/67\n0.02 Possessions won per opponent possession",
+                "B. Bíró\nRank: 29/67\n0.89 xG + xA per 100 touches",
+                "B. Bíró\nRank: 4/67\n0.22 xG per shot",
+                "B. Bíró\nRank: 33/67\n0.02 xGChain per possession"
+            ],
+            [
+                "T. Yordanov\nRank: 56/67\n0.25 Carries (xT) per 100 receptions",
+                "T. Yordanov\nRank: 66/67\n0.28 High turnovers per low reception",
+                "T. Yordanov\nRank: 53/67\n0.93 Passes (xT) per 100 receptions",
+                "T. Yordanov\nRank: 54/67\n0.01 Possessions won per opponent possession",
+                "T. Yordanov\nRank: 13/67\n1.30 xG + xA per 100 touches",
+                "T. Yordanov\nRank: 19/67\n0.14 xG per shot",
+                "T. Yordanov\nRank: 38/67\n0.02 xGChain per possession"
+            ],
+            [
+                "D. Lukács\nRank: 9/67\n0.49 Carries (xT) per 100 receptions",
+                "D. Lukács\nRank: 46/67\n0.18 High turnovers per low reception",
+                "D. Lukács\nRank: 17/67\n1.26 Passes (xT) per 100 receptions",
+                "D. Lukács\nRank: 59/67\n0.01 Possessions won per opponent possession",
+                "D. Lukács\nRank: 9/67\n1.44 xG + xA per 100 touches",
+                "D. Lukács\nRank: 13/67\n0.16 xG per shot",
+                "D. Lukács\nRank: 14/67\n0.03 xGChain per possession"
+            ],
+            [
+                "G. Vlijter\nRank: 14/67\n0.44 Carries (xT) per 100 receptions",
+                "G. Vlijter\nRank: 36/67\n0.16 High turnovers per low reception",
+                "G. Vlijter\nRank: 52/67\n0.96 Passes (xT) per 100 receptions",
+                "G. Vlijter\nRank: 31/67\n0.02 Possessions won per opponent possession",
+                "G. Vlijter\nRank: 8/67\n1.47 xG + xA per 100 touches",
+                "G. Vlijter\nRank: 12/67\n0.16 xG per shot",
+                "G. Vlijter\nRank: 9/67\n0.03 xGChain per possession"
+            ],
+            [
+                "Z. Bévárdi\nRank: 18/67\n0.43 Carries (xT) per 100 receptions",
+                "Z. Bévárdi\nRank: 6/67\n0.06 High turnovers per low reception",
+                "Z. Bévárdi\nRank: 3/67\n1.55 Passes (xT) per 100 receptions",
+                "Z. Bévárdi\nRank: 3/67\n0.03 Possessions won per opponent possession",
+                "Z. Bévárdi\nRank: 43/67\n0.74 xG + xA per 100 touches",
+                "Z. Bévárdi\nRank: 46/67\n0.08 xG per shot",
+                "Z. Bévárdi\nRank: 49/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Kiss\nRank: 37/67\n0.33 Carries (xT) per 100 receptions",
+                "B. Kiss\nRank: 10/67\n0.09 High turnovers per low reception",
+                "B. Kiss\nRank: 14/67\n1.34 Passes (xT) per 100 receptions",
+                "B. Kiss\nRank: 25/67\n0.02 Possessions won per opponent possession",
+                "B. Kiss\nRank: 61/67\n0.30 xG + xA per 100 touches",
+                "B. Kiss\nRank: 56/67\n0.07 xG per shot",
+                "B. Kiss\nRank: 43/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Melnyk\nRank: 51/67\n0.27 Carries (xT) per 100 receptions",
+                "B. Melnyk\nRank: 13/67\n0.10 High turnovers per low reception",
+                "B. Melnyk\nRank: 24/67\n1.17 Passes (xT) per 100 receptions",
+                "B. Melnyk\nRank: 11/67\n0.03 Possessions won per opponent possession",
+                "B. Melnyk\nRank: 62/67\n0.29 xG + xA per 100 touches",
+                "B. Melnyk\nRank: 37/67\n0.10 xG per shot",
+                "B. Melnyk\nRank: 61/67\n0.01 xGChain per possession"
+            ],
+            [
+                "A. Matko\nRank: 17/67\n0.44 Carries (xT) per 100 receptions",
+                "A. Matko\nRank: 44/67\n0.18 High turnovers per low reception",
+                "A. Matko\nRank: 64/67\n0.80 Passes (xT) per 100 receptions",
+                "A. Matko\nRank: 60/67\n0.01 Possessions won per opponent possession",
+                "A. Matko\nRank: 1/67\n2.03 xG + xA per 100 touches",
+                "A. Matko\nRank: 3/67\n0.22 xG per shot",
+                "A. Matko\nRank: 3/67\n0.03 xGChain per possession"
+            ],
+            [
+                "M. Kovácsréti\nRank: 15/67\n0.44 Carries (xT) per 100 receptions",
+                "M. Kovácsréti\nRank: 24/67\n0.14 High turnovers per low reception",
+                "M. Kovácsréti\nRank: 22/67\n1.19 Passes (xT) per 100 receptions",
+                "M. Kovácsréti\nRank: 38/67\n0.02 Possessions won per opponent possession",
+                "M. Kovácsréti\nRank: 20/67\n1.02 xG + xA per 100 touches",
+                "M. Kovácsréti\nRank: 59/67\n0.06 xG per shot",
+                "M. Kovácsréti\nRank: 45/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Kártik\nRank: 58/67\n0.23 Carries (xT) per 100 receptions",
+                "B. Kártik\nRank: 12/67\n0.09 High turnovers per low reception",
+                "B. Kártik\nRank: 44/67\n1.01 Passes (xT) per 100 receptions",
+                "B. Kártik\nRank: 34/67\n0.02 Possessions won per opponent possession",
+                "B. Kártik\nRank: 60/67\n0.36 xG + xA per 100 touches",
+                "B. Kártik\nRank: 38/67\n0.10 xG per shot",
+                "B. Kártik\nRank: 58/67\n0.01 xGChain per possession"
+            ],
+            [
+                "P. Dárdai\nRank: 27/67\n0.39 Carries (xT) per 100 receptions",
+                "P. Dárdai\nRank: 49/67\n0.19 High turnovers per low reception",
+                "P. Dárdai\nRank: 40/67\n1.02 Passes (xT) per 100 receptions",
+                "P. Dárdai\nRank: 53/67\n0.01 Possessions won per opponent possession",
+                "P. Dárdai\nRank: 5/67\n1.64 xG + xA per 100 touches",
+                "P. Dárdai\nRank: 6/67\n0.18 xG per shot",
+                "P. Dárdai\nRank: 19/67\n0.02 xGChain per possession"
+            ],
+            [
+                "A. Skribek\nRank: 63/67\n0.18 Carries (xT) per 100 receptions",
+                "A. Skribek\nRank: 16/67\n0.10 High turnovers per low reception",
+                "A. Skribek\nRank: 16/67\n1.27 Passes (xT) per 100 receptions",
+                "A. Skribek\nRank: 52/67\n0.01 Possessions won per opponent possession",
+                "A. Skribek\nRank: 24/67\n1.00 xG + xA per 100 touches",
+                "A. Skribek\nRank: 51/67\n0.08 xG per shot",
+                "A. Skribek\nRank: 27/67\n0.02 xGChain per possession"
+            ],
+            [
+                "S. Schön\nRank: 24/67\n0.42 Carries (xT) per 100 receptions",
+                "S. Schön\nRank: 23/67\n0.13 High turnovers per low reception",
+                "S. Schön\nRank: 11/67\n1.37 Passes (xT) per 100 receptions",
+                "S. Schön\nRank: 19/67\n0.02 Possessions won per opponent possession",
+                "S. Schön\nRank: 18/67\n1.06 xG + xA per 100 touches",
+                "S. Schön\nRank: 20/67\n0.14 xG per shot",
+                "S. Schön\nRank: 12/67\n0.03 xGChain per possession"
+            ],
+            [
+                "Álex Bermejo\nRank: 49/67\n0.27 Carries (xT) per 100 receptions",
+                "Álex Bermejo\nRank: 39/67\n0.17 High turnovers per low reception",
+                "Álex Bermejo\nRank: 39/67\n1.02 Passes (xT) per 100 receptions",
+                "Álex Bermejo\nRank: 49/67\n0.01 Possessions won per opponent possession",
+                "Álex Bermejo\nRank: 46/67\n0.71 xG + xA per 100 touches",
+                "Álex Bermejo\nRank: 57/67\n0.06 xG per shot",
+                "Álex Bermejo\nRank: 56/67\n0.01 xGChain per possession"
+            ],
+            [
+                "J. Levi\nRank: 46/67\n0.28 Carries (xT) per 100 receptions",
+                "J. Levi\nRank: 32/67\n0.15 High turnovers per low reception",
+                "J. Levi\nRank: 6/67\n1.43 Passes (xT) per 100 receptions",
+                "J. Levi\nRank: 50/67\n0.01 Possessions won per opponent possession",
+                "J. Levi\nRank: 33/67\n0.86 xG + xA per 100 touches",
+                "J. Levi\nRank: 40/67\n0.10 xG per shot",
+                "J. Levi\nRank: 20/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Nagy\nRank: 53/67\n0.26 Carries (xT) per 100 receptions",
+                "B. Nagy\nRank: 14/67\n0.10 High turnovers per low reception",
+                "B. Nagy\nRank: 37/67\n1.06 Passes (xT) per 100 receptions",
+                "B. Nagy\nRank: 37/67\n0.02 Possessions won per opponent possession",
+                "B. Nagy\nRank: 49/67\n0.68 xG + xA per 100 touches",
+                "B. Nagy\nRank: 23/67\n0.13 xG per shot",
+                "B. Nagy\nRank: 34/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Cipetić\nRank: 47/67\n0.28 Carries (xT) per 100 receptions",
+                "B. Cipetić\nRank: 5/67\n0.06 High turnovers per low reception",
+                "B. Cipetić\nRank: 25/67\n1.17 Passes (xT) per 100 receptions",
+                "B. Cipetić\nRank: 1/67\n0.04 Possessions won per opponent possession",
+                "B. Cipetić\nRank: 66/67\n0.19 xG + xA per 100 touches",
+                "B. Cipetić\nRank: 66/67\n0.03 xG per shot",
+                "B. Cipetić\nRank: 66/67\n0.01 xGChain per possession"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 36/67\n0.33 Carries (xT) per 100 receptions",
+                "S. Szuhodovszki\nRank: 57/67\n0.21 High turnovers per low reception",
+                "S. Szuhodovszki\nRank: 4/67\n1.48 Passes (xT) per 100 receptions",
+                "S. Szuhodovszki\nRank: 39/67\n0.02 Possessions won per opponent possession",
+                "S. Szuhodovszki\nRank: 56/67\n0.58 xG + xA per 100 touches",
+                "S. Szuhodovszki\nRank: 48/67\n0.08 xG per shot",
+                "S. Szuhodovszki\nRank: 36/67\n0.02 xGChain per possession"
+            ],
+            [
+                "K. Horváth\nRank: 50/67\n0.27 Carries (xT) per 100 receptions",
+                "K. Horváth\nRank: 21/67\n0.13 High turnovers per low reception",
+                "K. Horváth\nRank: 21/67\n1.19 Passes (xT) per 100 receptions",
+                "K. Horváth\nRank: 20/67\n0.02 Possessions won per opponent possession",
+                "K. Horváth\nRank: 42/67\n0.75 xG + xA per 100 touches",
+                "K. Horváth\nRank: 55/67\n0.07 xG per shot",
+                "K. Horváth\nRank: 48/67\n0.02 xGChain per possession"
+            ],
+            [
+                "M. Šlogar\nRank: 16/67\n0.44 Carries (xT) per 100 receptions",
+                "M. Šlogar\nRank: 48/67\n0.18 High turnovers per low reception",
+                "M. Šlogar\nRank: 60/67\n0.84 Passes (xT) per 100 receptions",
+                "M. Šlogar\nRank: 57/67\n0.01 Possessions won per opponent possession",
+                "M. Šlogar\nRank: 54/67\n0.61 xG + xA per 100 touches",
+                "M. Šlogar\nRank: 50/67\n0.08 xG per shot",
+                "M. Šlogar\nRank: 55/67\n0.01 xGChain per possession"
+            ],
+            [
+                "G. Komáromi\nRank: 43/67\n0.30 Carries (xT) per 100 receptions",
+                "G. Komáromi\nRank: 1/67\n0.00 High turnovers per low reception",
+                "G. Komáromi\nRank: 34/67\n1.12 Passes (xT) per 100 receptions",
+                "G. Komáromi\nRank: 66/67\n0.01 Possessions won per opponent possession",
+                "G. Komáromi\nRank: 31/67\n0.88 xG + xA per 100 touches",
+                "G. Komáromi\nRank: 25/67\n0.13 xG per shot",
+                "G. Komáromi\nRank: 31/67\n0.02 xGChain per possession"
+            ],
+            [
+                "R. Molnár\nRank: 31/67\n0.35 Carries (xT) per 100 receptions",
+                "R. Molnár\nRank: 67/67\n0.31 High turnovers per low reception",
+                "R. Molnár\nRank: 63/67\n0.81 Passes (xT) per 100 receptions",
+                "R. Molnár\nRank: 36/67\n0.02 Possessions won per opponent possession",
+                "R. Molnár\nRank: 4/67\n1.65 xG + xA per 100 touches",
+                "R. Molnár\nRank: 11/67\n0.17 xG per shot",
+                "R. Molnár\nRank: 8/67\n0.03 xGChain per possession"
+            ],
+            [
+                "R. Schuszter\nRank: 61/67\n0.22 Carries (xT) per 100 receptions",
+                "R. Schuszter\nRank: 30/67\n0.15 High turnovers per low reception",
+                "R. Schuszter\nRank: 19/67\n1.23 Passes (xT) per 100 receptions",
+                "R. Schuszter\nRank: 17/67\n0.02 Possessions won per opponent possession",
+                "R. Schuszter\nRank: 35/67\n0.83 xG + xA per 100 touches",
+                "R. Schuszter\nRank: 1/67\n0.31 xG per shot",
+                "R. Schuszter\nRank: 18/67\n0.02 xGChain per possession"
+            ],
+            [
+                "Z. Kerezsi\nRank: 21/67\n0.43 Carries (xT) per 100 receptions",
+                "Z. Kerezsi\nRank: 37/67\n0.16 High turnovers per low reception",
+                "Z. Kerezsi\nRank: 65/67\n0.76 Passes (xT) per 100 receptions",
+                "Z. Kerezsi\nRank: 44/67\n0.02 Possessions won per opponent possession",
+                "Z. Kerezsi\nRank: 38/67\n0.82 xG + xA per 100 touches",
+                "Z. Kerezsi\nRank: 9/67\n0.18 xG per shot",
+                "Z. Kerezsi\nRank: 29/67\n0.02 xGChain per possession"
+            ],
+            [
+                "D. Kocsis\nRank: 2/67\n0.68 Carries (xT) per 100 receptions",
+                "D. Kocsis\nRank: 8/67\n0.08 High turnovers per low reception",
+                "D. Kocsis\nRank: 32/67\n1.13 Passes (xT) per 100 receptions",
+                "D. Kocsis\nRank: 56/67\n0.01 Possessions won per opponent possession",
+                "D. Kocsis\nRank: 39/67\n0.81 xG + xA per 100 touches",
+                "D. Kocsis\nRank: 49/67\n0.08 xG per shot",
+                "D. Kocsis\nRank: 28/67\n0.02 xGChain per possession"
+            ],
+            [
+                "M. Matanović\nRank: 30/67\n0.37 Carries (xT) per 100 receptions",
+                "M. Matanović\nRank: 15/67\n0.10 High turnovers per low reception",
+                "M. Matanović\nRank: 28/67\n1.15 Passes (xT) per 100 receptions",
+                "M. Matanović\nRank: 35/67\n0.02 Possessions won per opponent possession",
+                "M. Matanović\nRank: 44/67\n0.73 xG + xA per 100 touches",
+                "M. Matanović\nRank: 53/67\n0.08 xG per shot",
+                "M. Matanović\nRank: 41/67\n0.02 xGChain per possession"
+            ],
+            [
+                "G. Jurek\nRank: 25/67\n0.40 Carries (xT) per 100 receptions",
+                "G. Jurek\nRank: 53/67\n0.20 High turnovers per low reception",
+                "G. Jurek\nRank: 46/67\n1.00 Passes (xT) per 100 receptions",
+                "G. Jurek\nRank: 27/67\n0.02 Possessions won per opponent possession",
+                "G. Jurek\nRank: 48/67\n0.70 xG + xA per 100 touches",
+                "G. Jurek\nRank: 47/67\n0.08 xG per shot",
+                "G. Jurek\nRank: 26/67\n0.02 xGChain per possession"
+            ],
+            [
+                "M. Katona\nRank: 29/67\n0.38 Carries (xT) per 100 receptions",
+                "M. Katona\nRank: 22/67\n0.13 High turnovers per low reception",
+                "M. Katona\nRank: 30/67\n1.15 Passes (xT) per 100 receptions",
+                "M. Katona\nRank: 9/67\n0.03 Possessions won per opponent possession",
+                "M. Katona\nRank: 58/67\n0.53 xG + xA per 100 touches",
+                "M. Katona\nRank: 54/67\n0.07 xG per shot",
+                "M. Katona\nRank: 53/67\n0.01 xGChain per possession"
+            ],
+            [
+                "João Victor\nRank: 20/67\n0.43 Carries (xT) per 100 receptions",
+                "João Victor\nRank: 59/67\n0.22 High turnovers per low reception",
+                "João Victor\nRank: 50/67\n0.98 Passes (xT) per 100 receptions",
+                "João Victor\nRank: 55/67\n0.01 Possessions won per opponent possession",
+                "João Victor\nRank: 14/67\n1.21 xG + xA per 100 touches",
+                "João Victor\nRank: 7/67\n0.18 xG per shot",
+                "João Victor\nRank: 5/67\n0.03 xGChain per possession"
+            ],
+            [
+                "M. Ubochioma\nRank: 13/67\n0.46 Carries (xT) per 100 receptions",
+                "M. Ubochioma\nRank: 31/67\n0.15 High turnovers per low reception",
+                "M. Ubochioma\nRank: 41/67\n1.01 Passes (xT) per 100 receptions",
+                "M. Ubochioma\nRank: 26/67\n0.02 Possessions won per opponent possession",
+                "M. Ubochioma\nRank: 53/67\n0.61 xG + xA per 100 touches",
+                "M. Ubochioma\nRank: 28/67\n0.13 xG per shot",
+                "M. Ubochioma\nRank: 47/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Katona\nRank: 38/67\n0.30 Carries (xT) per 100 receptions",
+                "B. Katona\nRank: 20/67\n0.12 High turnovers per low reception",
+                "B. Katona\nRank: 26/67\n1.16 Passes (xT) per 100 receptions",
+                "B. Katona\nRank: 29/67\n0.02 Possessions won per opponent possession",
+                "B. Katona\nRank: 65/67\n0.26 xG + xA per 100 touches",
+                "B. Katona\nRank: 64/67\n0.04 xG per shot",
+                "B. Katona\nRank: 62/67\n0.01 xGChain per possession"
+            ],
+            [
+                "M. Mucsányi\nRank: 40/67\n0.30 Carries (xT) per 100 receptions",
+                "M. Mucsányi\nRank: 61/67\n0.24 High turnovers per low reception",
+                "M. Mucsányi\nRank: 61/67\n0.82 Passes (xT) per 100 receptions",
+                "M. Mucsányi\nRank: 58/67\n0.01 Possessions won per opponent possession",
+                "M. Mucsányi\nRank: 7/67\n1.57 xG + xA per 100 touches",
+                "M. Mucsányi\nRank: 2/67\n0.26 xG per shot",
+                "M. Mucsányi\nRank: 10/67\n0.03 xGChain per possession"
+            ],
+            [
+                "H. Németh\nRank: 54/67\n0.26 Carries (xT) per 100 receptions",
+                "H. Németh\nRank: 11/67\n0.09 High turnovers per low reception",
+                "H. Németh\nRank: 23/67\n1.18 Passes (xT) per 100 receptions",
+                "H. Németh\nRank: 14/67\n0.03 Possessions won per opponent possession",
+                "H. Németh\nRank: 57/67\n0.53 xG + xA per 100 touches",
+                "H. Németh\nRank: 39/67\n0.10 xG per shot",
+                "H. Németh\nRank: 42/67\n0.02 xGChain per possession"
+            ],
+            [
+                "C. Denes\nRank: 4/67\n0.63 Carries (xT) per 100 receptions",
+                "C. Denes\nRank: 65/67\n0.26 High turnovers per low reception",
+                "C. Denes\nRank: 47/67\n0.99 Passes (xT) per 100 receptions",
+                "C. Denes\nRank: 24/67\n0.02 Possessions won per opponent possession",
+                "C. Denes\nRank: 30/67\n0.89 xG + xA per 100 touches",
+                "C. Denes\nRank: 32/67\n0.11 xG per shot",
+                "C. Denes\nRank: 25/67\n0.02 xGChain per possession"
+            ],
+            [
+                "D. Gordić\nRank: 11/67\n0.46 Carries (xT) per 100 receptions",
+                "D. Gordić\nRank: 18/67\n0.11 High turnovers per low reception",
+                "D. Gordić\nRank: 8/67\n1.41 Passes (xT) per 100 receptions",
+                "D. Gordić\nRank: 32/67\n0.02 Possessions won per opponent possession",
+                "D. Gordić\nRank: 50/67\n0.66 xG + xA per 100 touches",
+                "D. Gordić\nRank: 36/67\n0.10 xG per shot",
+                "D. Gordić\nRank: 50/67\n0.02 xGChain per possession"
+            ],
+            [
+                "Á. Krajcsovics\nRank: 5/67\n0.57 Carries (xT) per 100 receptions",
+                "Á. Krajcsovics\nRank: 51/67\n0.19 High turnovers per low reception",
+                "Á. Krajcsovics\nRank: 59/67\n0.88 Passes (xT) per 100 receptions",
+                "Á. Krajcsovics\nRank: 42/67\n0.02 Possessions won per opponent possession",
+                "Á. Krajcsovics\nRank: 26/67\n0.97 xG + xA per 100 touches",
+                "Á. Krajcsovics\nRank: 30/67\n0.11 xG per shot",
+                "Á. Krajcsovics\nRank: 15/67\n0.03 xGChain per possession"
+            ],
+            [
+                "B. Bakti\nRank: 55/67\n0.26 Carries (xT) per 100 receptions",
+                "B. Bakti\nRank: 4/67\n0.06 High turnovers per low reception",
+                "B. Bakti\nRank: 13/67\n1.36 Passes (xT) per 100 receptions",
+                "B. Bakti\nRank: 16/67\n0.02 Possessions won per opponent possession",
+                "B. Bakti\nRank: 59/67\n0.40 xG + xA per 100 touches",
+                "B. Bakti\nRank: 62/67\n0.05 xG per shot",
+                "B. Bakti\nRank: 23/67\n0.02 xGChain per possession"
+            ],
+            [
+                "M. Major\nRank: 64/67\n0.18 Carries (xT) per 100 receptions",
+                "M. Major\nRank: 26/67\n0.14 High turnovers per low reception",
+                "M. Major\nRank: 56/67\n0.90 Passes (xT) per 100 receptions",
+                "M. Major\nRank: 28/67\n0.02 Possessions won per opponent possession",
+                "M. Major\nRank: 47/67\n0.70 xG + xA per 100 touches",
+                "M. Major\nRank: 5/67\n0.22 xG per shot",
+                "M. Major\nRank: 51/67\n0.01 xGChain per possession"
+            ],
+            [
+                "A. Molnár\nRank: 8/67\n0.55 Carries (xT) per 100 receptions",
+                "A. Molnár\nRank: 32/67\n0.15 High turnovers per low reception",
+                "A. Molnár\nRank: 57/67\n0.90 Passes (xT) per 100 receptions",
+                "A. Molnár\nRank: 43/67\n0.02 Possessions won per opponent possession",
+                "A. Molnár\nRank: 36/67\n0.83 xG + xA per 100 touches",
+                "A. Molnár\nRank: 27/67\n0.13 xG per shot",
+                "A. Molnár\nRank: 30/67\n0.02 xGChain per possession"
+            ],
+            [
+                "M. Kern\nRank: 57/67\n0.24 Carries (xT) per 100 receptions",
+                "M. Kern\nRank: 45/67\n0.18 High turnovers per low reception",
+                "M. Kern\nRank: 12/67\n1.36 Passes (xT) per 100 receptions",
+                "M. Kern\nRank: 7/67\n0.03 Possessions won per opponent possession",
+                "M. Kern\nRank: 64/67\n0.26 xG + xA per 100 touches",
+                "M. Kern\nRank: 65/67\n0.04 xG per shot",
+                "M. Kern\nRank: 63/67\n0.01 xGChain per possession"
+            ],
+            [
+                "Alegria\nRank: 7/67\n0.56 Carries (xT) per 100 receptions",
+                "Alegria\nRank: 52/67\n0.20 High turnovers per low reception",
+                "Alegria\nRank: 55/67\n0.91 Passes (xT) per 100 receptions",
+                "Alegria\nRank: 48/67\n0.01 Possessions won per opponent possession",
+                "Alegria\nRank: 28/67\n0.95 xG + xA per 100 touches",
+                "Alegria\nRank: 29/67\n0.12 xG per shot",
+                "Alegria\nRank: 16/67\n0.02 xGChain per possession"
+            ],
+            [
+                "K. Mondovics\nRank: 52/67\n0.26 Carries (xT) per 100 receptions",
+                "K. Mondovics\nRank: 39/67\n0.17 High turnovers per low reception",
+                "K. Mondovics\nRank: 66/67\n0.72 Passes (xT) per 100 receptions",
+                "K. Mondovics\nRank: 67/67\n0.00 Possessions won per opponent possession",
+                "K. Mondovics\nRank: 11/67\n1.37 xG + xA per 100 touches",
+                "K. Mondovics\nRank: 18/67\n0.15 xG per shot",
+                "K. Mondovics\nRank: 22/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Vajda\nRank: 34/67\n0.34 Carries (xT) per 100 receptions",
+                "B. Vajda\nRank: 9/67\n0.09 High turnovers per low reception",
+                "B. Vajda\nRank: 43/67\n1.01 Passes (xT) per 100 receptions",
+                "B. Vajda\nRank: 2/67\n0.04 Possessions won per opponent possession",
+                "B. Vajda\nRank: 67/67\n0.14 xG + xA per 100 touches",
+                "B. Vajda\nRank: 67/67\n0.02 xG per shot",
+                "B. Vajda\nRank: 67/67\n0.01 xGChain per possession"
+            ],
+            [
+                "M. Pető\nRank: 19/67\n0.43 Carries (xT) per 100 receptions",
+                "M. Pető\nRank: 34/67\n0.16 High turnovers per low reception",
+                "M. Pető\nRank: 49/67\n0.98 Passes (xT) per 100 receptions",
+                "M. Pető\nRank: 45/67\n0.02 Possessions won per opponent possession",
+                "M. Pető\nRank: 34/67\n0.86 xG + xA per 100 touches",
+                "M. Pető\nRank: 42/67\n0.09 xG per shot",
+                "M. Pető\nRank: 35/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Babós\nRank: 22/67\n0.42 Carries (xT) per 100 receptions",
+                "B. Babós\nRank: 55/67\n0.21 High turnovers per low reception",
+                "B. Babós\nRank: 54/67\n0.91 Passes (xT) per 100 receptions",
+                "B. Babós\nRank: 61/67\n0.01 Possessions won per opponent possession",
+                "B. Babós\nRank: 15/67\n1.17 xG + xA per 100 touches",
+                "B. Babós\nRank: 8/67\n0.18 xG per shot",
+                "B. Babós\nRank: 6/67\n0.03 xGChain per possession"
+            ],
+            [
+                "I. Atrok\nRank: 26/67\n0.40 Carries (xT) per 100 receptions",
+                "I. Atrok\nRank: 63/67\n0.25 High turnovers per low reception",
+                "I. Atrok\nRank: 33/67\n1.13 Passes (xT) per 100 receptions",
+                "I. Atrok\nRank: 21/67\n0.02 Possessions won per opponent possession",
+                "I. Atrok\nRank: 22/67\n1.01 xG + xA per 100 touches",
+                "I. Atrok\nRank: 26/67\n0.13 xG per shot",
+                "I. Atrok\nRank: 17/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Manner\nRank: 12/67\n0.46 Carries (xT) per 100 receptions",
+                "B. Manner\nRank: 55/67\n0.21 High turnovers per low reception",
+                "B. Manner\nRank: 51/67\n0.97 Passes (xT) per 100 receptions",
+                "B. Manner\nRank: 33/67\n0.02 Possessions won per opponent possession",
+                "B. Manner\nRank: 25/67\n0.98 xG + xA per 100 touches",
+                "B. Manner\nRank: 43/67\n0.09 xG per shot",
+                "B. Manner\nRank: 39/67\n0.02 xGChain per possession"
+            ],
+            [
+                "F. Cibla\nRank: 42/67\n0.30 Carries (xT) per 100 receptions",
+                "F. Cibla\nRank: 2/67\n0.05 High turnovers per low reception",
+                "F. Cibla\nRank: 38/67\n1.03 Passes (xT) per 100 receptions",
+                "F. Cibla\nRank: 22/67\n0.02 Possessions won per opponent possession",
+                "F. Cibla\nRank: 55/67\n0.59 xG + xA per 100 touches",
+                "F. Cibla\nRank: 52/67\n0.08 xG per shot",
+                "F. Cibla\nRank: 57/67\n0.01 xGChain per possession"
+            ],
+            [
+                "K. Banati\nRank: 35/67\n0.34 Carries (xT) per 100 receptions",
+                "K. Banati\nRank: 58/67\n0.21 High turnovers per low reception",
+                "K. Banati\nRank: 27/67\n1.16 Passes (xT) per 100 receptions",
+                "K. Banati\nRank: 18/67\n0.02 Possessions won per opponent possession",
+                "K. Banati\nRank: 32/67\n0.87 xG + xA per 100 touches",
+                "K. Banati\nRank: 15/67\n0.16 xG per shot",
+                "K. Banati\nRank: 11/67\n0.03 xGChain per possession"
+            ],
+            [
+                "K. Horváth\nRank: 44/67\n0.29 Carries (xT) per 100 receptions",
+                "K. Horváth\nRank: 17/67\n0.10 High turnovers per low reception",
+                "K. Horváth\nRank: 1/67\n1.69 Passes (xT) per 100 receptions",
+                "K. Horváth\nRank: 13/67\n0.03 Possessions won per opponent possession",
+                "K. Horváth\nRank: 41/67\n0.75 xG + xA per 100 touches",
+                "K. Horváth\nRank: 45/67\n0.09 xG per shot",
+                "K. Horváth\nRank: 40/67\n0.02 xGChain per possession"
+            ],
+            [
+                "B. Vekony\nRank: 45/67\n0.29 Carries (xT) per 100 receptions",
+                "B. Vekony\nRank: 28/67\n0.14 High turnovers per low reception",
+                "B. Vekony\nRank: 29/67\n1.15 Passes (xT) per 100 receptions",
+                "B. Vekony\nRank: 8/67\n0.03 Possessions won per opponent possession",
+                "B. Vekony\nRank: 63/67\n0.28 xG + xA per 100 touches",
+                "B. Vekony\nRank: 60/67\n0.06 xG per shot",
+                "B. Vekony\nRank: 64/67\n0.01 xGChain per possession"
+            ],
+            [
+                "N. Njie\nRank: 3/67\n0.64 Carries (xT) per 100 receptions",
+                "N. Njie\nRank: 60/67\n0.23 High turnovers per low reception",
+                "N. Njie\nRank: 18/67\n1.25 Passes (xT) per 100 receptions",
+                "N. Njie\nRank: 15/67\n0.02 Possessions won per opponent possession",
+                "N. Njie\nRank: 17/67\n1.13 xG + xA per 100 touches",
+                "N. Njie\nRank: 24/67\n0.13 xG per shot",
+                "N. Njie\nRank: 7/67\n0.03 xGChain per possession"
+            ]
+        ],
+        "serie_names": [
+            "Other Wingers",
+            "Adin Molnár"
+        ],
+        "minutes_played": 1978,
+        "axis_labels": [
+            "Carries (xT) per 100 receptions | 0.55",
+            "High turnovers per low reception | 0.15",
+            "Passes (xT) per 100 receptions | 0.90",
+            "Possessions won per opponent possession | 0.02",
+            "xG + xA per 100 touches | 0.83",
+            "xG per shot | 0.13",
+            "xGChain per possession | 0.02"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null
+    },
+    "player_info": {
+        "id": 769345,
+        "name": "A. Molnár",
+        "full_name": "Adin Molnár",
+        "synthesized_name": "Adin Molnár",
+        "birth_date": "2004-08-16",
+        "age": 21,
+        "foot": null,
+        "position": "WINGER",
+        "detailed_position": "RIGHT_WINGER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

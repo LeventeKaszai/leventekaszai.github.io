@@ -1,5 +1,7 @@
 ---
 title: "Dobóhatékonyság a magyar kosárlabda bajnokságban"
+date: 2026-04-05
+description: "eFG%, TS% és a volumen-hatékonyság kompromisszuma a magyar ligában."
 format:
   html:
     toc: true
@@ -150,7 +152,7 @@ plot_ly() %>%
   ) %>%
   layout(
     title = list(
-      text = "A 15 legnagyobb FG% → eFG% ugrás<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon</sup>",
+      text = "A 15 legnagyobb FG% → eFG% ugrás<br><sup>Magyar bajnokság 2022–2026 · Min. 400 perc/szezon</sup>",
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -251,7 +253,7 @@ plot_ly(ts_data,
     title = list(
       text = paste0("Top 20 TS% — eltérés a ligaátlagtól<br><sup>Ligaátlag: ",
                     scales::percent(overall_avg, accuracy = 0.1),
-                    " · Magyar bajnokság 2022–2025 · Min. 400 perc/szezon</sup>"),
+                    " · Magyar bajnokság 2022–2026 · Min. 400 perc/szezon</sup>"),
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -351,14 +353,18 @@ plot_ly(scatter_data,
         hovertext     = ~label_text,
         hovertemplate = "%{hovertext}<extra></extra>") %>%
   add_lines(
-    data      = data.frame(x = c(avg_fg, avg_fg), y = c(0.43, 0.78)),
+    data      = data.frame(x = c(avg_fg, avg_fg),
+                           y = c(min(scoring$TS_pct, na.rm=TRUE) - 0.02,
+                                 max(scoring$TS_pct, na.rm=TRUE) + 0.02)),
     x         = ~x, y = ~y,
     inherit   = FALSE,
     line      = list(color = "#B0A89E", width = 1.5, dash = "dot"),
     showlegend = FALSE, hoverinfo = "none"
   ) %>%
   add_lines(
-    data      = data.frame(x = c(0.33, 0.74), y = c(avg_ts, avg_ts)),
+    data      = data.frame(x = c(min(scoring$FG_pct, na.rm=TRUE) - 0.02,
+                                 max(scoring$FG_pct, na.rm=TRUE) + 0.02),
+                           y = c(avg_ts, avg_ts)),
     x         = ~x, y = ~y,
     inherit   = FALSE,
     line      = list(color = "#B0A89E", width = 1.5, dash = "dot"),
@@ -366,7 +372,7 @@ plot_ly(scatter_data,
   ) %>%
   layout(
     title = list(
-      text = "FG% vs TS% — Pontméret: USG%<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon · Pontozott vonalak: ligaátlagok</sup>",
+      text = "FG% vs TS% — Pontméret: USG%<br><sup>Magyar bajnokság 2022–2026 · Min. 400 perc/szezon · Pontozott vonalak: ligaátlagok</sup>",
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -378,7 +384,6 @@ plot_ly(scatter_data,
         standoff = 4
       ),
       tickformat    = ".0%",
-      range         = c(0.33, 0.74),
       color         = "#7A756D",
       tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
       gridcolor     = "#D4CFC6",
@@ -392,7 +397,6 @@ plot_ly(scatter_data,
         standoff = 8
       ),
       tickformat    = ".0%",
-      range         = c(0.43, 0.78),
       color         = "#7A756D",
       tickfont      = list(family = "Montserrat", size = 12, color = "#7A756D"),
       gridcolor     = "#D4CFC6",
@@ -502,7 +506,7 @@ plot_ly() %>%
   ) %>%
   layout(
     title = list(
-      text = "USG% vs TS%<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon · Vonal: LOESS trend</sup>",
+      text = "USG% vs TS%<br><sup>Magyar bajnokság 2022–2026 · Min. 400 perc/szezon · Vonal: LOESS trend</sup>",
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -626,7 +630,7 @@ plot_ly() %>%
   ) %>%
   layout(
     title = list(
-      text = "U23 játékosok használata és hatékonysága<br><sup>Magyar bajnokság 2022–2025 · Min. 400 perc/szezon · Piros: az adott szezon U23-asai</sup>",
+      text = "U23 játékosok használata és hatékonysága<br><sup>Magyar bajnokság 2022–2026 · Min. 400 perc/szezon · Piros: az adott szezon U23-asai</sup>",
       font = list(size = 17, color = "#2E2B26", family = "Montserrat"),
       x    = 0,
       xref = "paper"
@@ -689,7 +693,7 @@ all_avg_usg <- mean(u23_data$USG_pct, na.rm = TRUE)
 <br>
 Az ábra az U23-as játékosokat emeli ki pirossal a teljes minta szürkével látható. Minden szezonban az adott év U23-asai szerepelnek — tehát a 2022-23-as szezonban a 2000-ben vagy később születettek, 2023-24-ben a 2001-esek, 2024-25-ben a 2002-esek.
 
-A három szezonban összesen **`r u23_n` U23-as játékos-szezon** felel meg a 400 perces szűrőnek. Átlagos USG%-uk `r round(u23_avg_usg, 1)`%, — az U23-asok tehát átlagosan kb. **`r round(all_avg_usg - u23_avg_usg, 1)` százalékponttal** kevesebb labdabirtoklást fejeznek be.
+A négy szezonban összesen **`r u23_n` U23-as játékos-szezon** felel meg a 400 perces szűrőnek. Átlagos USG%-uk `r round(u23_avg_usg, 1)`%, — az U23-asok tehát átlagosan kb. **`r round(all_avg_usg - u23_avg_usg, 1)` százalékponttal** kevesebb labdabirtoklást fejeznek be.
 
 ---
 
@@ -719,13 +723,13 @@ DT::datatable(
 ```
 
 ```{r}
-ts_22 <- league_avg$avg_TS[league_avg$Szezon == "2022-23"]
-ts_25 <- league_avg$avg_TS[league_avg$Szezon == "2024-25"]
-ts_dir <- ifelse(ts_25 > ts_22, "emelkedett", "csökkent")
+ts_22     <- league_avg$avg_TS[league_avg$Szezon == "2022-23"]
+ts_latest <- league_avg$avg_TS[league_avg$Szezon == max(league_avg$Szezon)]
+ts_dir    <- ifelse(ts_latest > ts_22, "emelkedett", "csökkent")
 ```
 
 <br>
-A három szezon alatt a ligaátlagos TS% `r ts_dir` (`r scales::percent(ts_22, accuracy = 0.1)` → `r scales::percent(ts_25, accuracy = 0.1)`). A mutatók közötti rés stabil: az eFG% mindig a FG% felett van (a triplások hatása), a TS% pedig az eFG% felett (a büntetők hatása).
+A négy szezon alatt a ligaátlagos TS% `r ts_dir` (`r scales::percent(ts_22, accuracy = 0.1)` → `r scales::percent(ts_latest, accuracy = 0.1)`). A mutatók közötti rés stabil: az eFG% mindig a FG% felett van (a triplások hatása), a TS% pedig az eFG% felett (a büntetők hatása).
 
 ---
 
@@ -733,8 +737,8 @@ A három szezon alatt a ligaátlagos TS% `r ts_dir` (`r scales::percent(ts_22, a
 
 ```{r}
 nba_avg <- data.frame(
-  Szezon  = c("2022-23", "2023-24", "2024-25"),
-  avg_TS  = c(0.579, 0.582, 0.580),
+  Szezon  = c("2022-23", "2023-24", "2024-25", "2025-26"),
+  avg_TS  = c(0.579, 0.582, 0.580, 0.581),
   Csoport = "NBA átlag",
   n       = NA_integer_
 )
@@ -788,7 +792,7 @@ gap_u23_nba    <- mean(comp_data$avg_TS[comp_data$Csoport == "NBA átlag"]) -
 ```
 
 <br>
-A légiósok TS%-a mindhárom szezonban közel van az NBA ligaátlaghoz — ez azt jelzi, hogy a magyar bajnokságba érkező külföldi játékosok átlagosan NBA-szintű hatékonysággal teljesítenek, ami a liga kompetitivitása szempontjából pozitív jel. Valószínűleg, ha ezek a légiósok az NBA-ben játszananák, a hatékonyságuk csökkenne. :)
+A légiósok TS%-a mind a négy szezonban közel van az NBA ligaátlaghoz — ez azt jelzi, hogy a magyar bajnokságba érkező külföldi játékosok átlagosan NBA-szintű hatékonysággal teljesítenek, ami a liga kompetitivitása szempontjából pozitív jel. Valószínűleg, ha ezek a légiósok az NBA-ben játszananák, a hatékonyságuk csökkenne. :)
 
 A Hazai U23-asok átlagosan **`r scales::percent(gap_u23_legios, accuracy = 0.1)`-kal** maradnak el a légiósoktól és **`r scales::percent(gap_u23_nba, accuracy = 0.1)`-kal** az NBA átlagtól. Látható, hogy a fiatal játékosok mind hatékonyságban, mind volumenben elmaradnak a NBI-es átlagtól. Így kinyílik egy ördögi kör. A fiatalok felé alacsony a bizalom (játéklehetőség, USG%), mert nem elég hatékonyak, de így a fejlődés is megrekedhet.
 

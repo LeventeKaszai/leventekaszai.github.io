@@ -1,0 +1,366 @@
+---
+title: "Advanced Metrics"
+date: 2026-04-15
+description: "Haladó mutatók a magyar kosárlabda bajnokságból: RAPM, BPM és egyéb box score metrikák."
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(DT)
+library(htmltools)
+library(crosstalk)
+library(yaml)
+
+# ── Profil URL térkép ─────────────────────────────────────────────────────────
+build_profile_map <- function() {
+  files <- list.files("jatekosok", pattern = "\\.qmd$", full.names = TRUE)
+  files <- files[!grepl("^_", basename(files))]
+  result <- list()
+  for (f in files) {
+    lines  <- readLines(f, encoding = "UTF-8", warn = FALSE)
+    delims <- which(lines == "---")
+    if (length(delims) < 2) next
+    meta <- tryCatch(
+      yaml::yaml.load(paste(lines[(delims[1]+1):(delims[2]-1)], collapse = "\n")),
+      error = function(e) NULL
+    )
+    if (is.null(meta$profile$nev)) next
+    result[[meta$profile$nev]] <- sub("\\.qmd$", ".html", paste0("jatekosok/", basename(f)))
+  }
+  result
+}
+profile_map <- build_profile_map()
+
+# ── DB betöltés ───────────────────────────────────────────────────────────────
+con <- dbConnect(SQLite(), "bball_10_tables.db")
+
+s_raw   <- dbGetQuery(con, "SELECT * FROM player_scoring_stats")
+a_raw   <- dbGetQuery(con, "SELECT * FROM player_ast_reb_stats")
+adv_raw <- dbGetQuery(con, "SELECT * FROM player_advanced_stats")
+pi_raw  <- dbGetQuery(con, 'SELECT Játékos, Poszt, "Szül. év." AS szul_ev FROM player_info')
+
+dbDisconnect(con)
+
+# ── Oszlopok szelekcióval tisztítva (nincs .x/.y névütközés) ─────────────────
+s_sel <- s_raw %>%
+  select(Játékos, Szezon, Csapat,
+         Min            = Min,
+         pts_100        = `PTS 100`,
+         twop_att_100   = `2P att. 100`,
+         threep_att_100 = `3P att. 100`,
+         fta_100        = `FT att. 100`)
+
+a_sel <- a_raw %>%
+  select(Játékos, Szezon, Csapat,
+         tov_raw = TOV,
+         stl_raw = STL,
+         ast_100 = `AST 100`,
+         tov_100 = `TOV 100`,
+         orb_100 = `ORB 100`,
+         drb_100 = `DRB 100`,
+         blk_100 = `BLK 100`,
+         pf_100  = `PF 100`)
+
+adv_sel <- adv_raw %>%
+  select(Játékos, Szezon, Csapat,
+         ortg    = ORtg,
+         net_rtg = `Net Rtg`,
+         usg_pct = `USG%`)
+
+raw <- s_sel %>%
+  inner_join(a_sel,   by = c("Játékos", "Szezon", "Csapat")) %>%
+  inner_join(adv_sel, by = c("Játékos", "Szezon", "Csapat")) %>%
+  mutate(stl_100 = ifelse(tov_raw > 0, stl_raw * (tov_100 / tov_raw), NA_real_))
+
+# ── Decay súlyok ──────────────────────────────────────────────────────────────
+decay_w <- c("2022-23" = 0.125, "2023-24" = 0.25, "2024-25" = 0.5, "2025-26" = 1.0)
+
+# ── Ligaátlagok (200+ perces játékosok, szezonon belül) ───────────────────────
+lg <- raw %>%
+  filter(Min >= 200) %>%
+  group_by(Szezon) %>%
+  summarise(across(c(pts_100, twop_att_100, threep_att_100, fta_100,
+                     orb_100, drb_100, ast_100, stl_100, blk_100, tov_100, pf_100),
+                   \(x) mean(x, na.rm = TRUE), .names = "lg_{.col}"),
+            .groups = "drop")
+
+# ── Bayesian shrinkage k-értékek (empirikus ICC alapján, percben) ─────────────
+# k = (1−ICC)/ICC × átlag_perc_per_szezon (≈604 perc)
+# Forrás: optimize_weights.R — NB1 2022-2026 variancia-dekompozíció
+k_pts    <- 125   # ICC=0.829
+k_2pa    <- 110   # ICC=0.850
+k_3pa    <-  90   # ICC=0.870
+k_fta    <- 210   # ICC=0.741
+k_orb    <- 130   # ICC=0.822
+k_drb    <- 160   # ICC=0.792
+k_ast    <-  95   # ICC=0.864
+k_stl    <- 730   # ICC=0.454  ← leginstabilabb stat
+k_blk    <- 265   # ICC=0.694
+k_tov    <- 285   # ICC=0.680
+k_pf     <- 160   # ICC=0.793
+
+shrink <- function(x, lg, min, k) (min * x + k * lg) / (min + k)
+
+per_season <- raw %>%
+  left_join(lg, by = "Szezon") %>%
+  mutate(
+    s_pts    = shrink(pts_100,        lg_pts_100,        Min, k_pts),
+    s_2pa    = shrink(twop_att_100,   lg_twop_att_100,   Min, k_2pa),
+    s_3pa    = shrink(threep_att_100, lg_threep_att_100, Min, k_3pa),
+    s_fta    = shrink(fta_100,        lg_fta_100,        Min, k_fta),
+    s_orb    = shrink(orb_100,        lg_orb_100,        Min, k_orb),
+    s_drb    = shrink(drb_100,        lg_drb_100,        Min, k_drb),
+    s_ast    = shrink(ast_100,        lg_ast_100,        Min, k_ast),
+    s_stl    = shrink(stl_100,        lg_stl_100,        Min, k_stl),
+    s_blk    = shrink(blk_100,        lg_blk_100,        Min, k_blk),
+    s_tov    = shrink(tov_100,        lg_tov_100,        Min, k_tov),
+    s_pf     = shrink(pf_100,         lg_pf_100,         Min, k_pf),
+    # DRE nyers és regresszált
+    DRE_raw = round(
+      -8.424 + 0.792*pts_100 - 0.719*twop_att_100 - 0.552*threep_att_100
+      - 0.159*fta_100 + 0.135*orb_100 + 0.400*drb_100 + 0.544*ast_100
+      + 1.680*stl_100 + 0.764*blk_100 - 1.360*tov_100 - 0.108*pf_100, 1),
+    DRE_shr = round(
+      -8.424 + 0.792*s_pts - 0.719*s_2pa - 0.552*s_3pa
+      - 0.159*s_fta + 0.135*s_orb + 0.400*s_drb + 0.544*s_ast
+      + 1.680*s_stl + 0.764*s_blk - 1.360*s_tov - 0.108*s_pf, 1),
+    decay = decay_w[Szezon]
+  )
+
+# ── Karrierszintű wDRE ────────────────────────────────────────────────────────
+# k_DRE: DRE-szintű Bayesian shrinkage (ICC(DRE)=0.514 → k_raw=570 perc;
+# konzervatív 400 perc, mert a stat-szintű shrinkage már kezelte az 1. körös zajt)
+K_DRE <- 400
+
+career <- per_season %>%
+  group_by(Játékos) %>%
+  summarise(
+    Szn_count  = n(),
+    Csapat_leg = Csapat[which.max(decay)],
+    eff_min    = sum(Min * decay, na.rm = TRUE),
+    wDRE_obs   = sum(DRE_shr * Min * decay, na.rm = TRUE) /
+                 sum(Min    * decay,        na.rm = TRUE),
+    # DRE-szintű shrinkage: eff_min / (eff_min + K_DRE) × wDRE_obs
+    wDRE       = round(wDRE_obs * eff_min / (eff_min + K_DRE), 1),
+    DRE_latest = DRE_shr[which.max(decay)] * eff_min / (eff_min + K_DRE),
+    DRE_latest = round(DRE_latest, 1),
+    szezon_leg = Szezon[which.max(decay)],
+    Trend_val  = ifelse(
+      Szn_count >= 2,
+      round(DRE_shr[which.max(decay)] -
+              weighted.mean(DRE_shr[decay < max(decay)],
+                            Min[decay < max(decay)], na.rm = TRUE), 1),
+      NA_real_),
+    .groups = "drop"
+  )
+
+# ── Kor és aging kiigazítás ───────────────────────────────────────────────────
+pi_dedup <- pi_raw %>%
+  filter(!is.na(szul_ev)) %>%
+  group_by(Játékos) %>%
+  summarise(szul_ev = max(szul_ev, na.rm = TRUE),
+            Poszt   = first(Poszt), .groups = "drop")
+
+# Empirikus aging curve (optimize_weights.R, NB1 2022-2026, ΔDRE/szn):
+# 18-21: +0.925 | 22-24: +0.330 | 25-27: +0.275 | 28-30: -0.389 | 31-33: -0.552 | 34+: -0.331
+aging_delta <- function(kor) {
+  case_when(
+    is.na(kor)  ~ 0,
+    kor <= 21   ~  0.925,
+    kor <= 24   ~  0.330,
+    kor <= 27   ~  0.275,
+    kor <= 30   ~ -0.389,
+    kor <= 33   ~ -0.552,
+    TRUE        ~ -0.331
+  )
+}
+
+career <- career %>%
+  left_join(pi_dedup, by = "Játékos") %>%
+  mutate(
+    Kor      = ifelse(!is.na(szul_ev),
+                      as.integer(substr(szezon_leg, 1, 4)) - szul_ev,
+                      NA_integer_),
+    age_adj  = pmax(pmin(aging_delta(Kor), 1.5), -2.0),
+    wDRE_adj = round(wDRE + age_adj, 1)
+  )
+
+# ── Percentilis (300+ eff. perc referencia) ───────────────────────────────────
+pct_rank_ref <- function(v, ref_v) {
+  ref_clean <- ref_v[!is.na(ref_v)]
+  ecdf(ref_clean)(v)
+}
+
+ref_mask <- career$eff_min >= 300
+
+career <- career %>%
+  mutate(
+    p_wDRE_adj  = pct_rank_ref(wDRE_adj,  wDRE_adj[ref_mask]),
+    p_DRE_lat   = pct_rank_ref(DRE_latest, DRE_latest[ref_mask]),
+    p_trend     = pct_rank_ref(Trend_val,  Trend_val[ref_mask & !is.na(Trend_val)])
+  )
+
+# ── Trend badge ───────────────────────────────────────────────────────────────
+trend_html <- function(val) {
+  ifelse(is.na(val), "\u2014",
+    ifelse(val >=  1.5,
+           paste0('<span style="color:#1a7a4a;font-weight:700;">\u25b2 +', val, '</span>'),
+    ifelse(val <= -1.5,
+           paste0('<span style="color:#C43A28;font-weight:700;">\u25bc ', val, '</span>'),
+           paste0('<span style="color:#D4902A;font-weight:600;">\u25ba ', ifelse(val>=0,"+",""), val, '</span>'))))
+}
+
+# ── Megjelenítési tábla ───────────────────────────────────────────────────────
+make_link <- function(nev) {
+  url <- profile_map[[nev]]
+  if (!is.null(url))
+    paste0('<a href="', url,
+           '" style="color:var(--accent-dark);font-weight:600;text-decoration:none;"',
+           ' onmouseover="this.style.textDecoration=\'underline\'"',
+           ' onmouseout="this.style.textDecoration=\'none\'">', nev, '</a>')
+  else nev
+}
+
+display <- career %>%
+  filter(eff_min >= 200) %>%
+  arrange(desc(wDRE_adj)) %>%
+  mutate(
+    Játékos_html = sapply(Játékos, make_link),
+    Poszt_d      = ifelse(is.na(Poszt) | Poszt == "", "\u2014", Poszt),
+    Kor_d        = ifelse(is.na(Kor), "\u2014", as.character(Kor)),
+    Eff_min_d    = round(eff_min),
+    DRE_lat_d    = ifelse(szezon_leg == "2025-26", as.character(DRE_latest),
+                          paste0(DRE_latest, " (", szezon_leg, ")")),
+    age_adj_d    = ifelse(age_adj == 0, "\u2014",
+                          paste0(ifelse(age_adj > 0, "+", ""), round(age_adj, 2))),
+    Trend_d      = trend_html(Trend_val)
+  ) %>%
+  transmute(
+    Játékos   = Játékos_html,
+    Csapat    = Csapat_leg,
+    Poszt     = Poszt_d,
+    Kor       = Kor_d,
+    Szn       = Szn_count,
+    `Eff. Min`  = Eff_min_d,
+    `DRE (leg.)` = DRE_lat_d,
+    wDRE        = wDRE,
+    `Kor adj.`  = age_adj_d,
+    `wDRE*`     = wDRE_adj,
+    Trend       = Trend_d,
+    p_wDRE_adj, p_DRE_lat, p_trend
+  )
+
+sd <- SharedData$new(display)
+```
+
+```{r render}
+bg_colors <- c(
+  "#F9C8C5","#FBD5C0","#FCE5C0","#FEF2D0","#FEFEE8",
+  "#F0F9D5","#DBEFBD","#C2E2BB","#A5D5A8","#87C893"
+)
+breaks <- seq(0.1, 0.9, by = 0.1)
+
+legend_html <- tags$div(
+  style = paste0("display:flex;align-items:center;gap:10px;",
+                 "font-size:12px;color:var(--text-muted);",
+                 "font-family:Montserrat,sans-serif;margin-bottom:10px;"),
+  tags$span(style = "font-weight:600;", "wDRE* percentilis:"),
+  tags$span("0%"),
+  tags$div(style = paste0(
+    "width:160px;height:12px;border-radius:4px;",
+    "background:linear-gradient(to right,",
+    "#F9C8C5,#FBD5C0,#FCE5C0,#FEF2D0,#FEFEE8,",
+    "#F0F9D5,#DBEFBD,#C2E2BB,#A5D5A8,#87C893);")),
+  tags$span("100%")
+)
+
+method_html <- tags$details(
+  style = "font-family:Montserrat,sans-serif;font-size:12px;color:#6B7280;margin-bottom:14px;",
+  tags$summary(style = "cursor:pointer;font-weight:600;color:#374151;",
+               "Módszertan \u25be"),
+  tags$div(style = "margin-top:8px;line-height:1.7;",
+    tags$b("DRE"), " (Daily RAPM Estimate, Myers 2017): box-score alapú RAPM-becslés.",
+    tags$br(),
+    tags$b("wDRE"), ": szezonok exponenciális decay-súlyozással (2025-26=1.0 \u2192 2022-23=0.125),
+     Bayesian regresszióval (stat-specifikus k-értékekkel, ligaátlag felé).",
+    tags$br(),
+    tags$b("Kor adj."), ": csúcskor (26.5 év) előtt pozitív, utána negatív korrekció
+     (+0.06/év alatta, \u22120.05/év felette, \u00b11.5/2.0 DRE pontban limitálva).",
+    tags$br(),
+    tags$b("wDRE*"), " = wDRE + kor adj. \u2014 ez a f\u0151 rendez\u0151 metrika.",
+    tags$br(),
+    tags$b("Trend"), ": legutóbbi szezon shrunk DRE mínusz korábbi szezons súlyozott átlaga.
+     \u25b2 \u22651.5 | \u25bc \u2264\u22121.5 | \u25ba egyéb."
+  )
+)
+
+controls_html <- tags$div(
+  style = "display:flex;gap:20px;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;",
+  tags$div(style = "min-width:160px;",
+    filter_select("csapat_sel", "Csapat", sd, ~Csapat, multiple = TRUE)
+  ),
+  tags$div(style = "min-width:130px;",
+    filter_select("poszt_sel", "Poszt", sd, ~Poszt, multiple = TRUE)
+  ),
+  tags$div(style = "min-width:180px;",
+    filter_slider("effmin_slider", "Min. eff. perc", sd, ~`Eff. Min`,
+                  min = 0, max = max(display$`Eff. Min`, na.rm = TRUE), step = 50)
+  ),
+  tags$div(style = "min-width:100px;",
+    filter_slider("szn_slider", "Szezons", sd, ~Szn,
+                  min = 1, max = max(display$Szn, na.rm = TRUE), step = 1)
+  )
+)
+
+dt_base <- DT::datatable(
+  sd,
+  rownames  = FALSE,
+  escape    = FALSE,
+  selection = "none",
+  options   = list(
+    dom        = "ft",
+    pageLength = 500,
+    ordering   = TRUE,
+    scrollX    = TRUE,
+    language   = list(search = "Keres\u00e9s:"),
+    columnDefs = list(
+      list(visible   = FALSE,      targets = 11:13),
+      list(className = "dt-center", targets = 2:10),
+      list(className = "dt-left",   targets = 0:1)
+    )
+  )
+)
+
+dt_styled <- dt_base %>%
+  formatStyle("wDRE*",     valueColumns = "p_wDRE_adj",
+              backgroundColor = styleInterval(breaks, bg_colors)) %>%
+  formatStyle("DRE (leg.)", valueColumns = "p_DRE_lat",
+              backgroundColor = styleInterval(breaks, bg_colors))
+
+tagList(
+  legend_html,
+  method_html,
+  controls_html,
+  dt_styled,
+  tags$p(
+    style = "font-size:11px;color:#9CA3AF;margin-top:8px;font-family:Montserrat,sans-serif;",
+    "Referencia: 300+ eff. perc. Minimum megjelenítési határ: 100 eff. perc.",
+    " A Bayesian regresszió k-értékei stat-specifikusak (stl/blk: k=850-950, pts: k=600, többi: k=350-550)."
+  )
+)
+```

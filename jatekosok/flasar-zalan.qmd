@@ -8,47 +8,40 @@ profile:
   besorolas: "strong-buy"
 
   tezis: >
-    Flasár a hazai bajnokság legjobb fiatal irányítója: olvasottsága,
-    pick & roll kezelése és az általa vezetéssel töltött percek mind fejlettebb
-    szintre mutatnak, mint amit korosztálya elvárna.
+    Flasár a magyar bajnokság legígéretesebb fiatal játékosa: mobilis rim runner és roll man,
+    folyamatos vertikális veszélyt jelent a gyűrű közelében. Elit a büntetők kiharcolásban.
+    Triplákat nem vállal, az idei szezonban sikerült középtávolikkal bővíteni a játékát.
+    Jó, de nem kiemelkedő lepattanózó. Atletikussága a védőoldalon is kiváló alapot biztosít neki.
 
   elemzes: |
-    Flasár Zalán a 2024-25-ös szezonban végleg kinőtte a fejlődőben lévő tehetség kategóriáját. A Falco keretén belül ő a legfontosabb labdahozó és pályaszervező, mérkőzésenként átlagosan 28 percet tölt a pályán.
+    A 2025-26-os szezonban sikerült stabil, alapemberré válnia, majdnem 17 percet játszott meccsenként. 97%-ban centert játszott, míg a korábbi szezonokban többször megfordult négyesben is. Saját fejlesztési pontjaként az izomtömeg fejlesztését jelölte meg. A korábbi junior MVP-nek, nem rég a felnőtt válogatottban is sikerült bemutatkoznia.
 
-    A pick & roll szituációkban különösen kiemelkedő: az 1.12 pont per possession érték a liga legjobb negyedébe sorolja. Döntéshozatala érett — az assziszt/góldobás arány javulása azt jelzi, hogy egyre ritkábban kockáztat erőltetett passzokat.
+    Hatékony pontszerző, de nem dolgozik kiemelkedően nagy volumenben, kevés labdával dolgozik. Pontjai nagy részét a gyűrű körül szerzi, elit a büntetők kiharcolásában. A büntetőit 60% körül értékesíti, ami további fejlesztésre szorul. Jelentős alley-oop veszély, zárások után jól robban a gyűrű felé. Triplái biztosan nem jelentenek veszélyt, ennek ellenére többször tudta megverni ellenfeleit lendületes betöréseivel.
 
-    Fő fejlesztendő területe a három pontos dobás konzisztenciája (32.4% kísérletekből, alacsony volumen mellett). Ha ezt a mutatót az átlag fölé tudja tornázni, a válogatott alapemberének pozícióját hosszú távon bebetonozhatja.
+    Utánpótlásban mutatott ígéretes jeleket a passzjátéka, a felnőttek között egyelőre ez nem volt hangsúlyos. Támadólepattanókért rendre oda tud érni. A Sopron védelme több, mint 14 ponttal jobban teljesített mikor Flasár a pályán volt. Agilitása segít a váltások utáni védekezésben, de a gyűrűt is remekül tudta védi.
+    
+    Összességében már most stabil játékosa volt csapatának, ezért nem meglepő, hogy a texasi Rice University-nél folytatja a következő szezonban.
 
   bull_case:
     szoveg: >
-      Három pontos százaléka 37% fölé emelkedik, defenzív fejlődése folytatódik,
-      és a válogatott alapemberévé válik — ami külföldi érdeklődést is generálhat.
-    meroeszam: "Legalább 1 konkrét külföldi ajánlat 18 hónapon belül"
+      Sikerül úgy izomtömeget magára pakolnia, hogy nem romlik az agilitása.
+      Jelentősen javul a dobása, nagyobb részt vállal kreátorként is.
+      Hosszú távon válogatott alapember, erős európai bajnokságban alapember.
+    meroeszam: "FT% 70 felett, szezon végére 15 MPG felett."
 
   base_case:
     szoveg: >
-      Flasár megmarad a Falco kulcsjátékosaként, stabilan vezető szinten teljesít,
-      de külföldi szereplés nélkül.
-    meroeszam: "Assziszt/mérkőzés 7.0 fölött a következő szezonban"
+      Amerikai adaptációja normális ütemben halad, először az erőnléti munka
+      kerül fókuszba. Szépen építi magát.
+    meroeszam: "Szezon végére 10 MPG felett. "
 
   bear_case:
     szoveg: >
-      Sérülés vagy a csapat kontextusának gyengülése megakadályozza a fejlődési
-      pályán való előrehaladást.
-    meroeszam: "Játékpercek 20% alá esnek, statisztikák stagnálnak"
-
-  horizont: 18
-  kovetkezo_felulvizsgalat: "2025-10-01"
-  felulvizsgalat_trigger: "Szezonkezdő mérkőzések (első 10) értékelése"
-
+      Nehezen illeszkedik be, fejlődése kicsit megreked. Szórványosan játszik, főként garbage time-ban kerül pályára.
+    meroeszam: "5 MPG alatt marad a szezon átlag."
+    
   rating_history:
-    - besorolas: "buy"
-      datum: "2024-02-15"
-      indok: "Erős első félév, de még kérdéses a pick & roll hatékonysága magas nyomású szituációkban."
-    - besorolas: "strong-buy"
-      datum: "2024-09-01"
-      indok: "Nyári fejlődés egyértelmű, megnövekedett szerepkör a Falcónál + válogatott keretbe hívás."
-      kimenet: "bejött"
+
 ---
 
 ```{r}

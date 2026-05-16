@@ -1,0 +1,1489 @@
+{
+    "plot_type": "distribution",
+    "title": "Active Defence of Balázs Bakti",
+    "subtitle": "Hungarian NB I 2024/2025 | 1364 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Álex Vallejo",
+            "Zoltán Stieber",
+            "Amos Youga",
+            "Kristiyan Malinov",
+            "Roland Szolnoki",
+            "Balász Balogh",
+            "István Bognár",
+            "Jozsef Windecker",
+            "Attila Fiola",
+            "Kristóf Papp",
+            "Levente Vágó",
+            "Bálint Vécsei",
+            "Aleksandar Pešić",
+            "Paul Anton",
+            "Rudi Požeg Vancaš",
+            "Balázs Dzsudzsák",
+            "Michal Škvarka",
+            "Nika Kvekveskiri",
+            "Matija Ljujić",
+            "Dušan Lagator",
+            "Zsolt Kalmár",
+            "Dominik Nagy",
+            "Jakub Plšek",
+            "Artem Favorov",
+            "Barna Kesztyűs",
+            "Gergő Kocsis",
+            "Damian Rasak",
+            "Donát Zsótér",
+            "Bojan Sanković",
+            "Anderson Esiti",
+            "Fran Brodić",
+            "Gergő Holdampf",
+            "Máté Sajbán",
+            "Habib Maïga",
+            "Aboubakar Keita",
+            "Lóránd Pászka",
+            "Bence Bedi",
+            "Naby Keïta",
+            "Kristoffer Zachariassen",
+            "Nicolás Stefanelli",
+            "Vincent Onovo",
+            "Vladislav Klimovich",
+            "Krisztián Nagy",
+            "Philippe Rommens",
+            "Bálint Szabó",
+            "Mátyás Tajti",
+            "Urho Nissilä",
+            "Yurii Toma",
+            "Laros Duarte",
+            "Tosin Kehinde",
+            "Bence Ötvös",
+            "Bence Kiss",
+            "Bogdan Melnyk",
+            "Mohammed Abu Fani",
+            "Christ Tiéhi",
+            "Márk Kovácsréti",
+            "Kady",
+            "Mykhaylo Meskhi",
+            "Marko Rakonjac",
+            "Franchu",
+            "Alen Skribek",
+            "András Csonka",
+            "Željko Gavrić",
+            "Jonathan Levi",
+            "Jack Ipalibo",
+            "Tobias Christensen",
+            "Áron Csongvai",
+            "Júlio Romão",
+            "Soma Szuhodovszki",
+            "Wajdi Sahli",
+            "Krisztofer Horváth",
+            "Mohamed Ben Romdhane",
+            "Milán Kovács",
+            "Szabolcs Mezei",
+            "Mihály Kata",
+            "Milán Vitális",
+            "Brandon Dominguès",
+            "Márk Kosznovszky",
+            "Ágoston Bényei",
+            "Artúr Horváth",
+            "Tom Lacoux",
+            "Georgiy Harutyunyan",
+            "Samsondin Ouro",
+            "Mátyás Katona",
+            "Barnabás Kovács",
+            "Bertalan Bocskay",
+            "Pàl Helmich",
+            "Tamás Nikitscher",
+            "Bálint Katona",
+            "Victor Braga",
+            "Tamás Szűcs",
+            "Balázs Bakti",
+            "Bence Komlósi",
+            "Gergő Gyurkits",
+            "Alex Tóth",
+            "Tóth Rajmund",
+            "Milán Pető",
+            "Bence Végh",
+            "Kevin Horváth",
+            "Bálint Geiger",
+            "Márton Vattay"
+        ],
+        "target_identifiers": [
+            5107,
+            15196,
+            25398,
+            68119,
+            74951,
+            75051,
+            75054,
+            75113,
+            75131,
+            75492,
+            76048,
+            76142,
+            80985,
+            84132,
+            85543,
+            101690,
+            104881,
+            118397,
+            128206,
+            128808,
+            136278,
+            136280,
+            137107,
+            138482,
+            145234,
+            224969,
+            225653,
+            231810,
+            236029,
+            236989,
+            238159,
+            238701,
+            266739,
+            285457,
+            285458,
+            287504,
+            289554,
+            289711,
+            298801,
+            326126,
+            326921,
+            333062,
+            338600,
+            346010,
+            352143,
+            352227,
+            370132,
+            373433,
+            377068,
+            397171,
+            404780,
+            404804,
+            420958,
+            424256,
+            426745,
+            432732,
+            441197,
+            448375,
+            452687,
+            461173,
+            475816,
+            476384,
+            481267,
+            483796,
+            498208,
+            499832,
+            502155,
+            530918,
+            553144,
+            557829,
+            561550,
+            565801,
+            574800,
+            576614,
+            586797,
+            587654,
+            603172,
+            605771,
+            620092,
+            620099,
+            630100,
+            639992,
+            640998,
+            653443,
+            681024,
+            683352,
+            691627,
+            691939,
+            694818,
+            750624,
+            759564,
+            759632,
+            768071,
+            771055,
+            817094,
+            824430,
+            831685,
+            844699,
+            894503,
+            925916,
+            1085357
+        ],
+        "kpis": [
+            {
+                "name": "Defending 1v1 %",
+                "description": "Percentage of successful attempts to prevent an opposing player in possession of the ball to dribble past the player.",
+                "display_name": "Defending 1v1 %"
+            },
+            {
+                "name": "Defensive actions",
+                "description": "Number of successful defensive actions (defensive duels, tackles, interceptions, recoveries, clearances) adjusted by the opponent's possession.",
+                "display_name": "Defensive actions"
+            },
+            {
+                "name": "Possessions won",
+                "description": "Number of recovered possessions adjusted by the opponent's possession.",
+                "display_name": "Possessions won"
+            },
+            {
+                "name": "Tackle success %",
+                "description": "Percentage of defending 1v1s and sliding tackles won.",
+                "display_name": "Tackle success %"
+            }
+        ],
+        "focal_target_indices": [
+            91
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.15094810724258423,
+                1.5709686279296875,
+                1.7673283815383911,
+                0.8514838218688965
+            ],
+            [
+                -2.1525142192840576,
+                -0.9438571333885193,
+                -1.1980221271514893,
+                0.6930025219917297
+            ],
+            [
+                0.5897029638290405,
+                0.5141103863716125,
+                0.8979856967926025,
+                -0.8037638068199158
+            ],
+            [
+                -0.8063349723815918,
+                0.41915273666381836,
+                0.5448892116546631,
+                -0.531624436378479
+            ],
+            [
+                0.5897029638290405,
+                0.5090277194976807,
+                -0.0711418092250824,
+                -0.20505723357200623
+            ],
+            [
+                -0.35760849714279175,
+                0.5871129035949707,
+                0.5381339192390442,
+                -0.3846691846847534
+            ],
+            [
+                0.12563534080982208,
+                -1.3963218927383423,
+                -1.1999093294143677,
+                -0.29958996176719666
+            ],
+            [
+                -0.23296226561069489,
+                0.015163853764533997,
+                -0.044972702860832214,
+                0.07126885652542114
+            ],
+            [
+                -0.3339913785457611,
+                1.3643836975097656,
+                1.55376136302948,
+                0.36970099806785583
+            ],
+            [
+                0.19795754551887512,
+                0.2509802579879761,
+                0.07557830959558487,
+                0.765818178653717
+            ],
+            [
+                1.1381464004516602,
+                0.8931670188903809,
+                1.3709485530853271,
+                0.6930025219917297
+            ],
+            [
+                0.23586830496788025,
+                1.8154112100601196,
+                1.7162954807281494,
+                0.35623010993003845
+            ],
+            [
+                -2.1525142192840576,
+                -1.9629729986190796,
+                -1.4597687721252441,
+                -2.0011768341064453
+            ],
+            [
+                -0.35760849714279175,
+                0.7701146006584167,
+                0.7568591237068176,
+                -0.8037638068199158
+            ],
+            [
+                1.1381464004516602,
+                -0.965757429599762,
+                -0.9509451389312744,
+                1.231838583946228
+            ],
+            [
+                -1.055627465248108,
+                -1.3449358940124512,
+                -1.0046213865280151,
+                -0.20505723357200623
+            ],
+            [
+                2.7834763526916504,
+                -0.33257588744163513,
+                -0.306399405002594,
+                3.3871822357177734
+            ],
+            [
+                0.6680520176887512,
+                -0.36296704411506653,
+                -0.21832460165023804,
+                0.6930025219917297
+            ],
+            [
+                -1.165316104888916,
+                -0.5641765594482422,
+                -0.7534487247467041,
+                -0.8037638068199158
+            ],
+            [
+                0.5398444533348083,
+                1.0908957719802856,
+                0.8815843462944031,
+                0.35623010993003845
+            ],
+            [
+                1.1381464004516602,
+                -1.1239274740219116,
+                -0.8933354020118713,
+                -2.0011768341064453
+            ],
+            [
+                0.13919568061828613,
+                -0.8689662218093872,
+                -0.9601554870605469,
+                0.21755914390087128
+            ],
+            [
+                -0.9185165762901306,
+                -0.7408866882324219,
+                -0.8176645040512085,
+                -1.4024704694747925
+            ],
+            [
+                0.5398444533348083,
+                1.1405564546585083,
+                0.8606273531913757,
+                0.4322754144668579
+            ],
+            [
+                1.5494788885116577,
+                0.05703167989850044,
+                0.0022506851237267256,
+                2.0400922298431396
+            ],
+            [
+                -0.5071839690208435,
+                0.5483395457267761,
+                1.016563892364502,
+                -0.20505723357200623
+            ],
+            [
+                1.1381464004516602,
+                0.07167089730501175,
+                0.06717948615550995,
+                1.5910624265670776
+            ],
+            [
+                -0.8362500071525574,
+                -0.7756103873252869,
+                -0.571591854095459,
+                -1.3276320695877075
+            ],
+            [
+                0.5622807145118713,
+                1.3542925119400024,
+                1.248587727546692,
+                -0.5504648089408875
+            ],
+            [
+                0.04125943407416344,
+                0.5955071449279785,
+                1.1998599767684937,
+                -0.20505723357200623
+            ],
+            [
+                0.31548112630844116,
+                -1.6368943452835083,
+                -1.6002273559570312,
+                0.1156783252954483
+            ],
+            [
+                -0.2721368074417114,
+                -0.3636818528175354,
+                -0.42868903279304504,
+                -0.286699116230011
+            ],
+            [
+                -1.3298492431640625,
+                -1.1378687620162964,
+                -1.1580357551574707,
+                -1.3276320695877075
+            ],
+            [
+                0.31548112630844116,
+                1.7003822326660156,
+                2.099398374557495,
+                0.15416668355464935
+            ],
+            [
+                0.17030493915081024,
+                0.4926646649837494,
+                0.5574241876602173,
+                0.8348015546798706
+            ],
+            [
+                2.0783350467681885,
+                1.4942166805267334,
+                0.7058281302452087,
+                0.6930025219917297
+            ],
+            [
+                -0.17811793088912964,
+                -0.7197909951210022,
+                -0.5625666379928589,
+                -1.231411337852478
+            ],
+            [
+                0.5398444533348083,
+                0.7278424501419067,
+                0.8658130764961243,
+                0.6930025219917297
+            ],
+            [
+                -0.5071839690208435,
+                -0.7523918747901917,
+                -0.791621208190918,
+                -0.20505723357200623
+            ],
+            [
+                -0.9185165762901306,
+                -1.098081111907959,
+                -1.2363401651382446,
+                0.39364928007125854
+            ],
+            [
+                -0.5071839690208435,
+                0.1594342142343521,
+                0.0833747610449791,
+                -2.0011768341064453
+            ],
+            [
+                -1.4473726749420166,
+                -0.7534236311912537,
+                -0.8862244486808777,
+                -1.2827290296554565
+            ],
+            [
+                -0.7422311305999756,
+                -0.6490566730499268,
+                -0.3900788724422455,
+                -0.8037638068199158
+            ],
+            [
+                0.5398444533348083,
+                1.5716694593429565,
+                2.0930347442626953,
+                -0.20505723357200623
+            ],
+            [
+                -0.5071839690208435,
+                -0.9228639006614685,
+                -0.8634218573570251,
+                -0.29267290234565735
+            ],
+            [
+                -0.6100171804428101,
+                0.18458376824855804,
+                -0.14403121173381805,
+                -0.4163654148578644
+            ],
+            [
+                -0.2721368074417114,
+                0.39146703481674194,
+                0.24128469824790955,
+                -0.3612416684627533
+            ],
+            [
+                -0.35760849714279175,
+                -0.056843094527721405,
+                -0.2789708077907562,
+                -0.20505723357200623
+            ],
+            [
+                1.467212438583374,
+                0.14946748316287994,
+                0.3526768386363983,
+                1.291709065437317
+            ],
+            [
+                -0.5071839690208435,
+                -0.4298607110977173,
+                0.04528750851750374,
+                -2.0011768341064453
+            ],
+            [
+                -0.3015177249908447,
+                1.2567085027694702,
+                1.2117552757263184,
+                -0.3432202637195587
+            ],
+            [
+                0.15094810724258423,
+                -0.29964783787727356,
+                -0.22442878782749176,
+                0.35623010993003845
+            ],
+            [
+                -0.7422311305999756,
+                0.34378349781036377,
+                0.5497267246246338,
+                -0.20505723357200623
+            ],
+            [
+                0.7268136143684387,
+                0.5224283933639526,
+                0.1953015923500061,
+                0.6930025219917297
+            ],
+            [
+                0.5897029638290405,
+                -0.338499516248703,
+                -0.3547241985797882,
+                0.6930025219917297
+            ],
+            [
+                -0.3015177249908447,
+                -1.0957573652267456,
+                -1.1803134679794312,
+                -0.20505723357200623
+            ],
+            [
+                1.1381464004516602,
+                0.07556598633527756,
+                0.42286917567253113,
+                0.3081197738647461
+            ],
+            [
+                2.166477680206299,
+                0.8406122922897339,
+                0.0958586260676384,
+                1.5910624265670776
+            ],
+            [
+                1.1381464004516602,
+                -1.9114277362823486,
+                -1.3931740522384644,
+                -0.20505723357200623
+            ],
+            [
+                0.8090803623199463,
+                -0.2574542462825775,
+                -0.9826610088348389,
+                1.0778855085372925
+            ],
+            [
+                -2.1525142192840576,
+                -1.506426453590393,
+                -1.3657346963882446,
+                -2.0011768341064453
+            ],
+            [
+                0.6680520176887512,
+                -0.10986234247684479,
+                -0.05465293675661087,
+                0.423584520816803
+            ],
+            [
+                -0.23296226561069489,
+                -0.9286932349205017,
+                -0.9297620058059692,
+                0.09429603070020676
+            ],
+            [
+                -0.7814056873321533,
+                -0.8767966628074646,
+                -1.0536127090454102,
+                -0.20505723357200623
+            ],
+            [
+                2.7834763526916504,
+                -0.785877525806427,
+                -0.2368425875902176,
+                3.3871822357177734
+            ],
+            [
+                -2.1525142192840576,
+                -0.6262623071670532,
+                -0.13714632391929626,
+                -2.0011768341064453
+            ],
+            [
+                0.7268136143684387,
+                0.7087161540985107,
+                0.5342422127723694,
+                1.1684460639953613
+            ],
+            [
+                0.6680520176887512,
+                3.4917075634002686,
+                3.8663930892944336,
+                0.6930025219917297
+            ],
+            [
+                0.6680520176887512,
+                -0.3691198527812958,
+                -0.2523106634616852,
+                0.21755914390087128
+            ],
+            [
+                -0.3015177249908447,
+                -0.8163707852363586,
+                -1.0986169576644897,
+                0.3081197738647461
+            ],
+            [
+                -0.8063349723815918,
+                -0.8804458975791931,
+                -0.5341044664382935,
+                0.019457677379250526
+            ],
+            [
+                -0.8063349723815918,
+                -0.1588003933429718,
+                -0.35689738392829895,
+                -0.531624436378479
+            ],
+            [
+                -0.23296226561069489,
+                -0.438373863697052,
+                -0.2726387083530426,
+                -0.4163654148578644
+            ],
+            [
+                -0.3243696093559265,
+                -0.7843826413154602,
+                -0.8261346817016602,
+                -0.6041949987411499
+            ],
+            [
+                -0.037089623510837555,
+                1.6743662357330322,
+                1.189336895942688,
+                0.5723676085472107
+            ],
+            [
+                0.4606574773788452,
+                0.5467110276222229,
+                1.0651568174362183,
+                0.9175176024436951
+            ],
+            [
+                -1.2814570665359497,
+                -0.46551650762557983,
+                -0.6728766560554504,
+                -1.0033327341079712
+            ],
+            [
+                0.04125943407416344,
+                0.4197470545768738,
+                0.37486833333969116,
+                -0.7577095031738281
+            ],
+            [
+                0.31548112630844116,
+                -0.6485937237739563,
+                -0.462816059589386,
+                0.6930025219917297
+            ],
+            [
+                -0.17811793088912964,
+                -0.5412675738334656,
+                -0.48866066336631775,
+                0.15416668355464935
+            ],
+            [
+                0.5053271055221558,
+                1.2335386276245117,
+                1.2809981107711792,
+                0.36970099806785583
+            ],
+            [
+                -0.5071839690208435,
+                1.125653862953186,
+                0.9632843732833862,
+                -0.7333277463912964
+            ],
+            [
+                0.0911179780960083,
+                0.011920482851564884,
+                -0.3162378966808319,
+                0.10731133073568344
+            ],
+            [
+                0.04125943407416344,
+                -1.0851489305496216,
+                -0.9926057457923889,
+                0.39364928007125854
+            ],
+            [
+                0.12563534080982208,
+                -0.4480619728565216,
+                -0.35424357652664185,
+                -0.01599207893013954
+            ],
+            [
+                0.31548112630844116,
+                0.3062520921230316,
+                0.4864814579486847,
+                0.15416668355464935
+            ],
+            [
+                1.5494788885116577,
+                -0.743076503276825,
+                -1.2593934535980225,
+                0.6930025219917297
+            ],
+            [
+                0.5053271055221558,
+                -0.48652955889701843,
+                -0.2343565672636032,
+                0.9002472758293152
+            ],
+            [
+                -1.165316104888916,
+                -0.8627434372901917,
+                -0.827955424785614,
+                -1.0214753150939941
+            ],
+            [
+                0.31548112630844116,
+                1.1162749528884888,
+                0.5056108236312866,
+                0.6930025219917297
+            ],
+            [
+                0.31548112630844116,
+                -0.15439289808273315,
+                -0.458293616771698,
+                0.019457677379250526
+            ],
+            [
+                1.373193621635437,
+                -0.778269350528717,
+                -0.3888287842273712,
+                0.6930025219917297
+            ],
+            [
+                -1.5355154275894165,
+                1.2065898180007935,
+                1.059224009513855,
+                -2.0011768341064453
+            ],
+            [
+                -0.5071839690208435,
+                0.20840683579444885,
+                0.3287758231163025,
+                0.019457677379250526
+            ],
+            [
+                1.373193621635437,
+                0.21539020538330078,
+                0.10365339368581772,
+                0.9923559427261353
+            ],
+            [
+                0.5398444533348083,
+                1.31822669506073,
+                0.8208094835281372,
+                0.6930025219917297
+            ],
+            [
+                -0.17811793088912964,
+                -0.1357797086238861,
+                -0.449785977602005,
+                -0.1152513325214386
+            ],
+            [
+                0.12563534080982208,
+                3.3114123344421387,
+                3.1660990715026855,
+                0.6930025219917297
+            ],
+            [
+                -2.1525142192840576,
+                -0.3020535707473755,
+                -0.7148505449295044,
+                -0.6540871858596802
+            ],
+            [
+                -1.055627465248108,
+                -0.43694281578063965,
+                -0.5957279205322266,
+                -0.3432202637195587
+            ],
+            [
+                -2.1525142192840576,
+                -1.1973209381103516,
+                -1.5021007061004639,
+                -2.0011768341064453
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Álex Vallejo\nRank: 44/101\n0.47 Defending 1v1 %",
+                "Álex Vallejo\nRank: 7/101\n10.92 Defensive actions per 90",
+                "Álex Vallejo\nRank: 5/101\n6.42 Possessions won per 90",
+                "Álex Vallejo\nRank: 13/101\n0.53 Tackle success %"
+            ],
+            [
+                "Z. Stieber\nRank: 96/101\n0.00 Defending 1v1 %",
+                "Z. Stieber\nRank: 88/101\n4.15 Defensive actions per 90",
+                "Z. Stieber\nRank: 93/101\n1.38 Possessions won per 90",
+                "Z. Stieber\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "A. Youga\nRank: 23/101\n0.56 Defending 1v1 %",
+                "A. Youga\nRank: 29/101\n8.07 Defensive actions per 90",
+                "A. Youga\nRank: 18/101\n4.94 Possessions won per 90",
+                "A. Youga\nRank: 83/101\n0.22 Tackle success %"
+            ],
+            [
+                "K. Malinov\nRank: 82/101\n0.27 Defending 1v1 %",
+                "K. Malinov\nRank: 33/101\n7.82 Defensive actions per 90",
+                "K. Malinov\nRank: 27/101\n4.34 Possessions won per 90",
+                "K. Malinov\nRank: 76/101\n0.27 Tackle success %"
+            ],
+            [
+                "R. Szolnoki\nRank: 23/101\n0.56 Defending 1v1 %",
+                "R. Szolnoki\nRank: 30/101\n8.06 Defensive actions per 90",
+                "R. Szolnoki\nRank: 47/101\n3.30 Possessions won per 90",
+                "R. Szolnoki\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "B. Balogh\nRank: 68/101\n0.36 Defending 1v1 %",
+                "B. Balogh\nRank: 25/101\n8.27 Defensive actions per 90",
+                "B. Balogh\nRank: 28/101\n4.33 Possessions won per 90",
+                "B. Balogh\nRank: 73/101\n0.30 Tackle success %"
+            ],
+            [
+                "I. Bognár\nRank: 47/101\n0.46 Defending 1v1 %",
+                "I. Bognár\nRank: 97/101\n2.93 Defensive actions per 90",
+                "I. Bognár\nRank: 94/101\n1.38 Possessions won per 90",
+                "I. Bognár\nRank: 69/101\n0.32 Tackle success %"
+            ],
+            [
+                "J. Windecker\nRank: 58/101\n0.39 Defending 1v1 %",
+                "J. Windecker\nRank: 46/101\n6.73 Defensive actions per 90",
+                "J. Windecker\nRank: 45/101\n3.34 Possessions won per 90",
+                "J. Windecker\nRank: 50/101\n0.38 Tackle success %"
+            ],
+            [
+                "A. Fiola\nRank: 67/101\n0.37 Defending 1v1 %",
+                "A. Fiola\nRank: 9/101\n10.36 Defensive actions per 90",
+                "A. Fiola\nRank: 7/101\n6.06 Possessions won per 90",
+                "A. Fiola\nRank: 35/101\n0.44 Tackle success %"
+            ],
+            [
+                "K. Papp\nRank: 42/101\n0.48 Defending 1v1 %",
+                "K. Papp\nRank: 37/101\n7.36 Defensive actions per 90",
+                "K. Papp\nRank: 41/101\n3.55 Possessions won per 90",
+                "K. Papp\nRank: 15/101\n0.51 Tackle success %"
+            ],
+            [
+                "L. Vágó\nRank: 10/101\n0.67 Defending 1v1 %",
+                "L. Vágó\nRank: 19/101\n9.09 Defensive actions per 90",
+                "L. Vágó\nRank: 8/101\n5.75 Possessions won per 90",
+                "L. Vágó\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "B. Vécsei\nRank: 41/101\n0.48 Defending 1v1 %",
+                "B. Vécsei\nRank: 3/101\n11.57 Defensive actions per 90",
+                "B. Vécsei\nRank: 6/101\n6.33 Possessions won per 90",
+                "B. Vécsei\nRank: 37/101\n0.44 Tackle success %"
+            ],
+            [
+                "A. Pešić\nRank: 96/101\n0.00 Defending 1v1 %",
+                "A. Pešić\nRank: 101/101\n1.41 Defensive actions per 90",
+                "A. Pešić\nRank: 99/101\n0.94 Possessions won per 90",
+                "A. Pešić\nRank: 94/101\n0.00 Tackle success %"
+            ],
+            [
+                "P. Anton\nRank: 68/101\n0.36 Defending 1v1 %",
+                "P. Anton\nRank: 21/101\n8.76 Defensive actions per 90",
+                "P. Anton\nRank: 23/101\n4.70 Possessions won per 90",
+                "P. Anton\nRank: 83/101\n0.22 Tackle success %"
+            ],
+            [
+                "R. Požeg Vancaš\nRank: 10/101\n0.67 Defending 1v1 %",
+                "R. Požeg Vancaš\nRank: 89/101\n4.09 Defensive actions per 90",
+                "R. Požeg Vancaš\nRank: 84/101\n1.80 Possessions won per 90",
+                "R. Požeg Vancaš\nRank: 7/101\n0.60 Tackle success %"
+            ],
+            [
+                "B. Dzsudzsák\nRank: 88/101\n0.22 Defending 1v1 %",
+                "B. Dzsudzsák\nRank: 96/101\n3.07 Defensive actions per 90",
+                "B. Dzsudzsák\nRank: 88/101\n1.71 Possessions won per 90",
+                "B. Dzsudzsák\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "M. Škvarka\nRank: 1/101\n1.00 Defending 1v1 %",
+                "M. Škvarka\nRank: 56/101\n5.79 Defensive actions per 90",
+                "M. Škvarka\nRank: 57/101\n2.90 Possessions won per 90",
+                "M. Škvarka\nRank: 1/101\n1.00 Tackle success %"
+            ],
+            [
+                "N. Kvekveskiri\nRank: 19/101\n0.57 Defending 1v1 %",
+                "N. Kvekveskiri\nRank: 58/101\n5.71 Defensive actions per 90",
+                "N. Kvekveskiri\nRank: 50/101\n3.05 Possessions won per 90",
+                "N. Kvekveskiri\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "M. Ljujić\nRank: 90/101\n0.20 Defending 1v1 %",
+                "M. Ljujić\nRank: 68/101\n5.17 Defensive actions per 90",
+                "M. Ljujić\nRank: 75/101\n2.14 Possessions won per 90",
+                "M. Ljujić\nRank: 83/101\n0.22 Tackle success %"
+            ],
+            [
+                "D. Lagator\nRank: 27/101\n0.55 Defending 1v1 %",
+                "D. Lagator\nRank: 18/101\n9.62 Defensive actions per 90",
+                "D. Lagator\nRank: 19/101\n4.91 Possessions won per 90",
+                "D. Lagator\nRank: 37/101\n0.44 Tackle success %"
+            ],
+            [
+                "Z. Kalmár\nRank: 10/101\n0.67 Defending 1v1 %",
+                "Z. Kalmár\nRank: 93/101\n3.67 Defensive actions per 90",
+                "Z. Kalmár\nRank: 82/101\n1.90 Possessions won per 90",
+                "Z. Kalmár\nRank: 94/101\n0.00 Tackle success %"
+            ],
+            [
+                "D. Nagy\nRank: 46/101\n0.46 Defending 1v1 %",
+                "D. Nagy\nRank: 83/101\n4.35 Defensive actions per 90",
+                "D. Nagy\nRank: 85/101\n1.79 Possessions won per 90",
+                "D. Nagy\nRank: 42/101\n0.41 Tackle success %"
+            ],
+            [
+                "J. Plšek\nRank: 86/101\n0.25 Defending 1v1 %",
+                "J. Plšek\nRank: 73/101\n4.70 Defensive actions per 90",
+                "J. Plšek\nRank: 77/101\n2.03 Possessions won per 90",
+                "J. Plšek\nRank: 93/101\n0.11 Tackle success %"
+            ],
+            [
+                "A. Favorov\nRank: 27/101\n0.55 Defending 1v1 %",
+                "A. Favorov\nRank: 15/101\n9.76 Defensive actions per 90",
+                "A. Favorov\nRank: 21/101\n4.88 Possessions won per 90",
+                "A. Favorov\nRank: 31/101\n0.45 Tackle success %"
+            ],
+            [
+                "B. Kesztyűs\nRank: 5/101\n0.75 Defending 1v1 %",
+                "B. Kesztyűs\nRank: 45/101\n6.84 Defensive actions per 90",
+                "B. Kesztyűs\nRank: 44/101\n3.42 Possessions won per 90",
+                "B. Kesztyűs\nRank: 3/101\n0.75 Tackle success %"
+            ],
+            [
+                "G. Kocsis\nRank: 71/101\n0.33 Defending 1v1 %",
+                "G. Kocsis\nRank: 26/101\n8.16 Defensive actions per 90",
+                "G. Kocsis\nRank: 16/101\n5.14 Possessions won per 90",
+                "G. Kocsis\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "D. Rasak\nRank: 10/101\n0.67 Defending 1v1 %",
+                "D. Rasak\nRank: 44/101\n6.88 Defensive actions per 90",
+                "D. Rasak\nRank: 42/101\n3.53 Possessions won per 90",
+                "D. Rasak\nRank: 4/101\n0.67 Tackle success %"
+            ],
+            [
+                "D. Zsótér\nRank: 85/101\n0.27 Defending 1v1 %",
+                "D. Zsótér\nRank: 77/101\n4.60 Defensive actions per 90",
+                "D. Zsótér\nRank: 71/101\n2.45 Possessions won per 90",
+                "D. Zsótér\nRank: 91/101\n0.12 Tackle success %"
+            ],
+            [
+                "B. Sanković\nRank: 26/101\n0.55 Defending 1v1 %",
+                "B. Sanković\nRank: 10/101\n10.33 Defensive actions per 90",
+                "B. Sanković\nRank: 10/101\n5.54 Possessions won per 90",
+                "B. Sanković\nRank: 78/101\n0.27 Tackle success %"
+            ],
+            [
+                "A. Esiti\nRank: 51/101\n0.44 Defending 1v1 %",
+                "A. Esiti\nRank: 24/101\n8.29 Defensive actions per 90",
+                "A. Esiti\nRank: 12/101\n5.45 Possessions won per 90",
+                "A. Esiti\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "F. Brodić\nRank: 35/101\n0.50 Defending 1v1 %",
+                "F. Brodić\nRank: 99/101\n2.29 Defensive actions per 90",
+                "F. Brodić\nRank: 101/101\n0.70 Possessions won per 90",
+                "F. Brodić\nRank: 47/101\n0.39 Tackle success %"
+            ],
+            [
+                "G. Holdampf\nRank: 61/101\n0.38 Defending 1v1 %",
+                "G. Holdampf\nRank: 59/101\n5.71 Defensive actions per 90",
+                "G. Holdampf\nRank: 64/101\n2.69 Possessions won per 90",
+                "G. Holdampf\nRank: 67/101\n0.32 Tackle success %"
+            ],
+            [
+                "M. Sajbán\nRank: 93/101\n0.17 Defending 1v1 %",
+                "M. Sajbán\nRank: 94/101\n3.63 Defensive actions per 90",
+                "M. Sajbán\nRank: 91/101\n1.45 Possessions won per 90",
+                "M. Sajbán\nRank: 91/101\n0.12 Tackle success %"
+            ],
+            [
+                "H. Maïga\nRank: 35/101\n0.50 Defending 1v1 %",
+                "H. Maïga\nRank: 4/101\n11.26 Defensive actions per 90",
+                "H. Maïga\nRank: 3/101\n6.98 Possessions won per 90",
+                "H. Maïga\nRank: 44/101\n0.40 Tackle success %"
+            ],
+            [
+                "A. Keita\nRank: 43/101\n0.47 Defending 1v1 %",
+                "A. Keita\nRank: 31/101\n8.01 Defensive actions per 90",
+                "A. Keita\nRank: 25/101\n4.36 Possessions won per 90",
+                "A. Keita\nRank: 14/101\n0.53 Tackle success %"
+            ],
+            [
+                "L. Pászka\nRank: 4/101\n0.86 Defending 1v1 %",
+                "L. Pászka\nRank: 8/101\n10.71 Defensive actions per 90",
+                "L. Pászka\nRank: 24/101\n4.62 Possessions won per 90",
+                "L. Pászka\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "B. Bedi\nRank: 55/101\n0.40 Defending 1v1 %",
+                "B. Bedi\nRank: 72/101\n4.75 Defensive actions per 90",
+                "B. Bedi\nRank: 70/101\n2.46 Possessions won per 90",
+                "B. Bedi\nRank: 89/101\n0.14 Tackle success %"
+            ],
+            [
+                "N. Keïta\nRank: 27/101\n0.55 Defending 1v1 %",
+                "N. Keïta\nRank: 22/101\n8.65 Defensive actions per 90",
+                "N. Keïta\nRank: 20/101\n4.89 Possessions won per 90",
+                "N. Keïta\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "K. Zachariassen\nRank: 71/101\n0.33 Defending 1v1 %",
+                "K. Zachariassen\nRank: 75/101\n4.67 Defensive actions per 90",
+                "K. Zachariassen\nRank: 76/101\n2.07 Possessions won per 90",
+                "K. Zachariassen\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "N. Stefanelli\nRank: 86/101\n0.25 Defending 1v1 %",
+                "N. Stefanelli\nRank: 92/101\n3.74 Defensive actions per 90",
+                "N. Stefanelli\nRank: 95/101\n1.32 Possessions won per 90",
+                "N. Stefanelli\nRank: 33/101\n0.44 Tackle success %"
+            ],
+            [
+                "V. Onovo\nRank: 71/101\n0.33 Defending 1v1 %",
+                "V. Onovo\nRank: 41/101\n7.12 Defensive actions per 90",
+                "V. Onovo\nRank: 40/101\n3.56 Possessions won per 90",
+                "V. Onovo\nRank: 94/101\n0.00 Tackle success %"
+            ],
+            [
+                "V. Klimovich\nRank: 94/101\n0.14 Defending 1v1 %",
+                "V. Klimovich\nRank: 76/101\n4.66 Defensive actions per 90",
+                "V. Klimovich\nRank: 81/101\n1.91 Possessions won per 90",
+                "V. Klimovich\nRank: 90/101\n0.13 Tackle success %"
+            ],
+            [
+                "K. Nagy\nRank: 79/101\n0.29 Defending 1v1 %",
+                "K. Nagy\nRank: 71/101\n4.94 Defensive actions per 90",
+                "K. Nagy\nRank: 63/101\n2.76 Possessions won per 90",
+                "K. Nagy\nRank: 83/101\n0.22 Tackle success %"
+            ],
+            [
+                "P. Rommens\nRank: 27/101\n0.55 Defending 1v1 %",
+                "P. Rommens\nRank: 6/101\n10.92 Defensive actions per 90",
+                "P. Rommens\nRank: 4/101\n6.97 Possessions won per 90",
+                "P. Rommens\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "B. Szabó\nRank: 71/101\n0.33 Defending 1v1 %",
+                "B. Szabó\nRank: 86/101\n4.21 Defensive actions per 90",
+                "B. Szabó\nRank: 80/101\n1.95 Possessions won per 90",
+                "B. Szabó\nRank: 68/101\n0.32 Tackle success %"
+            ],
+            [
+                "M. Tajti\nRank: 78/101\n0.31 Defending 1v1 %",
+                "M. Tajti\nRank: 40/101\n7.19 Defensive actions per 90",
+                "M. Tajti\nRank: 49/101\n3.17 Possessions won per 90",
+                "M. Tajti\nRank: 74/101\n0.29 Tackle success %"
+            ],
+            [
+                "U. Nissilä\nRank: 61/101\n0.38 Defending 1v1 %",
+                "U. Nissilä\nRank: 34/101\n7.74 Defensive actions per 90",
+                "U. Nissilä\nRank: 36/101\n3.83 Possessions won per 90",
+                "U. Nissilä\nRank: 72/101\n0.30 Tackle success %"
+            ],
+            [
+                "Y. Toma\nRank: 68/101\n0.36 Defending 1v1 %",
+                "Y. Toma\nRank: 48/101\n6.54 Defensive actions per 90",
+                "Y. Toma\nRank: 56/101\n2.94 Possessions won per 90",
+                "Y. Toma\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "Laros Duarte\nRank: 7/101\n0.73 Defending 1v1 %",
+                "Laros Duarte\nRank: 42/101\n7.09 Defensive actions per 90",
+                "Laros Duarte\nRank: 34/101\n4.02 Possessions won per 90",
+                "Laros Duarte\nRank: 6/101\n0.61 Tackle success %"
+            ],
+            [
+                "T. Kehinde\nRank: 71/101\n0.33 Defending 1v1 %",
+                "T. Kehinde\nRank: 61/101\n5.53 Defensive actions per 90",
+                "T. Kehinde\nRank: 43/101\n3.49 Possessions won per 90",
+                "T. Kehinde\nRank: 94/101\n0.00 Tackle success %"
+            ],
+            [
+                "B. Ötvös\nRank: 63/101\n0.38 Defending 1v1 %",
+                "B. Ötvös\nRank: 12/101\n10.07 Defensive actions per 90",
+                "B. Ötvös\nRank: 11/101\n5.48 Possessions won per 90",
+                "B. Ötvös\nRank: 70/101\n0.31 Tackle success %"
+            ],
+            [
+                "B. Kiss\nRank: 44/101\n0.47 Defending 1v1 %",
+                "B. Kiss\nRank: 54/101\n5.88 Defensive actions per 90",
+                "B. Kiss\nRank: 51/101\n3.04 Possessions won per 90",
+                "B. Kiss\nRank: 37/101\n0.44 Tackle success %"
+            ],
+            [
+                "B. Melnyk\nRank: 79/101\n0.29 Defending 1v1 %",
+                "B. Melnyk\nRank: 35/101\n7.61 Defensive actions per 90",
+                "B. Melnyk\nRank: 26/101\n4.35 Possessions won per 90",
+                "B. Melnyk\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "M. Abu Fani\nRank: 17/101\n0.58 Defending 1v1 %",
+                "M. Abu Fani\nRank: 28/101\n8.09 Defensive actions per 90",
+                "M. Abu Fani\nRank: 37/101\n3.75 Possessions won per 90",
+                "M. Abu Fani\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "C. Tiéhi\nRank: 23/101\n0.56 Defending 1v1 %",
+                "C. Tiéhi\nRank: 57/101\n5.78 Defensive actions per 90",
+                "C. Tiéhi\nRank: 60/101\n2.82 Possessions won per 90",
+                "C. Tiéhi\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "M. Kovácsréti\nRank: 63/101\n0.38 Defending 1v1 %",
+                "M. Kovácsréti\nRank: 91/101\n3.74 Defensive actions per 90",
+                "M. Kovácsréti\nRank: 92/101\n1.41 Possessions won per 90",
+                "M. Kovácsréti\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "Kady\nRank: 10/101\n0.67 Defending 1v1 %",
+                "Kady\nRank: 43/101\n6.89 Defensive actions per 90",
+                "Kady\nRank: 32/101\n4.14 Possessions won per 90",
+                "Kady\nRank: 40/101\n0.43 Tackle success %"
+            ],
+            [
+                "M. Meskhi\nRank: 3/101\n0.88 Defending 1v1 %",
+                "M. Meskhi\nRank: 20/101\n8.95 Defensive actions per 90",
+                "M. Meskhi\nRank: 39/101\n3.58 Possessions won per 90",
+                "M. Meskhi\nRank: 4/101\n0.67 Tackle success %"
+            ],
+            [
+                "M. Rakonjac\nRank: 10/101\n0.67 Defending 1v1 %",
+                "M. Rakonjac\nRank: 100/101\n1.55 Defensive actions per 90",
+                "M. Rakonjac\nRank: 98/101\n1.05 Possessions won per 90",
+                "M. Rakonjac\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "Franchu\nRank: 16/101\n0.60 Defending 1v1 %",
+                "Franchu\nRank: 53/101\n6.00 Defensive actions per 90",
+                "Franchu\nRank: 86/101\n1.75 Possessions won per 90",
+                "Franchu\nRank: 9/101\n0.57 Tackle success %"
+            ],
+            [
+                "A. Skribek\nRank: 96/101\n0.00 Defending 1v1 %",
+                "A. Skribek\nRank: 98/101\n2.64 Defensive actions per 90",
+                "A. Skribek\nRank: 97/101\n1.10 Possessions won per 90",
+                "A. Skribek\nRank: 94/101\n0.00 Tackle success %"
+            ],
+            [
+                "A. Csonka\nRank: 19/101\n0.57 Defending 1v1 %",
+                "A. Csonka\nRank: 49/101\n6.39 Defensive actions per 90",
+                "A. Csonka\nRank: 46/101\n3.32 Possessions won per 90",
+                "A. Csonka\nRank: 32/101\n0.45 Tackle success %"
+            ],
+            [
+                "Ž. Gavrić\nRank: 58/101\n0.39 Defending 1v1 %",
+                "Ž. Gavrić\nRank: 87/101\n4.19 Defensive actions per 90",
+                "Ž. Gavrić\nRank: 83/101\n1.84 Possessions won per 90",
+                "Ž. Gavrić\nRank: 49/101\n0.39 Tackle success %"
+            ],
+            [
+                "J. Levi\nRank: 81/101\n0.28 Defending 1v1 %",
+                "J. Levi\nRank: 84/101\n4.33 Defensive actions per 90",
+                "J. Levi\nRank: 89/101\n1.63 Possessions won per 90",
+                "J. Levi\nRank: 56/101\n0.33 Tackle success %"
+            ],
+            [
+                "J. Ipalibo\nRank: 1/101\n1.00 Defending 1v1 %",
+                "J. Ipalibo\nRank: 80/101\n4.58 Defensive actions per 90",
+                "J. Ipalibo\nRank: 53/101\n3.02 Possessions won per 90",
+                "J. Ipalibo\nRank: 1/101\n1.00 Tackle success %"
+            ],
+            [
+                "T. Christensen\nRank: 96/101\n0.00 Defending 1v1 %",
+                "T. Christensen\nRank: 69/101\n5.00 Defensive actions per 90",
+                "T. Christensen\nRank: 48/101\n3.18 Possessions won per 90",
+                "T. Christensen\nRank: 94/101\n0.00 Tackle success %"
+            ],
+            [
+                "A. Csongvai\nRank: 17/101\n0.58 Defending 1v1 %",
+                "A. Csongvai\nRank: 23/101\n8.60 Defensive actions per 90",
+                "A. Csongvai\nRank: 29/101\n4.32 Possessions won per 90",
+                "A. Csongvai\nRank: 8/101\n0.59 Tackle success %"
+            ],
+            [
+                "Júlio Romão\nRank: 19/101\n0.57 Defending 1v1 %",
+                "Júlio Romão\nRank: 1/101\n16.08 Defensive actions per 90",
+                "Júlio Romão\nRank: 1/101\n9.98 Possessions won per 90",
+                "Júlio Romão\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 19/101\n0.57 Defending 1v1 %",
+                "S. Szuhodovszki\nRank: 60/101\n5.70 Defensive actions per 90",
+                "S. Szuhodovszki\nRank: 54/101\n2.99 Possessions won per 90",
+                "S. Szuhodovszki\nRank: 42/101\n0.41 Tackle success %"
+            ],
+            [
+                "W. Sahli\nRank: 63/101\n0.38 Defending 1v1 %",
+                "W. Sahli\nRank: 81/101\n4.49 Defensive actions per 90",
+                "W. Sahli\nRank: 90/101\n1.55 Possessions won per 90",
+                "W. Sahli\nRank: 40/101\n0.43 Tackle success %"
+            ],
+            [
+                "K. Horváth\nRank: 82/101\n0.27 Defending 1v1 %",
+                "K. Horváth\nRank: 85/101\n4.32 Defensive actions per 90",
+                "K. Horváth\nRank: 69/101\n2.51 Possessions won per 90",
+                "K. Horváth\nRank: 51/101\n0.38 Tackle success %"
+            ],
+            [
+                "M. Ben Romdhane\nRank: 82/101\n0.27 Defending 1v1 %",
+                "M. Ben Romdhane\nRank: 52/101\n6.26 Defensive actions per 90",
+                "M. Ben Romdhane\nRank: 61/101\n2.81 Possessions won per 90",
+                "M. Ben Romdhane\nRank: 76/101\n0.27 Tackle success %"
+            ],
+            [
+                "M. Kovács\nRank: 58/101\n0.39 Defending 1v1 %",
+                "M. Kovács\nRank: 63/101\n5.51 Defensive actions per 90",
+                "M. Kovács\nRank: 55/101\n2.95 Possessions won per 90",
+                "M. Kovács\nRank: 74/101\n0.29 Tackle success %"
+            ],
+            [
+                "S. Mezei\nRank: 66/101\n0.37 Defending 1v1 %",
+                "S. Mezei\nRank: 79/101\n4.58 Defensive actions per 90",
+                "S. Mezei\nRank: 78/101\n2.01 Possessions won per 90",
+                "S. Mezei\nRank: 79/101\n0.26 Tackle success %"
+            ],
+            [
+                "M. Kata\nRank: 54/101\n0.43 Defending 1v1 %",
+                "M. Kata\nRank: 5/101\n11.19 Defensive actions per 90",
+                "M. Kata\nRank: 13/101\n5.44 Possessions won per 90",
+                "M. Kata\nRank: 30/101\n0.48 Tackle success %"
+            ],
+            [
+                "M. Vitális\nRank: 34/101\n0.53 Defending 1v1 %",
+                "M. Vitális\nRank: 27/101\n8.16 Defensive actions per 90",
+                "M. Vitális\nRank: 14/101\n5.23 Possessions won per 90",
+                "M. Vitális\nRank: 11/101\n0.54 Tackle success %"
+            ],
+            [
+                "B. Dominguès\nRank: 92/101\n0.18 Defending 1v1 %",
+                "B. Dominguès\nRank: 65/101\n5.44 Defensive actions per 90",
+                "B. Dominguès\nRank: 73/101\n2.28 Possessions won per 90",
+                "B. Dominguès\nRank: 87/101\n0.19 Tackle success %"
+            ],
+            [
+                "M. Kosznovszky\nRank: 51/101\n0.44 Defending 1v1 %",
+                "M. Kosznovszky\nRank: 32/101\n7.82 Defensive actions per 90",
+                "M. Kosznovszky\nRank: 33/101\n4.05 Possessions won per 90",
+                "M. Kosznovszky\nRank: 82/101\n0.23 Tackle success %"
+            ],
+            [
+                "Á. Bényei\nRank: 35/101\n0.50 Defending 1v1 %",
+                "Á. Bényei\nRank: 70/101\n4.94 Defensive actions per 90",
+                "Á. Bényei\nRank: 67/101\n2.63 Possessions won per 90",
+                "Á. Bényei\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "A. Horváth\nRank: 55/101\n0.40 Defending 1v1 %",
+                "A. Horváth\nRank: 67/101\n5.23 Defensive actions per 90",
+                "A. Horváth\nRank: 68/101\n2.59 Possessions won per 90",
+                "A. Horváth\nRank: 44/101\n0.40 Tackle success %"
+            ],
+            [
+                "T. Lacoux\nRank: 32/101\n0.54 Defending 1v1 %",
+                "T. Lacoux\nRank: 13/101\n10.01 Defensive actions per 90",
+                "T. Lacoux\nRank: 9/101\n5.59 Possessions won per 90",
+                "T. Lacoux\nRank: 35/101\n0.44 Tackle success %"
+            ],
+            [
+                "G. Harutyunyan\nRank: 71/101\n0.33 Defending 1v1 %",
+                "G. Harutyunyan\nRank: 16/101\n9.72 Defensive actions per 90",
+                "G. Harutyunyan\nRank: 17/101\n5.05 Possessions won per 90",
+                "G. Harutyunyan\nRank: 81/101\n0.24 Tackle success %"
+            ],
+            [
+                "S. Ouro\nRank: 50/101\n0.45 Defending 1v1 %",
+                "S. Ouro\nRank: 47/101\n6.72 Defensive actions per 90",
+                "S. Ouro\nRank: 58/101\n2.88 Possessions won per 90",
+                "S. Ouro\nRank: 48/101\n0.39 Tackle success %"
+            ],
+            [
+                "M. Katona\nRank: 51/101\n0.44 Defending 1v1 %",
+                "M. Katona\nRank: 90/101\n3.77 Defensive actions per 90",
+                "M. Katona\nRank: 87/101\n1.73 Possessions won per 90",
+                "M. Katona\nRank: 33/101\n0.44 Tackle success %"
+            ],
+            [
+                "B. Kovács\nRank: 47/101\n0.46 Defending 1v1 %",
+                "B. Kovács\nRank: 64/101\n5.48 Defensive actions per 90",
+                "B. Kovács\nRank: 59/101\n2.82 Possessions won per 90",
+                "B. Kovács\nRank: 54/101\n0.37 Tackle success %"
+            ],
+            [
+                "B. Bocskay\nRank: 35/101\n0.50 Defending 1v1 %",
+                "B. Bocskay\nRank: 36/101\n7.51 Defensive actions per 90",
+                "B. Bocskay\nRank: 31/101\n4.24 Possessions won per 90",
+                "B. Bocskay\nRank: 44/101\n0.40 Tackle success %"
+            ],
+            [
+                "P. Helmich\nRank: 5/101\n0.75 Defending 1v1 %",
+                "P. Helmich\nRank: 74/101\n4.69 Defensive actions per 90",
+                "P. Helmich\nRank: 96/101\n1.28 Possessions won per 90",
+                "P. Helmich\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "T. Nikitscher\nRank: 32/101\n0.54 Defending 1v1 %",
+                "T. Nikitscher\nRank: 66/101\n5.38 Defensive actions per 90",
+                "T. Nikitscher\nRank: 52/101\n3.02 Possessions won per 90",
+                "T. Nikitscher\nRank: 12/101\n0.54 Tackle success %"
+            ],
+            [
+                "B. Katona\nRank: 90/101\n0.20 Defending 1v1 %",
+                "B. Katona\nRank: 82/101\n4.37 Defensive actions per 90",
+                "B. Katona\nRank: 79/101\n2.01 Possessions won per 90",
+                "B. Katona\nRank: 88/101\n0.18 Tackle success %"
+            ],
+            [
+                "Victor Braga\nRank: 35/101\n0.50 Defending 1v1 %",
+                "Victor Braga\nRank: 17/101\n9.69 Defensive actions per 90",
+                "Victor Braga\nRank: 30/101\n4.28 Possessions won per 90",
+                "Victor Braga\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "T. Szűcs\nRank: 35/101\n0.50 Defending 1v1 %",
+                "T. Szűcs\nRank: 51/101\n6.27 Defensive actions per 90",
+                "T. Szűcs\nRank: 66/101\n2.64 Possessions won per 90",
+                "T. Szűcs\nRank: 51/101\n0.38 Tackle success %"
+            ],
+            [
+                "B. Bakti\nRank: 8/101\n0.71 Defending 1v1 %",
+                "B. Bakti\nRank: 78/101\n4.60 Defensive actions per 90",
+                "B. Bakti\nRank: 62/101\n2.76 Possessions won per 90",
+                "B. Bakti\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "B. Komlósi\nRank: 95/101\n0.12 Defending 1v1 %",
+                "B. Komlósi\nRank: 14/101\n9.94 Defensive actions per 90",
+                "B. Komlósi\nRank: 15/101\n5.22 Possessions won per 90",
+                "B. Komlósi\nRank: 94/101\n0.00 Tackle success %"
+            ],
+            [
+                "G. Gyurkits\nRank: 71/101\n0.33 Defending 1v1 %",
+                "G. Gyurkits\nRank: 39/101\n7.25 Defensive actions per 90",
+                "G. Gyurkits\nRank: 35/101\n3.98 Possessions won per 90",
+                "G. Gyurkits\nRank: 51/101\n0.38 Tackle success %"
+            ],
+            [
+                "A. Tóth\nRank: 8/101\n0.71 Defending 1v1 %",
+                "A. Tóth\nRank: 38/101\n7.27 Defensive actions per 90",
+                "A. Tóth\nRank: 38/101\n3.59 Possessions won per 90",
+                "A. Tóth\nRank: 10/101\n0.56 Tackle success %"
+            ],
+            [
+                "T. Rajmund\nRank: 27/101\n0.55 Defending 1v1 %",
+                "T. Rajmund\nRank: 11/101\n10.24 Defensive actions per 90",
+                "T. Rajmund\nRank: 22/101\n4.81 Possessions won per 90",
+                "T. Rajmund\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "M. Pető\nRank: 55/101\n0.40 Defending 1v1 %",
+                "M. Pető\nRank: 50/101\n6.32 Defensive actions per 90",
+                "M. Pető\nRank: 65/101\n2.65 Possessions won per 90",
+                "M. Pető\nRank: 55/101\n0.35 Tackle success %"
+            ],
+            [
+                "B. Végh\nRank: 47/101\n0.46 Defending 1v1 %",
+                "B. Végh\nRank: 2/101\n15.60 Defensive actions per 90",
+                "B. Végh\nRank: 2/101\n8.79 Possessions won per 90",
+                "B. Végh\nRank: 16/101\n0.50 Tackle success %"
+            ],
+            [
+                "K. Horváth\nRank: 96/101\n0.00 Defending 1v1 %",
+                "K. Horváth\nRank: 55/101\n5.88 Defensive actions per 90",
+                "K. Horváth\nRank: 74/101\n2.20 Possessions won per 90",
+                "K. Horváth\nRank: 80/101\n0.25 Tackle success %"
+            ],
+            [
+                "B. Geiger\nRank: 88/101\n0.22 Defending 1v1 %",
+                "B. Geiger\nRank: 62/101\n5.51 Defensive actions per 90",
+                "B. Geiger\nRank: 72/101\n2.41 Possessions won per 90",
+                "B. Geiger\nRank: 70/101\n0.31 Tackle success %"
+            ],
+            [
+                "M. Vattay\nRank: 96/101\n0.00 Defending 1v1 %",
+                "M. Vattay\nRank: 95/101\n3.47 Defensive actions per 90",
+                "M. Vattay\nRank: 100/101\n0.87 Possessions won per 90",
+                "M. Vattay\nRank: 94/101\n0.00 Tackle success %"
+            ]
+        ],
+        "serie_names": [
+            "Other Midfielders",
+            "Balázs Bakti"
+        ],
+        "minutes_played": 1364,
+        "axis_labels": [
+            "Defending 1v1 % | 0.71",
+            "Defensive actions per 90 | 4.60",
+            "Possessions won per 90 | 2.76",
+            "Tackle success % | 0.50"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null
+    },
+    "player_info": {
+        "id": 759632,
+        "name": "B. Bakti",
+        "full_name": "Balázs Bakti ",
+        "synthesized_name": "Balázs Bakti",
+        "birth_date": "2004-12-31",
+        "age": 21,
+        "foot": null,
+        "position": "MIDFIELDER",
+        "detailed_position": "CENTRAL_MIDFIELDER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g-272337_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

@@ -14,7 +14,7 @@ load_player_db_stats <- function(player_name, pozicio_fallback = NULL,
 
   # Player info: klub, pozicio, kor
   info <- dbGetQuery(con,
-    "SELECT Poszt, Csapat AS klub, [Szül. év.] AS szul_ev
+    "SELECT Poszt, Csapat AS klub, [Szül. év.] AS szul_ev, [Mag.] AS mag, [Töm.] AS tom
      FROM player_info WHERE Játékos = ? LIMIT 1",
     params = list(player_name)
   )
@@ -22,6 +22,8 @@ load_player_db_stats <- function(player_name, pozicio_fallback = NULL,
   pozicio_db <- if (nrow(info) > 0 && !is.na(info$Poszt[1]))   info$Poszt[1]              else pozicio_fallback
   klub_db    <- if (nrow(info) > 0 && !is.na(info$klub[1]))   info$klub[1]               else NULL
   szul_ev_db <- if (nrow(info) > 0 && !is.na(info$szul_ev[1])) as.integer(info$szul_ev[1]) else NULL
+  mag_db     <- if (nrow(info) > 0 && !is.na(info$mag[1]))    as.integer(info$mag[1])     else NULL
+  tom_db     <- if (nrow(info) > 0 && !is.na(info$tom[1]))    as.integer(info$tom[1])     else NULL
 
   # Pozíció a metrika-logikához (DB > fallback)
   pozicio <- if (!is.null(pozicio_db)) pozicio_db else pozicio_fallback
@@ -185,7 +187,9 @@ load_player_db_stats <- function(player_name, pozicio_fallback = NULL,
     mutatok     = mutatok,
     klub        = klub_db,
     pozicio     = pozicio_db,
-    szul_ev     = szul_ev_db
+    szul_ev     = szul_ev_db,
+    mag         = mag_db,
+    tom         = tom_db
   )
 }
 
@@ -206,6 +210,8 @@ render_player_profile <- function(profile, db_path = "bball_10_tables.db") {
     if (!is.null(db_stats$klub))    p$klub    <- db_stats$klub
     if (!is.null(db_stats$pozicio)) p$pozicio <- db_stats$pozicio
     if (!is.null(db_stats$szul_ev)) p$szul_ev <- db_stats$szul_ev
+    if (!is.null(db_stats$mag))     p$mag     <- db_stats$mag
+    if (!is.null(db_stats$tom))     p$tom     <- db_stats$tom
   }
 
   # ── Helpers ─────────────────────────────────────────────────────────────────
@@ -284,6 +290,10 @@ render_player_profile <- function(profile, db_path = "bball_10_tables.db") {
         if (!is.null(p$szul_ev) && !is.na(p$szul_ev))
           tags$span(class = "pp-badge", as.character(p$szul_ev)),
         tags$span(class = "pp-badge", p$pozicio),
+        if (!is.null(p$mag) && !is.na(p$mag))
+          tags$span(class = "pp-badge", paste0(p$mag, " cm")),
+        if (!is.null(p$tom) && !is.na(p$tom))
+          tags$span(class = "pp-badge", paste0(p$tom, " kg")),
         if (is_valogatott) tags$span(class = "pp-badge pp-badge-valogatott", "V\u00e1logatott")
       )
     ),

@@ -1,0 +1,305 @@
+---
+title: "wDRE* — Módszertani dokumentáció"
+date: 2026-04-20
+description: "A wDRE* mutató felépítése: Bayesian shrinkage, korrekciók és az értékelési logika."
+subtitle: "Weighted, Bayesian-shrunk, age-adjusted Daily RAPM Estimate"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Tartalom"
+    page-layout: article
+    css: styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(dplyr); library(knitr)
+```
+
+## Áttekintés
+
+A **wDRE\*** (Weighted, age-adjusted Daily RAPM Estimate) egy több szezonon alapuló játékosértékelő metrika, amely az NB1 2022–23 és 2025–26 közötti négy szezonjának box-score adatait használja. A módszertan három egymásra épülő lépésből áll:
+
+1. **DRE** — szezonon belüli RAPM-becslés box-score adatból, Bayesian shrinkage-gel
+2. **wDRE** — szezonsúlyozott karrierátlag exponenciális decay-vel
+3. **wDRE\*** — életkori kiigazítással korrigált végső metrika
+
+A modell paramétereinek egy részét empirikusan, az NB1 adataiból vezettük le; ahol az adatmennyiség ezt nem tette lehetővé, ott az elméleti indoklást és a korlátokat is jelezzük.
+
+---
+
+## 1. Az alap: DRE
+
+### 1.1 Eredet
+
+A DRE (Daily RAPM Estimate) Ryan Myers 2017-es munkáján alapul. Az eredeti célja az NBA-ban mért RAPM (Regularized Adjusted Plus-Minus) közelítése kizárólag box-score adatokból, lineáris regresszión keresztül. A formula együtthatói NBA-szintű RAPM-adatokra illesztett OLS-regresszióból származnak.
+
+### 1.2 Formula
+
+A szezonon belüli nyers DRE:
+
+$$
+\text{DRE} = -8.424 + 0.792\cdot\text{PTS}_{100} - 0.719\cdot\text{2PA}_{100} - 0.552\cdot\text{3PA}_{100}
+$$
+$$
+- 0.159\cdot\text{FTA}_{100} + 0.135\cdot\text{ORB}_{100} + 0.400\cdot\text{DRB}_{100} + 0.544\cdot\text{AST}_{100}
+$$
+$$
++ 1.680\cdot\text{STL}_{100} + 0.764\cdot\text{BLK}_{100} - 1.360\cdot\text{TOV}_{100} - 0.108\cdot\text{PF}_{100}
+$$
+
+Ahol minden stat 100 csapatbirtoklásra normalizált. Az STL/100 speciálisan számított:
+
+$$
+\text{STL}_{100} = \text{STL}_{\text{raw}} \times \frac{\text{TOV}_{100}}{\text{TOV}_{\text{raw}}}
+$$
+
+**Mértékegység:** a 0 a ligaátlagot jelenti, +5 körülbelül All-Star szintnek felel meg NBA-ban. Az NB1 esetén a skála hasonló, de az abszolút értékek nem közvetlenül összehasonlíthatók NBA-metrikákkal.
+
+### 1.3 Validáció az NB1-en
+
+Az alábbi teszt megmutatja, hogy a DRE és a BPM (Box Plus/Minus) közül melyik közelíti jobban az NB1 valóságát:
+
+```{r}
+tibble::tribble(
+  ~Teszt,                      ~BPM_r2, ~DRE_r2, ~Győztes,
+  "Csapat Gy% korreláció",     "0.760", "0.738",  "BPM",
+  "On-off Net RTG korreláció", "0.199", "0.215",  "DRE ✓",
+  "Év-év stabilitás (R²)",     "0.464", "0.512",  "DRE ✓"
+) |>
+  kable(col.names = c("Teszt", "BPM R²", "DRE R²", "Győztes"),
+        align = "lccl",
+        caption = "DRE vs BPM validáció — NB1 2022–2026 (min. 200 perc)")
+```
+
+A DRE 2–1-re győz. A BPM csapat Gy%-ban mutatott előnye részben annak köszönhető, hogy az ORtg — amely közvetlen bemenete — erősen korrelál a győzelemmel, ez azonban egy részbeni körforgást okoz. Az on-off Net RTG ezzel szemben **független mérés**, ezért a legmegbízhatóbb benchmark.
+
+---
+
+## 2. Bayesian shrinkage
+
+### 2.1 Probléma
+
+Kis mintánál (kevés perc) a nyers DRE-komponensek torzítottak: egy 100 perces játékos 3P%-a nem megbízható. Bayesian regresszióval a megfigyelést a ligaátlag felé húzzuk, az együttsúlya a mintamérettől függ.
+
+### 2.2 Formula
+
+Minden DRE-komponensre külön:
+
+$$
+\hat{x}_i = \frac{\text{Min}_i \cdot x_i + k \cdot \bar{x}_{\text{liga}}}{\text{Min}_i + k}
+$$
+
+Ahol:
+
+- $x_i$ — a játékos megfigyelt statisztikája
+- $\bar{x}_{\text{liga}}$ — a szezon ligaátlaga (200+ perces játékosok)
+- $k$ — shrinkage paraméter (percben mérve)
+- $\text{Min}_i$ — a játékos percei
+
+### 2.3 k-értékek empirikus levezetése
+
+A k-értékeket **ICC (Intraclass Correlation Coefficient)** alapján vezettük le az NB1 adataiból (2022–2026, 200+ perces játékosok, legalább 2 szezon):
+
+$$
+\text{ICC} = \frac{\sigma^2_{\text{tehetség}}}{\sigma^2_{\text{tehetség}} + \sigma^2_{\text{hiba}}}
+\qquad
+k = \frac{1 - \text{ICC}}{\text{ICC}} \times \bar{\text{Min}}_{\text{szn}}
+$$
+
+Ahol $\bar{\text{Min}}_{\text{szn}} \approx 604$ perc (NB1 átlag, 200+ min játékosok).
+
+```{r}
+tibble::tribble(
+  ~Stat,           ~ICC,   ~k_emp, ~Értelmezés,
+  "PTS/100",       0.829,  125,    "Nagyon stabil",
+  "2PA/100",       0.850,  110,    "Nagyon stabil",
+  "3PA/100",       0.870,   90,    "Nagyon stabil",
+  "FTA/100",       0.741,  210,    "Stabil",
+  "ORB/100",       0.822,  130,    "Nagyon stabil",
+  "DRB/100",       0.792,  160,    "Stabil",
+  "AST/100",       0.864,   95,    "Nagyon stabil",
+  "STL/100",       0.454,  730,    "Leginstabilabb",
+  "BLK/100",       0.694,  265,    "Közepes",
+  "TOV/100",       0.680,  285,    "Közepes",
+  "PF/100",        0.793,  160,    "Stabil"
+) |>
+  kable(col.names = c("Stat", "ICC", "k (perc)", "Stabilitás"),
+        align = "lccc",
+        caption = "Empirikus k-értékek — NB1 ICC-alapú variancia-dekompozíció")
+```
+
+**Főbb tanulság:** Az NB1 statisztikák általában **rendkívül stabilak** szezonok között (ICC 0.45–0.87), ami azt jelenti, hogy kevés shrinkage szükséges. Az egyetlen kivétel a STL/100 (ICC=0.454), ahol a legnagyobb a véletlen játéka — ez konzisztens az NBA-szintű stabilitás-kutatásokkal (Krishna Narsu, 2015).
+
+---
+
+## 3. Decay-súlyozás
+
+### 3.1 Motiváció
+
+Egy játékos 3 évvel ezelőtti teljesítménye kevésbé releváns a jelenlegi értékeléshez, mint a legutóbbi szezoné. Az exponenciális decay ezt formalizálja:
+
+$$
+w_t = \beta^{\,\Delta t}
+$$
+
+Ahol $\Delta t$ az évek száma a legfrissebb szezonhoz képest, $\beta \in (0, 1)$.
+
+### 3.2 Empirikus megállapítás: β nem azonosítható 4 szezonból
+
+A $\beta$ optimalizálásához minden egymást követő szezonpáron (N→N+1) kereszt-validáltuk a súlyozott múlt-DRE → következő szezon korrelációt:
+
+```{r}
+tibble::tribble(
+  ~beta,  ~R2,
+  0.20, 0.5128,
+  0.35, 0.5128,
+  0.50, 0.5128,
+  0.65, 0.5128,
+  0.80, 0.5128,
+  0.95, 0.5128
+) |>
+  kable(col.names = c("β", "R²"), align = "cc",
+        caption = "Cross-validáció eredménye: β nem befolyásolja a prediktív erőt")
+```
+
+Az eredmény: **minden β értéknél azonos R² = 0.5128**. Ez nem hibát jelez, hanem egy adatkorlátot: négy szezonban a páronkénti N→N+1 struktúra miatt a súlyozási séma nem különböztethető meg statisztikailag. A modell a következő wDRE-számítást alkalmazza:
+
+$$
+\text{wDRE} = \frac{\text{eff\_min}}{\text{eff\_min} + k_{\text{DRE}}} \cdot \frac{\sum_t \text{DRE}^{\text{shr}}_t \cdot \text{Min}_t \cdot \beta^{\Delta t}}{\sum_t \text{Min}_t \cdot \beta^{\Delta t}}
+\qquad \beta = 0.5,\quad k_{\text{DRE}} = 400\ \text{perc}
+$$
+
+A $k_{\text{DRE}}$ paraméter egy **második körös, DRE-szintű Bayesian shrinkage**-et valósít meg. Motiváció: a stat-szintű shrinkage csökkenti az egyedi komponensek mintavételi zajját, de a DRE-formula maga NBA-adatokon kalibrált — az NB1-re vonatkozó maradék bizonytalanságot a DRE-szintű prior (0 = ligaátlag) felé húzás kezeli.
+
+**Empirikus alap:** ICC(DRE\_raw) = 0.514 az NB1 adatokon → k\_raw = 570 perc. Mivel a stat-szintű shrinkage már elvégzi az első körös zajcsökkentést, konzervatív $k_{\text{DRE}} = 400$ percet alkalmazunk.
+
+**Hatás eff. percek szerint:**
+
+| Eff. perc | Szorzó ($\frac{\text{eff\_min}}{\text{eff\_min}+400}$) |
+|-----------|------|
+| 128  (Gál Csongor)   | 0.24× — szinte teljesen 0-ra húzva |
+| 400                  | 0.50× |
+| 540  (Flasár Zalán)  | 0.57× |
+| 800                  | 0.67× |
+| 1400                 | 0.78× |
+
+**Minimális megjelenítési küszöb: 200 eff. perc** (kb. fél szezon starters percek).
+
+A $\beta = 0.5$/szezon értéket **elméleti alapon** tartjuk meg (DARKO-hoz hasonló elvek, recency-bias). Pontosabb kalibráláshoz legalább 6–8 szezon szükséges.
+
+**Alkalmazott súlyok (β=0.5):**
+
+| Szezon | Súly |
+|--------|------|
+| 2025–26 | 1.000 |
+| 2024–25 | 0.500 |
+| 2023–24 | 0.250 |
+| 2022–23 | 0.125 |
+
+---
+
+## 4. Életkori kiigazítás (Aging Curve)
+
+### 4.1 Módszer
+
+Az NB1 2022–2026 adataiból, 200+ perces, egymást követő szezonokban szereplő játékosok esetén mértük a DRE évközi változását (ΔDRE/szezon) életkori csoportonként:
+
+```{r}
+tibble::tribble(
+  ~Korcsoport, ~n,  ~delta_DRE, ~SD,
+  "18–21",     46,  +0.925,     2.460,
+  "22–24",     46,  +0.330,     3.035,
+  "25–27",     43,  +0.275,     3.029,
+  "28–30",     39,  -0.389,     3.070,
+  "31–33",     17,  -0.552,     3.152,
+  "34+",       21,  -0.331,     2.036
+) |>
+  kable(col.names = c("Korcsoport", "n (páros)", "ΔDRE/szezon", "SD"),
+        align = "lccc",
+        caption = "Empirikus aging curve — NB1 2022–2026")
+```
+
+### 4.2 Értelmezés és korlátok
+
+- A csúcs körülbelül **25–27 éves kor körül** van, ami közel esik az NBA 26.5 éves csúcsához
+- A 18–21 éveseknél a legélesebb az emelkedés (+0.925), de a mintaszám és a **szelekcióbias** jelentős: csak azok a fiatalok szerepelnek, akik 200+ percet kaptak, tehát már eleve tehetségesebben
+- A 34+ csoport kisebb mértékű hanyatlást mutat (–0.331 vs. –0.552 a 31–33-asoknál), ami szintén szelekciós hatás: az idős játékosok, akik még pályán vannak, kivételesen tartósak
+
+### 4.3 Alkalmazás a modellben
+
+Az életkori kiigazítás a játékos **várható következő éves fejlődését/hanyatlását** adja hozzá a wDRE-hez, ±1.5/2.0 DRE pontos korláttal:
+
+$$
+\text{wDRE}^* = \text{wDRE} + \delta_{\text{kor}}
+$$
+
+---
+
+## 5. A teljes wDRE* pipeline
+
+```
+Szezonos box-score adatok
+        │
+        ▼
+STL/100 korrekció  →  DRE_raw (per szezon)
+        │
+        ▼
+Bayesian shrinkage (stat-specifikus k, ligaátlag felé)
+        │
+        ▼
+DRE_shrunk (per szezon)
+        │
+        ▼
+Decay-súlyozott átlag (β=0.5, perc-súlyozással)
+        │
+        ▼
+wDRE (karrierszintű, regresszált, recency-súlyozott)
+        │
+        ▼
+Életkori kiigazítás (empirikus ΔDRE/szn, kor szerint)
+        │
+        ▼
+wDRE* (végső, forward-looking metrika)
+```
+
+**Referencia-tartomány (NB1, 300+ eff. perc):**
+
+| wDRE* | Értelmezés |
+|-------|------------|
+| > +4  | Ligaelite |
+| +2 – +4 | Erős starter |
+| 0 – +2 | Átlag starter |
+| −2 – 0 | Rotációs játékos |
+| < −2  | Fejlesztési fázis |
+
+---
+
+## 6. Korlátok és jövőbeli fejlesztések
+
+### Jelenlegi korlátok
+
+**Adatkorlát — decay β:** 4 szezon nem elegendő a β empirikus kalibrálásához. A cross-validáció minden β értéknél azonos R²-t ad. Megoldás: 6+ szezon adatával újrakalibrálni.
+
+**DRE-formula NBA-ból:** Az együtthatók (0.792, 1.680 stb.) NBA-szintű RAPM-regresszión alapulnak. Az NB1-re specifikus együtthatók becsléséhez RAPM vagy on-off adatokra lenne szükség mérkőzés szinten, egyéni játékosra lebontva — ez jelenleg nem áll rendelkezésre.
+
+**Szelekciós bias az aging curve-ben:** A 200+ perces szűrő a pályán lévő játékosokat emeli be, ami az extreme végeken (nagyon fiatalok, nagyon idősek) torzítja a görbe meredekségét.
+
+**On-off adatok:** A jelenlegi on_off_stats tábla szezonszintű összesítéseket tartalmaz, nem mérkőzésenkénti on-off adatokat. Utóbbiak lehetővé tennék a DRE-együtthatók NB1-specifikus újrabecslését.
+
+### Tervezett fejlesztések
+
+- **β kalibrálás** — több szezon hozzáadásával automatikusan optimalizálható
+- **Pozíció-specifikus shrinkage** — centereknél más stabilitási profil, mint irányítóknál
+- **Csapatkontextus-korrekció** — egy jó csapatban játszó play-maker magasabb AST%-ot mutat, mint egy rosszabb csapatban
+
+---
+
+*Utolsó frissítés: 2025–26-os alapszakasz végi adatok alapján. Forrás: NB1 box-score adatbázis (bball_10_tables.db).*
