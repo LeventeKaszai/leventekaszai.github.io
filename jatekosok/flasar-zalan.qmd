@@ -16,9 +16,9 @@ profile:
   elemzes: |
     A 2025-26-os szezonban sikerült stabil, alapemberré válnia, majdnem 17 percet játszott meccsenként. 97%-ban centert játszott, míg a korábbi szezonokban többször megfordult négyesben is. Saját fejlesztési pontjaként az izomtömeg fejlesztését jelölte meg. A korábbi junior MVP-nek, nem rég a felnőtt válogatottban is sikerült bemutatkoznia.
 
-    Hatékony pontszerző, de nem dolgozik kiemelkedően nagy volumenben, kevés labdával dolgozik. Pontjai nagy részét a gyűrű körül szerzi, elit a büntetők kiharcolásában. A büntetőit 60% körül értékesíti, ami további fejlesztésre szorul. Jelentős alley-oop veszély, zárások után jól robban a gyűrű felé. Triplái biztosan nem jelentenek veszélyt, ennek ellenére többször tudta megverni ellenfeleit lendületes betöréseivel.
+    Hatékony pontszerző, de nem dolgozik kiemelkedően nagy volumenben, kevés érintése van egy meccsen. Pontjai nagy részét a gyűrű körül szerzi, elit a büntetők kiharcolásában. A büntetőit 60% körül értékesíti, ami további fejlesztésre szorul. Jelentős alley-oop veszély, zárások után jól robban a gyűrű felé. Triplái biztosan nem jelentenek veszélyt, ennek ellenére többször tudta megverni ellenfeleit lendületes betöréseivel.
 
-    Utánpótlásban mutatott ígéretes jeleket a passzjátéka, a felnőttek között egyelőre ez nem volt hangsúlyos. Támadólepattanókért rendre oda tud érni. A Sopron védelme több, mint 14 ponttal jobban teljesített mikor Flasár a pályán volt. Agilitása segít a váltások utáni védekezésben, de a gyűrűt is remekül tudta védi.
+    Utánpótlásban mutatott ígéretes jeleket a passzjátéka, a felnőttek között egyelőre ez nem volt hangsúlyos. Támadólepattanókért rendre oda tud érni. A Sopron védelme több, mint 14 ponttal jobban teljesített mikor Flasár a pályán volt. Agilitása segít a váltások utáni védekezésben, de a gyűrűt is remekül védi.
     
     Összességében már most stabil játékosa volt csapatának, ezért nem meglepő, hogy a texasi Rice University-nél folytatja a következő szezonban.
 
@@ -40,7 +40,6 @@ profile:
       Nehezen illeszkedik be, fejlődése kicsit megreked. Szórványosan játszik, főként garbage time-ban kerül pályára.
     meroeszam: "5 MPG alatt marad a szezon átlag."
     
-  publikalt: "2026-03-17"
   frissitve: "2026-05-16"
 
   rating_history:

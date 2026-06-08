@@ -21,10 +21,6 @@ website:
             text: "Játékritmus & Hatékonyság"
           - href: analytics.qmd
             text: "🔒 Analytics"
-          - href: advanced_metrics.qmd
-            text: "Advanced Metrics"
-          - href: wdre_metodologia.qmd
-            text: "wDRE* Módszertan"
           - href: player_ratings.qmd
             text: "Játékosértékelés"
           - href: jatekosok.qmd
@@ -33,8 +29,6 @@ website:
         menu:
           - href: futball/analytics.qmd
             text: "🔒 Analytics"
-          - href: futball/striker_clustering.qmd
-            text: "Csatár klaszterezés"
           - href: futball/player_ratings.qmd
             text: "Játékosértékelés"
           - href: futball/jatekosok.qmd

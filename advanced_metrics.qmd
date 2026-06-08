@@ -1,5 +1,6 @@
 ---
 title: "Advanced Metrics"
+draft: true
 date: 2026-04-15
 description: "Haladó mutatók a magyar kosárlabda bajnokságból: RAPM, BPM és egyéb box score metrikák."
 format:

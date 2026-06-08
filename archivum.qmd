@@ -7,10 +7,10 @@ listing:
     - four_factors_1.qmd
     - scoring_efficiency.qmd
     - pace_efficiency.qmd
-    - advanced_metrics.qmd
-    - wdre_metodologia.qmd
-    - futball/striker_clustering.qmd
+    - articles/velemeny-vagy-tudas.qmd
   sort: "date desc"
   type: default
-  fields: [date, title, description]
+  fields: [date, title, description, categories]
+  filter-ui: true
+  categories: true
 ---

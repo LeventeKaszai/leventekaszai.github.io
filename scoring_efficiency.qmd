@@ -2,6 +2,7 @@
 title: "Dobóhatékonyság a magyar kosárlabda bajnokságban"
 date: 2026-04-05
 description: "eFG%, TS% és a volumen-hatékonyság kompromisszuma a magyar ligában."
+categories: [kosárlabda, dobóhatékonyság, csapatelemzés]
 format:
   html:
     toc: true

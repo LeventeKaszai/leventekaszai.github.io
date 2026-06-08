@@ -2,6 +2,7 @@
 title: "A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)"
 date: 2026-04-01
 description: "Mit hajt igazán a győzelmet a magyar bajnokságban? A four factors modell négy szezon adatán."
+categories: [kosárlabda, csapatelemzés, four factors]
 format:
   html:
     toc: true

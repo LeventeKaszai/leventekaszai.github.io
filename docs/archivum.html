@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -144,14 +144,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">🔒 Analytics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./advanced_metrics.html" rel="" target="">
- <span class="dropdown-text">Advanced Metrics</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./wdre_metodologia.html" rel="" target="">
- <span class="dropdown-text">wDRE* Módszertan</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./player_ratings.html" rel="" target="">
  <span class="dropdown-text">Játékosértékelés</span></a>
   </li>  
@@ -169,10 +161,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./futball/analytics.html" rel="" target="">
  <span class="dropdown-text">🔒 Analytics</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./futball/striker_clustering.html" rel="" target="">
- <span class="dropdown-text">Csatár klaszterezés</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./futball/player_ratings.html" rel="" target="">
@@ -202,9 +190,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="csapatelemzés">csapatelemzés <span class="quarto-category-count">(3)</span></div><div class="category" data-category="dobóhatékonyság">dobóhatékonyság <span class="quarto-category-count">(1)</span></div><div class="category" data-category="episztemológia">episztemológia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="four factors">four factors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="kosárlabda">kosárlabda <span class="quarto-category-count">(3)</span></div><div class="category" data-category="kritikus gondolkodás">kritikus gondolkodás <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tempó">tempó <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -228,74 +217,46 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1776636000000" data-listing-file-modified-sort="1777223532637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<div class="quarto-post image-right" data-index="0" data-categories="episztemológia,kritikus gondolkodás" data-listing-date-sort="1780869600000" data-listing-file-modified-sort="1780947666722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <div class="body">
-<a href="./wdre_metodologia.html">
+<a href="./articles/velemeny-vagy-tudas.html">
 <h3 class="no-anchor listing-title">
-wDRE* — Módszertani dokumentáció
-</h3>
-<div class="listing-subtitle">
-Weighted, Bayesian-shrunk, age-adjusted Daily RAPM Estimate
-</div>
-<div class="listing-description">
-<p>A wDRE* mutató felépítése: Bayesian shrinkage, korrekciók és az értékelési logika.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./wdre_metodologia.html">
-<div class="listing-date">
-Apr 20, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1776204000000" data-listing-file-modified-sort="1777223526817" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14">
-<div class="body">
-<a href="./advanced_metrics.html">
-<h3 class="no-anchor listing-title">
-Advanced Metrics
+Vélemény vagy tudás?
 </h3>
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('episztemológia'); return false;">
+episztemológia
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('kritikus gondolkodás'); return false;">
+kritikus gondolkodás
+</div>
+</div>
+<a href="./articles/velemeny-vagy-tudas.html">
 <div class="listing-description">
-<p>Haladó mutatók a magyar kosárlabda bajnokságból: RAPM, BPM és egyéb box score metrikák.</p>
+<p>Az ismeretelmélet egyik alapkérdése: mi különbözteti meg az igaz véleményt a valódi tudástól? Platón nyomán.</p>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./advanced_metrics.html">
+<a href="./articles/velemeny-vagy-tudas.html">
 <div class="listing-date">
-Apr 15, 2026
+Jun 8, 2026
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1775858400000" data-listing-file-modified-sort="1777223522457" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
-<div class="body">
-<a href="./futball/striker_clustering.html">
-<h3 class="no-anchor listing-title">
-NB1 Csatár Szerepdetekció
-</h3>
-<div class="listing-subtitle">
-2025/26 — Ki milyen típusú csatár? Twelve Football adatok alapján
-</div>
-<div class="listing-description">
-<p>Ki milyen típusú csatár az NB1-ben? Klaszterezés Twelve Football adatok alapján.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./futball/striker_clustering.html">
-<div class="listing-date">
-Apr 11, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1775599200000" data-listing-file-modified-sort="1777223516338" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35">
+<div class="quarto-post image-right" data-index="1" data-categories="kosárlabda,tempó,csapatelemzés" data-listing-date-sort="1775599200000" data-listing-file-modified-sort="1780947388855" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35">
 <div class="body">
 <a href="./pace_efficiency.html">
 <h3 class="no-anchor listing-title">
@@ -304,6 +265,19 @@ Játékritmus &amp; Hatékonyság
 <div class="listing-subtitle">
 Miért nem elég a pontozás? A per-100 labdabirtok logikája, 2022–2025
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('kosárlabda'); return false;">
+kosárlabda
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('tempó'); return false;">
+tempó
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('csapatelemzés'); return false;">
+csapatelemzés
+</div>
+</div>
+<a href="./pace_efficiency.html">
 <div class="listing-description">
 <p>Miért nem elég a pontozás? A per-100 labdabirtok logikája és a tempó szerepe.</p>
 </div>
@@ -317,7 +291,7 @@ Apr 8, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1775340000000" data-listing-file-modified-sort="1777231296133" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="39">
+<div class="quarto-post image-right" data-index="2" data-categories="kosárlabda,dobóhatékonyság,csapatelemzés" data-listing-date-sort="1775340000000" data-listing-file-modified-sort="1780947387254" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="39">
 <div class="body">
 <a href="./scoring_efficiency.html">
 <h3 class="no-anchor listing-title">
@@ -326,6 +300,19 @@ Dobóhatékonyság a magyar kosárlabda bajnokságban
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('kosárlabda'); return false;">
+kosárlabda
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('dobóhatékonyság'); return false;">
+dobóhatékonyság
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('csapatelemzés'); return false;">
+csapatelemzés
+</div>
+</div>
+<a href="./scoring_efficiency.html">
 <div class="listing-description">
 <p>eFG%, TS% és a volumen-hatékonyság kompromisszuma a magyar ligában.</p>
 </div>
@@ -339,7 +326,7 @@ Apr 5, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1774994400000" data-listing-file-modified-sort="1777230389127" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43">
+<div class="quarto-post image-right" data-index="3" data-categories="kosárlabda,csapatelemzés,four factors" data-listing-date-sort="1774994400000" data-listing-file-modified-sort="1780947384896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43">
 <div class="body">
 <a href="./four_factors_1.html">
 <h3 class="no-anchor listing-title">
@@ -348,6 +335,19 @@ A Magyar Kosárlabda DNS-e: A Four Factors Elemzése (2022-2026)
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('kosárlabda'); return false;">
+kosárlabda
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('csapatelemzés'); return false;">
+csapatelemzés
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('four factors'); return false;">
+four factors
+</div>
+</div>
+<a href="./four_factors_1.html">
 <div class="listing-description">
 <p>Mit hajt igazán a győzelmet a magyar bajnokságban? A four factors modell négy szezon adatán.</p>
 </div>

@@ -1,5 +1,6 @@
 ---
 title: "wDRE* — Módszertani dokumentáció"
+draft: true
 date: 2026-04-20
 description: "A wDRE* mutató felépítése: Bayesian shrinkage, korrekciók és az értékelési logika."
 subtitle: "Weighted, Bayesian-shrunk, age-adjusted Daily RAPM Estimate"
