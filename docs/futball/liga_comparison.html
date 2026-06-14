@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Levente Kaszai - NB1 vs NB2 – Strukturális összehasonlítás</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<script>
+(function() {
+  if (sessionStorage.getItem("analytics_auth") !== "ok") {
+    var pwd = prompt("Jelszó:");
+    if (pwd === "magyarsport") {
+      sessionStorage.setItem("analytics_auth", "ok");
+    } else {
+      document.documentElement.innerHTML = "";
+      window.location.replace("../index.html");
+    }
+  }
+})();
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Levente Kaszai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../archivum.html" rel="" target="">
+ <span class="menu-text">Archívum</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-kosárlabda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Kosárlabda</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-kosárlabda">    
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/four_factors_1.html" rel="" target="">
+ <span class="dropdown-text">Four Factors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/scoring_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Scoring Efficiency</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/pace_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Játékritmus &amp; Hatékonyság</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/articles/tanoh-dez-scouting.html" rel="" target="">
+ <span class="dropdown-text">Tanoh Dez – Scouting report</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labdarúgás" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Labdarúgás</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labdarúgás">    
+        <li>
+    <a class="dropdown-item" href="../futball/analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/team_analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Team Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/articles/vedekezesi-atmenetek.html" rel="" target="">
+ <span class="dropdown-text">NB1 vs NB2: védelmi átmenetek</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/leventekaszai" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">NB1 vs NB2 – Strukturális összehasonlítás</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="a-két-liga-eltérése-quality-csoportonként" class="level2">
+<h2 class="anchored" data-anchor-id="a-két-liga-eltérése-quality-csoportonként">A két liga eltérése quality-csoportonként</h2>
+<p>Az oszlopok az átlagos abszolút Cohen’s d értéket mutatják az adott csoporton belüli KPI-k alapján. <strong>Minél nagyobb az érték, annál inkább különbözik a két liga az adott dimenzióban.</strong> (0.2 = kis, 0.5 = közepes, 0.8 = nagy eltérés)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-33d9cda483b542912e1c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-33d9cda483b542912e1c">{"x":{"visdat":{"17457d942ddc":["function () ","plotlyVisDat"]},"cur_data":"17457d942ddc","attrs":{"17457d942ddc":{"x":{},"y":{},"orientation":"h","marker":{"color":{},"colorscale":[[0,"#DBEAFE"],[0.5,"#3B82F6"],[1,"#1E3A8A"]],"showscale":false},"text":{},"textposition":"outside","hovertemplate":["<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 4<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 5<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 5<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 4<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 8<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 9<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 8<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 8<extra><\/extra>"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":180,"t":20,"r":60},"xaxis":{"domain":[0,1],"automargin":true,"title":"Átlagos abszolút Cohen's d","range":[0,1.5227783168393221],"gridcolor":"#F1F5F9","zeroline":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"","type":"category","categoryorder":"array","categoryarray":["Összteljesítmény","Támadó átmenet","Támadás","Stílus: támadás","Stílus: védekezés","Stílus: helyzet-teremtés","Védelmi átmenet","Védekezés","Stílus: tám. átmenet","Gólhelyzet-teremtés","Ellenfél helyzet-teremtése","Stílus: véd. átmenet"]},"font":{"family":"Montserrat, sans-serif","size":13},"plot_bgcolor":"white","paper_bgcolor":"white","shapes":[{"type":"line","x0":0.20000000000000001,"x1":0.20000000000000001,"y0":-0.5,"y1":11.5,"line":{"color":"#94A3B8","dash":"dot","width":1}},{"type":"line","x0":0.5,"x1":0.5,"y0":-0.5,"y1":11.5,"line":{"color":"#64748B","dash":"dot","width":1}},{"type":"line","x0":0.80000000000000004,"x1":0.80000000000000004,"y0":-0.5,"y1":11.5,"line":{"color":"#475569","dash":"dot","width":1}}],"annotations":[{"x":0.20000000000000001,"y":11.699999999999999,"text":"kis","showarrow":false,"font":{"size":10,"color":"#94A3B8"}},{"x":0.5,"y":11.699999999999999,"text":"közepes","showarrow":false,"font":{"size":10,"color":"#64748B"}},{"x":0.80000000000000004,"y":11.699999999999999,"text":"nagy","showarrow":false,"font":{"size":10,"color":"#475569"}}],"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1.2182226534714578,0.50064534736570354,0.68046730181845527,0.5158331535764622,0.48286743956099537,0.65521570354389191,0.58740741869275648,0.41898134948002325,0.77210134107291262,0.68291611584619749,0.47649373710370246,0.38831662350953494],"y":["Stílus: véd. átmenet","Stílus: védekezés","Stílus: tám. átmenet","Stílus: helyzet-teremtés","Stílus: támadás","Védekezés","Védelmi átmenet","Támadó átmenet","Ellenfél helyzet-teremtése","Gólhelyzet-teremtés","Támadás","Összteljesítmény"],"orientation":"h","marker":{"color":[1.2182226534714578,0.50064534736570354,0.68046730181845527,0.5158331535764622,0.48286743956099537,0.65521570354389191,0.58740741869275648,0.41898134948002325,0.77210134107291262,0.68291611584619749,0.47649373710370246,0.38831662350953494],"colorscale":[[0,"#DBEAFE"],[0.5,"#3B82F6"],[1,"#1E3A8A"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["1.22","0.5","0.68","0.52","0.48","0.66","0.59","0.42","0.77","0.68","0.48","0.39"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 4<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 5<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 5<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 4<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 8<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 9<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 8<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 7<extra><\/extra>","<b>%{y}<\/b><br>Átlag |d|: %{x:.2f}<br>KPI-k száma: 8<extra><\/extra>"],"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="kpi-szintű-részletek" class="level2">
+<h2 class="anchored" data-anchor-id="kpi-szintű-részletek">KPI-szintű részletek</h2>
+<p>Minden KPI Cohen’s d értéke, <strong>d szerint rendezve</strong>. Pozitív = NB1 magasabb átlag, negatív = NB2 magasabb átlag. Szín = quality-csoport.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-949bc89b187d6368aa65" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-949bc89b187d6368aa65">{"x":{"visdat":{"17452892054f":["function () ","plotlyVisDat"]},"cur_data":"17452892054f","attrs":{"17452892054f":{"x":{},"y":{},"orientation":"h","marker":{"color":{}},"hovertemplate":{},"showlegend":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"height":2450,"margin":{"b":50,"l":10,"t":10,"r":40},"xaxis":{"domain":[0,1],"automargin":true,"title":"Cohen's d  (pozitív = NB1 magasabb)","zeroline":true,"zerolinecolor":"#475569","zerolinewidth":1.5,"gridcolor":"#F1F5F9"},"yaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"size":10},"type":"category","categoryorder":"array","categoryarray":["Defensive intensity","Long ball %","Opp. Possessions to final third within 10s after att. half turnover %","First pass forward %","Dribbles per final-third possession","Opp. Pass tempo","Shots from outside the box %","Forward passes from middle third %","Shots from direct attacks %","Opp. Possessions to final third within 10s after recovery","Defensive duels won %","Possessions to final third within 10s after own-half recovery %","Pass tempo","Possessions to final third within 10s after recovery","Possessions to box within 10s after att. half recovery %","Recoveries within 5s %","Shots per final-third pass","Turnover line height (m)","Fouls in attacking half %","Time to forward pass after own-half recovery (s)","Turnovers","Recoveries","Defensive action height (m)","Points - xPoints","Crosses per final-third possession","Field tilt %","Ball possession %","Possessions to box within 10s after recovery","Points","Opp. Possessions to box within 10s after recovery","xPoints","Buildup from goalkick %","Box entries from crosses %","Final-third recoveries %","xT within 10s after recovery","Recovery line height (m)","Opp. xT within 10s after recovery","xT","np Shots","xG within 10s after recovery","Opp. xT","Opp. np Shots","Opp. xG within 10s after recovery","Box touches","Opp. Final third to box %","Opp. Box touches","Possessions retained after 5s","np Goals","Opp. np Goals","Final third to box %","Goals","Box to shot %","Opp. Box to shot %","Shots from sustained attacks %","Opp. Goals","PPDA","xG","np xG","Box entries from carries %","High opportunity shots","Opp. xG","Opp. np xG","Possessions to final third %","Opp. Possessions to final third %","Opp. High opportunity shots","np xG per shot","Time to recovery (s)","Opp. np xG per shot","Time to defensive action after own-half turnover (s)","Possessions retained after 5s %","Time to defensive action after att. half turnover (s)","Time to defensive action (s)"]},"shapes":[{"type":"line","x0":-0.5,"x1":-0.5,"y0":-0.5,"y1":78.5,"line":{"color":"#CBD5E1","dash":"dot","width":1}},{"type":"line","x0":0.5,"x1":0.5,"y0":-0.5,"y1":78.5,"line":{"color":"#CBD5E1","dash":"dot","width":1}}],"font":{"family":"Montserrat, sans-serif","size":11},"plot_bgcolor":"white","paper_bgcolor":"white","hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[-1.3671658889036882,-1.3671658889036882,-1.0280962902286837,-1.0280962902286837,-0.89651779224743844,-0.86201944969099731,-0.75560637964289779,-0.70392980706184494,-0.6262198682484299,-0.58897260225574688,-0.54363081085341558,-0.53405299148233309,-0.50207901104640096,-0.47549247519035104,-0.43389824602812371,-0.4104579877664114,-0.23490461932490853,-0.22013719513806412,-0.22013719513806412,-0.20369822062546866,-0.19135359010870326,-0.17334381132038412,-0.13664859862498643,-0.13444390048652458,-0.12908144504699459,-0.10639652335627679,-0.10639652335627679,-0.060545475009022603,-0.057233676473182955,-0.028263476977883728,-0.028263476977883728,-0.012851422523603011,-0.0085257246009739183,0.0064327229853959854,0.019032722716642934,0.047172001285952087,0.057640184863369789,0.060255936009046135,0.12461715070873917,0.13205994778452781,0.18236028532930379,0.18678131573589155,0.25601359853162076,0.30447009128086233,0.32638748025216058,0.3303260911684554,0.34594575787451737,0.36106055656639924,0.40718836000741832,0.44329305385093687,0.45840489513057708,0.4697065587987807,0.55979706885258951,0.58916132333671267,0.59656678342272174,0.62188349415973443,0.6829992527135571,0.68963219993037328,0.68978371457853471,0.69189016804592018,0.73170336253942969,0.73170336253942969,0.74761279755098553,0.77491954714690447,0.83226700745404059,0.88251318572370396,0.90273285206138498,0.91205663544766868,0.97976634201328072,1.0568318904241021,1.1113090650461512,1.1685253051983464,1.2888333991246477,1.2981995107443882,1.6451965118914147,1.693271366261033,1.693271366261033,2.1110391146089134,2.3509710968756021],"y":["Defensive intensity","Defensive intensity","Long ball %","Long ball %","Opp. Possessions to final third within 10s after att. half turnover %","First pass forward %","Dribbles per final-third possession","Opp. Pass tempo","Shots from outside the box %","Forward passes from middle third %","Shots from direct attacks %","Opp. Possessions to final third within 10s after recovery","Defensive duels won %","Possessions to final third within 10s after own-half recovery %","Pass tempo","Possessions to final third within 10s after recovery","Possessions to box within 10s after att. half recovery %","Recoveries within 5s %","Recoveries within 5s %","Shots per final-third pass","Turnover line height (m)","Fouls in attacking half %","Time to forward pass after own-half recovery (s)","Turnovers","Recoveries","Defensive action height (m)","Defensive action height (m)","Points - xPoints","Crosses per final-third possession","Field tilt %","Field tilt %","Ball possession %","Possessions to box within 10s after recovery","Points","Opp. Possessions to box within 10s after recovery","xPoints","Buildup from goalkick %","Box entries from crosses %","Final-third recoveries %","xT within 10s after recovery","Recovery line height (m)","Opp. xT within 10s after recovery","xT","np Shots","xG within 10s after recovery","Opp. xT","Opp. np Shots","Opp. xG within 10s after recovery","Box touches","Opp. Final third to box %","Opp. Box touches","Possessions retained after 5s","np Goals","Opp. np Goals","Final third to box %","Goals","Box to shot %","Opp. Box to shot %","Shots from sustained attacks %","Opp. Goals","PPDA","PPDA","xG","np xG","Box entries from carries %","High opportunity shots","Opp. xG","Opp. np xG","Possessions to final third %","Opp. Possessions to final third %","Opp. High opportunity shots","np xG per shot","Time to recovery (s)","Opp. np xG per shot","Time to defensive action after own-half turnover (s)","Possessions retained after 5s %","Possessions retained after 5s %","Time to defensive action after att. half turnover (s)","Time to defensive action (s)"],"orientation":"h","marker":{"color":["#DC2626","#F97316","#2563EB","#F59E0B","#FDBA74","#A3E635","#F59E0B","#DC2626","#FCD34D","#F59E0B","#FCD34D","#6EE7B7","#DC2626","#A3E635","#2563EB","#059669","#A3E635","#6EE7B7","#FDBA74","#FCD34D","#6EE7B7","#F97316","#A3E635","#6EE7B7","#059669","#DC2626","#F97316","#1E3A8A","#F59E0B","#2563EB","#1E3A8A","#2563EB","#059669","#1E3A8A","#6EE7B7","#1E3A8A","#F59E0B","#F59E0B","#F97316","#059669","#059669","#6EE7B7","#2563EB","#60A5FA","#059669","#DC2626","#93C5FD","#6EE7B7","#60A5FA","#DC2626","#93C5FD","#059669","#60A5FA","#93C5FD","#2563EB","#1E3A8A","#60A5FA","#93C5FD","#FCD34D","#1E3A8A","#DC2626","#F97316","#1E3A8A","#60A5FA","#F59E0B","#60A5FA","#1E3A8A","#93C5FD","#2563EB","#DC2626","#93C5FD","#60A5FA","#6EE7B7","#93C5FD","#FDBA74","#059669","#A3E635","#FDBA74","#6EE7B7"],"line":{"color":"rgba(31,119,180,1)"}},"hovertemplate":["<b>Defensive intensity<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 7.111<br>NB2 átlag: 7.901<br><b>Cohen's d: -1.37<\/b><extra><\/extra>","<b>Defensive intensity<\/b><br><i>Stílus: védekezés<\/i><br><br>NB1 átlag: 7.111<br>NB2 átlag: 7.901<br><b>Cohen's d: -1.37<\/b><extra><\/extra>","<b>Long ball %<\/b><br><i>Támadás<\/i><br><br>NB1 átlag: 15.5<br>NB2 átlag: 17.875<br><b>Cohen's d: -1.03<\/b><extra><\/extra>","<b>Long ball %<\/b><br><i>Stílus: támadás<\/i><br><br>NB1 átlag: 15.5<br>NB2 átlag: 17.875<br><b>Cohen's d: -1.03<\/b><extra><\/extra>","<b>Opp. Possessions to final third within 10s after att. half turnover %<\/b><br><i>Stílus: véd. átmenet<\/i><br><br>NB1 átlag: 25.667<br>NB2 átlag: 27.688<br><b>Cohen's d: -0.9<\/b><extra><\/extra>","<b>First pass forward %<\/b><br><i>Stílus: tám. átmenet<\/i><br><br>NB1 átlag: 68.25<br>NB2 átlag: 70.375<br><b>Cohen's d: -0.86<\/b><extra><\/extra>","<b>Dribbles per final-third possession<\/b><br><i>Stílus: támadás<\/i><br><br>NB1 átlag: 0.378<br>NB2 átlag: 0.411<br><b>Cohen's d: -0.76<\/b><extra><\/extra>","<b>Opp. Pass tempo<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 18.62<br>NB2 átlag: 18.831<br><b>Cohen's d: -0.7<\/b><extra><\/extra>","<b>Shots from outside the box %<\/b><br><i>Stílus: helyzet-teremtés<\/i><br><br>NB1 átlag: 39.583<br>NB2 átlag: 42.812<br><b>Cohen's d: -0.63<\/b><extra><\/extra>","<b>Forward passes from middle third %<\/b><br><i>Stílus: támadás<\/i><br><br>NB1 átlag: 62.5<br>NB2 átlag: 64.188<br><b>Cohen's d: -0.59<\/b><extra><\/extra>","<b>Shots from direct attacks %<\/b><br><i>Stílus: helyzet-teremtés<\/i><br><br>NB1 átlag: 25.75<br>NB2 átlag: 28.312<br><b>Cohen's d: -0.54<\/b><extra><\/extra>","<b>Opp. Possessions to final third within 10s after recovery<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 10.434<br>NB2 átlag: 11.023<br><b>Cohen's d: -0.53<\/b><extra><\/extra>","<b>Defensive duels won %<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 60.833<br>NB2 átlag: 61.75<br><b>Cohen's d: -0.5<\/b><extra><\/extra>","<b>Possessions to final third within 10s after own-half recovery %<\/b><br><i>Stílus: tám. átmenet<\/i><br><br>NB1 átlag: 25.75<br>NB2 átlag: 27.688<br><b>Cohen's d: -0.48<\/b><extra><\/extra>","<b>Pass tempo<\/b><br><i>Támadás<\/i><br><br>NB1 átlag: 18.618<br>NB2 átlag: 18.839<br><b>Cohen's d: -0.43<\/b><extra><\/extra>","<b>Possessions to final third within 10s after recovery<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 10.423<br>NB2 átlag: 11.054<br><b>Cohen's d: -0.41<\/b><extra><\/extra>","<b>Possessions to box within 10s after att. half recovery %<\/b><br><i>Stílus: tám. átmenet<\/i><br><br>NB1 átlag: 26.5<br>NB2 átlag: 27.375<br><b>Cohen's d: -0.23<\/b><extra><\/extra>","<b>Recoveries within 5s %<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 10.917<br>NB2 átlag: 11.188<br><b>Cohen's d: -0.22<\/b><extra><\/extra>","<b>Recoveries within 5s %<\/b><br><i>Stílus: véd. átmenet<\/i><br><br>NB1 átlag: 10.917<br>NB2 átlag: 11.188<br><b>Cohen's d: -0.22<\/b><extra><\/extra>","<b>Shots per final-third pass<\/b><br><i>Stílus: helyzet-teremtés<\/i><br><br>NB1 átlag: 0.155<br>NB2 átlag: 0.159<br><b>Cohen's d: -0.2<\/b><extra><\/extra>","<b>Turnover line height (m)<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 61.986<br>NB2 átlag: 62.405<br><b>Cohen's d: -0.19<\/b><extra><\/extra>","<b>Fouls in attacking half %<\/b><br><i>Stílus: védekezés<\/i><br><br>NB1 átlag: 55.25<br>NB2 átlag: 55.875<br><b>Cohen's d: -0.17<\/b><extra><\/extra>","<b>Time to forward pass after own-half recovery (s)<\/b><br><i>Stílus: tám. átmenet<\/i><br><br>NB1 átlag: 1.705<br>NB2 átlag: 1.732<br><b>Cohen's d: -0.14<\/b><extra><\/extra>","<b>Turnovers<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 33.033<br>NB2 átlag: 33.289<br><b>Cohen's d: -0.13<\/b><extra><\/extra>","<b>Recoveries<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 33.027<br>NB2 átlag: 33.312<br><b>Cohen's d: -0.13<\/b><extra><\/extra>","<b>Defensive action height (m)<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 40.337<br>NB2 átlag: 40.564<br><b>Cohen's d: -0.11<\/b><extra><\/extra>","<b>Defensive action height (m)<\/b><br><i>Stílus: védekezés<\/i><br><br>NB1 átlag: 40.337<br>NB2 átlag: 40.564<br><b>Cohen's d: -0.11<\/b><extra><\/extra>","<b>Points - xPoints<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: -0.014<br>NB2 átlag: -0.003<br><b>Cohen's d: -0.06<\/b><extra><\/extra>","<b>Crosses per final-third possession<\/b><br><i>Stílus: támadás<\/i><br><br>NB1 átlag: 0.429<br>NB2 átlag: 0.432<br><b>Cohen's d: -0.06<\/b><extra><\/extra>","<b>Field tilt %<\/b><br><i>Támadás<\/i><br><br>NB1 átlag: 49.917<br>NB2 átlag: 50.125<br><b>Cohen's d: -0.03<\/b><extra><\/extra>","<b>Field tilt %<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: 49.917<br>NB2 átlag: 50.125<br><b>Cohen's d: -0.03<\/b><extra><\/extra>","<b>Ball possession %<\/b><br><i>Támadás<\/i><br><br>NB1 átlag: 50<br>NB2 átlag: 50.062<br><b>Cohen's d: -0.01<\/b><extra><\/extra>","<b>Possessions to box within 10s after recovery<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 3.612<br>NB2 átlag: 3.618<br><b>Cohen's d: -0.01<\/b><extra><\/extra>","<b>Points<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: 1.378<br>NB2 átlag: 1.375<br><b>Cohen's d: 0.01<\/b><extra><\/extra>","<b>Opp. Possessions to box within 10s after recovery<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 3.615<br>NB2 átlag: 3.602<br><b>Cohen's d: 0.02<\/b><extra><\/extra>","<b>xPoints<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: 1.393<br>NB2 átlag: 1.376<br><b>Cohen's d: 0.05<\/b><extra><\/extra>","<b>Buildup from goalkick %<\/b><br><i>Stílus: támadás<\/i><br><br>NB1 átlag: 31.083<br>NB2 átlag: 30.562<br><b>Cohen's d: 0.06<\/b><extra><\/extra>","<b>Box entries from crosses %<\/b><br><i>Stílus: támadás<\/i><br><br>NB1 átlag: 38.833<br>NB2 átlag: 38.5<br><b>Cohen's d: 0.06<\/b><extra><\/extra>","<b>Final-third recoveries %<\/b><br><i>Stílus: védekezés<\/i><br><br>NB1 átlag: 8.583<br>NB2 átlag: 8.375<br><b>Cohen's d: 0.12<\/b><extra><\/extra>","<b>xT within 10s after recovery<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 0.623<br>NB2 átlag: 0.613<br><b>Cohen's d: 0.13<\/b><extra><\/extra>","<b>Recovery line height (m)<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 38.012<br>NB2 átlag: 37.638<br><b>Cohen's d: 0.18<\/b><extra><\/extra>","<b>Opp. xT within 10s after recovery<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 0.623<br>NB2 átlag: 0.611<br><b>Cohen's d: 0.19<\/b><extra><\/extra>","<b>xT<\/b><br><i>Támadás<\/i><br><br>NB1 átlag: 1.482<br>NB2 átlag: 1.412<br><b>Cohen's d: 0.26<\/b><extra><\/extra>","<b>np Shots<\/b><br><i>Gólhelyzet-teremtés<\/i><br><br>NB1 átlag: 12.017<br>NB2 átlag: 11.442<br><b>Cohen's d: 0.3<\/b><extra><\/extra>","<b>xG within 10s after recovery<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 0.192<br>NB2 átlag: 0.171<br><b>Cohen's d: 0.33<\/b><extra><\/extra>","<b>Opp. xT<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 1.482<br>NB2 átlag: 1.408<br><b>Cohen's d: 0.33<\/b><extra><\/extra>","<b>Opp. np Shots<\/b><br><i>Ellenfél helyzet-teremtése<\/i><br><br>NB1 átlag: 12.017<br>NB2 átlag: 11.428<br><b>Cohen's d: 0.35<\/b><extra><\/extra>","<b>Opp. xG within 10s after recovery<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 0.192<br>NB2 átlag: 0.172<br><b>Cohen's d: 0.36<\/b><extra><\/extra>","<b>Box touches<\/b><br><i>Gólhelyzet-teremtés<\/i><br><br>NB1 átlag: 17.755<br>NB2 átlag: 16.371<br><b>Cohen's d: 0.41<\/b><extra><\/extra>","<b>Opp. Final third to box %<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 20.417<br>NB2 átlag: 19.438<br><b>Cohen's d: 0.44<\/b><extra><\/extra>","<b>Opp. Box touches<\/b><br><i>Ellenfél helyzet-teremtése<\/i><br><br>NB1 átlag: 17.762<br>NB2 átlag: 16.324<br><b>Cohen's d: 0.46<\/b><extra><\/extra>","<b>Possessions retained after 5s<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 26.102<br>NB2 átlag: 25.188<br><b>Cohen's d: 0.47<\/b><extra><\/extra>","<b>np Goals<\/b><br><i>Gólhelyzet-teremtés<\/i><br><br>NB1 átlag: 1.338<br>NB2 átlag: 1.165<br><b>Cohen's d: 0.56<\/b><extra><\/extra>","<b>Opp. np Goals<\/b><br><i>Ellenfél helyzet-teremtése<\/i><br><br>NB1 átlag: 1.337<br>NB2 átlag: 1.168<br><b>Cohen's d: 0.59<\/b><extra><\/extra>","<b>Final third to box %<\/b><br><i>Támadás<\/i><br><br>NB1 átlag: 20.583<br>NB2 átlag: 19.375<br><b>Cohen's d: 0.6<\/b><extra><\/extra>","<b>Goals<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: 1.505<br>NB2 átlag: 1.292<br><b>Cohen's d: 0.62<\/b><extra><\/extra>","<b>Box to shot %<\/b><br><i>Gólhelyzet-teremtés<\/i><br><br>NB1 átlag: 70<br>NB2 átlag: 67.062<br><b>Cohen's d: 0.68<\/b><extra><\/extra>","<b>Opp. Box to shot %<\/b><br><i>Ellenfél helyzet-teremtése<\/i><br><br>NB1 átlag: 70<br>NB2 átlag: 67.188<br><b>Cohen's d: 0.69<\/b><extra><\/extra>","<b>Shots from sustained attacks %<\/b><br><i>Stílus: helyzet-teremtés<\/i><br><br>NB1 átlag: 7.833<br>NB2 átlag: 6<br><b>Cohen's d: 0.69<\/b><extra><\/extra>","<b>Opp. Goals<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: 1.507<br>NB2 átlag: 1.292<br><b>Cohen's d: 0.69<\/b><extra><\/extra>","<b>PPDA<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 5.562<br>NB2 átlag: 4.981<br><b>Cohen's d: 0.73<\/b><extra><\/extra>","<b>PPDA<\/b><br><i>Stílus: védekezés<\/i><br><br>NB1 átlag: 5.562<br>NB2 átlag: 4.981<br><b>Cohen's d: 0.73<\/b><extra><\/extra>","<b>xG<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: 1.579<br>NB2 átlag: 1.329<br><b>Cohen's d: 0.75<\/b><extra><\/extra>","<b>np xG<\/b><br><i>Gólhelyzet-teremtés<\/i><br><br>NB1 átlag: 1.416<br>NB2 átlag: 1.195<br><b>Cohen's d: 0.77<\/b><extra><\/extra>","<b>Box entries from carries %<\/b><br><i>Stílus: támadás<\/i><br><br>NB1 átlag: 17.083<br>NB2 átlag: 15<br><b>Cohen's d: 0.83<\/b><extra><\/extra>","<b>High opportunity shots<\/b><br><i>Gólhelyzet-teremtés<\/i><br><br>NB1 átlag: 3.212<br>NB2 átlag: 2.572<br><b>Cohen's d: 0.88<\/b><extra><\/extra>","<b>Opp. xG<\/b><br><i>Összteljesítmény<\/i><br><br>NB1 átlag: 1.582<br>NB2 átlag: 1.327<br><b>Cohen's d: 0.9<\/b><extra><\/extra>","<b>Opp. np xG<\/b><br><i>Ellenfél helyzet-teremtése<\/i><br><br>NB1 átlag: 1.418<br>NB2 átlag: 1.195<br><b>Cohen's d: 0.91<\/b><extra><\/extra>","<b>Possessions to final third %<\/b><br><i>Támadás<\/i><br><br>NB1 átlag: 33.25<br>NB2 átlag: 30.062<br><b>Cohen's d: 0.98<\/b><extra><\/extra>","<b>Opp. Possessions to final third %<\/b><br><i>Védekezés<\/i><br><br>NB1 átlag: 33.333<br>NB2 átlag: 29.875<br><b>Cohen's d: 1.06<\/b><extra><\/extra>","<b>Opp. High opportunity shots<\/b><br><i>Ellenfél helyzet-teremtése<\/i><br><br>NB1 átlag: 3.212<br>NB2 átlag: 2.569<br><b>Cohen's d: 1.11<\/b><extra><\/extra>","<b>np xG per shot<\/b><br><i>Gólhelyzet-teremtés<\/i><br><br>NB1 átlag: 0.117<br>NB2 átlag: 0.104<br><b>Cohen's d: 1.17<\/b><extra><\/extra>","<b>Time to recovery (s)<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 9.8<br>NB2 átlag: 8.848<br><b>Cohen's d: 1.29<\/b><extra><\/extra>","<b>Opp. np xG per shot<\/b><br><i>Ellenfél helyzet-teremtése<\/i><br><br>NB1 átlag: 0.119<br>NB2 átlag: 0.104<br><b>Cohen's d: 1.3<\/b><extra><\/extra>","<b>Time to defensive action after own-half turnover (s)<\/b><br><i>Stílus: véd. átmenet<\/i><br><br>NB1 átlag: 6.702<br>NB2 átlag: 5.561<br><b>Cohen's d: 1.65<\/b><extra><\/extra>","<b>Possessions retained after 5s %<\/b><br><i>Támadó átmenet<\/i><br><br>NB1 átlag: 78.917<br>NB2 átlag: 75.25<br><b>Cohen's d: 1.69<\/b><extra><\/extra>","<b>Possessions retained after 5s %<\/b><br><i>Stílus: tám. átmenet<\/i><br><br>NB1 átlag: 78.917<br>NB2 átlag: 75.25<br><b>Cohen's d: 1.69<\/b><extra><\/extra>","<b>Time to defensive action after att. half turnover (s)<\/b><br><i>Stílus: véd. átmenet<\/i><br><br>NB1 átlag: 6.125<br>NB2 átlag: 5.349<br><b>Cohen's d: 2.11<\/b><extra><\/extra>","<b>Time to defensive action (s)<\/b><br><i>Védelmi átmenet<\/i><br><br>NB1 átlag: 6.06<br>NB2 átlag: 5.294<br><b>Cohen's d: 2.35<\/b><extra><\/extra>"],"showlegend":false,"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p style="font-size:11px;color:#9CA3AF;margin-top:8px;font-family:Montserrat,sans-serif;"><span style="color:#2563EB;font-weight:600;">Kék = NB1 magasabb</span> &nbsp;|&nbsp; <span style="color:#DC2626;font-weight:600;">Piros = NB2 magasabb</span>. Cohen's d: 0.2 = kis, 0.5 = közepes, 0.8 = nagy eltérés. 2025–26-os szezon, liganként átlagolt csapatértékek alapján.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Levente Kaszai — Hungarian Sports Analytics</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

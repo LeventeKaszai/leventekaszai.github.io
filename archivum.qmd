@@ -4,10 +4,12 @@ page-layout: full
 toc: false
 listing:
   contents:
-    - four_factors_1.qmd
-    - scoring_efficiency.qmd
-    - pace_efficiency.qmd
+    - kosarlabda/articles/tanoh-dez-scouting.qmd
+    - kosarlabda/four_factors_1.qmd
+    - kosarlabda/scoring_efficiency.qmd
+    - kosarlabda/pace_efficiency.qmd
     - articles/velemeny-vagy-tudas.qmd
+    - futball/articles/vedekezesi-atmenetek.qmd
   sort: "date desc"
   type: default
   fields: [date, title, description, categories]

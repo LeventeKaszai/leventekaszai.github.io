@@ -1,0 +1,235 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's style of play in chance creation",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Diósgyőr",
+            "Nyíregyháza Spartacus",
+            "Kazincbarcika",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10197,
+            10198,
+            10234,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Shots from sustained attacks %",
+                "description": "Percentage of shots by a team that come from possessions with 8 or more passes in the attacking half per match.",
+                "display_name": "Shots from sustained attacks %"
+            },
+            {
+                "name": "Shots from direct attacks %",
+                "description": "Percentage of shots by a team that come from possessions where at least 50% of the total ball movement is forward per match.",
+                "display_name": "Shots from direct attacks %"
+            },
+            {
+                "name": "Shots per final-third pass",
+                "description": "Number of shots by a team divided by their number of passes in the final third per match.",
+                "display_name": "Shots per final-third pass"
+            },
+            {
+                "name": "Shots from outside the box %",
+                "description": "Percentage of shots by a team from outside of the penalty area per match.",
+                "display_name": "Shots from outside the box %"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                1.0637783450604503,
+                0.3942029292987812,
+                -0.6169527220823019,
+                -1.0936077731048548
+            ],
+            [
+                -0.49734193128286797,
+                0.6508579951403347,
+                0.8132212822515226,
+                1.955982174764728
+            ],
+            [
+                -0.2249605675884641,
+                0.21769173357462795,
+                1.168229013823748,
+                -1.107722161061441
+            ],
+            [
+                0.08000818273303416,
+                -0.1041816233341256,
+                0.1782645966394834,
+                0.8471205709255419
+            ],
+            [
+                1.7819305635594642,
+                -0.5402681068879169,
+                -0.9577601443916395,
+                1.7292698182120867
+            ],
+            [
+                1.3687470953819496,
+                -1.318993970376832,
+                -0.6494105718260484,
+                -0.47963189699342135
+            ],
+            [
+                -0.7463587536219951,
+                0.5707141250229345,
+                0.4216984697175813,
+                -0.9171779236475462
+            ],
+            [
+                -1.0119766974503976,
+                1.131396746734953,
+                1.2006868635674932,
+                0.3390026044884918
+            ],
+            [
+                -1.0119766974503976,
+                1.5882492533151173,
+                1.2006868635674932,
+                -0.7830912380599919
+            ],
+            [
+                -1.1201914153064134,
+                -1.9627406841943353,
+                -1.2011940174697373,
+                -0.35260240538415943
+            ],
+            [
+                1.0548629279643582,
+                -1.07304638515825,
+                -1.8980234791557924,
+                0.16566027739668576
+            ],
+            [
+                -0.7365210519987209,
+                0.44611798686470727,
+                0.3405538453582163,
+                -0.3032020475361127
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\n11% Shots from sustained attacks ",
+                "Ferencváros\n27% Shots from direct attacks ",
+                "Ferencváros\n0.14 Shots per final-third pass",
+                "Ferencváros\n35% Shots from outside the box "
+            ],
+            [
+                "Debrecen\n6% Shots from sustained attacks ",
+                "Debrecen\n28% Shots from direct attacks ",
+                "Debrecen\n0.17 Shots per final-third pass",
+                "Debrecen\n48% Shots from outside the box "
+            ],
+            [
+                "MTK\n7% Shots from sustained attacks ",
+                "MTK\n26% Shots from direct attacks ",
+                "MTK\n0.18 Shots per final-third pass",
+                "MTK\n35% Shots from outside the box "
+            ],
+            [
+                "Újpest\n8% Shots from sustained attacks ",
+                "Újpest\n26% Shots from direct attacks ",
+                "Újpest\n0.16 Shots per final-third pass",
+                "Újpest\n43% Shots from outside the box "
+            ],
+            [
+                "Zalaegerszegi TE\n13% Shots from sustained attacks ",
+                "Zalaegerszegi TE\n24% Shots from direct attacks ",
+                "Zalaegerszegi TE\n0.14 Shots per final-third pass",
+                "Zalaegerszegi TE\n47% Shots from outside the box "
+            ],
+            [
+                "Győri ETO\n12% Shots from sustained attacks ",
+                "Győri ETO\n22% Shots from direct attacks ",
+                "Győri ETO\n0.14 Shots per final-third pass",
+                "Győri ETO\n38% Shots from outside the box "
+            ],
+            [
+                "Diósgyőr\n6% Shots from sustained attacks ",
+                "Diósgyőr\n27% Shots from direct attacks ",
+                "Diósgyőr\n0.16 Shots per final-third pass",
+                "Diósgyőr\n36% Shots from outside the box "
+            ],
+            [
+                "Nyíregyháza Spartacus\n5% Shots from sustained attacks ",
+                "Nyíregyháza Spartacus\n29% Shots from direct attacks ",
+                "Nyíregyháza Spartacus\n0.18 Shots per final-third pass",
+                "Nyíregyháza Spartacus\n41% Shots from outside the box "
+            ],
+            [
+                "Kazincbarcika\n5% Shots from sustained attacks ",
+                "Kazincbarcika\n30% Shots from direct attacks ",
+                "Kazincbarcika\n0.18 Shots per final-third pass",
+                "Kazincbarcika\n36% Shots from outside the box "
+            ],
+            [
+                "Paksi FC\n4% Shots from sustained attacks ",
+                "Paksi FC\n20% Shots from direct attacks ",
+                "Paksi FC\n0.13 Shots per final-third pass",
+                "Paksi FC\n38% Shots from outside the box "
+            ],
+            [
+                "Várda SE\n11% Shots from sustained attacks ",
+                "Várda SE\n23% Shots from direct attacks ",
+                "Várda SE\n0.12 Shots per final-third pass",
+                "Várda SE\n40% Shots from outside the box "
+            ],
+            [
+                "Puskás FC\n6% Shots from sustained attacks ",
+                "Puskás FC\n27% Shots from direct attacks ",
+                "Puskás FC\n0.16 Shots per final-third pass",
+                "Puskás FC\n38% Shots from outside the box "
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Shots from sustained attacks % | 8",
+            "Shots from direct attacks % | 26",
+            "Shots per final-third pass | 0.16",
+            "Shots from outside the box % | 43"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

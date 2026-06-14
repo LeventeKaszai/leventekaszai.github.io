@@ -2,10 +2,12 @@
   {
     "listing": "/archivum.html",
     "items": [
+      "/kosarlabda/articles/tanoh-dez-scouting.html",
+      "/futball/articles/vedekezesi-atmenetek.html",
       "/articles/velemeny-vagy-tudas.html",
-      "/pace_efficiency.html",
-      "/scoring_efficiency.html",
-      "/four_factors_1.html"
+      "/kosarlabda/pace_efficiency.html",
+      "/kosarlabda/scoring_efficiency.html",
+      "/kosarlabda/four_factors_1.html"
     ]
   }
 ]

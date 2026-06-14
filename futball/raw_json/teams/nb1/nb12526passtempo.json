@@ -1,0 +1,67 @@
+{
+    "plot_type": "ranking-bar",
+    "title": "Újpest performance in pass tempo",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "data": {
+        "target_labels": [
+            "Nyíregyháza Spartacus",
+            "Újpest",
+            "Paksi FC",
+            "Ferencváros",
+            "Puskás FC",
+            "MTK",
+            "Kazincbarcika",
+            "Várda SE",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Diósgyőr",
+            "Debrecen"
+        ],
+        "target_icons": [
+            "https://cdn5.wyscout.com/photos/team/public/356_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/351_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/360_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/1108_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g22345_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/349_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/3553_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g11938_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/354_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/352_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/362_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/350_120x120.png"
+        ],
+        "focal_target_indices": [
+            1
+        ],
+        "plot_values": [
+            19.395454545454545,
+            19.07333333333333,
+            18.95060606060606,
+            18.90939393939394,
+            18.867575757575757,
+            18.79939393939394,
+            18.76030303030303,
+            18.446875,
+            18.35151515151515,
+            18.235757575757575,
+            17.89848484848485,
+            17.7196875
+        ],
+        "hover_strings": [
+            "<b>Nyíregyháza Spartacus</b><br/>Rank: 1/12<br/>Pass tempo: 19.40",
+            "<b>Újpest</b><br/>Rank: 2/12<br/>Pass tempo: 19.07",
+            "<b>Paksi FC</b><br/>Rank: 3/12<br/>Pass tempo: 18.95",
+            "<b>Ferencváros</b><br/>Rank: 4/12<br/>Pass tempo: 18.91",
+            "<b>Puskás FC</b><br/>Rank: 5/12<br/>Pass tempo: 18.87",
+            "<b>MTK</b><br/>Rank: 6/12<br/>Pass tempo: 18.80",
+            "<b>Kazincbarcika</b><br/>Rank: 7/12<br/>Pass tempo: 18.76",
+            "<b>Várda SE</b><br/>Rank: 8/12<br/>Pass tempo: 18.45",
+            "<b>Zalaegerszegi TE</b><br/>Rank: 9/12<br/>Pass tempo: 18.35",
+            "<b>Győri ETO</b><br/>Rank: 10/12<br/>Pass tempo: 18.24",
+            "<b>Diósgyőr</b><br/>Rank: 11/12<br/>Pass tempo: 17.90",
+            "<b>Debrecen</b><br/>Rank: 12/12<br/>Pass tempo: 17.72"
+        ]
+    }
+}

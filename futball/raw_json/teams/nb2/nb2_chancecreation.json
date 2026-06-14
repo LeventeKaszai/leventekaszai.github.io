@@ -1,0 +1,401 @@
+{
+    "plot_type": "distribution",
+    "title": "Budafoki MTE's performance in chance creation",
+    "subtitle": "Budafoki MTE | Hungarian NB II 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Békéscsaba",
+            "Honvéd",
+            "Vasas",
+            "Kecskeméti TE",
+            "BVSC",
+            "Duna Aszfalt Tiszakécskei",
+            "Soroksár SC",
+            "Ajka",
+            "Karcag SE",
+            "Fehérvár",
+            "Szentlőrinc SE",
+            "Mezőkövesd-Zsóry",
+            "Kozármisleny",
+            "Szeged 2011",
+            "Csákvári TK",
+            "Budafoki MTE"
+        ],
+        "target_identifiers": [
+            10192,
+            10194,
+            10196,
+            10207,
+            10212,
+            10220,
+            10226,
+            10235,
+            10249,
+            10260,
+            10261,
+            10273,
+            10274,
+            10427,
+            10437,
+            39600
+        ],
+        "kpis": [
+            {
+                "name": "Box touches",
+                "description": "Number of touches by a team inside the opponent's penalty area per match.",
+                "display_name": "Box touches"
+            },
+            {
+                "name": "Box to shot %",
+                "description": "Percentage of box entering possessions by a team that led to a shot per match.",
+                "display_name": "Box to shot %"
+            },
+            {
+                "name": "np Shots",
+                "description": "Number of non-penalty shots by a team per match.",
+                "display_name": "np Shots"
+            },
+            {
+                "name": "High opportunity shots",
+                "description": "Number of non-penalty shots by a team with expected goals higher than 0.15 per match.",
+                "display_name": "High opportunity shots"
+            },
+            {
+                "name": "np xG",
+                "description": "Number of goals that a team should be expected to score statistically in a match considering the quality of their chances, excluding penalties per match.",
+                "display_name": "np xG"
+            },
+            {
+                "name": "np Goals",
+                "description": "Number of non-penalty goals by a team per match.",
+                "display_name": "np Goals"
+            },
+            {
+                "name": "np xG per shot",
+                "description": "Average probability that the non-penalty shots of a team resulted in a goal per match.",
+                "display_name": "np xG per shot"
+            }
+        ],
+        "focal_target_indices": [
+            15
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.9444516397678465,
+                -0.21413307919276509,
+                -0.4152036328165481,
+                -1.272040435313335,
+                -1.2300163437112448,
+                -1.3270917902678565,
+                -2.3030360176205877
+            ],
+            [
+                2.061831679767017,
+                -0.08942790297855953,
+                1.8022836334571215,
+                1.6482564889058693,
+                1.5845712506855947,
+                1.2573442575830027,
+                0.7414078145634526
+            ],
+            [
+                2.088965889622762,
+                0.22276400173862962,
+                2.270753548421086,
+                1.8784667799078594,
+                1.9242524738320388,
+                2.305540225827244,
+                0.8087692461557892
+            ],
+            [
+                1.342290579128045,
+                -0.49235118861285754,
+                1.2514430289529404,
+                1.4361781946760392,
+                1.4647222844212002,
+                1.440195384850304,
+                1.0506532687602539
+            ],
+            [
+                -0.8055057720582516,
+                -0.7059728327093451,
+                -0.8338231275284055,
+                -0.8414593029743306,
+                -0.917013390550418,
+                0.2667255067938689,
+                -1.075987451133512
+            ],
+            [
+                0.6227494784890744,
+                0.5757570318695752,
+                0.6527032414483952,
+                0.3460561215320516,
+                0.6395326806335646,
+                -0.46450385751741696,
+                0.3446134189958675
+            ],
+            [
+                -0.5808465443979329,
+                0.3292705194505509,
+                -0.35896053743859424,
+                -0.5954129416377565,
+                -0.5533434472907377,
+                0.2973758394296712,
+                -0.6438423706742761
+            ],
+            [
+                -0.9126204046198297,
+                -1.9206583659102876,
+                -1.2269267673244926,
+                -1.5705766870683784,
+                -1.3138089957608794,
+                -1.5870066110194612,
+                -0.40520090145391285
+            ],
+            [
+                0.43237559480904536,
+                0.2777066743238149,
+                -0.036452661410581746,
+                0.11538765777901343,
+                0.08297007019715859,
+                -0.8366864680950181,
+                -0.019362296658532625
+            ],
+            [
+                -0.6593419371949121,
+                -0.04045924917798174,
+                -0.29702193873122723,
+                -0.14945391171521571,
+                -0.14074864539691942,
+                0.2973758394296712,
+                0.09749947157833161
+            ],
+            [
+                -0.9907669290043779,
+                -1.575066017238635,
+                -0.7053578857649787,
+                -1.2047067602973591,
+                -1.1378267613869804,
+                -0.32811798584170354,
+                -1.6074560174823378
+            ],
+            [
+                -0.6070116753302598,
+                0.2306759144829432,
+                -0.6067149322680612,
+                -0.09990290839048917,
+                -0.22916181723130963,
+                -0.08356400904387326,
+                0.3799154114840859
+            ],
+            [
+                -0.5677639789317702,
+                -0.6155944448223658,
+                -1.226100919341728,
+                0.04875010158369109,
+                -0.5631671330501141,
+                -0.337523908026236,
+                1.1918612387131318
+            ],
+            [
+                0.10816857015332484,
+                1.5178832571156176,
+                0.1296661856972984,
+                0.6965835894958587,
+                0.6740975008980383,
+                -0.7231667175920463,
+                1.3945208252195767
+            ],
+            [
+                -0.2406998422776924,
+                2.3915410066897094,
+                0.3223640483424396,
+                0.19740311155787135,
+                0.4318318960067455,
+                0.551335738412034,
+                0.4858213889487453
+            ],
+            [
+                -0.3473730683864067,
+                0.10806467497194162,
+                -0.7226512836946707,
+                -0.6335290980413922,
+                -0.7168916222957432,
+                -0.7282314449221786,
+                -0.44017702939608805
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Békéscsaba\nRank: 15/16\n13.79 Box touches",
+                "Békéscsaba\nRank: 11/16\n66% Box to shot ",
+                "Békéscsaba\nRank: 10/16\n10.72 np Shots",
+                "Békéscsaba\nRank: 15/16\n1.66 High opportunity shots",
+                "Békéscsaba\nRank: 15/16\n0.88 np xG",
+                "Békéscsaba\nRank: 15/16\n0.79 np Goals",
+                "Békéscsaba\nRank: 16/16\n0.08 np xG per shot"
+            ],
+            [
+                "Honvéd\nRank: 2/16\n22.00 Box touches",
+                "Honvéd\nRank: 10/16\n67% Box to shot ",
+                "Honvéd\nRank: 2/16\n14.56 np Shots",
+                "Honvéd\nRank: 2/16\n3.76 High opportunity shots",
+                "Honvéd\nRank: 2/16\n1.60 np xG",
+                "Honvéd\nRank: 3/16\n1.52 np Goals",
+                "Honvéd\nRank: 5/16\n0.11 np xG per shot"
+            ],
+            [
+                "Vasas\nRank: 1/16\n22.07 Box touches",
+                "Vasas\nRank: 7/16\n68% Box to shot ",
+                "Vasas\nRank: 1/16\n15.37 np Shots",
+                "Vasas\nRank: 1/16\n3.93 High opportunity shots",
+                "Vasas\nRank: 1/16\n1.68 np xG",
+                "Vasas\nRank: 1/16\n1.81 np Goals",
+                "Vasas\nRank: 4/16\n0.11 np xG per shot"
+            ],
+            [
+                "Kecskeméti TE\nRank: 3/16\n20.04 Box touches",
+                "Kecskeméti TE\nRank: 12/16\n65% Box to shot ",
+                "Kecskeméti TE\nRank: 3/16\n13.61 np Shots",
+                "Kecskeméti TE\nRank: 3/16\n3.61 High opportunity shots",
+                "Kecskeméti TE\nRank: 3/16\n1.57 np xG",
+                "Kecskeméti TE\nRank: 2/16\n1.57 np Goals",
+                "Kecskeméti TE\nRank: 3/16\n0.11 np xG per shot"
+            ],
+            [
+                "BVSC\nRank: 13/16\n14.17 Box touches",
+                "BVSC\nRank: 14/16\n64% Box to shot ",
+                "BVSC\nRank: 14/16\n10.00 np Shots",
+                "BVSC\nRank: 13/16\n1.97 High opportunity shots",
+                "BVSC\nRank: 13/16\n0.96 np xG",
+                "BVSC\nRank: 7/16\n1.24 np Goals",
+                "BVSC\nRank: 14/16\n0.09 np xG per shot"
+            ],
+            [
+                "Duna Aszfalt Tiszakécskei\nRank: 4/16\n18.07 Box touches",
+                "Duna Aszfalt Tiszakécskei\nRank: 3/16\n70% Box to shot ",
+                "Duna Aszfalt Tiszakécskei\nRank: 4/16\n12.57 np Shots",
+                "Duna Aszfalt Tiszakécskei\nRank: 5/16\n2.82 High opportunity shots",
+                "Duna Aszfalt Tiszakécskei\nRank: 5/16\n1.36 np xG",
+                "Duna Aszfalt Tiszakécskei\nRank: 11/16\n1.04 np Goals",
+                "Duna Aszfalt Tiszakécskei\nRank: 8/16\n0.11 np xG per shot"
+            ],
+            [
+                "Soroksár SC\nRank: 10/16\n14.79 Box touches",
+                "Soroksár SC\nRank: 4/16\n68% Box to shot ",
+                "Soroksár SC\nRank: 9/16\n10.82 np Shots",
+                "Soroksár SC\nRank: 11/16\n2.14 High opportunity shots",
+                "Soroksár SC\nRank: 10/16\n1.05 np xG",
+                "Soroksár SC\nRank: 5/16\n1.25 np Goals",
+                "Soroksár SC\nRank: 13/16\n0.10 np xG per shot"
+            ],
+            [
+                "Ajka\nRank: 14/16\n13.88 Box touches",
+                "Ajka\nRank: 16/16\n59% Box to shot ",
+                "Ajka\nRank: 16/16\n9.32 np Shots",
+                "Ajka\nRank: 16/16\n1.44 High opportunity shots",
+                "Ajka\nRank: 16/16\n0.86 np xG",
+                "Ajka\nRank: 16/16\n0.72 np Goals",
+                "Ajka\nRank: 11/16\n0.10 np xG per shot"
+            ],
+            [
+                "Karcag SE\nRank: 5/16\n17.55 Box touches",
+                "Karcag SE\nRank: 5/16\n68% Box to shot ",
+                "Karcag SE\nRank: 7/16\n11.38 np Shots",
+                "Karcag SE\nRank: 7/16\n2.66 High opportunity shots",
+                "Karcag SE\nRank: 7/16\n1.22 np xG",
+                "Karcag SE\nRank: 14/16\n0.93 np Goals",
+                "Karcag SE\nRank: 10/16\n0.10 np xG per shot"
+            ],
+            [
+                "Fehérvár\nRank: 12/16\n14.57 Box touches",
+                "Fehérvár\nRank: 9/16\n67% Box to shot ",
+                "Fehérvár\nRank: 8/16\n10.93 np Shots",
+                "Fehérvár\nRank: 10/16\n2.46 High opportunity shots",
+                "Fehérvár\nRank: 8/16\n1.16 np xG",
+                "Fehérvár\nRank: 5/16\n1.25 np Goals",
+                "Fehérvár\nRank: 9/16\n0.10 np xG per shot"
+            ],
+            [
+                "Szentlőrinc SE\nRank: 16/16\n13.67 Box touches",
+                "Szentlőrinc SE\nRank: 15/16\n60% Box to shot ",
+                "Szentlőrinc SE\nRank: 12/16\n10.22 np Shots",
+                "Szentlőrinc SE\nRank: 14/16\n1.70 High opportunity shots",
+                "Szentlőrinc SE\nRank: 14/16\n0.91 np xG",
+                "Szentlőrinc SE\nRank: 9/16\n1.07 np Goals",
+                "Szentlőrinc SE\nRank: 15/16\n0.09 np xG per shot"
+            ],
+            [
+                "Mezőkövesd-Zsóry\nRank: 11/16\n14.71 Box touches",
+                "Mezőkövesd-Zsóry\nRank: 6/16\n68% Box to shot ",
+                "Mezőkövesd-Zsóry\nRank: 11/16\n10.39 np Shots",
+                "Mezőkövesd-Zsóry\nRank: 9/16\n2.50 High opportunity shots",
+                "Mezőkövesd-Zsóry\nRank: 9/16\n1.14 np xG",
+                "Mezőkövesd-Zsóry\nRank: 8/16\n1.14 np Goals",
+                "Mezőkövesd-Zsóry\nRank: 7/16\n0.11 np xG per shot"
+            ],
+            [
+                "Kozármisleny\nRank: 9/16\n14.82 Box touches",
+                "Kozármisleny\nRank: 13/16\n64% Box to shot ",
+                "Kozármisleny\nRank: 15/16\n9.32 np Shots",
+                "Kozármisleny\nRank: 8/16\n2.61 High opportunity shots",
+                "Kozármisleny\nRank: 11/16\n1.05 np xG",
+                "Kozármisleny\nRank: 10/16\n1.07 np Goals",
+                "Kozármisleny\nRank: 2/16\n0.12 np xG per shot"
+            ],
+            [
+                "Szeged 2011\nRank: 6/16\n16.67 Box touches",
+                "Szeged 2011\nRank: 2/16\n74% Box to shot ",
+                "Szeged 2011\nRank: 6/16\n11.67 np Shots",
+                "Szeged 2011\nRank: 4/16\n3.07 High opportunity shots",
+                "Szeged 2011\nRank: 4/16\n1.37 np xG",
+                "Szeged 2011\nRank: 12/16\n0.96 np Goals",
+                "Szeged 2011\nRank: 1/16\n0.12 np xG per shot"
+            ],
+            [
+                "Csákvári TK\nRank: 7/16\n15.71 Box touches",
+                "Csákvári TK\nRank: 1/16\n77% Box to shot ",
+                "Csákvári TK\nRank: 5/16\n12.00 np Shots",
+                "Csákvári TK\nRank: 6/16\n2.71 High opportunity shots",
+                "Csákvári TK\nRank: 6/16\n1.30 np xG",
+                "Csákvári TK\nRank: 4/16\n1.32 np Goals",
+                "Csákvári TK\nRank: 6/16\n0.11 np xG per shot"
+            ],
+            [
+                "Budafoki MTE\nRank: 8/16\n15.42 Box touches",
+                "Budafoki MTE\nRank: 8/16\n68% Box to shot ",
+                "Budafoki MTE\nRank: 13/16\n10.19 np Shots",
+                "Budafoki MTE\nRank: 12/16\n2.12 High opportunity shots",
+                "Budafoki MTE\nRank: 12/16\n1.01 np xG",
+                "Budafoki MTE\nRank: 13/16\n0.96 np Goals",
+                "Budafoki MTE\nRank: 12/16\n0.10 np xG per shot"
+            ]
+        ],
+        "serie_names": [
+            "Other NB II teams",
+            "Budafoki MTE"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Box touches | 15.42",
+            "Box to shot % | 68",
+            "np Shots | 10.19",
+            "High opportunity shots | 2.12",
+            "np xG | 1.01",
+            "np Goals | 0.96",
+            "np xG per shot | 0.10"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

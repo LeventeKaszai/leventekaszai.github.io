@@ -1,0 +1,1273 @@
+{
+    "plot_type": "distribution",
+    "title": "Passing Quality of Adin Molnár",
+    "subtitle": "Hungarian NB I 2025/2026 | 2344 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Jasmin Mešanović",
+            "János Ferenczi",
+            "Soma Novothny",
+            "Claudiu Bumba",
+            "Matija Ljujić",
+            "Nemanja Antonov",
+            "Gábor Molnár",
+            "Elton-Ofoi Acolatse",
+            "Ante Roguljić",
+            "Zsolt Nagy",
+            "Callum O'Dowda",
+            "Giorgi Beridze",
+            "Máté Sajbán",
+            "Róbert Polievka",
+            "Mikael Soisalo",
+            "Bence Bíró",
+            "Tonislav Yordanov",
+            "Dániel Lukács",
+            "Gleofilo Vlijter",
+            "Zsombor Bévárdi",
+            "Bence Kiss",
+            "Bogdan Melnyk",
+            "Aljoša Matko",
+            "Márk Kovácsréti",
+            "Bálint Kártik",
+            "Palko Dárdai",
+            "Alen Skribek",
+            "Szabolcs Schön",
+            "Álex Bermejo",
+            "Jonathan Levi",
+            "Barnabás Nagy",
+            "Branimir Cipetić",
+            "Soma Szuhodovszki",
+            "Krisztofer Horváth",
+            "Martin Šlogar",
+            "György Komáromi",
+            "Rajmund Molnár",
+            "Ronald Schuszter",
+            "Maksym Pukhtyeyev",
+            "Ágoston Bényei",
+            "Zalán Kerezsi",
+            "Dominik Kocsis",
+            "Marko Matanović",
+            "Gábor Jurek",
+            "Mátyás Katona",
+            "João Victor",
+            "Meshack Ubochioma",
+            "Bálint Katona",
+            "Márk Mucsányi",
+            "Hunor Németh",
+            "Csanad Denes",
+            "Djordje Gordić",
+            "Ábel Krajcsovics",
+            "Balázs Bakti",
+            "Marcell Major",
+            "Adin Molnár",
+            "Martin Kern",
+            "Alegria",
+            "Kevin Mondovics",
+            "Botond Vajda",
+            "Milán Pető",
+            "Bence Babós",
+            "Istvan Atrok",
+            "Balázs Manner",
+            "Moshe Semel",
+            "Flórián Cibla",
+            "Kevin Banati",
+            "Kevin Horváth",
+            "Bence Vekony",
+            "Nfansu Njie"
+        ],
+        "target_identifiers": [
+            72691,
+            74982,
+            76218,
+            84036,
+            128206,
+            140066,
+            145212,
+            149221,
+            238160,
+            238711,
+            249034,
+            258379,
+            266739,
+            333635,
+            351313,
+            352229,
+            372091,
+            375251,
+            379877,
+            400719,
+            404804,
+            420958,
+            422527,
+            432732,
+            444899,
+            448246,
+            475816,
+            476385,
+            483388,
+            483796,
+            492158,
+            517869,
+            553144,
+            561550,
+            567961,
+            586798,
+            586811,
+            586951,
+            607896,
+            620092,
+            620094,
+            631593,
+            631851,
+            641513,
+            653443,
+            661881,
+            673720,
+            694818,
+            696314,
+            703498,
+            706432,
+            747471,
+            759569,
+            759632,
+            759646,
+            769345,
+            790584,
+            801548,
+            810317,
+            830435,
+            831685,
+            836144,
+            850295,
+            850300,
+            854615,
+            869638,
+            872405,
+            894503,
+            925706,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Creative passes",
+                "description": "Number of assists, key passes, shot assists, and second assists adjusted by possession.",
+                "display_name": "Creative passes"
+            },
+            {
+                "name": "Crosses (xT)",
+                "description": "Accumulated action-based xT of successful crosses adjusted by possession.",
+                "display_name": "Crosses (xT)"
+            },
+            {
+                "name": "Passes (xT)",
+                "description": "Accumulated action-based xT from open play passes adjusted by possession.",
+                "display_name": "Passes (xT)"
+            },
+            {
+                "name": "Passes into third (xT)",
+                "description": "Accumulated action-based xT from successful open play passes into the final third.",
+                "display_name": "Passes into third (xT)"
+            },
+            {
+                "name": "Passes third (xT)",
+                "description": "Accumulated action-based xT from successful open play passes inside of the final third.",
+                "display_name": "Passes third (xT)"
+            }
+        ],
+        "focal_target_indices": [
+            55
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.022357087582349777,
+                -0.19823724031448364,
+                -0.5227882266044617,
+                -0.8874582648277283,
+                -0.009816809557378292
+            ],
+            [
+                -0.35559406876564026,
+                1.2872697114944458,
+                0.3487074077129364,
+                1.449673056602478,
+                -0.7966132164001465
+            ],
+            [
+                -2.1175332069396973,
+                -1.278684377670288,
+                -1.950421929359436,
+                -1.2504345178604126,
+                -1.8349882364273071
+            ],
+            [
+                0.47292447090148926,
+                0.6780951619148254,
+                0.7039750218391418,
+                0.10990321636199951,
+                1.488228440284729
+            ],
+            [
+                0.03654202073812485,
+                -0.10367688536643982,
+                1.7112996578216553,
+                2.2130093574523926,
+                0.7374658584594727
+            ],
+            [
+                0.4199592173099518,
+                1.7422473430633545,
+                0.29479825496673584,
+                0.5074125528335571,
+                -0.2241564691066742
+            ],
+            [
+                0.8591993451118469,
+                1.782953143119812,
+                2.0321216583251953,
+                1.8356868028640747,
+                1.6066304445266724
+            ],
+            [
+                1.094622015953064,
+                2.0506186485290527,
+                -0.2776835560798645,
+                -0.9755560755729675,
+                0.9436967968940735
+            ],
+            [
+                0.49143821001052856,
+                -1.1327317953109741,
+                0.32716894149780273,
+                0.11253280192613602,
+                -0.18741722404956818
+            ],
+            [
+                0.10811860859394073,
+                0.40231558680534363,
+                -0.10123366117477417,
+                0.0917346179485321,
+                -0.2344508022069931
+            ],
+            [
+                0.11133336275815964,
+                -0.4813368320465088,
+                -0.46092289686203003,
+                -0.8131712079048157,
+                -0.5080958604812622
+            ],
+            [
+                -0.20555005967617035,
+                -0.5929826498031616,
+                -0.15668129920959473,
+                -0.7091066837310791,
+                0.26609179377555847
+            ],
+            [
+                -0.41318702697753906,
+                -0.9400255084037781,
+                -1.6105709075927734,
+                -0.561607837677002,
+                -1.691131830215454
+            ],
+            [
+                0.22528725862503052,
+                -0.4833464026451111,
+                -0.5976472496986389,
+                -0.41464516520500183,
+                -0.08236044645309448
+            ],
+            [
+                2.9951083660125732,
+                3.1823673248291016,
+                0.1663157343864441,
+                -0.7610470652580261,
+                1.5553847551345825
+            ],
+            [
+                -0.6230446696281433,
+                -1.0698565244674683,
+                -1.1824175119400024,
+                -0.9441667199134827,
+                -1.3670750856399536
+            ],
+            [
+                -0.9465652108192444,
+                -0.5759295225143433,
+                -1.2796540260314941,
+                -0.4166201651096344,
+                -1.4746507406234741
+            ],
+            [
+                2.0304388999938965,
+                2.3459463119506836,
+                -0.3182139992713928,
+                -0.7417272329330444,
+                0.7592424750328064
+            ],
+            [
+                -0.5760498642921448,
+                -0.4373461902141571,
+                -1.3237184286117554,
+                -0.01971985213458538,
+                -1.704068660736084
+            ],
+            [
+                0.7570614218711853,
+                2.358454942703247,
+                0.8654744625091553,
+                0.4720592498779297,
+                1.5303354263305664
+            ],
+            [
+                0.38881173729896545,
+                -0.9271141886711121,
+                1.932977318763733,
+                1.3453844785690308,
+                1.430898904800415
+            ],
+            [
+                -1.3481884002685547,
+                -0.3405505120754242,
+                0.2904239594936371,
+                0.7627109289169312,
+                -0.8211469054222107
+            ],
+            [
+                -1.1140220165252686,
+                -0.8389537334442139,
+                -1.7469556331634521,
+                -1.1923373937606812,
+                -1.4940953254699707
+            ],
+            [
+                0.45008549094200134,
+                1.8279658555984497,
+                0.7859218120574951,
+                0.8441948890686035,
+                0.8549185395240784
+            ],
+            [
+                -1.0149211883544922,
+                -0.9544971585273743,
+                0.5258626937866211,
+                0.4614916443824768,
+                -0.5165174603462219
+            ],
+            [
+                -1.0989389419555664,
+                0.2682553231716156,
+                -0.7492935657501221,
+                -0.5325203537940979,
+                -0.454915314912796
+            ],
+            [
+                -0.07146976888179779,
+                -0.7301556468009949,
+                1.486066222190857,
+                1.1543174982070923,
+                1.2155547142028809
+            ],
+            [
+                0.11711597442626953,
+                0.45517754554748535,
+                0.8408416509628296,
+                -0.05894196778535843,
+                1.6211615800857544
+            ],
+            [
+                0.12570372223854065,
+                -1.325165033340454,
+                -0.3545704185962677,
+                -0.24386756122112274,
+                -0.4784086346626282
+            ],
+            [
+                1.2445635795593262,
+                0.9477214813232422,
+                1.15579092502594,
+                0.496370792388916,
+                1.4665250778198242
+            ],
+            [
+                -0.23075589537620544,
+                0.5753493309020996,
+                -0.40921735763549805,
+                -0.5460559725761414,
+                -0.33372703194618225
+            ],
+            [
+                -0.9120453000068665,
+                0.7111775279045105,
+                1.0779297351837158,
+                1.278887391090393,
+                -0.3831208646297455
+            ],
+            [
+                0.23992832005023956,
+                -0.6914651989936829,
+                0.5695443153381348,
+                0.2759629487991333,
+                0.6011765003204346
+            ],
+            [
+                1.6684539318084717,
+                -0.05703897029161453,
+                1.2971490621566772,
+                0.492777943611145,
+                1.7582465410232544
+            ],
+            [
+                -0.6056864857673645,
+                -0.7642627954483032,
+                -0.8963513970375061,
+                -0.5030312538146973,
+                -0.7076514959335327
+            ],
+            [
+                1.2558139562606812,
+                0.8531904220581055,
+                -0.6790157556533813,
+                -0.05687784031033516,
+                -0.45166581869125366
+            ],
+            [
+                -0.5546128153800964,
+                -0.9315761923789978,
+                -0.7673293352127075,
+                -1.144692063331604,
+                -0.478837251663208
+            ],
+            [
+                1.4404217004776,
+                -0.8827319145202637,
+                0.6945527195930481,
+                1.5840866565704346,
+                -0.19640499353408813
+            ],
+            [
+                -1.5285791158676147,
+                -1.325165033340454,
+                -1.6733710765838623,
+                -1.4146554470062256,
+                -1.7947293519973755
+            ],
+            [
+                1.1172667741775513,
+                0.908716082572937,
+                0.4269135892391205,
+                -0.027166398242115974,
+                0.4982970356941223
+            ],
+            [
+                -0.9227055311203003,
+                0.38128039240837097,
+                -1.1658233404159546,
+                -0.8290718793869019,
+                -1.252325415611267
+            ],
+            [
+                1.7330577373504639,
+                1.3657056093215942,
+                -0.45254549384117126,
+                -0.9471194744110107,
+                0.48508065938949585
+            ],
+            [
+                -0.18663659691810608,
+                1.3808441162109375,
+                0.19587108492851257,
+                -1.0999581813812256,
+                1.4626153707504272
+            ],
+            [
+                -0.053090889006853104,
+                0.35993286967277527,
+                -0.13663646578788757,
+                -0.8614261746406555,
+                0.27493172883987427
+            ],
+            [
+                -0.49471035599708557,
+                -0.8562996983528137,
+                -0.35546785593032837,
+                0.2626064717769623,
+                -1.0967822074890137
+            ],
+            [
+                -0.32135680317878723,
+                -1.1813130378723145,
+                0.008594132959842682,
+                -0.12653738260269165,
+                0.2390817552804947
+            ],
+            [
+                0.4309496581554413,
+                -0.45039987564086914,
+                0.5180714130401611,
+                0.6318938732147217,
+                0.46221187710762024
+            ],
+            [
+                0.2389625757932663,
+                -0.8931766152381897,
+                0.7261679172515869,
+                0.5222640037536621,
+                0.1088443323969841
+            ],
+            [
+                -2.5868306159973145,
+                -0.9700301885604858,
+                -1.4809895753860474,
+                -0.7519241571426392,
+                -1.6227991580963135
+            ],
+            [
+                0.3516273498535156,
+                -0.7555649280548096,
+                1.5905883312225342,
+                1.6880700588226318,
+                0.6032352447509766
+            ],
+            [
+                0.3018617630004883,
+                0.12726347148418427,
+                -0.15034757554531097,
+                -0.5873162746429443,
+                0.6330112218856812
+            ],
+            [
+                0.31058910489082336,
+                -0.3562157154083252,
+                0.7810734510421753,
+                0.2499871850013733,
+                1.0833840370178223
+            ],
+            [
+                -1.407355546951294,
+                -0.028197141364216805,
+                -0.677697479724884,
+                -1.003411054611206,
+                -0.2441377341747284
+            ],
+            [
+                1.368309497833252,
+                -1.104994773864746,
+                1.9193836450576782,
+                1.8728396892547607,
+                1.0611298084259033
+            ],
+            [
+                -1.3131245374679565,
+                -0.2910376489162445,
+                -0.5656923055648804,
+                -0.15557552874088287,
+                -1.1189771890640259
+            ],
+            [
+                0.08343016356229782,
+                0.5857710242271423,
+                -0.6840919852256775,
+                -1.1352370977401733,
+                0.08450458943843842
+            ],
+            [
+                -1.0201603174209595,
+                -0.3052056133747101,
+                1.62844717502594,
+                2.727648973464966,
+                0.25426679849624634
+            ],
+            [
+                -0.30143725872039795,
+                -0.6738422513008118,
+                -0.5226227641105652,
+                -0.6315693855285645,
+                -0.4233890175819397
+            ],
+            [
+                -0.9363240003585815,
+                -1.224316954612732,
+                -1.8820557594299316,
+                -1.3513399362564087,
+                -1.6097259521484375
+            ],
+            [
+                -0.7152603268623352,
+                -0.0549687035381794,
+                -0.03543637692928314,
+                -0.4597497284412384,
+                -0.7497122287750244
+            ],
+            [
+                -1.193426251411438,
+                0.3027651309967041,
+                -0.5641874074935913,
+                -0.7656339406967163,
+                -0.31236517429351807
+            ],
+            [
+                -1.2348538637161255,
+                -0.2400033175945282,
+                -1.254794716835022,
+                -0.9898416996002197,
+                -0.8879044651985168
+            ],
+            [
+                0.08629123866558075,
+                -0.39443308115005493,
+                0.07029002159833908,
+                -0.15558065474033356,
+                0.21895596385002136
+            ],
+            [
+                0.08269993960857391,
+                0.19686609506607056,
+                -0.19712872803211212,
+                -0.3386405110359192,
+                -0.0256040096282959
+            ],
+            [
+                1.2565745115280151,
+                0.4721943140029907,
+                2.002068519592285,
+                3.2195522785186768,
+                0.9149067997932434
+            ],
+            [
+                0.6167778968811035,
+                -0.052633725106716156,
+                -0.12754781544208527,
+                0.565290093421936,
+                -0.5359913110733032
+            ],
+            [
+                0.36614394187927246,
+                -0.2434234321117401,
+                -0.27486634254455566,
+                -0.6611676812171936,
+                0.35383760929107666
+            ],
+            [
+                1.8102656602859497,
+                -0.5357986092567444,
+                1.3942673206329346,
+                0.4060245156288147,
+                1.9207053184509277
+            ],
+            [
+                -0.5833436250686646,
+                -0.11328037828207016,
+                -0.6799278259277344,
+                -0.2619283199310303,
+                -1.055513620376587
+            ],
+            [
+                0.3219834566116333,
+                0.23751874268054962,
+                -0.10273459553718567,
+                -0.30593618750572205,
+                0.6667187213897705
+            ]
+        ],
+        "hover_strings": [
+            [
+                "J. Mešanović\nRank: 38/70\n0.94 Creative passes per 90",
+                "J. Mešanović\nRank: 34/70\n0.03 Crosses (xT) per 90",
+                "J. Mešanović\nRank: 49/70\n0.25 Passes (xT) per 90",
+                "J. Mešanović\nRank: 58/70\n0.02 Passes into third (xT) per 90",
+                "J. Mešanović\nRank: 34/70\n0.17 Passes third (xT) per 90"
+            ],
+            [
+                "J. Ferenczi\nRank: 46/70\n0.82 Creative passes per 90",
+                "J. Ferenczi\nRank: 10/70\n0.07 Crosses (xT) per 90",
+                "J. Ferenczi\nRank: 24/70\n0.34 Passes (xT) per 90",
+                "J. Ferenczi\nRank: 8/70\n0.11 Passes into third (xT) per 90",
+                "J. Ferenczi\nRank: 55/70\n0.13 Passes third (xT) per 90"
+            ],
+            [
+                "S. Novothny\nRank: 69/70\n0.17 Creative passes per 90",
+                "S. Novothny\nRank: 68/70\n0.00 Crosses (xT) per 90",
+                "S. Novothny\nRank: 70/70\n0.11 Passes (xT) per 90",
+                "S. Novothny\nRank: 68/70\n0.01 Passes into third (xT) per 90",
+                "S. Novothny\nRank: 70/70\n0.07 Passes third (xT) per 90"
+            ],
+            [
+                "C. Bumba\nRank: 17/70\n1.13 Creative passes per 90",
+                "C. Bumba\nRank: 15/70\n0.05 Crosses (xT) per 90",
+                "C. Bumba\nRank: 18/70\n0.37 Passes (xT) per 90",
+                "C. Bumba\nRank: 27/70\n0.06 Passes into third (xT) per 90",
+                "C. Bumba\nRank: 7/70\n0.25 Passes third (xT) per 90"
+            ],
+            [
+                "M. Ljujić\nRank: 37/70\n0.96 Creative passes per 90",
+                "M. Ljujić\nRank: 32/70\n0.03 Crosses (xT) per 90",
+                "M. Ljujić\nRank: 5/70\n0.47 Passes (xT) per 90",
+                "M. Ljujić\nRank: 3/70\n0.14 Passes into third (xT) per 90",
+                "M. Ljujić\nRank: 18/70\n0.21 Passes third (xT) per 90"
+            ],
+            [
+                "N. Antonov\nRank: 20/70\n1.11 Creative passes per 90",
+                "N. Antonov\nRank: 7/70\n0.08 Crosses (xT) per 90",
+                "N. Antonov\nRank: 26/70\n0.33 Passes (xT) per 90",
+                "N. Antonov\nRank: 17/70\n0.08 Passes into third (xT) per 90",
+                "N. Antonov\nRank: 39/70\n0.16 Passes third (xT) per 90"
+            ],
+            [
+                "G. Molnár\nRank: 13/70\n1.27 Creative passes per 90",
+                "G. Molnár\nRank: 6/70\n0.08 Crosses (xT) per 90",
+                "G. Molnár\nRank: 1/70\n0.50 Passes (xT) per 90",
+                "G. Molnár\nRank: 5/70\n0.13 Passes into third (xT) per 90",
+                "G. Molnár\nRank: 4/70\n0.26 Passes third (xT) per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 12/70\n1.35 Creative passes per 90",
+                "E. Acolatse\nRank: 4/70\n0.09 Crosses (xT) per 90",
+                "E. Acolatse\nRank: 41/70\n0.27 Passes (xT) per 90",
+                "E. Acolatse\nRank: 61/70\n0.02 Passes into third (xT) per 90",
+                "E. Acolatse\nRank: 14/70\n0.22 Passes third (xT) per 90"
+            ],
+            [
+                "A. Roguljić\nRank: 16/70\n1.13 Creative passes per 90",
+                "A. Roguljić\nRank: 65/70\n0.01 Crosses (xT) per 90",
+                "A. Roguljić\nRank: 25/70\n0.33 Passes (xT) per 90",
+                "A. Roguljić\nRank: 26/70\n0.06 Passes into third (xT) per 90",
+                "A. Roguljić\nRank: 37/70\n0.16 Passes third (xT) per 90"
+            ],
+            [
+                "Z. Nagy\nRank: 33/70\n0.99 Creative passes per 90",
+                "Z. Nagy\nRank: 20/70\n0.05 Crosses (xT) per 90",
+                "Z. Nagy\nRank: 33/70\n0.29 Passes (xT) per 90",
+                "Z. Nagy\nRank: 28/70\n0.06 Passes into third (xT) per 90",
+                "Z. Nagy\nRank: 40/70\n0.16 Passes third (xT) per 90"
+            ],
+            [
+                "C. O'Dowda\nRank: 32/70\n0.99 Creative passes per 90",
+                "C. O'Dowda\nRank: 44/70\n0.02 Crosses (xT) per 90",
+                "C. O'Dowda\nRank: 47/70\n0.26 Passes (xT) per 90",
+                "C. O'Dowda\nRank: 55/70\n0.02 Passes into third (xT) per 90",
+                "C. O'Dowda\nRank: 50/70\n0.14 Passes third (xT) per 90"
+            ],
+            [
+                "G. Beridze\nRank: 42/70\n0.88 Creative passes per 90",
+                "G. Beridze\nRank: 48/70\n0.02 Crosses (xT) per 90",
+                "G. Beridze\nRank: 38/70\n0.29 Passes (xT) per 90",
+                "G. Beridze\nRank: 50/70\n0.03 Passes into third (xT) per 90",
+                "G. Beridze\nRank: 28/70\n0.19 Passes third (xT) per 90"
+            ],
+            [
+                "M. Sajbán\nRank: 47/70\n0.80 Creative passes per 90",
+                "M. Sajbán\nRank: 60/70\n0.01 Crosses (xT) per 90",
+                "M. Sajbán\nRank: 66/70\n0.14 Passes (xT) per 90",
+                "M. Sajbán\nRank: 46/70\n0.03 Passes into third (xT) per 90",
+                "M. Sajbán\nRank: 67/70\n0.08 Passes third (xT) per 90"
+            ],
+            [
+                "R. Polievka\nRank: 29/70\n1.03 Creative passes per 90",
+                "R. Polievka\nRank: 45/70\n0.02 Crosses (xT) per 90",
+                "R. Polievka\nRank: 52/70\n0.24 Passes (xT) per 90",
+                "R. Polievka\nRank: 40/70\n0.04 Passes into third (xT) per 90",
+                "R. Polievka\nRank: 36/70\n0.17 Passes third (xT) per 90"
+            ],
+            [
+                "M. Soisalo\nRank: 1/70\n2.05 Creative passes per 90",
+                "M. Soisalo\nRank: 1/70\n0.12 Crosses (xT) per 90",
+                "M. Soisalo\nRank: 29/70\n0.32 Passes (xT) per 90",
+                "M. Soisalo\nRank: 53/70\n0.03 Passes into third (xT) per 90",
+                "M. Soisalo\nRank: 5/70\n0.26 Passes third (xT) per 90"
+            ],
+            [
+                "B. Bíró\nRank: 53/70\n0.72 Creative passes per 90",
+                "B. Bíró\nRank: 63/70\n0.01 Crosses (xT) per 90",
+                "B. Bíró\nRank: 61/70\n0.19 Passes (xT) per 90",
+                "B. Bíró\nRank: 59/70\n0.02 Passes into third (xT) per 90",
+                "B. Bíró\nRank: 62/70\n0.10 Passes third (xT) per 90"
+            ],
+            [
+                "T. Yordanov\nRank: 58/70\n0.60 Creative passes per 90",
+                "T. Yordanov\nRank: 47/70\n0.02 Crosses (xT) per 90",
+                "T. Yordanov\nRank: 63/70\n0.18 Passes (xT) per 90",
+                "T. Yordanov\nRank: 41/70\n0.04 Passes into third (xT) per 90",
+                "T. Yordanov\nRank: 63/70\n0.09 Passes third (xT) per 90"
+            ],
+            [
+                "D. Lukács\nRank: 2/70\n1.70 Creative passes per 90",
+                "D. Lukács\nRank: 3/70\n0.10 Crosses (xT) per 90",
+                "D. Lukács\nRank: 42/70\n0.27 Passes (xT) per 90",
+                "D. Lukács\nRank: 51/70\n0.03 Passes into third (xT) per 90",
+                "D. Lukács\nRank: 17/70\n0.21 Passes third (xT) per 90"
+            ],
+            [
+                "G. Vlijter\nRank: 50/70\n0.74 Creative passes per 90",
+                "G. Vlijter\nRank: 42/70\n0.02 Crosses (xT) per 90",
+                "G. Vlijter\nRank: 64/70\n0.17 Passes (xT) per 90",
+                "G. Vlijter\nRank: 29/70\n0.05 Passes into third (xT) per 90",
+                "G. Vlijter\nRank: 68/70\n0.08 Passes third (xT) per 90"
+            ],
+            [
+                "Z. Bévárdi\nRank: 14/70\n1.23 Creative passes per 90",
+                "Z. Bévárdi\nRank: 2/70\n0.10 Crosses (xT) per 90",
+                "Z. Bévárdi\nRank: 13/70\n0.39 Passes (xT) per 90",
+                "Z. Bévárdi\nRank: 20/70\n0.07 Passes into third (xT) per 90",
+                "Z. Bévárdi\nRank: 6/70\n0.25 Passes third (xT) per 90"
+            ],
+            [
+                "B. Kiss\nRank: 21/70\n1.09 Creative passes per 90",
+                "B. Kiss\nRank: 58/70\n0.01 Crosses (xT) per 90",
+                "B. Kiss\nRank: 3/70\n0.49 Passes (xT) per 90",
+                "B. Kiss\nRank: 9/70\n0.11 Passes into third (xT) per 90",
+                "B. Kiss\nRank: 10/70\n0.25 Passes third (xT) per 90"
+            ],
+            [
+                "B. Melnyk\nRank: 66/70\n0.46 Creative passes per 90",
+                "B. Melnyk\nRank: 39/70\n0.03 Crosses (xT) per 90",
+                "B. Melnyk\nRank: 27/70\n0.33 Passes (xT) per 90",
+                "B. Melnyk\nRank: 13/70\n0.09 Passes into third (xT) per 90",
+                "B. Melnyk\nRank: 56/70\n0.13 Passes third (xT) per 90"
+            ],
+            [
+                "A. Matko\nRank: 62/70\n0.54 Creative passes per 90",
+                "A. Matko\nRank: 54/70\n0.01 Crosses (xT) per 90",
+                "A. Matko\nRank: 68/70\n0.13 Passes (xT) per 90",
+                "A. Matko\nRank: 67/70\n0.01 Passes into third (xT) per 90",
+                "A. Matko\nRank: 64/70\n0.09 Passes third (xT) per 90"
+            ],
+            [
+                "M. Kovácsréti\nRank: 18/70\n1.12 Creative passes per 90",
+                "M. Kovácsréti\nRank: 5/70\n0.08 Crosses (xT) per 90",
+                "M. Kovácsréti\nRank: 15/70\n0.38 Passes (xT) per 90",
+                "M. Kovácsréti\nRank: 12/70\n0.09 Passes into third (xT) per 90",
+                "M. Kovácsréti\nRank: 16/70\n0.22 Passes third (xT) per 90"
+            ],
+            [
+                "B. Kártik\nRank: 59/70\n0.58 Creative passes per 90",
+                "B. Kártik\nRank: 61/70\n0.01 Crosses (xT) per 90",
+                "B. Kártik\nRank: 21/70\n0.35 Passes (xT) per 90",
+                "B. Kártik\nRank: 21/70\n0.07 Passes into third (xT) per 90",
+                "B. Kártik\nRank: 51/70\n0.14 Passes third (xT) per 90"
+            ],
+            [
+                "P. Dárdai\nRank: 61/70\n0.55 Creative passes per 90",
+                "P. Dárdai\nRank: 24/70\n0.04 Crosses (xT) per 90",
+                "P. Dárdai\nRank: 57/70\n0.23 Passes (xT) per 90",
+                "P. Dárdai\nRank: 44/70\n0.03 Passes into third (xT) per 90",
+                "P. Dárdai\nRank: 47/70\n0.15 Passes third (xT) per 90"
+            ],
+            [
+                "A. Skribek\nRank: 40/70\n0.92 Creative passes per 90",
+                "A. Skribek\nRank: 51/70\n0.02 Crosses (xT) per 90",
+                "A. Skribek\nRank: 8/70\n0.45 Passes (xT) per 90",
+                "A. Skribek\nRank: 11/70\n0.10 Passes into third (xT) per 90",
+                "A. Skribek\nRank: 11/70\n0.24 Passes third (xT) per 90"
+            ],
+            [
+                "S. Schön\nRank: 31/70\n0.99 Creative passes per 90",
+                "S. Schön\nRank: 19/70\n0.05 Crosses (xT) per 90",
+                "S. Schön\nRank: 14/70\n0.38 Passes (xT) per 90",
+                "S. Schön\nRank: 32/70\n0.05 Passes into third (xT) per 90",
+                "S. Schön\nRank: 3/70\n0.26 Passes third (xT) per 90"
+            ],
+            [
+                "Álex Bermejo\nRank: 30/70\n1.00 Creative passes per 90",
+                "Álex Bermejo\nRank: 69/70\n0.00 Crosses (xT) per 90",
+                "Álex Bermejo\nRank: 43/70\n0.27 Passes (xT) per 90",
+                "Álex Bermejo\nRank: 36/70\n0.05 Passes into third (xT) per 90",
+                "Álex Bermejo\nRank: 48/70\n0.15 Passes third (xT) per 90"
+            ],
+            [
+                "J. Levi\nRank: 10/70\n1.41 Creative passes per 90",
+                "J. Levi\nRank: 11/70\n0.06 Crosses (xT) per 90",
+                "J. Levi\nRank: 11/70\n0.41 Passes (xT) per 90",
+                "J. Levi\nRank: 18/70\n0.07 Passes into third (xT) per 90",
+                "J. Levi\nRank: 8/70\n0.25 Passes third (xT) per 90"
+            ],
+            [
+                "B. Nagy\nRank: 43/70\n0.87 Creative passes per 90",
+                "B. Nagy\nRank: 17/70\n0.05 Crosses (xT) per 90",
+                "B. Nagy\nRank: 45/70\n0.26 Passes (xT) per 90",
+                "B. Nagy\nRank: 45/70\n0.03 Passes into third (xT) per 90",
+                "B. Nagy\nRank: 43/70\n0.15 Passes third (xT) per 90"
+            ],
+            [
+                "B. Cipetić\nRank: 55/70\n0.62 Creative passes per 90",
+                "B. Cipetić\nRank: 14/70\n0.05 Crosses (xT) per 90",
+                "B. Cipetić\nRank: 12/70\n0.41 Passes (xT) per 90",
+                "B. Cipetić\nRank: 10/70\n0.11 Passes into third (xT) per 90",
+                "B. Cipetić\nRank: 44/70\n0.15 Passes third (xT) per 90"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 27/70\n1.04 Creative passes per 90",
+                "S. Szuhodovszki\nRank: 50/70\n0.02 Crosses (xT) per 90",
+                "S. Szuhodovszki\nRank: 20/70\n0.36 Passes (xT) per 90",
+                "S. Szuhodovszki\nRank: 23/70\n0.07 Passes into third (xT) per 90",
+                "S. Szuhodovszki\nRank: 22/70\n0.20 Passes third (xT) per 90"
+            ],
+            [
+                "K. Horváth\nRank: 5/70\n1.56 Creative passes per 90",
+                "K. Horváth\nRank: 31/70\n0.03 Crosses (xT) per 90",
+                "K. Horváth\nRank: 10/70\n0.43 Passes (xT) per 90",
+                "K. Horváth\nRank: 19/70\n0.07 Passes into third (xT) per 90",
+                "K. Horváth\nRank: 2/70\n0.27 Passes third (xT) per 90"
+            ],
+            [
+                "M. Šlogar\nRank: 52/70\n0.73 Creative passes per 90",
+                "M. Šlogar\nRank: 53/70\n0.01 Crosses (xT) per 90",
+                "M. Šlogar\nRank: 59/70\n0.21 Passes (xT) per 90",
+                "M. Šlogar\nRank: 43/70\n0.04 Passes into third (xT) per 90",
+                "M. Šlogar\nRank: 53/70\n0.13 Passes third (xT) per 90"
+            ],
+            [
+                "G. Komáromi\nRank: 9/70\n1.41 Creative passes per 90",
+                "G. Komáromi\nRank: 13/70\n0.06 Crosses (xT) per 90",
+                "G. Komáromi\nRank: 54/70\n0.24 Passes (xT) per 90",
+                "G. Komáromi\nRank: 31/70\n0.05 Passes into third (xT) per 90",
+                "G. Komáromi\nRank: 46/70\n0.15 Passes third (xT) per 90"
+            ],
+            [
+                "R. Molnár\nRank: 49/70\n0.75 Creative passes per 90",
+                "R. Molnár\nRank: 59/70\n0.01 Crosses (xT) per 90",
+                "R. Molnár\nRank: 58/70\n0.23 Passes (xT) per 90",
+                "R. Molnár\nRank: 66/70\n0.01 Passes into third (xT) per 90",
+                "R. Molnár\nRank: 49/70\n0.15 Passes third (xT) per 90"
+            ],
+            [
+                "R. Schuszter\nRank: 6/70\n1.48 Creative passes per 90",
+                "R. Schuszter\nRank: 56/70\n0.01 Crosses (xT) per 90",
+                "R. Schuszter\nRank: 19/70\n0.37 Passes (xT) per 90",
+                "R. Schuszter\nRank: 7/70\n0.12 Passes into third (xT) per 90",
+                "R. Schuszter\nRank: 38/70\n0.16 Passes third (xT) per 90"
+            ],
+            [
+                "M. Pukhtyeyev\nRank: 68/70\n0.39 Creative passes per 90",
+                "M. Pukhtyeyev\nRank: 69/70\n0.00 Crosses (xT) per 90",
+                "M. Pukhtyeyev\nRank: 67/70\n0.14 Passes (xT) per 90",
+                "M. Pukhtyeyev\nRank: 70/70\n0.00 Passes into third (xT) per 90",
+                "M. Pukhtyeyev\nRank: 69/70\n0.08 Passes third (xT) per 90"
+            ],
+            [
+                "Á. Bényei\nRank: 11/70\n1.36 Creative passes per 90",
+                "Á. Bényei\nRank: 12/70\n0.06 Crosses (xT) per 90",
+                "Á. Bényei\nRank: 23/70\n0.34 Passes (xT) per 90",
+                "Á. Bényei\nRank: 30/70\n0.05 Passes into third (xT) per 90",
+                "Á. Bényei\nRank: 23/70\n0.20 Passes third (xT) per 90"
+            ],
+            [
+                "Z. Kerezsi\nRank: 56/70\n0.61 Creative passes per 90",
+                "Z. Kerezsi\nRank: 21/70\n0.04 Crosses (xT) per 90",
+                "Z. Kerezsi\nRank: 60/70\n0.19 Passes (xT) per 90",
+                "Z. Kerezsi\nRank: 56/70\n0.02 Passes into third (xT) per 90",
+                "Z. Kerezsi\nRank: 61/70\n0.10 Passes third (xT) per 90"
+            ],
+            [
+                "D. Kocsis\nRank: 4/70\n1.59 Creative passes per 90",
+                "D. Kocsis\nRank: 9/70\n0.07 Crosses (xT) per 90",
+                "D. Kocsis\nRank: 46/70\n0.26 Passes (xT) per 90",
+                "D. Kocsis\nRank: 60/70\n0.02 Passes into third (xT) per 90",
+                "D. Kocsis\nRank: 24/70\n0.20 Passes third (xT) per 90"
+            ],
+            [
+                "M. Matanović\nRank: 41/70\n0.88 Creative passes per 90",
+                "M. Matanović\nRank: 8/70\n0.07 Crosses (xT) per 90",
+                "M. Matanović\nRank: 28/70\n0.32 Passes (xT) per 90",
+                "M. Matanović\nRank: 64/70\n0.01 Passes into third (xT) per 90",
+                "M. Matanović\nRank: 9/70\n0.25 Passes third (xT) per 90"
+            ],
+            [
+                "G. Jurek\nRank: 39/70\n0.93 Creative passes per 90",
+                "G. Jurek\nRank: 22/70\n0.04 Crosses (xT) per 90",
+                "G. Jurek\nRank: 36/70\n0.29 Passes (xT) per 90",
+                "G. Jurek\nRank: 57/70\n0.02 Passes into third (xT) per 90",
+                "G. Jurek\nRank: 27/70\n0.19 Passes third (xT) per 90"
+            ],
+            [
+                "M. Katona\nRank: 48/70\n0.77 Creative passes per 90",
+                "M. Katona\nRank: 55/70\n0.01 Crosses (xT) per 90",
+                "M. Katona\nRank: 44/70\n0.27 Passes (xT) per 90",
+                "M. Katona\nRank: 24/70\n0.07 Passes into third (xT) per 90",
+                "M. Katona\nRank: 59/70\n0.11 Passes third (xT) per 90"
+            ],
+            [
+                "João Victor\nRank: 45/70\n0.83 Creative passes per 90",
+                "João Victor\nRank: 66/70\n0.00 Crosses (xT) per 90",
+                "João Victor\nRank: 31/70\n0.30 Passes (xT) per 90",
+                "João Victor\nRank: 33/70\n0.05 Passes into third (xT) per 90",
+                "João Victor\nRank: 30/70\n0.19 Passes third (xT) per 90"
+            ],
+            [
+                "M. Ubochioma\nRank: 19/70\n1.11 Creative passes per 90",
+                "M. Ubochioma\nRank: 43/70\n0.02 Crosses (xT) per 90",
+                "M. Ubochioma\nRank: 22/70\n0.35 Passes (xT) per 90",
+                "M. Ubochioma\nRank: 14/70\n0.08 Passes into third (xT) per 90",
+                "M. Ubochioma\nRank: 25/70\n0.20 Passes third (xT) per 90"
+            ],
+            [
+                "B. Katona\nRank: 28/70\n1.04 Creative passes per 90",
+                "B. Katona\nRank: 57/70\n0.01 Crosses (xT) per 90",
+                "B. Katona\nRank: 17/70\n0.37 Passes (xT) per 90",
+                "B. Katona\nRank: 16/70\n0.08 Passes into third (xT) per 90",
+                "B. Katona\nRank: 32/70\n0.18 Passes third (xT) per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 70/70\n0.00 Creative passes per 90",
+                "M. Mucsányi\nRank: 62/70\n0.01 Crosses (xT) per 90",
+                "M. Mucsányi\nRank: 65/70\n0.16 Passes (xT) per 90",
+                "M. Mucsányi\nRank: 52/70\n0.03 Passes into third (xT) per 90",
+                "M. Mucsányi\nRank: 66/70\n0.08 Passes third (xT) per 90"
+            ],
+            [
+                "H. Németh\nRank: 23/70\n1.08 Creative passes per 90",
+                "H. Németh\nRank: 52/70\n0.01 Crosses (xT) per 90",
+                "H. Németh\nRank: 7/70\n0.46 Passes (xT) per 90",
+                "H. Németh\nRank: 6/70\n0.12 Passes into third (xT) per 90",
+                "H. Németh\nRank: 21/70\n0.20 Passes third (xT) per 90"
+            ],
+            [
+                "C. Denes\nRank: 26/70\n1.06 Creative passes per 90",
+                "C. Denes\nRank: 27/70\n0.04 Crosses (xT) per 90",
+                "C. Denes\nRank: 37/70\n0.29 Passes (xT) per 90",
+                "C. Denes\nRank: 47/70\n0.03 Passes into third (xT) per 90",
+                "C. Denes\nRank: 20/70\n0.21 Passes third (xT) per 90"
+            ],
+            [
+                "D. Gordić\nRank: 25/70\n1.07 Creative passes per 90",
+                "D. Gordić\nRank: 40/70\n0.03 Crosses (xT) per 90",
+                "D. Gordić\nRank: 16/70\n0.38 Passes (xT) per 90",
+                "D. Gordić\nRank: 25/70\n0.07 Passes into third (xT) per 90",
+                "D. Gordić\nRank: 12/70\n0.23 Passes third (xT) per 90"
+            ],
+            [
+                "Á. Krajcsovics\nRank: 67/70\n0.43 Creative passes per 90",
+                "Á. Krajcsovics\nRank: 28/70\n0.03 Crosses (xT) per 90",
+                "Á. Krajcsovics\nRank: 53/70\n0.24 Passes (xT) per 90",
+                "Á. Krajcsovics\nRank: 63/70\n0.02 Passes into third (xT) per 90",
+                "Á. Krajcsovics\nRank: 41/70\n0.16 Passes third (xT) per 90"
+            ],
+            [
+                "B. Bakti\nRank: 7/70\n1.45 Creative passes per 90",
+                "B. Bakti\nRank: 64/70\n0.01 Crosses (xT) per 90",
+                "B. Bakti\nRank: 4/70\n0.49 Passes (xT) per 90",
+                "B. Bakti\nRank: 4/70\n0.13 Passes into third (xT) per 90",
+                "B. Bakti\nRank: 13/70\n0.23 Passes third (xT) per 90"
+            ],
+            [
+                "M. Major\nRank: 65/70\n0.47 Creative passes per 90",
+                "M. Major\nRank: 37/70\n0.03 Crosses (xT) per 90",
+                "M. Major\nRank: 51/70\n0.25 Passes (xT) per 90",
+                "M. Major\nRank: 34/70\n0.05 Passes into third (xT) per 90",
+                "M. Major\nRank: 60/70\n0.11 Passes third (xT) per 90"
+            ],
+            [
+                "A. Molnár\nRank: 35/70\n0.98 Creative passes per 90",
+                "A. Molnár\nRank: 16/70\n0.05 Crosses (xT) per 90",
+                "A. Molnár\nRank: 56/70\n0.24 Passes (xT) per 90",
+                "A. Molnár\nRank: 65/70\n0.01 Passes into third (xT) per 90",
+                "A. Molnár\nRank: 33/70\n0.18 Passes third (xT) per 90"
+            ],
+            [
+                "M. Kern\nRank: 60/70\n0.58 Creative passes per 90",
+                "M. Kern\nRank: 38/70\n0.03 Crosses (xT) per 90",
+                "M. Kern\nRank: 6/70\n0.46 Passes (xT) per 90",
+                "M. Kern\nRank: 2/70\n0.16 Passes into third (xT) per 90",
+                "M. Kern\nRank: 29/70\n0.19 Passes third (xT) per 90"
+            ],
+            [
+                "Alegria\nRank: 44/70\n0.84 Creative passes per 90",
+                "Alegria\nRank: 49/70\n0.02 Crosses (xT) per 90",
+                "Alegria\nRank: 48/70\n0.25 Passes (xT) per 90",
+                "Alegria\nRank: 48/70\n0.03 Passes into third (xT) per 90",
+                "Alegria\nRank: 45/70\n0.15 Passes third (xT) per 90"
+            ],
+            [
+                "K. Mondovics\nRank: 57/70\n0.61 Creative passes per 90",
+                "K. Mondovics\nRank: 67/70\n0.00 Crosses (xT) per 90",
+                "K. Mondovics\nRank: 69/70\n0.12 Passes (xT) per 90",
+                "K. Mondovics\nRank: 69/70\n0.00 Passes into third (xT) per 90",
+                "K. Mondovics\nRank: 65/70\n0.09 Passes third (xT) per 90"
+            ],
+            [
+                "B. Vajda\nRank: 54/70\n0.69 Creative passes per 90",
+                "B. Vajda\nRank: 30/70\n0.03 Crosses (xT) per 90",
+                "B. Vajda\nRank: 32/70\n0.30 Passes (xT) per 90",
+                "B. Vajda\nRank: 42/70\n0.04 Passes into third (xT) per 90",
+                "B. Vajda\nRank: 54/70\n0.13 Passes third (xT) per 90"
+            ],
+            [
+                "M. Pető\nRank: 63/70\n0.51 Creative passes per 90",
+                "M. Pető\nRank: 23/70\n0.04 Crosses (xT) per 90",
+                "M. Pető\nRank: 50/70\n0.25 Passes (xT) per 90",
+                "M. Pető\nRank: 54/70\n0.03 Passes into third (xT) per 90",
+                "M. Pető\nRank: 42/70\n0.16 Passes third (xT) per 90"
+            ],
+            [
+                "B. Babós\nRank: 64/70\n0.50 Creative passes per 90",
+                "B. Babós\nRank: 35/70\n0.03 Crosses (xT) per 90",
+                "B. Babós\nRank: 62/70\n0.18 Passes (xT) per 90",
+                "B. Babós\nRank: 62/70\n0.02 Passes into third (xT) per 90",
+                "B. Babós\nRank: 57/70\n0.12 Passes third (xT) per 90"
+            ],
+            [
+                "I. Atrok\nRank: 34/70\n0.98 Creative passes per 90",
+                "I. Atrok\nRank: 41/70\n0.02 Crosses (xT) per 90",
+                "I. Atrok\nRank: 30/70\n0.31 Passes (xT) per 90",
+                "I. Atrok\nRank: 35/70\n0.05 Passes into third (xT) per 90",
+                "I. Atrok\nRank: 31/70\n0.18 Passes third (xT) per 90"
+            ],
+            [
+                "B. Manner\nRank: 36/70\n0.98 Creative passes per 90",
+                "B. Manner\nRank: 26/70\n0.04 Crosses (xT) per 90",
+                "B. Manner\nRank: 39/70\n0.28 Passes (xT) per 90",
+                "B. Manner\nRank: 39/70\n0.04 Passes into third (xT) per 90",
+                "B. Manner\nRank: 35/70\n0.17 Passes third (xT) per 90"
+            ],
+            [
+                "M. Semel\nRank: 8/70\n1.41 Creative passes per 90",
+                "M. Semel\nRank: 18/70\n0.05 Crosses (xT) per 90",
+                "M. Semel\nRank: 2/70\n0.50 Passes (xT) per 90",
+                "M. Semel\nRank: 1/70\n0.18 Passes into third (xT) per 90",
+                "M. Semel\nRank: 15/70\n0.22 Passes third (xT) per 90"
+            ],
+            [
+                "F. Cibla\nRank: 15/70\n1.18 Creative passes per 90",
+                "F. Cibla\nRank: 29/70\n0.03 Crosses (xT) per 90",
+                "F. Cibla\nRank: 35/70\n0.29 Passes (xT) per 90",
+                "F. Cibla\nRank: 15/70\n0.08 Passes into third (xT) per 90",
+                "F. Cibla\nRank: 52/70\n0.14 Passes third (xT) per 90"
+            ],
+            [
+                "K. Banati\nRank: 22/70\n1.09 Creative passes per 90",
+                "K. Banati\nRank: 36/70\n0.03 Crosses (xT) per 90",
+                "K. Banati\nRank: 40/70\n0.28 Passes (xT) per 90",
+                "K. Banati\nRank: 49/70\n0.03 Passes into third (xT) per 90",
+                "K. Banati\nRank: 26/70\n0.19 Passes third (xT) per 90"
+            ],
+            [
+                "K. Horváth\nRank: 3/70\n1.62 Creative passes per 90",
+                "K. Horváth\nRank: 46/70\n0.02 Crosses (xT) per 90",
+                "K. Horváth\nRank: 9/70\n0.44 Passes (xT) per 90",
+                "K. Horváth\nRank: 22/70\n0.07 Passes into third (xT) per 90",
+                "K. Horváth\nRank: 1/70\n0.28 Passes third (xT) per 90"
+            ],
+            [
+                "B. Vekony\nRank: 51/70\n0.74 Creative passes per 90",
+                "B. Vekony\nRank: 33/70\n0.03 Crosses (xT) per 90",
+                "B. Vekony\nRank: 55/70\n0.24 Passes (xT) per 90",
+                "B. Vekony\nRank: 37/70\n0.05 Passes into third (xT) per 90",
+                "B. Vekony\nRank: 58/70\n0.12 Passes third (xT) per 90"
+            ],
+            [
+                "N. Njie\nRank: 24/70\n1.07 Creative passes per 90",
+                "N. Njie\nRank: 25/70\n0.04 Crosses (xT) per 90",
+                "N. Njie\nRank: 34/70\n0.29 Passes (xT) per 90",
+                "N. Njie\nRank: 38/70\n0.04 Passes into third (xT) per 90",
+                "N. Njie\nRank: 19/70\n0.21 Passes third (xT) per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Wingers",
+            "Adin Molnár"
+        ],
+        "minutes_played": 2344,
+        "axis_labels": [
+            "Creative passes per 90 | 0.98",
+            "Crosses (xT) per 90 | 0.05",
+            "Passes (xT) per 90 | 0.24",
+            "Passes into third (xT) per 90 | 0.01",
+            "Passes third (xT) per 90 | 0.18"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            -0.48498734194921667,
+            0.5862285072179316,
+            -2.1412962665856754,
+            0.9153181604414293,
+            1.3932504902774525,
+            0.6867942724947312,
+            2.232233130879407,
+            0.5513336052051018,
+            -0.12084300586018179,
+            0.041501902271910994,
+            -0.6254015701611376,
+            -0.35236258993403524,
+            -1.4915360263024378,
+            -0.45249179944605034,
+            1.468071778886295,
+            -1.4020297055833135,
+            -1.246525104298884,
+            0.7441655216632538,
+            -1.1374593076203874,
+            1.5485730708640426,
+            1.2678332952941551,
+            -0.1634973180101471,
+            -1.7191993158721766,
+            1.2647461239701312,
+            -0.1867723131180455,
+            -0.6136719906714753,
+            0.9831412763992374,
+            0.8559580022309345,
+            -0.6454393345296087,
+            1.3508187461790315,
+            -0.26511625579566106,
+            0.7099130175400246,
+            0.2975150767697173,
+            1.2757575167223147,
+            -0.9290825360585724,
+            -0.011790799654052971,
+            -1.0216979891814069,
+            0.5814568071870669,
+            -2.0028923292270275,
+            0.6614455295332582,
+            -1.0029227107570526,
+            0.27992574442312684,
+            0.4986109998748484,
+            -0.11748762777983329,
+            -0.6337915233707981,
+            -0.31203267900922665,
+            0.41968901375590123,
+            0.24280863798291188,
+            -1.7594224283389377,
+            1.0509454391732371,
+            0.025230198397707626,
+            0.5909649800870376,
+            -0.768431979591888,
+            1.3830386847283156,
+            -0.7875971030117054,
+            -0.37175052266769304,
+            1.1822327407490825,
+            -0.6831453120719192,
+            -1.917669519776069,
+            -0.42967358696057084,
+            -0.5689501514132058,
+            -1.1843021190797078,
+            -0.046803338296131175,
+            -0.10816679051442941,
+            2.1129636231212543,
+            0.024041206204296475,
+            -0.20005624382335838,
+            1.2279298338715205,
+            -0.7033649289712425,
+            0.1552245308965946
+        ]
+    },
+    "player_info": {
+        "id": 769345,
+        "name": "A. Molnár",
+        "full_name": "Adin Molnár",
+        "synthesized_name": "Adin Molnár",
+        "birth_date": "2004-08-16",
+        "age": 21,
+        "foot": null,
+        "position": "WINGER",
+        "detailed_position": "RIGHT_WINGER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

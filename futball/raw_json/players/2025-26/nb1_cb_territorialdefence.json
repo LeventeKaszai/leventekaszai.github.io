@@ -1,0 +1,1067 @@
+{
+    "plot_type": "distribution",
+    "title": "Territorial Dominance of Márk Csinger",
+    "subtitle": "Hungarian NB I 2025/2026 | 2653 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Álex Vallejo",
+            "Tamás Kádár",
+            "Maximilian Hofmann",
+            "Bence Batik",
+            "Roland Szolnoki",
+            "Attila Fiola",
+            "Kristóf Papp",
+            "János Szabó",
+            "Ákos Kinyik",
+            "Bálint Vécsei",
+            "Ádám Lang",
+            "Wojciech Golla",
+            "Varazdat Haroyan",
+            "João Nunes",
+            "Deian Boldor",
+            "Csaba Szatmári",
+            "Bernardo Matić",
+            "Márk Tamás",
+            "Ákos Kecskés",
+            "Patrizio Stronati",
+            "Eneo Bitri",
+            "Kristóf Polgár",
+            "Aleksandar Jovičić",
+            "Stefan Gartenmann",
+            "Ibrahim Cissé",
+            "Martin Chlumecký",
+            "Bence Lenzsér",
+            "Davit Kobouri",
+            "Ilia Beriashvili",
+            "Bálint Oláh",
+            "Stefanos Evangelou",
+            "Zsombor Nagy",
+            "Josua Mejías",
+            "Bence Ötvös",
+            "János Szépe",
+            "Nikola Radmanovac",
+            "Daniel Csoka",
+            "László Rácz",
+            "Mykhaylo Meskhi",
+            "Meldin Drešković",
+            "André Duarte",
+            "Pavlos Correa",
+            "Branimir Cipetić",
+            "Attila Temesvári",
+            "Bence Bárdos",
+            "Mariano Gómez",
+            "Alexander Abrahamsson",
+            "Sodiq Rasheed",
+            "Kacper Radkowski",
+            "Márk Csinger",
+            "Toon Raemaekers",
+            "Bence Várkonyi",
+            "Georgiy Harutyunyan",
+            "Áron Alaxai",
+            "Gábor Vas",
+            "Levente Katona",
+            "Joseth Peraza",
+            "Gábor Szalai",
+            "Nimród Baranyai",
+            "Dominik Kaczvinszki",
+            "Milan Szekszardi",
+            "Miljan Krpić",
+            "Viktor Vitalyos",
+            "Ákos Markgráf",
+            "Diego Borges",
+            "Akpe Victory"
+        ],
+        "target_identifiers": [
+            5107,
+            7980,
+            66163,
+            74813,
+            74951,
+            75131,
+            75492,
+            75513,
+            76056,
+            76142,
+            76201,
+            99416,
+            109110,
+            135905,
+            137143,
+            209914,
+            231097,
+            238712,
+            239172,
+            252012,
+            253383,
+            257725,
+            263667,
+            281244,
+            300138,
+            302509,
+            334416,
+            340730,
+            341217,
+            341478,
+            347275,
+            367362,
+            381500,
+            404780,
+            409904,
+            434136,
+            444417,
+            444931,
+            448375,
+            452686,
+            500774,
+            506855,
+            517869,
+            525962,
+            531585,
+            543680,
+            585614,
+            587034,
+            595985,
+            620089,
+            634239,
+            634677,
+            639992,
+            656445,
+            656447,
+            678833,
+            709545,
+            757419,
+            782582,
+            790591,
+            804204,
+            841356,
+            869849,
+            884104,
+            887878,
+            1169422
+        ],
+        "kpis": [
+            {
+                "name": "Defensive area (m^2)",
+                "description": "The size of the area, measured in square meters, that a player covers defensively in open play. It is measured as the area that covers 68% of the player's open play defensive actions adjusted by the opponent's possession.",
+                "display_name": "Defensive area (m^2)"
+            },
+            {
+                "name": "Defensive line height (m)",
+                "description": "Average height on the pitch, measured in meters, of the player's defensive actions.",
+                "display_name": "Defensive line height (m)"
+            },
+            {
+                "name": "Opposition pass success % into defensive area",
+                "description": "Percentage of the opponent's passes into the player's defensive area that are successful.",
+                "display_name": "Opposition pass success % into defensive area"
+            },
+            {
+                "name": "Opposition xT into defensive area",
+                "description": "Accumulated action-based xT per 100 successful opponent passes into the player's defensive area.",
+                "display_name": "Opposition xT into defensive area"
+            }
+        ],
+        "focal_target_indices": [
+            49
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.14614257216453552,
+                -0.019782500341534615,
+                -0.913453221321106,
+                0.5865497589111328
+            ],
+            [
+                -0.4563053250312805,
+                -1.6397615671157837,
+                0.45048317313194275,
+                -1.2370283603668213
+            ],
+            [
+                -1.198050856590271,
+                -0.4492262005805969,
+                1.2072480916976929,
+                0.4044581651687622
+            ],
+            [
+                -0.07267230749130249,
+                1.3913826942443848,
+                -0.3549235165119171,
+                0.4333842396736145
+            ],
+            [
+                -1.0605765581130981,
+                0.8329115509986877,
+                -1.5861284732818604,
+                0.4952778220176697
+            ],
+            [
+                0.5262017250061035,
+                0.6673967838287354,
+                -0.9362651109695435,
+                0.6943888068199158
+            ],
+            [
+                0.6557033061981201,
+                3.1147749423980713,
+                -2.367295265197754,
+                1.3402588367462158
+            ],
+            [
+                0.4196722209453583,
+                0.8686379194259644,
+                0.2774628698825836,
+                0.6145153045654297
+            ],
+            [
+                0.25881680846214294,
+                -0.14153850078582764,
+                0.22488747537136078,
+                -0.3326667845249176
+            ],
+            [
+                0.563329815864563,
+                1.3220008611679077,
+                -0.39768296480178833,
+                0.7558156251907349
+            ],
+            [
+                -0.3631773889064789,
+                -0.5338354706764221,
+                1.4459712505340576,
+                -0.3916338086128235
+            ],
+            [
+                -0.0900319367647171,
+                0.23773957788944244,
+                0.183370903134346,
+                -0.010754309594631195
+            ],
+            [
+                -1.199141502380371,
+                -0.14695580303668976,
+                -2.2963342666625977,
+                -0.8147889375686646
+            ],
+            [
+                0.8215586543083191,
+                -0.5797514319419861,
+                -0.2853708565235138,
+                -0.3174822926521301
+            ],
+            [
+                0.5107656121253967,
+                0.987245500087738,
+                1.5154320001602173,
+                1.749179482460022
+            ],
+            [
+                -0.10557103902101517,
+                -0.18693287670612335,
+                0.08537910878658295,
+                0.23191040754318237
+            ],
+            [
+                0.26863834261894226,
+                -0.2088172435760498,
+                0.12155614048242569,
+                -0.6379836797714233
+            ],
+            [
+                0.04497537016868591,
+                -0.7252099514007568,
+                -0.49768874049186707,
+                -0.6324446797370911
+            ],
+            [
+                -0.7542999982833862,
+                -1.3426401615142822,
+                -0.060350582003593445,
+                -1.6368539333343506
+            ],
+            [
+                0.46696898341178894,
+                -0.6607194542884827,
+                0.31895381212234497,
+                -0.724646806716919
+            ],
+            [
+                0.7763462066650391,
+                -0.06088518723845482,
+                1.9025057554244995,
+                -0.8839324116706848
+            ],
+            [
+                -0.6521397829055786,
+                -0.4442436695098877,
+                -1.192330241203308,
+                -0.15349586308002472
+            ],
+            [
+                -0.22078442573547363,
+                0.07518456131219864,
+                -0.3616293966770172,
+                0.40385377407073975
+            ],
+            [
+                0.13569793105125427,
+                1.0279377698898315,
+                -0.01726032979786396,
+                0.9618023037910461
+            ],
+            [
+                1.4328755140304565,
+                1.7511757612228394,
+                0.16066619753837585,
+                1.7186344861984253
+            ],
+            [
+                -0.385373592376709,
+                0.5422877669334412,
+                -0.35618269443511963,
+                0.5021569132804871
+            ],
+            [
+                0.15553510189056396,
+                2.435774803161621,
+                -1.0212785005569458,
+                1.3815877437591553
+            ],
+            [
+                -0.281596302986145,
+                -0.213320791721344,
+                1.201714038848877,
+                0.9017138481140137
+            ],
+            [
+                0.45676761865615845,
+                -0.6378217935562134,
+                0.22172848880290985,
+                -0.1915309876203537
+            ],
+            [
+                1.0888206958770752,
+                -0.1915603131055832,
+                0.16279315948486328,
+                0.16731393337249756
+            ],
+            [
+                -0.6544888019561768,
+                -0.01905680075287819,
+                -0.966270923614502,
+                0.8964962363243103
+            ],
+            [
+                -2.2301230430603027,
+                -1.5468305349349976,
+                -1.890392780303955,
+                0.046545516699552536
+            ],
+            [
+                0.5555826425552368,
+                -0.10408919304609299,
+                0.9550163745880127,
+                -0.17250216007232666
+            ],
+            [
+                3.577113628387451,
+                1.3581897020339966,
+                0.6177690625190735,
+                0.04116034880280495
+            ],
+            [
+                -0.9305691123008728,
+                -0.6585346460342407,
+                -0.9789791107177734,
+                -0.09516281634569168
+            ],
+            [
+                -0.30273258686065674,
+                -1.198887586593628,
+                0.9272039532661438,
+                0.18957751989364624
+            ],
+            [
+                -0.6912152171134949,
+                -1.3642640113830566,
+                1.2769184112548828,
+                -1.6529948711395264
+            ],
+            [
+                -0.7193626165390015,
+                -0.9973312020301819,
+                -0.48416051268577576,
+                -1.6975010633468628
+            ],
+            [
+                -1.2844597101211548,
+                -1.1766557693481445,
+                -1.3447331190109253,
+                -2.1211936473846436
+            ],
+            [
+                -0.5843830108642578,
+                0.8239730596542358,
+                0.06181592494249344,
+                1.1220709085464478
+            ],
+            [
+                0.9047020077705383,
+                -1.1333190202713013,
+                0.8152704238891602,
+                -1.9116082191467285
+            ],
+            [
+                -2.437242269515991,
+                -1.130558967590332,
+                -0.3089165687561035,
+                0.6726428270339966
+            ],
+            [
+                1.373212218284607,
+                0.6860592365264893,
+                -1.3765106201171875,
+                0.7800729274749756
+            ],
+            [
+                0.2677268385887146,
+                0.7575019001960754,
+                -0.18213503062725067,
+                0.49067223072052
+            ],
+            [
+                -0.6071895956993103,
+                -0.28432705998420715,
+                -0.6390095949172974,
+                -0.416624516248703
+            ],
+            [
+                2.1967978477478027,
+                1.2015690803527832,
+                -0.27569934725761414,
+                1.3757736682891846
+            ],
+            [
+                1.1719908714294434,
+                0.7260855436325073,
+                0.5949781537055969,
+                0.2715902030467987
+            ],
+            [
+                -1.6277287006378174,
+                -1.4010041952133179,
+                0.06702500581741333,
+                -2.0861668586730957
+            ],
+            [
+                -1.2468267679214478,
+                -0.9036545753479004,
+                -0.4603911340236664,
+                -1.5122976303100586
+            ],
+            [
+                1.450801968574524,
+                0.7295889854431152,
+                0.8797246813774109,
+                0.3473459482192993
+            ],
+            [
+                1.636161208152771,
+                0.015340357087552547,
+                1.0652923583984375,
+                0.45732951164245605
+            ],
+            [
+                -0.31743672490119934,
+                -1.53261137008667,
+                0.7842512130737305,
+                -1.6178838014602661
+            ],
+            [
+                -0.6145276427268982,
+                -0.07115892320871353,
+                -0.7905994653701782,
+                0.24016964435577393
+            ],
+            [
+                0.9817909598350525,
+                -0.05335439741611481,
+                0.14639364182949066,
+                0.33766379952430725
+            ],
+            [
+                -0.3223488926887512,
+                -0.43201684951782227,
+                1.3399817943572998,
+                -0.432598352432251
+            ],
+            [
+                0.1335277408361435,
+                0.6519458293914795,
+                0.3928943872451782,
+                0.3469020426273346
+            ],
+            [
+                -1.109928011894226,
+                -1.0738316774368286,
+                1.1599504947662354,
+                0.18794162571430206
+            ],
+            [
+                1.0651297569274902,
+                0.8077787160873413,
+                0.6072600483894348,
+                1.1507408618927002
+            ],
+            [
+                -1.2968229055404663,
+                -0.6944069862365723,
+                -1.720190167427063,
+                0.5017029047012329
+            ],
+            [
+                0.1490948498249054,
+                0.33785733580589294,
+                -1.05903959274292,
+                -2.865480661392212
+            ],
+            [
+                0.3868130147457123,
+                1.2208189964294434,
+                0.7021394371986389,
+                1.2357938289642334
+            ],
+            [
+                0.5308899283409119,
+                0.4086644649505615,
+                1.967113733291626,
+                0.16697843372821808
+            ],
+            [
+                -0.1817745715379715,
+                0.687857985496521,
+                -0.7250747680664062,
+                0.6371309757232666
+            ],
+            [
+                0.001876514288596809,
+                0.9433948993682861,
+                -0.5157283544540405,
+                1.0206975936889648
+            ],
+            [
+                -0.9584524035453796,
+                -0.920778751373291,
+                0.31895381212234497,
+                -1.4177333116531372
+            ],
+            [
+                0.1375844031572342,
+                -1.7313640117645264,
+                2.2019522190093994,
+                0.1051739826798439
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Álex Vallejo\nRank: 37/66\n860.66 Defensive area (m^2)",
+                "Álex Vallejo\nRank: 30/66\n30.46 Defensive line height (m)",
+                "Álex Vallejo\nRank: 53/66\n0.73 Opposition pass success % into defensive area",
+                "Álex Vallejo\nRank: 19/66\n0.47 Opposition xT into defensive area"
+            ],
+            [
+                "T. Kádár\nRank: 46/66\n799.81 Defensive area (m^2)",
+                "T. Kádár\nRank: 65/66\n24.87 Defensive line height (m)",
+                "T. Kádár\nRank: 21/66\n0.66 Opposition pass success % into defensive area",
+                "T. Kádár\nRank: 56/66\n0.76 Opposition xT into defensive area"
+            ],
+            [
+                "M. Hofmann\nRank: 59/66\n654.28 Defensive area (m^2)",
+                "M. Hofmann\nRank: 44/66\n28.98 Defensive line height (m)",
+                "M. Hofmann\nRank: 8/66\n0.62 Opposition pass success % into defensive area",
+                "M. Hofmann\nRank: 26/66\n0.50 Opposition xT into defensive area"
+            ],
+            [
+                "B. Batik\nRank: 34/66\n875.08 Defensive area (m^2)",
+                "B. Batik\nRank: 4/66\n35.33 Defensive line height (m)",
+                "B. Batik\nRank: 42/66\n0.70 Opposition pass success % into defensive area",
+                "B. Batik\nRank: 25/66\n0.49 Opposition xT into defensive area"
+            ],
+            [
+                "R. Szolnoki\nRank: 57/66\n681.25 Defensive area (m^2)",
+                "R. Szolnoki\nRank: 13/66\n33.40 Defensive line height (m)",
+                "R. Szolnoki\nRank: 62/66\n0.76 Opposition pass success % into defensive area",
+                "R. Szolnoki\nRank: 22/66\n0.49 Opposition xT into defensive area"
+            ],
+            [
+                "A. Fiola\nRank: 18/66\n992.57 Defensive area (m^2)",
+                "A. Fiola\nRank: 21/66\n32.83 Defensive line height (m)",
+                "A. Fiola\nRank: 54/66\n0.73 Opposition pass success % into defensive area",
+                "A. Fiola\nRank: 15/66\n0.45 Opposition xT into defensive area"
+            ],
+            [
+                "K. Papp\nRank: 14/66\n1017.98 Defensive area (m^2)",
+                "K. Papp\nRank: 1/66\n41.27 Defensive line height (m)",
+                "K. Papp\nRank: 66/66\n0.80 Opposition pass success % into defensive area",
+                "K. Papp\nRank: 5/66\n0.35 Opposition xT into defensive area"
+            ],
+            [
+                "J. Szabó\nRank: 22/66\n971.67 Defensive area (m^2)",
+                "J. Szabó\nRank: 12/66\n33.52 Defensive line height (m)",
+                "J. Szabó\nRank: 25/66\n0.67 Opposition pass success % into defensive area",
+                "J. Szabó\nRank: 18/66\n0.47 Opposition xT into defensive area"
+            ],
+            [
+                "Á. Kinyik\nRank: 26/66\n940.11 Defensive area (m^2)",
+                "Á. Kinyik\nRank: 35/66\n30.04 Defensive line height (m)",
+                "Á. Kinyik\nRank: 26/66\n0.67 Opposition pass success % into defensive area",
+                "Á. Kinyik\nRank: 47/66\n0.61 Opposition xT into defensive area"
+            ],
+            [
+                "B. Vécsei\nRank: 15/66\n999.86 Defensive area (m^2)",
+                "B. Vécsei\nRank: 6/66\n35.09 Defensive line height (m)",
+                "B. Vécsei\nRank: 45/66\n0.70 Opposition pass success % into defensive area",
+                "B. Vécsei\nRank: 14/66\n0.44 Opposition xT into defensive area"
+            ],
+            [
+                "Á. Lang\nRank: 44/66\n818.08 Defensive area (m^2)",
+                "Á. Lang\nRank: 45/66\n28.69 Defensive line height (m)",
+                "Á. Lang\nRank: 5/66\n0.61 Opposition pass success % into defensive area",
+                "Á. Lang\nRank: 48/66\n0.62 Opposition xT into defensive area"
+            ],
+            [
+                "W. Golla\nRank: 35/66\n871.67 Defensive area (m^2)",
+                "W. Golla\nRank: 26/66\n31.35 Defensive line height (m)",
+                "W. Golla\nRank: 28/66\n0.67 Opposition pass success % into defensive area",
+                "W. Golla\nRank: 41/66\n0.56 Opposition xT into defensive area"
+            ],
+            [
+                "V. Haroyan\nRank: 60/66\n654.07 Defensive area (m^2)",
+                "V. Haroyan\nRank: 36/66\n30.02 Defensive line height (m)",
+                "V. Haroyan\nRank: 65/66\n0.80 Opposition pass success % into defensive area",
+                "V. Haroyan\nRank: 54/66\n0.69 Opposition xT into defensive area"
+            ],
+            [
+                "João Nunes\nRank: 12/66\n1050.52 Defensive area (m^2)",
+                "João Nunes\nRank: 46/66\n28.53 Defensive line height (m)",
+                "João Nunes\nRank: 40/66\n0.70 Opposition pass success % into defensive area",
+                "João Nunes\nRank: 46/66\n0.61 Opposition xT into defensive area"
+            ],
+            [
+                "D. Boldor\nRank: 19/66\n989.54 Defensive area (m^2)",
+                "D. Boldor\nRank: 10/66\n33.93 Defensive line height (m)",
+                "D. Boldor\nRank: 4/66\n0.61 Opposition pass success % into defensive area",
+                "D. Boldor\nRank: 1/66\n0.29 Opposition xT into defensive area"
+            ],
+            [
+                "C. Szatmári\nRank: 36/66\n868.62 Defensive area (m^2)",
+                "C. Szatmári\nRank: 37/66\n29.88 Defensive line height (m)",
+                "C. Szatmári\nRank: 33/66\n0.68 Opposition pass success % into defensive area",
+                "C. Szatmári\nRank: 33/66\n0.53 Opposition xT into defensive area"
+            ],
+            [
+                "B. Matić\nRank: 24/66\n942.04 Defensive area (m^2)",
+                "B. Matić\nRank: 39/66\n29.81 Defensive line height (m)",
+                "B. Matić\nRank: 32/66\n0.68 Opposition pass success % into defensive area",
+                "B. Matić\nRank: 52/66\n0.66 Opposition xT into defensive area"
+            ],
+            [
+                "M. Tamás\nRank: 32/66\n898.16 Defensive area (m^2)",
+                "M. Tamás\nRank: 51/66\n28.03 Defensive line height (m)",
+                "M. Tamás\nRank: 48/66\n0.71 Opposition pass success % into defensive area",
+                "M. Tamás\nRank: 51/66\n0.66 Opposition xT into defensive area"
+            ],
+            [
+                "A. Kecskés\nRank: 54/66\n741.34 Defensive area (m^2)",
+                "A. Kecskés\nRank: 60/66\n25.90 Defensive line height (m)",
+                "A. Kecskés\nRank: 37/66\n0.69 Opposition pass success % into defensive area",
+                "A. Kecskés\nRank: 60/66\n0.82 Opposition xT into defensive area"
+            ],
+            [
+                "P. Stronati\nRank: 20/66\n980.95 Defensive area (m^2)",
+                "P. Stronati\nRank: 49/66\n28.25 Defensive line height (m)",
+                "P. Stronati\nRank: 23/66\n0.67 Opposition pass success % into defensive area",
+                "P. Stronati\nRank: 53/66\n0.68 Opposition xT into defensive area"
+            ],
+            [
+                "E. Bitri\nRank: 13/66\n1041.65 Defensive area (m^2)",
+                "E. Bitri\nRank: 32/66\n30.32 Defensive line height (m)",
+                "E. Bitri\nRank: 3/66\n0.59 Opposition pass success % into defensive area",
+                "E. Bitri\nRank: 55/66\n0.70 Opposition xT into defensive area"
+            ],
+            [
+                "K. Polgár\nRank: 50/66\n761.39 Defensive area (m^2)",
+                "K. Polgár\nRank: 43/66\n29.00 Defensive line height (m)",
+                "K. Polgár\nRank: 59/66\n0.74 Opposition pass success % into defensive area",
+                "K. Polgár\nRank: 43/66\n0.59 Opposition xT into defensive area"
+            ],
+            [
+                "A. Jovičić\nRank: 39/66\n846.02 Defensive area (m^2)",
+                "A. Jovičić\nRank: 27/66\n30.79 Defensive line height (m)",
+                "A. Jovičić\nRank: 44/66\n0.70 Opposition pass success % into defensive area",
+                "A. Jovičić\nRank: 27/66\n0.50 Opposition xT into defensive area"
+            ],
+            [
+                "S. Gartenmann\nRank: 30/66\n915.96 Defensive area (m^2)",
+                "S. Gartenmann\nRank: 9/66\n34.07 Defensive line height (m)",
+                "S. Gartenmann\nRank: 36/66\n0.68 Opposition pass success % into defensive area",
+                "S. Gartenmann\nRank: 10/66\n0.41 Opposition xT into defensive area"
+            ],
+            [
+                "I. Cissé\nRank: 5/66\n1170.46 Defensive area (m^2)",
+                "I. Cissé\nRank: 3/66\n36.57 Defensive line height (m)",
+                "I. Cissé\nRank: 30/66\n0.67 Opposition pass success % into defensive area",
+                "I. Cissé\nRank: 2/66\n0.29 Opposition xT into defensive area"
+            ],
+            [
+                "M. Chlumecký\nRank: 45/66\n813.73 Defensive area (m^2)",
+                "M. Chlumecký\nRank: 23/66\n32.40 Defensive line height (m)",
+                "M. Chlumecký\nRank: 43/66\n0.70 Opposition pass success % into defensive area",
+                "M. Chlumecký\nRank: 20/66\n0.48 Opposition xT into defensive area"
+            ],
+            [
+                "B. Lenzsér\nRank: 27/66\n919.85 Defensive area (m^2)",
+                "B. Lenzsér\nRank: 2/66\n38.93 Defensive line height (m)",
+                "B. Lenzsér\nRank: 57/66\n0.74 Opposition pass success % into defensive area",
+                "B. Lenzsér\nRank: 3/66\n0.35 Opposition xT into defensive area"
+            ],
+            [
+                "D. Kobouri\nRank: 40/66\n834.09 Defensive area (m^2)",
+                "D. Kobouri\nRank: 40/66\n29.79 Defensive line height (m)",
+                "D. Kobouri\nRank: 9/66\n0.62 Opposition pass success % into defensive area",
+                "D. Kobouri\nRank: 11/66\n0.42 Opposition xT into defensive area"
+            ],
+            [
+                "I. Beriashvili\nRank: 21/66\n978.95 Defensive area (m^2)",
+                "I. Beriashvili\nRank: 47/66\n28.33 Defensive line height (m)",
+                "I. Beriashvili\nRank: 27/66\n0.67 Opposition pass success % into defensive area",
+                "I. Beriashvili\nRank: 45/66\n0.59 Opposition xT into defensive area"
+            ],
+            [
+                "B. Oláh\nRank: 8/66\n1102.96 Defensive area (m^2)",
+                "B. Oláh\nRank: 38/66\n29.87 Defensive line height (m)",
+                "B. Oláh\nRank: 29/66\n0.67 Opposition pass success % into defensive area",
+                "B. Oláh\nRank: 36/66\n0.54 Opposition xT into defensive area"
+            ],
+            [
+                "S. Evangelou\nRank: 51/66\n760.93 Defensive area (m^2)",
+                "S. Evangelou\nRank: 29/66\n30.46 Defensive line height (m)",
+                "S. Evangelou\nRank: 55/66\n0.73 Opposition pass success % into defensive area",
+                "S. Evangelou\nRank: 12/66\n0.42 Opposition xT into defensive area"
+            ],
+            [
+                "Z. Nagy\nRank: 65/66\n451.79 Defensive area (m^2)",
+                "Z. Nagy\nRank: 64/66\n25.19 Defensive line height (m)",
+                "Z. Nagy\nRank: 64/66\n0.78 Opposition pass success % into defensive area",
+                "Z. Nagy\nRank: 39/66\n0.56 Opposition xT into defensive area"
+            ],
+            [
+                "J. Mejías\nRank: 16/66\n998.34 Defensive area (m^2)",
+                "J. Mejías\nRank: 34/66\n30.17 Defensive line height (m)",
+                "J. Mejías\nRank: 12/66\n0.63 Opposition pass success % into defensive area",
+                "J. Mejías\nRank: 44/66\n0.59 Opposition xT into defensive area"
+            ],
+            [
+                "B. Ötvös\nRank: 1/66\n1591.15 Defensive area (m^2)",
+                "B. Ötvös\nRank: 5/66\n35.21 Defensive line height (m)",
+                "B. Ötvös\nRank: 18/66\n0.65 Opposition pass success % into defensive area",
+                "B. Ötvös\nRank: 40/66\n0.56 Opposition xT into defensive area"
+            ],
+            [
+                "J. Szépe\nRank: 55/66\n706.76 Defensive area (m^2)",
+                "J. Szépe\nRank: 48/66\n28.26 Defensive line height (m)",
+                "J. Szépe\nRank: 56/66\n0.73 Opposition pass success % into defensive area",
+                "J. Szépe\nRank: 42/66\n0.58 Opposition xT into defensive area"
+            ],
+            [
+                "N. Radmanovac\nRank: 41/66\n829.94 Defensive area (m^2)",
+                "N. Radmanovac\nRank: 59/66\n26.39 Defensive line height (m)",
+                "N. Radmanovac\nRank: 13/66\n0.64 Opposition pass success % into defensive area",
+                "N. Radmanovac\nRank: 34/66\n0.53 Opposition xT into defensive area"
+            ],
+            [
+                "Daniel Csoka\nRank: 52/66\n753.72 Defensive area (m^2)",
+                "Daniel Csoka\nRank: 61/66\n25.82 Defensive line height (m)",
+                "Daniel Csoka\nRank: 7/66\n0.62 Opposition pass success % into defensive area",
+                "Daniel Csoka\nRank: 61/66\n0.82 Opposition xT into defensive area"
+            ],
+            [
+                "L. Rácz\nRank: 53/66\n748.20 Defensive area (m^2)",
+                "L. Rácz\nRank: 54/66\n27.09 Defensive line height (m)",
+                "L. Rácz\nRank: 47/66\n0.71 Opposition pass success % into defensive area",
+                "L. Rácz\nRank: 62/66\n0.83 Opposition xT into defensive area"
+            ],
+            [
+                "M. Meskhi\nRank: 62/66\n637.33 Defensive area (m^2)",
+                "M. Meskhi\nRank: 58/66\n26.47 Defensive line height (m)",
+                "M. Meskhi\nRank: 60/66\n0.75 Opposition pass success % into defensive area",
+                "M. Meskhi\nRank: 65/66\n0.89 Opposition xT into defensive area"
+            ],
+            [
+                "M. Drešković\nRank: 47/66\n774.68 Defensive area (m^2)",
+                "M. Drešković\nRank: 14/66\n33.37 Defensive line height (m)",
+                "M. Drešković\nRank: 35/66\n0.68 Opposition pass success % into defensive area",
+                "M. Drešković\nRank: 8/66\n0.39 Opposition xT into defensive area"
+            ],
+            [
+                "André Duarte\nRank: 11/66\n1066.83 Defensive area (m^2)",
+                "André Duarte\nRank: 57/66\n26.62 Defensive line height (m)",
+                "André Duarte\nRank: 15/66\n0.64 Opposition pass success % into defensive area",
+                "André Duarte\nRank: 63/66\n0.86 Opposition xT into defensive area"
+            ],
+            [
+                "P. Correa\nRank: 66/66\n411.16 Defensive area (m^2)",
+                "P. Correa\nRank: 56/66\n26.63 Defensive line height (m)",
+                "P. Correa\nRank: 41/66\n0.70 Opposition pass success % into defensive area",
+                "P. Correa\nRank: 16/66\n0.46 Opposition xT into defensive area"
+            ],
+            [
+                "B. Cipetić\nRank: 6/66\n1158.75 Defensive area (m^2)",
+                "B. Cipetić\nRank: 20/66\n32.89 Defensive line height (m)",
+                "B. Cipetić\nRank: 61/66\n0.75 Opposition pass success % into defensive area",
+                "B. Cipetić\nRank: 13/66\n0.44 Opposition xT into defensive area"
+            ],
+            [
+                "A. Temesvári\nRank: 25/66\n941.86 Defensive area (m^2)",
+                "A. Temesvári\nRank: 16/66\n33.14 Defensive line height (m)",
+                "A. Temesvári\nRank: 38/66\n0.69 Opposition pass success % into defensive area",
+                "A. Temesvári\nRank: 23/66\n0.49 Opposition xT into defensive area"
+            ],
+            [
+                "B. Bárdos\nRank: 48/66\n770.21 Defensive area (m^2)",
+                "B. Bárdos\nRank: 41/66\n29.55 Defensive line height (m)",
+                "B. Bárdos\nRank: 50/66\n0.72 Opposition pass success % into defensive area",
+                "B. Bárdos\nRank: 49/66\n0.63 Opposition xT into defensive area"
+            ],
+            [
+                "M. Gómez\nRank: 2/66\n1320.34 Defensive area (m^2)",
+                "M. Gómez\nRank: 8/66\n34.67 Defensive line height (m)",
+                "M. Gómez\nRank: 39/66\n0.70 Opposition pass success % into defensive area",
+                "M. Gómez\nRank: 4/66\n0.35 Opposition xT into defensive area"
+            ],
+            [
+                "A. Abrahamsson\nRank: 7/66\n1119.27 Defensive area (m^2)",
+                "A. Abrahamsson\nRank: 18/66\n33.03 Defensive line height (m)",
+                "A. Abrahamsson\nRank: 20/66\n0.65 Opposition pass success % into defensive area",
+                "A. Abrahamsson\nRank: 31/66\n0.52 Opposition xT into defensive area"
+            ],
+            [
+                "S. Rasheed\nRank: 64/66\n569.98 Defensive area (m^2)",
+                "S. Rasheed\nRank: 62/66\n25.70 Defensive line height (m)",
+                "S. Rasheed\nRank: 34/66\n0.68 Opposition pass success % into defensive area",
+                "S. Rasheed\nRank: 64/66\n0.89 Opposition xT into defensive area"
+            ],
+            [
+                "K. Radkowski\nRank: 61/66\n644.71 Defensive area (m^2)",
+                "K. Radkowski\nRank: 52/66\n27.41 Defensive line height (m)",
+                "K. Radkowski\nRank: 46/66\n0.71 Opposition pass success % into defensive area",
+                "K. Radkowski\nRank: 58/66\n0.80 Opposition xT into defensive area"
+            ],
+            [
+                "M. Csinger\nRank: 4/66\n1173.98 Defensive area (m^2)",
+                "M. Csinger\nRank: 17/66\n33.04 Defensive line height (m)",
+                "M. Csinger\nRank: 14/66\n0.64 Opposition pass success % into defensive area",
+                "M. Csinger\nRank: 28/66\n0.51 Opposition xT into defensive area"
+            ],
+            [
+                "T. Raemaekers\nRank: 3/66\n1210.34 Defensive area (m^2)",
+                "T. Raemaekers\nRank: 28/66\n30.58 Defensive line height (m)",
+                "T. Raemaekers\nRank: 11/66\n0.63 Opposition pass success % into defensive area",
+                "T. Raemaekers\nRank: 24/66\n0.49 Opposition xT into defensive area"
+            ],
+            [
+                "B. Várkonyi\nRank: 42/66\n827.05 Defensive area (m^2)",
+                "B. Várkonyi\nRank: 63/66\n25.24 Defensive line height (m)",
+                "B. Várkonyi\nRank: 16/66\n0.64 Opposition pass success % into defensive area",
+                "B. Várkonyi\nRank: 59/66\n0.82 Opposition xT into defensive area"
+            ],
+            [
+                "G. Harutyunyan\nRank: 49/66\n768.77 Defensive area (m^2)",
+                "G. Harutyunyan\nRank: 33/66\n30.28 Defensive line height (m)",
+                "G. Harutyunyan\nRank: 52/66\n0.72 Opposition pass success % into defensive area",
+                "G. Harutyunyan\nRank: 32/66\n0.52 Opposition xT into defensive area"
+            ],
+            [
+                "Á. Alaxai\nRank: 10/66\n1081.96 Defensive area (m^2)",
+                "Á. Alaxai\nRank: 31/66\n30.34 Defensive line height (m)",
+                "Á. Alaxai\nRank: 31/66\n0.68 Opposition pass success % into defensive area",
+                "Á. Alaxai\nRank: 30/66\n0.51 Opposition xT into defensive area"
+            ],
+            [
+                "G. Vas\nRank: 43/66\n826.09 Defensive area (m^2)",
+                "G. Vas\nRank: 42/66\n29.04 Defensive line height (m)",
+                "G. Vas\nRank: 6/66\n0.61 Opposition pass success % into defensive area",
+                "G. Vas\nRank: 50/66\n0.63 Opposition xT into defensive area"
+            ],
+            [
+                "L. Katona\nRank: 31/66\n915.53 Defensive area (m^2)",
+                "L. Katona\nRank: 22/66\n32.78 Defensive line height (m)",
+                "L. Katona\nRank: 22/66\n0.66 Opposition pass success % into defensive area",
+                "L. Katona\nRank: 29/66\n0.51 Opposition xT into defensive area"
+            ],
+            [
+                "J. Peraza\nRank: 58/66\n671.57 Defensive area (m^2)",
+                "J. Peraza\nRank: 55/66\n26.83 Defensive line height (m)",
+                "J. Peraza\nRank: 10/66\n0.62 Opposition pass success % into defensive area",
+                "J. Peraza\nRank: 35/66\n0.53 Opposition xT into defensive area"
+            ],
+            [
+                "G. Szalai\nRank: 9/66\n1098.31 Defensive area (m^2)",
+                "G. Szalai\nRank: 15/66\n33.31 Defensive line height (m)",
+                "G. Szalai\nRank: 19/66\n0.65 Opposition pass success % into defensive area",
+                "G. Szalai\nRank: 7/66\n0.38 Opposition xT into defensive area"
+            ],
+            [
+                "N. Baranyai\nRank: 63/66\n634.90 Defensive area (m^2)",
+                "N. Baranyai\nRank: 50/66\n28.13 Defensive line height (m)",
+                "N. Baranyai\nRank: 63/66\n0.77 Opposition pass success % into defensive area",
+                "N. Baranyai\nRank: 21/66\n0.48 Opposition xT into defensive area"
+            ],
+            [
+                "D. Kaczvinszki\nRank: 28/66\n918.59 Defensive area (m^2)",
+                "D. Kaczvinszki\nRank: 25/66\n31.69 Defensive line height (m)",
+                "D. Kaczvinszki\nRank: 58/66\n0.74 Opposition pass success % into defensive area",
+                "D. Kaczvinszki\nRank: 66/66\n1.01 Opposition xT into defensive area"
+            ],
+            [
+                "M. Szekszardi\nRank: 23/66\n965.23 Defensive area (m^2)",
+                "M. Szekszardi\nRank: 7/66\n34.74 Defensive line height (m)",
+                "M. Szekszardi\nRank: 17/66\n0.65 Opposition pass success % into defensive area",
+                "M. Szekszardi\nRank: 6/66\n0.37 Opposition xT into defensive area"
+            ],
+            [
+                "M. Krpić\nRank: 17/66\n993.49 Defensive area (m^2)",
+                "M. Krpić\nRank: 24/66\n31.94 Defensive line height (m)",
+                "M. Krpić\nRank: 2/66\n0.58 Opposition pass success % into defensive area",
+                "M. Krpić\nRank: 37/66\n0.54 Opposition xT into defensive area"
+            ],
+            [
+                "V. Vitalyos\nRank: 38/66\n853.67 Defensive area (m^2)",
+                "V. Vitalyos\nRank: 19/66\n32.90 Defensive line height (m)",
+                "V. Vitalyos\nRank: 51/66\n0.72 Opposition pass success % into defensive area",
+                "V. Vitalyos\nRank: 17/66\n0.46 Opposition xT into defensive area"
+            ],
+            [
+                "Á. Markgráf\nRank: 33/66\n889.70 Defensive area (m^2)",
+                "Á. Markgráf\nRank: 11/66\n33.78 Defensive line height (m)",
+                "Á. Markgráf\nRank: 49/66\n0.71 Opposition pass success % into defensive area",
+                "Á. Markgráf\nRank: 9/66\n0.40 Opposition xT into defensive area"
+            ],
+            [
+                "Diego Borges\nRank: 56/66\n701.29 Defensive area (m^2)",
+                "Diego Borges\nRank: 53/66\n27.35 Defensive line height (m)",
+                "Diego Borges\nRank: 23/66\n0.67 Opposition pass success % into defensive area",
+                "Diego Borges\nRank: 57/66\n0.78 Opposition xT into defensive area"
+            ],
+            [
+                "Akpe Victory\nRank: 29/66\n916.33 Defensive area (m^2)",
+                "Akpe Victory\nRank: 66/66\n24.56 Defensive line height (m)",
+                "Akpe Victory\nRank: 1/66\n0.57 Opposition pass success % into defensive area",
+                "Akpe Victory\nRank: 38/66\n0.55 Opposition xT into defensive area"
+            ]
+        ],
+        "serie_names": [
+            "Other Central Defenders",
+            "Márk Csinger"
+        ],
+        "minutes_played": 2653,
+        "axis_labels": [
+            "Defensive area (m^2) | 1173.98",
+            "Defensive line height (m) | 33.04",
+            "Opposition pass success % into defensive area | 0.64",
+            "Opposition xT into defensive area | 0.51"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            -0.044056075735378605,
+            -0.96196548392646,
+            -0.1172326157722423,
+            0.28056355631365404,
+            -0.6231618633191046,
+            0.442622310739991,
+            0.7744330578568855,
+            0.7278416798866012,
+            0.0071814826018961045,
+            0.7423349541230178,
+            -0.04094861269899843,
+            0.036329675427094484,
+            -1.70130935693474,
+            0.08858026165237583,
+            1.721447088495167,
+            0.06148243493915827,
+            -0.18161547793179236,
+            -0.5450610512095124,
+            -1.4190176496614069,
+            -0.1334513609563062,
+            0.4860111034265881,
+            -0.815215101339016,
+            -0.0010582347244591018,
+            0.6977432672814866,
+            1.8910061726993652,
+            0.034444048306526844,
+            0.8331854791088215,
+            0.6293136435965191,
+            0.10592608018415291,
+            0.6538450881903628,
+            -0.15941301105072683,
+            -1.871861474841477,
+            0.45413793468245744,
+            2.202002259031339,
+            -0.8957354163428184,
+            0.03744788260167726,
+            -1.0124343973116567,
+            -1.5044981737446368,
+            -2.2782360006154394,
+            0.40835752741240267,
+            -0.43685214526385785,
+            -1.1436693425141875,
+            0.7893679708490415,
+            0.4398362194633231,
+            -0.7426313414010279,
+            1.8984210224821774,
+            1.0057106490333212,
+            -2.058822100704067,
+            -1.657001607526947,
+            1.267505858663336,
+            1.3671718983286127,
+            -0.9723952153711978,
+            -0.4275666764996405,
+            0.7010419530431535,
+            -0.05691576093275809,
+            0.4501710740920815,
+            -0.28588287932716394,
+            1.4111469515924115,
+            -0.998369583270809,
+            -1.6290322189519195,
+            1.1984722529420566,
+            0.9792790906877175,
+            0.11999627704747245,
+            0.503816394883788,
+            -1.2410903905026907,
+            0.5083260187164058
+        ]
+    },
+    "player_info": {
+        "id": 620089,
+        "name": "M. Csinger",
+        "full_name": "Márk Csinger",
+        "synthesized_name": "Márk Csinger",
+        "birth_date": "2003-05-31",
+        "age": 23,
+        "foot": null,
+        "position": "CENTRAL_DEFENDER",
+        "detailed_position": "CENTRAL_DEFENDER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g-134594_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

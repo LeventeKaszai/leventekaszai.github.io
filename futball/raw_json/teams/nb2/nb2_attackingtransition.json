@@ -1,0 +1,439 @@
+{
+    "plot_type": "distribution",
+    "title": "Budafoki MTE's performance in attacking transition",
+    "subtitle": "Budafoki MTE | Hungarian NB II 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Békéscsaba",
+            "Honvéd",
+            "Vasas",
+            "Kecskeméti TE",
+            "BVSC",
+            "Duna Aszfalt Tiszakécskei",
+            "Soroksár SC",
+            "Ajka",
+            "Karcag SE",
+            "Fehérvár",
+            "Szentlőrinc SE",
+            "Mezőkövesd-Zsóry",
+            "Kozármisleny",
+            "Szeged 2011",
+            "Csákvári TK",
+            "Budafoki MTE"
+        ],
+        "target_identifiers": [
+            10192,
+            10194,
+            10196,
+            10207,
+            10212,
+            10220,
+            10226,
+            10235,
+            10249,
+            10260,
+            10261,
+            10273,
+            10274,
+            10427,
+            10437,
+            39600
+        ],
+        "kpis": [
+            {
+                "name": "Recoveries",
+                "description": "Number of ball recoveries of a team in open play per match.",
+                "display_name": "Recoveries"
+            },
+            {
+                "name": "Recovery line height (m)",
+                "description": "Average height on the pitch that a team recovered the ball per match.",
+                "display_name": "Recovery line height (m)"
+            },
+            {
+                "name": "Possessions retained after 5s",
+                "description": "Number of possessions by a team that lasted longer than 5 seconds after recovering the possession of the ball in open play per match.",
+                "display_name": "Possessions retained after 5s"
+            },
+            {
+                "name": "Possessions retained after 5s %",
+                "description": "Percentage of possessions by a team that lasted longer than 5 seconds after recovering the possession of the ball in open play per match.",
+                "display_name": "Possessions retained after 5s %"
+            },
+            {
+                "name": "Possessions to final third within 10s after recovery",
+                "description": "Number of possessions of a team that successfully reached the final third within 10 seconds after an open play ball recovery per match.",
+                "display_name": "Possessions to final third within 10s after recovery"
+            },
+            {
+                "name": "Possessions to box within 10s after recovery",
+                "description": "Number of possessions of a team that entered the penalty area following an open play ball recovery per match.",
+                "display_name": "Possessions to box within 10s after recovery"
+            },
+            {
+                "name": "xG within 10s after recovery",
+                "description": "Number of goals that a team should be expected to score statistically considering the quality of their chances within 10 seconds after an open play ball recovery per match.",
+                "display_name": "xG within 10s after recovery"
+            },
+            {
+                "name": "xT within 10s after recovery",
+                "description": "Expected offensive contribution by a team considering the quality of their actions within 10 seconds after an open play ball recovery per match.",
+                "display_name": "xT within 10s after recovery"
+            }
+        ],
+        "focal_target_indices": [
+            15
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.9383955264327701,
+                -0.6595597949435323,
+                -0.48233497375938883,
+                0.8434473138675808,
+                -1.9403843416358937,
+                -1.3803350830490377,
+                -1.8559537654847167,
+                -1.464390498147917
+            ],
+            [
+                0.7720419824331647,
+                1.8030377660719774,
+                0.34994459629602476,
+                -0.9944518798744822,
+                1.78709381761707,
+                2.668779513641431,
+                1.370611994352035,
+                1.4994617975657671
+            ],
+            [
+                2.696849314430275,
+                1.8237334541383305,
+                2.4767351844769454,
+                0.7662992135551914,
+                1.620534701101915,
+                1.5029455745878113,
+                2.4113575619116654,
+                2.4687225316480936
+            ],
+            [
+                0.27165864720987076,
+                1.7030726686294957,
+                0.6277467818324617,
+                1.147837898939412,
+                1.8287335967458596,
+                0.8545016389315238,
+                0.46613229297326975,
+                0.8695928267374232
+            ],
+            [
+                -1.2509217264620158,
+                -0.9911373959605786,
+                -1.212058767409869,
+                -0.6146517820365872,
+                -0.10249064215831448,
+                -0.1940710410498772,
+                -0.2250572026881376,
+                -0.6761784934962075
+            ],
+            [
+                1.528329123798054,
+                0.6088278975928092,
+                1.7512115027518802,
+                1.2377292122498358,
+                0.10365703283889154,
+                0.13780044689036422,
+                0.6800903896639637,
+                1.1281075973106924
+            ],
+            [
+                -0.7184453646474824,
+                -1.0861821458473866,
+                -0.5161445703764003,
+                0.35679434180773056,
+                0.10365703283889154,
+                -0.06697132226425269,
+                0.07762943319279907,
+                -0.39123359816378334
+            ],
+            [
+                -0.18759729059780847,
+                -0.7868828855964495,
+                -0.610924139559419,
+                -1.2964866925974945,
+                0.5212445321018883,
+                -0.026016968433329436,
+                -0.6473506860149318,
+                -0.68984083491017
+            ],
+            [
+                -0.9567794205521378,
+                -0.8396509473080764,
+                -1.212058767409869,
+                -1.0659681688640665,
+                -0.56196406702771,
+                0.4979163167829666,
+                0.45448303181043714,
+                -0.5491887816356541
+            ],
+            [
+                0.23357772367689666,
+                -0.14410085787058927,
+                0.03537447443858732,
+                -0.11064048740644308,
+                -1.1157936416470695,
+                -0.7324795720167582,
+                -0.13069818726919286,
+                -0.39123359816378334
+            ],
+            [
+                -0.36372861396069744,
+                -0.6468779374792629,
+                -0.06524559820941524,
+                0.35612848022765303,
+                -0.32265499157490013,
+                -0.514435558565083,
+                -0.905201472950711,
+                -0.6542837155892148
+            ],
+            [
+                -0.3566765910842171,
+                -0.9631190524049386,
+                0.38262720635913494,
+                1.9928162440573467,
+                -0.6993958503591807,
+                -0.681286629728104,
+                -0.8851820019153243,
+                -0.8901217519016709
+            ],
+            [
+                0.0050921824790444515,
+                -0.1954647985809014,
+                0.01494784314914394,
+                -0.11064048740644308,
+                -0.6399104516037667,
+                -0.7836725143054123,
+                0.39293610200013757,
+                -0.03747654369509989
+            ],
+            [
+                0.6433002528002041,
+                0.7856767178516155,
+                0.48551690470596415,
+                0.03917836811091503,
+                -0.13758930655805982,
+                -0.3020796498121465,
+                0.3209911279667173,
+                0.460403755186751
+            ],
+            [
+                -0.4328384381501691,
+                0.04294803201985129,
+                -0.8838239335863912,
+                -1.5668797630352285,
+                -0.015313764671933428,
+                0.2913792737563271,
+                -0.28272104544415977,
+                0.03055365908734054
+            ],
+            [
+                -0.9454662549402189,
+                -0.4543207203123503,
+                -1.1415137436993756,
+                -0.9805118115949596,
+                -0.4294236560076918,
+                -1.2719744253664222,
+                -1.2420675721038508,
+                -0.712894351832548
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Békéscsaba\nRank: 13/16\n31.55 Recoveries",
+                "Békéscsaba\nRank: 11/16\n36.29 Recovery line height (m)",
+                "Békéscsaba\nRank: 10/16\n24.34 Possessions retained after 5s",
+                "Békéscsaba\nRank: 4/16\n77% Possessions retained after 5s ",
+                "Békéscsaba\nRank: 16/16\n8.72 Possessions to final third within 10s after recovery",
+                "Békéscsaba\nRank: 16/16\n2.66 Possessions to box within 10s after recovery",
+                "Békéscsaba\nRank: 16/16\n0.05 xG within 10s after recovery",
+                "Békéscsaba\nRank: 16/16\n0.50 xT within 10s after recovery"
+            ],
+            [
+                "Honvéd\nRank: 3/16\n34.76 Recoveries",
+                "Honvéd\nRank: 2/16\n41.31 Recovery line height (m)",
+                "Honvéd\nRank: 6/16\n25.80 Possessions retained after 5s",
+                "Honvéd\nRank: 13/16\n73% Possessions retained after 5s ",
+                "Honvéd\nRank: 2/16\n13.20 Possessions to final third within 10s after recovery",
+                "Honvéd\nRank: 1/16\n5.48 Possessions to box within 10s after recovery",
+                "Honvéd\nRank: 2/16\n0.26 xG within 10s after recovery",
+                "Honvéd\nRank: 2/16\n0.73 xT within 10s after recovery"
+            ],
+            [
+                "Vasas\nRank: 1/16\n38.37 Recoveries",
+                "Vasas\nRank: 1/16\n41.35 Recovery line height (m)",
+                "Vasas\nRank: 1/16\n29.52 Possessions retained after 5s",
+                "Vasas\nRank: 5/16\n77% Possessions retained after 5s ",
+                "Vasas\nRank: 3/16\n13.00 Possessions to final third within 10s after recovery",
+                "Vasas\nRank: 2/16\n4.67 Possessions to box within 10s after recovery",
+                "Vasas\nRank: 1/16\n0.32 xG within 10s after recovery",
+                "Vasas\nRank: 1/16\n0.81 xT within 10s after recovery"
+            ],
+            [
+                "Kecskeméti TE\nRank: 5/16\n33.82 Recoveries",
+                "Kecskeméti TE\nRank: 3/16\n41.11 Recovery line height (m)",
+                "Kecskeméti TE\nRank: 3/16\n26.29 Possessions retained after 5s",
+                "Kecskeméti TE\nRank: 3/16\n78% Possessions retained after 5s ",
+                "Kecskeméti TE\nRank: 1/16\n13.25 Possessions to final third within 10s after recovery",
+                "Kecskeméti TE\nRank: 3/16\n4.21 Possessions to box within 10s after recovery",
+                "Kecskeméti TE\nRank: 4/16\n0.20 xG within 10s after recovery",
+                "Kecskeméti TE\nRank: 4/16\n0.68 xT within 10s after recovery"
+            ],
+            [
+                "BVSC\nRank: 16/16\n30.97 Recoveries",
+                "BVSC\nRank: 15/16\n35.62 Recovery line height (m)",
+                "BVSC\nRank: 15/16\n23.07 Possessions retained after 5s",
+                "BVSC\nRank: 11/16\n74% Possessions retained after 5s ",
+                "BVSC\nRank: 8/16\n10.93 Possessions to final third within 10s after recovery",
+                "BVSC\nRank: 9/16\n3.48 Possessions to box within 10s after recovery",
+                "BVSC\nRank: 10/16\n0.16 xG within 10s after recovery",
+                "BVSC\nRank: 12/16\n0.56 xT within 10s after recovery"
+            ],
+            [
+                "Duna Aszfalt Tiszakécskei\nRank: 2/16\n36.18 Recoveries",
+                "Duna Aszfalt Tiszakécskei\nRank: 5/16\n38.88 Recovery line height (m)",
+                "Duna Aszfalt Tiszakécskei\nRank: 2/16\n28.25 Possessions retained after 5s",
+                "Duna Aszfalt Tiszakécskei\nRank: 2/16\n78% Possessions retained after 5s ",
+                "Duna Aszfalt Tiszakécskei\nRank: 5/16\n11.18 Possessions to final third within 10s after recovery",
+                "Duna Aszfalt Tiszakécskei\nRank: 6/16\n3.71 Possessions to box within 10s after recovery",
+                "Duna Aszfalt Tiszakécskei\nRank: 3/16\n0.21 xG within 10s after recovery",
+                "Duna Aszfalt Tiszakécskei\nRank: 3/16\n0.70 xT within 10s after recovery"
+            ],
+            [
+                "Soroksár SC\nRank: 12/16\n31.96 Recoveries",
+                "Soroksár SC\nRank: 16/16\n35.42 Recovery line height (m)",
+                "Soroksár SC\nRank: 11/16\n24.29 Possessions retained after 5s",
+                "Soroksár SC\nRank: 6/16\n76% Possessions retained after 5s ",
+                "Soroksár SC\nRank: 5/16\n11.18 Possessions to final third within 10s after recovery",
+                "Soroksár SC\nRank: 8/16\n3.57 Possessions to box within 10s after recovery",
+                "Soroksár SC\nRank: 8/16\n0.18 xG within 10s after recovery",
+                "Soroksár SC\nRank: 8/16\n0.58 xT within 10s after recovery"
+            ],
+            [
+                "Ajka\nRank: 8/16\n32.96 Recoveries",
+                "Ajka\nRank: 12/16\n36.03 Recovery line height (m)",
+                "Ajka\nRank: 12/16\n24.12 Possessions retained after 5s",
+                "Ajka\nRank: 15/16\n73% Possessions retained after 5s ",
+                "Ajka\nRank: 4/16\n11.68 Possessions to final third within 10s after recovery",
+                "Ajka\nRank: 7/16\n3.60 Possessions to box within 10s after recovery",
+                "Ajka\nRank: 12/16\n0.13 xG within 10s after recovery",
+                "Ajka\nRank: 13/16\n0.56 xT within 10s after recovery"
+            ],
+            [
+                "Karcag SE\nRank: 15/16\n31.52 Recoveries",
+                "Karcag SE\nRank: 13/16\n35.93 Recovery line height (m)",
+                "Karcag SE\nRank: 15/16\n23.07 Possessions retained after 5s",
+                "Karcag SE\nRank: 14/16\n73% Possessions retained after 5s ",
+                "Karcag SE\nRank: 12/16\n10.38 Possessions to final third within 10s after recovery",
+                "Karcag SE\nRank: 4/16\n3.97 Possessions to box within 10s after recovery",
+                "Karcag SE\nRank: 5/16\n0.20 xG within 10s after recovery",
+                "Karcag SE\nRank: 10/16\n0.57 xT within 10s after recovery"
+            ],
+            [
+                "Fehérvár\nRank: 6/16\n33.75 Recoveries",
+                "Fehérvár\nRank: 7/16\n37.34 Recovery line height (m)",
+                "Fehérvár\nRank: 7/16\n25.25 Possessions retained after 5s",
+                "Fehérvár\nRank: 9/16\n75% Possessions retained after 5s ",
+                "Fehérvár\nRank: 15/16\n9.71 Possessions to final third within 10s after recovery",
+                "Fehérvár\nRank: 13/16\n3.11 Possessions to box within 10s after recovery",
+                "Fehérvár\nRank: 9/16\n0.16 xG within 10s after recovery",
+                "Fehérvár\nRank: 8/16\n0.58 xT within 10s after recovery"
+            ],
+            [
+                "Szentlőrinc SE\nRank: 10/16\n32.63 Recoveries",
+                "Szentlőrinc SE\nRank: 10/16\n36.32 Recovery line height (m)",
+                "Szentlőrinc SE\nRank: 9/16\n25.07 Possessions retained after 5s",
+                "Szentlőrinc SE\nRank: 7/16\n76% Possessions retained after 5s ",
+                "Szentlőrinc SE\nRank: 10/16\n10.67 Possessions to final third within 10s after recovery",
+                "Szentlőrinc SE\nRank: 11/16\n3.26 Possessions to box within 10s after recovery",
+                "Szentlőrinc SE\nRank: 14/16\n0.11 xG within 10s after recovery",
+                "Szentlőrinc SE\nRank: 11/16\n0.56 xT within 10s after recovery"
+            ],
+            [
+                "Mezőkövesd-Zsóry\nRank: 9/16\n32.64 Recoveries",
+                "Mezőkövesd-Zsóry\nRank: 14/16\n35.68 Recovery line height (m)",
+                "Mezőkövesd-Zsóry\nRank: 5/16\n25.86 Possessions retained after 5s",
+                "Mezőkövesd-Zsóry\nRank: 1/16\n79% Possessions retained after 5s ",
+                "Mezőkövesd-Zsóry\nRank: 14/16\n10.21 Possessions to final third within 10s after recovery",
+                "Mezőkövesd-Zsóry\nRank: 12/16\n3.14 Possessions to box within 10s after recovery",
+                "Mezőkövesd-Zsóry\nRank: 13/16\n0.12 xG within 10s after recovery",
+                "Mezőkövesd-Zsóry\nRank: 15/16\n0.54 xT within 10s after recovery"
+            ],
+            [
+                "Kozármisleny\nRank: 7/16\n33.32 Recoveries",
+                "Kozármisleny\nRank: 8/16\n37.24 Recovery line height (m)",
+                "Kozármisleny\nRank: 8/16\n25.21 Possessions retained after 5s",
+                "Kozármisleny\nRank: 9/16\n75% Possessions retained after 5s ",
+                "Kozármisleny\nRank: 13/16\n10.29 Possessions to final third within 10s after recovery",
+                "Kozármisleny\nRank: 14/16\n3.07 Possessions to box within 10s after recovery",
+                "Kozármisleny\nRank: 6/16\n0.20 xG within 10s after recovery",
+                "Kozármisleny\nRank: 7/16\n0.61 xT within 10s after recovery"
+            ],
+            [
+                "Szeged 2011\nRank: 4/16\n34.52 Recoveries",
+                "Szeged 2011\nRank: 4/16\n39.24 Recovery line height (m)",
+                "Szeged 2011\nRank: 4/16\n26.04 Possessions retained after 5s",
+                "Szeged 2011\nRank: 8/16\n75% Possessions retained after 5s ",
+                "Szeged 2011\nRank: 9/16\n10.89 Possessions to final third within 10s after recovery",
+                "Szeged 2011\nRank: 10/16\n3.41 Possessions to box within 10s after recovery",
+                "Szeged 2011\nRank: 7/16\n0.19 xG within 10s after recovery",
+                "Szeged 2011\nRank: 5/16\n0.65 xT within 10s after recovery"
+            ],
+            [
+                "Csákvári TK\nRank: 11/16\n32.50 Recoveries",
+                "Csákvári TK\nRank: 6/16\n37.73 Recovery line height (m)",
+                "Csákvári TK\nRank: 13/16\n23.64 Possessions retained after 5s",
+                "Csákvári TK\nRank: 16/16\n72% Possessions retained after 5s ",
+                "Csákvári TK\nRank: 7/16\n11.04 Possessions to final third within 10s after recovery",
+                "Csákvári TK\nRank: 5/16\n3.82 Possessions to box within 10s after recovery",
+                "Csákvári TK\nRank: 11/16\n0.15 xG within 10s after recovery",
+                "Csákvári TK\nRank: 6/16\n0.61 xT within 10s after recovery"
+            ],
+            [
+                "Budafoki MTE\nRank: 14/16\n31.54 Recoveries",
+                "Budafoki MTE\nRank: 9/16\n36.71 Recovery line height (m)",
+                "Budafoki MTE\nRank: 14/16\n23.19 Possessions retained after 5s",
+                "Budafoki MTE\nRank: 12/16\n73% Possessions retained after 5s ",
+                "Budafoki MTE\nRank: 11/16\n10.54 Possessions to final third within 10s after recovery",
+                "Budafoki MTE\nRank: 15/16\n2.73 Possessions to box within 10s after recovery",
+                "Budafoki MTE\nRank: 15/16\n0.09 xG within 10s after recovery",
+                "Budafoki MTE\nRank: 14/16\n0.56 xT within 10s after recovery"
+            ]
+        ],
+        "serie_names": [
+            "Other NB II teams",
+            "Budafoki MTE"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Recoveries | 31.54",
+            "Recovery line height (m) | 36.71",
+            "Possessions retained after 5s | 23.19",
+            "Possessions retained after 5s % | 73",
+            "Possessions to final third within 10s after recovery | 10.54",
+            "Possessions to box within 10s after recovery | 2.73",
+            "xG within 10s after recovery | 0.09",
+            "xT within 10s after recovery | 0.56"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

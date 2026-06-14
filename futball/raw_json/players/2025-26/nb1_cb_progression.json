@@ -1,0 +1,929 @@
+{
+    "plot_type": "distribution",
+    "title": "Progression of Márk Csinger",
+    "subtitle": "Hungarian NB I 2025/2026 | 2653 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Álex Vallejo",
+            "Tamás Kádár",
+            "Maximilian Hofmann",
+            "Bence Batik",
+            "Roland Szolnoki",
+            "Attila Fiola",
+            "Kristóf Papp",
+            "János Szabó",
+            "Ákos Kinyik",
+            "Bálint Vécsei",
+            "Ádám Lang",
+            "Wojciech Golla",
+            "Varazdat Haroyan",
+            "João Nunes",
+            "Deian Boldor",
+            "Csaba Szatmári",
+            "Bernardo Matić",
+            "Márk Tamás",
+            "Ákos Kecskés",
+            "Patrizio Stronati",
+            "Eneo Bitri",
+            "Kristóf Polgár",
+            "Aleksandar Jovičić",
+            "Stefan Gartenmann",
+            "Ibrahim Cissé",
+            "Martin Chlumecký",
+            "Bence Lenzsér",
+            "Davit Kobouri",
+            "Ilia Beriashvili",
+            "Bálint Oláh",
+            "Stefanos Evangelou",
+            "Zsombor Nagy",
+            "Josua Mejías",
+            "Bence Ötvös",
+            "János Szépe",
+            "Nikola Radmanovac",
+            "Daniel Csoka",
+            "László Rácz",
+            "Mykhaylo Meskhi",
+            "Meldin Drešković",
+            "André Duarte",
+            "Pavlos Correa",
+            "Branimir Cipetić",
+            "Attila Temesvári",
+            "Bence Bárdos",
+            "Mariano Gómez",
+            "Alexander Abrahamsson",
+            "Sodiq Rasheed",
+            "Kacper Radkowski",
+            "Márk Csinger",
+            "Toon Raemaekers",
+            "Bence Várkonyi",
+            "Georgiy Harutyunyan",
+            "Áron Alaxai",
+            "Gábor Vas",
+            "Levente Katona",
+            "Joseth Peraza",
+            "Gábor Szalai",
+            "Nimród Baranyai",
+            "Dominik Kaczvinszki",
+            "Milan Szekszardi",
+            "Miljan Krpić",
+            "Viktor Vitalyos",
+            "Ákos Markgráf",
+            "Diego Borges",
+            "Akpe Victory"
+        ],
+        "target_identifiers": [
+            5107,
+            7980,
+            66163,
+            74813,
+            74951,
+            75131,
+            75492,
+            75513,
+            76056,
+            76142,
+            76201,
+            99416,
+            109110,
+            135905,
+            137143,
+            209914,
+            231097,
+            238712,
+            239172,
+            252012,
+            253383,
+            257725,
+            263667,
+            281244,
+            300138,
+            302509,
+            334416,
+            340730,
+            341217,
+            341478,
+            347275,
+            367362,
+            381500,
+            404780,
+            409904,
+            434136,
+            444417,
+            444931,
+            448375,
+            452686,
+            500774,
+            506855,
+            517869,
+            525962,
+            531585,
+            543680,
+            585614,
+            587034,
+            595985,
+            620089,
+            634239,
+            634677,
+            639992,
+            656445,
+            656447,
+            678833,
+            709545,
+            757419,
+            782582,
+            790591,
+            804204,
+            841356,
+            869849,
+            884104,
+            887878,
+            1169422
+        ],
+        "kpis": [
+            {
+                "name": "Ball progression (xT)",
+                "description": "Action-based xT from successful progressive passes and progressive carries that end in the opponent's half adjusted by possession.",
+                "display_name": "Ball progression (xT)"
+            },
+            {
+                "name": "Passes into third (xT)",
+                "description": "Accumulated action-based xT from successful open play passes into the final third.",
+                "display_name": "Passes into third (xT)"
+            },
+            {
+                "name": "Playmaking passes",
+                "description": "Number of successful open play progressive passes, smart passes, through passes, and passes into the final third adjusted by possession.",
+                "display_name": "Playmaking passes"
+            }
+        ],
+        "focal_target_indices": [
+            49
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                1.366721272468567,
+                1.0608677864074707,
+                0.7451254725456238
+            ],
+            [
+                0.17646721005439758,
+                0.263060986995697,
+                0.9835578799247742
+            ],
+            [
+                -0.24106787145137787,
+                0.07086586207151413,
+                1.1514256000518799
+            ],
+            [
+                -0.6252683401107788,
+                0.20504127442836761,
+                -0.011662375181913376
+            ],
+            [
+                -0.9410275816917419,
+                0.5184983015060425,
+                -0.5603148341178894
+            ],
+            [
+                -0.3167898952960968,
+                -0.35811418294906616,
+                0.32951071858406067
+            ],
+            [
+                -0.5048412084579468,
+                -0.5540212392807007,
+                -0.5455682277679443
+            ],
+            [
+                2.4566028118133545,
+                1.5197510719299316,
+                1.1317635774612427
+            ],
+            [
+                0.4641520082950592,
+                1.8324365615844727,
+                0.9160123467445374
+            ],
+            [
+                1.6949518918991089,
+                1.5987859964370728,
+                1.4072054624557495
+            ],
+            [
+                -0.5210443735122681,
+                -0.023257965222001076,
+                0.19456328451633453
+            ],
+            [
+                -0.1523236185312271,
+                0.32726308703422546,
+                0.06533689796924591
+            ],
+            [
+                -1.0779861211776733,
+                -1.5202422142028809,
+                -1.1087013483047485
+            ],
+            [
+                -0.769963264465332,
+                -0.8958498239517212,
+                -0.7779574394226074
+            ],
+            [
+                2.212695837020874,
+                4,
+                2.2078683376312256
+            ],
+            [
+                -0.34959676861763,
+                0.06210925057530403,
+                -0.6570958495140076
+            ],
+            [
+                -1.107696533203125,
+                -1.0812879800796509,
+                -1.2169971466064453
+            ],
+            [
+                -0.4458308219909668,
+                -0.13807687163352966,
+                -1.1750484704971313
+            ],
+            [
+                -1.4188307523727417,
+                -1.7411144971847534,
+                -1.7349331378936768
+            ],
+            [
+                -0.7148460149765015,
+                -0.22794100642204285,
+                -0.4012908935546875
+            ],
+            [
+                -0.6396074891090393,
+                0.19010064005851746,
+                0.11607314646244049
+            ],
+            [
+                1.0647648572921753,
+                -0.0724809542298317,
+                0.22896592319011688
+            ],
+            [
+                -0.27036187052726746,
+                -1.1832892894744873,
+                -1.1755567789077759
+            ],
+            [
+                2.828697681427002,
+                1.1127570867538452,
+                2.0138156414031982
+            ],
+            [
+                -0.4712338149547577,
+                -0.6077911257743835,
+                -0.4557020962238312
+            ],
+            [
+                0.817683219909668,
+                0.18670965731143951,
+                1.0326038599014282
+            ],
+            [
+                1.9348626136779785,
+                0.48631173372268677,
+                0.9263535141944885
+            ],
+            [
+                -0.8806928396224976,
+                -0.9484533071517944,
+                0.13821882009506226
+            ],
+            [
+                -0.3173089623451233,
+                0.44492602348327637,
+                -0.18753032386302948
+            ],
+            [
+                1.646740198135376,
+                0.35470348596572876,
+                0.8559838533401489
+            ],
+            [
+                -0.575473427772522,
+                -0.15110287070274353,
+                -0.21423028409481049
+            ],
+            [
+                -0.5700585246086121,
+                -1.0789262056350708,
+                -0.5065561532974243
+            ],
+            [
+                -0.17905044555664062,
+                -0.25395387411117554,
+                -0.019108477979898453
+            ],
+            [
+                2.2220852375030518,
+                1.492323398590088,
+                1.4724534749984741
+            ],
+            [
+                -0.1377841979265213,
+                -1.1059030294418335,
+                -0.9451344013214111
+            ],
+            [
+                -0.7268719673156738,
+                -0.48465439677238464,
+                0.38978344202041626
+            ],
+            [
+                -1.212511420249939,
+                -1.7165685892105103,
+                -1.2856775522232056
+            ],
+            [
+                -0.6629229187965393,
+                -0.35452592372894287,
+                -0.9669395685195923
+            ],
+            [
+                -0.9531276226043701,
+                -0.9257454872131348,
+                -1.6255565881729126
+            ],
+            [
+                -0.4542991518974304,
+                -0.5435411930084229,
+                -0.8819690346717834
+            ],
+            [
+                0.5105114579200745,
+                2.2296345233917236,
+                2.584338426589966
+            ],
+            [
+                1.520768404006958,
+                0.7657819986343384,
+                0.12081816047430038
+            ],
+            [
+                1.6215399503707886,
+                0.1253374218940735,
+                0.10465041548013687
+            ],
+            [
+                -0.23657645285129547,
+                -0.00010834174463525414,
+                -0.41922467947006226
+            ],
+            [
+                -0.04610695689916611,
+                0.7365829944610596,
+                0.2585434913635254
+            ],
+            [
+                -0.31563490629196167,
+                -0.31339898705482483,
+                0.028703706339001656
+            ],
+            [
+                -0.7088624835014343,
+                -0.11032526940107346,
+                -0.8197982907295227
+            ],
+            [
+                -1.1429781913757324,
+                -0.9294844269752502,
+                -1.4671390056610107
+            ],
+            [
+                -1.2501312494277954,
+                -1.2033464908599854,
+                -2.0052263736724854
+            ],
+            [
+                -0.08690754324197769,
+                0.40084654092788696,
+                0.01538296788930893
+            ],
+            [
+                -0.5101122856140137,
+                -0.20966462790966034,
+                -0.027865096926689148
+            ],
+            [
+                -0.7707116603851318,
+                -0.03439217433333397,
+                -0.3518725335597992
+            ],
+            [
+                0.6427055597305298,
+                0.1632649302482605,
+                1.0481116771697998
+            ],
+            [
+                -0.45899495482444763,
+                -0.6755134463310242,
+                -0.9032235741615295
+            ],
+            [
+                -0.8369912505149841,
+                -0.07081539183855057,
+                -0.5475438237190247
+            ],
+            [
+                -0.05717884376645088,
+                0.15673696994781494,
+                0.2818261384963989
+            ],
+            [
+                -1.2407677173614502,
+                -1.507469892501831,
+                -1.4033831357955933
+            ],
+            [
+                0.2570800185203552,
+                0.9923267364501953,
+                1.567927598953247
+            ],
+            [
+                0.6672157049179077,
+                -0.5336238741874695,
+                -1.1214944124221802
+            ],
+            [
+                -0.397456556558609,
+                0.15907791256904602,
+                0.12605994939804077
+            ],
+            [
+                0.9592233896255493,
+                0.4348479211330414,
+                0.13783271610736847
+            ],
+            [
+                0.671495795249939,
+                0.2032943218946457,
+                1.5474992990493774
+            ],
+            [
+                0.18835541605949402,
+                0.6771456003189087,
+                1.4330337047576904
+            ],
+            [
+                0.14761491119861603,
+                -0.008241863921284676,
+                0.04224932938814163
+            ],
+            [
+                0.0447404608130455,
+                0.12515856325626373,
+                0.5839300155639648
+            ],
+            [
+                -0.8198460936546326,
+                -1.628473162651062,
+                -0.6672280430793762
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Álex Vallejo\nRank: 10/66\n0.16 Ball progression (xT) per 90",
+                "Álex Vallejo\nRank: 8/66\n0.15 Passes into third (xT) per 90",
+                "Álex Vallejo\nRank: 17/66\n7.32 Playmaking passes per 90"
+            ],
+            [
+                "T. Kádár\nRank: 21/66\n0.10 Ball progression (xT) per 90",
+                "T. Kádár\nRank: 20/66\n0.11 Passes into third (xT) per 90",
+                "T. Kádár\nRank: 13/66\n7.74 Playmaking passes per 90"
+            ],
+            [
+                "M. Hofmann\nRank: 31/66\n0.08 Ball progression (xT) per 90",
+                "M. Hofmann\nRank: 30/66\n0.10 Passes into third (xT) per 90",
+                "M. Hofmann\nRank: 9/66\n8.03 Playmaking passes per 90"
+            ],
+            [
+                "B. Batik\nRank: 47/66\n0.06 Ball progression (xT) per 90",
+                "B. Batik\nRank: 21/66\n0.11 Passes into third (xT) per 90",
+                "B. Batik\nRank: 35/66\n6.00 Playmaking passes per 90"
+            ],
+            [
+                "R. Szolnoki\nRank: 58/66\n0.05 Ball progression (xT) per 90",
+                "R. Szolnoki\nRank: 13/66\n0.12 Passes into third (xT) per 90",
+                "R. Szolnoki\nRank: 47/66\n5.04 Playmaking passes per 90"
+            ],
+            [
+                "A. Fiola\nRank: 34/66\n0.08 Ball progression (xT) per 90",
+                "A. Fiola\nRank: 46/66\n0.08 Passes into third (xT) per 90",
+                "A. Fiola\nRank: 20/66\n6.59 Playmaking passes per 90"
+            ],
+            [
+                "K. Papp\nRank: 42/66\n0.07 Ball progression (xT) per 90",
+                "K. Papp\nRank: 50/66\n0.07 Passes into third (xT) per 90",
+                "K. Papp\nRank: 45/66\n5.07 Playmaking passes per 90"
+            ],
+            [
+                "J. Szabó\nRank: 2/66\n0.22 Ball progression (xT) per 90",
+                "J. Szabó\nRank: 5/66\n0.17 Passes into third (xT) per 90",
+                "J. Szabó\nRank: 10/66\n7.99 Playmaking passes per 90"
+            ],
+            [
+                "Á. Kinyik\nRank: 18/66\n0.12 Ball progression (xT) per 90",
+                "Á. Kinyik\nRank: 3/66\n0.18 Passes into third (xT) per 90",
+                "Á. Kinyik\nRank: 15/66\n7.62 Playmaking passes per 90"
+            ],
+            [
+                "B. Vécsei\nRank: 6/66\n0.18 Ball progression (xT) per 90",
+                "B. Vécsei\nRank: 4/66\n0.17 Passes into third (xT) per 90",
+                "B. Vécsei\nRank: 8/66\n8.48 Playmaking passes per 90"
+            ],
+            [
+                "Á. Lang\nRank: 44/66\n0.07 Ball progression (xT) per 90",
+                "Á. Lang\nRank: 34/66\n0.10 Passes into third (xT) per 90",
+                "Á. Lang\nRank: 24/66\n6.36 Playmaking passes per 90"
+            ],
+            [
+                "W. Golla\nRank: 28/66\n0.09 Ball progression (xT) per 90",
+                "W. Golla\nRank: 19/66\n0.11 Passes into third (xT) per 90",
+                "W. Golla\nRank: 31/66\n6.13 Playmaking passes per 90"
+            ],
+            [
+                "V. Haroyan\nRank: 60/66\n0.04 Ball progression (xT) per 90",
+                "V. Haroyan\nRank: 63/66\n0.03 Passes into third (xT) per 90",
+                "V. Haroyan\nRank: 56/66\n4.09 Playmaking passes per 90"
+            ],
+            [
+                "João Nunes\nRank: 53/66\n0.06 Ball progression (xT) per 90",
+                "João Nunes\nRank: 53/66\n0.06 Passes into third (xT) per 90",
+                "João Nunes\nRank: 50/66\n4.66 Playmaking passes per 90"
+            ],
+            [
+                "D. Boldor\nRank: 4/66\n0.20 Ball progression (xT) per 90",
+                "D. Boldor\nRank: 1/66\n0.29 Passes into third (xT) per 90",
+                "D. Boldor\nRank: 2/66\n9.87 Playmaking passes per 90"
+            ],
+            [
+                "C. Szatmári\nRank: 36/66\n0.08 Ball progression (xT) per 90",
+                "C. Szatmári\nRank: 31/66\n0.10 Passes into third (xT) per 90",
+                "C. Szatmári\nRank: 48/66\n4.87 Playmaking passes per 90"
+            ],
+            [
+                "B. Matić\nRank: 61/66\n0.04 Ball progression (xT) per 90",
+                "B. Matić\nRank: 58/66\n0.05 Passes into third (xT) per 90",
+                "B. Matić\nRank: 60/66\n3.90 Playmaking passes per 90"
+            ],
+            [
+                "M. Tamás\nRank: 38/66\n0.07 Ball progression (xT) per 90",
+                "M. Tamás\nRank: 39/66\n0.09 Passes into third (xT) per 90",
+                "M. Tamás\nRank: 58/66\n3.97 Playmaking passes per 90"
+            ],
+            [
+                "A. Kecskés\nRank: 66/66\n0.03 Ball progression (xT) per 90",
+                "A. Kecskés\nRank: 66/66\n0.02 Passes into third (xT) per 90",
+                "A. Kecskés\nRank: 65/66\n2.99 Playmaking passes per 90"
+            ],
+            [
+                "P. Stronati\nRank: 51/66\n0.06 Ball progression (xT) per 90",
+                "P. Stronati\nRank: 42/66\n0.09 Passes into third (xT) per 90",
+                "P. Stronati\nRank: 41/66\n5.32 Playmaking passes per 90"
+            ],
+            [
+                "E. Bitri\nRank: 48/66\n0.06 Ball progression (xT) per 90",
+                "E. Bitri\nRank: 23/66\n0.11 Passes into third (xT) per 90",
+                "E. Bitri\nRank: 29/66\n6.22 Playmaking passes per 90"
+            ],
+            [
+                "K. Polgár\nRank: 11/66\n0.15 Ball progression (xT) per 90",
+                "K. Polgár\nRank: 37/66\n0.10 Passes into third (xT) per 90",
+                "K. Polgár\nRank: 23/66\n6.42 Playmaking passes per 90"
+            ],
+            [
+                "A. Jovičić\nRank: 32/66\n0.08 Ball progression (xT) per 90",
+                "A. Jovičić\nRank: 60/66\n0.05 Passes into third (xT) per 90",
+                "A. Jovičić\nRank: 59/66\n3.97 Playmaking passes per 90"
+            ],
+            [
+                "S. Gartenmann\nRank: 1/66\n0.23 Ball progression (xT) per 90",
+                "S. Gartenmann\nRank: 7/66\n0.15 Passes into third (xT) per 90",
+                "S. Gartenmann\nRank: 3/66\n9.53 Playmaking passes per 90"
+            ],
+            [
+                "I. Cissé\nRank: 41/66\n0.07 Ball progression (xT) per 90",
+                "I. Cissé\nRank: 51/66\n0.07 Passes into third (xT) per 90",
+                "I. Cissé\nRank: 43/66\n5.22 Playmaking passes per 90"
+            ],
+            [
+                "M. Chlumecký\nRank: 13/66\n0.14 Ball progression (xT) per 90",
+                "M. Chlumecký\nRank: 24/66\n0.11 Passes into third (xT) per 90",
+                "M. Chlumecký\nRank: 12/66\n7.82 Playmaking passes per 90"
+            ],
+            [
+                "B. Lenzsér\nRank: 5/66\n0.19 Ball progression (xT) per 90",
+                "B. Lenzsér\nRank: 14/66\n0.12 Passes into third (xT) per 90",
+                "B. Lenzsér\nRank: 14/66\n7.64 Playmaking passes per 90"
+            ],
+            [
+                "D. Kobouri\nRank: 57/66\n0.05 Ball progression (xT) per 90",
+                "D. Kobouri\nRank: 56/66\n0.06 Passes into third (xT) per 90",
+                "D. Kobouri\nRank: 25/66\n6.26 Playmaking passes per 90"
+            ],
+            [
+                "I. Beriashvili\nRank: 35/66\n0.08 Ball progression (xT) per 90",
+                "I. Beriashvili\nRank: 15/66\n0.12 Passes into third (xT) per 90",
+                "I. Beriashvili\nRank: 38/66\n5.69 Playmaking passes per 90"
+            ],
+            [
+                "B. Oláh\nRank: 7/66\n0.18 Ball progression (xT) per 90",
+                "B. Oláh\nRank: 18/66\n0.12 Passes into third (xT) per 90",
+                "B. Oláh\nRank: 16/66\n7.51 Playmaking passes per 90"
+            ],
+            [
+                "S. Evangelou\nRank: 46/66\n0.07 Ball progression (xT) per 90",
+                "S. Evangelou\nRank: 40/66\n0.09 Passes into third (xT) per 90",
+                "S. Evangelou\nRank: 39/66\n5.65 Playmaking passes per 90"
+            ],
+            [
+                "Z. Nagy\nRank: 45/66\n0.07 Ball progression (xT) per 90",
+                "Z. Nagy\nRank: 57/66\n0.05 Passes into third (xT) per 90",
+                "Z. Nagy\nRank: 44/66\n5.14 Playmaking passes per 90"
+            ],
+            [
+                "J. Mejías\nRank: 29/66\n0.09 Ball progression (xT) per 90",
+                "J. Mejías\nRank: 43/66\n0.09 Passes into third (xT) per 90",
+                "J. Mejías\nRank: 36/66\n5.99 Playmaking passes per 90"
+            ],
+            [
+                "B. Ötvös\nRank: 3/66\n0.20 Ball progression (xT) per 90",
+                "B. Ötvös\nRank: 6/66\n0.17 Passes into third (xT) per 90",
+                "B. Ötvös\nRank: 6/66\n8.59 Playmaking passes per 90"
+            ],
+            [
+                "J. Szépe\nRank: 27/66\n0.09 Ball progression (xT) per 90",
+                "J. Szépe\nRank: 59/66\n0.05 Passes into third (xT) per 90",
+                "J. Szépe\nRank: 54/66\n4.37 Playmaking passes per 90"
+            ],
+            [
+                "N. Radmanovac\nRank: 52/66\n0.06 Ball progression (xT) per 90",
+                "N. Radmanovac\nRank: 47/66\n0.08 Passes into third (xT) per 90",
+                "N. Radmanovac\nRank: 19/66\n6.70 Playmaking passes per 90"
+            ],
+            [
+                "Daniel Csoka\nRank: 63/66\n0.04 Ball progression (xT) per 90",
+                "Daniel Csoka\nRank: 65/66\n0.02 Passes into third (xT) per 90",
+                "Daniel Csoka\nRank: 61/66\n3.78 Playmaking passes per 90"
+            ],
+            [
+                "L. Rácz\nRank: 49/66\n0.06 Ball progression (xT) per 90",
+                "L. Rácz\nRank: 45/66\n0.08 Passes into third (xT) per 90",
+                "L. Rácz\nRank: 55/66\n4.33 Playmaking passes per 90"
+            ],
+            [
+                "M. Meskhi\nRank: 59/66\n0.05 Ball progression (xT) per 90",
+                "M. Meskhi\nRank: 54/66\n0.06 Passes into third (xT) per 90",
+                "M. Meskhi\nRank: 64/66\n3.18 Playmaking passes per 90"
+            ],
+            [
+                "M. Drešković\nRank: 39/66\n0.07 Ball progression (xT) per 90",
+                "M. Drešković\nRank: 49/66\n0.08 Passes into third (xT) per 90",
+                "M. Drešković\nRank: 52/66\n4.48 Playmaking passes per 90"
+            ],
+            [
+                "André Duarte\nRank: 17/66\n0.12 Ball progression (xT) per 90",
+                "André Duarte\nRank: 2/66\n0.20 Passes into third (xT) per 90",
+                "André Duarte\nRank: 1/66\n10.53 Playmaking passes per 90"
+            ],
+            [
+                "P. Correa\nRank: 9/66\n0.17 Ball progression (xT) per 90",
+                "P. Correa\nRank: 10/66\n0.13 Passes into third (xT) per 90",
+                "P. Correa\nRank: 28/66\n6.23 Playmaking passes per 90"
+            ],
+            [
+                "B. Cipetić\nRank: 8/66\n0.17 Ball progression (xT) per 90",
+                "B. Cipetić\nRank: 28/66\n0.11 Passes into third (xT) per 90",
+                "B. Cipetić\nRank: 30/66\n6.20 Playmaking passes per 90"
+            ],
+            [
+                "A. Temesvári\nRank: 30/66\n0.08 Ball progression (xT) per 90",
+                "A. Temesvári\nRank: 32/66\n0.10 Passes into third (xT) per 90",
+                "A. Temesvári\nRank: 42/66\n5.29 Playmaking passes per 90"
+            ],
+            [
+                "B. Bárdos\nRank: 24/66\n0.09 Ball progression (xT) per 90",
+                "B. Bárdos\nRank: 11/66\n0.13 Passes into third (xT) per 90",
+                "B. Bárdos\nRank: 22/66\n6.47 Playmaking passes per 90"
+            ],
+            [
+                "M. Gómez\nRank: 33/66\n0.08 Ball progression (xT) per 90",
+                "M. Gómez\nRank: 44/66\n0.09 Passes into third (xT) per 90",
+                "M. Gómez\nRank: 33/66\n6.07 Playmaking passes per 90"
+            ],
+            [
+                "A. Abrahamsson\nRank: 50/66\n0.06 Ball progression (xT) per 90",
+                "A. Abrahamsson\nRank: 38/66\n0.09 Passes into third (xT) per 90",
+                "A. Abrahamsson\nRank: 51/66\n4.59 Playmaking passes per 90"
+            ],
+            [
+                "S. Rasheed\nRank: 62/66\n0.04 Ball progression (xT) per 90",
+                "S. Rasheed\nRank: 55/66\n0.06 Passes into third (xT) per 90",
+                "S. Rasheed\nRank: 63/66\n3.46 Playmaking passes per 90"
+            ],
+            [
+                "K. Radkowski\nRank: 65/66\n0.03 Ball progression (xT) per 90",
+                "K. Radkowski\nRank: 61/66\n0.05 Passes into third (xT) per 90",
+                "K. Radkowski\nRank: 66/66\n2.52 Playmaking passes per 90"
+            ],
+            [
+                "M. Csinger\nRank: 26/66\n0.09 Ball progression (xT) per 90",
+                "M. Csinger\nRank: 17/66\n0.12 Passes into third (xT) per 90",
+                "M. Csinger\nRank: 34/66\n6.05 Playmaking passes per 90"
+            ],
+            [
+                "T. Raemaekers\nRank: 43/66\n0.07 Ball progression (xT) per 90",
+                "T. Raemaekers\nRank: 41/66\n0.09 Passes into third (xT) per 90",
+                "T. Raemaekers\nRank: 37/66\n5.97 Playmaking passes per 90"
+            ],
+            [
+                "B. Várkonyi\nRank: 54/66\n0.06 Ball progression (xT) per 90",
+                "B. Várkonyi\nRank: 35/66\n0.10 Passes into third (xT) per 90",
+                "B. Várkonyi\nRank: 40/66\n5.41 Playmaking passes per 90"
+            ],
+            [
+                "G. Harutyunyan\nRank: 16/66\n0.13 Ball progression (xT) per 90",
+                "G. Harutyunyan\nRank: 25/66\n0.11 Passes into third (xT) per 90",
+                "G. Harutyunyan\nRank: 11/66\n7.85 Playmaking passes per 90"
+            ],
+            [
+                "Á. Alaxai\nRank: 40/66\n0.07 Ball progression (xT) per 90",
+                "Á. Alaxai\nRank: 52/66\n0.07 Passes into third (xT) per 90",
+                "Á. Alaxai\nRank: 53/66\n4.44 Playmaking passes per 90"
+            ],
+            [
+                "G. Vas\nRank: 56/66\n0.05 Ball progression (xT) per 90",
+                "G. Vas\nRank: 36/66\n0.10 Passes into third (xT) per 90",
+                "G. Vas\nRank: 46/66\n5.06 Playmaking passes per 90"
+            ],
+            [
+                "L. Katona\nRank: 25/66\n0.09 Ball progression (xT) per 90",
+                "L. Katona\nRank: 27/66\n0.11 Passes into third (xT) per 90",
+                "L. Katona\nRank: 21/66\n6.51 Playmaking passes per 90"
+            ],
+            [
+                "J. Peraza\nRank: 64/66\n0.03 Ball progression (xT) per 90",
+                "J. Peraza\nRank: 62/66\n0.03 Passes into third (xT) per 90",
+                "J. Peraza\nRank: 62/66\n3.57 Playmaking passes per 90"
+            ],
+            [
+                "G. Szalai\nRank: 19/66\n0.11 Ball progression (xT) per 90",
+                "G. Szalai\nRank: 9/66\n0.14 Passes into third (xT) per 90",
+                "G. Szalai\nRank: 4/66\n8.76 Playmaking passes per 90"
+            ],
+            [
+                "N. Baranyai\nRank: 15/66\n0.13 Ball progression (xT) per 90",
+                "N. Baranyai\nRank: 48/66\n0.08 Passes into third (xT) per 90",
+                "N. Baranyai\nRank: 57/66\n4.06 Playmaking passes per 90"
+            ],
+            [
+                "D. Kaczvinszki\nRank: 37/66\n0.08 Ball progression (xT) per 90",
+                "D. Kaczvinszki\nRank: 26/66\n0.11 Passes into third (xT) per 90",
+                "D. Kaczvinszki\nRank: 27/66\n6.24 Playmaking passes per 90"
+            ],
+            [
+                "M. Szekszardi\nRank: 12/66\n0.14 Ball progression (xT) per 90",
+                "M. Szekszardi\nRank: 16/66\n0.12 Passes into third (xT) per 90",
+                "M. Szekszardi\nRank: 26/66\n6.26 Playmaking passes per 90"
+            ],
+            [
+                "M. Krpić\nRank: 14/66\n0.13 Ball progression (xT) per 90",
+                "M. Krpić\nRank: 22/66\n0.11 Passes into third (xT) per 90",
+                "M. Krpić\nRank: 5/66\n8.72 Playmaking passes per 90"
+            ],
+            [
+                "V. Vitalyos\nRank: 20/66\n0.10 Ball progression (xT) per 90",
+                "V. Vitalyos\nRank: 12/66\n0.13 Passes into third (xT) per 90",
+                "V. Vitalyos\nRank: 7/66\n8.52 Playmaking passes per 90"
+            ],
+            [
+                "Á. Markgráf\nRank: 22/66\n0.10 Ball progression (xT) per 90",
+                "Á. Markgráf\nRank: 33/66\n0.10 Passes into third (xT) per 90",
+                "Á. Markgráf\nRank: 32/66\n6.09 Playmaking passes per 90"
+            ],
+            [
+                "Diego Borges\nRank: 23/66\n0.10 Ball progression (xT) per 90",
+                "Diego Borges\nRank: 29/66\n0.11 Passes into third (xT) per 90",
+                "Diego Borges\nRank: 18/66\n7.04 Playmaking passes per 90"
+            ],
+            [
+                "Akpe Victory\nRank: 55/66\n0.05 Ball progression (xT) per 90",
+                "Akpe Victory\nRank: 64/66\n0.03 Passes into third (xT) per 90",
+                "Akpe Victory\nRank: 49/66\n4.86 Playmaking passes per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Central Defenders",
+            "Márk Csinger"
+        ],
+        "minutes_played": 2653,
+        "axis_labels": [
+            "Ball progression (xT) per 90 | 0.09",
+            "Passes into third (xT) per 90 | 0.12",
+            "Playmaking passes per 90 | 6.05"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            1.2838177402453814,
+            0.35145760609432947,
+            0.06668958527462138,
+            -0.30868153924170033,
+            -0.48459922375074715,
+            -0.25230596454311344,
+            -0.571120980154884,
+            2.14760331771421,
+            1.0238338476297886,
+            1.7631495032523041,
+            -0.287206544187693,
+            0.026292311119723372,
+            -1.320260042296201,
+            -0.8788134115501621,
+            3.0817758763957706,
+            -0.2957265994098978,
+            -1.2125973029971349,
+            -0.502877097966754,
+            -1.6979562309045597,
+            -0.5668155793012408,
+            -0.30130319167878006,
+            0.6499029304111207,
+            -0.7387676550190191,
+            2.381027486443688,
+            -0.5539201109773089,
+            0.717702464043029,
+            1.4655658574333807,
+            -0.8128214669423669,
+            -0.07514753858936078,
+            1.2390473843358094,
+            -0.4280121893383333,
+            -0.7748077817645561,
+            -0.19286737336647392,
+            2.054054649391633,
+            -0.5967795069745438,
+            -0.5287561551218581,
+            -1.4934670849049558,
+            -0.6692244170596438,
+            -1.1361242760541006,
+            -0.5923251564973026,
+            1.4528566313822189,
+            1.1779532657963538,
+            1.026798977480344,
+            -0.20970979213585866,
+            0.25464773554677195,
+            -0.2860615262827033,
+            -0.5931067545088579,
+            -1.2249660135621117,
+            -1.4659342133332038,
+            0.08122115536263153,
+            -0.3776743395043112,
+            -0.529062040563204,
+            0.6080366514296671,
+            -0.6416066740135724,
+            -0.6124224689135392,
+            0.0628441680375298,
+            -1.461382873476346,
+            0.7325338071976704,
+            0.04199702572927751,
+            -0.16509762612829776,
+            0.7373367220857023,
+            0.71966517455821,
+            0.566764532665916,
+            0.09240098112045318,
+            0.1626810848124566,
+            -1.1293497299752961
+        ]
+    },
+    "player_info": {
+        "id": 620089,
+        "name": "M. Csinger",
+        "full_name": "Márk Csinger",
+        "synthesized_name": "Márk Csinger",
+        "birth_date": "2003-05-31",
+        "age": 23,
+        "foot": null,
+        "position": "CENTRAL_DEFENDER",
+        "detailed_position": "CENTRAL_DEFENDER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g-134594_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

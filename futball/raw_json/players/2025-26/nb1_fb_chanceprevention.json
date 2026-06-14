@@ -1,0 +1,1187 @@
+{
+    "plot_type": "distribution",
+    "title": "Chance Prevention of Gergo Bodnár",
+    "subtitle": "Hungarian NB I 2025/2026 | 1983 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "János Ferenczi",
+            "Barnabás Bese",
+            "Attila Fiola",
+            "Márk Szécsi",
+            "Artem Favorov",
+            "Nemanja Antonov",
+            "Attila Osváth",
+            "Elton-Ofoi Acolatse",
+            "Dániel Gera",
+            "Sinan Medgyes",
+            "Damian Rasak",
+            "Brandon Ormonde-Ottewill",
+            "Zsolt Nagy",
+            "Bence Sós",
+            "Callum O'Dowda",
+            "Kristóf Polgár",
+            "Aleksandar Jovičić",
+            "Julien Dacosta",
+            "Ibrahim Cissé",
+            "Martin Chlumecký",
+            "Krisztián Nagy",
+            "Bálint Oláh",
+            "Erik Silye",
+            "Bence Gergényi",
+            "Bence Bíró",
+            "Cadu",
+            "Zsombor Nagy",
+            "Čebrail Makreckis",
+            "Zsombor Bévárdi",
+            "Lirim Kastrati",
+            "László Deutsch",
+            "János Szépe",
+            "Quentin Maceiras",
+            "Kristóf Hinora",
+            "Ştefan Vlădoiu",
+            "Vilius Armalas",
+            "Meldin Drešković",
+            "Adriàn Guerrero",
+            "Szilárd Bokros",
+            "András Csonka",
+            "Szabolcs Schön",
+            "Vane Jovanov",
+            "Barnabás Nagy",
+            "Márió Zeke",
+            "Branimir Cipetić",
+            "Erik Kusnyír",
+            "Bence Bárdos",
+            "Dominik Soltész",
+            "Milán Májer",
+            "Benedek Varju",
+            "Daniel Štefulj",
+            "José Calderón",
+            "David López",
+            "Ronald Schuszter",
+            "Vince Nyíri",
+            "Tiago Gonçalves",
+            "Barna Benczenleitner",
+            "Bendegúz Farkas",
+            "Georgiy Harutyunyan",
+            "Levente Katona",
+            "Gábor Szalai",
+            "Gergo Bodnár",
+            "Csongor Papp",
+            "Patrik Kovács",
+            "Nimród Baranyai",
+            "Milan Szekszardi",
+            "Tóth Rajmund",
+            "Botond Vajda",
+            "Milán Demeter",
+            "Bence Szakos",
+            "Szilárd Szabó",
+            "Barnabás Bíró",
+            "Viktor Vitalyos",
+            "Ákos Markgráf"
+        ],
+        "target_identifiers": [
+            74982,
+            75014,
+            75131,
+            76070,
+            138482,
+            140066,
+            145240,
+            149221,
+            209868,
+            209948,
+            225653,
+            230017,
+            238711,
+            238714,
+            249034,
+            257725,
+            263667,
+            279783,
+            300138,
+            302509,
+            338600,
+            341478,
+            352138,
+            352217,
+            352229,
+            356092,
+            367362,
+            392012,
+            400719,
+            404692,
+            404801,
+            409904,
+            436655,
+            438691,
+            443879,
+            449950,
+            452686,
+            472523,
+            475968,
+            476384,
+            476385,
+            477926,
+            492158,
+            515452,
+            517869,
+            529829,
+            531585,
+            536303,
+            536309,
+            542918,
+            563608,
+            563889,
+            574040,
+            586951,
+            586962,
+            604950,
+            620085,
+            631580,
+            639992,
+            678833,
+            757419,
+            768053,
+            768056,
+            778690,
+            782582,
+            804204,
+            824430,
+            830435,
+            850298,
+            869740,
+            869751,
+            869834,
+            869849,
+            884104
+        ],
+        "kpis": [
+            {
+                "name": "Opposition progressive passes from defensive area %",
+                "description": "Percentage of the opponent's passes originating from within the the player's defensive area that are successful, progressive and have an end location in the attacking half.",
+                "display_name": "Opposition progressive passes from defensive area %"
+            },
+            {
+                "name": "Opposition xG after defensive action",
+                "description": "Accumulated non-penalty xG from the opponent's shots where the player had the last defensive action before the shot, and the shot occurred within 8 seconds of the action, measured per 100 opponent possessions that entered the player's defensive area.   ",
+                "display_name": "Opposition xG after defensive action"
+            },
+            {
+                "name": "Opposition xG from defensive area",
+                "description": "Accumulated non-penalty xG from the opponent's shots that were a part of possessions that had a successful pass originating from within the player's defensive area within 6 seconds before the shot, measured per 100 opponent possessions that entered the player's defensive area. ",
+                "display_name": "Opposition xG from defensive area"
+            },
+            {
+                "name": "Opposition xT from defensive area",
+                "description": "Accumulated action-based xT per 100 successful opponent passes originating from within the player's defensive area.",
+                "display_name": "Opposition xT from defensive area"
+            }
+        ],
+        "focal_target_indices": [
+            61
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -1.1674883365631104,
+                1.2527614831924438,
+                -1.0543969869613647,
+                -2.5197808742523193
+            ],
+            [
+                -1.1785730123519897,
+                -1.7691410779953003,
+                0.13113608956336975,
+                -0.7416368126869202
+            ],
+            [
+                -0.48534315824508667,
+                0.4796675741672516,
+                -0.6452198028564453,
+                -0.5915218591690063
+            ],
+            [
+                -0.8072090744972229,
+                -0.06215646490454674,
+                -1.7857604026794434,
+                0.610458254814148
+            ],
+            [
+                -0.3155752420425415,
+                -0.54976886510849,
+                -0.014720339328050613,
+                0.28079426288604736
+            ],
+            [
+                0.17499439418315887,
+                1.2428933382034302,
+                -0.20863239467144012,
+                0.2607477903366089
+            ],
+            [
+                0.6596462726593018,
+                0.5364151000976562,
+                0.6150791049003601,
+                1.2860039472579956
+            ],
+            [
+                2.134627342224121,
+                1.4174166917800903,
+                2.1948435306549072,
+                2.973689079284668
+            ],
+            [
+                1.658373475074768,
+                0.7786574959754944,
+                -0.9747847318649292,
+                -0.44280052185058594
+            ],
+            [
+                -1.372676968574524,
+                -0.6655872464179993,
+                0.026170117780566216,
+                0.25344058871269226
+            ],
+            [
+                -0.4767330288887024,
+                -0.16276715695858002,
+                -1.2663782835006714,
+                -1.1144105195999146
+            ],
+            [
+                -0.6868183612823486,
+                1.318071722984314,
+                0.030497916042804718,
+                0.4155533015727997
+            ],
+            [
+                1.1118861436843872,
+                -1.632469892501831,
+                1.2396494150161743,
+                1.1480556726455688
+            ],
+            [
+                -0.42523878812789917,
+                0.20365096628665924,
+                -0.6339644193649292,
+                0.21596993505954742
+            ],
+            [
+                0.17007887363433838,
+                1.4174166917800903,
+                1.7305748462677002,
+                1.0946422815322876
+            ],
+            [
+                0.44640010595321655,
+                -1.5885869264602661,
+                -0.5076961517333984,
+                -0.7987177968025208
+            ],
+            [
+                1.031723141670227,
+                -0.21696887910366058,
+                -0.8810422420501709,
+                -0.36414963006973267
+            ],
+            [
+                -0.7805095314979553,
+                -0.496267706155777,
+                -1.302343487739563,
+                0.0034913853742182255
+            ],
+            [
+                0.41409215331077576,
+                0.8994187116622925,
+                0.7082114219665527,
+                0.3355560302734375
+            ],
+            [
+                0.689748227596283,
+                -0.43933984637260437,
+                0.1730826050043106,
+                -0.11416768282651901
+            ],
+            [
+                0.9659115672111511,
+                -1.324477195739746,
+                0.9023663997650146,
+                1.056575894355774
+            ],
+            [
+                0.964799165725708,
+                -0.12970933318138123,
+                -0.3175465166568756,
+                -0.7333954572677612
+            ],
+            [
+                0.5191323757171631,
+                1.137492060661316,
+                1.2212196588516235,
+                1.2821372747421265
+            ],
+            [
+                1.020676851272583,
+                0.317840576171875,
+                0.4549451470375061,
+                0.7421454191207886
+            ],
+            [
+                -0.49206069111824036,
+                1.4174166917800903,
+                0.7794428467750549,
+                -0.5183653831481934
+            ],
+            [
+                0.6689721345901489,
+                0.8904006481170654,
+                1.1348918676376343,
+                1.171175241470337
+            ],
+            [
+                0.460154265165329,
+                -0.3662910759449005,
+                -2.269716501235962,
+                -2.631192922592163
+            ],
+            [
+                -2.472316026687622,
+                1.2375394105911255,
+                0.7617703080177307,
+                0.9653456211090088
+            ],
+            [
+                -0.8144856691360474,
+                -0.1443825513124466,
+                -0.14793920516967773,
+                0.8222519159317017
+            ],
+            [
+                0.22205054759979248,
+                1.03492271900177,
+                1.1587133407592773,
+                1.4148064851760864
+            ],
+            [
+                1.1299846172332764,
+                -2.858055353164673,
+                -0.04334208369255066,
+                -0.3897915184497833
+            ],
+            [
+                1.0361485481262207,
+                -2.6575088500976562,
+                -2.784351110458374,
+                -2.221858024597168
+            ],
+            [
+                -0.6159337759017944,
+                0.8513016700744629,
+                0.29558950662612915,
+                0.5042908191680908
+            ],
+            [
+                -0.2126259207725525,
+                0.5618804693222046,
+                0.968268632888794,
+                1.1821547746658325
+            ],
+            [
+                -0.14040210843086243,
+                0.8141897320747375,
+                1.3421560525894165,
+                0.8430570363998413
+            ],
+            [
+                -0.14001117646694183,
+                0.8158803582191467,
+                0.37161242961883545,
+                -0.29503536224365234
+            ],
+            [
+                -0.18332131206989288,
+                -0.18290817737579346,
+                -0.35171765089035034,
+                -1.5768015384674072
+            ],
+            [
+                -1.2940155267715454,
+                0.7460626363754272,
+                -0.7889044880867004,
+                -0.6118123531341553
+            ],
+            [
+                -0.17393995821475983,
+                -0.6382654309272766,
+                0.3862806558609009,
+                -0.7205926775932312
+            ],
+            [
+                0.22600221633911133,
+                -0.00699023948982358,
+                -0.42831167578697205,
+                0.5887044072151184
+            ],
+            [
+                -1.0819789171218872,
+                1.4174166917800903,
+                2.152170419692993,
+                -1.3431966304779053
+            ],
+            [
+                -1.5771065950393677,
+                -0.21073371171951294,
+                0.13984686136245728,
+                0.41497915983200073
+            ],
+            [
+                1.7606526613235474,
+                0.8020452857017517,
+                0.8756893873214722,
+                1.0317492485046387
+            ],
+            [
+                -0.6463385224342346,
+                0.5570378303527832,
+                -0.002379314973950386,
+                0.2785683870315552
+            ],
+            [
+                -0.2126259207725525,
+                -0.0364871509373188,
+                -0.7649469375610352,
+                -0.543032169342041
+            ],
+            [
+                -1.9703434705734253,
+                0.3244112730026245,
+                -0.5515209436416626,
+                -0.14683851599693298
+            ],
+            [
+                2.204716205596924,
+                -0.6380805969238281,
+                -0.3314460515975952,
+                -1.538874626159668
+            ],
+            [
+                1.0679272413253784,
+                -0.25459739565849304,
+                1.1697288751602173,
+                0.6288033723831177
+            ],
+            [
+                0.1471065729856491,
+                0.4623635411262512,
+                0.3821251690387726,
+                0.872978150844574
+            ],
+            [
+                -0.8623603582382202,
+                -1.0182968378067017,
+                -1.5370187759399414,
+                -0.4433217942714691
+            ],
+            [
+                0.41183966398239136,
+                0.6778980493545532,
+                0.30132025480270386,
+                0.45456796884536743
+            ],
+            [
+                -0.30515819787979126,
+                0.40651315450668335,
+                -1.838059425354004,
+                -1.642269253730774
+            ],
+            [
+                -1.1721941232681274,
+                0.4495731592178345,
+                -0.4266310930252075,
+                0.3196711540222168
+            ],
+            [
+                3.1488728523254395,
+                1.4174166917800903,
+                1.7682374715805054,
+                1.822396159172058
+            ],
+            [
+                -0.5998479723930359,
+                -1.8334342241287231,
+                -0.18812601268291473,
+                -0.18502728641033173
+            ],
+            [
+                -0.797004222869873,
+                0.581935703754425,
+                -0.6834564805030823,
+                -0.982135534286499
+            ],
+            [
+                0.10195444524288177,
+                -0.42157459259033203,
+                0.32158881425857544,
+                0.7307059168815613
+            ],
+            [
+                -0.3092200756072998,
+                -0.04765673354268074,
+                0.6875712275505066,
+                -0.2465064525604248
+            ],
+            [
+                0.6893279552459717,
+                -0.7726306915283203,
+                -0.7959520220756531,
+                -1.3240798711776733
+            ],
+            [
+                0.3024894893169403,
+                0.20570264756679535,
+                -0.5132793188095093,
+                -0.759981632232666
+            ],
+            [
+                1.2941930294036865,
+                -0.2496946007013321,
+                0.6160916090011597,
+                -0.4004709720611572
+            ],
+            [
+                0.5358409285545349,
+                -0.2390742152929306,
+                0.4652400314807892,
+                0.39888328313827515
+            ],
+            [
+                -1.069452166557312,
+                -2.568594455718994,
+                -1.0770570039749146,
+                -1.1757973432540894
+            ],
+            [
+                -1.0244477987289429,
+                -0.256203830242157,
+                0.10232533514499664,
+                0.06489905714988708
+            ],
+            [
+                0.628143846988678,
+                -0.6967750191688538,
+                -1.8806179761886597,
+                -0.1694420427083969
+            ],
+            [
+                0.060166385024785995,
+                -1.9817180633544922,
+                0.7444782853126526,
+                0.547760546207428
+            ],
+            [
+                -1.1451584100723267,
+                -0.45854753255844116,
+                0.08603569120168686,
+                1.0146534442901611
+            ],
+            [
+                -0.052697207778692245,
+                0.23661313951015472,
+                -0.3342418670654297,
+                0.17495626211166382
+            ],
+            [
+                -0.34248778223991394,
+                -0.10379574447870255,
+                -1.3951621055603027,
+                -0.8964840173721313
+            ],
+            [
+                0.18987317383289337,
+                0.10244572162628174,
+                -0.11704239249229431,
+                -0.07278241962194443
+            ],
+            [
+                0.18521390855312347,
+                0.7055400013923645,
+                1.4098992347717285,
+                0.4562673568725586
+            ],
+            [
+                0.3089858293533325,
+                0.738232433795929,
+                0.9288744926452637,
+                0.8203621506690979
+            ],
+            [
+                -1.7412277460098267,
+                -1.173737645149231,
+                -0.10003077983856201,
+                -1.0422037839889526
+            ],
+            [
+                0.4021685719490051,
+                0.39682725071907043,
+                0.1660132259130478,
+                -0.1847812980413437
+            ]
+        ],
+        "hover_strings": [
+            [
+                "J. Ferenczi\nRank: 66/74\n0.16 Opposition progressive passes from defensive area %",
+                "J. Ferenczi\nRank: 7/74\n0.03 Opposition xG after defensive action",
+                "J. Ferenczi\nRank: 64/74\n0.82 Opposition xG from defensive area",
+                "J. Ferenczi\nRank: 73/74\n0.78 Opposition xT from defensive area"
+            ],
+            [
+                "B. Bese\nRank: 68/74\n0.16 Opposition progressive passes from defensive area %",
+                "B. Bese\nRank: 69/74\n0.62 Opposition xG after defensive action",
+                "B. Bese\nRank: 34/74\n0.52 Opposition xG from defensive area",
+                "B. Bese\nRank: 59/74\n0.57 Opposition xT from defensive area"
+            ],
+            [
+                "A. Fiola\nRank: 51/74\n0.15 Opposition progressive passes from defensive area %",
+                "A. Fiola\nRank: 27/74\n0.18 Opposition xG after defensive action",
+                "A. Fiola\nRank: 57/74\n0.72 Opposition xG from defensive area",
+                "A. Fiola\nRank: 55/74\n0.55 Opposition xT from defensive area"
+            ],
+            [
+                "M. Szécsi\nRank: 59/74\n0.15 Opposition progressive passes from defensive area %",
+                "M. Szécsi\nRank: 41/74\n0.29 Opposition xG after defensive action",
+                "M. Szécsi\nRank: 70/74\n1.01 Opposition xG from defensive area",
+                "M. Szécsi\nRank: 21/74\n0.40 Opposition xT from defensive area"
+            ],
+            [
+                "A. Favorov\nRank: 47/74\n0.14 Opposition progressive passes from defensive area %",
+                "A. Favorov\nRank: 58/74\n0.38 Opposition xG after defensive action",
+                "A. Favorov\nRank: 40/74\n0.56 Opposition xG from defensive area",
+                "A. Favorov\nRank: 32/74\n0.44 Opposition xT from defensive area"
+            ],
+            [
+                "N. Antonov\nRank: 33/74\n0.14 Opposition progressive passes from defensive area %",
+                "N. Antonov\nRank: 8/74\n0.03 Opposition xG after defensive action",
+                "N. Antonov\nRank: 46/74\n0.61 Opposition xG from defensive area",
+                "N. Antonov\nRank: 34/74\n0.45 Opposition xT from defensive area"
+            ],
+            [
+                "A. Osváth\nRank: 18/74\n0.13 Opposition progressive passes from defensive area %",
+                "A. Osváth\nRank: 26/74\n0.17 Opposition xG after defensive action",
+                "A. Osváth\nRank: 22/74\n0.40 Opposition xG from defensive area",
+                "A. Osváth\nRank: 4/74\n0.32 Opposition xT from defensive area"
+            ],
+            [
+                "E. Acolatse\nRank: 3/74\n0.10 Opposition progressive passes from defensive area %",
+                "E. Acolatse\nRank: 1/74\n0.00 Opposition xG after defensive action",
+                "E. Acolatse\nRank: 1/74\n0.00 Opposition xG from defensive area",
+                "E. Acolatse\nRank: 1/74\n0.12 Opposition xT from defensive area"
+            ],
+            [
+                "D. Gera\nRank: 5/74\n0.11 Opposition progressive passes from defensive area %",
+                "D. Gera\nRank: 18/74\n0.12 Opposition xG after defensive action",
+                "D. Gera\nRank: 63/74\n0.80 Opposition xG from defensive area",
+                "D. Gera\nRank: 51/74\n0.53 Opposition xT from defensive area"
+            ],
+            [
+                "S. Medgyes\nRank: 70/74\n0.16 Opposition progressive passes from defensive area %",
+                "S. Medgyes\nRank: 61/74\n0.40 Opposition xG after defensive action",
+                "S. Medgyes\nRank: 38/74\n0.55 Opposition xG from defensive area",
+                "S. Medgyes\nRank: 35/74\n0.45 Opposition xT from defensive area"
+            ],
+            [
+                "D. Rasak\nRank: 50/74\n0.15 Opposition progressive passes from defensive area %",
+                "D. Rasak\nRank: 45/74\n0.31 Opposition xG after defensive action",
+                "D. Rasak\nRank: 66/74\n0.88 Opposition xG from defensive area",
+                "D. Rasak\nRank: 65/74\n0.61 Opposition xT from defensive area"
+            ],
+            [
+                "B. Ormonde-Ottewill\nRank: 56/74\n0.15 Opposition progressive passes from defensive area %",
+                "B. Ormonde-Ottewill\nRank: 6/74\n0.02 Opposition xG after defensive action",
+                "B. Ormonde-Ottewill\nRank: 37/74\n0.55 Opposition xG from defensive area",
+                "B. Ormonde-Ottewill\nRank: 27/74\n0.43 Opposition xT from defensive area"
+            ],
+            [
+                "Z. Nagy\nRank: 8/74\n0.12 Opposition progressive passes from defensive area %",
+                "Z. Nagy\nRank: 68/74\n0.59 Opposition xG after defensive action",
+                "Z. Nagy\nRank: 7/74\n0.24 Opposition xG from defensive area",
+                "Z. Nagy\nRank: 8/74\n0.34 Opposition xT from defensive area"
+            ],
+            [
+                "B. Sós\nRank: 49/74\n0.15 Opposition progressive passes from defensive area %",
+                "B. Sós\nRank: 36/74\n0.24 Opposition xG after defensive action",
+                "B. Sós\nRank: 56/74\n0.72 Opposition xG from defensive area",
+                "B. Sós\nRank: 36/74\n0.45 Opposition xT from defensive area"
+            ],
+            [
+                "C. O'Dowda\nRank: 34/74\n0.14 Opposition progressive passes from defensive area %",
+                "C. O'Dowda\nRank: 1/74\n0.00 Opposition xG after defensive action",
+                "C. O'Dowda\nRank: 4/74\n0.12 Opposition xG from defensive area",
+                "C. O'Dowda\nRank: 9/74\n0.35 Opposition xT from defensive area"
+            ],
+            [
+                "K. Polgár\nRank: 23/74\n0.13 Opposition progressive passes from defensive area %",
+                "K. Polgár\nRank: 67/74\n0.58 Opposition xG after defensive action",
+                "K. Polgár\nRank: 53/74\n0.69 Opposition xG from defensive area",
+                "K. Polgár\nRank: 61/74\n0.57 Opposition xT from defensive area"
+            ],
+            [
+                "A. Jovičić\nRank: 11/74\n0.12 Opposition progressive passes from defensive area %",
+                "A. Jovičić\nRank: 48/74\n0.32 Opposition xG after defensive action",
+                "A. Jovičić\nRank: 62/74\n0.78 Opposition xG from defensive area",
+                "A. Jovičić\nRank: 48/74\n0.52 Opposition xT from defensive area"
+            ],
+            [
+                "J. Dacosta\nRank: 57/74\n0.15 Opposition progressive passes from defensive area %",
+                "J. Dacosta\nRank: 57/74\n0.37 Opposition xG after defensive action",
+                "J. Dacosta\nRank: 67/74\n0.89 Opposition xG from defensive area",
+                "J. Dacosta\nRank: 39/74\n0.48 Opposition xT from defensive area"
+            ],
+            [
+                "I. Cissé\nRank: 24/74\n0.13 Opposition progressive passes from defensive area %",
+                "I. Cissé\nRank: 12/74\n0.10 Opposition xG after defensive action",
+                "I. Cissé\nRank: 19/74\n0.38 Opposition xG from defensive area",
+                "I. Cissé\nRank: 30/74\n0.44 Opposition xT from defensive area"
+            ],
+            [
+                "M. Chlumecký\nRank: 15/74\n0.13 Opposition progressive passes from defensive area %",
+                "M. Chlumecký\nRank: 55/74\n0.36 Opposition xG after defensive action",
+                "M. Chlumecký\nRank: 31/74\n0.51 Opposition xG from defensive area",
+                "M. Chlumecký\nRank: 41/74\n0.49 Opposition xT from defensive area"
+            ],
+            [
+                "K. Nagy\nRank: 13/74\n0.12 Opposition progressive passes from defensive area %",
+                "K. Nagy\nRank: 66/74\n0.53 Opposition xG after defensive action",
+                "K. Nagy\nRank: 14/74\n0.33 Opposition xG from defensive area",
+                "K. Nagy\nRank: 10/74\n0.35 Opposition xT from defensive area"
+            ],
+            [
+                "B. Oláh\nRank: 14/74\n0.12 Opposition progressive passes from defensive area %",
+                "B. Oláh\nRank: 43/74\n0.30 Opposition xG after defensive action",
+                "B. Oláh\nRank: 47/74\n0.64 Opposition xG from defensive area",
+                "B. Oláh\nRank: 58/74\n0.56 Opposition xT from defensive area"
+            ],
+            [
+                "E. Silye\nRank: 21/74\n0.13 Opposition progressive passes from defensive area %",
+                "E. Silye\nRank: 10/74\n0.05 Opposition xG after defensive action",
+                "E. Silye\nRank: 8/74\n0.25 Opposition xG from defensive area",
+                "E. Silye\nRank: 5/74\n0.32 Opposition xT from defensive area"
+            ],
+            [
+                "B. Gergényi\nRank: 12/74\n0.12 Opposition progressive passes from defensive area %",
+                "B. Gergényi\nRank: 33/74\n0.21 Opposition xG after defensive action",
+                "B. Gergényi\nRank: 24/74\n0.44 Opposition xG from defensive area",
+                "B. Gergényi\nRank: 18/74\n0.39 Opposition xT from defensive area"
+            ],
+            [
+                "B. Bíró\nRank: 52/74\n0.15 Opposition progressive passes from defensive area %",
+                "B. Bíró\nRank: 1/74\n0.00 Opposition xG after defensive action",
+                "B. Bíró\nRank: 16/74\n0.36 Opposition xG from defensive area",
+                "B. Bíró\nRank: 53/74\n0.54 Opposition xT from defensive area"
+            ],
+            [
+                "Cadu\nRank: 17/74\n0.13 Opposition progressive passes from defensive area %",
+                "Cadu\nRank: 13/74\n0.10 Opposition xG after defensive action",
+                "Cadu\nRank: 11/74\n0.27 Opposition xG from defensive area",
+                "Cadu\nRank: 7/74\n0.34 Opposition xT from defensive area"
+            ],
+            [
+                "Z. Nagy\nRank: 22/74\n0.13 Opposition progressive passes from defensive area %",
+                "Z. Nagy\nRank: 53/74\n0.35 Opposition xG after defensive action",
+                "Z. Nagy\nRank: 73/74\n1.13 Opposition xG from defensive area",
+                "Z. Nagy\nRank: 74/74\n0.79 Opposition xT from defensive area"
+            ],
+            [
+                "Č. Makreckis\nRank: 74/74\n0.18 Opposition progressive passes from defensive area %",
+                "Č. Makreckis\nRank: 9/74\n0.03 Opposition xG after defensive action",
+                "Č. Makreckis\nRank: 17/74\n0.36 Opposition xG from defensive area",
+                "Č. Makreckis\nRank: 13/74\n0.36 Opposition xT from defensive area"
+            ],
+            [
+                "Z. Bévárdi\nRank: 60/74\n0.15 Opposition progressive passes from defensive area %",
+                "Z. Bévárdi\nRank: 44/74\n0.30 Opposition xG after defensive action",
+                "Z. Bévárdi\nRank: 44/74\n0.59 Opposition xG from defensive area",
+                "Z. Bévárdi\nRank: 16/74\n0.38 Opposition xT from defensive area"
+            ],
+            [
+                "L. Kastrati\nRank: 30/74\n0.13 Opposition progressive passes from defensive area %",
+                "L. Kastrati\nRank: 11/74\n0.07 Opposition xG after defensive action",
+                "L. Kastrati\nRank: 10/74\n0.26 Opposition xG from defensive area",
+                "L. Kastrati\nRank: 3/74\n0.31 Opposition xT from defensive area"
+            ],
+            [
+                "L. Deutsch\nRank: 7/74\n0.12 Opposition progressive passes from defensive area %",
+                "L. Deutsch\nRank: 74/74\n0.83 Opposition xG after defensive action",
+                "L. Deutsch\nRank: 41/74\n0.57 Opposition xG from defensive area",
+                "L. Deutsch\nRank: 49/74\n0.52 Opposition xT from defensive area"
+            ],
+            [
+                "J. Szépe\nRank: 10/74\n0.12 Opposition progressive passes from defensive area %",
+                "J. Szépe\nRank: 73/74\n0.79 Opposition xG after defensive action",
+                "J. Szépe\nRank: 74/74\n1.26 Opposition xG from defensive area",
+                "J. Szépe\nRank: 72/74\n0.74 Opposition xT from defensive area"
+            ],
+            [
+                "Q. Maceiras\nRank: 54/74\n0.15 Opposition progressive passes from defensive area %",
+                "Q. Maceiras\nRank: 14/74\n0.11 Opposition xG after defensive action",
+                "Q. Maceiras\nRank: 30/74\n0.48 Opposition xG from defensive area",
+                "Q. Maceiras\nRank: 24/74\n0.42 Opposition xT from defensive area"
+            ],
+            [
+                "K. Hinora\nRank: 43/74\n0.14 Opposition progressive passes from defensive area %",
+                "K. Hinora\nRank: 24/74\n0.17 Opposition xG after defensive action",
+                "K. Hinora\nRank: 12/74\n0.31 Opposition xG from defensive area",
+                "K. Hinora\nRank: 6/74\n0.33 Opposition xT from defensive area"
+            ],
+            [
+                "Ş. Vlădoiu\nRank: 40/74\n0.14 Opposition progressive passes from defensive area %",
+                "Ş. Vlădoiu\nRank: 16/74\n0.12 Opposition xG after defensive action",
+                "Ş. Vlădoiu\nRank: 6/74\n0.22 Opposition xG from defensive area",
+                "Ş. Vlădoiu\nRank: 15/74\n0.38 Opposition xT from defensive area"
+            ],
+            [
+                "V. Armalas\nRank: 39/74\n0.14 Opposition progressive passes from defensive area %",
+                "V. Armalas\nRank: 15/74\n0.12 Opposition xG after defensive action",
+                "V. Armalas\nRank: 27/74\n0.46 Opposition xG from defensive area",
+                "V. Armalas\nRank: 47/74\n0.51 Opposition xT from defensive area"
+            ],
+            [
+                "M. Drešković\nRank: 42/74\n0.14 Opposition progressive passes from defensive area %",
+                "M. Drešković\nRank: 46/74\n0.31 Opposition xG after defensive action",
+                "M. Drešković\nRank: 50/74\n0.65 Opposition xG from defensive area",
+                "M. Drešković\nRank: 70/74\n0.67 Opposition xT from defensive area"
+            ],
+            [
+                "Adriàn Guerrero\nRank: 69/74\n0.16 Opposition progressive passes from defensive area %",
+                "Adriàn Guerrero\nRank: 19/74\n0.13 Opposition xG after defensive action",
+                "Adriàn Guerrero\nRank: 60/74\n0.76 Opposition xG from defensive area",
+                "Adriàn Guerrero\nRank: 56/74\n0.55 Opposition xT from defensive area"
+            ],
+            [
+                "S. Bokros\nRank: 41/74\n0.14 Opposition progressive passes from defensive area %",
+                "S. Bokros\nRank: 60/74\n0.40 Opposition xG after defensive action",
+                "S. Bokros\nRank: 25/74\n0.46 Opposition xG from defensive area",
+                "S. Bokros\nRank: 57/74\n0.56 Opposition xT from defensive area"
+            ],
+            [
+                "A. Csonka\nRank: 29/74\n0.13 Opposition progressive passes from defensive area %",
+                "A. Csonka\nRank: 38/74\n0.28 Opposition xG after defensive action",
+                "A. Csonka\nRank: 52/74\n0.67 Opposition xG from defensive area",
+                "A. Csonka\nRank: 22/74\n0.41 Opposition xT from defensive area"
+            ],
+            [
+                "S. Schön\nRank: 64/74\n0.16 Opposition progressive passes from defensive area %",
+                "S. Schön\nRank: 1/74\n0.00 Opposition xG after defensive action",
+                "S. Schön\nRank: 2/74\n0.01 Opposition xG from defensive area",
+                "S. Schön\nRank: 68/74\n0.64 Opposition xT from defensive area"
+            ],
+            [
+                "V. Jovanov\nRank: 71/74\n0.17 Opposition progressive passes from defensive area %",
+                "V. Jovanov\nRank: 47/74\n0.32 Opposition xG after defensive action",
+                "V. Jovanov\nRank: 33/74\n0.52 Opposition xG from defensive area",
+                "V. Jovanov\nRank: 28/74\n0.43 Opposition xT from defensive area"
+            ],
+            [
+                "B. Nagy\nRank: 4/74\n0.11 Opposition progressive passes from defensive area %",
+                "B. Nagy\nRank: 17/74\n0.12 Opposition xG after defensive action",
+                "B. Nagy\nRank: 15/74\n0.33 Opposition xG from defensive area",
+                "B. Nagy\nRank: 11/74\n0.35 Opposition xT from defensive area"
+            ],
+            [
+                "M. Zeke\nRank: 55/74\n0.15 Opposition progressive passes from defensive area %",
+                "M. Zeke\nRank: 25/74\n0.17 Opposition xG after defensive action",
+                "M. Zeke\nRank: 39/74\n0.56 Opposition xG from defensive area",
+                "M. Zeke\nRank: 33/74\n0.44 Opposition xT from defensive area"
+            ],
+            [
+                "B. Cipetić\nRank: 43/74\n0.14 Opposition progressive passes from defensive area %",
+                "B. Cipetić\nRank: 39/74\n0.28 Opposition xG after defensive action",
+                "B. Cipetić\nRank: 59/74\n0.75 Opposition xG from defensive area",
+                "B. Cipetić\nRank: 54/74\n0.54 Opposition xT from defensive area"
+            ],
+            [
+                "E. Kusnyír\nRank: 73/74\n0.17 Opposition progressive passes from defensive area %",
+                "E. Kusnyír\nRank: 32/74\n0.21 Opposition xG after defensive action",
+                "E. Kusnyír\nRank: 55/74\n0.70 Opposition xG from defensive area",
+                "E. Kusnyír\nRank: 42/74\n0.49 Opposition xT from defensive area"
+            ],
+            [
+                "B. Bárdos\nRank: 2/74\n0.10 Opposition progressive passes from defensive area %",
+                "B. Bárdos\nRank: 59/74\n0.40 Opposition xG after defensive action",
+                "B. Bárdos\nRank: 48/74\n0.64 Opposition xG from defensive area",
+                "B. Bárdos\nRank: 69/74\n0.66 Opposition xT from defensive area"
+            ],
+            [
+                "D. Soltész\nRank: 9/74\n0.12 Opposition progressive passes from defensive area %",
+                "D. Soltész\nRank: 51/74\n0.32 Opposition xG after defensive action",
+                "D. Soltész\nRank: 9/74\n0.26 Opposition xG from defensive area",
+                "D. Soltész\nRank: 20/74\n0.40 Opposition xT from defensive area"
+            ],
+            [
+                "M. Májer\nRank: 35/74\n0.14 Opposition progressive passes from defensive area %",
+                "M. Májer\nRank: 28/74\n0.19 Opposition xG after defensive action",
+                "M. Májer\nRank: 26/74\n0.46 Opposition xG from defensive area",
+                "M. Májer\nRank: 14/74\n0.37 Opposition xT from defensive area"
+            ],
+            [
+                "B. Varju\nRank: 61/74\n0.15 Opposition progressive passes from defensive area %",
+                "B. Varju\nRank: 64/74\n0.47 Opposition xG after defensive action",
+                "B. Varju\nRank: 69/74\n0.95 Opposition xG from defensive area",
+                "B. Varju\nRank: 52/74\n0.53 Opposition xT from defensive area"
+            ],
+            [
+                "D. Štefulj\nRank: 25/74\n0.13 Opposition progressive passes from defensive area %",
+                "D. Štefulj\nRank: 22/74\n0.14 Opposition xG after defensive action",
+                "D. Štefulj\nRank: 29/74\n0.48 Opposition xG from defensive area",
+                "D. Štefulj\nRank: 26/74\n0.42 Opposition xT from defensive area"
+            ],
+            [
+                "José Calderón\nRank: 45/74\n0.14 Opposition progressive passes from defensive area %",
+                "José Calderón\nRank: 30/74\n0.20 Opposition xG after defensive action",
+                "José Calderón\nRank: 71/74\n1.02 Opposition xG from defensive area",
+                "José Calderón\nRank: 71/74\n0.67 Opposition xT from defensive area"
+            ],
+            [
+                "D. López\nRank: 67/74\n0.16 Opposition progressive passes from defensive area %",
+                "D. López\nRank: 29/74\n0.19 Opposition xG after defensive action",
+                "D. López\nRank: 51/74\n0.67 Opposition xG from defensive area",
+                "D. López\nRank: 31/74\n0.44 Opposition xT from defensive area"
+            ],
+            [
+                "R. Schuszter\nRank: 1/74\n0.08 Opposition progressive passes from defensive area %",
+                "R. Schuszter\nRank: 1/74\n0.00 Opposition xG after defensive action",
+                "R. Schuszter\nRank: 3/74\n0.11 Opposition xG from defensive area",
+                "R. Schuszter\nRank: 2/74\n0.26 Opposition xT from defensive area"
+            ],
+            [
+                "V. Nyíri\nRank: 53/74\n0.15 Opposition progressive passes from defensive area %",
+                "V. Nyíri\nRank: 70/74\n0.63 Opposition xG after defensive action",
+                "V. Nyíri\nRank: 45/74\n0.60 Opposition xG from defensive area",
+                "V. Nyíri\nRank: 45/74\n0.50 Opposition xT from defensive area"
+            ],
+            [
+                "Tiago Gonçalves\nRank: 58/74\n0.15 Opposition progressive passes from defensive area %",
+                "Tiago Gonçalves\nRank: 23/74\n0.16 Opposition xG after defensive action",
+                "Tiago Gonçalves\nRank: 58/74\n0.73 Opposition xG from defensive area",
+                "Tiago Gonçalves\nRank: 63/74\n0.59 Opposition xT from defensive area"
+            ],
+            [
+                "B. Benczenleitner\nRank: 36/74\n0.14 Opposition progressive passes from defensive area %",
+                "B. Benczenleitner\nRank: 54/74\n0.36 Opposition xG after defensive action",
+                "B. Benczenleitner\nRank: 28/74\n0.48 Opposition xG from defensive area",
+                "B. Benczenleitner\nRank: 19/74\n0.39 Opposition xT from defensive area"
+            ],
+            [
+                "B. Farkas\nRank: 46/74\n0.14 Opposition progressive passes from defensive area %",
+                "B. Farkas\nRank: 40/74\n0.28 Opposition xG after defensive action",
+                "B. Farkas\nRank: 20/74\n0.38 Opposition xG from defensive area",
+                "B. Farkas\nRank: 46/74\n0.51 Opposition xT from defensive area"
+            ],
+            [
+                "G. Harutyunyan\nRank: 16/74\n0.13 Opposition progressive passes from defensive area %",
+                "G. Harutyunyan\nRank: 63/74\n0.43 Opposition xG after defensive action",
+                "G. Harutyunyan\nRank: 61/74\n0.76 Opposition xG from defensive area",
+                "G. Harutyunyan\nRank: 67/74\n0.64 Opposition xT from defensive area"
+            ],
+            [
+                "L. Katona\nRank: 28/74\n0.13 Opposition progressive passes from defensive area %",
+                "L. Katona\nRank: 35/74\n0.24 Opposition xG after defensive action",
+                "L. Katona\nRank: 54/74\n0.69 Opposition xG from defensive area",
+                "L. Katona\nRank: 60/74\n0.57 Opposition xT from defensive area"
+            ],
+            [
+                "G. Szalai\nRank: 6/74\n0.12 Opposition progressive passes from defensive area %",
+                "G. Szalai\nRank: 50/74\n0.32 Opposition xG after defensive action",
+                "G. Szalai\nRank: 21/74\n0.40 Opposition xG from defensive area",
+                "G. Szalai\nRank: 50/74\n0.52 Opposition xT from defensive area"
+            ],
+            [
+                "G. Bodnár\nRank: 20/74\n0.13 Opposition progressive passes from defensive area %",
+                "G. Bodnár\nRank: 49/74\n0.32 Opposition xG after defensive action",
+                "G. Bodnár\nRank: 23/74\n0.44 Opposition xG from defensive area",
+                "G. Bodnár\nRank: 29/74\n0.43 Opposition xT from defensive area"
+            ],
+            [
+                "C. Papp\nRank: 63/74\n0.16 Opposition progressive passes from defensive area %",
+                "C. Papp\nRank: 72/74\n0.77 Opposition xG after defensive action",
+                "C. Papp\nRank: 65/74\n0.83 Opposition xG from defensive area",
+                "C. Papp\nRank: 66/74\n0.62 Opposition xT from defensive area"
+            ],
+            [
+                "P. Kovács\nRank: 62/74\n0.16 Opposition progressive passes from defensive area %",
+                "P. Kovács\nRank: 52/74\n0.32 Opposition xG after defensive action",
+                "P. Kovács\nRank: 35/74\n0.53 Opposition xG from defensive area",
+                "P. Kovács\nRank: 38/74\n0.47 Opposition xT from defensive area"
+            ],
+            [
+                "N. Baranyai\nRank: 19/74\n0.13 Opposition progressive passes from defensive area %",
+                "N. Baranyai\nRank: 62/74\n0.41 Opposition xG after defensive action",
+                "N. Baranyai\nRank: 72/74\n1.03 Opposition xG from defensive area",
+                "N. Baranyai\nRank: 43/74\n0.50 Opposition xT from defensive area"
+            ],
+            [
+                "M. Szekszardi\nRank: 37/74\n0.14 Opposition progressive passes from defensive area %",
+                "M. Szekszardi\nRank: 71/74\n0.66 Opposition xG after defensive action",
+                "M. Szekszardi\nRank: 18/74\n0.37 Opposition xG from defensive area",
+                "M. Szekszardi\nRank: 23/74\n0.41 Opposition xT from defensive area"
+            ],
+            [
+                "T. Rajmund\nRank: 65/74\n0.16 Opposition progressive passes from defensive area %",
+                "T. Rajmund\nRank: 56/74\n0.36 Opposition xG after defensive action",
+                "T. Rajmund\nRank: 36/74\n0.54 Opposition xG from defensive area",
+                "T. Rajmund\nRank: 12/74\n0.35 Opposition xT from defensive area"
+            ],
+            [
+                "B. Vajda\nRank: 38/74\n0.14 Opposition progressive passes from defensive area %",
+                "B. Vajda\nRank: 34/74\n0.23 Opposition xG after defensive action",
+                "B. Vajda\nRank: 49/74\n0.64 Opposition xG from defensive area",
+                "B. Vajda\nRank: 37/74\n0.46 Opposition xT from defensive area"
+            ],
+            [
+                "M. Demeter\nRank: 48/74\n0.15 Opposition progressive passes from defensive area %",
+                "M. Demeter\nRank: 42/74\n0.30 Opposition xG after defensive action",
+                "M. Demeter\nRank: 68/74\n0.91 Opposition xG from defensive area",
+                "M. Demeter\nRank: 62/74\n0.58 Opposition xT from defensive area"
+            ],
+            [
+                "B. Szakos\nRank: 31/74\n0.14 Opposition progressive passes from defensive area %",
+                "B. Szakos\nRank: 37/74\n0.26 Opposition xG after defensive action",
+                "B. Szakos\nRank: 43/74\n0.59 Opposition xG from defensive area",
+                "B. Szakos\nRank: 40/74\n0.49 Opposition xT from defensive area"
+            ],
+            [
+                "S. Szabó\nRank: 32/74\n0.14 Opposition progressive passes from defensive area %",
+                "S. Szabó\nRank: 21/74\n0.14 Opposition xG after defensive action",
+                "S. Szabó\nRank: 5/74\n0.20 Opposition xG from defensive area",
+                "S. Szabó\nRank: 25/74\n0.42 Opposition xT from defensive area"
+            ],
+            [
+                "B. Bíró\nRank: 27/74\n0.13 Opposition progressive passes from defensive area %",
+                "B. Bíró\nRank: 20/74\n0.13 Opposition xG after defensive action",
+                "B. Bíró\nRank: 13/74\n0.32 Opposition xG from defensive area",
+                "B. Bíró\nRank: 17/74\n0.38 Opposition xT from defensive area"
+            ],
+            [
+                "V. Vitalyos\nRank: 72/74\n0.17 Opposition progressive passes from defensive area %",
+                "V. Vitalyos\nRank: 65/74\n0.50 Opposition xG after defensive action",
+                "V. Vitalyos\nRank: 42/74\n0.58 Opposition xG from defensive area",
+                "V. Vitalyos\nRank: 64/74\n0.60 Opposition xT from defensive area"
+            ],
+            [
+                "Á. Markgráf\nRank: 26/74\n0.13 Opposition progressive passes from defensive area %",
+                "Á. Markgráf\nRank: 31/74\n0.20 Opposition xG after defensive action",
+                "Á. Markgráf\nRank: 32/74\n0.52 Opposition xG from defensive area",
+                "Á. Markgráf\nRank: 44/74\n0.50 Opposition xT from defensive area"
+            ]
+        ],
+        "serie_names": [
+            "Other Full Backs",
+            "Gergo Bodnár"
+        ],
+        "minutes_played": 1983,
+        "axis_labels": [
+            "Opposition progressive passes from defensive area % | 0.13",
+            "Opposition xG after defensive action | 0.32",
+            "Opposition xG from defensive area | 0.44",
+            "Opposition xT from defensive area | 0.43"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            -0.6661058855400345,
+            -1.186237998680486,
+            -0.3022606336753012,
+            -0.9313853946382102,
+            -0.27928231874484616,
+            0.5885552809090577,
+            0.9569839918589206,
+            2.7964816505417325,
+            0.1565773382751363,
+            -0.5394280851519965,
+            -1.017583574091494,
+            0.5940048481298339,
+            0.2775140098801764,
+            -0.250652384661997,
+            1.77867629599938,
+            -1.0832411707685718,
+            -0.39135911519434896,
+            -1.0274915151775104,
+            0.9297803002316388,
+            -0.009437770130812203,
+            0.21434163287649005,
+            -0.16778411645906663,
+            1.5090655338511834,
+            0.7366684585768825,
+            0.8502038412646399,
+            1.3563808717165455,
+            -1.7191159571234165,
+            0.6524030674299146,
+            -0.13930156945694777,
+            1.3955304405243822,
+            -1.2456328956304863,
+            -2.8680533887872284,
+            0.529765983606257,
+            0.9378559109972473,
+            1.1845665177390217,
+            0.4825276586313333,
+            -0.6213116058161202,
+            -0.4143598789427884,
+            -0.30625666026124304,
+            -0.04152229126893342,
+            1.2196301805485585,
+            -0.27424330008173553,
+            1.3855680300921052,
+            0.19138436677517068,
+            -0.5424155224467544,
+            -0.5468433107241896,
+            -0.3297842887457699,
+            0.7916292128520539,
+            0.6177949993423755,
+            -1.5014536196023707,
+            0.6509910270050641,
+            -1.092342586647926,
+            -0.16505686686740442,
+            2.5625357550263757,
+            -1.1365814626418156,
+            -0.416473079957755,
+            0.12381708205670264,
+            0.19365144125071862,
+            -0.887222636737064,
+            -0.24276870127282818,
+            0.36123905638010345,
+            0.3021145395394171,
+            -2.2211192471873127,
+            -0.2723982104630496,
+            -1.1476059129519014,
+            -0.47079257828705157,
+            -0.20651943273507598,
+            -0.021802712521306052,
+            -0.9784825794455413,
+            0.017153063198886685,
+            1.1522112129446405,
+            1.0368885984641103,
+            -1.1889930536026665,
+            0.3162111146053027
+        ]
+    },
+    "player_info": {
+        "id": 768053,
+        "name": "G. Bodnár",
+        "full_name": "Gergo Janos Bodnár",
+        "synthesized_name": "Gergo Bodnár",
+        "birth_date": "2005-04-18",
+        "age": 21,
+        "foot": null,
+        "position": "FULL_BACK",
+        "detailed_position": "RIGHT_BACK",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

@@ -2,6 +2,10 @@ project:
   type: website
   output-dir: docs
   execute-dir: project
+  render:
+    - "*.qmd"
+    - "**/*.qmd"
+    - "!futball/striker_clustering.qmd"
 
 website:
   title: "Levente Kaszai"
@@ -13,26 +17,32 @@ website:
         text: "Archívum"
       - text: "Kosárlabda"
         menu:
-          - href: four_factors_1.qmd
+          - href: kosarlabda/four_factors_1.qmd
             text: "Four Factors"
-          - href: scoring_efficiency.qmd
+          - href: kosarlabda/scoring_efficiency.qmd
             text: "Scoring Efficiency"
-          - href: pace_efficiency.qmd
+          - href: kosarlabda/pace_efficiency.qmd
             text: "Játékritmus & Hatékonyság"
-          - href: analytics.qmd
+          - href: kosarlabda/analytics.qmd
             text: "🔒 Analytics"
-          - href: player_ratings.qmd
+          - href: kosarlabda/player_ratings.qmd
             text: "Játékosértékelés"
-          - href: jatekosok.qmd
+          - href: kosarlabda/jatekosok.qmd
             text: "Játékos profilok"
+          - href: kosarlabda/articles/tanoh-dez-scouting.qmd
+            text: "Tanoh Dez – Scouting report"
       - text: "Labdarúgás"
         menu:
           - href: futball/analytics.qmd
             text: "🔒 Analytics"
+          - href: futball/team_analytics.qmd
+            text: "🔒 Team Analytics"
           - href: futball/player_ratings.qmd
             text: "Játékosértékelés"
           - href: futball/jatekosok.qmd
             text: "Játékos profilok"
+          - href: futball/articles/vedekezesi-atmenetek.qmd
+            text: "NB1 vs NB2: védelmi átmenetek"
     right:
       - icon: github
         href: https://github.com/leventekaszai

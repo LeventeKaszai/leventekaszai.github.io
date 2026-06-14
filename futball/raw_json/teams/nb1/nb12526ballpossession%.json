@@ -1,0 +1,67 @@
+{
+    "plot_type": "ranking-bar",
+    "title": "Újpest performance in ball possession %",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "data": {
+        "target_labels": [
+            "Győri ETO",
+            "Ferencváros",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Várda SE",
+            "Debrecen",
+            "MTK",
+            "Paksi FC",
+            "Diósgyőr",
+            "Nyíregyháza Spartacus",
+            "Puskás FC",
+            "Kazincbarcika"
+        ],
+        "target_icons": [
+            "https://cdn5.wyscout.com/photos/team/public/352_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/1108_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/351_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/354_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g11938_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/350_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/349_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/360_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/362_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/356_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g22345_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/3553_120x120.png"
+        ],
+        "focal_target_indices": [
+            2
+        ],
+        "plot_values": [
+            58.93939393939394,
+            58.12121212121212,
+            53.696969696969695,
+            52.03030303030304,
+            50.09375,
+            50.0625,
+            49.57575757575757,
+            47.36363636363636,
+            47.24242424242424,
+            47.24242424242424,
+            46,
+            39.63636363636363
+        ],
+        "hover_strings": [
+            "<b>Győri ETO</b><br/>Rank: 1/12<br/>Ball possession %: 58.94",
+            "<b>Ferencváros</b><br/>Rank: 2/12<br/>Ball possession %: 58.12",
+            "<b>Újpest</b><br/>Rank: 3/12<br/>Ball possession %: 53.70",
+            "<b>Zalaegerszegi TE</b><br/>Rank: 4/12<br/>Ball possession %: 52.03",
+            "<b>Várda SE</b><br/>Rank: 5/12<br/>Ball possession %: 50.09",
+            "<b>Debrecen</b><br/>Rank: 6/12<br/>Ball possession %: 50.06",
+            "<b>MTK</b><br/>Rank: 7/12<br/>Ball possession %: 49.58",
+            "<b>Paksi FC</b><br/>Rank: 8/12<br/>Ball possession %: 47.36",
+            "<b>Diósgyőr</b><br/>Rank: 9/12<br/>Ball possession %: 47.24",
+            "<b>Nyíregyháza Spartacus</b><br/>Rank: 9/12<br/>Ball possession %: 47.24",
+            "<b>Puskás FC</b><br/>Rank: 11/12<br/>Ball possession %: 46.00",
+            "<b>Kazincbarcika</b><br/>Rank: 12/12<br/>Ball possession %: 39.64"
+        ]
+    }
+}

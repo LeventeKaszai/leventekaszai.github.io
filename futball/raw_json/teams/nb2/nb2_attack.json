@@ -1,0 +1,401 @@
+{
+    "plot_type": "distribution",
+    "title": "Budafoki MTE's performance in attack",
+    "subtitle": "Budafoki MTE | Hungarian NB II 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Békéscsaba",
+            "Honvéd",
+            "Vasas",
+            "Kecskeméti TE",
+            "BVSC",
+            "Duna Aszfalt Tiszakécskei",
+            "Soroksár SC",
+            "Ajka",
+            "Karcag SE",
+            "Fehérvár",
+            "Szentlőrinc SE",
+            "Mezőkövesd-Zsóry",
+            "Kozármisleny",
+            "Szeged 2011",
+            "Csákvári TK",
+            "Budafoki MTE"
+        ],
+        "target_identifiers": [
+            10192,
+            10194,
+            10196,
+            10207,
+            10212,
+            10220,
+            10226,
+            10235,
+            10249,
+            10260,
+            10261,
+            10273,
+            10274,
+            10427,
+            10437,
+            39600
+        ],
+        "kpis": [
+            {
+                "name": "Ball possession %",
+                "description": "Share of possession of a team per match.",
+                "display_name": "Ball possession %"
+            },
+            {
+                "name": "Field tilt %",
+                "description": "Percentage of possession that a team had in the final third compared to their opponents per match.",
+                "display_name": "Field tilt %"
+            },
+            {
+                "name": "Long ball %",
+                "description": "Percentage of passes longer than 32 meters in the defensive half by a team per match.",
+                "display_name": "Long ball %"
+            },
+            {
+                "name": "Pass tempo",
+                "description": "The number of passes that a team made per minute of possession per match.",
+                "display_name": "Pass tempo"
+            },
+            {
+                "name": "Possessions to final third %",
+                "description": "Percentage of possessions by a team that reached the final third per match.",
+                "display_name": "Possessions to final third %"
+            },
+            {
+                "name": "Final third to box %",
+                "description": "Percentage of final third possessions by a team that entered the penalty area per match.",
+                "display_name": "Final third to box %"
+            },
+            {
+                "name": "xT",
+                "description": "Expected offensive contribution by a team considering the quality of their passess and ball carries per match. ",
+                "display_name": "xT"
+            }
+        ],
+        "focal_target_indices": [
+            15
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.45194997923688507,
+                0.02431936991565132,
+                0.8082010527422958,
+                0.2562111162409762,
+                -0.8883733653165714,
+                -1.4545406323576329,
+                -0.855609975566389
+            ],
+            [
+                0.675855204497188,
+                1.2728557629018868,
+                -1.0071314513440728,
+                0.8654283053030639,
+                1.1695858563596964,
+                2.032546272770436,
+                1.9881075633762644
+            ],
+            [
+                2.2411305685840937,
+                2.054496716398422,
+                2.590073547857261,
+                2.3069327498227903,
+                2.266887551186653,
+                0.9719778409558698,
+                1.2971455145523334
+            ],
+            [
+                0.7197556974143984,
+                1.7165094941484724,
+                -0.8021331642751522,
+                -0.7644819286399539,
+                1.6435686304481545,
+                0.531599447676524,
+                1.3635786485081505
+            ],
+            [
+                -2.088015365117708,
+                -0.7154557893807032,
+                -0.7432256105197141,
+                -1.1386718643608933,
+                0.11571613948699645,
+                0.20678833539211816,
+                -1.1910570582994962
+            ],
+            [
+                1.1721653572482593,
+                1.087700608746569,
+                1.6673181486012971,
+                0.981315315917487,
+                0.003084369078949876,
+                -0.902285673297963,
+                0.6105500976684147
+            ],
+            [
+                -0.3777566255158883,
+                -0.9678175124411603,
+                0.17888174084015052,
+                1.3099775502167623,
+                -0.08479871635154433,
+                -0.019894829621356032,
+                -0.4705144957045108
+            ],
+            [
+                -0.6941082691330471,
+                -0.467095411763141,
+                -1.3481187011220817,
+                -1.1998993110436726,
+                -0.35606450671366524,
+                -1.352305003573035,
+                -0.6307512148059453
+            ],
+            [
+                -1.1901295268267542,
+                -1.0572829319521229,
+                -0.6615715756111884,
+                -0.6930463328868125,
+                -0.39339966576551705,
+                1.101350087257371,
+                -0.39066471670840697
+            ],
+            [
+                -0.3274888855343504,
+                -0.4341225760916457,
+                0.026655290046396326,
+                -0.3517104343802246,
+                -0.1287402590667903,
+                -0.5052097936434896,
+                -0.11177557234309196
+            ],
+            [
+                -0.3132153297371216,
+                -0.811447048875608,
+                0.011620578856889316,
+                -0.34058487089339146,
+                -1.074839647898766,
+                -1.3157021241316336,
+                -1.2517322412227967
+            ],
+            [
+                0.8454250473682478,
+                -0.03253034675933856,
+                0.3818503418984886,
+                -0.7567071230973994,
+                -0.20197616359220327,
+                -0.725807504562641,
+                0.040122890701833384
+            ],
+            [
+                -0.1599297522625486,
+                -1.0999202194583662,
+                -0.7006488637459819,
+                -1.3998955816185636,
+                -1.25657318875812,
+                1.3257512069854727,
+                -0.27660156415779835
+            ],
+            [
+                0.39922128135927176,
+                0.6516638217327406,
+                0.204566039122224,
+                -0.018074418757418782,
+                1.0061450169862427,
+                -0.2176157408896333,
+                1.4965646157602488
+            ],
+            [
+                -0.6961189787323091,
+                -0.6983279901260591,
+                -0.8021331642751522,
+                0.18333754704892244,
+                -1.25657318875812,
+                -0.19637299835667812,
+                -0.7581520108321355
+            ],
+            [
+                -0.6587404028486006,
+                -0.5235459469956012,
+                0.1957957909283456,
+                0.7598692811282508,
+                -0.5636488613253858,
+                0.5197211093962624,
+                -0.8592104809266725
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Békéscsaba\nRank: 6/16\n52% Ball possession ",
+                "Békéscsaba\nRank: 6/16\n50% Field tilt ",
+                "Békéscsaba\nRank: 3/16\n16% Long ball ",
+                "Békéscsaba\nRank: 6/16\n18.97 Pass tempo",
+                "Békéscsaba\nRank: 13/16\n28% Possessions to final third ",
+                "Békéscsaba\nRank: 16/16\n17% Final third to box ",
+                "Békéscsaba\nRank: 13/16\n1.22 xT"
+            ],
+            [
+                "Honvéd\nRank: 5/16\n53% Ball possession ",
+                "Honvéd\nRank: 3/16\n59% Field tilt ",
+                "Honvéd\nRank: 15/16\n20% Long ball ",
+                "Honvéd\nRank: 4/16\n19.28 Pass tempo",
+                "Honvéd\nRank: 3/16\n33% Possessions to final third ",
+                "Honvéd\nRank: 1/16\n23% Final third to box ",
+                "Honvéd\nRank: 1/16\n1.85 xT"
+            ],
+            [
+                "Vasas\nRank: 1/16\n60% Ball possession ",
+                "Vasas\nRank: 1/16\n64% Field tilt ",
+                "Vasas\nRank: 1/16\n12% Long ball ",
+                "Vasas\nRank: 1/16\n20.01 Pass tempo",
+                "Vasas\nRank: 1/16\n36% Possessions to final third ",
+                "Vasas\nRank: 4/16\n21% Final third to box ",
+                "Vasas\nRank: 4/16\n1.70 xT"
+            ],
+            [
+                "Kecskeméti TE\nRank: 4/16\n53% Ball possession ",
+                "Kecskeméti TE\nRank: 2/16\n62% Field tilt ",
+                "Kecskeméti TE\nRank: 13/16\n20% Long ball ",
+                "Kecskeméti TE\nRank: 13/16\n18.45 Pass tempo",
+                "Kecskeméti TE\nRank: 2/16\n34% Possessions to final third ",
+                "Kecskeméti TE\nRank: 5/16\n20% Final third to box ",
+                "Kecskeméti TE\nRank: 3/16\n1.71 xT"
+            ],
+            [
+                "BVSC\nRank: 16/16\n41% Ball possession ",
+                "BVSC\nRank: 12/16\n45% Field tilt ",
+                "BVSC\nRank: 12/16\n19% Long ball ",
+                "BVSC\nRank: 14/16\n18.26 Pass tempo",
+                "BVSC\nRank: 5/16\n30% Possessions to final third ",
+                "BVSC\nRank: 7/16\n20% Final third to box ",
+                "BVSC\nRank: 15/16\n1.15 xT"
+            ],
+            [
+                "Duna Aszfalt Tiszakécskei\nRank: 2/16\n55% Ball possession ",
+                "Duna Aszfalt Tiszakécskei\nRank: 4/16\n57% Field tilt ",
+                "Duna Aszfalt Tiszakécskei\nRank: 2/16\n14% Long ball ",
+                "Duna Aszfalt Tiszakécskei\nRank: 3/16\n19.34 Pass tempo",
+                "Duna Aszfalt Tiszakécskei\nRank: 6/16\n30% Possessions to final third ",
+                "Duna Aszfalt Tiszakécskei\nRank: 13/16\n18% Final third to box ",
+                "Duna Aszfalt Tiszakécskei\nRank: 5/16\n1.55 xT"
+            ],
+            [
+                "Soroksár SC\nRank: 11/16\n48% Ball possession ",
+                "Soroksár SC\nRank: 14/16\n44% Field tilt ",
+                "Soroksár SC\nRank: 7/16\n18% Long ball ",
+                "Soroksár SC\nRank: 2/16\n19.50 Pass tempo",
+                "Soroksár SC\nRank: 7/16\n30% Possessions to final third ",
+                "Soroksár SC\nRank: 8/16\n19% Final third to box ",
+                "Soroksár SC\nRank: 10/16\n1.31 xT"
+            ],
+            [
+                "Ajka\nRank: 13/16\n47% Ball possession ",
+                "Ajka\nRank: 9/16\n47% Field tilt ",
+                "Ajka\nRank: 16/16\n21% Long ball ",
+                "Ajka\nRank: 15/16\n18.23 Pass tempo",
+                "Ajka\nRank: 10/16\n29% Possessions to final third ",
+                "Ajka\nRank: 15/16\n17% Final third to box ",
+                "Ajka\nRank: 11/16\n1.27 xT"
+            ],
+            [
+                "Karcag SE\nRank: 15/16\n45% Ball possession ",
+                "Karcag SE\nRank: 15/16\n43% Field tilt ",
+                "Karcag SE\nRank: 10/16\n19% Long ball ",
+                "Karcag SE\nRank: 11/16\n18.49 Pass tempo",
+                "Karcag SE\nRank: 11/16\n29% Possessions to final third ",
+                "Karcag SE\nRank: 3/16\n21% Final third to box ",
+                "Karcag SE\nRank: 9/16\n1.33 xT"
+            ],
+            [
+                "Fehérvár\nRank: 10/16\n49% Ball possession ",
+                "Fehérvár\nRank: 8/16\n47% Field tilt ",
+                "Fehérvár\nRank: 8/16\n18% Long ball ",
+                "Fehérvár\nRank: 10/16\n18.66 Pass tempo",
+                "Fehérvár\nRank: 8/16\n30% Possessions to final third ",
+                "Fehérvár\nRank: 11/16\n19% Final third to box ",
+                "Fehérvár\nRank: 7/16\n1.39 xT"
+            ],
+            [
+                "Szentlőrinc SE\nRank: 9/16\n49% Ball possession ",
+                "Szentlőrinc SE\nRank: 13/16\n45% Field tilt ",
+                "Szentlőrinc SE\nRank: 9/16\n18% Long ball ",
+                "Szentlőrinc SE\nRank: 9/16\n18.67 Pass tempo",
+                "Szentlőrinc SE\nRank: 14/16\n27% Possessions to final third ",
+                "Szentlőrinc SE\nRank: 14/16\n17% Final third to box ",
+                "Szentlőrinc SE\nRank: 16/16\n1.14 xT"
+            ],
+            [
+                "Mezőkövesd-Zsóry\nRank: 3/16\n54% Ball possession ",
+                "Mezőkövesd-Zsóry\nRank: 7/16\n50% Field tilt ",
+                "Mezőkövesd-Zsóry\nRank: 4/16\n17% Long ball ",
+                "Mezőkövesd-Zsóry\nRank: 12/16\n18.46 Pass tempo",
+                "Mezőkövesd-Zsóry\nRank: 9/16\n30% Possessions to final third ",
+                "Mezőkövesd-Zsóry\nRank: 12/16\n18% Final third to box ",
+                "Mezőkövesd-Zsóry\nRank: 6/16\n1.42 xT"
+            ],
+            [
+                "Kozármisleny\nRank: 8/16\n49% Ball possession ",
+                "Kozármisleny\nRank: 16/16\n43% Field tilt ",
+                "Kozármisleny\nRank: 11/16\n19% Long ball ",
+                "Kozármisleny\nRank: 16/16\n18.13 Pass tempo",
+                "Kozármisleny\nRank: 15/16\n27% Possessions to final third ",
+                "Kozármisleny\nRank: 2/16\n22% Final third to box ",
+                "Kozármisleny\nRank: 8/16\n1.35 xT"
+            ],
+            [
+                "Szeged 2011\nRank: 7/16\n52% Ball possession ",
+                "Szeged 2011\nRank: 5/16\n54% Field tilt ",
+                "Szeged 2011\nRank: 5/16\n17% Long ball ",
+                "Szeged 2011\nRank: 8/16\n18.83 Pass tempo",
+                "Szeged 2011\nRank: 4/16\n32% Possessions to final third ",
+                "Szeged 2011\nRank: 10/16\n19% Final third to box ",
+                "Szeged 2011\nRank: 2/16\n1.74 xT"
+            ],
+            [
+                "Csákvári TK\nRank: 14/16\n47% Ball possession ",
+                "Csákvári TK\nRank: 11/16\n45% Field tilt ",
+                "Csákvári TK\nRank: 13/16\n20% Long ball ",
+                "Csákvári TK\nRank: 7/16\n18.93 Pass tempo",
+                "Csákvári TK\nRank: 15/16\n27% Possessions to final third ",
+                "Csákvári TK\nRank: 9/16\n19% Final third to box ",
+                "Csákvári TK\nRank: 12/16\n1.24 xT"
+            ],
+            [
+                "Budafoki MTE\nRank: 12/16\n47% Ball possession ",
+                "Budafoki MTE\nRank: 10/16\n47% Field tilt ",
+                "Budafoki MTE\nRank: 6/16\n18% Long ball ",
+                "Budafoki MTE\nRank: 5/16\n19.22 Pass tempo",
+                "Budafoki MTE\nRank: 12/16\n29% Possessions to final third ",
+                "Budafoki MTE\nRank: 6/16\n20% Final third to box ",
+                "Budafoki MTE\nRank: 14/16\n1.22 xT"
+            ]
+        ],
+        "serie_names": [
+            "Other NB II teams",
+            "Budafoki MTE"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Ball possession % | 47",
+            "Field tilt % | 47",
+            "Long ball % | 18",
+            "Pass tempo | 19.22",
+            "Possessions to final third % | 29",
+            "Final third to box % | 20",
+            "xT | 1.22"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

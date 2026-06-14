@@ -1,0 +1,325 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's style of play in attack",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Diósgyőr",
+            "Nyíregyháza Spartacus",
+            "Kazincbarcika",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10197,
+            10198,
+            10234,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Long ball %",
+                "description": "Percentage of passes longer than 32 meters in the defensive half by a team per match.",
+                "display_name": "Long ball %"
+            },
+            {
+                "name": "Buildup from goalkick %",
+                "description": "Percentage of the possessions that start with goalkicks by a team where less than one third of the passes in the possessions are longer than 32 meters per match.",
+                "display_name": "Buildup from goalkick %"
+            },
+            {
+                "name": "Forward passes from middle third %",
+                "description": "Percentage of passes in the middle third by a team that are forward per match.",
+                "display_name": "Forward passes from middle third %"
+            },
+            {
+                "name": "Crosses per final-third possession",
+                "description": "Number of crosses in the final third by a team divided by the number of possessions that reached the final third by the team per match.",
+                "display_name": "Crosses per final-third possession"
+            },
+            {
+                "name": "Dribbles per final-third possession",
+                "description": "Number of dribbles in the final third by a team divided by the number of possessions that reached the final third by the team per match.",
+                "display_name": "Dribbles per final-third possession"
+            },
+            {
+                "name": "Box entries from crosses %",
+                "description": "Percentage of penalty area entries by a team that come through crosses per match.",
+                "display_name": "Box entries from crosses %"
+            },
+            {
+                "name": "Box entries from carries %",
+                "description": "Percentage of penalty area entries by a team that come through carries per match.",
+                "display_name": "Box entries from carries %"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.9711738061913948,
+                0.9205590304752641,
+                -0.6628594340887068,
+                -0.11986388077541828,
+                1.1424475764945483,
+                -0.30309336707561246,
+                1.7702386505329624
+            ],
+            [
+                -0.27138839022862027,
+                0.11829970656443131,
+                0.4749204767993446,
+                -0.09352113085010562,
+                0.9549064761829326,
+                -0.1266664143614721,
+                -0.26472346924471596
+            ],
+            [
+                -0.8751248275298381,
+                0.8414490077249909,
+                -1.3122141318063376,
+                -0.20793516410780719,
+                -0.2218265644058508,
+                -0.5574434067085483,
+                0.9241429413705463
+            ],
+            [
+                -0.9711738061913948,
+                1.3898388883515707,
+                -0.9153862609788979,
+                -0.8999238188622936,
+                -1.6159209051073518,
+                -0.9616782911251779,
+                -0.46223075075100345
+            ],
+            [
+                -1.218156894178257,
+                1.0136179237356613,
+                -1.05066848967007,
+                -1.864514064883697,
+                -0.6393093616212733,
+                -1.506714090338612,
+                1.69888118108553
+            ],
+            [
+                0.19513522041323025,
+                1.0389251602326,
+                -0.4103326071985191,
+                0.22403351128438742,
+                0.09128553350571672,
+                -0.4211844569051898,
+                -0.4928125233713319
+            ],
+            [
+                0.2500203510769777,
+                -0.33503858501459194,
+                0.22098446002695515,
+                0.45469639620254854,
+                2.1786995195828274,
+                0.4372469268559694,
+                0.3125074889639803
+            ],
+            [
+                0.7302652443847638,
+                -1.4158767799704677,
+                0.5997747003622385,
+                -0.45117966093059614,
+                -0.7287699610245773,
+                0.5008344367642038,
+                -0.553976068611988
+            ],
+            [
+                -0.31255223822643086,
+                -0.4211230430199272,
+                0.28411616674950124,
+                -1.0718725148921957,
+                0.09128553350571672,
+                -1.2659899456860122,
+                0.3634771099978611
+            ],
+            [
+                2.582638404286228,
+                -1.039655815354558,
+                2.6109705002376735,
+                1.9099695065044073,
+                -0.20691646450529988,
+                1.7771265999223285,
+                -1.2369689904659862
+            ],
+            [
+                0.33706473798901404,
+                -1.6834958241861282,
+                -0.2226285148895156,
+                0.7930893330540796,
+                -1.1669871159142033,
+                1.386233737673943,
+                -1.4841716524803068
+            ],
+            [
+                0.5244460043957122,
+                -0.42749966953884033,
+                0.3833231344563637,
+                1.3270214882566875,
+                0.12110573330681715,
+                1.0413282709841918,
+                -0.5743639170255403
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\n13% Long ball ",
+                "Ferencváros\n40% Buildup from goalkick ",
+                "Ferencváros\n60% Forward passes from middle third ",
+                "Ferencváros\n0.42 Crosses per final-third possession",
+                "Ferencváros\n0.43 Dribbles per final-third possession",
+                "Ferencváros\n37% Box entries from crosses ",
+                "Ferencváros\n22% Box entries from carries "
+            ],
+            [
+                "Debrecen\n15% Long ball ",
+                "Debrecen\n32% Buildup from goalkick ",
+                "Debrecen\n64% Forward passes from middle third ",
+                "Debrecen\n0.42 Crosses per final-third possession",
+                "Debrecen\n0.42 Dribbles per final-third possession",
+                "Debrecen\n38% Box entries from crosses ",
+                "Debrecen\n16% Box entries from carries "
+            ],
+            [
+                "MTK\n14% Long ball ",
+                "MTK\n39% Buildup from goalkick ",
+                "MTK\n58% Forward passes from middle third ",
+                "MTK\n0.41 Crosses per final-third possession",
+                "MTK\n0.37 Dribbles per final-third possession",
+                "MTK\n35% Box entries from crosses ",
+                "MTK\n20% Box entries from carries "
+            ],
+            [
+                "Újpest\n13% Long ball ",
+                "Újpest\n44% Buildup from goalkick ",
+                "Újpest\n59% Forward passes from middle third ",
+                "Újpest\n0.36 Crosses per final-third possession",
+                "Újpest\n0.31 Dribbles per final-third possession",
+                "Újpest\n32% Box entries from crosses ",
+                "Újpest\n16% Box entries from carries "
+            ],
+            [
+                "Zalaegerszegi TE\n13% Long ball ",
+                "Zalaegerszegi TE\n41% Buildup from goalkick ",
+                "Zalaegerszegi TE\n59% Forward passes from middle third ",
+                "Zalaegerszegi TE\n0.29 Crosses per final-third possession",
+                "Zalaegerszegi TE\n0.35 Dribbles per final-third possession",
+                "Zalaegerszegi TE\n29% Box entries from crosses ",
+                "Zalaegerszegi TE\n22% Box entries from carries "
+            ],
+            [
+                "Győri ETO\n16% Long ball ",
+                "Győri ETO\n41% Buildup from goalkick ",
+                "Győri ETO\n61% Forward passes from middle third ",
+                "Győri ETO\n0.45 Crosses per final-third possession",
+                "Győri ETO\n0.38 Dribbles per final-third possession",
+                "Győri ETO\n36% Box entries from crosses ",
+                "Győri ETO\n16% Box entries from carries "
+            ],
+            [
+                "Diósgyőr\n16% Long ball ",
+                "Diósgyőr\n28% Buildup from goalkick ",
+                "Diósgyőr\n63% Forward passes from middle third ",
+                "Diósgyőr\n0.46 Crosses per final-third possession",
+                "Diósgyőr\n0.47 Dribbles per final-third possession",
+                "Diósgyőr\n42% Box entries from crosses ",
+                "Diósgyőr\n18% Box entries from carries "
+            ],
+            [
+                "Nyíregyháza Spartacus\n17% Long ball ",
+                "Nyíregyháza Spartacus\n18% Buildup from goalkick ",
+                "Nyíregyháza Spartacus\n65% Forward passes from middle third ",
+                "Nyíregyháza Spartacus\n0.40 Crosses per final-third possession",
+                "Nyíregyháza Spartacus\n0.35 Dribbles per final-third possession",
+                "Nyíregyháza Spartacus\n42% Box entries from crosses ",
+                "Nyíregyháza Spartacus\n16% Box entries from carries "
+            ],
+            [
+                "Kazincbarcika\n15% Long ball ",
+                "Kazincbarcika\n27% Buildup from goalkick ",
+                "Kazincbarcika\n64% Forward passes from middle third ",
+                "Kazincbarcika\n0.35 Crosses per final-third possession",
+                "Kazincbarcika\n0.38 Dribbles per final-third possession",
+                "Kazincbarcika\n30% Box entries from crosses ",
+                "Kazincbarcika\n18% Box entries from carries "
+            ],
+            [
+                "Paksi FC\n21% Long ball ",
+                "Paksi FC\n21% Buildup from goalkick ",
+                "Paksi FC\n71% Forward passes from middle third ",
+                "Paksi FC\n0.57 Crosses per final-third possession",
+                "Paksi FC\n0.37 Dribbles per final-third possession",
+                "Paksi FC\n51% Box entries from crosses ",
+                "Paksi FC\n13% Box entries from carries "
+            ],
+            [
+                "Várda SE\n16% Long ball ",
+                "Várda SE\n15% Buildup from goalkick ",
+                "Várda SE\n62% Forward passes from middle third ",
+                "Várda SE\n0.49 Crosses per final-third possession",
+                "Várda SE\n0.33 Dribbles per final-third possession",
+                "Várda SE\n48% Box entries from crosses ",
+                "Várda SE\n13% Box entries from carries "
+            ],
+            [
+                "Puskás FC\n17% Long ball ",
+                "Puskás FC\n27% Buildup from goalkick ",
+                "Puskás FC\n64% Forward passes from middle third ",
+                "Puskás FC\n0.53 Crosses per final-third possession",
+                "Puskás FC\n0.38 Dribbles per final-third possession",
+                "Puskás FC\n46% Box entries from crosses ",
+                "Puskás FC\n15% Box entries from carries "
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Long ball % | 13",
+            "Buildup from goalkick % | 44",
+            "Forward passes from middle third % | 59",
+            "Crosses per final-third possession | 0.36",
+            "Dribbles per final-third possession | 0.31",
+            "Box entries from crosses % | 32",
+            "Box entries from carries % | 16"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

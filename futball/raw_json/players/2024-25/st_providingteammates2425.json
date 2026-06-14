@@ -1,0 +1,1210 @@
+{
+    "plot_type": "distribution",
+    "title": "Providing Teammates of Barnabás Varga",
+    "subtitle": "Hungarian NB I 2024/2025 | 2036 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Krisztián Németh",
+            "Yohan Croizet",
+            "Jakov Puljić",
+            "Norbert Könyves",
+            "István Bognár",
+            "Jozsef Windecker",
+            "Dániel Böde",
+            "Márton Eppel",
+            "Aleksandar Pešić",
+            "Claudiu Bumba",
+            "Balázs Dzsudzsák",
+            "Jakub Plšek",
+            "Elton-Ofoi Acolatse",
+            "Maurides",
+            "Bright Edomwonyi",
+            "Marin Jurina",
+            "Martin Ádám",
+            "Fran Brodić",
+            "Máté Sajbán",
+            "Myke",
+            "Ivan Šaponjić",
+            "Driton Camaj",
+            "Nicolás Stefanelli",
+            "Róbert Polievka",
+            "Lamin Colley",
+            "Bálint Szabó",
+            "Žan Medved",
+            "Dániel Lukács",
+            "Bence Ötvös",
+            "Gergő Pálinkás",
+            "Ladislav Almási",
+            "Barna Tóth",
+            "Michael López",
+            "Marko Rakonjac",
+            "Barnabás Varga",
+            "Slobodan Babić",
+            "Jonathan Levi",
+            "Matheus Saldanha",
+            "Tobias Christensen",
+            "Milan Tučić",
+            "Donát Bárány",
+            "Péter Beke",
+            "Wajdi Sahli",
+            "Krisztofer Horváth",
+            "Mamoudou Karamoko",
+            "Rajmund Molnár",
+            "Lenny Joseph",
+            "Dániel Németh",
+            "Mátyás Katona",
+            "Dávid Zimonyi",
+            "Nejc Gradišar",
+            "Bálint Katona",
+            "Márk Mucsányi",
+            "Csanad Denes",
+            "Nadir Benbouali",
+            "Dognimani Silue",
+            "Matija Krivokapić",
+            "Adrian Denes",
+            "Nfansu Njie"
+        ],
+        "target_identifiers": [
+            354,
+            25733,
+            69697,
+            75028,
+            75054,
+            75113,
+            75137,
+            75148,
+            80985,
+            84036,
+            101690,
+            137107,
+            149221,
+            208787,
+            213391,
+            231833,
+            237448,
+            238159,
+            266739,
+            277464,
+            283078,
+            284737,
+            326126,
+            333635,
+            350886,
+            352143,
+            353808,
+            375251,
+            404780,
+            404784,
+            406140,
+            423082,
+            446011,
+            452687,
+            474522,
+            481271,
+            483796,
+            487737,
+            499832,
+            512314,
+            542799,
+            542930,
+            557829,
+            561550,
+            563154,
+            586811,
+            592988,
+            620093,
+            653443,
+            673719,
+            677652,
+            694818,
+            696314,
+            706432,
+            707818,
+            730706,
+            732693,
+            759567,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Assists",
+                "description": "Number of assists adjusted by possession.",
+                "display_name": "Assists"
+            },
+            {
+                "name": "Deep completions",
+                "description": "Number of successful non-cross passes into the area within 20 meters of the opponent's goal adjusted by possession.",
+                "display_name": "Deep completions"
+            },
+            {
+                "name": "Key passes",
+                "description": "Number of passes that immediately create a clear goal-scoring opportunity for a teammate adjusted by possession.",
+                "display_name": "Key passes"
+            },
+            {
+                "name": "Second assists",
+                "description": "Number of last actions of a player from a goalscoring team prior to an assist by a teammate adjusted by possession.",
+                "display_name": "Second assists"
+            },
+            {
+                "name": "xA",
+                "description": "Accumulated expected assists adjusted by possession.",
+                "display_name": "xA"
+            },
+            {
+                "name": "xGCreated",
+                "description": "Accumulated xG of shots within 5s of passes in the same possession assigned to the passer adjusted by possession.",
+                "display_name": "xGCreated"
+            }
+        ],
+        "focal_target_indices": [
+            34
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.15593098104000092,
+                1.1011871099472046,
+                -0.12617772817611694,
+                0.7131304740905762,
+                0.742780864238739,
+                1.148210048675537
+            ],
+            [
+                -0.20915889739990234,
+                0.36531302332878113,
+                0.8814569711685181,
+                -0.08030413091182709,
+                0.8469206094741821,
+                0.15136797726154327
+            ],
+            [
+                -1.256774663925171,
+                0.4921603202819824,
+                -1.4792739152908325,
+                1.4722970724105835,
+                -1.152853012084961,
+                -1.1275410652160645
+            ],
+            [
+                -1.256774663925171,
+                -0.2175547480583191,
+                -0.33515870571136475,
+                3.039142370223999,
+                -0.16488417983055115,
+                1.7317901849746704
+            ],
+            [
+                0.17415288090705872,
+                1.3393299579620361,
+                0.7192474007606506,
+                0.18322616815567017,
+                0.41955727338790894,
+                0.8651185035705566
+            ],
+            [
+                0.7291357517242432,
+                -0.9760143756866455,
+                -0.25878819823265076,
+                -0.8005493879318237,
+                -0.669792890548706,
+                -0.7736908197402954
+            ],
+            [
+                -1.256774663925171,
+                -1.1641677618026733,
+                -1.1980594396591187,
+                2.030747652053833,
+                -0.9470173716545105,
+                -1.0430461168289185
+            ],
+            [
+                -1.256774663925171,
+                -0.9049299955368042,
+                -1.4792739152908325,
+                -0.8005493879318237,
+                -1.1959030628204346,
+                -1.6356958150863647
+            ],
+            [
+                -0.47755342721939087,
+                -0.3476135730743408,
+                0.11701877415180206,
+                -0.8005493879318237,
+                0.4518977403640747,
+                -0.02536836452782154
+            ],
+            [
+                0.5705997943878174,
+                1.5757825374603271,
+                0.3176122009754181,
+                0.20451973378658295,
+                0.25002145767211914,
+                0.5868261456489563
+            ],
+            [
+                2.402040958404541,
+                0.665027379989624,
+                0.769333004951477,
+                1.7149192094802856,
+                2.139355421066284,
+                -0.2013530731201172
+            ],
+            [
+                0.016107728704810143,
+                0.04230494424700737,
+                -0.17547671496868134,
+                0.07456870377063751,
+                -0.4470883011817932,
+                -0.3389913737773895
+            ],
+            [
+                2.085801601409912,
+                1.1043787002563477,
+                1.8466628789901733,
+                -0.8005493879318237,
+                2.036583423614502,
+                1.5092748403549194
+            ],
+            [
+                1.873347520828247,
+                -1.0359315872192383,
+                -0.838045060634613,
+                -0.8005493879318237,
+                -0.15600207448005676,
+                -0.23519396781921387
+            ],
+            [
+                0.7886257767677307,
+                -0.1474229097366333,
+                0.19678819179534912,
+                -0.09743376076221466,
+                0.6283587217330933,
+                -0.10314123332500458
+            ],
+            [
+                -1.256774663925171,
+                -1.7379094362258911,
+                -1.0070691108703613,
+                -0.27230390906333923,
+                -1.150433897972107,
+                -1.107381820678711
+            ],
+            [
+                0.7152692675590515,
+                0.9885813593864441,
+                0.944653332233429,
+                -0.8005493879318237,
+                1.7187293767929077,
+                0.05119006708264351
+            ],
+            [
+                0.6109451055526733,
+                -0.14229492843151093,
+                0.0511913076043129,
+                -0.3725246489048004,
+                -0.6130293607711792,
+                -0.2523989677429199
+            ],
+            [
+                -1.256774663925171,
+                -1.4118531942367554,
+                -1.069045901298523,
+                -0.8005493879318237,
+                -0.9575485587120056,
+                -0.7288174033164978
+            ],
+            [
+                0.877815306186676,
+                1.241463541984558,
+                2.019019365310669,
+                -0.8005493879318237,
+                0.21451888978481293,
+                0.21607156097888947
+            ],
+            [
+                -1.256774663925171,
+                -0.28339242935180664,
+                -0.5332809090614319,
+                -0.8005493879318237,
+                -0.357619971036911,
+                -1.0265287160873413
+            ],
+            [
+                -0.3664565086364746,
+                0.49292317032814026,
+                2.898045063018799,
+                -0.8005493879318237,
+                2.0870349407196045,
+                1.784598469734192
+            ],
+            [
+                -0.22970470786094666,
+                1.6869713068008423,
+                0.6247553825378418,
+                -0.8005493879318237,
+                0.6461552381515503,
+                1.4703091382980347
+            ],
+            [
+                -1.256774663925171,
+                -0.6489610075950623,
+                -0.6002545356750488,
+                -0.8005493879318237,
+                -0.4406583607196808,
+                0.16981160640716553
+            ],
+            [
+                0.6562044024467468,
+                -0.8039562106132507,
+                0.08827812224626541,
+                1.1722360849380493,
+                -0.03010839782655239,
+                -0.03835129737854004
+            ],
+            [
+                0.26417919993400574,
+                0.9628617763519287,
+                -0.025239963084459305,
+                0.5936764478683472,
+                0.41254740953445435,
+                0.37240538001060486
+            ],
+            [
+                -1.256774663925171,
+                -1.6982319355010986,
+                -0.7765230536460876,
+                -0.8005493879318237,
+                -1.1253358125686646,
+                -0.38640761375427246
+            ],
+            [
+                1.450639009475708,
+                0.568151593208313,
+                0.5174078345298767,
+                1.433095932006836,
+                0.3248414695262909,
+                0.3534068465232849
+            ],
+            [
+                -0.19827312231063843,
+                0.665178656578064,
+                -0.033661019057035446,
+                0.16975641250610352,
+                -0.3806944489479065,
+                -0.08607671409845352
+            ],
+            [
+                -0.7308399081230164,
+                -0.44298726320266724,
+                -0.8328239917755127,
+                -0.8005493879318237,
+                -1.1606694459915161,
+                -1.4384444952011108
+            ],
+            [
+                0.4614429175853729,
+                -0.5519382953643799,
+                -0.7752945423126221,
+                -0.8005493879318237,
+                -0.9035176038742065,
+                -0.8823350667953491
+            ],
+            [
+                -0.29509425163269043,
+                0.805974543094635,
+                -0.2972296476364136,
+                -0.13938544690608978,
+                0.16543640196323395,
+                0.0553753562271595
+            ],
+            [
+                -1.256774663925171,
+                -0.5981607437133789,
+                -1.4792739152908325,
+                -0.8005493879318237,
+                -1.3918033838272095,
+                -0.570830762386322
+            ],
+            [
+                -1.256774663925171,
+                -0.8027762174606323,
+                -1.2177734375,
+                0.07705531269311905,
+                -1.2164034843444824,
+                -0.6914007067680359
+            ],
+            [
+                -0.5432403087615967,
+                -0.2557280361652374,
+                -0.30989137291908264,
+                -0.3099881112575531,
+                -0.13620197772979736,
+                -0.24332194030284882
+            ],
+            [
+                -1.256774663925171,
+                -0.6832510232925415,
+                -0.8358125686645508,
+                1.358929991722107,
+                -1.2529845237731934,
+                -0.0793374702334404
+            ],
+            [
+                0.6945691704750061,
+                1.7370163202285767,
+                1.0791090726852417,
+                0.8093305230140686,
+                2.4866557121276855,
+                1.6100077629089355
+            ],
+            [
+                0.8022249937057495,
+                0.6662486791610718,
+                0.489132821559906,
+                0.14317117631435394,
+                0.9056425094604492,
+                0.9475176930427551
+            ],
+            [
+                0.6036005616188049,
+                3.295675277709961,
+                1.56961989402771,
+                -0.8005493879318237,
+                0.4734629988670349,
+                -0.45133647322654724
+            ],
+            [
+                -1.256774663925171,
+                -1.2506402730941772,
+                -1.4792739152908325,
+                1.7632542848587036,
+                -1.3593753576278687,
+                -1.3364193439483643
+            ],
+            [
+                -0.8306164145469666,
+                -0.8481573462486267,
+                -0.7808603644371033,
+                -0.8005493879318237,
+                -1.0249099731445312,
+                -0.9976323246955872
+            ],
+            [
+                0.32496047019958496,
+                0.20558394491672516,
+                1.7610278129577637,
+                -0.8005493879318237,
+                0.633466362953186,
+                1.013974905014038
+            ],
+            [
+                0.8766935467720032,
+                0.44944238662719727,
+                1.4344385862350464,
+                2.133007764816284,
+                1.3307002782821655,
+                1.5366592407226562
+            ],
+            [
+                0.5948910117149353,
+                1.1099530458450317,
+                0.4173637628555298,
+                1.1090059280395508,
+                0.03727075085043907,
+                0.04747457429766655
+            ],
+            [
+                0.8383104801177979,
+                0.4039452373981476,
+                1.6681469678878784,
+                -0.8005493879318237,
+                0.3724811375141144,
+                0.21603040397167206
+            ],
+            [
+                0.788859486579895,
+                0.28470972180366516,
+                1.8732333183288574,
+                0.8871209025382996,
+                1.1693142652511597,
+                0.8206701278686523
+            ],
+            [
+                0.6597890257835388,
+                0.4763091802597046,
+                0.09121546894311905,
+                -0.8005493879318237,
+                -0.18100139498710632,
+                -0.09560130536556244
+            ],
+            [
+                1.619799017906189,
+                -0.8007979393005371,
+                -0.30069878697395325,
+                -0.8005493879318237,
+                0.6569004058837891,
+                0.5807066559791565
+            ],
+            [
+                -0.6659455895423889,
+                -0.7663173675537109,
+                -1.237202525138855,
+                -0.8005493879318237,
+                -0.7703670859336853,
+                -0.856265127658844
+            ],
+            [
+                0.6756969094276428,
+                0.9270159602165222,
+                0.10425086319446564,
+                1.8566336631774902,
+                2.334879159927368,
+                4
+            ],
+            [
+                0.03768721595406532,
+                -0.6409633755683899,
+                -0.41855329275131226,
+                0.9793589115142822,
+                -0.033910587430000305,
+                -0.3988605737686157
+            ],
+            [
+                -1.256774663925171,
+                -0.4518381655216217,
+                -0.32525473833084106,
+                0.7486226558685303,
+                -1.0442578792572021,
+                -0.49029839038848877
+            ],
+            [
+                -0.3148663640022278,
+                -1.4514209032058716,
+                -0.32153233885765076,
+                -0.8005493879318237,
+                -0.5759249925613403,
+                0.021392226219177246
+            ],
+            [
+                0.8372014164924622,
+                0.4336570203304291,
+                1.0945258140563965,
+                -0.8005493879318237,
+                0.06985887885093689,
+                0.38748928904533386
+            ],
+            [
+                -0.35262468457221985,
+                -0.06995803117752075,
+                -0.5531646609306335,
+                -0.1789381355047226,
+                -0.5633866190910339,
+                0.03308241814374924
+            ],
+            [
+                1.0481691360473633,
+                0.48194029927253723,
+                -0.5349040627479553,
+                -0.8005493879318237,
+                -1.0355184078216553,
+                -1.2868255376815796
+            ],
+            [
+                1.3999452590942383,
+                -0.8985234498977661,
+                -0.3907761573791504,
+                -0.8005493879318237,
+                0.07046515494585037,
+                -0.46815618872642517
+            ],
+            [
+                -1.256774663925171,
+                -0.9350881576538086,
+                -0.9518765807151794,
+                -0.8005493879318237,
+                -0.16019243001937866,
+                -0.8469673991203308
+            ],
+            [
+                -1.256774663925171,
+                -1.6003170013427734,
+                -0.5960187315940857,
+                -0.8005493879318237,
+                -1.0264472961425781,
+                -1.447547435760498
+            ]
+        ],
+        "hover_strings": [
+            [
+                "K. Németh\nRank: 31/59\n0.11 Assists per 90",
+                "K. Németh\nRank: 9/59\n1.42 Deep completions per 90",
+                "K. Németh\nRank: 28/59\n0.33 Key passes per 90",
+                "K. Németh\nRank: 16/59\n0.11 Second assists per 90",
+                "K. Németh\nRank: 11/59\n0.17 xA per 90",
+                "K. Németh\nRank: 8/59\n0.25 xGCreated per 90"
+            ],
+            [
+                "Y. Croizet\nRank: 33/59\n0.10 Assists per 90",
+                "Y. Croizet\nRank: 25/59\n1.09 Deep completions per 90",
+                "Y. Croizet\nRank: 12/59\n0.57 Key passes per 90",
+                "Y. Croizet\nRank: 24/59\n0.05 Second assists per 90",
+                "Y. Croizet\nRank: 10/59\n0.18 xA per 90",
+                "Y. Croizet\nRank: 21/59\n0.17 xGCreated per 90"
+            ],
+            [
+                "J. Puljić\nRank: 44/59\n0.00 Assists per 90",
+                "J. Puljić\nRank: 19/59\n1.15 Deep completions per 90",
+                "J. Puljić\nRank: 56/59\n0.00 Key passes per 90",
+                "J. Puljić\nRank: 7/59\n0.16 Second assists per 90",
+                "J. Puljić\nRank: 53/59\n0.02 xA per 90",
+                "J. Puljić\nRank: 54/59\n0.06 xGCreated per 90"
+            ],
+            [
+                "N. Könyves\nRank: 44/59\n0.00 Assists per 90",
+                "N. Könyves\nRank: 32/59\n0.83 Deep completions per 90",
+                "N. Könyves\nRank: 36/59\n0.28 Key passes per 90",
+                "N. Könyves\nRank: 1/59\n0.28 Second assists per 90",
+                "N. Könyves\nRank: 33/59\n0.10 xA per 90",
+                "N. Könyves\nRank: 3/59\n0.30 xGCreated per 90"
+            ],
+            [
+                "I. Bognár\nRank: 28/59\n0.14 Assists per 90",
+                "I. Bognár\nRank: 5/59\n1.53 Deep completions per 90",
+                "I. Bognár\nRank: 14/59\n0.53 Key passes per 90",
+                "I. Bognár\nRank: 19/59\n0.07 Second assists per 90",
+                "I. Bognár\nRank: 18/59\n0.14 xA per 90",
+                "I. Bognár\nRank: 11/59\n0.23 xGCreated per 90"
+            ],
+            [
+                "J. Windecker\nRank: 15/59\n0.20 Assists per 90",
+                "J. Windecker\nRank: 51/59\n0.49 Deep completions per 90",
+                "J. Windecker\nRank: 30/59\n0.30 Key passes per 90",
+                "J. Windecker\nRank: 31/59\n0.00 Second assists per 90",
+                "J. Windecker\nRank: 42/59\n0.06 xA per 90",
+                "J. Windecker\nRank: 46/59\n0.09 xGCreated per 90"
+            ],
+            [
+                "D. Böde\nRank: 44/59\n0.00 Assists per 90",
+                "D. Böde\nRank: 53/59\n0.41 Deep completions per 90",
+                "D. Böde\nRank: 53/59\n0.07 Key passes per 90",
+                "D. Böde\nRank: 3/59\n0.20 Second assists per 90",
+                "D. Böde\nRank: 45/59\n0.04 xA per 90",
+                "D. Böde\nRank: 52/59\n0.07 xGCreated per 90"
+            ],
+            [
+                "M. Eppel\nRank: 44/59\n0.00 Assists per 90",
+                "M. Eppel\nRank: 49/59\n0.53 Deep completions per 90",
+                "M. Eppel\nRank: 56/59\n0.00 Key passes per 90",
+                "M. Eppel\nRank: 31/59\n0.00 Second assists per 90",
+                "M. Eppel\nRank: 55/59\n0.02 xA per 90",
+                "M. Eppel\nRank: 59/59\n0.02 xGCreated per 90"
+            ],
+            [
+                "A. Pešić\nRank: 39/59\n0.08 Assists per 90",
+                "A. Pešić\nRank: 35/59\n0.78 Deep completions per 90",
+                "A. Pešić\nRank: 21/59\n0.39 Key passes per 90",
+                "A. Pešić\nRank: 31/59\n0.00 Second assists per 90",
+                "A. Pešić\nRank: 17/59\n0.14 xA per 90",
+                "A. Pešić\nRank: 27/59\n0.15 xGCreated per 90"
+            ],
+            [
+                "C. Bumba\nRank: 24/59\n0.18 Assists per 90",
+                "C. Bumba\nRank: 4/59\n1.64 Deep completions per 90",
+                "C. Bumba\nRank: 19/59\n0.44 Key passes per 90",
+                "C. Bumba\nRank: 18/59\n0.07 Second assists per 90",
+                "C. Bumba\nRank: 22/59\n0.13 xA per 90",
+                "C. Bumba\nRank: 13/59\n0.20 xGCreated per 90"
+            ],
+            [
+                "B. Dzsudzsák\nRank: 1/59\n0.36 Assists per 90",
+                "B. Dzsudzsák\nRank: 16/59\n1.23 Deep completions per 90",
+                "B. Dzsudzsák\nRank: 13/59\n0.55 Key passes per 90",
+                "B. Dzsudzsák\nRank: 6/59\n0.18 Second assists per 90",
+                "B. Dzsudzsák\nRank: 3/59\n0.28 xA per 90",
+                "B. Dzsudzsák\nRank: 33/59\n0.14 xGCreated per 90"
+            ],
+            [
+                "J. Plšek\nRank: 30/59\n0.13 Assists per 90",
+                "J. Plšek\nRank: 28/59\n0.95 Deep completions per 90",
+                "J. Plšek\nRank: 29/59\n0.32 Key passes per 90",
+                "J. Plšek\nRank: 23/59\n0.06 Second assists per 90",
+                "J. Plšek\nRank: 38/59\n0.07 xA per 90",
+                "J. Plšek\nRank: 37/59\n0.13 xGCreated per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 2/59\n0.33 Assists per 90",
+                "E. Acolatse\nRank: 8/59\n1.42 Deep completions per 90",
+                "E. Acolatse\nRank: 4/59\n0.81 Key passes per 90",
+                "E. Acolatse\nRank: 31/59\n0.00 Second assists per 90",
+                "E. Acolatse\nRank: 5/59\n0.27 xA per 90",
+                "E. Acolatse\nRank: 6/59\n0.28 xGCreated per 90"
+            ],
+            [
+                "Maurides\nRank: 3/59\n0.31 Assists per 90",
+                "Maurides\nRank: 52/59\n0.47 Deep completions per 90",
+                "Maurides\nRank: 49/59\n0.16 Key passes per 90",
+                "Maurides\nRank: 31/59\n0.00 Second assists per 90",
+                "Maurides\nRank: 31/59\n0.10 xA per 90",
+                "Maurides\nRank: 34/59\n0.13 xGCreated per 90"
+            ],
+            [
+                "B. Edomwonyi\nRank: 14/59\n0.20 Assists per 90",
+                "B. Edomwonyi\nRank: 31/59\n0.86 Deep completions per 90",
+                "B. Edomwonyi\nRank: 20/59\n0.41 Key passes per 90",
+                "B. Edomwonyi\nRank: 25/59\n0.05 Second assists per 90",
+                "B. Edomwonyi\nRank: 15/59\n0.16 xA per 90",
+                "B. Edomwonyi\nRank: 32/59\n0.15 xGCreated per 90"
+            ],
+            [
+                "M. Jurina\nRank: 44/59\n0.00 Assists per 90",
+                "M. Jurina\nRank: 59/59\n0.15 Deep completions per 90",
+                "M. Jurina\nRank: 51/59\n0.11 Key passes per 90",
+                "M. Jurina\nRank: 28/59\n0.04 Second assists per 90",
+                "M. Jurina\nRank: 52/59\n0.02 xA per 90",
+                "M. Jurina\nRank: 53/59\n0.06 xGCreated per 90"
+            ],
+            [
+                "M. Ádám\nRank: 16/59\n0.20 Assists per 90",
+                "M. Ádám\nRank: 10/59\n1.37 Deep completions per 90",
+                "M. Ádám\nRank: 11/59\n0.59 Key passes per 90",
+                "M. Ádám\nRank: 31/59\n0.00 Second assists per 90",
+                "M. Ádám\nRank: 6/59\n0.24 xA per 90",
+                "M. Ádám\nRank: 23/59\n0.16 xGCreated per 90"
+            ],
+            [
+                "F. Brodić\nRank: 21/59\n0.19 Assists per 90",
+                "F. Brodić\nRank: 30/59\n0.87 Deep completions per 90",
+                "F. Brodić\nRank: 25/59\n0.37 Key passes per 90",
+                "F. Brodić\nRank: 30/59\n0.03 Second assists per 90",
+                "F. Brodić\nRank: 41/59\n0.06 xA per 90",
+                "F. Brodić\nRank: 36/59\n0.13 xGCreated per 90"
+            ],
+            [
+                "M. Sajbán\nRank: 44/59\n0.00 Assists per 90",
+                "M. Sajbán\nRank: 55/59\n0.30 Deep completions per 90",
+                "M. Sajbán\nRank: 52/59\n0.10 Key passes per 90",
+                "M. Sajbán\nRank: 31/59\n0.00 Second assists per 90",
+                "M. Sajbán\nRank: 46/59\n0.03 xA per 90",
+                "M. Sajbán\nRank: 45/59\n0.09 xGCreated per 90"
+            ],
+            [
+                "Myke\nRank: 8/59\n0.21 Assists per 90",
+                "Myke\nRank: 6/59\n1.49 Deep completions per 90",
+                "Myke\nRank: 2/59\n0.85 Key passes per 90",
+                "Myke\nRank: 31/59\n0.00 Second assists per 90",
+                "Myke\nRank: 23/59\n0.13 xA per 90",
+                "Myke\nRank: 18/59\n0.17 xGCreated per 90"
+            ],
+            [
+                "I. Šaponjić\nRank: 44/59\n0.00 Assists per 90",
+                "I. Šaponjić\nRank: 34/59\n0.80 Deep completions per 90",
+                "I. Šaponjić\nRank: 39/59\n0.23 Key passes per 90",
+                "I. Šaponjić\nRank: 31/59\n0.00 Second assists per 90",
+                "I. Šaponjić\nRank: 35/59\n0.08 xA per 90",
+                "I. Šaponjić\nRank: 51/59\n0.07 xGCreated per 90"
+            ],
+            [
+                "D. Camaj\nRank: 38/59\n0.09 Assists per 90",
+                "D. Camaj\nRank: 18/59\n1.15 Deep completions per 90",
+                "D. Camaj\nRank: 1/59\n1.06 Key passes per 90",
+                "D. Camaj\nRank: 31/59\n0.00 Second assists per 90",
+                "D. Camaj\nRank: 4/59\n0.27 xA per 90",
+                "D. Camaj\nRank: 2/59\n0.31 xGCreated per 90"
+            ],
+            [
+                "N. Stefanelli\nRank: 34/59\n0.10 Assists per 90",
+                "N. Stefanelli\nRank: 3/59\n1.69 Deep completions per 90",
+                "N. Stefanelli\nRank: 15/59\n0.51 Key passes per 90",
+                "N. Stefanelli\nRank: 31/59\n0.00 Second assists per 90",
+                "N. Stefanelli\nRank: 13/59\n0.16 xA per 90",
+                "N. Stefanelli\nRank: 7/59\n0.28 xGCreated per 90"
+            ],
+            [
+                "R. Polievka\nRank: 44/59\n0.00 Assists per 90",
+                "R. Polievka\nRank: 41/59\n0.64 Deep completions per 90",
+                "R. Polievka\nRank: 43/59\n0.21 Key passes per 90",
+                "R. Polievka\nRank: 31/59\n0.00 Second assists per 90",
+                "R. Polievka\nRank: 37/59\n0.07 xA per 90",
+                "R. Polievka\nRank: 20/59\n0.17 xGCreated per 90"
+            ],
+            [
+                "L. Colley\nRank: 20/59\n0.19 Assists per 90",
+                "L. Colley\nRank: 46/59\n0.57 Deep completions per 90",
+                "L. Colley\nRank: 24/59\n0.38 Key passes per 90",
+                "L. Colley\nRank: 10/59\n0.14 Second assists per 90",
+                "L. Colley\nRank: 28/59\n0.11 xA per 90",
+                "L. Colley\nRank: 28/59\n0.15 xGCreated per 90"
+            ],
+            [
+                "B. Szabó\nRank: 27/59\n0.15 Assists per 90",
+                "B. Szabó\nRank: 11/59\n1.36 Deep completions per 90",
+                "B. Szabó\nRank: 26/59\n0.35 Key passes per 90",
+                "B. Szabó\nRank: 17/59\n0.10 Second assists per 90",
+                "B. Szabó\nRank: 19/59\n0.14 xA per 90",
+                "B. Szabó\nRank: 16/59\n0.19 xGCreated per 90"
+            ],
+            [
+                "Ž. Medved\nRank: 44/59\n0.00 Assists per 90",
+                "Ž. Medved\nRank: 58/59\n0.17 Deep completions per 90",
+                "Ž. Medved\nRank: 45/59\n0.17 Key passes per 90",
+                "Ž. Medved\nRank: 31/59\n0.00 Second assists per 90",
+                "Ž. Medved\nRank: 51/59\n0.02 xA per 90",
+                "Ž. Medved\nRank: 38/59\n0.12 xGCreated per 90"
+            ],
+            [
+                "D. Lukács\nRank: 5/59\n0.27 Assists per 90",
+                "D. Lukács\nRank: 17/59\n1.18 Deep completions per 90",
+                "D. Lukács\nRank: 16/59\n0.48 Key passes per 90",
+                "D. Lukács\nRank: 8/59\n0.16 Second assists per 90",
+                "D. Lukács\nRank: 21/59\n0.14 xA per 90",
+                "D. Lukács\nRank: 17/59\n0.18 xGCreated per 90"
+            ],
+            [
+                "B. Ötvös\nRank: 32/59\n0.11 Assists per 90",
+                "B. Ötvös\nRank: 15/59\n1.23 Deep completions per 90",
+                "B. Ötvös\nRank: 27/59\n0.35 Key passes per 90",
+                "B. Ötvös\nRank: 20/59\n0.07 Second assists per 90",
+                "B. Ötvös\nRank: 36/59\n0.08 xA per 90",
+                "B. Ötvös\nRank: 30/59\n0.15 xGCreated per 90"
+            ],
+            [
+                "G. Pálinkás\nRank: 42/59\n0.05 Assists per 90",
+                "G. Pálinkás\nRank: 36/59\n0.73 Deep completions per 90",
+                "G. Pálinkás\nRank: 47/59\n0.16 Key passes per 90",
+                "G. Pálinkás\nRank: 31/59\n0.00 Second assists per 90",
+                "G. Pálinkás\nRank: 54/59\n0.02 xA per 90",
+                "G. Pálinkás\nRank: 57/59\n0.03 xGCreated per 90"
+            ],
+            [
+                "L. Almási\nRank: 25/59\n0.17 Assists per 90",
+                "L. Almási\nRank: 38/59\n0.68 Deep completions per 90",
+                "L. Almási\nRank: 44/59\n0.17 Key passes per 90",
+                "L. Almási\nRank: 31/59\n0.00 Second assists per 90",
+                "L. Almási\nRank: 44/59\n0.04 xA per 90",
+                "L. Almási\nRank: 49/59\n0.08 xGCreated per 90"
+            ],
+            [
+                "B. Tóth\nRank: 35/59\n0.10 Assists per 90",
+                "B. Tóth\nRank: 13/59\n1.29 Deep completions per 90",
+                "B. Tóth\nRank: 31/59\n0.29 Key passes per 90",
+                "B. Tóth\nRank: 26/59\n0.05 Second assists per 90",
+                "B. Tóth\nRank: 24/59\n0.12 xA per 90",
+                "B. Tóth\nRank: 22/59\n0.16 xGCreated per 90"
+            ],
+            [
+                "M. López\nRank: 44/59\n0.00 Assists per 90",
+                "M. López\nRank: 39/59\n0.66 Deep completions per 90",
+                "M. López\nRank: 56/59\n0.00 Key passes per 90",
+                "M. López\nRank: 31/59\n0.00 Second assists per 90",
+                "M. López\nRank: 59/59\n0.00 xA per 90",
+                "M. López\nRank: 43/59\n0.11 xGCreated per 90"
+            ],
+            [
+                "M. Rakonjac\nRank: 44/59\n0.00 Assists per 90",
+                "M. Rakonjac\nRank: 45/59\n0.57 Deep completions per 90",
+                "M. Rakonjac\nRank: 54/59\n0.06 Key passes per 90",
+                "M. Rakonjac\nRank: 22/59\n0.06 Second assists per 90",
+                "M. Rakonjac\nRank: 56/59\n0.01 xA per 90",
+                "M. Rakonjac\nRank: 44/59\n0.10 xGCreated per 90"
+            ],
+            [
+                "B. Varga\nRank: 40/59\n0.07 Assists per 90",
+                "B. Varga\nRank: 33/59\n0.82 Deep completions per 90",
+                "B. Varga\nRank: 33/59\n0.28 Key passes per 90",
+                "B. Varga\nRank: 29/59\n0.04 Second assists per 90",
+                "B. Varga\nRank: 30/59\n0.10 xA per 90",
+                "B. Varga\nRank: 35/59\n0.13 xGCreated per 90"
+            ],
+            [
+                "S. Babić\nRank: 44/59\n0.00 Assists per 90",
+                "S. Babić\nRank: 42/59\n0.62 Deep completions per 90",
+                "S. Babić\nRank: 48/59\n0.16 Key passes per 90",
+                "S. Babić\nRank: 9/59\n0.16 Second assists per 90",
+                "S. Babić\nRank: 57/59\n0.01 xA per 90",
+                "S. Babić\nRank: 29/59\n0.15 xGCreated per 90"
+            ],
+            [
+                "J. Levi\nRank: 17/59\n0.19 Assists per 90",
+                "J. Levi\nRank: 2/59\n1.71 Deep completions per 90",
+                "J. Levi\nRank: 10/59\n0.62 Key passes per 90",
+                "J. Levi\nRank: 14/59\n0.12 Second assists per 90",
+                "J. Levi\nRank: 1/59\n0.30 xA per 90",
+                "J. Levi\nRank: 4/59\n0.29 xGCreated per 90"
+            ],
+            [
+                "Matheus Saldanha\nRank: 12/59\n0.20 Assists per 90",
+                "Matheus Saldanha\nRank: 14/59\n1.23 Deep completions per 90",
+                "Matheus Saldanha\nRank: 17/59\n0.48 Key passes per 90",
+                "Matheus Saldanha\nRank: 21/59\n0.07 Second assists per 90",
+                "Matheus Saldanha\nRank: 9/59\n0.18 xA per 90",
+                "Matheus Saldanha\nRank: 10/59\n0.24 xGCreated per 90"
+            ],
+            [
+                "T. Christensen\nRank: 22/59\n0.19 Assists per 90",
+                "T. Christensen\nRank: 1/59\n2.41 Deep completions per 90",
+                "T. Christensen\nRank: 7/59\n0.74 Key passes per 90",
+                "T. Christensen\nRank: 31/59\n0.00 Second assists per 90",
+                "T. Christensen\nRank: 16/59\n0.15 xA per 90",
+                "T. Christensen\nRank: 40/59\n0.12 xGCreated per 90"
+            ],
+            [
+                "M. Tučić\nRank: 44/59\n0.00 Assists per 90",
+                "M. Tučić\nRank: 54/59\n0.37 Deep completions per 90",
+                "M. Tučić\nRank: 56/59\n0.00 Key passes per 90",
+                "M. Tučić\nRank: 5/59\n0.19 Second assists per 90",
+                "M. Tučić\nRank: 58/59\n0.00 xA per 90",
+                "M. Tučić\nRank: 56/59\n0.04 xGCreated per 90"
+            ],
+            [
+                "D. Bárány\nRank: 43/59\n0.04 Assists per 90",
+                "D. Bárány\nRank: 47/59\n0.55 Deep completions per 90",
+                "D. Bárány\nRank: 46/59\n0.17 Key passes per 90",
+                "D. Bárány\nRank: 31/59\n0.00 Second assists per 90",
+                "D. Bárány\nRank: 47/59\n0.03 xA per 90",
+                "D. Bárány\nRank: 50/59\n0.07 xGCreated per 90"
+            ],
+            [
+                "P. Beke\nRank: 26/59\n0.16 Assists per 90",
+                "P. Beke\nRank: 27/59\n1.02 Deep completions per 90",
+                "P. Beke\nRank: 5/59\n0.79 Key passes per 90",
+                "P. Beke\nRank: 31/59\n0.00 Second assists per 90",
+                "P. Beke\nRank: 14/59\n0.16 xA per 90",
+                "P. Beke\nRank: 9/59\n0.24 xGCreated per 90"
+            ],
+            [
+                "W. Sahli\nRank: 9/59\n0.21 Assists per 90",
+                "W. Sahli\nRank: 22/59\n1.13 Deep completions per 90",
+                "W. Sahli\nRank: 8/59\n0.71 Key passes per 90",
+                "W. Sahli\nRank: 2/59\n0.21 Second assists per 90",
+                "W. Sahli\nRank: 7/59\n0.21 xA per 90",
+                "W. Sahli\nRank: 5/59\n0.29 xGCreated per 90"
+            ],
+            [
+                "K. Horváth\nRank: 23/59\n0.18 Assists per 90",
+                "K. Horváth\nRank: 7/59\n1.43 Deep completions per 90",
+                "K. Horváth\nRank: 18/59\n0.46 Key passes per 90",
+                "K. Horváth\nRank: 11/59\n0.14 Second assists per 90",
+                "K. Horváth\nRank: 27/59\n0.11 xA per 90",
+                "K. Horváth\nRank: 24/59\n0.16 xGCreated per 90"
+            ],
+            [
+                "M. Karamoko\nRank: 10/59\n0.21 Assists per 90",
+                "M. Karamoko\nRank: 24/59\n1.11 Deep completions per 90",
+                "M. Karamoko\nRank: 6/59\n0.76 Key passes per 90",
+                "M. Karamoko\nRank: 31/59\n0.00 Second assists per 90",
+                "M. Karamoko\nRank: 20/59\n0.14 xA per 90",
+                "M. Karamoko\nRank: 19/59\n0.17 xGCreated per 90"
+            ],
+            [
+                "R. Molnár\nRank: 13/59\n0.20 Assists per 90",
+                "R. Molnár\nRank: 26/59\n1.06 Deep completions per 90",
+                "R. Molnár\nRank: 3/59\n0.81 Key passes per 90",
+                "R. Molnár\nRank: 13/59\n0.12 Second assists per 90",
+                "R. Molnár\nRank: 8/59\n0.20 xA per 90",
+                "R. Molnár\nRank: 12/59\n0.22 xGCreated per 90"
+            ],
+            [
+                "L. Joseph\nRank: 19/59\n0.19 Assists per 90",
+                "L. Joseph\nRank: 21/59\n1.14 Deep completions per 90",
+                "L. Joseph\nRank: 23/59\n0.38 Key passes per 90",
+                "L. Joseph\nRank: 31/59\n0.00 Second assists per 90",
+                "L. Joseph\nRank: 34/59\n0.10 xA per 90",
+                "L. Joseph\nRank: 31/59\n0.15 xGCreated per 90"
+            ],
+            [
+                "D. Németh\nRank: 4/59\n0.29 Assists per 90",
+                "D. Németh\nRank: 44/59\n0.57 Deep completions per 90",
+                "D. Németh\nRank: 32/59\n0.29 Key passes per 90",
+                "D. Németh\nRank: 31/59\n0.00 Second assists per 90",
+                "D. Németh\nRank: 12/59\n0.16 xA per 90",
+                "D. Németh\nRank: 14/59\n0.20 xGCreated per 90"
+            ],
+            [
+                "M. Katona\nRank: 41/59\n0.06 Assists per 90",
+                "M. Katona\nRank: 43/59\n0.59 Deep completions per 90",
+                "M. Katona\nRank: 55/59\n0.06 Key passes per 90",
+                "M. Katona\nRank: 31/59\n0.00 Second assists per 90",
+                "M. Katona\nRank: 43/59\n0.05 xA per 90",
+                "M. Katona\nRank: 48/59\n0.08 xGCreated per 90"
+            ],
+            [
+                "D. Zimonyi\nRank: 18/59\n0.19 Assists per 90",
+                "D. Zimonyi\nRank: 12/59\n1.35 Deep completions per 90",
+                "D. Zimonyi\nRank: 22/59\n0.38 Key passes per 90",
+                "D. Zimonyi\nRank: 4/59\n0.19 Second assists per 90",
+                "D. Zimonyi\nRank: 2/59\n0.29 xA per 90",
+                "D. Zimonyi\nRank: 1/59\n0.50 xGCreated per 90"
+            ],
+            [
+                "N. Gradišar\nRank: 29/59\n0.13 Assists per 90",
+                "N. Gradišar\nRank: 40/59\n0.64 Deep completions per 90",
+                "N. Gradišar\nRank: 38/59\n0.26 Key passes per 90",
+                "N. Gradišar\nRank: 12/59\n0.13 Second assists per 90",
+                "N. Gradišar\nRank: 29/59\n0.11 xA per 90",
+                "N. Gradišar\nRank: 39/59\n0.12 xGCreated per 90"
+            ],
+            [
+                "B. Katona\nRank: 44/59\n0.00 Assists per 90",
+                "B. Katona\nRank: 37/59\n0.73 Deep completions per 90",
+                "B. Katona\nRank: 35/59\n0.28 Key passes per 90",
+                "B. Katona\nRank: 15/59\n0.11 Second assists per 90",
+                "B. Katona\nRank: 50/59\n0.03 xA per 90",
+                "B. Katona\nRank: 42/59\n0.11 xGCreated per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 36/59\n0.09 Assists per 90",
+                "M. Mucsányi\nRank: 56/59\n0.28 Deep completions per 90",
+                "M. Mucsányi\nRank: 34/59\n0.28 Key passes per 90",
+                "M. Mucsányi\nRank: 31/59\n0.00 Second assists per 90",
+                "M. Mucsányi\nRank: 40/59\n0.06 xA per 90",
+                "M. Mucsányi\nRank: 26/59\n0.16 xGCreated per 90"
+            ],
+            [
+                "C. Denes\nRank: 11/59\n0.21 Assists per 90",
+                "C. Denes\nRank: 23/59\n1.12 Deep completions per 90",
+                "C. Denes\nRank: 9/59\n0.62 Key passes per 90",
+                "C. Denes\nRank: 31/59\n0.00 Second assists per 90",
+                "C. Denes\nRank: 26/59\n0.12 xA per 90",
+                "C. Denes\nRank: 15/59\n0.19 xGCreated per 90"
+            ],
+            [
+                "N. Benbouali\nRank: 37/59\n0.09 Assists per 90",
+                "N. Benbouali\nRank: 29/59\n0.90 Deep completions per 90",
+                "N. Benbouali\nRank: 41/59\n0.22 Key passes per 90",
+                "N. Benbouali\nRank: 27/59\n0.04 Second assists per 90",
+                "N. Benbouali\nRank: 39/59\n0.07 xA per 90",
+                "N. Benbouali\nRank: 25/59\n0.16 xGCreated per 90"
+            ],
+            [
+                "D. Silue\nRank: 7/59\n0.23 Assists per 90",
+                "D. Silue\nRank: 20/59\n1.15 Deep completions per 90",
+                "D. Silue\nRank: 40/59\n0.23 Key passes per 90",
+                "D. Silue\nRank: 31/59\n0.00 Second assists per 90",
+                "D. Silue\nRank: 49/59\n0.03 xA per 90",
+                "D. Silue\nRank: 55/59\n0.05 xGCreated per 90"
+            ],
+            [
+                "M. Krivokapić\nRank: 6/59\n0.26 Assists per 90",
+                "M. Krivokapić\nRank: 48/59\n0.53 Deep completions per 90",
+                "M. Krivokapić\nRank: 37/59\n0.26 Key passes per 90",
+                "M. Krivokapić\nRank: 31/59\n0.00 Second assists per 90",
+                "M. Krivokapić\nRank: 25/59\n0.12 xA per 90",
+                "M. Krivokapić\nRank: 41/59\n0.12 xGCreated per 90"
+            ],
+            [
+                "A. Denes\nRank: 44/59\n0.00 Assists per 90",
+                "A. Denes\nRank: 50/59\n0.51 Deep completions per 90",
+                "A. Denes\nRank: 50/59\n0.13 Key passes per 90",
+                "A. Denes\nRank: 31/59\n0.00 Second assists per 90",
+                "A. Denes\nRank: 32/59\n0.10 xA per 90",
+                "A. Denes\nRank: 47/59\n0.08 xGCreated per 90"
+            ],
+            [
+                "N. Njie\nRank: 44/59\n0.00 Assists per 90",
+                "N. Njie\nRank: 57/59\n0.21 Deep completions per 90",
+                "N. Njie\nRank: 42/59\n0.21 Key passes per 90",
+                "N. Njie\nRank: 31/59\n0.00 Second assists per 90",
+                "N. Njie\nRank: 48/59\n0.03 xA per 90",
+                "N. Njie\nRank: 58/59\n0.03 xGCreated per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Strikers",
+            "Barnabás Varga"
+        ],
+        "minutes_played": 2036,
+        "axis_labels": [
+            "Assists per 90 | 0.07",
+            "Deep completions per 90 | 0.82",
+            "Key passes per 90 | 0.28",
+            "Second assists per 90 | 0.04",
+            "xA per 90 | 0.10",
+            "xGCreated per 90 | 0.13"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            0.7481784785191008,
+            0.6065736969469862,
+            -0.906162537410158,
+            0.36587070625268964,
+            0.8056710909906287,
+            -0.661502161606504,
+            -0.9846071012999184,
+            -1.572343095036228,
+            -0.03139034406177376,
+            0.6844766694341682,
+            1.6172653086004465,
+            -0.25920548086947276,
+            1.9009192236083128,
+            -0.3771725116823399,
+            0.32853924344816693,
+            -1.4264300291923093,
+            1.0790722477667165,
+            -0.2647471201733464,
+            -1.3018804391915115,
+            0.8796298846466324,
+            -0.7803919908974043,
+            1.811965732953507,
+            0.8731045762552082,
+            -0.6710779069939948,
+            0.08247820643094236,
+            0.5126834381199593,
+            -1.2808900796321976,
+            0.7948034951099733,
+            -0.04676915561683444,
+            -1.203359901646697,
+            -0.85512150936469,
+            0.09618019516545684,
+            -1.3861939542571777,
+            -1.2039360247065582,
+            -0.3331231005679362,
+            -0.8197405459049033,
+            2.044520625529031,
+            0.8943311880629957,
+            1.0929175534005697,
+            -1.3185627758680214,
+            -1.1444796344234567,
+            0.8582305107517445,
+            1.6274771143947853,
+            0.5555758667365235,
+            0.6866475843454535,
+            1.341066266379475,
+            0.008831428436344784,
+            0.235375160065304,
+            -1.1000969410102948,
+            2.1723873910358282,
+            -0.18764071934006576,
+            -0.7225128888391502,
+            -0.713223922099476,
+            0.4644386976965438,
+            -0.4285151915984552,
+            -0.6505016612148624,
+            -0.25593894499992803,
+            -0.9011068136518549,
+            -1.3805870979259733
+        ]
+    },
+    "player_info": {
+        "id": 474522,
+        "name": "B. Varga",
+        "full_name": "Barnabás Varga",
+        "synthesized_name": "Barnabás Varga",
+        "birth_date": "1994-10-25",
+        "age": 31,
+        "foot": null,
+        "position": "STRIKER",
+        "detailed_position": "STRIKER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g462276_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "plot_type": "ranking-bar",
+    "title": "Újpest performance in opp. np xG per shot",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "MTK",
+            "Várda SE",
+            "Győri ETO",
+            "Kazincbarcika",
+            "Paksi FC",
+            "Nyíregyháza Spartacus",
+            "Diósgyőr",
+            "Puskás FC",
+            "Debrecen"
+        ],
+        "target_icons": [
+            "https://cdn5.wyscout.com/photos/team/public/1108_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/351_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/354_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/349_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g11938_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/352_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/3553_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/360_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/356_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/362_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g22345_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/350_120x120.png"
+        ],
+        "focal_target_indices": [
+            1
+        ],
+        "plot_values": [
+            0.09696969696969697,
+            0.10181818181818181,
+            0.10606060606060606,
+            0.10727272727272727,
+            0.109375,
+            0.12090909090909091,
+            0.12515151515151515,
+            0.12545454545454546,
+            0.12575757575757576,
+            0.12757575757575756,
+            0.13060606060606061,
+            0.1309375
+        ],
+        "hover_strings": [
+            "<b>Ferencváros</b><br/>Rank: 1/12<br/>Opp. np xG per shot: 0.10",
+            "<b>Újpest</b><br/>Rank: 2/12<br/>Opp. np xG per shot: 0.10",
+            "<b>Zalaegerszegi TE</b><br/>Rank: 3/12<br/>Opp. np xG per shot: 0.11",
+            "<b>MTK</b><br/>Rank: 4/12<br/>Opp. np xG per shot: 0.11",
+            "<b>Várda SE</b><br/>Rank: 5/12<br/>Opp. np xG per shot: 0.11",
+            "<b>Győri ETO</b><br/>Rank: 6/12<br/>Opp. np xG per shot: 0.12",
+            "<b>Kazincbarcika</b><br/>Rank: 7/12<br/>Opp. np xG per shot: 0.13",
+            "<b>Paksi FC</b><br/>Rank: 8/12<br/>Opp. np xG per shot: 0.13",
+            "<b>Nyíregyháza Spartacus</b><br/>Rank: 9/12<br/>Opp. np xG per shot: 0.13",
+            "<b>Diósgyőr</b><br/>Rank: 10/12<br/>Opp. np xG per shot: 0.13",
+            "<b>Puskás FC</b><br/>Rank: 11/12<br/>Opp. np xG per shot: 0.13",
+            "<b>Debrecen</b><br/>Rank: 12/12<br/>Opp. np xG per shot: 0.13"
+        ]
+    }
+}

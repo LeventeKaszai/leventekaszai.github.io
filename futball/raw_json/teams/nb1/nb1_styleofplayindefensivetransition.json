@@ -1,0 +1,235 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's style of play in defensive transition",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Diósgyőr",
+            "Nyíregyháza Spartacus",
+            "Kazincbarcika",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10197,
+            10198,
+            10234,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Time to defensive action after att. half turnover (s)",
+                "description": "Average time that it took a team to make a defensive action after losing the possession of the ball in the attacking half in open play per match.",
+                "display_name": "Time to defensive action after att. half turnover (s)"
+            },
+            {
+                "name": "Time to defensive action after own-half turnover (s)",
+                "description": "Average time that it took a team to make a defensive action after losing the possession of the ball in their own half in open play per match.",
+                "display_name": "Time to defensive action after own-half turnover (s)"
+            },
+            {
+                "name": "Recoveries within 5s %",
+                "description": "Percentage of ball recoveries made by a team within 5 seconds after losing the possession of the ball in open play per match.",
+                "display_name": "Recoveries within 5s %"
+            },
+            {
+                "name": "Opp. Possessions to final third within 10s after att. half turnover %",
+                "description": "Percentage of opponent possessions that begin with a loss in open play in the attacking half by a team and result in the opponent entering the final third within 10 seconds per match.",
+                "display_name": "Opp. Possessions to final third within 10s after att. half turnover %"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.5285399041053934,
+                0.45140187164524814,
+                0.8197920546617166,
+                -0.7830944092984743
+            ],
+            [
+                -0.09313474199044905,
+                0.041653279473437645,
+                -0.4226994795200063,
+                1.2963016082156553
+            ],
+            [
+                2.5805246036920697,
+                1.5228716458572276,
+                -0.8903038203410849,
+                0.24689634532277724
+            ],
+            [
+                -0.6511929661758464,
+                -1.4954216383541032,
+                0.27826169424416336,
+                1.3422833383326755
+            ],
+            [
+                0.17087313086978945,
+                -0.8663604870838072,
+                0.9052968484118559,
+                -0.39071697896656876
+            ],
+            [
+                -1.8019433536225646,
+                -0.6806509022084758,
+                1.9598559713302501,
+                -0.848490647687124
+            ],
+            [
+                -0.4674121917678939,
+                -1.2082266470877907,
+                -0.7762974286742308,
+                0.9172077888064458
+            ],
+            [
+                0.338396931370179,
+                0.2778064287887903,
+                -0.29177026409010465,
+                -0.06373578702331285
+            ],
+            [
+                0.5758993521082756,
+                -0.43751952444620956,
+                -1.7453517578424844,
+                -0.031037667828990263
+            ],
+            [
+                -0.6872428280613161,
+                -0.4623695478580693,
+                0.6772840650781502,
+                0.2959435241142626
+            ],
+            [
+                -0.4634358178133552,
+                1.3943721384844745,
+                0.547245524583145,
+                0.43644325502738046
+            ],
+            [
+                -0.029872022714281785,
+                1.4624433827892738,
+                -1.0613134078413649,
+                -2.4180003690147416
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\n6.35 Time to defensive action after att. half turnover (s)",
+                "Ferencváros\n7.09 Time to defensive action after own-half turnover (s)",
+                "Ferencváros\n12% Recoveries within 5s ",
+                "Ferencváros\n24% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Debrecen\n6.09 Time to defensive action after att. half turnover (s)",
+                "Debrecen\n6.74 Time to defensive action after own-half turnover (s)",
+                "Debrecen\n10% Recoveries within 5s ",
+                "Debrecen\n28% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "MTK\n7.23 Time to defensive action after att. half turnover (s)",
+                "MTK\n8.00 Time to defensive action after own-half turnover (s)",
+                "MTK\n10% Recoveries within 5s ",
+                "MTK\n26% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Újpest\n5.85 Time to defensive action after att. half turnover (s)",
+                "Újpest\n5.43 Time to defensive action after own-half turnover (s)",
+                "Újpest\n11% Recoveries within 5s ",
+                "Újpest\n28% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Zalaegerszegi TE\n6.20 Time to defensive action after att. half turnover (s)",
+                "Zalaegerszegi TE\n5.96 Time to defensive action after own-half turnover (s)",
+                "Zalaegerszegi TE\n12% Recoveries within 5s ",
+                "Zalaegerszegi TE\n25% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Győri ETO\n5.35 Time to defensive action after att. half turnover (s)",
+                "Győri ETO\n6.12 Time to defensive action after own-half turnover (s)",
+                "Győri ETO\n13% Recoveries within 5s ",
+                "Győri ETO\n24% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Diósgyőr\n5.92 Time to defensive action after att. half turnover (s)",
+                "Diósgyőr\n5.67 Time to defensive action after own-half turnover (s)",
+                "Diósgyőr\n10% Recoveries within 5s ",
+                "Diósgyőr\n27% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Nyíregyháza Spartacus\n6.27 Time to defensive action after att. half turnover (s)",
+                "Nyíregyháza Spartacus\n6.94 Time to defensive action after own-half turnover (s)",
+                "Nyíregyháza Spartacus\n11% Recoveries within 5s ",
+                "Nyíregyháza Spartacus\n26% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Kazincbarcika\n6.37 Time to defensive action after att. half turnover (s)",
+                "Kazincbarcika\n6.33 Time to defensive action after own-half turnover (s)",
+                "Kazincbarcika\n9% Recoveries within 5s ",
+                "Kazincbarcika\n26% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Paksi FC\n5.83 Time to defensive action after att. half turnover (s)",
+                "Paksi FC\n6.31 Time to defensive action after own-half turnover (s)",
+                "Paksi FC\n12% Recoveries within 5s ",
+                "Paksi FC\n26% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Várda SE\n5.93 Time to defensive action after att. half turnover (s)",
+                "Várda SE\n7.89 Time to defensive action after own-half turnover (s)",
+                "Várda SE\n11% Recoveries within 5s ",
+                "Várda SE\n27% Opp. Possessions to final third within 10s after att. half turnover "
+            ],
+            [
+                "Puskás FC\n6.11 Time to defensive action after att. half turnover (s)",
+                "Puskás FC\n7.95 Time to defensive action after own-half turnover (s)",
+                "Puskás FC\n10% Recoveries within 5s ",
+                "Puskás FC\n21% Opp. Possessions to final third within 10s after att. half turnover "
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Time to defensive action after att. half turnover (s) | 5.85",
+            "Time to defensive action after own-half turnover (s) | 5.43",
+            "Recoveries within 5s % | 11",
+            "Opp. Possessions to final third within 10s after att. half turnover % | 28"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

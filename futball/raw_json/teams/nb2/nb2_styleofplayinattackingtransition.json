@@ -1,0 +1,329 @@
+{
+    "plot_type": "distribution",
+    "title": "Budafoki MTE's style of play in attacking transition",
+    "subtitle": "Budafoki MTE | Hungarian NB II 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Békéscsaba",
+            "Honvéd",
+            "Vasas",
+            "Kecskeméti TE",
+            "BVSC",
+            "Duna Aszfalt Tiszakécskei",
+            "Soroksár SC",
+            "Ajka",
+            "Karcag SE",
+            "Fehérvár",
+            "Szentlőrinc SE",
+            "Mezőkövesd-Zsóry",
+            "Kozármisleny",
+            "Szeged 2011",
+            "Csákvári TK",
+            "Budafoki MTE"
+        ],
+        "target_identifiers": [
+            10192,
+            10194,
+            10196,
+            10207,
+            10212,
+            10220,
+            10226,
+            10235,
+            10249,
+            10260,
+            10261,
+            10273,
+            10274,
+            10427,
+            10437,
+            39600
+        ],
+        "kpis": [
+            {
+                "name": "Time to forward pass after own-half recovery (s)",
+                "description": "Average time it takes a team to make a forward pass after recovering the ball in their own half per match.",
+                "display_name": "Time to forward pass after own-half recovery (s)"
+            },
+            {
+                "name": "First pass forward %",
+                "description": "Percentage of first passes played forward after a ball recovery by a team per match.",
+                "display_name": "First pass forward %"
+            },
+            {
+                "name": "Possessions to final third within 10s after own-half recovery %",
+                "description": "Percentage of possessions that begin with a ball recovery in their own half and result in the team entering the final third within 10 seconds per match.",
+                "display_name": "Possessions to final third within 10s after own-half recovery %"
+            },
+            {
+                "name": "Possessions to box within 10s after att. half recovery %",
+                "description": "Percentage of possessions that begin with a ball recovery in the attacking half and result in the team entering the penalty area within 10 seconds per match.",
+                "display_name": "Possessions to box within 10s after att. half recovery %"
+            },
+            {
+                "name": "Possessions retained after 5s %",
+                "description": "Percentage of possessions by a team that lasted longer than 5 seconds after recovering the possession of the ball in open play per match.",
+                "display_name": "Possessions retained after 5s %"
+            }
+        ],
+        "focal_target_indices": [
+            15
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                1.0990197979339185,
+                -1.3009489173723139,
+                -1.7489385537310398,
+                0.31202325193703573,
+                0.8434473138675808
+            ],
+            [
+                -1.0641142313019094,
+                0.03491680332683954,
+                2.173915140354209,
+                1.1210833059650758,
+                -0.9944518798744822
+            ],
+            [
+                -0.0067521052364815206,
+                -0.6171309244785188,
+                0.017650902944751176,
+                -0.37381950234089073,
+                0.7662992135551914
+            ],
+            [
+                1.416992679375294,
+                -2.3137323699796317,
+                1.835654019339904,
+                -0.2106798724784707,
+                1.147837898939412
+            ],
+            [
+                0.22488389510440804,
+                1.7539189388183463,
+                0.40069670196478246,
+                -0.34616077199065265,
+                -0.6146517820365872
+            ],
+            [
+                -2.0722738947690984,
+                -0.2464370478335337,
+                -0.15186895159160896,
+                0.04034152228007176,
+                1.2377292122498358
+            ],
+            [
+                1.073786195857156,
+                -0.4481243963355904,
+                0.7463385448870544,
+                1.416832149244231,
+                0.35679434180773056
+            ],
+            [
+                -1.3137476158985555,
+                0.5572870359471715,
+                0.8254572477683672,
+                0.8714796722755737,
+                -1.2964866925974945
+            ],
+            [
+                -0.8301732542899851,
+                1.4374784437547692,
+                0.15159733757084506,
+                2.122029317738187,
+                -1.0659681688640665
+            ],
+            [
+                1.1033729843803284,
+                -0.3472807220845601,
+                -1.2029628304496205,
+                -0.6937868121008123,
+                -0.11064048740644308
+            ],
+            [
+                0.7623582367484727,
+                0.4678723114445905,
+                -0.42826771232834604,
+                -0.1562999958576647,
+                0.35612848022765303
+            ],
+            [
+                0.37159325714097163,
+                -0.18340975142663682,
+                -0.801636076703834,
+                0.21076417133277628,
+                1.9928162440573467
+            ],
+            [
+                -0.007116845903648959,
+                -0.27164796639628935,
+                -0.6774158910206144,
+                -1.8474170518422042,
+                -0.11064048740644308
+            ],
+            [
+                0.6416731871519714,
+                -0.42104600232373673,
+                -0.7651839994235735,
+                -0.6593138546001237,
+                0.03917836811091503
+            ],
+            [
+                -1.1531116124674199,
+                0.4846795904864263,
+                -0.2665337383761192,
+                -0.18251886494269662,
+                -1.5668797630352285
+            ],
+            [
+                -0.246390673825422,
+                1.4136049744526367,
+                -0.10850214120515998,
+                -1.6245566646194358,
+                -0.9805118115949596
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Békéscsaba\n1.93 Time to forward pass after own-half recovery (s)",
+                "Békéscsaba\n67% First pass forward ",
+                "Békéscsaba\n21% Possessions to final third within 10s after own-half recovery ",
+                "Békéscsaba\n28% Possessions to box within 10s after att. half recovery ",
+                "Békéscsaba\n77% Possessions retained after 5s "
+            ],
+            [
+                "Honvéd\n1.54 Time to forward pass after own-half recovery (s)",
+                "Honvéd\n70% First pass forward ",
+                "Honvéd\n36% Possessions to final third within 10s after own-half recovery ",
+                "Honvéd\n30% Possessions to box within 10s after att. half recovery ",
+                "Honvéd\n73% Possessions retained after 5s "
+            ],
+            [
+                "Vasas\n1.73 Time to forward pass after own-half recovery (s)",
+                "Vasas\n69% First pass forward ",
+                "Vasas\n28% Possessions to final third within 10s after own-half recovery ",
+                "Vasas\n26% Possessions to box within 10s after att. half recovery ",
+                "Vasas\n77% Possessions retained after 5s "
+            ],
+            [
+                "Kecskeméti TE\n1.99 Time to forward pass after own-half recovery (s)",
+                "Kecskeméti TE\n64% First pass forward ",
+                "Kecskeméti TE\n35% Possessions to final third within 10s after own-half recovery ",
+                "Kecskeméti TE\n27% Possessions to box within 10s after att. half recovery ",
+                "Kecskeméti TE\n78% Possessions retained after 5s "
+            ],
+            [
+                "BVSC\n1.77 Time to forward pass after own-half recovery (s)",
+                "BVSC\n75% First pass forward ",
+                "BVSC\n29% Possessions to final third within 10s after own-half recovery ",
+                "BVSC\n26% Possessions to box within 10s after att. half recovery ",
+                "BVSC\n74% Possessions retained after 5s "
+            ],
+            [
+                "Duna Aszfalt Tiszakécskei\n1.36 Time to forward pass after own-half recovery (s)",
+                "Duna Aszfalt Tiszakécskei\n70% First pass forward ",
+                "Duna Aszfalt Tiszakécskei\n27% Possessions to final third within 10s after own-half recovery ",
+                "Duna Aszfalt Tiszakécskei\n28% Possessions to box within 10s after att. half recovery ",
+                "Duna Aszfalt Tiszakécskei\n78% Possessions retained after 5s "
+            ],
+            [
+                "Soroksár SC\n1.93 Time to forward pass after own-half recovery (s)",
+                "Soroksár SC\n69% First pass forward ",
+                "Soroksár SC\n30% Possessions to final third within 10s after own-half recovery ",
+                "Soroksár SC\n31% Possessions to box within 10s after att. half recovery ",
+                "Soroksár SC\n76% Possessions retained after 5s "
+            ],
+            [
+                "Ajka\n1.50 Time to forward pass after own-half recovery (s)",
+                "Ajka\n72% First pass forward ",
+                "Ajka\n31% Possessions to final third within 10s after own-half recovery ",
+                "Ajka\n30% Possessions to box within 10s after att. half recovery ",
+                "Ajka\n73% Possessions retained after 5s "
+            ],
+            [
+                "Karcag SE\n1.58 Time to forward pass after own-half recovery (s)",
+                "Karcag SE\n74% First pass forward ",
+                "Karcag SE\n28% Possessions to final third within 10s after own-half recovery ",
+                "Karcag SE\n33% Possessions to box within 10s after att. half recovery ",
+                "Karcag SE\n73% Possessions retained after 5s "
+            ],
+            [
+                "Fehérvár\n1.93 Time to forward pass after own-half recovery (s)",
+                "Fehérvár\n69% First pass forward ",
+                "Fehérvár\n23% Possessions to final third within 10s after own-half recovery ",
+                "Fehérvár\n26% Possessions to box within 10s after att. half recovery ",
+                "Fehérvár\n75% Possessions retained after 5s "
+            ],
+            [
+                "Szentlőrinc SE\n1.87 Time to forward pass after own-half recovery (s)",
+                "Szentlőrinc SE\n72% First pass forward ",
+                "Szentlőrinc SE\n26% Possessions to final third within 10s after own-half recovery ",
+                "Szentlőrinc SE\n27% Possessions to box within 10s after att. half recovery ",
+                "Szentlőrinc SE\n76% Possessions retained after 5s "
+            ],
+            [
+                "Mezőkövesd-Zsóry\n1.80 Time to forward pass after own-half recovery (s)",
+                "Mezőkövesd-Zsóry\n70% First pass forward ",
+                "Mezőkövesd-Zsóry\n25% Possessions to final third within 10s after own-half recovery ",
+                "Mezőkövesd-Zsóry\n28% Possessions to box within 10s after att. half recovery ",
+                "Mezőkövesd-Zsóry\n79% Possessions retained after 5s "
+            ],
+            [
+                "Kozármisleny\n1.73 Time to forward pass after own-half recovery (s)",
+                "Kozármisleny\n70% First pass forward ",
+                "Kozármisleny\n25% Possessions to final third within 10s after own-half recovery ",
+                "Kozármisleny\n22% Possessions to box within 10s after att. half recovery ",
+                "Kozármisleny\n75% Possessions retained after 5s "
+            ],
+            [
+                "Szeged 2011\n1.85 Time to forward pass after own-half recovery (s)",
+                "Szeged 2011\n69% First pass forward ",
+                "Szeged 2011\n25% Possessions to final third within 10s after own-half recovery ",
+                "Szeged 2011\n26% Possessions to box within 10s after att. half recovery ",
+                "Szeged 2011\n75% Possessions retained after 5s "
+            ],
+            [
+                "Csákvári TK\n1.52 Time to forward pass after own-half recovery (s)",
+                "Csákvári TK\n72% First pass forward ",
+                "Csákvári TK\n27% Possessions to final third within 10s after own-half recovery ",
+                "Csákvári TK\n27% Possessions to box within 10s after att. half recovery ",
+                "Csákvári TK\n72% Possessions retained after 5s "
+            ],
+            [
+                "Budafoki MTE\n1.69 Time to forward pass after own-half recovery (s)",
+                "Budafoki MTE\n74% First pass forward ",
+                "Budafoki MTE\n27% Possessions to final third within 10s after own-half recovery ",
+                "Budafoki MTE\n23% Possessions to box within 10s after att. half recovery ",
+                "Budafoki MTE\n73% Possessions retained after 5s "
+            ]
+        ],
+        "serie_names": [
+            "Other NB II teams",
+            "Budafoki MTE"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Time to forward pass after own-half recovery (s) | 1.69",
+            "First pass forward % | 74",
+            "Possessions to final third within 10s after own-half recovery % | 27",
+            "Possessions to box within 10s after att. half recovery % | 23",
+            "Possessions retained after 5s % | 73"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

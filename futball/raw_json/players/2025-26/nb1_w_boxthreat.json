@@ -1,0 +1,1273 @@
+{
+    "plot_type": "distribution",
+    "title": "Box Threat of Adin Molnár",
+    "subtitle": "Hungarian NB I 2025/2026 | 2344 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Jasmin Mešanović",
+            "János Ferenczi",
+            "Soma Novothny",
+            "Claudiu Bumba",
+            "Matija Ljujić",
+            "Nemanja Antonov",
+            "Gábor Molnár",
+            "Elton-Ofoi Acolatse",
+            "Ante Roguljić",
+            "Zsolt Nagy",
+            "Callum O'Dowda",
+            "Giorgi Beridze",
+            "Máté Sajbán",
+            "Róbert Polievka",
+            "Mikael Soisalo",
+            "Bence Bíró",
+            "Tonislav Yordanov",
+            "Dániel Lukács",
+            "Gleofilo Vlijter",
+            "Zsombor Bévárdi",
+            "Bence Kiss",
+            "Bogdan Melnyk",
+            "Aljoša Matko",
+            "Márk Kovácsréti",
+            "Bálint Kártik",
+            "Palko Dárdai",
+            "Alen Skribek",
+            "Szabolcs Schön",
+            "Álex Bermejo",
+            "Jonathan Levi",
+            "Barnabás Nagy",
+            "Branimir Cipetić",
+            "Soma Szuhodovszki",
+            "Krisztofer Horváth",
+            "Martin Šlogar",
+            "György Komáromi",
+            "Rajmund Molnár",
+            "Ronald Schuszter",
+            "Maksym Pukhtyeyev",
+            "Ágoston Bényei",
+            "Zalán Kerezsi",
+            "Dominik Kocsis",
+            "Marko Matanović",
+            "Gábor Jurek",
+            "Mátyás Katona",
+            "João Victor",
+            "Meshack Ubochioma",
+            "Bálint Katona",
+            "Márk Mucsányi",
+            "Hunor Németh",
+            "Csanad Denes",
+            "Djordje Gordić",
+            "Ábel Krajcsovics",
+            "Balázs Bakti",
+            "Marcell Major",
+            "Adin Molnár",
+            "Martin Kern",
+            "Alegria",
+            "Kevin Mondovics",
+            "Botond Vajda",
+            "Milán Pető",
+            "Bence Babós",
+            "Istvan Atrok",
+            "Balázs Manner",
+            "Moshe Semel",
+            "Flórián Cibla",
+            "Kevin Banati",
+            "Kevin Horváth",
+            "Bence Vekony",
+            "Nfansu Njie"
+        ],
+        "target_identifiers": [
+            72691,
+            74982,
+            76218,
+            84036,
+            128206,
+            140066,
+            145212,
+            149221,
+            238160,
+            238711,
+            249034,
+            258379,
+            266739,
+            333635,
+            351313,
+            352229,
+            372091,
+            375251,
+            379877,
+            400719,
+            404804,
+            420958,
+            422527,
+            432732,
+            444899,
+            448246,
+            475816,
+            476385,
+            483388,
+            483796,
+            492158,
+            517869,
+            553144,
+            561550,
+            567961,
+            586798,
+            586811,
+            586951,
+            607896,
+            620092,
+            620094,
+            631593,
+            631851,
+            641513,
+            653443,
+            661881,
+            673720,
+            694818,
+            696314,
+            703498,
+            706432,
+            747471,
+            759569,
+            759632,
+            759646,
+            769345,
+            790584,
+            801548,
+            810317,
+            830435,
+            831685,
+            836144,
+            850295,
+            850300,
+            854615,
+            869638,
+            872405,
+            894503,
+            925706,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Box entries",
+                "description": "Number of ball carries into the penalty area adjusted by possession.",
+                "display_name": "Box entries"
+            },
+            {
+                "name": "Goals",
+                "description": "Number of non-penalty goals adjusted by possession.",
+                "display_name": "Goals"
+            },
+            {
+                "name": "Penalty area receptions",
+                "description": "Number of successful pass receptions inside the penalty area divided by the team's possession percentage and multiplied by 0.5.",
+                "display_name": "Penalty area receptions"
+            },
+            {
+                "name": "Touches in box",
+                "description": "Number of open play touches in opponent penalty area when in possession (passes, shots, carries, dribbles, touches) adjusted by possession.",
+                "display_name": "Touches in box"
+            },
+            {
+                "name": "xG",
+                "description": "Accumulated non-penalty expected goals adjusted by possession.",
+                "display_name": "xG"
+            }
+        ],
+        "focal_target_indices": [
+            55
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -1.1894029378890991,
+                -0.35998132824897766,
+                1.1472415924072266,
+                -0.014406909234821796,
+                -0.4318213164806366
+            ],
+            [
+                -1.2219785451889038,
+                -0.4757956266403198,
+                -0.8975529074668884,
+                -1.2961039543151855,
+                -0.6320255398750305
+            ],
+            [
+                -1.2260042428970337,
+                -0.10953807830810547,
+                1.396579384803772,
+                -0.3507049083709717,
+                -0.030964292585849762
+            ],
+            [
+                -0.08928866684436798,
+                -0.5308810472488403,
+                1.1293708086013794,
+                1.113596796989441,
+                0.4371592402458191
+            ],
+            [
+                -0.8937473297119141,
+                -0.9737625122070312,
+                -0.8512446284294128,
+                -0.9960188865661621,
+                -0.9655553102493286
+            ],
+            [
+                -0.22429557144641876,
+                -0.9187506437301636,
+                -1.746699333190918,
+                -1.40793776512146,
+                -0.8110183477401733
+            ],
+            [
+                -0.8959234356880188,
+                0.03852440044283867,
+                -0.3678605854511261,
+                -0.7491872310638428,
+                -0.19259102642536163
+            ],
+            [
+                3.038424253463745,
+                0.7390314936637878,
+                -0.11753670126199722,
+                1.6828360557556152,
+                0.9561708569526672
+            ],
+            [
+                -0.7379546165466309,
+                -0.4191555678844452,
+                0.34781020879745483,
+                -0.3781648576259613,
+                0.7936652302742004
+            ],
+            [
+                -0.4811531901359558,
+                -0.7267446517944336,
+                2.164452314376831,
+                1.3500912189483643,
+                1.1145620346069336
+            ],
+            [
+                -0.28614598512649536,
+                -1.251247525215149,
+                -0.9791354537010193,
+                -0.48831287026405334,
+                -1.5858510732650757
+            ],
+            [
+                0.5385569334030151,
+                -0.4236488342285156,
+                1.0658637285232544,
+                0.8275633454322815,
+                -0.23359666764736176
+            ],
+            [
+                -0.99387526512146,
+                -0.7224424481391907,
+                1.1611757278442383,
+                -0.22763366997241974,
+                0.589509904384613
+            ],
+            [
+                0.8340707421302795,
+                0.614570677280426,
+                1.398597002029419,
+                1.4011434316635132,
+                1.5739768743515015
+            ],
+            [
+                2.167346477508545,
+                -1.251247525215149,
+                -0.7864230871200562,
+                0.12895303964614868,
+                -1.205430507659912
+            ],
+            [
+                -1.1414731740951538,
+                0.6066722869873047,
+                0.4437951445579529,
+                -0.596208393573761,
+                -0.018851177766919136
+            ],
+            [
+                -0.9590603113174438,
+                0.4589434266090393,
+                0.53224778175354,
+                -0.3534308671951294,
+                0.7726744413375854
+            ],
+            [
+                0.2363932579755783,
+                2.4166433811187744,
+                1.426073431968689,
+                0.8884339332580566,
+                0.8926379680633545
+            ],
+            [
+                -0.2607085406780243,
+                -0.5524136424064636,
+                -0.4835515320301056,
+                0.5152480006217957,
+                0.27944913506507874
+            ],
+            [
+                -0.20799745619297028,
+                -1.251247525215149,
+                -0.547257125377655,
+                -0.35173121094703674,
+                -0.6511667966842651
+            ],
+            [
+                -0.8081722855567932,
+                -0.0031169336289167404,
+                -1.5334999561309814,
+                -1.5588088035583496,
+                -0.9519205689430237
+            ],
+            [
+                -0.5925078988075256,
+                -1.0001330375671387,
+                -1.3810006380081177,
+                -1.2997820377349854,
+                -1.1630256175994873
+            ],
+            [
+                0.1605655550956726,
+                1.910272479057312,
+                1.0453517436981201,
+                0.26690036058425903,
+                1.6359375715255737
+            ],
+            [
+                0.6380255818367004,
+                -0.19578684866428375,
+                -0.7133578658103943,
+                -0.2318815141916275,
+                -0.13483792543411255
+            ],
+            [
+                -0.7781637907028198,
+                -1.251247525215149,
+                -1.4021518230438232,
+                -1.2146964073181152,
+                -1.130413293838501
+            ],
+            [
+                0.014397107996046543,
+                0.8171809315681458,
+                0.4752918779850006,
+                0.19780217111110687,
+                1.0822181701660156
+            ],
+            [
+                -0.6168984174728394,
+                0.6111730337142944,
+                -0.2819465398788452,
+                -0.6729323267936707,
+                0.30906498432159424
+            ],
+            [
+                1.4559853076934814,
+                0.4647979438304901,
+                0.7105287313461304,
+                1.189576506614685,
+                0.38867536187171936
+            ],
+            [
+                -0.6976338028907776,
+                -1.251247525215149,
+                0.32513442635536194,
+                0.8924838900566101,
+                0.14904232323169708
+            ],
+            [
+                -0.8782856464385986,
+                0.746117115020752,
+                -0.5680110454559326,
+                -0.5633919835090637,
+                0.13136747479438782
+            ],
+            [
+                -0.7805452346801758,
+                -0.7301684021949768,
+                -1.1427556276321411,
+                -1.0503311157226562,
+                -1.1141122579574585
+            ],
+            [
+                -0.3759208917617798,
+                -0.9602170586585999,
+                -1.811919093132019,
+                -1.5214073657989502,
+                -1.6042522192001343
+            ],
+            [
+                0.21788756549358368,
+                -0.26882582902908325,
+                0.04810642823576927,
+                -0.4260116517543793,
+                -0.6943414211273193
+            ],
+            [
+                -0.06506211310625076,
+                0.47413188219070435,
+                -0.1778338998556137,
+                -0.19026435911655426,
+                -0.3596036434173584
+            ],
+            [
+                0.5180952548980713,
+                -0.18019479513168335,
+                1.099496841430664,
+                0.613055944442749,
+                -0.6546613574028015
+            ],
+            [
+                -0.12535957992076874,
+                0.6184331774711609,
+                0.30343565344810486,
+                0.42981237173080444,
+                -0.48077958822250366
+            ],
+            [
+                -0.04947531223297119,
+                3.692741632461548,
+                -0.001651030732318759,
+                -0.1464981883764267,
+                3.614431381225586
+            ],
+            [
+                -1.1895668506622314,
+                -1.251247525215149,
+                -0.5185478329658508,
+                -0.8734737634658813,
+                -0.15875734388828278
+            ],
+            [
+                0.008199966512620449,
+                1.3232721090316772,
+                1.7796083688735962,
+                1.8569982051849365,
+                2.1706879138946533
+            ],
+            [
+                -0.09821358323097229,
+                -0.7211683392524719,
+                -0.18535518646240234,
+                -0.491211473941803,
+                -0.9969534277915955
+            ],
+            [
+                0.4578022062778473,
+                1.4477468729019165,
+                0.6488091945648193,
+                0.7823265790939331,
+                1.3378043174743652
+            ],
+            [
+                1.9265059232711792,
+                -0.08353149890899658,
+                0.6000479459762573,
+                1.794751763343811,
+                -0.1836574673652649
+            ],
+            [
+                1.1408507823944092,
+                -0.8341615200042725,
+                -0.3016497492790222,
+                0.6834613084793091,
+                -0.44570180773735046
+            ],
+            [
+                0.29370906949043274,
+                0.8034505248069763,
+                0.356080561876297,
+                0.9099465608596802,
+                0.6317077875137329
+            ],
+            [
+                -0.41751590371131897,
+                -0.5241445899009705,
+                -0.6972015500068665,
+                -0.6228962540626526,
+                -0.7057523727416992
+            ],
+            [
+                0.5180941224098206,
+                0.7792885303497314,
+                -0.10252082347869873,
+                0.00472375750541687,
+                1.3610526323318481
+            ],
+            [
+                0.7336167097091675,
+                0.2943672239780426,
+                -0.2944870889186859,
+                0.18854841589927673,
+                0.0942385122179985
+            ],
+            [
+                -0.7633156776428223,
+                -0.9075173735618591,
+                -0.9856692552566528,
+                -1.0288331508636475,
+                -1.0744867324829102
+            ],
+            [
+                -0.8400625586509705,
+                -0.18461894989013672,
+                1.504984974861145,
+                -0.15575963258743286,
+                1.6728336811065674
+            ],
+            [
+                -1.0379443168640137,
+                0.17849135398864746,
+                -0.5831124782562256,
+                -1.0136678218841553,
+                -0.41197702288627625
+            ],
+            [
+                3.303966522216797,
+                0.1542775183916092,
+                0.7699766755104065,
+                3.2376868724823,
+                -0.2668783366680145
+            ],
+            [
+                1.038236141204834,
+                0.07041330635547638,
+                -0.10430426895618439,
+                0.673730194568634,
+                -0.6895753741264343
+            ],
+            [
+                1.384750485420227,
+                1.6181854009628296,
+                1.6793159246444702,
+                1.7535969018936157,
+                1.6880383491516113
+            ],
+            [
+                0.5897417068481445,
+                -0.048487015068531036,
+                0.33147141337394714,
+                -0.12362036108970642,
+                -0.9708930850028992
+            ],
+            [
+                -1.0043038129806519,
+                -0.47657790780067444,
+                -1.8127514123916626,
+                -1.5326696634292603,
+                -0.405931681394577
+            ],
+            [
+                2.073794364929199,
+                0.747590184211731,
+                0.23557347059249878,
+                1.7591255903244019,
+                0.49123531579971313
+            ],
+            [
+                -0.7253930568695068,
+                0.019220253452658653,
+                -1.020769476890564,
+                -1.6739859580993652,
+                -1.4241632223129272
+            ],
+            [
+                1.5230145454406738,
+                -0.37336599826812744,
+                -0.48618561029434204,
+                0.32171860337257385,
+                0.27834829688072205
+            ],
+            [
+                -1.0636205673217773,
+                -1.251247525215149,
+                1.4143574237823486,
+                -0.011729222722351551,
+                0.9062960743904114
+            ],
+            [
+                -0.5086829662322998,
+                -1.251247525215149,
+                -1.4558714628219604,
+                -1.059267282485962,
+                -1.6242344379425049
+            ],
+            [
+                0.1490517407655716,
+                0.44369304180145264,
+                0.06295453757047653,
+                -0.027387849986553192,
+                0.34214553236961365
+            ],
+            [
+                0.013696113601326942,
+                1.5679775476455688,
+                -0.6992319822311401,
+                -0.5081974267959595,
+                0.3825872838497162
+            ],
+            [
+                -0.041308846324682236,
+                1.0439939498901367,
+                -0.31423574686050415,
+                -0.03036080114543438,
+                0.4287456274032593
+            ],
+            [
+                1.3608803749084473,
+                0.047641754150390625,
+                -0.48209959268569946,
+                0.6221882104873657,
+                0.18603242933750153
+            ],
+            [
+                -0.7825963497161865,
+                -1.251247525215149,
+                -2.039872646331787,
+                -1.4886056184768677,
+                -1.1329296827316284
+            ],
+            [
+                -0.16131934523582458,
+                1.9961498975753784,
+                0.6672031283378601,
+                0.0518721304833889,
+                -0.05047919973731041
+            ],
+            [
+                -0.034403830766677856,
+                -0.3142026364803314,
+                0.18668633699417114,
+                0.24635525047779083,
+                0.2387019246816635
+            ],
+            [
+                0.13956379890441895,
+                -0.9838155508041382,
+                0.3066597282886505,
+                0.3112877607345581,
+                -0.5765184760093689
+            ],
+            [
+                -1.211600422859192,
+                -1.251247525215149,
+                -0.9919766783714294,
+                -1.0828300714492798,
+                -1.5725377798080444
+            ],
+            [
+                -0.018335985019803047,
+                0.7706316709518433,
+                2.1029248237609863,
+                1.1145344972610474,
+                0.8072421550750732
+            ]
+        ],
+        "hover_strings": [
+            [
+                "J. Mešanović\nRank: 66/70\n0.13 Box entries per 90",
+                "J. Mešanović\nRank: 41/70\n0.13 Goals per 90",
+                "J. Mešanović\nRank: 11/70\n2.63 Penalty area receptions per 90",
+                "J. Mešanović\nRank: 33/70\n3.44 Touches in box per 90",
+                "J. Mešanović\nRank: 45/70\n0.15 xG per 90"
+            ],
+            [
+                "J. Ferenczi\nRank: 69/70\n0.12 Box entries per 90",
+                "J. Ferenczi\nRank: 45/70\n0.12 Goals per 90",
+                "J. Ferenczi\nRank: 57/70\n1.05 Penalty area receptions per 90",
+                "J. Ferenczi\nRank: 63/70\n1.52 Touches in box per 90",
+                "J. Ferenczi\nRank: 49/70\n0.13 xG per 90"
+            ],
+            [
+                "S. Novothny\nRank: 70/70\n0.12 Box entries per 90",
+                "S. Novothny\nRank: 35/70\n0.17 Goals per 90",
+                "S. Novothny\nRank: 9/70\n2.82 Penalty area receptions per 90",
+                "S. Novothny\nRank: 42/70\n2.93 Touches in box per 90",
+                "S. Novothny\nRank: 34/70\n0.19 xG per 90"
+            ],
+            [
+                "C. Bumba\nRank: 34/70\n0.73 Box entries per 90",
+                "C. Bumba\nRank: 48/70\n0.11 Goals per 90",
+                "C. Bumba\nRank: 12/70\n2.61 Penalty area receptions per 90",
+                "C. Bumba\nRank: 11/70\n5.12 Touches in box per 90",
+                "C. Bumba\nRank: 20/70\n0.25 xG per 90"
+            ],
+            [
+                "M. Ljujić\nRank: 58/70\n0.29 Box entries per 90",
+                "M. Ljujić\nRank: 58/70\n0.04 Goals per 90",
+                "M. Ljujić\nRank: 56/70\n1.09 Penalty area receptions per 90",
+                "M. Ljujić\nRank: 56/70\n1.97 Touches in box per 90",
+                "M. Ljujić\nRank: 57/70\n0.09 xG per 90"
+            ],
+            [
+                "N. Antonov\nRank: 39/70\n0.65 Box entries per 90",
+                "N. Antonov\nRank: 56/70\n0.05 Goals per 90",
+                "N. Antonov\nRank: 67/70\n0.40 Penalty area receptions per 90",
+                "N. Antonov\nRank: 65/70\n1.36 Touches in box per 90",
+                "N. Antonov\nRank: 55/70\n0.11 xG per 90"
+            ],
+            [
+                "G. Molnár\nRank: 59/70\n0.29 Box entries per 90",
+                "G. Molnár\nRank: 30/70\n0.19 Goals per 90",
+                "G. Molnár\nRank: 44/70\n1.46 Penalty area receptions per 90",
+                "G. Molnár\nRank: 54/70\n2.34 Touches in box per 90",
+                "G. Molnár\nRank: 39/70\n0.18 xG per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 2/70\n2.41 Box entries per 90",
+                "E. Acolatse\nRank: 16/70\n0.30 Goals per 90",
+                "E. Acolatse\nRank: 37/70\n1.65 Penalty area receptions per 90",
+                "E. Acolatse\nRank: 6/70\n5.97 Touches in box per 90",
+                "E. Acolatse\nRank: 11/70\n0.30 xG per 90"
+            ],
+            [
+                "A. Roguljić\nRank: 50/70\n0.38 Box entries per 90",
+                "A. Roguljić\nRank: 43/70\n0.13 Goals per 90",
+                "A. Roguljić\nRank: 25/70\n2.01 Penalty area receptions per 90",
+                "A. Roguljić\nRank: 45/70\n2.89 Touches in box per 90",
+                "A. Roguljić\nRank: 15/70\n0.29 xG per 90"
+            ],
+            [
+                "Z. Nagy\nRank: 44/70\n0.52 Box entries per 90",
+                "Z. Nagy\nRank: 52/70\n0.08 Goals per 90",
+                "Z. Nagy\nRank: 1/70\n3.41 Penalty area receptions per 90",
+                "Z. Nagy\nRank: 8/70\n5.47 Touches in box per 90",
+                "Z. Nagy\nRank: 9/70\n0.32 xG per 90"
+            ],
+            [
+                "C. O'Dowda\nRank: 41/70\n0.62 Box entries per 90",
+                "C. O'Dowda\nRank: 61/70\n0.00 Goals per 90",
+                "C. O'Dowda\nRank: 58/70\n0.99 Penalty area receptions per 90",
+                "C. O'Dowda\nRank: 47/70\n2.73 Touches in box per 90",
+                "C. O'Dowda\nRank: 68/70\n0.02 xG per 90"
+            ],
+            [
+                "G. Beridze\nRank: 16/70\n1.06 Box entries per 90",
+                "G. Beridze\nRank: 44/70\n0.13 Goals per 90",
+                "G. Beridze\nRank: 14/70\n2.56 Penalty area receptions per 90",
+                "G. Beridze\nRank: 15/70\n4.69 Touches in box per 90",
+                "G. Beridze\nRank: 40/70\n0.17 xG per 90"
+            ],
+            [
+                "M. Sajbán\nRank: 61/70\n0.24 Box entries per 90",
+                "M. Sajbán\nRank: 51/70\n0.08 Goals per 90",
+                "M. Sajbán\nRank: 10/70\n2.64 Penalty area receptions per 90",
+                "M. Sajbán\nRank: 40/70\n3.12 Touches in box per 90",
+                "M. Sajbán\nRank: 18/70\n0.26 xG per 90"
+            ],
+            [
+                "R. Polievka\nRank: 12/70\n1.22 Box entries per 90",
+                "R. Polievka\nRank: 18/70\n0.28 Goals per 90",
+                "R. Polievka\nRank: 8/70\n2.82 Penalty area receptions per 90",
+                "R. Polievka\nRank: 7/70\n5.55 Touches in box per 90",
+                "R. Polievka\nRank: 6/70\n0.37 xG per 90"
+            ],
+            [
+                "M. Soisalo\nRank: 3/70\n1.94 Box entries per 90",
+                "M. Soisalo\nRank: 61/70\n0.00 Goals per 90",
+                "M. Soisalo\nRank: 55/70\n1.14 Penalty area receptions per 90",
+                "M. Soisalo\nRank: 29/70\n3.65 Touches in box per 90",
+                "M. Soisalo\nRank: 65/70\n0.06 xG per 90"
+            ],
+            [
+                "B. Bíró\nRank: 65/70\n0.16 Box entries per 90",
+                "B. Bíró\nRank: 20/70\n0.28 Goals per 90",
+                "B. Bíró\nRank: 23/70\n2.09 Penalty area receptions per 90",
+                "B. Bíró\nRank: 51/70\n2.57 Touches in box per 90",
+                "B. Bíró\nRank: 33/70\n0.19 xG per 90"
+            ],
+            [
+                "T. Yordanov\nRank: 60/70\n0.26 Box entries per 90",
+                "T. Yordanov\nRank: 23/70\n0.26 Goals per 90",
+                "T. Yordanov\nRank: 21/70\n2.15 Penalty area receptions per 90",
+                "T. Yordanov\nRank: 44/70\n2.93 Touches in box per 90",
+                "T. Yordanov\nRank: 16/70\n0.28 xG per 90"
+            ],
+            [
+                "D. Lukács\nRank: 21/70\n0.90 Box entries per 90",
+                "D. Lukács\nRank: 2/70\n0.55 Goals per 90",
+                "D. Lukács\nRank: 6/70\n2.84 Penalty area receptions per 90",
+                "D. Lukács\nRank: 14/70\n4.78 Touches in box per 90",
+                "D. Lukács\nRank: 13/70\n0.30 xG per 90"
+            ],
+            [
+                "G. Vlijter\nRank: 40/70\n0.63 Box entries per 90",
+                "G. Vlijter\nRank: 49/70\n0.11 Goals per 90",
+                "G. Vlijter\nRank: 46/70\n1.37 Penalty area receptions per 90",
+                "G. Vlijter\nRank: 21/70\n4.23 Touches in box per 90",
+                "G. Vlijter\nRank: 26/70\n0.23 xG per 90"
+            ],
+            [
+                "Z. Bévárdi\nRank: 38/70\n0.66 Box entries per 90",
+                "Z. Bévárdi\nRank: 61/70\n0.00 Goals per 90",
+                "Z. Bévárdi\nRank: 49/70\n1.32 Penalty area receptions per 90",
+                "Z. Bévárdi\nRank: 43/70\n2.93 Touches in box per 90",
+                "Z. Bévárdi\nRank: 50/70\n0.12 xG per 90"
+            ],
+            [
+                "B. Kiss\nRank: 55/70\n0.34 Box entries per 90",
+                "B. Kiss\nRank: 32/70\n0.19 Goals per 90",
+                "B. Kiss\nRank: 66/70\n0.57 Penalty area receptions per 90",
+                "B. Kiss\nRank: 69/70\n1.13 Touches in box per 90",
+                "B. Kiss\nRank: 56/70\n0.09 xG per 90"
+            ],
+            [
+                "B. Melnyk\nRank: 46/70\n0.46 Box entries per 90",
+                "B. Melnyk\nRank: 60/70\n0.04 Goals per 90",
+                "B. Melnyk\nRank: 63/70\n0.68 Penalty area receptions per 90",
+                "B. Melnyk\nRank: 64/70\n1.52 Touches in box per 90",
+                "B. Melnyk\nRank: 64/70\n0.07 xG per 90"
+            ],
+            [
+                "A. Matko\nRank: 23/70\n0.86 Box entries per 90",
+                "A. Matko\nRank: 4/70\n0.48 Goals per 90",
+                "A. Matko\nRank: 15/70\n2.55 Penalty area receptions per 90",
+                "A. Matko\nRank: 25/70\n3.85 Touches in box per 90",
+                "A. Matko\nRank: 5/70\n0.38 xG per 90"
+            ],
+            [
+                "M. Kovácsréti\nRank: 14/70\n1.12 Box entries per 90",
+                "M. Kovácsréti\nRank: 38/70\n0.16 Goals per 90",
+                "M. Kovácsréti\nRank: 54/70\n1.20 Penalty area receptions per 90",
+                "M. Kovácsréti\nRank: 41/70\n3.11 Touches in box per 90",
+                "M. Kovácsréti\nRank: 36/70\n0.18 xG per 90"
+            ],
+            [
+                "B. Kártik\nRank: 52/70\n0.36 Box entries per 90",
+                "B. Kártik\nRank: 61/70\n0.00 Goals per 90",
+                "B. Kártik\nRank: 64/70\n0.67 Penalty area receptions per 90",
+                "B. Kártik\nRank: 62/70\n1.65 Touches in box per 90",
+                "B. Kártik\nRank: 62/70\n0.07 xG per 90"
+            ],
+            [
+                "P. Dárdai\nRank: 26/70\n0.78 Box entries per 90",
+                "P. Dárdai\nRank: 10/70\n0.31 Goals per 90",
+                "P. Dárdai\nRank: 22/70\n2.11 Penalty area receptions per 90",
+                "P. Dárdai\nRank: 27/70\n3.75 Touches in box per 90",
+                "P. Dárdai\nRank: 10/70\n0.32 xG per 90"
+            ],
+            [
+                "A. Skribek\nRank: 47/70\n0.44 Box entries per 90",
+                "A. Skribek\nRank: 19/70\n0.28 Goals per 90",
+                "A. Skribek\nRank: 40/70\n1.53 Penalty area receptions per 90",
+                "A. Skribek\nRank: 53/70\n2.45 Touches in box per 90",
+                "A. Skribek\nRank: 25/70\n0.23 xG per 90"
+            ],
+            [
+                "S. Schön\nRank: 7/70\n1.56 Box entries per 90",
+                "S. Schön\nRank: 22/70\n0.26 Goals per 90",
+                "S. Schön\nRank: 17/70\n2.29 Penalty area receptions per 90",
+                "S. Schön\nRank: 9/70\n5.23 Touches in box per 90",
+                "S. Schön\nRank: 22/70\n0.24 xG per 90"
+            ],
+            [
+                "Álex Bermejo\nRank: 48/70\n0.40 Box entries per 90",
+                "Álex Bermejo\nRank: 61/70\n0.00 Goals per 90",
+                "Álex Bermejo\nRank: 27/70\n1.99 Penalty area receptions per 90",
+                "Álex Bermejo\nRank: 13/70\n4.79 Touches in box per 90",
+                "Álex Bermejo\nRank: 30/70\n0.21 xG per 90"
+            ],
+            [
+                "J. Levi\nRank: 57/70\n0.30 Box entries per 90",
+                "J. Levi\nRank: 15/70\n0.30 Goals per 90",
+                "J. Levi\nRank: 50/70\n1.31 Penalty area receptions per 90",
+                "J. Levi\nRank: 50/70\n2.62 Touches in box per 90",
+                "J. Levi\nRank: 31/70\n0.21 xG per 90"
+            ],
+            [
+                "B. Nagy\nRank: 53/70\n0.35 Box entries per 90",
+                "B. Nagy\nRank: 53/70\n0.08 Goals per 90",
+                "B. Nagy\nRank: 62/70\n0.87 Penalty area receptions per 90",
+                "B. Nagy\nRank: 59/70\n1.89 Touches in box per 90",
+                "B. Nagy\nRank: 61/70\n0.07 xG per 90"
+            ],
+            [
+                "B. Cipetić\nRank: 42/70\n0.57 Box entries per 90",
+                "B. Cipetić\nRank: 57/70\n0.04 Goals per 90",
+                "B. Cipetić\nRank: 68/70\n0.35 Penalty area receptions per 90",
+                "B. Cipetić\nRank: 67/70\n1.19 Touches in box per 90",
+                "B. Cipetić\nRank: 69/70\n0.02 xG per 90"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 22/70\n0.89 Box entries per 90",
+                "S. Szuhodovszki\nRank: 39/70\n0.15 Goals per 90",
+                "S. Szuhodovszki\nRank: 33/70\n1.78 Penalty area receptions per 90",
+                "S. Szuhodovszki\nRank: 46/70\n2.82 Touches in box per 90",
+                "S. Szuhodovszki\nRank: 53/70\n0.12 xG per 90"
+            ],
+            [
+                "K. Horváth\nRank: 33/70\n0.74 Box entries per 90",
+                "K. Horváth\nRank: 21/70\n0.26 Goals per 90",
+                "K. Horváth\nRank: 38/70\n1.61 Penalty area receptions per 90",
+                "K. Horváth\nRank: 39/70\n3.17 Touches in box per 90",
+                "K. Horváth\nRank: 42/70\n0.16 xG per 90"
+            ],
+            [
+                "M. Šlogar\nRank: 17/70\n1.05 Box entries per 90",
+                "M. Šlogar\nRank: 36/70\n0.16 Goals per 90",
+                "M. Šlogar\nRank: 13/70\n2.59 Penalty area receptions per 90",
+                "M. Šlogar\nRank: 20/70\n4.37 Touches in box per 90",
+                "M. Šlogar\nRank: 51/70\n0.12 xG per 90"
+            ],
+            [
+                "G. Komáromi\nRank: 36/70\n0.71 Box entries per 90",
+                "G. Komáromi\nRank: 17/70\n0.28 Goals per 90",
+                "G. Komáromi\nRank: 29/70\n1.98 Penalty area receptions per 90",
+                "G. Komáromi\nRank: 22/70\n4.10 Touches in box per 90",
+                "G. Komáromi\nRank: 47/70\n0.14 xG per 90"
+            ],
+            [
+                "R. Molnár\nRank: 32/70\n0.75 Box entries per 90",
+                "R. Molnár\nRank: 1/70\n0.75 Goals per 90",
+                "R. Molnár\nRank: 34/70\n1.74 Penalty area receptions per 90",
+                "R. Molnár\nRank: 37/70\n3.24 Touches in box per 90",
+                "R. Molnár\nRank: 1/70\n0.60 xG per 90"
+            ],
+            [
+                "R. Schuszter\nRank: 67/70\n0.13 Box entries per 90",
+                "R. Schuszter\nRank: 61/70\n0.00 Goals per 90",
+                "R. Schuszter\nRank: 48/70\n1.35 Penalty area receptions per 90",
+                "R. Schuszter\nRank: 55/70\n2.15 Touches in box per 90",
+                "R. Schuszter\nRank: 37/70\n0.18 xG per 90"
+            ],
+            [
+                "M. Pukhtyeyev\nRank: 28/70\n0.78 Box entries per 90",
+                "M. Pukhtyeyev\nRank: 8/70\n0.39 Goals per 90",
+                "M. Pukhtyeyev\nRank: 3/70\n3.11 Penalty area receptions per 90",
+                "M. Pukhtyeyev\nRank: 2/70\n6.23 Touches in box per 90",
+                "M. Pukhtyeyev\nRank: 2/70\n0.44 xG per 90"
+            ],
+            [
+                "Á. Bényei\nRank: 35/70\n0.72 Box entries per 90",
+                "Á. Bényei\nRank: 50/70\n0.08 Goals per 90",
+                "Á. Bényei\nRank: 39/70\n1.60 Penalty area receptions per 90",
+                "Á. Bényei\nRank: 48/70\n2.72 Touches in box per 90",
+                "Á. Bényei\nRank: 59/70\n0.09 xG per 90"
+            ],
+            [
+                "Z. Kerezsi\nRank: 19/70\n1.02 Box entries per 90",
+                "Z. Kerezsi\nRank: 7/70\n0.41 Goals per 90",
+                "Z. Kerezsi\nRank: 19/70\n2.24 Penalty area receptions per 90",
+                "Z. Kerezsi\nRank: 16/70\n4.62 Touches in box per 90",
+                "Z. Kerezsi\nRank: 8/70\n0.35 xG per 90"
+            ],
+            [
+                "D. Kocsis\nRank: 5/70\n1.81 Box entries per 90",
+                "D. Kocsis\nRank: 34/70\n0.18 Goals per 90",
+                "D. Kocsis\nRank: 20/70\n2.21 Penalty area receptions per 90",
+                "D. Kocsis\nRank: 3/70\n6.13 Touches in box per 90",
+                "D. Kocsis\nRank: 38/70\n0.18 xG per 90"
+            ],
+            [
+                "M. Matanović\nRank: 10/70\n1.39 Box entries per 90",
+                "M. Matanović\nRank: 54/70\n0.06 Goals per 90",
+                "M. Matanović\nRank: 42/70\n1.51 Penalty area receptions per 90",
+                "M. Matanović\nRank: 17/70\n4.48 Touches in box per 90",
+                "M. Matanović\nRank: 46/70\n0.15 xG per 90"
+            ],
+            [
+                "G. Jurek\nRank: 20/70\n0.93 Box entries per 90",
+                "G. Jurek\nRank: 11/70\n0.31 Goals per 90",
+                "G. Jurek\nRank: 24/70\n2.02 Penalty area receptions per 90",
+                "G. Jurek\nRank: 12/70\n4.81 Touches in box per 90",
+                "G. Jurek\nRank: 17/70\n0.27 xG per 90"
+            ],
+            [
+                "M. Katona\nRank: 43/70\n0.55 Box entries per 90",
+                "M. Katona\nRank: 47/70\n0.11 Goals per 90",
+                "M. Katona\nRank: 52/70\n1.21 Penalty area receptions per 90",
+                "M. Katona\nRank: 52/70\n2.53 Touches in box per 90",
+                "M. Katona\nRank: 54/70\n0.12 xG per 90"
+            ],
+            [
+                "João Victor\nRank: 18/70\n1.05 Box entries per 90",
+                "João Victor\nRank: 12/70\n0.31 Goals per 90",
+                "João Victor\nRank: 35/70\n1.67 Penalty area receptions per 90",
+                "João Victor\nRank: 31/70\n3.46 Touches in box per 90",
+                "João Victor\nRank: 7/70\n0.35 xG per 90"
+            ],
+            [
+                "M. Ubochioma\nRank: 13/70\n1.17 Box entries per 90",
+                "M. Ubochioma\nRank: 25/70\n0.23 Goals per 90",
+                "M. Ubochioma\nRank: 41/70\n1.52 Penalty area receptions per 90",
+                "M. Ubochioma\nRank: 28/70\n3.74 Touches in box per 90",
+                "M. Ubochioma\nRank: 32/70\n0.21 xG per 90"
+            ],
+            [
+                "B. Katona\nRank: 51/70\n0.36 Box entries per 90",
+                "B. Katona\nRank: 55/70\n0.05 Goals per 90",
+                "B. Katona\nRank: 59/70\n0.99 Penalty area receptions per 90",
+                "B. Katona\nRank: 58/70\n1.92 Touches in box per 90",
+                "B. Katona\nRank: 60/70\n0.08 xG per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 56/70\n0.32 Box entries per 90",
+                "M. Mucsányi\nRank: 37/70\n0.16 Goals per 90",
+                "M. Mucsányi\nRank: 5/70\n2.90 Penalty area receptions per 90",
+                "M. Mucsányi\nRank: 38/70\n3.22 Touches in box per 90",
+                "M. Mucsányi\nRank: 4/70\n0.38 xG per 90"
+            ],
+            [
+                "H. Németh\nRank: 63/70\n0.22 Box entries per 90",
+                "H. Németh\nRank: 26/70\n0.22 Goals per 90",
+                "H. Németh\nRank: 51/70\n1.30 Penalty area receptions per 90",
+                "H. Németh\nRank: 57/70\n1.94 Touches in box per 90",
+                "H. Németh\nRank: 44/70\n0.15 xG per 90"
+            ],
+            [
+                "C. Denes\nRank: 1/70\n2.55 Box entries per 90",
+                "C. Denes\nRank: 27/70\n0.21 Goals per 90",
+                "C. Denes\nRank: 16/70\n2.34 Penalty area receptions per 90",
+                "C. Denes\nRank: 1/70\n8.29 Touches in box per 90",
+                "C. Denes\nRank: 41/70\n0.17 xG per 90"
+            ],
+            [
+                "D. Gordić\nRank: 11/70\n1.33 Box entries per 90",
+                "D. Gordić\nRank: 28/70\n0.20 Goals per 90",
+                "D. Gordić\nRank: 36/70\n1.66 Penalty area receptions per 90",
+                "D. Gordić\nRank: 18/70\n4.46 Touches in box per 90",
+                "D. Gordić\nRank: 52/70\n0.12 xG per 90"
+            ],
+            [
+                "Á. Krajcsovics\nRank: 8/70\n1.52 Box entries per 90",
+                "Á. Krajcsovics\nRank: 5/70\n0.43 Goals per 90",
+                "Á. Krajcsovics\nRank: 4/70\n3.04 Penalty area receptions per 90",
+                "Á. Krajcsovics\nRank: 5/70\n6.07 Touches in box per 90",
+                "Á. Krajcsovics\nRank: 3/70\n0.39 xG per 90"
+            ],
+            [
+                "B. Bakti\nRank: 15/70\n1.09 Box entries per 90",
+                "B. Bakti\nRank: 33/70\n0.18 Goals per 90",
+                "B. Bakti\nRank: 26/70\n2.00 Penalty area receptions per 90",
+                "B. Bakti\nRank: 36/70\n3.27 Touches in box per 90",
+                "B. Bakti\nRank: 58/70\n0.09 xG per 90"
+            ],
+            [
+                "M. Major\nRank: 62/70\n0.23 Box entries per 90",
+                "M. Major\nRank: 46/70\n0.12 Goals per 90",
+                "M. Major\nRank: 69/70\n0.35 Penalty area receptions per 90",
+                "M. Major\nRank: 68/70\n1.17 Touches in box per 90",
+                "M. Major\nRank: 43/70\n0.15 xG per 90"
+            ],
+            [
+                "A. Molnár\nRank: 4/70\n1.89 Box entries per 90",
+                "A. Molnár\nRank: 14/70\n0.30 Goals per 90",
+                "A. Molnár\nRank: 30/70\n1.93 Penalty area receptions per 90",
+                "A. Molnár\nRank: 4/70\n6.08 Touches in box per 90",
+                "A. Molnár\nRank: 19/70\n0.25 xG per 90"
+            ],
+            [
+                "M. Kern\nRank: 49/70\n0.38 Box entries per 90",
+                "M. Kern\nRank: 31/70\n0.19 Goals per 90",
+                "M. Kern\nRank: 61/70\n0.96 Penalty area receptions per 90",
+                "M. Kern\nRank: 70/70\n0.96 Touches in box per 90",
+                "M. Kern\nRank: 66/70\n0.04 xG per 90"
+            ],
+            [
+                "Alegria\nRank: 6/70\n1.59 Box entries per 90",
+                "Alegria\nRank: 42/70\n0.13 Goals per 90",
+                "Alegria\nRank: 47/70\n1.37 Penalty area receptions per 90",
+                "Alegria\nRank: 23/70\n3.94 Touches in box per 90",
+                "Alegria\nRank: 27/70\n0.23 xG per 90"
+            ],
+            [
+                "K. Mondovics\nRank: 64/70\n0.20 Box entries per 90",
+                "K. Mondovics\nRank: 61/70\n0.00 Goals per 90",
+                "K. Mondovics\nRank: 7/70\n2.83 Penalty area receptions per 90",
+                "K. Mondovics\nRank: 32/70\n3.44 Touches in box per 90",
+                "K. Mondovics\nRank: 12/70\n0.30 xG per 90"
+            ],
+            [
+                "B. Vajda\nRank: 45/70\n0.50 Box entries per 90",
+                "B. Vajda\nRank: 61/70\n0.00 Goals per 90",
+                "B. Vajda\nRank: 65/70\n0.63 Penalty area receptions per 90",
+                "B. Vajda\nRank: 60/70\n1.88 Touches in box per 90",
+                "B. Vajda\nRank: 70/70\n0.02 xG per 90"
+            ],
+            [
+                "M. Pető\nRank: 24/70\n0.85 Box entries per 90",
+                "M. Pető\nRank: 24/70\n0.26 Goals per 90",
+                "M. Pető\nRank: 32/70\n1.79 Penalty area receptions per 90",
+                "M. Pető\nRank: 34/70\n3.42 Touches in box per 90",
+                "M. Pető\nRank: 24/70\n0.23 xG per 90"
+            ],
+            [
+                "B. Babós\nRank: 27/70\n0.78 Box entries per 90",
+                "B. Babós\nRank: 6/70\n0.43 Goals per 90",
+                "B. Babós\nRank: 53/70\n1.21 Penalty area receptions per 90",
+                "B. Babós\nRank: 49/70\n2.70 Touches in box per 90",
+                "B. Babós\nRank: 23/70\n0.24 xG per 90"
+            ],
+            [
+                "I. Atrok\nRank: 31/70\n0.75 Box entries per 90",
+                "I. Atrok\nRank: 9/70\n0.35 Goals per 90",
+                "I. Atrok\nRank: 43/70\n1.50 Penalty area receptions per 90",
+                "I. Atrok\nRank: 35/70\n3.41 Touches in box per 90",
+                "I. Atrok\nRank: 21/70\n0.24 xG per 90"
+            ],
+            [
+                "B. Manner\nRank: 9/70\n1.51 Box entries per 90",
+                "B. Manner\nRank: 29/70\n0.20 Goals per 90",
+                "B. Manner\nRank: 45/70\n1.37 Penalty area receptions per 90",
+                "B. Manner\nRank: 19/70\n4.38 Touches in box per 90",
+                "B. Manner\nRank: 29/70\n0.22 xG per 90"
+            ],
+            [
+                "M. Semel\nRank: 54/70\n0.35 Box entries per 90",
+                "M. Semel\nRank: 61/70\n0.00 Goals per 90",
+                "M. Semel\nRank: 70/70\n0.18 Penalty area receptions per 90",
+                "M. Semel\nRank: 66/70\n1.24 Touches in box per 90",
+                "M. Semel\nRank: 63/70\n0.07 xG per 90"
+            ],
+            [
+                "F. Cibla\nRank: 37/70\n0.69 Box entries per 90",
+                "F. Cibla\nRank: 3/70\n0.49 Goals per 90",
+                "F. Cibla\nRank: 18/70\n2.26 Penalty area receptions per 90",
+                "F. Cibla\nRank: 30/70\n3.53 Touches in box per 90",
+                "F. Cibla\nRank: 35/70\n0.19 xG per 90"
+            ],
+            [
+                "K. Banati\nRank: 30/70\n0.76 Box entries per 90",
+                "K. Banati\nRank: 40/70\n0.14 Goals per 90",
+                "K. Banati\nRank: 31/70\n1.89 Penalty area receptions per 90",
+                "K. Banati\nRank: 26/70\n3.82 Touches in box per 90",
+                "K. Banati\nRank: 28/70\n0.22 xG per 90"
+            ],
+            [
+                "K. Horváth\nRank: 25/70\n0.85 Box entries per 90",
+                "K. Horváth\nRank: 59/70\n0.04 Goals per 90",
+                "K. Horváth\nRank: 28/70\n1.98 Penalty area receptions per 90",
+                "K. Horváth\nRank: 24/70\n3.92 Touches in box per 90",
+                "K. Horváth\nRank: 48/70\n0.13 xG per 90"
+            ],
+            [
+                "B. Vekony\nRank: 68/70\n0.12 Box entries per 90",
+                "B. Vekony\nRank: 61/70\n0.00 Goals per 90",
+                "B. Vekony\nRank: 60/70\n0.98 Penalty area receptions per 90",
+                "B. Vekony\nRank: 61/70\n1.84 Touches in box per 90",
+                "B. Vekony\nRank: 67/70\n0.02 xG per 90"
+            ],
+            [
+                "N. Njie\nRank: 29/70\n0.76 Box entries per 90",
+                "N. Njie\nRank: 13/70\n0.31 Goals per 90",
+                "N. Njie\nRank: 2/70\n3.36 Penalty area receptions per 90",
+                "N. Njie\nRank: 10/70\n5.12 Touches in box per 90",
+                "N. Njie\nRank: 14/70\n0.29 xG per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Wingers",
+            "Adin Molnár"
+        ],
+        "minutes_played": 2344,
+        "axis_labels": [
+            "Box entries per 90 | 1.89",
+            "Goals per 90 | 0.30",
+            "Penalty area receptions per 90 | 1.93",
+            "Touches in box per 90 | 6.08",
+            "xG per 90 | 0.25"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            -0.11527107590134171,
+            -1.069304872485447,
+            0.06565894217142146,
+            0.531196551377325,
+            -1.2042911627467439,
+            -1.3856926542154828,
+            -0.448606536224386,
+            1.328141048384941,
+            0.01756184966780801,
+            0.9593776115059994,
+            -1.3162416644727777,
+            0.34231382360678997,
+            0.06902665886505786,
+            1.519301396881598,
+            -0.6750168780179276,
+            0.0029676359253858,
+            0.31619275166968297,
+            1.6767445452172962,
+            -0.11227031624979798,
+            -0.8629649878811714,
+            -1.197120809707264,
+            -1.4500100843861652,
+            1.4868444631310203,
+            -0.2653230141977335,
+            -1.5270977414243003,
+            0.7796388705638058,
+            -0.028849745953626733,
+            0.9430935680214995,
+            -0.12990521554227277,
+            -0.12090421142662876,
+            -1.247790492700156,
+            -1.7169618646362028,
+            -0.3759469968705017,
+            -0.06571610696051514,
+            0.23686979485152304,
+            0.21507364139615934,
+            2.287219002802302,
+            -0.956971160292792,
+            2.0439957286535706,
+            -0.7333853175764989,
+            1.312433995647312,
+            0.7718604509428868,
+            -0.16529084643022812,
+            0.818508758230071,
+            -0.7826212946087083,
+            0.7240311697105961,
+            0.19056853995556622,
+            -1.2439504675351456,
+            0.7119803124003354,
+            -0.6145162991351008,
+            1.408638742587389,
+            0.08029615088678167,
+            2.1077828611055365,
+            -0.1969177960561616,
+            -1.2636152689619324,
+            1.1690284148404742,
+            -1.2286272567408798,
+            0.12207287123906861,
+            0.11221054639628873,
+            -1.6242996088008372,
+            0.27882105428193804,
+            0.3158904446293316,
+            0.37664983817129644,
+            0.283984737422077,
+            -1.7611500136514437,
+            0.7837131210663193,
+            0.0820502494625387,
+            -0.32228745358832966,
+            -1.5851218969628624,
+            1.3223009686723688
+        ]
+    },
+    "player_info": {
+        "id": 769345,
+        "name": "A. Molnár",
+        "full_name": "Adin Molnár",
+        "synthesized_name": "Adin Molnár",
+        "birth_date": "2004-08-16",
+        "age": 21,
+        "foot": null,
+        "position": "WINGER",
+        "detailed_position": "RIGHT_WINGER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

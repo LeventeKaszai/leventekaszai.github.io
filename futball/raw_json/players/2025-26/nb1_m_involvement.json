@@ -1,0 +1,1472 @@
+{
+    "plot_type": "distribution",
+    "title": "Involvement of Milán Vitális",
+    "subtitle": "Hungarian NB I 2025/2026 | 2658 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Álex Vallejo",
+            "Amos Youga",
+            "Yohan Croizet",
+            "Arijan Ademi",
+            "Iuri Medeiros",
+            "Jasmin Mešanović",
+            "Bence Batik",
+            "Roland Szolnoki",
+            "Norbert Könyves",
+            "Balász Balogh",
+            "István Bognár",
+            "Jozsef Windecker",
+            "Attila Fiola",
+            "Kristóf Papp",
+            "Bálint Vécsei",
+            "Claudiu Bumba",
+            "Paul Anton",
+            "Balázs Dzsudzsák",
+            "Matija Ljujić",
+            "Dominik Nagy",
+            "Jakub Plšek",
+            "Artem Favorov",
+            "Gábor Molnár",
+            "Zsombor Berecz",
+            "Damian Rasak",
+            "Bojan Sanković",
+            "Anderson Esiti",
+            "Ante Roguljić",
+            "Gergő Holdampf",
+            "Aboubakar Keita",
+            "Naby Keïta",
+            "Kristoffer Zachariassen",
+            "Krisztián Nagy",
+            "Mátyás Tajti",
+            "Bence Bíró",
+            "Tonislav Yordanov",
+            "Yurii Toma",
+            "Dániel Lukács",
+            "Laros Duarte",
+            "Gabi Kanichowsky",
+            "Bence Ötvös",
+            "Bence Kiss",
+            "Bogdan Melnyk",
+            "Mohammed Abu Fani",
+            "Arne Maier",
+            "Kristóf Hinora",
+            "Bálint Kártik",
+            "Mykhaylo Meskhi",
+            "András Csonka",
+            "Željko Gavrić",
+            "Jonathan Levi",
+            "Hianga''a Mbock",
+            "Levente Szőr",
+            "Júlio Romão",
+            "Norbert Szendrei",
+            "Krisztofer Horváth",
+            "Milán Kovács",
+            "Mihály Kata",
+            "Ronald Schuszter",
+            "Milán Vitális",
+            "Adrian Zeljković",
+            "Ágoston Bényei",
+            "Artúr Horváth",
+            "Tom Lacoux",
+            "Marius Corbu",
+            "Zsolt Magyar",
+            "Mátyás Katona",
+            "João Victor",
+            "Meshack Ubochioma",
+            "Bálint Katona",
+            "Hunor Németh",
+            "Zsombor Gruber",
+            "Tamás Szűcs",
+            "Marcell Major",
+            "Gergo Szoke",
+            "Gergő Gyurkits",
+            "Ádám Madarász",
+            "Milán Klausz",
+            "László Vingler",
+            "Martin Kern",
+            "Alex Tóth",
+            "Noah Fenyő",
+            "Tóth Rajmund",
+            "Milán Pető",
+            "Michael Okeke",
+            "Istvan Atrok",
+            "Moshe Semel",
+            "Flórián Cibla",
+            "Kevin Horváth",
+            "Fabricio Amato",
+            "Bence Vekony",
+            "Miron Mucsányi",
+            "Ridwan Popoola"
+        ],
+        "target_identifiers": [
+            5107,
+            25398,
+            25733,
+            69398,
+            70974,
+            72691,
+            74813,
+            74951,
+            75028,
+            75051,
+            75054,
+            75113,
+            75131,
+            75492,
+            76142,
+            84036,
+            84132,
+            101690,
+            128206,
+            136280,
+            137107,
+            138482,
+            145212,
+            165505,
+            225653,
+            236029,
+            236989,
+            238160,
+            238701,
+            285458,
+            289711,
+            298801,
+            338600,
+            352227,
+            352229,
+            372091,
+            373433,
+            375251,
+            377068,
+            397225,
+            404780,
+            404804,
+            420958,
+            424256,
+            425926,
+            438691,
+            444899,
+            448375,
+            476384,
+            481267,
+            483796,
+            489995,
+            515456,
+            530918,
+            536305,
+            561550,
+            574800,
+            586797,
+            586951,
+            587654,
+            604797,
+            620092,
+            620099,
+            630100,
+            633032,
+            648336,
+            653443,
+            661881,
+            673720,
+            694818,
+            703498,
+            753770,
+            759564,
+            759646,
+            762246,
+            771055,
+            774095,
+            778732,
+            787810,
+            790584,
+            817094,
+            821474,
+            824430,
+            831685,
+            847537,
+            850295,
+            854615,
+            869638,
+            894503,
+            894911,
+            925706,
+            925884,
+            1177467
+        ],
+        "kpis": [
+            {
+                "name": "Aerials",
+                "description": "Number of aerial duels.",
+                "display_name": "Aerials"
+            },
+            {
+                "name": "Defensive actions",
+                "description": "Number of successful defensive actions (defensive duels, tackles, interceptions, recoveries, clearances) adjusted by the opponent's possession.",
+                "display_name": "Defensive actions"
+            },
+            {
+                "name": "Touches",
+                "description": "Number of open play touches when in possession (passes, shots, carries, dribbles, touches) adjusted by possession.",
+                "display_name": "Touches"
+            },
+            {
+                "name": "xGBuildup",
+                "description": "Accumulated non-penalty xG for possessions in which a player is involved in at least one event, excluding shots and shot assists adjusted by possession.",
+                "display_name": "xGBuildup"
+            }
+        ],
+        "focal_target_indices": [
+            59
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.08280516415834427,
+                0.20656152069568634,
+                1.1735754013061523,
+                0.3837989866733551
+            ],
+            [
+                -0.49658986926078796,
+                -0.3228828012943268,
+                0.052431609481573105,
+                0.19122512638568878
+            ],
+            [
+                -0.32952067255973816,
+                -1.9996674060821533,
+                -1.0518757104873657,
+                1.1117780208587646
+            ],
+            [
+                0.22182080149650574,
+                0.7350269556045532,
+                -0.428882360458374,
+                0.8268810510635376
+            ],
+            [
+                -1.164438009262085,
+                -1.129345178604126,
+                -0.34217536449432373,
+                -0.3886277675628662
+            ],
+            [
+                2.9580395221710205,
+                -1.3169209957122803,
+                -1.4511258602142334,
+                -0.9243585467338562
+            ],
+            [
+                4,
+                0.969657301902771,
+                -0.4827583134174347,
+                -0.9490713477134705
+            ],
+            [
+                1.6448025703430176,
+                -0.12081435322761536,
+                -1.563888669013977,
+                -1.1465951204299927
+            ],
+            [
+                0.6679901480674744,
+                -1.8842909336090088,
+                -1.5655667781829834,
+                -1.6131813526153564
+            ],
+            [
+                0.5881093144416809,
+                0.39578649401664734,
+                1.0781348943710327,
+                1.7353618144989014
+            ],
+            [
+                -1.2020618915557861,
+                -1.2365139722824097,
+                0.17303362488746643,
+                1.831468105316162
+            ],
+            [
+                1.0079472064971924,
+                0.4883873164653778,
+                -0.6931793093681335,
+                -0.5243204236030579
+            ],
+            [
+                -0.28467893600463867,
+                1.1956946849822998,
+                0.33433449268341064,
+                -0.057291995733976364
+            ],
+            [
+                1.5438520908355713,
+                1.3288905620574951,
+                -0.9824038147926331,
+                0.2482861578464508
+            ],
+            [
+                0.949935257434845,
+                2.137727975845337,
+                0.935433566570282,
+                -0.025610724464058876
+            ],
+            [
+                -0.7462418675422668,
+                -1.1769187450408936,
+                -0.6695694923400879,
+                0.2976354956626892
+            ],
+            [
+                -1.0509308576583862,
+                1.0976091623306274,
+                2.738614320755005,
+                3.189350128173828
+            ],
+            [
+                -1.6995893716812134,
+                -1.7622169256210327,
+                -0.20124080777168274,
+                0.20496827363967896
+            ],
+            [
+                -0.34224456548690796,
+                -0.2768923044204712,
+                0.11826679110527039,
+                -0.37372398376464844
+            ],
+            [
+                0.032264821231365204,
+                -0.32355669140815735,
+                -0.7569856643676758,
+                -0.4467274248600006
+            ],
+            [
+                0.371799498796463,
+                -0.2585279643535614,
+                0.8670106530189514,
+                1.1641607284545898
+            ],
+            [
+                0.6350898146629333,
+                0.8547630906105042,
+                0.38229337334632874,
+                -1.163586974143982
+            ],
+            [
+                -1.060377597808838,
+                -1.1666401624679565,
+                0.4336003065109253,
+                -1.143565058708191
+            ],
+            [
+                -0.5158841013908386,
+                0.07569988816976547,
+                0.7310173511505127,
+                -0.08979491889476776
+            ],
+            [
+                0.5011979937553406,
+                0.5105209946632385,
+                0.5895229578018188,
+                1.292995810508728
+            ],
+            [
+                -0.40620648860931396,
+                1.400974988937378,
+                0.4798755645751953,
+                1.1162197589874268
+            ],
+            [
+                -0.7085787653923035,
+                0.8906527757644653,
+                -0.3439379632472992,
+                0.42706871032714844
+            ],
+            [
+                -0.039773374795913696,
+                -0.5267481803894043,
+                -0.777360200881958,
+                -1.1282575130462646
+            ],
+            [
+                -0.3906019926071167,
+                -0.41855329275131226,
+                -0.8525381088256836,
+                -0.36639994382858276
+            ],
+            [
+                1.8211058378219604,
+                -0.31620705127716064,
+                -0.650475800037384,
+                -0.9564769864082336
+            ],
+            [
+                -0.12726794183254242,
+                2.1028764247894287,
+                1.536476492881775,
+                1.8261654376983643
+            ],
+            [
+                0.5215821266174316,
+                -0.36579176783561707,
+                -1.8360389471054077,
+                -0.992554247379303
+            ],
+            [
+                -0.8185770511627197,
+                -0.43474510312080383,
+                0.28490662574768066,
+                -0.9235178828239441
+            ],
+            [
+                1.084635853767395,
+                -0.7855710983276367,
+                0.9828253388404846,
+                1.9613970518112183
+            ],
+            [
+                0.8860641717910767,
+                -0.8216331005096436,
+                -1.7479329109191895,
+                -0.9463672041893005
+            ],
+            [
+                0.5664439797401428,
+                -1.1050132513046265,
+                -1.8966315984725952,
+                -1.8167351484298706
+            ],
+            [
+                -0.9109035134315491,
+                -0.12930075824260712,
+                -0.7031334638595581,
+                -0.7124593257904053
+            ],
+            [
+                -0.04317918419837952,
+                -1.5978316068649292,
+                -1.1839739084243774,
+                -1.2364792823791504
+            ],
+            [
+                -0.4736705422401428,
+                -0.22256378829479218,
+                0.1890016496181488,
+                0.023088844493031502
+            ],
+            [
+                -0.6832727193832397,
+                0.3605175316333771,
+                1.1495847702026367,
+                0.46297794580459595
+            ],
+            [
+                -0.3946657180786133,
+                1.3559446334838867,
+                1.485818862915039,
+                0.6788732409477234
+            ],
+            [
+                -1.3135910034179688,
+                -0.7921290397644043,
+                1.2550814151763916,
+                0.8416533470153809
+            ],
+            [
+                -0.19281747937202454,
+                -0.32084351778030396,
+                0.0625666007399559,
+                -0.6709359884262085
+            ],
+            [
+                -0.6060472130775452,
+                -0.1690676063299179,
+                1.4981452226638794,
+                1.7605854272842407
+            ],
+            [
+                -0.9400947093963623,
+                0.09821616858243942,
+                0.38424959778785706,
+                -0.6582071185112
+            ],
+            [
+                -0.5589873194694519,
+                -0.06554143130779266,
+                -0.7270419001579285,
+                0.1664365828037262
+            ],
+            [
+                -0.35731008648872375,
+                -0.9204483032226562,
+                0.7708892226219177,
+                0.03237254172563553
+            ],
+            [
+                1.6838322877883911,
+                0.23388659954071045,
+                -0.4911539852619171,
+                -0.5721865296363831
+            ],
+            [
+                -0.7801501750946045,
+                0.49908438324928284,
+                0.0929354876279831,
+                0.09673447161912918
+            ],
+            [
+                -1.3361510038375854,
+                -0.8367587924003601,
+                -0.39514535665512085,
+                0.3263356387615204
+            ],
+            [
+                -1.096445083618164,
+                -0.7527850270271301,
+                -0.1290958672761917,
+                0.39595580101013184
+            ],
+            [
+                0.7819613218307495,
+                0.5889538526535034,
+                -0.8171827793121338,
+                -1.195483684539795
+            ],
+            [
+                2.5131590366363525,
+                2.359320640563965,
+                0.8911428451538086,
+                0.29130205512046814
+            ],
+            [
+                -0.8000206351280212,
+                1.7122888565063477,
+                0.42812296748161316,
+                1.4128882884979248
+            ],
+            [
+                0.1909218579530716,
+                1.3366137742996216,
+                2.2856860160827637,
+                1.624714732170105
+            ],
+            [
+                -0.15550392866134644,
+                0.015493285842239857,
+                0.7606592774391174,
+                -0.5926517248153687
+            ],
+            [
+                0.020698541775345802,
+                1.2192593812942505,
+                0.6854443550109863,
+                -0.3382571041584015
+            ],
+            [
+                -0.3571034371852875,
+                0.8819153308868408,
+                1.4338968992233276,
+                2.537278652191162
+            ],
+            [
+                -1.356583833694458,
+                -0.8527444005012512,
+                -0.10796147584915161,
+                0.357787549495697
+            ],
+            [
+                -1.216778039932251,
+                0.6783078908920288,
+                0.19662515819072723,
+                1.4283838272094727
+            ],
+            [
+                -0.03914932534098625,
+                1.403177261352539,
+                2.147698163986206,
+                1.145472526550293
+            ],
+            [
+                -0.048124510794878006,
+                -0.7174012064933777,
+                -0.38620126247406006,
+                -0.4114881753921509
+            ],
+            [
+                -1.1086828708648682,
+                -0.43654686212539673,
+                0.05332158878445625,
+                1.0291531085968018
+            ],
+            [
+                -1.1269433498382568,
+                1.0746581554412842,
+                1.1009039878845215,
+                -0.0042737312614917755
+            ],
+            [
+                0.12350662052631378,
+                -0.36337506771087646,
+                -1.1740996837615967,
+                -0.6474790573120117
+            ],
+            [
+                0.08988693356513977,
+                -0.2974810302257538,
+                -0.4361300468444824,
+                -1.1155744791030884
+            ],
+            [
+                0.06074676290154457,
+                -0.13539212942123413,
+                -0.7495343089103699,
+                0.14046213030815125
+            ],
+            [
+                -0.2538786828517914,
+                -1.466689944267273,
+                -0.7088769674301147,
+                -0.008074643090367317
+            ],
+            [
+                0.11339626461267471,
+                -0.8024340867996216,
+                0.6728764176368713,
+                -0.6392693519592285
+            ],
+            [
+                -0.4759891629219055,
+                -0.7245505452156067,
+                0.870937705039978,
+                -0.13853785395622253
+            ],
+            [
+                -0.30141741037368774,
+                -0.24220088124275208,
+                1.0437932014465332,
+                1.1054246425628662
+            ],
+            [
+                -0.5637961030006409,
+                -1.4196957349777222,
+                -1.0773357152938843,
+                -0.8235834240913391
+            ],
+            [
+                -0.5189317464828491,
+                -0.007525686174631119,
+                0.5687822103500366,
+                -0.3048571050167084
+            ],
+            [
+                -0.1114141196012497,
+                -0.6499482989311218,
+                -1.0018349885940552,
+                -0.9928939938545227
+            ],
+            [
+                -0.41138559579849243,
+                -0.0945052057504654,
+                0.1557171642780304,
+                -0.49195122718811035
+            ],
+            [
+                -0.11271413415670395,
+                -0.40942689776420593,
+                -0.4589407444000244,
+                1.6527459621429443
+            ],
+            [
+                -0.5538071990013123,
+                0.4932138919830322,
+                -0.04567388445138931,
+                0.08661742508411407
+            ],
+            [
+                2.6296627521514893,
+                -1.644126534461975,
+                -1.9494762420654297,
+                -0.1479676365852356
+            ],
+            [
+                0.40534746646881104,
+                1.3399193286895752,
+                0.5835405588150024,
+                0.14675697684288025
+            ],
+            [
+                0.5499176979064941,
+                -0.6059514880180359,
+                0.8657622337341309,
+                -0.6983718872070312
+            ],
+            [
+                -0.16553831100463867,
+                0.2723464071750641,
+                0.5596033930778503,
+                -0.37887415289878845
+            ],
+            [
+                -0.9823143482208252,
+                0.6596441268920898,
+                -0.44463396072387695,
+                -0.10168776661157608
+            ],
+            [
+                -0.46169567108154297,
+                2.744896650314331,
+                -0.5959025621414185,
+                0.23635339736938477
+            ],
+            [
+                -0.1942458301782608,
+                -0.5862658619880676,
+                -0.45449358224868774,
+                -0.7444512844085693
+            ],
+            [
+                0.194952592253685,
+                0.14586001634597778,
+                -0.056700222194194794,
+                -1.2911579608917236
+            ],
+            [
+                -0.6343311667442322,
+                -0.4980675280094147,
+                -0.5283737182617188,
+                -0.08706044405698776
+            ],
+            [
+                -1.1243677139282227,
+                -0.9553709626197815,
+                -0.27920418977737427,
+                -0.4202406406402588
+            ],
+            [
+                0.8703418970108032,
+                -0.2537960708141327,
+                -0.5365369915962219,
+                -1.1650973558425903
+            ],
+            [
+                0.6950870156288147,
+                -0.15893565118312836,
+                -0.0858549252152443,
+                0.0009073230903595686
+            ],
+            [
+                1.6167234182357788,
+                1.651603102684021,
+                1.2531160116195679,
+                0.39452216029167175
+            ],
+            [
+                0.5841089487075806,
+                -0.03319428488612175,
+                -1.2068151235580444,
+                -1.3576141595840454
+            ],
+            [
+                0.3495975136756897,
+                -0.26241791248321533,
+                -2.672077178955078,
+                -2.1641392707824707
+            ],
+            [
+                0.595969557762146,
+                1.6588075160980225,
+                1.3607181310653687,
+                -0.09647638350725174
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Álex Vallejo\nRank: 42/93\n2.96 Aerials per 90",
+                "Álex Vallejo\nRank: 34/93\n6.87 Defensive actions per 90",
+                "Álex Vallejo\nRank: 11/93\n53.65 Touches per 90",
+                "Álex Vallejo\nRank: 26/93\n0.31 xGBuildup per 90"
+            ],
+            [
+                "A. Youga\nRank: 64/93\n2.29 Aerials per 90",
+                "A. Youga\nRank: 57/93\n5.51 Defensive actions per 90",
+                "A. Youga\nRank: 46/93\n44.29 Touches per 90",
+                "A. Youga\nRank: 34/93\n0.29 xGBuildup per 90"
+            ],
+            [
+                "Y. Croizet\nRank: 53/93\n2.56 Aerials per 90",
+                "Y. Croizet\nRank: 93/93\n1.19 Defensive actions per 90",
+                "Y. Croizet\nRank: 81/93\n35.06 Touches per 90",
+                "Y. Croizet\nRank: 16/93\n0.39 xGBuildup per 90"
+            ],
+            [
+                "A. Ademi\nRank: 29/93\n3.46 Aerials per 90",
+                "A. Ademi\nRank: 22/93\n8.23 Defensive actions per 90",
+                "A. Ademi\nRank: 58/93\n40.27 Touches per 90",
+                "A. Ademi\nRank: 20/93\n0.36 xGBuildup per 90"
+            ],
+            [
+                "Iuri Medeiros\nRank: 87/93\n1.20 Aerials per 90",
+                "Iuri Medeiros\nRank: 82/93\n3.43 Defensive actions per 90",
+                "Iuri Medeiros\nRank: 54/93\n40.99 Touches per 90",
+                "Iuri Medeiros\nRank: 58/93\n0.22 xGBuildup per 90"
+            ],
+            [
+                "J. Mešanović\nRank: 2/93\n7.90 Aerials per 90",
+                "J. Mešanović\nRank: 86/93\n2.95 Defensive actions per 90",
+                "J. Mešanović\nRank: 86/93\n31.73 Touches per 90",
+                "J. Mešanović\nRank: 75/93\n0.16 xGBuildup per 90"
+            ],
+            [
+                "B. Batik\nRank: 1/93\n9.85 Aerials per 90",
+                "B. Batik\nRank: 18/93\n8.83 Defensive actions per 90",
+                "B. Batik\nRank: 63/93\n39.82 Touches per 90",
+                "B. Batik\nRank: 77/93\n0.16 xGBuildup per 90"
+            ],
+            [
+                "R. Szolnoki\nRank: 7/93\n5.77 Aerials per 90",
+                "R. Szolnoki\nRank: 43/93\n6.03 Defensive actions per 90",
+                "R. Szolnoki\nRank: 87/93\n30.78 Touches per 90",
+                "R. Szolnoki\nRank: 84/93\n0.14 xGBuildup per 90"
+            ],
+            [
+                "N. Könyves\nRank: 17/93\n4.18 Aerials per 90",
+                "N. Könyves\nRank: 92/93\n1.49 Defensive actions per 90",
+                "N. Könyves\nRank: 88/93\n30.77 Touches per 90",
+                "N. Könyves\nRank: 91/93\n0.09 xGBuildup per 90"
+            ],
+            [
+                "B. Balogh\nRank: 20/93\n4.05 Aerials per 90",
+                "B. Balogh\nRank: 30/93\n7.36 Defensive actions per 90",
+                "B. Balogh\nRank: 14/93\n52.86 Touches per 90",
+                "B. Balogh\nRank: 7/93\n0.46 xGBuildup per 90"
+            ],
+            [
+                "I. Bognár\nRank: 88/93\n1.14 Aerials per 90",
+                "I. Bognár\nRank: 85/93\n3.15 Defensive actions per 90",
+                "I. Bognár\nRank: 40/93\n45.29 Touches per 90",
+                "I. Bognár\nRank: 4/93\n0.47 xGBuildup per 90"
+            ],
+            [
+                "J. Windecker\nRank: 11/93\n4.73 Aerials per 90",
+                "J. Windecker\nRank: 29/93\n7.59 Defensive actions per 90",
+                "J. Windecker\nRank: 70/93\n38.06 Touches per 90",
+                "J. Windecker\nRank: 63/93\n0.21 xGBuildup per 90"
+            ],
+            [
+                "A. Fiola\nRank: 51/93\n2.63 Aerials per 90",
+                "A. Fiola\nRank: 15/93\n9.41 Defensive actions per 90",
+                "A. Fiola\nRank: 36/93\n46.64 Touches per 90",
+                "A. Fiola\nRank: 46/93\n0.26 xGBuildup per 90"
+            ],
+            [
+                "K. Papp\nRank: 9/93\n5.61 Aerials per 90",
+                "K. Papp\nRank: 13/93\n9.76 Defensive actions per 90",
+                "K. Papp\nRank: 79/93\n35.64 Touches per 90",
+                "K. Papp\nRank: 31/93\n0.30 xGBuildup per 90"
+            ],
+            [
+                "B. Vécsei\nRank: 12/93\n4.64 Aerials per 90",
+                "B. Vécsei\nRank: 3/93\n11.84 Defensive actions per 90",
+                "B. Vécsei\nRank: 17/93\n51.66 Touches per 90",
+                "B. Vécsei\nRank: 45/93\n0.26 xGBuildup per 90"
+            ],
+            [
+                "C. Bumba\nRank: 74/93\n1.88 Aerials per 90",
+                "C. Bumba\nRank: 84/93\n3.31 Defensive actions per 90",
+                "C. Bumba\nRank: 69/93\n38.25 Touches per 90",
+                "C. Bumba\nRank: 29/93\n0.30 xGBuildup per 90"
+            ],
+            [
+                "P. Anton\nRank: 81/93\n1.39 Aerials per 90",
+                "P. Anton\nRank: 16/93\n9.16 Defensive actions per 90",
+                "P. Anton\nRank: 1/93\n66.73 Touches per 90",
+                "P. Anton\nRank: 1/93\n0.62 xGBuildup per 90"
+            ],
+            [
+                "B. Dzsudzsák\nRank: 93/93\n0.33 Aerials per 90",
+                "B. Dzsudzsák\nRank: 91/93\n1.80 Defensive actions per 90",
+                "B. Dzsudzsák\nRank: 52/93\n42.17 Touches per 90",
+                "B. Dzsudzsák\nRank: 33/93\n0.29 xGBuildup per 90"
+            ],
+            [
+                "M. Ljujić\nRank: 54/93\n2.54 Aerials per 90",
+                "M. Ljujić\nRank: 53/93\n5.62 Defensive actions per 90",
+                "M. Ljujić\nRank: 42/93\n44.84 Touches per 90",
+                "M. Ljujić\nRank: 56/93\n0.23 xGBuildup per 90"
+            ],
+            [
+                "D. Nagy\nRank: 36/93\n3.15 Aerials per 90",
+                "D. Nagy\nRank: 58/93\n5.50 Defensive actions per 90",
+                "D. Nagy\nRank: 75/93\n37.52 Touches per 90",
+                "D. Nagy\nRank: 61/93\n0.22 xGBuildup per 90"
+            ],
+            [
+                "J. Plšek\nRank: 27/93\n3.70 Aerials per 90",
+                "J. Plšek\nRank: 51/93\n5.67 Defensive actions per 90",
+                "J. Plšek\nRank: 20/93\n51.09 Touches per 90",
+                "J. Plšek\nRank: 13/93\n0.40 xGBuildup per 90"
+            ],
+            [
+                "A. Favorov\nRank: 18/93\n4.13 Aerials per 90",
+                "A. Favorov\nRank: 21/93\n8.54 Defensive actions per 90",
+                "A. Favorov\nRank: 35/93\n47.04 Touches per 90",
+                "A. Favorov\nRank: 85/93\n0.14 xGBuildup per 90"
+            ],
+            [
+                "G. Molnár\nRank: 82/93\n1.37 Aerials per 90",
+                "G. Molnár\nRank: 83/93\n3.33 Defensive actions per 90",
+                "G. Molnár\nRank: 32/93\n47.47 Touches per 90",
+                "G. Molnár\nRank: 83/93\n0.14 xGBuildup per 90"
+            ],
+            [
+                "Z. Berecz\nRank: 65/93\n2.26 Aerials per 90",
+                "Z. Berecz\nRank: 37/93\n6.53 Defensive actions per 90",
+                "Z. Berecz\nRank: 24/93\n49.96 Touches per 90",
+                "Z. Berecz\nRank: 48/93\n0.26 xGBuildup per 90"
+            ],
+            [
+                "D. Rasak\nRank: 25/93\n3.91 Aerials per 90",
+                "D. Rasak\nRank: 26/93\n7.65 Defensive actions per 90",
+                "D. Rasak\nRank: 27/93\n48.77 Touches per 90",
+                "D. Rasak\nRank: 12/93\n0.41 xGBuildup per 90"
+            ],
+            [
+                "B. Sanković\nRank: 59/93\n2.44 Aerials per 90",
+                "B. Sanković\nRank: 9/93\n9.94 Defensive actions per 90",
+                "B. Sanković\nRank: 31/93\n47.86 Touches per 90",
+                "B. Sanković\nRank: 15/93\n0.39 xGBuildup per 90"
+            ],
+            [
+                "A. Esiti\nRank: 73/93\n1.94 Aerials per 90",
+                "A. Esiti\nRank: 19/93\n8.63 Defensive actions per 90",
+                "A. Esiti\nRank: 55/93\n40.98 Touches per 90",
+                "A. Esiti\nRank: 23/93\n0.32 xGBuildup per 90"
+            ],
+            [
+                "A. Roguljić\nRank: 39/93\n3.03 Aerials per 90",
+                "A. Roguljić\nRank: 66/93\n4.98 Defensive actions per 90",
+                "A. Roguljić\nRank: 76/93\n37.35 Touches per 90",
+                "A. Roguljić\nRank: 82/93\n0.14 xGBuildup per 90"
+            ],
+            [
+                "G. Holdampf\nRank: 57/93\n2.46 Aerials per 90",
+                "G. Holdampf\nRank: 62/93\n5.26 Defensive actions per 90",
+                "G. Holdampf\nRank: 78/93\n36.73 Touches per 90",
+                "G. Holdampf\nRank: 55/93\n0.23 xGBuildup per 90"
+            ],
+            [
+                "A. Keita\nRank: 5/93\n6.06 Aerials per 90",
+                "A. Keita\nRank: 55/93\n5.52 Defensive actions per 90",
+                "A. Keita\nRank: 68/93\n38.41 Touches per 90",
+                "A. Keita\nRank: 78/93\n0.16 xGBuildup per 90"
+            ],
+            [
+                "N. Keïta\nRank: 45/93\n2.89 Aerials per 90",
+                "N. Keïta\nRank: 4/93\n11.75 Defensive actions per 90",
+                "N. Keïta\nRank: 4/93\n56.68 Touches per 90",
+                "N. Keïta\nRank: 5/93\n0.47 xGBuildup per 90"
+            ],
+            [
+                "K. Zachariassen\nRank: 24/93\n3.94 Aerials per 90",
+                "K. Zachariassen\nRank: 60/93\n5.40 Defensive actions per 90",
+                "K. Zachariassen\nRank: 90/93\n28.51 Touches per 90",
+                "K. Zachariassen\nRank: 79/93\n0.16 xGBuildup per 90"
+            ],
+            [
+                "K. Nagy\nRank: 77/93\n1.76 Aerials per 90",
+                "K. Nagy\nRank: 63/93\n5.22 Defensive actions per 90",
+                "K. Nagy\nRank: 37/93\n46.23 Touches per 90",
+                "K. Nagy\nRank: 74/93\n0.16 xGBuildup per 90"
+            ],
+            [
+                "M. Tajti\nRank: 10/93\n4.86 Aerials per 90",
+                "M. Tajti\nRank: 73/93\n4.32 Defensive actions per 90",
+                "M. Tajti\nRank: 16/93\n52.06 Touches per 90",
+                "M. Tajti\nRank: 3/93\n0.49 xGBuildup per 90"
+            ],
+            [
+                "B. Bíró\nRank: 13/93\n4.54 Aerials per 90",
+                "B. Bíró\nRank: 76/93\n4.22 Defensive actions per 90",
+                "B. Bíró\nRank: 89/93\n29.25 Touches per 90",
+                "B. Bíró\nRank: 76/93\n0.16 xGBuildup per 90"
+            ],
+            [
+                "T. Yordanov\nRank: 22/93\n4.02 Aerials per 90",
+                "T. Yordanov\nRank: 81/93\n3.49 Defensive actions per 90",
+                "T. Yordanov\nRank: 91/93\n28.00 Touches per 90",
+                "T. Yordanov\nRank: 92/93\n0.06 xGBuildup per 90"
+            ],
+            [
+                "Y. Toma\nRank: 78/93\n1.61 Aerials per 90",
+                "Y. Toma\nRank: 44/93\n6.00 Defensive actions per 90",
+                "Y. Toma\nRank: 71/93\n37.97 Touches per 90",
+                "Y. Toma\nRank: 71/93\n0.19 xGBuildup per 90"
+            ],
+            [
+                "D. Lukács\nRank: 40/93\n3.03 Aerials per 90",
+                "D. Lukács\nRank: 89/93\n2.22 Defensive actions per 90",
+                "D. Lukács\nRank: 84/93\n33.96 Touches per 90",
+                "D. Lukács\nRank: 88/93\n0.13 xGBuildup per 90"
+            ],
+            [
+                "Laros Duarte\nRank: 62/93\n2.33 Aerials per 90",
+                "Laros Duarte\nRank: 48/93\n5.76 Defensive actions per 90",
+                "Laros Duarte\nRank: 39/93\n45.43 Touches per 90",
+                "Laros Duarte\nRank: 41/93\n0.27 xGBuildup per 90"
+            ],
+            [
+                "G. Kanichowsky\nRank: 72/93\n1.98 Aerials per 90",
+                "G. Kanichowsky\nRank: 31/93\n7.26 Defensive actions per 90",
+                "G. Kanichowsky\nRank: 12/93\n53.45 Touches per 90",
+                "G. Kanichowsky\nRank: 22/93\n0.32 xGBuildup per 90"
+            ],
+            [
+                "B. Ötvös\nRank: 58/93\n2.45 Aerials per 90",
+                "B. Ötvös\nRank: 10/93\n9.83 Defensive actions per 90",
+                "B. Ötvös\nRank: 6/93\n56.26 Touches per 90",
+                "B. Ötvös\nRank: 21/93\n0.34 xGBuildup per 90"
+            ],
+            [
+                "B. Kiss\nRank: 90/93\n0.96 Aerials per 90",
+                "B. Kiss\nRank: 74/93\n4.30 Defensive actions per 90",
+                "B. Kiss\nRank: 9/93\n54.33 Touches per 90",
+                "B. Kiss\nRank: 19/93\n0.36 xGBuildup per 90"
+            ],
+            [
+                "B. Melnyk\nRank: 48/93\n2.78 Aerials per 90",
+                "B. Melnyk\nRank: 56/93\n5.51 Defensive actions per 90",
+                "B. Melnyk\nRank: 44/93\n44.37 Touches per 90",
+                "B. Melnyk\nRank: 69/93\n0.19 xGBuildup per 90"
+            ],
+            [
+                "M. Abu Fani\nRank: 70/93\n2.11 Aerials per 90",
+                "M. Abu Fani\nRank: 47/93\n5.90 Defensive actions per 90",
+                "M. Abu Fani\nRank: 5/93\n56.36 Touches per 90",
+                "M. Abu Fani\nRank: 6/93\n0.46 xGBuildup per 90"
+            ],
+            [
+                "A. Maier\nRank: 79/93\n1.57 Aerials per 90",
+                "A. Maier\nRank: 36/93\n6.59 Defensive actions per 90",
+                "A. Maier\nRank: 34/93\n47.06 Touches per 90",
+                "A. Maier\nRank: 68/93\n0.19 xGBuildup per 90"
+            ],
+            [
+                "K. Hinora\nRank: 68/93\n2.19 Aerials per 90",
+                "K. Hinora\nRank: 41/93\n6.17 Defensive actions per 90",
+                "K. Hinora\nRank: 73/93\n37.77 Touches per 90",
+                "K. Hinora\nRank: 35/93\n0.29 xGBuildup per 90"
+            ],
+            [
+                "B. Kártik\nRank: 56/93\n2.51 Aerials per 90",
+                "B. Kártik\nRank: 79/93\n3.97 Defensive actions per 90",
+                "B. Kártik\nRank: 22/93\n50.29 Touches per 90",
+                "B. Kártik\nRank: 40/93\n0.27 xGBuildup per 90"
+            ],
+            [
+                "M. Meskhi\nRank: 6/93\n5.83 Aerials per 90",
+                "M. Meskhi\nRank: 33/93\n6.94 Defensive actions per 90",
+                "M. Meskhi\nRank: 64/93\n39.75 Touches per 90",
+                "M. Meskhi\nRank: 64/93\n0.20 xGBuildup per 90"
+            ],
+            [
+                "A. Csonka\nRank: 75/93\n1.83 Aerials per 90",
+                "A. Csonka\nRank: 27/93\n7.62 Defensive actions per 90",
+                "A. Csonka\nRank: 43/93\n44.62 Touches per 90",
+                "A. Csonka\nRank: 38/93\n0.28 xGBuildup per 90"
+            ],
+            [
+                "Ž. Gavrić\nRank: 91/93\n0.92 Aerials per 90",
+                "Ž. Gavrić\nRank: 77/93\n4.18 Defensive actions per 90",
+                "Ž. Gavrić\nRank: 57/93\n40.55 Touches per 90",
+                "Ž. Gavrić\nRank: 28/93\n0.30 xGBuildup per 90"
+            ],
+            [
+                "J. Levi\nRank: 83/93\n1.31 Aerials per 90",
+                "J. Levi\nRank: 72/93\n4.40 Defensive actions per 90",
+                "J. Levi\nRank: 51/93\n42.77 Touches per 90",
+                "J. Levi\nRank: 24/93\n0.31 xGBuildup per 90"
+            ],
+            [
+                "H. Mbock\nRank: 15/93\n4.37 Aerials per 90",
+                "H. Mbock\nRank: 25/93\n7.85 Defensive actions per 90",
+                "H. Mbock\nRank: 77/93\n37.02 Touches per 90",
+                "H. Mbock\nRank: 87/93\n0.13 xGBuildup per 90"
+            ],
+            [
+                "L. Szőr\nRank: 4/93\n7.18 Aerials per 90",
+                "L. Szőr\nRank: 2/93\n12.41 Defensive actions per 90",
+                "L. Szőr\nRank: 18/93\n51.29 Touches per 90",
+                "L. Szőr\nRank: 30/93\n0.30 xGBuildup per 90"
+            ],
+            [
+                "Júlio Romão\nRank: 76/93\n1.79 Aerials per 90",
+                "Júlio Romão\nRank: 5/93\n10.74 Defensive actions per 90",
+                "Júlio Romão\nRank: 33/93\n47.42 Touches per 90",
+                "Júlio Romão\nRank: 11/93\n0.43 xGBuildup per 90"
+            ],
+            [
+                "N. Szendrei\nRank: 31/93\n3.41 Aerials per 90",
+                "N. Szendrei\nRank: 12/93\n9.78 Defensive actions per 90",
+                "N. Szendrei\nRank: 2/93\n62.94 Touches per 90",
+                "N. Szendrei\nRank: 9/93\n0.45 xGBuildup per 90"
+            ],
+            [
+                "K. Horváth\nRank: 46/93\n2.84 Aerials per 90",
+                "K. Horváth\nRank: 38/93\n6.38 Defensive actions per 90",
+                "K. Horváth\nRank: 23/93\n50.20 Touches per 90",
+                "K. Horváth\nRank: 65/93\n0.20 xGBuildup per 90"
+            ],
+            [
+                "M. Kovács\nRank: 37/93\n3.13 Aerials per 90",
+                "M. Kovács\nRank: 14/93\n9.47 Defensive actions per 90",
+                "M. Kovács\nRank: 25/93\n49.57 Touches per 90",
+                "M. Kovács\nRank: 54/93\n0.23 xGBuildup per 90"
+            ],
+            [
+                "M. Kata\nRank: 55/93\n2.51 Aerials per 90",
+                "M. Kata\nRank: 20/93\n8.61 Defensive actions per 90",
+                "M. Kata\nRank: 7/93\n55.83 Touches per 90",
+                "M. Kata\nRank: 2/93\n0.55 xGBuildup per 90"
+            ],
+            [
+                "R. Schuszter\nRank: 92/93\n0.89 Aerials per 90",
+                "R. Schuszter\nRank: 78/93\n4.14 Defensive actions per 90",
+                "R. Schuszter\nRank: 50/93\n42.95 Touches per 90",
+                "R. Schuszter\nRank: 27/93\n0.31 xGBuildup per 90"
+            ],
+            [
+                "M. Vitális\nRank: 89/93\n1.12 Aerials per 90",
+                "M. Vitális\nRank: 23/93\n8.08 Defensive actions per 90",
+                "M. Vitális\nRank: 38/93\n45.49 Touches per 90",
+                "M. Vitális\nRank: 10/93\n0.43 xGBuildup per 90"
+            ],
+            [
+                "A. Zeljković\nRank: 38/93\n3.03 Aerials per 90",
+                "A. Zeljković\nRank: 8/93\n9.95 Defensive actions per 90",
+                "A. Zeljković\nRank: 3/93\n61.79 Touches per 90",
+                "A. Zeljković\nRank: 14/93\n0.40 xGBuildup per 90"
+            ],
+            [
+                "Á. Bényei\nRank: 41/93\n3.02 Aerials per 90",
+                "Á. Bényei\nRank: 70/93\n4.49 Defensive actions per 90",
+                "Á. Bényei\nRank: 56/93\n40.62 Touches per 90",
+                "Á. Bényei\nRank: 59/93\n0.22 xGBuildup per 90"
+            ],
+            [
+                "A. Horváth\nRank: 84/93\n1.29 Aerials per 90",
+                "A. Horváth\nRank: 64/93\n5.21 Defensive actions per 90",
+                "A. Horváth\nRank: 45/93\n44.29 Touches per 90",
+                "A. Horváth\nRank: 18/93\n0.38 xGBuildup per 90"
+            ],
+            [
+                "T. Lacoux\nRank: 86/93\n1.26 Aerials per 90",
+                "T. Lacoux\nRank: 17/93\n9.10 Defensive actions per 90",
+                "T. Lacoux\nRank: 13/93\n53.05 Touches per 90",
+                "T. Lacoux\nRank: 43/93\n0.27 xGBuildup per 90"
+            ],
+            [
+                "M. Corbu\nRank: 32/93\n3.30 Aerials per 90",
+                "M. Corbu\nRank: 59/93\n5.40 Defensive actions per 90",
+                "M. Corbu\nRank: 83/93\n34.04 Touches per 90",
+                "M. Corbu\nRank: 67/93\n0.20 xGBuildup per 90"
+            ],
+            [
+                "Z. Magyar\nRank: 34/93\n3.24 Aerials per 90",
+                "Z. Magyar\nRank: 54/93\n5.57 Defensive actions per 90",
+                "Z. Magyar\nRank: 59/93\n40.20 Touches per 90",
+                "Z. Magyar\nRank: 81/93\n0.14 xGBuildup per 90"
+            ],
+            [
+                "M. Katona\nRank: 35/93\n3.19 Aerials per 90",
+                "M. Katona\nRank: 45/93\n5.99 Defensive actions per 90",
+                "M. Katona\nRank: 74/93\n37.59 Touches per 90",
+                "M. Katona\nRank: 37/93\n0.28 xGBuildup per 90"
+            ],
+            [
+                "João Victor\nRank: 50/93\n2.68 Aerials per 90",
+                "João Victor\nRank: 88/93\n2.56 Defensive actions per 90",
+                "João Victor\nRank: 72/93\n37.93 Touches per 90",
+                "João Victor\nRank: 44/93\n0.27 xGBuildup per 90"
+            ],
+            [
+                "M. Ubochioma\nRank: 33/93\n3.28 Aerials per 90",
+                "M. Ubochioma\nRank: 75/93\n4.27 Defensive actions per 90",
+                "M. Ubochioma\nRank: 26/93\n49.47 Touches per 90",
+                "M. Ubochioma\nRank: 66/93\n0.20 xGBuildup per 90"
+            ],
+            [
+                "B. Katona\nRank: 63/93\n2.32 Aerials per 90",
+                "B. Katona\nRank: 71/93\n4.47 Defensive actions per 90",
+                "B. Katona\nRank: 19/93\n51.12 Touches per 90",
+                "B. Katona\nRank: 51/93\n0.25 xGBuildup per 90"
+            ],
+            [
+                "H. Németh\nRank: 52/93\n2.61 Aerials per 90",
+                "H. Németh\nRank: 49/93\n5.71 Defensive actions per 90",
+                "H. Németh\nRank: 15/93\n52.57 Touches per 90",
+                "H. Németh\nRank: 17/93\n0.39 xGBuildup per 90"
+            ],
+            [
+                "Z. Gruber\nRank: 69/93\n2.18 Aerials per 90",
+                "Z. Gruber\nRank: 87/93\n2.68 Defensive actions per 90",
+                "Z. Gruber\nRank: 82/93\n34.85 Touches per 90",
+                "Z. Gruber\nRank: 73/93\n0.18 xGBuildup per 90"
+            ],
+            [
+                "T. Szűcs\nRank: 66/93\n2.25 Aerials per 90",
+                "T. Szűcs\nRank: 39/93\n6.32 Defensive actions per 90",
+                "T. Szűcs\nRank: 29/93\n48.60 Touches per 90",
+                "T. Szűcs\nRank: 53/93\n0.23 xGBuildup per 90"
+            ],
+            [
+                "M. Major\nRank: 43/93\n2.91 Aerials per 90",
+                "M. Major\nRank: 69/93\n4.66 Defensive actions per 90",
+                "M. Major\nRank: 80/93\n35.48 Touches per 90",
+                "M. Major\nRank: 80/93\n0.16 xGBuildup per 90"
+            ],
+            [
+                "G. Szoke\nRank: 60/93\n2.43 Aerials per 90",
+                "G. Szoke\nRank: 42/93\n6.09 Defensive actions per 90",
+                "G. Szoke\nRank: 41/93\n45.15 Touches per 90",
+                "G. Szoke\nRank: 62/93\n0.21 xGBuildup per 90"
+            ],
+            [
+                "G. Gyurkits\nRank: 44/93\n2.91 Aerials per 90",
+                "G. Gyurkits\nRank: 61/93\n5.28 Defensive actions per 90",
+                "G. Gyurkits\nRank: 62/93\n40.01 Touches per 90",
+                "G. Gyurkits\nRank: 8/93\n0.45 xGBuildup per 90"
+            ],
+            [
+                "Á. Madarász\nRank: 67/93\n2.20 Aerials per 90",
+                "Á. Madarász\nRank: 28/93\n7.61 Defensive actions per 90",
+                "Á. Madarász\nRank: 47/93\n43.47 Touches per 90",
+                "Á. Madarász\nRank: 39/93\n0.28 xGBuildup per 90"
+            ],
+            [
+                "M. Klausz\nRank: 3/93\n7.37 Aerials per 90",
+                "M. Klausz\nRank: 90/93\n2.11 Defensive actions per 90",
+                "M. Klausz\nRank: 92/93\n27.56 Touches per 90",
+                "M. Klausz\nRank: 52/93\n0.25 xGBuildup per 90"
+            ],
+            [
+                "L. Vingler\nRank: 26/93\n3.75 Aerials per 90",
+                "L. Vingler\nRank: 11/93\n9.79 Defensive actions per 90",
+                "L. Vingler\nRank: 28/93\n48.72 Touches per 90",
+                "L. Vingler\nRank: 36/93\n0.28 xGBuildup per 90"
+            ],
+            [
+                "M. Kern\nRank: 23/93\n3.99 Aerials per 90",
+                "M. Kern\nRank: 68/93\n4.78 Defensive actions per 90",
+                "M. Kern\nRank: 21/93\n51.08 Touches per 90",
+                "M. Kern\nRank: 70/93\n0.19 xGBuildup per 90"
+            ],
+            [
+                "A. Tóth\nRank: 47/93\n2.83 Aerials per 90",
+                "A. Tóth\nRank: 32/93\n7.04 Defensive actions per 90",
+                "A. Tóth\nRank: 30/93\n48.52 Touches per 90",
+                "A. Tóth\nRank: 57/93\n0.23 xGBuildup per 90"
+            ],
+            [
+                "N. Fenyő\nRank: 80/93\n1.50 Aerials per 90",
+                "N. Fenyő\nRank: 24/93\n8.03 Defensive actions per 90",
+                "N. Fenyő\nRank: 60/93\n40.13 Touches per 90",
+                "N. Fenyő\nRank: 50/93\n0.26 xGBuildup per 90"
+            ],
+            [
+                "T. Rajmund\nRank: 61/93\n2.34 Aerials per 90",
+                "T. Rajmund\nRank: 1/93\n13.40 Defensive actions per 90",
+                "T. Rajmund\nRank: 67/93\n38.87 Touches per 90",
+                "T. Rajmund\nRank: 32/93\n0.29 xGBuildup per 90"
+            ],
+            [
+                "M. Pető\nRank: 49/93\n2.78 Aerials per 90",
+                "M. Pető\nRank: 67/93\n4.83 Defensive actions per 90",
+                "M. Pető\nRank: 61/93\n40.05 Touches per 90",
+                "M. Pető\nRank: 72/93\n0.18 xGBuildup per 90"
+            ],
+            [
+                "M. Okeke\nRank: 30/93\n3.41 Aerials per 90",
+                "M. Okeke\nRank: 35/93\n6.71 Defensive actions per 90",
+                "M. Okeke\nRank: 48/93\n43.37 Touches per 90",
+                "M. Okeke\nRank: 89/93\n0.12 xGBuildup per 90"
+            ],
+            [
+                "I. Atrok\nRank: 71/93\n2.06 Aerials per 90",
+                "I. Atrok\nRank: 65/93\n5.06 Defensive actions per 90",
+                "I. Atrok\nRank: 65/93\n39.43 Touches per 90",
+                "I. Atrok\nRank: 47/93\n0.26 xGBuildup per 90"
+            ],
+            [
+                "M. Semel\nRank: 85/93\n1.27 Aerials per 90",
+                "M. Semel\nRank: 80/93\n3.88 Defensive actions per 90",
+                "M. Semel\nRank: 53/93\n41.52 Touches per 90",
+                "M. Semel\nRank: 60/93\n0.22 xGBuildup per 90"
+            ],
+            [
+                "F. Cibla\nRank: 14/93\n4.51 Aerials per 90",
+                "F. Cibla\nRank: 50/93\n5.68 Defensive actions per 90",
+                "F. Cibla\nRank: 66/93\n39.37 Touches per 90",
+                "F. Cibla\nRank: 86/93\n0.14 xGBuildup per 90"
+            ],
+            [
+                "K. Horváth\nRank: 16/93\n4.23 Aerials per 90",
+                "K. Horváth\nRank: 46/93\n5.93 Defensive actions per 90",
+                "K. Horváth\nRank: 49/93\n43.13 Touches per 90",
+                "K. Horváth\nRank: 42/93\n0.27 xGBuildup per 90"
+            ],
+            [
+                "F. Amato\nRank: 8/93\n5.72 Aerials per 90",
+                "F. Amato\nRank: 7/93\n10.59 Defensive actions per 90",
+                "F. Amato\nRank: 10/93\n54.32 Touches per 90",
+                "F. Amato\nRank: 25/93\n0.31 xGBuildup per 90"
+            ],
+            [
+                "B. Vekony\nRank: 21/93\n4.04 Aerials per 90",
+                "B. Vekony\nRank: 40/93\n6.25 Defensive actions per 90",
+                "B. Vekony\nRank: 85/93\n33.77 Touches per 90",
+                "B. Vekony\nRank: 90/93\n0.12 xGBuildup per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 28/93\n3.66 Aerials per 90",
+                "M. Mucsányi\nRank: 52/93\n5.66 Defensive actions per 90",
+                "M. Mucsányi\nRank: 93/93\n21.53 Touches per 90",
+                "M. Mucsányi\nRank: 93/93\n0.03 xGBuildup per 90"
+            ],
+            [
+                "R. Popoola\nRank: 19/93\n4.06 Aerials per 90",
+                "R. Popoola\nRank: 6/93\n10.61 Defensive actions per 90",
+                "R. Popoola\nRank: 8/93\n55.22 Touches per 90",
+                "R. Popoola\nRank: 49/93\n0.26 xGBuildup per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Midfielders",
+            "Milán Vitális"
+        ],
+        "minutes_played": 2658,
+        "axis_labels": [
+            "Aerials per 90 | 1.12",
+            "Defensive actions per 90 | 8.08",
+            "Touches per 90 | 45.49",
+            "xGBuildup per 90 | 0.43"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            0.8421930019632713,
+            -0.13809724281731514,
+            -1.0757275874895442,
+            0.3033414562543774,
+            -0.9661868179364259,
+            -0.9363331552449595,
+            0.6946859681391533,
+            -0.9183664521996961,
+            -1.8986256561704782,
+            1.388990640193232,
+            -0.07758692198113873,
+            -0.15659150510960987,
+            0.5445208223980275,
+            0.317214303144163,
+            1.5047783921471252,
+            -0.883995881398869,
+            2.661595090309401,
+            -1.0573931002344936,
+            -0.21291558319942563,
+            -0.6735553992022434,
+            0.8211381979065914,
+            0.3296700975947767,
+            -0.7279364889524764,
+            0.3107320164096139,
+            1.0030454145390661,
+            1.0135311639798685,
+            0.092382020316393,
+            -0.9700005623901762,
+            -0.8308485098910792,
+            -0.37026495793521846,
+            2.138468765039563,
+            -1.3611498760887446,
+            -0.43477663686154433,
+            1.0814424083432177,
+            -1.3824535366634132,
+            -1.8893452713395857,
+            -0.8526900914769107,
+            -1.6210877214710313,
+            -0.06685811805288938,
+            0.7769628150310267,
+            1.4528649982742396,
+            0.3960462102120022,
+            -0.3140464718706603,
+            1.177096144811424,
+            -0.13581014786902895,
+            -0.5146918022179788,
+            0.04477266498729143,
+            0.00021223436898121285,
+            0.09246074700015879,
+            -0.7227772329290302,
+            -0.4677163602605037,
+            -0.43365942924478595,
+            1.9875108730630093,
+            1.0960932418230294,
+            2.3047128315979593,
+            0.23921839446380094,
+            0.74010196821233,
+            1.7953176670532696,
+            -0.5586247571139207,
+            0.5055191239835816,
+            2.061707423723401,
+            -0.6090438255871128,
+            -0.06945743577457654,
+            0.775613246434617,
+            -0.965979313614499,
+            -0.6595501490751264,
+            -0.4264951908874938,
+            -0.9925460080984495,
+            -0.06085796526455078,
+            0.09801654335298794,
+            0.7665634754358084,
+            -1.489199215250557,
+            0.12490295217545387,
+            -1.1199979005027265,
+            -0.174704866722925,
+            0.039863224805191416,
+            0.05651874451485144,
+            -1.188267452676081,
+            0.9474150783704322,
+            0.19800023349400478,
+            0.2752437647615677,
+            -0.2598575388764367,
+            0.6126867633612805,
+            -0.7285140455604193,
+            -0.30960068767347254,
+            -0.645126354742038,
+            -0.8678270703751852,
+            -0.5474483227242447,
+            0.04368940636373672,
+            1.7775250356429526,
+            -0.9709823990304455,
+            -2.1792845602289383,
+            1.4804880122822213
+        ]
+    },
+    "player_info": {
+        "id": 587654,
+        "name": "M. Vitális",
+        "full_name": "Milán Vitális",
+        "synthesized_name": "Milán Vitális",
+        "birth_date": "2002-01-28",
+        "age": 24,
+        "foot": null,
+        "position": "MIDFIELDER",
+        "detailed_position": "DEFENSIVE_MIDFIELDER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g-102198_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

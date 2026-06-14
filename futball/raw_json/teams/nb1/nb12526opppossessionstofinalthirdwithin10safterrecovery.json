@@ -1,0 +1,67 @@
+{
+    "plot_type": "ranking-bar",
+    "title": "Újpest performance in opp. possessions to final third within 10s after recovery",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "data": {
+        "target_labels": [
+            "Puskás FC",
+            "Győri ETO",
+            "Ferencváros",
+            "Nyíregyháza Spartacus",
+            "Várda SE",
+            "Diósgyőr",
+            "Kazincbarcika",
+            "Paksi FC",
+            "Zalaegerszegi TE",
+            "Újpest",
+            "MTK",
+            "Debrecen"
+        ],
+        "target_icons": [
+            "https://cdn5.wyscout.com/photos/team/public/g22345_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/352_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/1108_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/356_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g11938_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/362_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/3553_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/360_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/354_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/351_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/349_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/350_120x120.png"
+        ],
+        "focal_target_indices": [
+            9
+        ],
+        "plot_values": [
+            8.424242424242424,
+            9.121212121212121,
+            9.818181818181818,
+            10.121212121212121,
+            10.4375,
+            10.696969696969697,
+            10.757575757575758,
+            10.757575757575758,
+            10.848484848484848,
+            11.212121212121213,
+            11.424242424242424,
+            11.625
+        ],
+        "hover_strings": [
+            "<b>Puskás FC</b><br/>Rank: 1/12<br/>Opp. Possessions to final third within 10s after recovery: 8.42",
+            "<b>Győri ETO</b><br/>Rank: 2/12<br/>Opp. Possessions to final third within 10s after recovery: 9.12",
+            "<b>Ferencváros</b><br/>Rank: 3/12<br/>Opp. Possessions to final third within 10s after recovery: 9.82",
+            "<b>Nyíregyháza Spartacus</b><br/>Rank: 4/12<br/>Opp. Possessions to final third within 10s after recovery: 10.12",
+            "<b>Várda SE</b><br/>Rank: 5/12<br/>Opp. Possessions to final third within 10s after recovery: 10.44",
+            "<b>Diósgyőr</b><br/>Rank: 6/12<br/>Opp. Possessions to final third within 10s after recovery: 10.70",
+            "<b>Kazincbarcika</b><br/>Rank: 7/12<br/>Opp. Possessions to final third within 10s after recovery: 10.76",
+            "<b>Paksi FC</b><br/>Rank: 7/12<br/>Opp. Possessions to final third within 10s after recovery: 10.76",
+            "<b>Zalaegerszegi TE</b><br/>Rank: 9/12<br/>Opp. Possessions to final third within 10s after recovery: 10.85",
+            "<b>Újpest</b><br/>Rank: 10/12<br/>Opp. Possessions to final third within 10s after recovery: 11.21",
+            "<b>MTK</b><br/>Rank: 11/12<br/>Opp. Possessions to final third within 10s after recovery: 11.42",
+            "<b>Debrecen</b><br/>Rank: 12/12<br/>Opp. Possessions to final third within 10s after recovery: 11.62"
+        ]
+    }
+}

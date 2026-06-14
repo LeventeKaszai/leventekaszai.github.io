@@ -1,0 +1,291 @@
+{
+    "plot_type": "distribution",
+    "title": "Budafoki MTE's style of play in chance creation",
+    "subtitle": "Budafoki MTE | Hungarian NB II 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Békéscsaba",
+            "Honvéd",
+            "Vasas",
+            "Kecskeméti TE",
+            "BVSC",
+            "Duna Aszfalt Tiszakécskei",
+            "Soroksár SC",
+            "Ajka",
+            "Karcag SE",
+            "Fehérvár",
+            "Szentlőrinc SE",
+            "Mezőkövesd-Zsóry",
+            "Kozármisleny",
+            "Szeged 2011",
+            "Csákvári TK",
+            "Budafoki MTE"
+        ],
+        "target_identifiers": [
+            10192,
+            10194,
+            10196,
+            10207,
+            10212,
+            10220,
+            10226,
+            10235,
+            10249,
+            10260,
+            10261,
+            10273,
+            10274,
+            10427,
+            10437,
+            39600
+        ],
+        "kpis": [
+            {
+                "name": "Shots from sustained attacks %",
+                "description": "Percentage of shots by a team that come from possessions with 8 or more passes in the attacking half per match.",
+                "display_name": "Shots from sustained attacks %"
+            },
+            {
+                "name": "Shots from direct attacks %",
+                "description": "Percentage of shots by a team that come from possessions where at least 50% of the total ball movement is forward per match.",
+                "display_name": "Shots from direct attacks %"
+            },
+            {
+                "name": "Shots per final-third pass",
+                "description": "Number of shots by a team divided by their number of passes in the final third per match.",
+                "display_name": "Shots per final-third pass"
+            },
+            {
+                "name": "Shots from outside the box %",
+                "description": "Percentage of shots by a team from outside of the penalty area per match.",
+                "display_name": "Shots from outside the box %"
+            }
+        ],
+        "focal_target_indices": [
+            15
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.5967165440972853,
+                -0.9515517577902971,
+                -0.2959748238294564,
+                1.1270227820058534
+            ],
+            [
+                -0.32890457336449824,
+                1.2375934002865545,
+                0.5471588421807666,
+                -1.0077658536680316
+            ],
+            [
+                2.249671266534915,
+                -0.7502709300209545,
+                -0.2889258006206092,
+                0.15556037669350428
+            ],
+            [
+                -0.02511106234618391,
+                -0.10054923460961213,
+                -0.19401573813005782,
+                0.17724480538351195
+            ],
+            [
+                -1.3954839653092328,
+                1.062883501189949,
+                0.9252684471033351,
+                0.6056992067412522
+            ],
+            [
+                0.8994778842312955,
+                -1.5369661877476186,
+                -1.3603143906581752,
+                -0.8180704714878437
+            ],
+            [
+                -0.4543845018285848,
+                0.49741619384602864,
+                0.5123341500207726,
+                0.3463833491655725
+            ],
+            [
+                -0.9761168359687334,
+                -0.30567737506678677,
+                -1.035064907277094,
+                0.7554384119738797
+            ],
+            [
+                -1.3937759808020085,
+                1.910075899826502,
+                2.4161368557745355,
+                -1.2786028725283878
+            ],
+            [
+                1.3452618406168653,
+                -0.08105036194258064,
+                -0.029748322281027948,
+                1.1270227820058534
+            ],
+            [
+                -0.28438732778854586,
+                0.09227295065325763,
+                0.017706708964247093,
+                2.3076194551284983
+            ],
+            [
+                0.007909971460154694,
+                -0.8415063959568194,
+                -1.0646330421299195,
+                0.008106261601451396
+            ],
+            [
+                0.5857780630710795,
+                -0.7570112810663484,
+                -0.47327034507341037,
+                -0.2976441829276582
+            ],
+            [
+                1.3250823199574364,
+                -0.23800425057103322,
+                -0.8681205409475613,
+                -1.105991496871836
+            ],
+            [
+                -0.7680843229888011,
+                1.7713425414254362,
+                1.777193252058307,
+                -1.351507417262035
+            ],
+            [
+                -0.19021623137787663,
+                -1.0089967124556818,
+                -0.58573034515467,
+                -0.750515135953589
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Békéscsaba\n5% Shots from sustained attacks ",
+                "Békéscsaba\n23% Shots from direct attacks ",
+                "Békéscsaba\n0.15 Shots per final-third pass",
+                "Békéscsaba\n49% Shots from outside the box "
+            ],
+            [
+                "Honvéd\n5% Shots from sustained attacks ",
+                "Honvéd\n35% Shots from direct attacks ",
+                "Honvéd\n0.17 Shots per final-third pass",
+                "Honvéd\n37% Shots from outside the box "
+            ],
+            [
+                "Vasas\n11% Shots from sustained attacks ",
+                "Vasas\n24% Shots from direct attacks ",
+                "Vasas\n0.15 Shots per final-third pass",
+                "Vasas\n44% Shots from outside the box "
+            ],
+            [
+                "Kecskeméti TE\n6% Shots from sustained attacks ",
+                "Kecskeméti TE\n28% Shots from direct attacks ",
+                "Kecskeméti TE\n0.15 Shots per final-third pass",
+                "Kecskeméti TE\n44% Shots from outside the box "
+            ],
+            [
+                "BVSC\n3% Shots from sustained attacks ",
+                "BVSC\n34% Shots from direct attacks ",
+                "BVSC\n0.18 Shots per final-third pass",
+                "BVSC\n46% Shots from outside the box "
+            ],
+            [
+                "Duna Aszfalt Tiszakécskei\n8% Shots from sustained attacks ",
+                "Duna Aszfalt Tiszakécskei\n20% Shots from direct attacks ",
+                "Duna Aszfalt Tiszakécskei\n0.13 Shots per final-third pass",
+                "Duna Aszfalt Tiszakécskei\n38% Shots from outside the box "
+            ],
+            [
+                "Soroksár SC\n5% Shots from sustained attacks ",
+                "Soroksár SC\n31% Shots from direct attacks ",
+                "Soroksár SC\n0.17 Shots per final-third pass",
+                "Soroksár SC\n45% Shots from outside the box "
+            ],
+            [
+                "Ajka\n4% Shots from sustained attacks ",
+                "Ajka\n26% Shots from direct attacks ",
+                "Ajka\n0.14 Shots per final-third pass",
+                "Ajka\n47% Shots from outside the box "
+            ],
+            [
+                "Karcag SE\n3% Shots from sustained attacks ",
+                "Karcag SE\n39% Shots from direct attacks ",
+                "Karcag SE\n0.21 Shots per final-third pass",
+                "Karcag SE\n36% Shots from outside the box "
+            ],
+            [
+                "Fehérvár\n9% Shots from sustained attacks ",
+                "Fehérvár\n28% Shots from direct attacks ",
+                "Fehérvár\n0.16 Shots per final-third pass",
+                "Fehérvár\n49% Shots from outside the box "
+            ],
+            [
+                "Szentlőrinc SE\n5% Shots from sustained attacks ",
+                "Szentlőrinc SE\n29% Shots from direct attacks ",
+                "Szentlőrinc SE\n0.16 Shots per final-third pass",
+                "Szentlőrinc SE\n55% Shots from outside the box "
+            ],
+            [
+                "Mezőkövesd-Zsóry\n6% Shots from sustained attacks ",
+                "Mezőkövesd-Zsóry\n24% Shots from direct attacks ",
+                "Mezőkövesd-Zsóry\n0.14 Shots per final-third pass",
+                "Mezőkövesd-Zsóry\n43% Shots from outside the box "
+            ],
+            [
+                "Kozármisleny\n7% Shots from sustained attacks ",
+                "Kozármisleny\n24% Shots from direct attacks ",
+                "Kozármisleny\n0.15 Shots per final-third pass",
+                "Kozármisleny\n41% Shots from outside the box "
+            ],
+            [
+                "Szeged 2011\n9% Shots from sustained attacks ",
+                "Szeged 2011\n27% Shots from direct attacks ",
+                "Szeged 2011\n0.14 Shots per final-third pass",
+                "Szeged 2011\n37% Shots from outside the box "
+            ],
+            [
+                "Csákvári TK\n4% Shots from sustained attacks ",
+                "Csákvári TK\n38% Shots from direct attacks ",
+                "Csákvári TK\n0.20 Shots per final-third pass",
+                "Csákvári TK\n35% Shots from outside the box "
+            ],
+            [
+                "Budafoki MTE\n6% Shots from sustained attacks ",
+                "Budafoki MTE\n23% Shots from direct attacks ",
+                "Budafoki MTE\n0.15 Shots per final-third pass",
+                "Budafoki MTE\n39% Shots from outside the box "
+            ]
+        ],
+        "serie_names": [
+            "Other NB II teams",
+            "Budafoki MTE"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Shots from sustained attacks % | 6",
+            "Shots from direct attacks % | 23",
+            "Shots per final-third pass | 0.15",
+            "Shots from outside the box % | 39"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

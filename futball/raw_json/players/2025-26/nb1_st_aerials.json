@@ -1,0 +1,1222 @@
+{
+    "plot_type": "distribution",
+    "title": "Aerial Threat of Zsombor Gruber",
+    "subtitle": "Hungarian NB I 2025/2026 | 1487 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Krisztián Németh",
+            "Yohan Croizet",
+            "Iuri Medeiros",
+            "Jasmin Mešanović",
+            "Norbert Könyves",
+            "István Bognár",
+            "Dániel Böde",
+            "Soma Novothny",
+            "Aleksandar Pešić",
+            "Balázs Dzsudzsák",
+            "Matija Ljujić",
+            "Dorian Babunski",
+            "Jakub Plšek",
+            "Gábor Molnár",
+            "Elton-Ofoi Acolatse",
+            "Bright Edomwonyi",
+            "Marin Jurina",
+            "Martin Ádám",
+            "János Hahn",
+            "Fran Brodić",
+            "Giorgi Beridze",
+            "Máté Sajbán",
+            "Marko Kvasina",
+            "Ivan Šaponjić",
+            "Aboubakar Keita",
+            "Róbert Polievka",
+            "Lamin Colley",
+            "Bence Bíró",
+            "Tonislav Yordanov",
+            "Dániel Lukács",
+            "Gleofilo Vlijter",
+            "Aljoša Matko",
+            "Barna Tóth",
+            "Joel Fameyeh",
+            "Bálint Kártik",
+            "Eduvie Ikoba",
+            "Barnabás Varga",
+            "Franko Kovačević",
+            "Milan Tučić",
+            "Donát Bárány",
+            "Soma Szuhodovszki",
+            "Martin Šlogar",
+            "András Németh",
+            "Lenny Joseph",
+            "Muhamed Tijani",
+            "Ágoston Bényei",
+            "Zalán Kerezsi",
+            "Marko Matanović",
+            "Ákos Szendrei",
+            "Bamidele Yusuf",
+            "João Victor",
+            "Meshack Ubochioma",
+            "Nejc Gradišar",
+            "Bence Trencsényi",
+            "Márk Mucsányi",
+            "Hunor Németh",
+            "Ahmed Benbouali",
+            "Oleksandr Pishchur",
+            "Daniel Lima",
+            "Zsombor Gruber",
+            "Milán Klausz",
+            "Alegria",
+            "Kevin Mondovics",
+            "Dantaye Gilbert",
+            "Istvan Atrok",
+            "Attila Pinter",
+            "Nfansu Njie"
+        ],
+        "target_identifiers": [
+            354,
+            25733,
+            70974,
+            72691,
+            75028,
+            75054,
+            75137,
+            76218,
+            80985,
+            101690,
+            128206,
+            136109,
+            137107,
+            145212,
+            149221,
+            213391,
+            231833,
+            237448,
+            238092,
+            238159,
+            258379,
+            266739,
+            278866,
+            283078,
+            285458,
+            333635,
+            350886,
+            352229,
+            372091,
+            375251,
+            379877,
+            422527,
+            423082,
+            423550,
+            444899,
+            473523,
+            474522,
+            511739,
+            512314,
+            542799,
+            553144,
+            567961,
+            586800,
+            592988,
+            610752,
+            620092,
+            620094,
+            631851,
+            635060,
+            659549,
+            661881,
+            673720,
+            677652,
+            682820,
+            696314,
+            703498,
+            707818,
+            731798,
+            752714,
+            753770,
+            778732,
+            801548,
+            810317,
+            817828,
+            850295,
+            852022,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Aerials won",
+                "description": "Number of aerial duels won (by first contact).",
+                "display_name": "Aerials won"
+            },
+            {
+                "name": "Aerials won %",
+                "description": "Percentage of aerial duels won.",
+                "display_name": "Aerials won %"
+            },
+            {
+                "name": "Attacking aerials won",
+                "description": "Number of attacking aerial duels won (by first contact) in attacking 60% of the pitch adjusted by possession.",
+                "display_name": "Attacking aerials won"
+            },
+            {
+                "name": "Attacking aerials won %",
+                "description": "Percentage of attacking aerials won.",
+                "display_name": "Attacking aerials won %"
+            },
+            {
+                "name": "Headed plays",
+                "description": "Number of successful head passes or head shots in the attacking half adjusted by possession.",
+                "display_name": "Headed plays"
+            }
+        ],
+        "focal_target_indices": [
+            59
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.246003657579422,
+                0.7204368710517883,
+                0.4465407729148865,
+                1.165590524673462,
+                0.3887622356414795
+            ],
+            [
+                -0.6033836007118225,
+                0.7664599418640137,
+                -0.5343779921531677,
+                0.6228529214859009,
+                -0.788942813873291
+            ],
+            [
+                -1.0798816680908203,
+                -1.0791778564453125,
+                -0.9713932871818542,
+                0.6228529214859009,
+                -0.9555567502975464
+            ],
+            [
+                0.6287215352058411,
+                0.5915212631225586,
+                0.5067868828773499,
+                0.13133978843688965,
+                0.44492098689079285
+            ],
+            [
+                -0.720395028591156,
+                -1.1784769296646118,
+                -0.641451895236969,
+                -1.231316328048706,
+                -0.7964657545089722
+            ],
+            [
+                -1.0526012182235718,
+                -0.5945039987564087,
+                -0.8813639283180237,
+                3.9878268241882324,
+                -0.7865660190582275
+            ],
+            [
+                1.9075860977172852,
+                0.8880276083946228,
+                1.9367631673812866,
+                0.48264560103416443,
+                1.8022791147232056
+            ],
+            [
+                0.39311927556991577,
+                0.3042089343070984,
+                0.4536081850528717,
+                0.1231042668223381,
+                1.6492520570755005
+            ],
+            [
+                -0.2925325334072113,
+                -0.17445337772369385,
+                -0.4557546377182007,
+                -0.6390122771263123,
+                -0.7744355797767639
+            ],
+            [
+                -1.1941803693771362,
+                -1.1545716524124146,
+                -1.0513911247253418,
+                0.6228529214859009,
+                -0.8990197777748108
+            ],
+            [
+                -0.5484229922294617,
+                1.13820481300354,
+                -0.8411449790000916,
+                1.5842739343643188,
+                -0.9030552506446838
+            ],
+            [
+                2.322422504425049,
+                1.2031949758529663,
+                2.825619697570801,
+                1.0859228372573853,
+                0.8256514072418213
+            ],
+            [
+                -0.5111191272735596,
+                -0.03769290819764137,
+                -0.7230050563812256,
+                -0.7231365442276001,
+                -0.11622956395149231
+            ],
+            [
+                -0.9987345337867737,
+                -0.4006344676017761,
+                -0.9538959860801697,
+                -1.2465770244598389,
+                -0.2011423408985138
+            ],
+            [
+                -0.7156813144683838,
+                -0.779820442199707,
+                -0.640718400478363,
+                -0.5509751439094543,
+                -1.0149413347244263
+            ],
+            [
+                0.2685788869857788,
+                -0.05443888157606125,
+                0.46346157789230347,
+                0.08640773594379425,
+                0.6020565629005432
+            ],
+            [
+                1.0321176052093506,
+                0.9936326742172241,
+                0.8593171238899231,
+                0.5908055305480957,
+                0.6260673403739929
+            ],
+            [
+                0.5065723061561584,
+                -0.5330333709716797,
+                1.0271576642990112,
+                0.042685095220804214,
+                2.153151035308838
+            ],
+            [
+                -0.41969311237335205,
+                -0.8413380980491638,
+                -0.2934725284576416,
+                -0.9710819721221924,
+                0.11200730502605438
+            ],
+            [
+                0.005733385216444731,
+                0.8056647181510925,
+                -0.22472810745239258,
+                -0.1689055860042572,
+                0.3978521227836609
+            ],
+            [
+                -0.9266419410705566,
+                -0.5945039987564087,
+                -0.9197767972946167,
+                -1.0596339702606201,
+                -1.1056898832321167
+            ],
+            [
+                0.47849565744400024,
+                0.638836145401001,
+                0.11064904928207397,
+                0.09154127538204193,
+                0.08955936878919601
+            ],
+            [
+                2.170504331588745,
+                0.8546704649925232,
+                2.1617980003356934,
+                0.43474873900413513,
+                2.30836820602417
+            ],
+            [
+                0.6468725800514221,
+                1.682612657546997,
+                0.7213343381881714,
+                1.234666109085083,
+                0.08839976787567139
+            ],
+            [
+                0.46417009830474854,
+                1.295723795890808,
+                -0.1326916664838791,
+                0.9967390894889832,
+                0.21039767563343048
+            ],
+            [
+                -0.654917299747467,
+                1.1039615869522095,
+                -0.5516942739486694,
+                1.295847773551941,
+                -0.8039254546165466
+            ],
+            [
+                -0.3929968774318695,
+                0.2455972284078598,
+                -0.2467716932296753,
+                0.6228529214859009,
+                0.10056035220623016
+            ],
+            [
+                -0.4315538704395294,
+                -0.3292090892791748,
+                -0.5539067387580872,
+                -0.7515730857849121,
+                -0.6771880388259888
+            ],
+            [
+                -0.7232401371002197,
+                -1.1100207567214966,
+                -0.6485123038291931,
+                -0.6713677048683167,
+                -0.42716479301452637
+            ],
+            [
+                -0.9349192380905151,
+                -1.5527446269989014,
+                -0.8388751149177551,
+                -1.4657515287399292,
+                -0.8810986876487732
+            ],
+            [
+                -0.9738755822181702,
+                -1.6446306705474854,
+                -0.943821907043457,
+                -1.7067444324493408,
+                -0.7480175495147705
+            ],
+            [
+                -0.8314636945724487,
+                -0.5419978499412537,
+                -0.8184918761253357,
+                -0.6082351207733154,
+                -0.5282129645347595
+            ],
+            [
+                2.7480244636535645,
+                1.1234374046325684,
+                2.603241443634033,
+                0.7750375270843506,
+                2.1859095096588135
+            ],
+            [
+                -0.5961076617240906,
+                -0.9095420837402344,
+                -0.4187339246273041,
+                -0.7027427554130554,
+                -0.2350926548242569
+            ],
+            [
+                -0.7259047031402588,
+                0.070576012134552,
+                -0.7447308897972107,
+                0.042685095220804214,
+                -0.29366207122802734
+            ],
+            [
+                1.834199070930481,
+                1.389564871788025,
+                3.0218002796173096,
+                0.9770605564117432,
+                4
+            ],
+            [
+                2.190415620803833,
+                1.3995009660720825,
+                1.6041282415390015,
+                1.403526782989502,
+                0.7754495143890381
+            ],
+            [
+                -0.2226335108280182,
+                0.8056647181510925,
+                -0.3947134017944336,
+                0.7830899357795715,
+                0.18720443546772003
+            ],
+            [
+                0.38669389486312866,
+                -0.10273748636245728,
+                0.22229602932929993,
+                -0.07553794980049133,
+                0.18629799783229828
+            ],
+            [
+                0.20790360867977142,
+                -0.8384045362472534,
+                0.19280801713466644,
+                -0.8913852572441101,
+                0.08942060172557831
+            ],
+            [
+                -0.8586113452911377,
+                -1.6713612079620361,
+                -0.7532747983932495,
+                -1.3145562410354614,
+                -0.5418283939361572
+            ],
+            [
+                -0.9020426869392395,
+                -1.588085412979126,
+                -0.6743097901344299,
+                -1.0596339702606201,
+                -0.6720706820487976
+            ],
+            [
+                0.05557351931929588,
+                -0.43389639258384705,
+                -0.03874412178993225,
+                -0.8463609218597412,
+                -0.3489012122154236
+            ],
+            [
+                0.7922333478927612,
+                0.8716341257095337,
+                0.39302894473075867,
+                0.37047991156578064,
+                -0.3296518325805664
+            ],
+            [
+                1.4420206546783447,
+                1.689521312713623,
+                1.688942313194275,
+                1.3103208541870117,
+                1.2414945363998413
+            ],
+            [
+                -0.6986038088798523,
+                -0.3178854286670685,
+                -0.6288859248161316,
+                -0.4988049566745758,
+                -0.19625326991081238
+            ],
+            [
+                -0.6848830580711365,
+                -0.10762720555067062,
+                -0.9063193798065186,
+                -1.0596339702606201,
+                -0.11140693724155426
+            ],
+            [
+                -0.24497973918914795,
+                -0.17445337772369385,
+                -0.29546648263931274,
+                -0.20251798629760742,
+                -0.5738037824630737
+            ],
+            [
+                -0.35441556572914124,
+                -1.2685388326644897,
+                -0.2089892029762268,
+                -1.0311172008514404,
+                -0.020737847313284874
+            ],
+            [
+                -0.35950952768325806,
+                -0.6182806491851807,
+                -0.4561082422733307,
+                -0.6857480406761169,
+                -0.05259536951780319
+            ],
+            [
+                -0.8470097780227661,
+                -0.8384045362472534,
+                -0.7763959765434265,
+                -0.6269944310188293,
+                -1.0452141761779785
+            ],
+            [
+                -0.8024376630783081,
+                -1.0392636060714722,
+                -0.71354079246521,
+                -0.7627244591712952,
+                -0.76446932554245
+            ],
+            [
+                0.6792721748352051,
+                0.16158710420131683,
+                0.4290098249912262,
+                0.16399288177490234,
+                0.746330976486206
+            ],
+            [
+                -0.5257117748260498,
+                -0.9977527856826782,
+                -0.1258094608783722,
+                -0.7627244591712952,
+                -0.8868117928504944
+            ],
+            [
+                -0.6432440280914307,
+                1.295723795890808,
+                -0.6759621500968933,
+                0.24896694719791412,
+                -1.062241792678833
+            ],
+            [
+                -0.7905096411705017,
+                -0.4301365911960602,
+                -0.8407081365585327,
+                0.20223118364810944,
+                -0.8662991523742676
+            ],
+            [
+                0.7991669178009033,
+                0.687374472618103,
+                0.4918290972709656,
+                0.4698995053768158,
+                0.014277375303208828
+            ],
+            [
+                3.0059261322021484,
+                3.1334450244903564,
+                2.321084499359131,
+                2.3938918113708496,
+                1.4791027307510376
+            ],
+            [
+                0.02163698337972164,
+                -0.24530541896820068,
+                -0.29498687386512756,
+                -0.19969619810581207,
+                0.35032007098197937
+            ],
+            [
+                -0.9298630952835083,
+                -0.9095420837402344,
+                -0.9227263927459717,
+                -0.8726909160614014,
+                -0.6658806800842285
+            ],
+            [
+                0.33777448534965515,
+                0.2396809309720993,
+                0.40617936849594116,
+                0.004796585533767939,
+                0.6173186302185059
+            ],
+            [
+                -0.9556758403778076,
+                -1.3820990324020386,
+                -0.8830649852752686,
+                -1.0596339702606201,
+                -0.8837886452674866
+            ],
+            [
+                -0.17865793406963348,
+                -0.44175833463668823,
+                -0.0745653584599495,
+                -0.4988049566745758,
+                0.20360992848873138
+            ],
+            [
+                0.6356267333030701,
+                0.8546704649925232,
+                0.915176272392273,
+                0.42491328716278076,
+                -0.28784048557281494
+            ],
+            [
+                -0.937678337097168,
+                -0.8465343713760376,
+                -0.8957340717315674,
+                -1.3400485515594482,
+                -0.6998514533042908
+            ],
+            [
+                -0.4265460669994354,
+                -0.5538541078567505,
+                -0.2699119448661804,
+                -0.12491900473833084,
+                -1.0324053764343262
+            ],
+            [
+                0.4839005768299103,
+                1.3615525960922241,
+                0.058358483016490936,
+                1.0141291618347168,
+                -0.33733707666397095
+            ]
+        ],
+        "hover_strings": [
+            [
+                "K. Németh\nRank: 24/67\n2.64 Aerials won per 90",
+                "K. Németh\nRank: 21/67\n0.43 Aerials won %",
+                "K. Németh\nRank: 17/67\n2.46 Attacking aerials won per 90",
+                "K. Németh\nRank: 8/67\n0.58 Attacking aerials won %",
+                "K. Németh\nRank: 17/67\n1.37 Headed plays per 90"
+            ],
+            [
+                "Y. Croizet\nRank: 43/67\n1.13 Aerials won per 90",
+                "Y. Croizet\nRank: 20/67\n0.44 Aerials won %",
+                "Y. Croizet\nRank: 40/67\n0.87 Attacking aerials won per 90",
+                "Y. Croizet\nRank: 15/67\n0.50 Attacking aerials won %",
+                "Y. Croizet\nRank: 53/67\n0.39 Headed plays per 90"
+            ],
+            [
+                "Iuri Medeiros\nRank: 66/67\n0.28 Aerials won per 90",
+                "Iuri Medeiros\nRank: 58/67\n0.23 Aerials won %",
+                "Iuri Medeiros\nRank: 66/67\n0.17 Attacking aerials won per 90",
+                "Iuri Medeiros\nRank: 15/67\n0.50 Attacking aerials won %",
+                "Iuri Medeiros\nRank: 62/67\n0.25 Headed plays per 90"
+            ],
+            [
+                "J. Mešanović\nRank: 15/67\n3.32 Aerials won per 90",
+                "J. Mešanović\nRank: 24/67\n0.42 Aerials won %",
+                "J. Mešanović\nRank: 13/67\n2.56 Attacking aerials won per 90",
+                "J. Mešanović\nRank: 28/67\n0.43 Attacking aerials won %",
+                "J. Mešanović\nRank: 15/67\n1.41 Headed plays per 90"
+            ],
+            [
+                "N. Könyves\nRank: 49/67\n0.92 Aerials won per 90",
+                "N. Könyves\nRank: 61/67\n0.22 Aerials won %",
+                "N. Könyves\nRank: 45/67\n0.70 Attacking aerials won per 90",
+                "N. Könyves\nRank: 62/67\n0.22 Attacking aerials won %",
+                "N. Könyves\nRank: 54/67\n0.38 Headed plays per 90"
+            ],
+            [
+                "I. Bognár\nRank: 65/67\n0.33 Aerials won per 90",
+                "I. Bognár\nRank: 46/67\n0.29 Aerials won %",
+                "I. Bognár\nRank: 58/67\n0.31 Attacking aerials won per 90",
+                "I. Bognár\nRank: 1/67\n1.00 Attacking aerials won %",
+                "I. Bognár\nRank: 52/67\n0.39 Headed plays per 90"
+            ],
+            [
+                "D. Böde\nRank: 6/67\n5.60 Aerials won per 90",
+                "D. Böde\nRank: 14/67\n0.45 Aerials won %",
+                "D. Böde\nRank: 6/67\n4.87 Attacking aerials won per 90",
+                "D. Böde\nRank: 20/67\n0.48 Attacking aerials won %",
+                "D. Böde\nRank: 5/67\n2.54 Headed plays per 90"
+            ],
+            [
+                "S. Novothny\nRank: 20/67\n2.90 Aerials won per 90",
+                "S. Novothny\nRank: 25/67\n0.39 Aerials won %",
+                "S. Novothny\nRank: 16/67\n2.47 Attacking aerials won per 90",
+                "S. Novothny\nRank: 29/67\n0.43 Attacking aerials won %",
+                "S. Novothny\nRank: 6/67\n2.42 Headed plays per 90"
+            ],
+            [
+                "A. Pešić\nRank: 32/67\n1.68 Aerials won per 90",
+                "A. Pešić\nRank: 34/67\n0.33 Aerials won %",
+                "A. Pešić\nRank: 38/67\n1.00 Attacking aerials won per 90",
+                "A. Pešić\nRank: 45/67\n0.31 Attacking aerials won %",
+                "A. Pešić\nRank: 51/67\n0.40 Headed plays per 90"
+            ],
+            [
+                "B. Dzsudzsák\nRank: 67/67\n0.07 Aerials won per 90",
+                "B. Dzsudzsák\nRank: 60/67\n0.22 Aerials won %",
+                "B. Dzsudzsák\nRank: 67/67\n0.04 Attacking aerials won per 90",
+                "B. Dzsudzsák\nRank: 15/67\n0.50 Attacking aerials won %",
+                "B. Dzsudzsák\nRank: 60/67\n0.30 Headed plays per 90"
+            ],
+            [
+                "M. Ljujić\nRank: 41/67\n1.22 Aerials won per 90",
+                "M. Ljujić\nRank: 10/67\n0.48 Aerials won %",
+                "M. Ljujić\nRank: 57/67\n0.38 Attacking aerials won per 90",
+                "M. Ljujić\nRank: 3/67\n0.64 Attacking aerials won %",
+                "M. Ljujić\nRank: 61/67\n0.29 Headed plays per 90"
+            ],
+            [
+                "D. Babunski\nRank: 3/67\n6.34 Aerials won per 90",
+                "D. Babunski\nRank: 9/67\n0.49 Aerials won %",
+                "D. Babunski\nRank: 2/67\n6.31 Attacking aerials won per 90",
+                "D. Babunski\nRank: 9/67\n0.57 Attacking aerials won %",
+                "D. Babunski\nRank: 9/67\n1.73 Headed plays per 90"
+            ],
+            [
+                "J. Plšek\nRank: 39/67\n1.29 Aerials won per 90",
+                "J. Plšek\nRank: 30/67\n0.35 Aerials won %",
+                "J. Plšek\nRank: 50/67\n0.57 Attacking aerials won per 90",
+                "J. Plšek\nRank: 49/67\n0.30 Attacking aerials won %",
+                "J. Plšek\nRank: 32/67\n0.95 Headed plays per 90"
+            ],
+            [
+                "G. Molnár\nRank: 64/67\n0.42 Aerials won per 90",
+                "G. Molnár\nRank: 39/67\n0.31 Aerials won %",
+                "G. Molnár\nRank: 65/67\n0.19 Attacking aerials won per 90",
+                "G. Molnár\nRank: 63/67\n0.22 Attacking aerials won %",
+                "G. Molnár\nRank: 34/67\n0.88 Headed plays per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 48/67\n0.93 Aerials won per 90",
+                "E. Acolatse\nRank: 49/67\n0.26 Aerials won %",
+                "E. Acolatse\nRank: 44/67\n0.70 Attacking aerials won per 90",
+                "E. Acolatse\nRank: 42/67\n0.33 Attacking aerials won %",
+                "E. Acolatse\nRank: 63/67\n0.20 Headed plays per 90"
+            ],
+            [
+                "B. Edomwonyi\nRank: 23/67\n2.68 Aerials won per 90",
+                "B. Edomwonyi\nRank: 31/67\n0.35 Aerials won %",
+                "B. Edomwonyi\nRank: 15/67\n2.49 Attacking aerials won per 90",
+                "B. Edomwonyi\nRank: 31/67\n0.42 Attacking aerials won %",
+                "B. Edomwonyi\nRank: 14/67\n1.55 Headed plays per 90"
+            ],
+            [
+                "M. Jurina\nRank: 9/67\n4.04 Aerials won per 90",
+                "M. Jurina\nRank: 13/67\n0.47 Aerials won %",
+                "M. Jurina\nRank: 11/67\n3.13 Attacking aerials won per 90",
+                "M. Jurina\nRank: 19/67\n0.50 Attacking aerials won %",
+                "M. Jurina\nRank: 12/67\n1.57 Headed plays per 90"
+            ],
+            [
+                "M. Ádám\nRank: 16/67\n3.10 Aerials won per 90",
+                "M. Ádám\nRank: 43/67\n0.29 Aerials won %",
+                "M. Ádám\nRank: 9/67\n3.40 Attacking aerials won per 90",
+                "M. Ádám\nRank: 32/67\n0.41 Attacking aerials won %",
+                "M. Ádám\nRank: 4/67\n2.84 Headed plays per 90"
+            ],
+            [
+                "J. Hahn\nRank: 36/67\n1.45 Aerials won per 90",
+                "J. Hahn\nRank: 52/67\n0.26 Aerials won %",
+                "J. Hahn\nRank: 33/67\n1.26 Attacking aerials won per 90",
+                "J. Hahn\nRank: 56/67\n0.26 Attacking aerials won %",
+                "J. Hahn\nRank: 23/67\n1.14 Headed plays per 90"
+            ],
+            [
+                "F. Brodić\nRank: 28/67\n2.21 Aerials won per 90",
+                "F. Brodić\nRank: 18/67\n0.44 Aerials won %",
+                "F. Brodić\nRank: 30/67\n1.38 Attacking aerials won per 90",
+                "F. Brodić\nRank: 37/67\n0.38 Attacking aerials won %",
+                "F. Brodić\nRank: 16/67\n1.38 Headed plays per 90"
+            ],
+            [
+                "G. Beridze\nRank: 58/67\n0.55 Aerials won per 90",
+                "G. Beridze\nRank: 46/67\n0.29 Aerials won %",
+                "G. Beridze\nRank: 62/67\n0.25 Attacking aerials won per 90",
+                "G. Beridze\nRank: 58/67\n0.25 Attacking aerials won %",
+                "G. Beridze\nRank: 67/67\n0.13 Headed plays per 90"
+            ],
+            [
+                "M. Sajbán\nRank: 18/67\n3.05 Aerials won per 90",
+                "M. Sajbán\nRank: 23/67\n0.43 Aerials won %",
+                "M. Sajbán\nRank: 23/67\n1.92 Attacking aerials won per 90",
+                "M. Sajbán\nRank: 30/67\n0.42 Attacking aerials won %",
+                "M. Sajbán\nRank: 25/67\n1.12 Headed plays per 90"
+            ],
+            [
+                "M. Kvasina\nRank: 5/67\n6.07 Aerials won per 90",
+                "M. Kvasina\nRank: 16/67\n0.45 Aerials won %",
+                "M. Kvasina\nRank: 5/67\n5.24 Attacking aerials won per 90",
+                "M. Kvasina\nRank: 22/67\n0.47 Attacking aerials won %",
+                "M. Kvasina\nRank: 2/67\n2.96 Headed plays per 90"
+            ],
+            [
+                "I. Šaponjić\nRank: 13/67\n3.35 Aerials won per 90",
+                "I. Šaponjić\nRank: 3/67\n0.54 Aerials won %",
+                "I. Šaponjić\nRank: 12/67\n2.91 Attacking aerials won per 90",
+                "I. Šaponjić\nRank: 7/67\n0.59 Attacking aerials won %",
+                "I. Šaponjić\nRank: 27/67\n1.12 Headed plays per 90"
+            ],
+            [
+                "A. Keita\nRank: 19/67\n3.03 Aerials won per 90",
+                "A. Keita\nRank: 7/67\n0.50 Aerials won %",
+                "A. Keita\nRank: 28/67\n1.52 Attacking aerials won per 90",
+                "A. Keita\nRank: 11/67\n0.56 Attacking aerials won %",
+                "A. Keita\nRank: 19/67\n1.22 Headed plays per 90"
+            ],
+            [
+                "R. Polievka\nRank: 45/67\n1.03 Aerials won per 90",
+                "R. Polievka\nRank: 12/67\n0.48 Aerials won %",
+                "R. Polievka\nRank: 41/67\n0.85 Attacking aerials won per 90",
+                "R. Polievka\nRank: 6/67\n0.60 Attacking aerials won %",
+                "R. Polievka\nRank: 55/67\n0.38 Headed plays per 90"
+            ],
+            [
+                "L. Colley\nRank: 35/67\n1.50 Aerials won per 90",
+                "L. Colley\nRank: 26/67\n0.38 Aerials won %",
+                "L. Colley\nRank: 31/67\n1.34 Attacking aerials won per 90",
+                "L. Colley\nRank: 15/67\n0.50 Attacking aerials won %",
+                "L. Colley\nRank: 24/67\n1.13 Headed plays per 90"
+            ],
+            [
+                "B. Bíró\nRank: 38/67\n1.43 Aerials won per 90",
+                "B. Bíró\nRank: 38/67\n0.32 Aerials won %",
+                "B. Bíró\nRank: 42/67\n0.84 Attacking aerials won per 90",
+                "B. Bíró\nRank: 50/67\n0.30 Attacking aerials won %",
+                "B. Bíró\nRank: 47/67\n0.48 Headed plays per 90"
+            ],
+            [
+                "T. Yordanov\nRank: 50/67\n0.91 Aerials won per 90",
+                "T. Yordanov\nRank: 59/67\n0.23 Aerials won %",
+                "T. Yordanov\nRank: 46/67\n0.69 Attacking aerials won per 90",
+                "T. Yordanov\nRank: 46/67\n0.31 Attacking aerials won %",
+                "T. Yordanov\nRank: 41/67\n0.69 Headed plays per 90"
+            ],
+            [
+                "D. Lukács\nRank: 60/67\n0.54 Aerials won per 90",
+                "D. Lukács\nRank: 64/67\n0.18 Aerials won %",
+                "D. Lukács\nRank: 55/67\n0.38 Attacking aerials won per 90",
+                "D. Lukács\nRank: 66/67\n0.19 Attacking aerials won %",
+                "D. Lukács\nRank: 57/67\n0.31 Headed plays per 90"
+            ],
+            [
+                "G. Vlijter\nRank: 63/67\n0.47 Aerials won per 90",
+                "G. Vlijter\nRank: 66/67\n0.17 Aerials won %",
+                "G. Vlijter\nRank: 64/67\n0.21 Attacking aerials won per 90",
+                "G. Vlijter\nRank: 67/67\n0.15 Attacking aerials won %",
+                "G. Vlijter\nRank: 49/67\n0.42 Headed plays per 90"
+            ],
+            [
+                "A. Matko\nRank: 54/67\n0.72 Aerials won per 90",
+                "A. Matko\nRank: 44/67\n0.29 Aerials won %",
+                "A. Matko\nRank: 54/67\n0.41 Attacking aerials won per 90",
+                "A. Matko\nRank: 43/67\n0.32 Attacking aerials won %",
+                "A. Matko\nRank: 42/67\n0.61 Headed plays per 90"
+            ],
+            [
+                "B. Tóth\nRank: 2/67\n7.10 Aerials won per 90",
+                "B. Tóth\nRank: 11/67\n0.48 Aerials won %",
+                "B. Tóth\nRank: 3/67\n5.95 Attacking aerials won per 90",
+                "B. Tóth\nRank: 14/67\n0.52 Attacking aerials won %",
+                "B. Tóth\nRank: 3/67\n2.86 Headed plays per 90"
+            ],
+            [
+                "J. Fameyeh\nRank: 42/67\n1.14 Aerials won per 90",
+                "J. Fameyeh\nRank: 54/67\n0.25 Aerials won %",
+                "J. Fameyeh\nRank: 37/67\n1.06 Attacking aerials won per 90",
+                "J. Fameyeh\nRank: 48/67\n0.30 Attacking aerials won %",
+                "J. Fameyeh\nRank: 35/67\n0.85 Headed plays per 90"
+            ],
+            [
+                "B. Kártik\nRank: 51/67\n0.91 Aerials won per 90",
+                "B. Kártik\nRank: 29/67\n0.36 Aerials won %",
+                "B. Kártik\nRank: 51/67\n0.53 Attacking aerials won per 90",
+                "B. Kártik\nRank: 32/67\n0.41 Attacking aerials won %",
+                "B. Kártik\nRank: 37/67\n0.80 Headed plays per 90"
+            ],
+            [
+                "E. Ikoba\nRank: 7/67\n5.47 Aerials won per 90",
+                "E. Ikoba\nRank: 5/67\n0.51 Aerials won %",
+                "E. Ikoba\nRank: 1/67\n6.63 Attacking aerials won per 90",
+                "E. Ikoba\nRank: 12/67\n0.55 Attacking aerials won %",
+                "E. Ikoba\nRank: 1/67\n4.74 Headed plays per 90"
+            ],
+            [
+                "B. Varga\nRank: 4/67\n6.10 Aerials won per 90",
+                "B. Varga\nRank: 4/67\n0.51 Aerials won %",
+                "B. Varga\nRank: 8/67\n4.34 Attacking aerials won per 90",
+                "B. Varga\nRank: 4/67\n0.62 Attacking aerials won %",
+                "B. Varga\nRank: 10/67\n1.69 Headed plays per 90"
+            ],
+            [
+                "F. Kovačević\nRank: 30/67\n1.80 Aerials won per 90",
+                "F. Kovačević\nRank: 18/67\n0.44 Aerials won %",
+                "F. Kovačević\nRank: 36/67\n1.10 Attacking aerials won per 90",
+                "F. Kovačević\nRank: 13/67\n0.52 Attacking aerials won %",
+                "F. Kovačević\nRank: 21/67\n1.20 Headed plays per 90"
+            ],
+            [
+                "M. Tučić\nRank: 21/67\n2.89 Aerials won per 90",
+                "M. Tučić\nRank: 32/67\n0.34 Aerials won %",
+                "M. Tučić\nRank: 21/67\n2.10 Attacking aerials won per 90",
+                "M. Tučić\nRank: 35/67\n0.40 Attacking aerials won %",
+                "M. Tučić\nRank: 22/67\n1.20 Headed plays per 90"
+            ],
+            [
+                "D. Bárány\nRank: 25/67\n2.57 Aerials won per 90",
+                "D. Bárány\nRank: 50/67\n0.26 Aerials won %",
+                "D. Bárány\nRank: 22/67\n2.05 Attacking aerials won per 90",
+                "D. Bárány\nRank: 55/67\n0.28 Attacking aerials won %",
+                "D. Bárány\nRank: 26/67\n1.12 Headed plays per 90"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 56/67\n0.67 Aerials won per 90",
+                "S. Szuhodovszki\nRank: 67/67\n0.16 Aerials won %",
+                "S. Szuhodovszki\nRank: 52/67\n0.52 Attacking aerials won per 90",
+                "S. Szuhodovszki\nRank: 64/67\n0.21 Attacking aerials won %",
+                "S. Szuhodovszki\nRank: 43/67\n0.59 Headed plays per 90"
+            ],
+            [
+                "M. Šlogar\nRank: 57/67\n0.59 Aerials won per 90",
+                "M. Šlogar\nRank: 65/67\n0.17 Aerials won %",
+                "M. Šlogar\nRank: 47/67\n0.65 Attacking aerials won per 90",
+                "M. Šlogar\nRank: 58/67\n0.25 Attacking aerials won %",
+                "M. Šlogar\nRank: 46/67\n0.49 Headed plays per 90"
+            ],
+            [
+                "A. Németh\nRank: 26/67\n2.30 Aerials won per 90",
+                "A. Németh\nRank: 41/67\n0.30 Aerials won %",
+                "A. Németh\nRank: 25/67\n1.68 Attacking aerials won per 90",
+                "A. Németh\nRank: 53/67\n0.28 Attacking aerials won %",
+                "A. Németh\nRank: 40/67\n0.75 Headed plays per 90"
+            ],
+            [
+                "L. Joseph\nRank: 11/67\n3.61 Aerials won per 90",
+                "L. Joseph\nRank: 15/67\n0.45 Aerials won %",
+                "L. Joseph\nRank: 20/67\n2.38 Attacking aerials won per 90",
+                "L. Joseph\nRank: 24/67\n0.46 Attacking aerials won %",
+                "L. Joseph\nRank: 38/67\n0.77 Headed plays per 90"
+            ],
+            [
+                "M. Tijani\nRank: 8/67\n4.77 Aerials won per 90",
+                "M. Tijani\nRank: 2/67\n0.54 Aerials won %",
+                "M. Tijani\nRank: 7/67\n4.47 Attacking aerials won per 90",
+                "M. Tijani\nRank: 5/67\n0.60 Attacking aerials won %",
+                "M. Tijani\nRank: 8/67\n2.08 Headed plays per 90"
+            ],
+            [
+                "Á. Bényei\nRank: 47/67\n0.96 Aerials won per 90",
+                "Á. Bényei\nRank: 37/67\n0.32 Aerials won %",
+                "Á. Bényei\nRank: 43/67\n0.72 Attacking aerials won per 90",
+                "Á. Bényei\nRank: 40/67\n0.33 Attacking aerials won %",
+                "Á. Bényei\nRank: 33/67\n0.88 Headed plays per 90"
+            ],
+            [
+                "Z. Kerezsi\nRank: 46/67\n0.98 Aerials won per 90",
+                "Z. Kerezsi\nRank: 33/67\n0.34 Aerials won %",
+                "Z. Kerezsi\nRank: 61/67\n0.27 Attacking aerials won per 90",
+                "Z. Kerezsi\nRank: 58/67\n0.25 Attacking aerials won %",
+                "Z. Kerezsi\nRank: 31/67\n0.95 Headed plays per 90"
+            ],
+            [
+                "M. Matanović\nRank: 31/67\n1.76 Aerials won per 90",
+                "M. Matanović\nRank: 34/67\n0.33 Aerials won %",
+                "M. Matanović\nRank: 35/67\n1.26 Attacking aerials won per 90",
+                "M. Matanović\nRank: 39/67\n0.38 Attacking aerials won %",
+                "M. Matanović\nRank: 44/67\n0.57 Headed plays per 90"
+            ],
+            [
+                "Á. Szendrei\nRank: 33/67\n1.57 Aerials won per 90",
+                "Á. Szendrei\nRank: 62/67\n0.21 Aerials won %",
+                "Á. Szendrei\nRank: 29/67\n1.40 Attacking aerials won per 90",
+                "Á. Szendrei\nRank: 57/67\n0.25 Attacking aerials won %",
+                "Á. Szendrei\nRank: 29/67\n1.03 Headed plays per 90"
+            ],
+            [
+                "D. Yusuf\nRank: 34/67\n1.56 Aerials won per 90",
+                "D. Yusuf\nRank: 48/67\n0.28 Aerials won %",
+                "D. Yusuf\nRank: 39/67\n1.00 Attacking aerials won per 90",
+                "D. Yusuf\nRank: 47/67\n0.31 Attacking aerials won %",
+                "D. Yusuf\nRank: 30/67\n1.00 Headed plays per 90"
+            ],
+            [
+                "João Victor\nRank: 55/67\n0.69 Aerials won per 90",
+                "João Victor\nRank: 50/67\n0.26 Aerials won %",
+                "João Victor\nRank: 53/67\n0.48 Attacking aerials won per 90",
+                "João Victor\nRank: 44/67\n0.31 Attacking aerials won %",
+                "João Victor\nRank: 65/67\n0.18 Headed plays per 90"
+            ],
+            [
+                "M. Ubochioma\nRank: 53/67\n0.77 Aerials won per 90",
+                "M. Ubochioma\nRank: 57/67\n0.24 Aerials won %",
+                "M. Ubochioma\nRank: 49/67\n0.58 Attacking aerials won per 90",
+                "M. Ubochioma\nRank: 51/67\n0.29 Attacking aerials won %",
+                "M. Ubochioma\nRank: 50/67\n0.41 Headed plays per 90"
+            ],
+            [
+                "N. Gradišar\nRank: 12/67\n3.41 Aerials won per 90",
+                "N. Gradišar\nRank: 28/67\n0.37 Aerials won %",
+                "N. Gradišar\nRank: 18/67\n2.43 Attacking aerials won per 90",
+                "N. Gradišar\nRank: 27/67\n0.43 Attacking aerials won %",
+                "N. Gradišar\nRank: 11/67\n1.67 Headed plays per 90"
+            ],
+            [
+                "B. Trencsényi\nRank: 40/67\n1.26 Aerials won per 90",
+                "B. Trencsényi\nRank: 56/67\n0.24 Aerials won %",
+                "B. Trencsényi\nRank: 27/67\n1.54 Attacking aerials won per 90",
+                "B. Trencsényi\nRank: 51/67\n0.29 Attacking aerials won %",
+                "B. Trencsényi\nRank: 59/67\n0.31 Headed plays per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 44/67\n1.06 Aerials won per 90",
+                "M. Mucsányi\nRank: 7/67\n0.50 Aerials won %",
+                "M. Mucsányi\nRank: 48/67\n0.64 Attacking aerials won per 90",
+                "M. Mucsányi\nRank: 25/67\n0.44 Attacking aerials won %",
+                "M. Mucsányi\nRank: 66/67\n0.16 Headed plays per 90"
+            ],
+            [
+                "H. Németh\nRank: 52/67\n0.79 Aerials won per 90",
+                "H. Németh\nRank: 40/67\n0.30 Aerials won %",
+                "H. Németh\nRank: 56/67\n0.38 Attacking aerials won per 90",
+                "H. Németh\nRank: 26/67\n0.44 Attacking aerials won %",
+                "H. Németh\nRank: 56/67\n0.32 Headed plays per 90"
+            ],
+            [
+                "A. Benbouali\nRank: 10/67\n3.62 Aerials won per 90",
+                "A. Benbouali\nRank: 22/67\n0.43 Aerials won %",
+                "A. Benbouali\nRank: 14/67\n2.54 Attacking aerials won per 90",
+                "A. Benbouali\nRank: 21/67\n0.48 Attacking aerials won %",
+                "A. Benbouali\nRank: 28/67\n1.06 Headed plays per 90"
+            ],
+            [
+                "O. Pishchur\nRank: 1/67\n7.56 Aerials won per 90",
+                "O. Pishchur\nRank: 1/67\n0.71 Aerials won %",
+                "O. Pishchur\nRank: 4/67\n5.50 Attacking aerials won per 90",
+                "O. Pishchur\nRank: 2/67\n0.76 Attacking aerials won %",
+                "O. Pishchur\nRank: 7/67\n2.27 Headed plays per 90"
+            ],
+            [
+                "Daniel Lima\nRank: 27/67\n2.24 Aerials won per 90",
+                "Daniel Lima\nRank: 36/67\n0.33 Aerials won %",
+                "Daniel Lima\nRank: 34/67\n1.26 Attacking aerials won per 90",
+                "Daniel Lima\nRank: 38/67\n0.38 Attacking aerials won %",
+                "Daniel Lima\nRank: 18/67\n1.34 Headed plays per 90"
+            ],
+            [
+                "Z. Gruber\nRank: 59/67\n0.54 Aerials won per 90",
+                "Z. Gruber\nRank: 54/67\n0.25 Aerials won %",
+                "Z. Gruber\nRank: 63/67\n0.25 Attacking aerials won per 90",
+                "Z. Gruber\nRank: 54/67\n0.28 Attacking aerials won %",
+                "Z. Gruber\nRank: 45/67\n0.49 Headed plays per 90"
+            ],
+            [
+                "M. Klausz\nRank: 22/67\n2.80 Aerials won per 90",
+                "M. Klausz\nRank: 27/67\n0.38 Aerials won %",
+                "M. Klausz\nRank: 19/67\n2.40 Attacking aerials won per 90",
+                "M. Klausz\nRank: 34/67\n0.41 Attacking aerials won %",
+                "M. Klausz\nRank: 13/67\n1.56 Headed plays per 90"
+            ],
+            [
+                "Alegria\nRank: 62/67\n0.50 Aerials won per 90",
+                "Alegria\nRank: 63/67\n0.20 Aerials won %",
+                "Alegria\nRank: 59/67\n0.31 Attacking aerials won per 90",
+                "Alegria\nRank: 58/67\n0.25 Attacking aerials won %",
+                "Alegria\nRank: 58/67\n0.31 Headed plays per 90"
+            ],
+            [
+                "K. Mondovics\nRank: 29/67\n1.88 Aerials won per 90",
+                "K. Mondovics\nRank: 42/67\n0.30 Aerials won %",
+                "K. Mondovics\nRank: 26/67\n1.62 Attacking aerials won per 90",
+                "K. Mondovics\nRank: 40/67\n0.33 Attacking aerials won %",
+                "K. Mondovics\nRank: 20/67\n1.21 Headed plays per 90"
+            ],
+            [
+                "D. Gilbert\nRank: 14/67\n3.33 Aerials won per 90",
+                "D. Gilbert\nRank: 16/67\n0.45 Aerials won %",
+                "D. Gilbert\nRank: 10/67\n3.22 Attacking aerials won per 90",
+                "D. Gilbert\nRank: 23/67\n0.47 Attacking aerials won %",
+                "D. Gilbert\nRank: 36/67\n0.81 Headed plays per 90"
+            ],
+            [
+                "I. Atrok\nRank: 61/67\n0.53 Aerials won per 90",
+                "I. Atrok\nRank: 53/67\n0.26 Aerials won %",
+                "I. Atrok\nRank: 60/67\n0.29 Attacking aerials won per 90",
+                "I. Atrok\nRank: 65/67\n0.21 Attacking aerials won %",
+                "I. Atrok\nRank: 48/67\n0.46 Headed plays per 90"
+            ],
+            [
+                "A. Pinter\nRank: 37/67\n1.44 Aerials won per 90",
+                "A. Pinter\nRank: 45/67\n0.29 Aerials won %",
+                "A. Pinter\nRank: 32/67\n1.30 Attacking aerials won per 90",
+                "A. Pinter\nRank: 36/67\n0.39 Attacking aerials won %",
+                "A. Pinter\nRank: 64/67\n0.19 Headed plays per 90"
+            ],
+            [
+                "N. Njie\nRank: 17/67\n3.06 Aerials won per 90",
+                "N. Njie\nRank: 6/67\n0.51 Aerials won %",
+                "N. Njie\nRank: 24/67\n1.83 Attacking aerials won per 90",
+                "N. Njie\nRank: 10/67\n0.56 Attacking aerials won %",
+                "N. Njie\nRank: 39/67\n0.76 Headed plays per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Strikers",
+            "Zsombor Gruber"
+        ],
+        "minutes_played": 1487,
+        "axis_labels": [
+            "Aerials won per 90 | 0.54",
+            "Aerials won % | 0.25",
+            "Attacking aerials won per 90 | 0.25",
+            "Attacking aerials won % | 0.28",
+            "Headed plays per 90 | 0.49"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            0.8522835833375122,
+            0.009592556558344458,
+            -0.5266004700098552,
+            0.4671724275614384,
+            -1.1650141072279272,
+            1.0450177947450814,
+            1.4942078752888561,
+            0.6606972461790558,
+            -0.6324095434451026,
+            -0.5596365590200758,
+            0.3872452083655502,
+            1.834252075011285,
+            -0.5753206832050163,
+            -0.996315242251278,
+            -0.8581018473788063,
+            0.31558056336509016,
+            0.9106120252050948,
+            0.7487360434145963,
+            -0.6555665778969546,
+            0.11673678718280568,
+            -1.1535124415374687,
+            0.25984146990569446,
+            1.6757594560930507,
+            1.0973355865714247,
+            0.7288305466145513,
+            0.340253523695591,
+            0.2243619726091854,
+            -0.7247727817767409,
+            -0.8297119526831167,
+            -1.4252168027714807,
+            -1.5413131569906247,
+            -0.778802627116262,
+            2.0141338972067455,
+            -0.6898003549454859,
+            -0.3067941946067648,
+            2.6810087892096246,
+            1.6813840700179539,
+            0.3988330072125635,
+            0.09458724117126045,
+            -0.43417194627730216,
+            -1.2713869045499486,
+            -1.166471077674335,
+            -0.5218146659907471,
+            0.4242995160866322,
+            1.7370400941351025,
+            -0.5505623315567304,
+            -0.7937125020061607,
+            -0.3557603537121288,
+            -0.7618089457411334,
+            -0.5665712597636325,
+            -0.9565163688654995,
+            -0.9618842469059568,
+            0.463222359314923,
+            -0.8089621601390207,
+            -0.1571265639441289,
+            -0.49882341982963035,
+            0.5403934025197752,
+            2.8524645002324664,
+            -0.11255549020676912,
+            -1.0267879133373594,
+            0.3325249938635282,
+            -1.2369965817994304,
+            -0.28049102776500745,
+            0.5611573223031213,
+            -1.215026044320711,
+            -0.5177625106798144,
+            0.6645157229505023
+        ]
+    },
+    "player_info": {
+        "id": 753770,
+        "name": "Z. Gruber",
+        "full_name": "Zsombor Gruber",
+        "synthesized_name": "Zsombor Gruber",
+        "birth_date": "2004-09-07",
+        "age": 21,
+        "foot": null,
+        "position": "STRIKER",
+        "detailed_position": "STRIKER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g-266476_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

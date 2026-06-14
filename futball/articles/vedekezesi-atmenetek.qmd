@@ -1,0 +1,136 @@
+---
+title: "Az NB1 lassabb, mint az NB2 – legalábbis védelmi átmenetben"
+date: 2026-06-14
+description: "A 2025-26-os szezon adatai alapján az NB1 és NB2 közötti legnagyobb statisztikai különbség a védelmi reakcióidőben mutatkozik. Ez első ránézésre meglepő – és az oka sem olyan, amire elsőre gondolnánk."
+categories: [futball, NB1, NB2, taktika, adat]
+format:
+  html:
+    toc: false
+    page-layout: article
+    css: ../../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+---
+
+Az NB1 és NB2 2025-26-os szezonjának csapatszintű adatait Cohen-féle d-értékkel hasonlítottuk össze – ez az a módszer, amely nem az átlagok különbségét, hanem a különbség *mértékét* veti össze a belső szórással. A kapott rangsor első helyén egy meglepő mutató áll: **Time to defensive action (s)**, azaz a védelmi akció megindításáig eltelt idő másodpercben.
+
+## Mit mér ez a mutató?
+
+A *time to defensive action* azt az időt méri, amely eltelik a labdavesztés pillanata és az adott csapat első valódi védelmi akciója (szerelés, lefogás, befogás, faultolás) között. Egyszerűen fogalmazva: milyen gyorsan reagál a csapat, amikor elveszíti a labdát?
+
+Az intuíció azt súgja, hogy az élvonalbeli csapatok gyorsabban reagálnak – jobbak, fittebbek, taktikailag fejlettebbek. A 2025-26-os adatok azonban valami mást mutatnak.
+
+## A számok
+
+Az NB1-es csapatok átlagosan **6,07 másodperc** alatt indítanak védelmi akciót a labdavesztést követően. Az NB2-es csapatok átlaga: **5,27 másodperc**. A különbség ~0,80 másodperc – ez az elemzésünkben mért legnagyobb Cohen-d értékű eltérés a két liga között.
+
+**NB1 – Time to defensive action (s), 2025-26:**
+
+| Csapat | Idő (s) |
+|---|---|
+| Győri ETO | 5,39 |
+| Diósgyőr | 5,74 |
+| Paksi FC | 5,76 |
+| Újpest | 5,77 |
+| Zalaegerszegi TE | 5,98 |
+| Puskás FC | 6,06 |
+| Debrecen | 6,06 |
+| Ferencváros | 6,15 |
+| Nyíregyháza Spartacus | 6,17 |
+| Várda SE | 6,20 |
+| Kazincbarcika | 6,36 |
+| **MTK** | **7,19** |
+
+**NB2 – Time to defensive action (s), 2025-26:**
+
+| Csapat | Idő (s) |
+|---|---|
+| Honvéd | 4,84 |
+| Kecskeméti TE | 4,92 |
+| Szentlőrinc SE | 5,01 |
+| Budafoki MTE | 5,19 |
+| Karcag SE | 5,22 |
+| Vasas | 5,26 |
+| Kozármisleny | 5,26 |
+| Csákvári TK | 5,25 |
+| Mezőkövesd-Zsóry | 5,34 |
+| Fehérvár | 5,41 |
+| Duna Aszf. Tiszakécskei | 5,45 |
+| Békéscsaba | 5,40 |
+| Ajka | 5,28 |
+| BVSC | 5,47 |
+| Soroksár SC | 5,68 |
+| Szeged 2011 | 5,72 |
+
+A két mezőny szinte nem is fed át egymással. Az egyetlen NB1-es csapat, amely az NB2-es átlag közelébe kerül, a **Győri ETO** (5,39s) – nem véletlenül ők az NB1 védelmi átmenetének legjobb csapata.
+
+## A kontextus: hol veszítik el a labdát?
+
+A rangsor második helyén álló mutató a **Time to defensive action after attacking-half turnover** – vagyis mennyi idő telik el az első védelmi akciógesztusig akkor, ha a labdavesztés *a támadó félpályán* történt. A negyedik helyen a **Time to defensive action after own-half turnover** áll: saját félpályán elveszített labda utáni reakcióidő.
+
+**NB1 – Att. half turnover utáni idő (s):**
+
+| Csapat | Idő (s) |
+|---|---|
+| Győri ETO | 5,35 |
+| Újpest | 5,85 |
+| Paksi FC | 5,83 |
+| Diósgyőr | 5,92 |
+| Várda SE | 5,93 |
+| Zalaegerszegi TE | 6,20 |
+| Debrecen | 6,09 |
+| Nyíregyháza Spartacus | 6,27 |
+| Ferencváros | 6,35 |
+| Kazincbarcika | 6,37 |
+| Puskás FC | 6,11 |
+| **MTK** | **7,23** |
+
+**NB1 – Own-half turnover utáni idő (s):**
+
+| Csapat | Idő (s) |
+|---|---|
+| Újpest | 5,43 |
+| Diósgyőr | 5,67 |
+| Zalaegerszegi TE | 5,96 |
+| Győri ETO | 6,12 |
+| Paksi FC | 6,31 |
+| Kazincbarcika | 6,33 |
+| Debrecen | 6,74 |
+| Ferencváros | 7,09 |
+| Nyíregyháza Spartacus | 6,94 |
+| Puskás FC | 7,95 |
+| Várda SE | 7,89 |
+| **MTK** | **8,00** |
+
+Az NB2-ben a saját félpályás labdavesztés utáni átlag **5,56 másodperc**, szemben az NB1-es **6,87 másodperccel**. Ez az 1,31 másodperces különbség a teljes összehasonlítás legszembeötlőbb száma.
+
+## Értelmezés: miért lassabb az élvonal?
+
+Három hipotézis, amelyek nem zárják ki egymást:
+
+**1. A prés szofisztikáltsága.** Az NB1-es csapatok egy része – különösen Ferencváros, Puskás FC – nem egyénileg hajt rá az elveszített labdára, hanem *struktúrát állít be* a védelmi átmenetben. Ez tudatos taktikai döntés: inkább késleltett, de koordinált visszarendeződés, mint azonnali, de kaotikus ráfutás. Ez a stratégia lassabb kezdeti reakcióidőt eredményez a mérőszámban, de kompaktabb védelmi blokkot a valóságban.
+
+**2. A labdavesztés helye és kontextusa.** Az NB1-es csapatok átlagosan magasabban és nyitottabb szituációkban veszítik el a labdát – különösen a saját félpályán, ahol a visszarendeződési távolság nagyobb. Az NB2-ben a labdavesztések jellemzőbbek a saját blokkhoz közelebb, ahol a védelmi pozícióba való visszatérés szinte automatikus.
+
+**3. Az MTK-effektus.** Az MTK kiugró értékei (7,19s – 7,23s – 8,00s) aránytalanul torzítják az NB1-es átlagot. Ha kihagyjuk az MTK-t, az NB1-es átlag ~5,87s-ra csökken – ez még mindig magasabb az NB2 átlagánál, de sokkal közelebb. Az MTK esetében a mutató valószínűleg nem taktikai döntést, hanem strukturális problémát tükröz: a labdavesztések utáni orientálódási zavar, lassú reakció a védelmi átmenetben.
+
+## A kontra-effektus: gyorsabb reakció, de nem több visszaszerzés
+
+Ami az egész összehasonlítást igazán érdekessé teszi, az a *recoveries within 5s %* mutató alakulása: az NB1-es csapatok átlagosan **10,9%-ban** szerzik vissza a labdát az elveszítéstől számított 5 másodpercen belül, az NB2-esek **11,2%-ban**. A különbség elhanyagolható.
+
+Az NB2-es csapatok tehát *gyorsabban indítanak védelmi akciót*, de ez nem vezet érdemben több labdavisszaszerzéshez. Sőt: az ellenfél labdaszerzése után az NB2-ben az ellenfél átlagosan **11,1-szer** jut be a végső harmadba 10 másodpercen belül, az NB1-ben ez az érték **10,3**. A gyorsabb, de koordinálatlanabb prés valójában elhagyott területeket hagy maga mögött.
+
+## Véleményem
+
+Az adatok egy olyan mintát rajzolnak ki, amelynek megértéséhez *a védelmi átmenet fogalmát a minőségén, nem a sebességén* keresztül kell értékelni.
+
+Az NB2-es csapatok gyors reakcióideje elsősorban **reaktív, nem proaktív** védekezés jele. Amikor elveszítik a labdát – akár a saját, akár az ellenfél félpályáján –, a közelben lévő játékosok azonnal ráfutnak a labdára. Ez gyors számot produkál a mérőszámban, de a csapat többi tagja közben nem rendeződik be, és az ellenfél – ha átveri az első presszőrt – nyílt területen folytathatja.
+
+Az NB1-es csapatok lassabb reakcióideje éppen ennek ellenkezőjét tükrözi. A jobb minőségű csapatok – Ferencváros, Puskás FC, Paksi FC – azt csinálják, amit az élvonal taktikai irodalma „védekező blokk-előhívásnak" nevez: nem azonnal a labdára rohannak, hanem *a saját védelmi struktúrájukat aktiválják*. Ez egy-másfél másodpercet vesz igénybe, de az ellenfél labdaszerzése utáni szabad területek jóval szűkebbek.
+
+Az igazi kérdés nem az, hogy melyik liga reagál gyorsabban, hanem hogy *mi történik azután*, hogy a másik csapat labdához jut. Ebben az NB1 – az MTK kivételével – egyértelműen jobb strukturális mintázatot mutat. Az MTK esete külön tanulmányt érdemelne: egy NB1-es csapat, amelynek védelmi átmenet-értékei nemcsak a ligában, hanem az NB2-s mezőnynél is rosszabbak. Ez nem stílus, hanem probléma.
+
+---
+
+*Az adatok forrása: Wyscout, 2025-26-os szezon, csapatszintű aggregátumok. Az összehasonlítás Cohen's d értékeken alapul – a módszertanról a [liga összehasonlítás oldalon](/futball/liga_comparison.html) lehet bővebbet olvasni.*

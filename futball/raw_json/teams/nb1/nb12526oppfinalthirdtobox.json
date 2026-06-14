@@ -1,0 +1,67 @@
+{
+    "plot_type": "ranking-bar",
+    "title": "Újpest performance in opp. final third to box %",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Puskás FC",
+            "MTK",
+            "Várda SE",
+            "Nyíregyháza Spartacus",
+            "Kazincbarcika",
+            "Zalaegerszegi TE",
+            "Újpest",
+            "Győri ETO",
+            "Paksi FC",
+            "Diósgyőr",
+            "Debrecen"
+        ],
+        "target_icons": [
+            "https://cdn5.wyscout.com/photos/team/public/1108_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g22345_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/349_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g11938_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/356_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/3553_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/354_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/351_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/352_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/360_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/362_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/350_120x120.png"
+        ],
+        "focal_target_indices": [
+            7
+        ],
+        "plot_values": [
+            15.484848484848484,
+            19.060606060606062,
+            19.151515151515152,
+            19.4375,
+            19.93939393939394,
+            20.393939393939394,
+            20.606060606060606,
+            20.90909090909091,
+            21.363636363636363,
+            22.818181818181817,
+            23,
+            24.3125
+        ],
+        "hover_strings": [
+            "<b>Ferencváros</b><br/>Rank: 1/12<br/>Opp. Final third to box %: 15.48",
+            "<b>Puskás FC</b><br/>Rank: 2/12<br/>Opp. Final third to box %: 19.06",
+            "<b>MTK</b><br/>Rank: 3/12<br/>Opp. Final third to box %: 19.15",
+            "<b>Várda SE</b><br/>Rank: 4/12<br/>Opp. Final third to box %: 19.44",
+            "<b>Nyíregyháza Spartacus</b><br/>Rank: 5/12<br/>Opp. Final third to box %: 19.94",
+            "<b>Kazincbarcika</b><br/>Rank: 6/12<br/>Opp. Final third to box %: 20.39",
+            "<b>Zalaegerszegi TE</b><br/>Rank: 7/12<br/>Opp. Final third to box %: 20.61",
+            "<b>Újpest</b><br/>Rank: 8/12<br/>Opp. Final third to box %: 20.91",
+            "<b>Győri ETO</b><br/>Rank: 9/12<br/>Opp. Final third to box %: 21.36",
+            "<b>Paksi FC</b><br/>Rank: 10/12<br/>Opp. Final third to box %: 22.82",
+            "<b>Diósgyőr</b><br/>Rank: 11/12<br/>Opp. Final third to box %: 23.00",
+            "<b>Debrecen</b><br/>Rank: 12/12<br/>Opp. Final third to box %: 24.31"
+        ]
+    }
+}

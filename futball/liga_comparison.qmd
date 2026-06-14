@@ -1,0 +1,260 @@
+---
+title: "NB1 vs NB2 – Strukturális összehasonlítás"
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: ../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <script>
+        (function() {
+          if (sessionStorage.getItem("analytics_auth") !== "ok") {
+            var pwd = prompt("Jelszó:");
+            if (pwd === "magyarsport") {
+              sessionStorage.setItem("analytics_auth", "ok");
+            } else {
+              document.documentElement.innerHTML = "";
+              window.location.replace("../index.html");
+            }
+          }
+        })();
+        </script>
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(tidyr)
+library(plotly)
+library(htmltools)
+
+db_path <- file.path(dirname(knitr::current_input(dir = TRUE)), "futball.db")
+con     <- dbConnect(RSQLite::SQLite(), db_path)
+team_stats <- dbGetQuery(con, "
+  SELECT team, liga, szezon, quality, kpi, value
+  FROM team_stats
+  WHERE liga IN ('NB1', 'NB2') AND szezon = '2025-26'
+")
+dbDisconnect(con)
+
+# ── Cohen's d per KPI ─────────────────────────────────────────────────────────
+cohens <- team_stats %>%
+  group_by(quality, kpi) %>%
+  summarise(
+    mean_nb1  = mean(value[liga == "NB1"], na.rm = TRUE),
+    mean_nb2  = mean(value[liga == "NB2"], na.rm = TRUE),
+    sd_nb1    = sd(value[liga == "NB1"],   na.rm = TRUE),
+    sd_nb2    = sd(value[liga == "NB2"],   na.rm = TRUE),
+    n_nb1     = sum(liga == "NB1"),
+    n_nb2     = sum(liga == "NB2"),
+    .groups   = "drop"
+  ) %>%
+  mutate(
+    pooled_sd = sqrt(((n_nb1 - 1) * sd_nb1^2 + (n_nb2 - 1) * sd_nb2^2) /
+                     (n_nb1 + n_nb2 - 2)),
+    d         = (mean_nb1 - mean_nb2) / pooled_sd,
+    abs_d     = abs(d),
+    direction = ifelse(d > 0, "NB1 magasabb", "NB2 magasabb")
+  ) %>%
+  filter(!is.na(d), !is.infinite(d))
+
+# ── Quality-csoport szintű összefoglaló ───────────────────────────────────────
+quality_labels <- c(
+  "overallperformance"               = "Összteljesítmény",
+  "attack"                           = "Támadás",
+  "chancecreation"                   = "Gólhelyzet-teremtés",
+  "oppositionchancecreation"         = "Ellenfél helyzet-teremtése",
+  "attackingtransition"              = "Támadó átmenet",
+  "defensivetransition"              = "Védelmi átmenet",
+  "defence"                          = "Védekezés",
+  "styleofplayinattack"              = "Stílus: támadás",
+  "styleofplayinchancecreation"      = "Stílus: helyzet-teremtés",
+  "styleofplayinattackingtransition" = "Stílus: tám. átmenet",
+  "styleofplayindefence"             = "Stílus: védekezés",
+  "styleofplayindefensivetransition" = "Stílus: véd. átmenet"
+)
+
+quality_order <- c(
+  "overallperformance", "attack", "chancecreation", "oppositionchancecreation",
+  "attackingtransition", "defensivetransition", "defence",
+  "styleofplayinattack", "styleofplayinchancecreation",
+  "styleofplayinattackingtransition", "styleofplayindefence",
+  "styleofplayindefensivetransition"
+)
+
+group_summary <- cohens %>%
+  group_by(quality) %>%
+  summarise(
+    mean_abs_d = mean(abs_d, na.rm = TRUE),
+    n_kpi      = n(),
+    .groups    = "drop"
+  ) %>%
+  mutate(
+    label = quality_labels[quality],
+    quality = factor(quality, levels = rev(quality_order))
+  ) %>%
+  arrange(quality)
+```
+
+## A két liga eltérése quality-csoportonként
+
+Az oszlopok az átlagos abszolút Cohen's d értéket mutatják az adott csoporton belüli KPI-k alapján.
+**Minél nagyobb az érték, annál inkább különbözik a két liga az adott dimenzióban.**
+(0.2 = kis, 0.5 = közepes, 0.8 = nagy eltérés)
+
+```{r overview}
+fig_overview <- plot_ly(
+  group_summary,
+  x         = ~mean_abs_d,
+  y         = ~reorder(label, mean_abs_d),
+  type      = "bar",
+  orientation = "h",
+  marker    = list(
+    color     = ~mean_abs_d,
+    colorscale = list(
+      list(0,   "#DBEAFE"),
+      list(0.5, "#3B82F6"),
+      list(1,   "#1E3A8A")
+    ),
+    showscale = FALSE
+  ),
+  text      = ~paste0(round(mean_abs_d, 2)),
+  textposition = "outside",
+  hovertemplate = paste0(
+    "<b>%{y}</b><br>",
+    "Átlag |d|: %{x:.2f}<br>",
+    "KPI-k száma: ", group_summary$n_kpi,
+    "<extra></extra>"
+  )
+) %>%
+  layout(
+    xaxis = list(
+      title      = "Átlagos abszolút Cohen's d",
+      range      = c(0, max(group_summary$mean_abs_d, na.rm = TRUE) * 1.25),
+      gridcolor  = "#F1F5F9",
+      zeroline   = FALSE
+    ),
+    yaxis  = list(title = ""),
+    margin = list(l = 180, r = 60, t = 20, b = 50),
+    font   = list(family = "Montserrat, sans-serif", size = 13),
+    plot_bgcolor  = "white",
+    paper_bgcolor = "white",
+    shapes = list(
+      list(type = "line", x0 = 0.2, x1 = 0.2, y0 = -0.5,
+           y1 = nrow(group_summary) - 0.5,
+           line = list(color = "#94A3B8", dash = "dot", width = 1)),
+      list(type = "line", x0 = 0.5, x1 = 0.5, y0 = -0.5,
+           y1 = nrow(group_summary) - 0.5,
+           line = list(color = "#64748B", dash = "dot", width = 1)),
+      list(type = "line", x0 = 0.8, x1 = 0.8, y0 = -0.5,
+           y1 = nrow(group_summary) - 0.5,
+           line = list(color = "#475569", dash = "dot", width = 1))
+    ),
+    annotations = list(
+      list(x = 0.2, y = nrow(group_summary) - 0.3, text = "kis",
+           showarrow = FALSE, font = list(size = 10, color = "#94A3B8")),
+      list(x = 0.5, y = nrow(group_summary) - 0.3, text = "közepes",
+           showarrow = FALSE, font = list(size = 10, color = "#64748B")),
+      list(x = 0.8, y = nrow(group_summary) - 0.3, text = "nagy",
+           showarrow = FALSE, font = list(size = 10, color = "#475569"))
+    )
+  )
+
+fig_overview
+```
+
+## KPI-szintű részletek
+
+Minden KPI Cohen's d értéke, **d szerint rendezve**. Pozitív = NB1 magasabb átlag, negatív = NB2 magasabb átlag. Szín = quality-csoport.
+
+```{r detail}
+quality_colors <- c(
+  "overallperformance"               = "#1E3A8A",
+  "attack"                           = "#2563EB",
+  "chancecreation"                   = "#60A5FA",
+  "oppositionchancecreation"         = "#93C5FD",
+  "attackingtransition"              = "#059669",
+  "defensivetransition"              = "#6EE7B7",
+  "defence"                          = "#DC2626",
+  "styleofplayinattack"              = "#F59E0B",
+  "styleofplayinchancecreation"      = "#FCD34D",
+  "styleofplayinattackingtransition" = "#A3E635",
+  "styleofplayindefence"             = "#F97316",
+  "styleofplayindefensivetransition" = "#FDBA74"
+)
+
+detail <- cohens %>%
+  mutate(
+    quality_label = quality_labels[quality],
+    color         = quality_colors[quality],
+    hover = paste0(
+      "<b>", kpi, "</b><br>",
+      "<i>", quality_labels[quality], "</i><br><br>",
+      "NB1 átlag: ", round(mean_nb1, 3), "<br>",
+      "NB2 átlag: ", round(mean_nb2, 3), "<br>",
+      "<b>Cohen's d: ", round(d, 2), "</b>"
+    )
+  ) %>%
+  arrange(d)
+
+n_kpi <- nrow(detail)
+
+plot_ly(
+  detail,
+  x             = ~d,
+  y             = ~reorder(kpi, d),
+  type          = "bar",
+  orientation   = "h",
+  marker        = list(color = ~color),
+  hovertemplate = ~paste0(hover, "<extra></extra>"),
+  showlegend    = FALSE
+) %>%
+  layout(
+    xaxis = list(
+      title         = "Cohen's d  (pozitív = NB1 magasabb)",
+      zeroline      = TRUE,
+      zerolinecolor = "#475569",
+      zerolinewidth = 1.5,
+      gridcolor     = "#F1F5F9"
+    ),
+    yaxis = list(
+      title    = "",
+      tickfont = list(size = 10)
+    ),
+    shapes = list(
+      list(type = "line", x0 = -0.5, x1 = -0.5, y0 = -0.5, y1 = n_kpi - 0.5,
+           line = list(color = "#CBD5E1", dash = "dot", width = 1)),
+      list(type = "line", x0 =  0.5, x1 =  0.5, y0 = -0.5, y1 = n_kpi - 0.5,
+           line = list(color = "#CBD5E1", dash = "dot", width = 1))
+    ),
+    margin        = list(l = 10, r = 40, t = 10, b = 50),
+    font          = list(family = "Montserrat, sans-serif", size = 11),
+    plot_bgcolor  = "white",
+    paper_bgcolor = "white",
+    height        = 30 * n_kpi + 80
+  )
+```
+
+```{r legend_note}
+tags$p(
+  style = paste0(
+    "font-size:11px;color:#9CA3AF;margin-top:8px;",
+    "font-family:Montserrat,sans-serif;"
+  ),
+  HTML(paste0(
+    "<span style='color:#2563EB;font-weight:600;'>Kék = NB1 magasabb</span> &nbsp;|&nbsp; ",
+    "<span style='color:#DC2626;font-weight:600;'>Piros = NB2 magasabb</span>. ",
+    "Cohen's d: 0.2 = kis, 0.5 = közepes, 0.8 = nagy eltérés. ",
+    "2025\u201326-os szezon, liganként átlagolt csapatértékek alapján."
+  ))
+)
+```
+

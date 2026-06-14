@@ -1,0 +1,329 @@
+{
+    "plot_type": "distribution",
+    "title": "Budafoki MTE's style of play in defence",
+    "subtitle": "Budafoki MTE | Hungarian NB II 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Békéscsaba",
+            "Honvéd",
+            "Vasas",
+            "Kecskeméti TE",
+            "BVSC",
+            "Duna Aszfalt Tiszakécskei",
+            "Soroksár SC",
+            "Ajka",
+            "Karcag SE",
+            "Fehérvár",
+            "Szentlőrinc SE",
+            "Mezőkövesd-Zsóry",
+            "Kozármisleny",
+            "Szeged 2011",
+            "Csákvári TK",
+            "Budafoki MTE"
+        ],
+        "target_identifiers": [
+            10192,
+            10194,
+            10196,
+            10207,
+            10212,
+            10220,
+            10226,
+            10235,
+            10249,
+            10260,
+            10261,
+            10273,
+            10274,
+            10427,
+            10437,
+            39600
+        ],
+        "kpis": [
+            {
+                "name": "Defensive action height (m)",
+                "description": "Average height on the pitch of defensive actions by a team in open play per match.",
+                "display_name": "Defensive action height (m)"
+            },
+            {
+                "name": "Final-third recoveries %",
+                "description": "Percentage of recoveries by a team that are in the final third per match.",
+                "display_name": "Final-third recoveries %"
+            },
+            {
+                "name": "PPDA",
+                "description": "Number of passes of the opponent team in their defensive 60% of the field compared to the number of defensive actions of a team in the same region per match.",
+                "display_name": "PPDA"
+            },
+            {
+                "name": "Fouls in attacking half %",
+                "description": "Percentage of fouls by a team in the attacking half per match.",
+                "display_name": "Fouls in attacking half %"
+            },
+            {
+                "name": "Defensive intensity",
+                "description": "Number of defensive actions (duels, interceptions, tackles and fouls) that a team has per minute out of possession per match.",
+                "display_name": "Defensive intensity"
+            }
+        ],
+        "focal_target_indices": [
+            15
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.5485669423870936,
+                -0.08987932510057407,
+                0.17379686516969153,
+                -0.7743340534265638,
+                0.1538261802491362
+            ],
+            [
+                1.5294081831641824,
+                1.6681024144870997,
+                -1.8993015162008708,
+                0.5970001155544415,
+                2.099935974394049
+            ],
+            [
+                1.650888266015816,
+                1.9944584210132064,
+                -1.5936326204357925,
+                2.1451729973237548,
+                1.3658260087839156
+            ],
+            [
+                2.06844458907509,
+                0.5891294949518079,
+                -1.2205058607263233,
+                1.7207176022346287,
+                1.2035985235396678
+            ],
+            [
+                -0.3633440659429388,
+                -0.8929080209616107,
+                1.5000203661621119,
+                -1.035457665419141,
+                -1.8976415730720326
+            ],
+            [
+                0.07909890282201824,
+                1.4657949920742326,
+                0.2729007122477808,
+                -0.18369731201478953,
+                -0.14285335918208777
+            ],
+            [
+                -1.400920488169388,
+                -0.7595866544673074,
+                1.9012374056568422,
+                -0.5442965857188192,
+                -0.7190818049300497
+            ],
+            [
+                -0.4776559703166822,
+                -0.5977407165370128,
+                -0.3234040647976511,
+                -0.021427638847975848,
+                0.41976665454041695
+            ],
+            [
+                -0.8180286362546477,
+                -0.3286175860322338,
+                0.9742209506409518,
+                -0.6546523979299698,
+                -0.9994644152917559
+            ],
+            [
+                -0.3461655473217511,
+                0.184514650126073,
+                0.435356577251469,
+                -1.31057004233989,
+                -0.7639827227805404
+            ],
+            [
+                -1.0223636176209476,
+                -0.8728122077518752,
+                0.7929713705227847,
+                -0.30890539316202253,
+                -0.7337289704396815
+            ],
+            [
+                -0.8185046307315421,
+                -1.7036879590606875,
+                0.08183966171188241,
+                -1.2091514966106307,
+                -0.21308299992259921
+            ],
+            [
+                -0.00655569304547305,
+                -0.8719796669188999,
+                -0.6332899765933898,
+                -0.5442965857188192,
+                0.9117425575114804
+            ],
+            [
+                1.1405001369210825,
+                -0.010299904790021408,
+                -0.23633555709748183,
+                1.3271468671618267,
+                -0.9187906831378091
+            ],
+            [
+                -0.3235130922162999,
+                0.5666508924614891,
+                -0.2409131863685355,
+                0.39100778045101275,
+                0.30212624977212926
+            ],
+            [
+                -0.3427213939914142,
+                -0.3411388234936838,
+                0.015038872856544696,
+                0.40574380846295705,
+                -0.0681956200342316
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Békéscsaba\n39.46 Defensive action height (m)",
+                "Békéscsaba\n8% Final-third recoveries ",
+                "Békéscsaba\n5.10 PPDA",
+                "Békéscsaba\n53% Fouls in attacking half ",
+                "Békéscsaba\n8.00 Defensive intensity"
+            ],
+            [
+                "Honvéd\n43.65 Defensive action height (m)",
+                "Honvéd\n11% Final-third recoveries ",
+                "Honvéd\n3.72 PPDA",
+                "Honvéd\n58% Fouls in attacking half ",
+                "Honvéd\n9.20 Defensive intensity"
+            ],
+            [
+                "Vasas\n43.90 Defensive action height (m)",
+                "Vasas\n12% Final-third recoveries ",
+                "Vasas\n3.93 PPDA",
+                "Vasas\n63% Fouls in attacking half ",
+                "Vasas\n8.75 Defensive intensity"
+            ],
+            [
+                "Kecskeméti TE\n44.74 Defensive action height (m)",
+                "Kecskeméti TE\n9% Final-third recoveries ",
+                "Kecskeméti TE\n4.17 PPDA",
+                "Kecskeméti TE\n61% Fouls in attacking half ",
+                "Kecskeméti TE\n8.65 Defensive intensity"
+            ],
+            [
+                "BVSC\n39.83 Defensive action height (m)",
+                "BVSC\n7% Final-third recoveries ",
+                "BVSC\n5.97 PPDA",
+                "BVSC\n53% Fouls in attacking half ",
+                "BVSC\n6.72 Defensive intensity"
+            ],
+            [
+                "Duna Aszfalt Tiszakécskei\n40.72 Defensive action height (m)",
+                "Duna Aszfalt Tiszakécskei\n11% Final-third recoveries ",
+                "Duna Aszfalt Tiszakécskei\n5.16 PPDA",
+                "Duna Aszfalt Tiszakécskei\n55% Fouls in attacking half ",
+                "Duna Aszfalt Tiszakécskei\n7.81 Defensive intensity"
+            ],
+            [
+                "Soroksár SC\n37.74 Defensive action height (m)",
+                "Soroksár SC\n7% Final-third recoveries ",
+                "Soroksár SC\n6.24 PPDA",
+                "Soroksár SC\n54% Fouls in attacking half ",
+                "Soroksár SC\n7.45 Defensive intensity"
+            ],
+            [
+                "Ajka\n39.60 Defensive action height (m)",
+                "Ajka\n7% Final-third recoveries ",
+                "Ajka\n4.77 PPDA",
+                "Ajka\n56% Fouls in attacking half ",
+                "Ajka\n8.16 Defensive intensity"
+            ],
+            [
+                "Karcag SE\n38.91 Defensive action height (m)",
+                "Karcag SE\n8% Final-third recoveries ",
+                "Karcag SE\n5.63 PPDA",
+                "Karcag SE\n54% Fouls in attacking half ",
+                "Karcag SE\n7.28 Defensive intensity"
+            ],
+            [
+                "Fehérvár\n39.87 Defensive action height (m)",
+                "Fehérvár\n9% Final-third recoveries ",
+                "Fehérvár\n5.27 PPDA",
+                "Fehérvár\n52% Fouls in attacking half ",
+                "Fehérvár\n7.43 Defensive intensity"
+            ],
+            [
+                "Szentlőrinc SE\n38.50 Defensive action height (m)",
+                "Szentlőrinc SE\n7% Final-third recoveries ",
+                "Szentlőrinc SE\n5.51 PPDA",
+                "Szentlőrinc SE\n55% Fouls in attacking half ",
+                "Szentlőrinc SE\n7.45 Defensive intensity"
+            ],
+            [
+                "Mezőkövesd-Zsóry\n38.91 Defensive action height (m)",
+                "Mezőkövesd-Zsóry\n6% Final-third recoveries ",
+                "Mezőkövesd-Zsóry\n5.04 PPDA",
+                "Mezőkövesd-Zsóry\n52% Fouls in attacking half ",
+                "Mezőkövesd-Zsóry\n7.77 Defensive intensity"
+            ],
+            [
+                "Kozármisleny\n40.55 Defensive action height (m)",
+                "Kozármisleny\n7% Final-third recoveries ",
+                "Kozármisleny\n4.56 PPDA",
+                "Kozármisleny\n54% Fouls in attacking half ",
+                "Kozármisleny\n8.47 Defensive intensity"
+            ],
+            [
+                "Szeged 2011\n42.87 Defensive action height (m)",
+                "Szeged 2011\n8% Final-third recoveries ",
+                "Szeged 2011\n4.82 PPDA",
+                "Szeged 2011\n60% Fouls in attacking half ",
+                "Szeged 2011\n7.33 Defensive intensity"
+            ],
+            [
+                "Csákvári TK\n39.91 Defensive action height (m)",
+                "Csákvári TK\n9% Final-third recoveries ",
+                "Csákvári TK\n4.82 PPDA",
+                "Csákvári TK\n57% Fouls in attacking half ",
+                "Csákvári TK\n8.09 Defensive intensity"
+            ],
+            [
+                "Budafoki MTE\n39.87 Defensive action height (m)",
+                "Budafoki MTE\n8% Final-third recoveries ",
+                "Budafoki MTE\n4.99 PPDA",
+                "Budafoki MTE\n57% Fouls in attacking half ",
+                "Budafoki MTE\n7.86 Defensive intensity"
+            ]
+        ],
+        "serie_names": [
+            "Other NB II teams",
+            "Budafoki MTE"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Defensive action height (m) | 39.87",
+            "Final-third recoveries % | 8",
+            "PPDA | 4.99",
+            "Fouls in attacking half % | 57",
+            "Defensive intensity | 7.86"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

@@ -1,0 +1,1362 @@
+{
+    "plot_type": "distribution",
+    "title": "Hold Up Play of Zsombor Gruber",
+    "subtitle": "Hungarian NB I 2025/2026 | 1487 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Krisztián Németh",
+            "Yohan Croizet",
+            "Iuri Medeiros",
+            "Jasmin Mešanović",
+            "Norbert Könyves",
+            "István Bognár",
+            "Dániel Böde",
+            "Soma Novothny",
+            "Aleksandar Pešić",
+            "Balázs Dzsudzsák",
+            "Matija Ljujić",
+            "Dorian Babunski",
+            "Jakub Plšek",
+            "Gábor Molnár",
+            "Elton-Ofoi Acolatse",
+            "Bright Edomwonyi",
+            "Marin Jurina",
+            "Martin Ádám",
+            "János Hahn",
+            "Fran Brodić",
+            "Giorgi Beridze",
+            "Máté Sajbán",
+            "Marko Kvasina",
+            "Ivan Šaponjić",
+            "Aboubakar Keita",
+            "Róbert Polievka",
+            "Lamin Colley",
+            "Bence Bíró",
+            "Tonislav Yordanov",
+            "Dániel Lukács",
+            "Gleofilo Vlijter",
+            "Aljoša Matko",
+            "Barna Tóth",
+            "Joel Fameyeh",
+            "Bálint Kártik",
+            "Eduvie Ikoba",
+            "Barnabás Varga",
+            "Franko Kovačević",
+            "Milan Tučić",
+            "Donát Bárány",
+            "Soma Szuhodovszki",
+            "Martin Šlogar",
+            "András Németh",
+            "Lenny Joseph",
+            "Muhamed Tijani",
+            "Ágoston Bényei",
+            "Zalán Kerezsi",
+            "Marko Matanović",
+            "Ákos Szendrei",
+            "Bamidele Yusuf",
+            "João Victor",
+            "Meshack Ubochioma",
+            "Nejc Gradišar",
+            "Bence Trencsényi",
+            "Márk Mucsányi",
+            "Hunor Németh",
+            "Ahmed Benbouali",
+            "Oleksandr Pishchur",
+            "Daniel Lima",
+            "Zsombor Gruber",
+            "Milán Klausz",
+            "Alegria",
+            "Kevin Mondovics",
+            "Dantaye Gilbert",
+            "Istvan Atrok",
+            "Attila Pinter",
+            "Nfansu Njie"
+        ],
+        "target_identifiers": [
+            354,
+            25733,
+            70974,
+            72691,
+            75028,
+            75054,
+            75137,
+            76218,
+            80985,
+            101690,
+            128206,
+            136109,
+            137107,
+            145212,
+            149221,
+            213391,
+            231833,
+            237448,
+            238092,
+            238159,
+            258379,
+            266739,
+            278866,
+            283078,
+            285458,
+            333635,
+            350886,
+            352229,
+            372091,
+            375251,
+            379877,
+            422527,
+            423082,
+            423550,
+            444899,
+            473523,
+            474522,
+            511739,
+            512314,
+            542799,
+            553144,
+            567961,
+            586800,
+            592988,
+            610752,
+            620092,
+            620094,
+            631851,
+            635060,
+            659549,
+            661881,
+            673720,
+            677652,
+            682820,
+            696314,
+            703498,
+            707818,
+            731798,
+            752714,
+            753770,
+            778732,
+            801548,
+            810317,
+            817828,
+            850295,
+            852022,
+            954296
+        ],
+        "kpis": [
+            {
+                "name": "Aerials won %",
+                "description": "Percentage of aerial duels won.",
+                "display_name": "Aerials won %"
+            },
+            {
+                "name": "Linkups",
+                "description": "Number of successful linkup-plays (An action of an attacking player receiving a ball from a defender or a midfielder with his back to the opposite goal) adjusted by possession.",
+                "display_name": "Linkups"
+            },
+            {
+                "name": "Long ball receptions",
+                "description": "Number of successful long ball receptions.",
+                "display_name": "Long ball receptions"
+            },
+            {
+                "name": "Losses",
+                "description": "Number of actions that end the possession of a team (passes, offensive duels, touches) adjusted by possession.",
+                "display_name": "Losses"
+            },
+            {
+                "name": "Pressure resistance %",
+                "description": "Percentage of successful actions under pressure in the first or second thirds of the pitch.",
+                "display_name": "Pressure resistance %"
+            },
+            {
+                "name": "Under pressure retention",
+                "description": "Number of successful actions under pressure in the first or second thirds of the pitch adjusted by possession.",
+                "display_name": "Under pressure retention"
+            }
+        ],
+        "focal_target_indices": [
+            59
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.7204368710517883,
+                1.7025434970855713,
+                -0.4413038194179535,
+                0.7053038477897644,
+                0.5928666591644287,
+                -0.1956930011510849
+            ],
+            [
+                0.7664599418640137,
+                0.5441328287124634,
+                -0.5074553489685059,
+                -0.10611506551504135,
+                -1.049913763999939,
+                1.774163842201233
+            ],
+            [
+                -1.0791778564453125,
+                -0.31141626834869385,
+                -0.9142966270446777,
+                -0.3263201415538788,
+                1.7229084968566895,
+                0.370044469833374
+            ],
+            [
+                0.5915212631225586,
+                1.6502125263214111,
+                -0.21890780329704285,
+                -0.8800392746925354,
+                0.3247811198234558,
+                -0.17933788895606995
+            ],
+            [
+                -1.1784769296646118,
+                -0.4511656165122986,
+                -0.3522781729698181,
+                -1.4203749895095825,
+                -1.6720585823059082,
+                0.7293021082878113
+            ],
+            [
+                -0.5945039987564087,
+                0.21586501598358154,
+                -1.3671005964279175,
+                -1.0424588918685913,
+                0.2632710933685303,
+                -1.3082741498947144
+            ],
+            [
+                0.8880276083946228,
+                -1.2590173482894897,
+                1.7625287771224976,
+                -1.2256821393966675,
+                -0.6252036094665527,
+                -0.954511821269989
+            ],
+            [
+                0.3042089343070984,
+                -0.48732078075408936,
+                -0.007128769066184759,
+                1.7784944772720337,
+                0.7075085043907166,
+                -0.6551328301429749
+            ],
+            [
+                -0.17445337772369385,
+                0.7742940187454224,
+                -0.40910062193870544,
+                1.55899178981781,
+                -0.11262179166078568,
+                -1.3030433654785156
+            ],
+            [
+                -1.1545716524124146,
+                -0.7045218348503113,
+                -1.267898678779602,
+                -0.809689462184906,
+                0.4113505184650421,
+                -1.7178881168365479
+            ],
+            [
+                1.13820481300354,
+                -0.6998751163482666,
+                -1.8026878833770752,
+                0.32267311215400696,
+                0.9918200969696045,
+                -0.1268157660961151
+            ],
+            [
+                1.2031949758529663,
+                0.0110816340893507,
+                0.7830164432525635,
+                -0.9584892392158508,
+                -0.36692574620246887,
+                -0.35468506813049316
+            ],
+            [
+                -0.03769290819764137,
+                -0.7118340134620667,
+                -1.0941040515899658,
+                0.15963193774223328,
+                2.074392795562744,
+                -0.2104903757572174
+            ],
+            [
+                -0.4006344676017761,
+                -1.2993565797805786,
+                -1.014389157295227,
+                0.32969433069229126,
+                0.8767419457435608,
+                -0.2177598625421524
+            ],
+            [
+                -0.779820442199707,
+                -0.5716227889060974,
+                0.31776684522628784,
+                -0.12702816724777222,
+                0.9013573527336121,
+                0.6826671957969666
+            ],
+            [
+                -0.05443888157606125,
+                -0.40324240922927856,
+                1.1902421712875366,
+                -0.36171987652778625,
+                0.7657690644264221,
+                0.4660150706768036
+            ],
+            [
+                0.9936326742172241,
+                0.8109432458877563,
+                0.9873649477958679,
+                0.9736266732215881,
+                0.9808855056762695,
+                1.1806538105010986
+            ],
+            [
+                -0.5330333709716797,
+                -0.8646437525749207,
+                2.191213846206665,
+                0.4996819794178009,
+                -0.8155912160873413,
+                -0.6856704354286194
+            ],
+            [
+                -0.8413380980491638,
+                -1.4621304273605347,
+                -0.03365904837846756,
+                0.8902233839035034,
+                0.5382750034332275,
+                -1.1737539768218994
+            ],
+            [
+                0.8056647181510925,
+                -0.08731891959905624,
+                -0.25641587376594543,
+                -0.05413674935698509,
+                0.4899229407310486,
+                0.350565642118454
+            ],
+            [
+                -0.5945039987564087,
+                0.02010287344455719,
+                -0.0754164382815361,
+                0.4894998073577881,
+                -0.3909691870212555,
+                -0.8812583088874817
+            ],
+            [
+                0.638836145401001,
+                -0.4968752861022949,
+                -0.7731570601463318,
+                1.0560611486434937,
+                0.19980886578559875,
+                -1.1416916847229004
+            ],
+            [
+                0.8546704649925232,
+                0.4203566014766693,
+                0.4167965352535248,
+                -0.3186458945274353,
+                0.7075085043907166,
+                -0.40243279933929443
+            ],
+            [
+                1.682612657546997,
+                1.2468546628952026,
+                0.3312457501888275,
+                1.3913551568984985,
+                0.3247811198234558,
+                1.5424714088439941
+            ],
+            [
+                1.295723795890808,
+                -1.6416583061218262,
+                -1.4707849025726318,
+                0.22764261066913605,
+                -0.08689220994710922,
+                0.9177643060684204
+            ],
+            [
+                1.1039615869522095,
+                0.4701631963253021,
+                0.0023969393223524094,
+                -1.0043277740478516,
+                -2.9914474487304688,
+                -0.9291017651557922
+            ],
+            [
+                0.2455972284078598,
+                0.35868608951568604,
+                0.7910706400871277,
+                0.5590702295303345,
+                0.04359353706240654,
+                0.9307441711425781
+            ],
+            [
+                -0.3292090892791748,
+                -0.42850401997566223,
+                -0.5658535957336426,
+                1.0907703638076782,
+                -0.5691350698471069,
+                -0.5401780009269714
+            ],
+            [
+                -1.1100207567214966,
+                -0.39814162254333496,
+                -0.11026273667812347,
+                0.5686769485473633,
+                0.47058209776878357,
+                -1.226249098777771
+            ],
+            [
+                -1.5527446269989014,
+                -0.7748687863349915,
+                -0.36949488520622253,
+                -0.40245527029037476,
+                0.15087385475635529,
+                -1.1036666631698608
+            ],
+            [
+                -1.6446306705474854,
+                -1.0933926105499268,
+                -0.15141552686691284,
+                0.3802822530269623,
+                0.19980886578559875,
+                0.2584986686706543
+            ],
+            [
+                -0.5419978499412537,
+                -0.6526994109153748,
+                -0.26401329040527344,
+                0.9194902181625366,
+                -1.0371328592300415,
+                -0.9768856167793274
+            ],
+            [
+                1.1234374046325684,
+                -1.0372803211212158,
+                2.5437397956848145,
+                -1.886446237564087,
+                0.16075439751148224,
+                0.702837347984314
+            ],
+            [
+                -0.9095420837402344,
+                0.08597268909215927,
+                -0.2690011262893677,
+                1.0994186401367188,
+                0.9343534708023071,
+                0.36043140292167664
+            ],
+            [
+                0.070576012134552,
+                -1.4807484149932861,
+                -1.6506822109222412,
+                -0.8824034929275513,
+                0.46184712648391724,
+                3.0383200645446777
+            ],
+            [
+                1.389564871788025,
+                0.23736639320850372,
+                1.308760643005371,
+                -3.9300763607025146,
+                -2.84639048576355,
+                0.8549763560295105
+            ],
+            [
+                1.3995009660720825,
+                0.020759474486112595,
+                1.5241620540618896,
+                1.2736945152282715,
+                1.3346668481826782,
+                -1.5355091094970703
+            ],
+            [
+                0.8056647181510925,
+                -0.9705836176872253,
+                -0.5756645798683167,
+                1.5041805505752563,
+                2.4844579696655273,
+                -1.057512640953064
+            ],
+            [
+                -0.10273748636245728,
+                -0.49633240699768066,
+                -0.6031672954559326,
+                0.9275280237197876,
+                1.1517457962036133,
+                -0.7290592193603516
+            ],
+            [
+                -0.8384045362472534,
+                1.4853332042694092,
+                1.408376932144165,
+                0.709587037563324,
+                -0.615475594997406,
+                0.6696484684944153
+            ],
+            [
+                -1.6713612079620361,
+                1.8816860914230347,
+                -0.7258474826812744,
+                1.1012167930603027,
+                0.7075085043907166,
+                -0.40203309059143066
+            ],
+            [
+                -1.588085412979126,
+                0.2881315350532532,
+                -0.7893027663230896,
+                -1.558434009552002,
+                -1.7132635116577148,
+                -0.11999962478876114
+            ],
+            [
+                -0.43389639258384705,
+                0.6264437437057495,
+                0.9925976991653442,
+                -0.5474833250045776,
+                -0.4771242141723633,
+                1.2184733152389526
+            ],
+            [
+                0.8716341257095337,
+                0.7787728309631348,
+                1.3098928928375244,
+                -0.5719786286354065,
+                0.31263062357902527,
+                -0.0370463989675045
+            ],
+            [
+                1.689521312713623,
+                -0.3711684048175812,
+                0.8743104934692383,
+                -0.605852484703064,
+                -1.5072404146194458,
+                -0.08924075216054916
+            ],
+            [
+                -0.3178854286670685,
+                -1.508628010749817,
+                -1.1743383407592773,
+                -0.9908955097198486,
+                -0.343644917011261,
+                0.38116416335105896
+            ],
+            [
+                -0.10762720555067062,
+                -0.6858602166175842,
+                -0.4911208152770996,
+                -0.8877068758010864,
+                -1.5301315784454346,
+                -0.09870819747447968
+            ],
+            [
+                -0.17445337772369385,
+                1.4316062927246094,
+                0.4139498770236969,
+                -0.8887618184089661,
+                0.12268959730863571,
+                0.12116237729787827
+            ],
+            [
+                -1.2685388326644897,
+                -0.2837608754634857,
+                1.088852047920227,
+                -1.0788631439208984,
+                0.7745633125305176,
+                0.2902982532978058
+            ],
+            [
+                -0.6182806491851807,
+                -0.6099771857261658,
+                0.5103795528411865,
+                -0.10290142148733139,
+                0.3844270706176758,
+                -0.3890184462070465
+            ],
+            [
+                -0.8384045362472534,
+                2.2638325691223145,
+                -0.6071569919586182,
+                -0.17886938154697418,
+                -0.7786677479743958,
+                -0.22285673022270203
+            ],
+            [
+                -1.0392636060714722,
+                -0.19037145376205444,
+                -0.8597576022148132,
+                -1.9741623401641846,
+                -0.5076953768730164,
+                2.1696438789367676
+            ],
+            [
+                0.16158710420131683,
+                2.0907208919525146,
+                0.6588826179504395,
+                0.9215587377548218,
+                0.19980886578559875,
+                -0.14933478832244873
+            ],
+            [
+                -0.9977527856826782,
+                -1.7623283863067627,
+                -0.7370336055755615,
+                0.9099773168563843,
+                -1.4248305559158325,
+                0.248770073056221
+            ],
+            [
+                1.295723795890808,
+                -0.9965821504592896,
+                -0.591553270816803,
+                0.5636605024337769,
+                -0.6405222415924072,
+                -0.26390624046325684
+            ],
+            [
+                -0.4301365911960602,
+                -0.22268646955490112,
+                -1.6471360921859741,
+                0.07594339549541473,
+                1.0771143436431885,
+                1.5307331085205078
+            ],
+            [
+                0.687374472618103,
+                -0.18537797033786774,
+                1.571504831314087,
+                0.8426287174224854,
+                -0.13250404596328735,
+                -0.8979806900024414
+            ],
+            [
+                3.1334450244903564,
+                0.038179509341716766,
+                2.633031129837036,
+                0.927991509437561,
+                -1.59207284450531,
+                -1.2264386415481567
+            ],
+            [
+                -0.24530541896820068,
+                2.5850377082824707,
+                0.4900897145271301,
+                -0.6148989200592041,
+                0.14636613428592682,
+                0.5144356489181519
+            ],
+            [
+                -0.9095420837402344,
+                1.1905441284179688,
+                -0.7777462601661682,
+                0.27460169792175293,
+                0.19980886578559875,
+                -0.5636860728263855
+            ],
+            [
+                0.2396809309720993,
+                0.7041192054748535,
+                0.1197904646396637,
+                0.15621910989284515,
+                0.7621840238571167,
+                2.051154851913452
+            ],
+            [
+                -1.3820990324020386,
+                1.2488296031951904,
+                -0.48360854387283325,
+                -0.39569252729415894,
+                -0.3191736042499542,
+                1.6589714288711548
+            ],
+            [
+                -0.44175833463668823,
+                1.1203502416610718,
+                -0.7920794486999512,
+                0.5967404246330261,
+                -1.0694409608840942,
+                -1.1212092638015747
+            ],
+            [
+                0.8546704649925232,
+                -1.124941110610962,
+                0.16453173756599426,
+                0.8472437858581543,
+                0.3844270706176758,
+                -1.4613853693008423
+            ],
+            [
+                -0.8465343713760376,
+                0.43471595644950867,
+                -0.626565158367157,
+                -0.17381593585014343,
+                0.23812532424926758,
+                0.8333064317703247
+            ],
+            [
+                -0.5538541078567505,
+                0.2993773818016052,
+                -0.23810021579265594,
+                -0.4123177230358124,
+                -0.22772791981697083,
+                1.1979666948318481
+            ],
+            [
+                1.3615525960922241,
+                -0.3107953369617462,
+                0.7205000519752502,
+                0.08567895740270615,
+                -0.13250404596328735,
+                -0.39572590589523315
+            ]
+        ],
+        "hover_strings": [
+            [
+                "K. Németh\nRank: 21/67\n0.43 Aerials won %",
+                "K. Németh\nRank: 5/67\n2.19 Linkups per 90",
+                "K. Németh\nRank: 41/67\n3.30 Long ball receptions per 90",
+                "K. Németh\nRank: 20/67\n5.88 Losses per 90",
+                "K. Németh\nRank: 18/67\n0.74 Pressure resistance %",
+                "K. Németh\nRank: 36/67\n3.15 Under pressure retention per 90"
+            ],
+            [
+                "Y. Croizet\nRank: 20/67\n0.44 Aerials won %",
+                "Y. Croizet\nRank: 18/67\n1.46 Linkups per 90",
+                "Y. Croizet\nRank: 44/67\n3.17 Long ball receptions per 90",
+                "Y. Croizet\nRank: 38/67\n7.28 Losses per 90",
+                "Y. Croizet\nRank: 58/67\n0.63 Pressure resistance %",
+                "Y. Croizet\nRank: 4/67\n5.54 Under pressure retention per 90"
+            ],
+            [
+                "Iuri Medeiros\nRank: 58/67\n0.23 Aerials won %",
+                "Iuri Medeiros\nRank: 38/67\n0.92 Linkups per 90",
+                "Iuri Medeiros\nRank: 58/67\n2.40 Long ball receptions per 90",
+                "Iuri Medeiros\nRank: 43/67\n7.66 Losses per 90",
+                "Iuri Medeiros\nRank: 3/67\n0.82 Pressure resistance %",
+                "Iuri Medeiros\nRank: 22/67\n3.83 Under pressure retention per 90"
+            ],
+            [
+                "J. Mešanović\nRank: 24/67\n0.42 Aerials won %",
+                "J. Mešanović\nRank: 6/67\n2.16 Linkups per 90",
+                "J. Mešanović\nRank: 33/67\n3.72 Long ball receptions per 90",
+                "J. Mešanović\nRank: 53/67\n8.62 Losses per 90",
+                "J. Mešanović\nRank: 26/67\n0.72 Pressure resistance %",
+                "J. Mešanović\nRank: 35/67\n3.17 Under pressure retention per 90"
+            ],
+            [
+                "N. Könyves\nRank: 61/67\n0.22 Aerials won %",
+                "N. Könyves\nRank: 43/67\n0.83 Linkups per 90",
+                "N. Könyves\nRank: 38/67\n3.47 Long ball receptions per 90",
+                "N. Könyves\nRank: 63/67\n9.56 Losses per 90",
+                "N. Könyves\nRank: 64/67\n0.58 Pressure resistance %",
+                "N. Könyves\nRank: 15/67\n4.27 Under pressure retention per 90"
+            ],
+            [
+                "I. Bognár\nRank: 46/67\n0.29 Aerials won %",
+                "I. Bognár\nRank: 26/67\n1.25 Linkups per 90",
+                "I. Bognár\nRank: 63/67\n1.55 Long ball receptions per 90",
+                "I. Bognár\nRank: 60/67\n8.90 Losses per 90",
+                "I. Bognár\nRank: 29/67\n0.72 Pressure resistance %",
+                "I. Bognár\nRank: 64/67\n1.80 Under pressure retention per 90"
+            ],
+            [
+                "D. Böde\nRank: 14/67\n0.45 Aerials won %",
+                "D. Böde\nRank: 61/67\n0.32 Linkups per 90",
+                "D. Böde\nRank: 4/67\n7.47 Long ball receptions per 90",
+                "D. Böde\nRank: 62/67\n9.22 Losses per 90",
+                "D. Böde\nRank: 53/67\n0.66 Pressure resistance %",
+                "D. Böde\nRank: 54/67\n2.23 Under pressure retention per 90"
+            ],
+            [
+                "S. Novothny\nRank: 25/67\n0.39 Aerials won %",
+                "S. Novothny\nRank: 44/67\n0.81 Linkups per 90",
+                "S. Novothny\nRank: 28/67\n4.12 Long ball receptions per 90",
+                "S. Novothny\nRank: 1/67\n4.03 Losses per 90",
+                "S. Novothny\nRank: 15/67\n0.75 Pressure resistance %",
+                "S. Novothny\nRank: 48/67\n2.59 Under pressure retention per 90"
+            ],
+            [
+                "A. Pešić\nRank: 34/67\n0.33 Aerials won %",
+                "A. Pešić\nRank: 15/67\n1.60 Linkups per 90",
+                "A. Pešić\nRank: 40/67\n3.36 Long ball receptions per 90",
+                "A. Pešić\nRank: 2/67\n4.41 Losses per 90",
+                "A. Pešić\nRank: 41/67\n0.69 Pressure resistance %",
+                "A. Pešić\nRank: 63/67\n1.80 Under pressure retention per 90"
+            ],
+            [
+                "B. Dzsudzsák\nRank: 60/67\n0.22 Aerials won %",
+                "B. Dzsudzsák\nRank: 52/67\n0.67 Linkups per 90",
+                "B. Dzsudzsák\nRank: 62/67\n1.74 Long ball receptions per 90",
+                "B. Dzsudzsák\nRank: 52/67\n8.50 Losses per 90",
+                "B. Dzsudzsák\nRank: 23/67\n0.73 Pressure resistance %",
+                "B. Dzsudzsák\nRank: 67/67\n1.30 Under pressure retention per 90"
+            ],
+            [
+                "M. Ljujić\nRank: 10/67\n0.48 Aerials won %",
+                "M. Ljujić\nRank: 51/67\n0.67 Linkups per 90",
+                "M. Ljujić\nRank: 67/67\n0.73 Long ball receptions per 90",
+                "M. Ljujić\nRank: 29/67\n6.54 Losses per 90",
+                "M. Ljujić\nRank: 7/67\n0.77 Pressure resistance %",
+                "M. Ljujić\nRank: 33/67\n3.23 Under pressure retention per 90"
+            ],
+            [
+                "D. Babunski\nRank: 9/67\n0.49 Aerials won %",
+                "D. Babunski\nRank: 31/67\n1.12 Linkups per 90",
+                "D. Babunski\nRank: 16/67\n5.61 Long ball receptions per 90",
+                "D. Babunski\nRank: 57/67\n8.76 Losses per 90",
+                "D. Babunski\nRank: 47/67\n0.67 Pressure resistance %",
+                "D. Babunski\nRank: 41/67\n2.95 Under pressure retention per 90"
+            ],
+            [
+                "J. Plšek\nRank: 30/67\n0.35 Aerials won %",
+                "J. Plšek\nRank: 53/67\n0.66 Linkups per 90",
+                "J. Plšek\nRank: 60/67\n2.07 Long ball receptions per 90",
+                "J. Plšek\nRank: 32/67\n6.82 Losses per 90",
+                "J. Plšek\nRank: 2/67\n0.85 Pressure resistance %",
+                "J. Plšek\nRank: 37/67\n3.13 Under pressure retention per 90"
+            ],
+            [
+                "G. Molnár\nRank: 39/67\n0.31 Aerials won %",
+                "G. Molnár\nRank: 62/67\n0.29 Linkups per 90",
+                "G. Molnár\nRank: 59/67\n2.22 Long ball receptions per 90",
+                "G. Molnár\nRank: 28/67\n6.53 Losses per 90",
+                "G. Molnár\nRank: 11/67\n0.76 Pressure resistance %",
+                "G. Molnár\nRank: 38/67\n3.12 Under pressure retention per 90"
+            ],
+            [
+                "E. Acolatse\nRank: 49/67\n0.26 Aerials won %",
+                "E. Acolatse\nRank: 47/67\n0.75 Linkups per 90",
+                "E. Acolatse\nRank: 24/67\n4.73 Long ball receptions per 90",
+                "E. Acolatse\nRank: 39/67\n7.32 Losses per 90",
+                "E. Acolatse\nRank: 10/67\n0.76 Pressure resistance %",
+                "E. Acolatse\nRank: 17/67\n4.21 Under pressure retention per 90"
+            ],
+            [
+                "B. Edomwonyi\nRank: 31/67\n0.35 Aerials won %",
+                "B. Edomwonyi\nRank: 41/67\n0.86 Linkups per 90",
+                "B. Edomwonyi\nRank: 10/67\n6.38 Long ball receptions per 90",
+                "B. Edomwonyi\nRank: 44/67\n7.73 Losses per 90",
+                "B. Edomwonyi\nRank: 13/67\n0.75 Pressure resistance %",
+                "B. Edomwonyi\nRank: 20/67\n3.95 Under pressure retention per 90"
+            ],
+            [
+                "M. Jurina\nRank: 13/67\n0.47 Aerials won %",
+                "M. Jurina\nRank: 13/67\n1.63 Linkups per 90",
+                "M. Jurina\nRank: 13/67\n6.00 Long ball receptions per 90",
+                "M. Jurina\nRank: 10/67\n5.42 Losses per 90",
+                "M. Jurina\nRank: 8/67\n0.77 Pressure resistance %",
+                "M. Jurina\nRank: 10/67\n4.82 Under pressure retention per 90"
+            ],
+            [
+                "M. Ádám\nRank: 43/67\n0.29 Aerials won %",
+                "M. Ádám\nRank: 55/67\n0.57 Linkups per 90",
+                "M. Ádám\nRank: 3/67\n8.28 Long ball receptions per 90",
+                "M. Ádám\nRank: 25/67\n6.24 Losses per 90",
+                "M. Ádám\nRank: 56/67\n0.64 Pressure resistance %",
+                "M. Ádám\nRank: 49/67\n2.55 Under pressure retention per 90"
+            ],
+            [
+                "J. Hahn\nRank: 52/67\n0.26 Aerials won %",
+                "J. Hahn\nRank: 63/67\n0.19 Linkups per 90",
+                "J. Hahn\nRank: 29/67\n4.07 Long ball receptions per 90",
+                "J. Hahn\nRank: 16/67\n5.56 Losses per 90",
+                "J. Hahn\nRank: 19/67\n0.74 Pressure resistance %",
+                "J. Hahn\nRank: 60/67\n1.96 Under pressure retention per 90"
+            ],
+            [
+                "F. Brodić\nRank: 18/67\n0.44 Aerials won %",
+                "F. Brodić\nRank: 32/67\n1.06 Linkups per 90",
+                "F. Brodić\nRank: 35/67\n3.65 Long ball receptions per 90",
+                "F. Brodić\nRank: 36/67\n7.19 Losses per 90",
+                "F. Brodić\nRank: 20/67\n0.73 Pressure resistance %",
+                "F. Brodić\nRank: 24/67\n3.81 Under pressure retention per 90"
+            ],
+            [
+                "G. Beridze\nRank: 46/67\n0.29 Aerials won %",
+                "G. Beridze\nRank: 30/67\n1.13 Linkups per 90",
+                "G. Beridze\nRank: 30/67\n3.99 Long ball receptions per 90",
+                "G. Beridze\nRank: 26/67\n6.25 Losses per 90",
+                "G. Beridze\nRank: 48/67\n0.67 Pressure resistance %",
+                "G. Beridze\nRank: 51/67\n2.31 Under pressure retention per 90"
+            ],
+            [
+                "M. Sajbán\nRank: 23/67\n0.43 Aerials won %",
+                "M. Sajbán\nRank: 46/67\n0.80 Linkups per 90",
+                "M. Sajbán\nRank: 53/67\n2.67 Long ball receptions per 90",
+                "M. Sajbán\nRank: 9/67\n5.28 Losses per 90",
+                "M. Sajbán\nRank: 31/67\n0.71 Pressure resistance %",
+                "M. Sajbán\nRank: 59/67\n2.00 Under pressure retention per 90"
+            ],
+            [
+                "M. Kvasina\nRank: 16/67\n0.45 Aerials won %",
+                "M. Kvasina\nRank: 21/67\n1.38 Linkups per 90",
+                "M. Kvasina\nRank: 21/67\n4.92 Long ball receptions per 90",
+                "M. Kvasina\nRank: 42/67\n7.65 Losses per 90",
+                "M. Kvasina\nRank: 15/67\n0.75 Pressure resistance %",
+                "M. Kvasina\nRank: 45/67\n2.90 Under pressure retention per 90"
+            ],
+            [
+                "I. Šaponjić\nRank: 3/67\n0.54 Aerials won %",
+                "I. Šaponjić\nRank: 10/67\n1.90 Linkups per 90",
+                "I. Šaponjić\nRank: 23/67\n4.76 Long ball receptions per 90",
+                "I. Šaponjić\nRank: 4/67\n4.70 Losses per 90",
+                "I. Šaponjić\nRank: 26/67\n0.72 Pressure resistance %",
+                "I. Šaponjić\nRank: 6/67\n5.25 Under pressure retention per 90"
+            ],
+            [
+                "A. Keita\nRank: 7/67\n0.50 Aerials won %",
+                "A. Keita\nRank: 66/67\n0.08 Linkups per 90",
+                "A. Keita\nRank: 64/67\n1.35 Long ball receptions per 90",
+                "A. Keita\nRank: 31/67\n6.71 Losses per 90",
+                "A. Keita\nRank: 40/67\n0.69 Pressure resistance %",
+                "A. Keita\nRank: 12/67\n4.50 Under pressure retention per 90"
+            ],
+            [
+                "R. Polievka\nRank: 12/67\n0.48 Aerials won %",
+                "R. Polievka\nRank: 19/67\n1.41 Linkups per 90",
+                "R. Polievka\nRank: 27/67\n4.14 Long ball receptions per 90",
+                "R. Polievka\nRank: 59/67\n8.84 Losses per 90",
+                "R. Polievka\nRank: 67/67\n0.49 Pressure resistance %",
+                "R. Polievka\nRank: 53/67\n2.26 Under pressure retention per 90"
+            ],
+            [
+                "L. Colley\nRank: 26/67\n0.38 Aerials won %",
+                "L. Colley\nRank: 22/67\n1.34 Linkups per 90",
+                "L. Colley\nRank: 15/67\n5.63 Long ball receptions per 90",
+                "L. Colley\nRank: 24/67\n6.13 Losses per 90",
+                "L. Colley\nRank: 39/67\n0.70 Pressure resistance %",
+                "L. Colley\nRank: 11/67\n4.51 Under pressure retention per 90"
+            ],
+            [
+                "B. Bíró\nRank: 38/67\n0.32 Aerials won %",
+                "B. Bíró\nRank: 42/67\n0.84 Linkups per 90",
+                "B. Bíró\nRank: 45/67\n3.06 Long ball receptions per 90",
+                "B. Bíró\nRank: 8/67\n5.22 Losses per 90",
+                "B. Bíró\nRank: 51/67\n0.66 Pressure resistance %",
+                "B. Bíró\nRank: 46/67\n2.73 Under pressure retention per 90"
+            ],
+            [
+                "T. Yordanov\nRank: 59/67\n0.23 Aerials won %",
+                "T. Yordanov\nRank: 40/67\n0.86 Linkups per 90",
+                "T. Yordanov\nRank: 31/67\n3.92 Long ball receptions per 90",
+                "T. Yordanov\nRank: 22/67\n6.12 Losses per 90",
+                "T. Yordanov\nRank: 21/67\n0.73 Pressure resistance %",
+                "T. Yordanov\nRank: 61/67\n1.90 Under pressure retention per 90"
+            ],
+            [
+                "D. Lukács\nRank: 64/67\n0.18 Aerials won %",
+                "D. Lukács\nRank: 54/67\n0.62 Linkups per 90",
+                "D. Lukács\nRank: 39/67\n3.43 Long ball receptions per 90",
+                "D. Lukács\nRank: 46/67\n7.80 Losses per 90",
+                "D. Lukács\nRank: 36/67\n0.71 Pressure resistance %",
+                "D. Lukács\nRank: 57/67\n2.04 Under pressure retention per 90"
+            ],
+            [
+                "G. Vlijter\nRank: 66/67\n0.17 Aerials won %",
+                "G. Vlijter\nRank: 59/67\n0.42 Linkups per 90",
+                "G. Vlijter\nRank: 32/67\n3.85 Long ball receptions per 90",
+                "G. Vlijter\nRank: 27/67\n6.44 Losses per 90",
+                "G. Vlijter\nRank: 31/67\n0.71 Pressure resistance %",
+                "G. Vlijter\nRank: 26/67\n3.70 Under pressure retention per 90"
+            ],
+            [
+                "A. Matko\nRank: 44/67\n0.29 Aerials won %",
+                "A. Matko\nRank: 49/67\n0.70 Linkups per 90",
+                "A. Matko\nRank: 36/67\n3.63 Long ball receptions per 90",
+                "A. Matko\nRank: 14/67\n5.51 Losses per 90",
+                "A. Matko\nRank: 57/67\n0.63 Pressure resistance %",
+                "A. Matko\nRank: 55/67\n2.20 Under pressure retention per 90"
+            ],
+            [
+                "B. Tóth\nRank: 11/67\n0.48 Aerials won %",
+                "B. Tóth\nRank: 58/67\n0.46 Linkups per 90",
+                "B. Tóth\nRank: 2/67\n8.94 Long ball receptions per 90",
+                "B. Tóth\nRank: 65/67\n10.36 Losses per 90",
+                "B. Tóth\nRank: 35/67\n0.71 Pressure resistance %",
+                "B. Tóth\nRank: 16/67\n4.24 Under pressure retention per 90"
+            ],
+            [
+                "J. Fameyeh\nRank: 54/67\n0.25 Aerials won %",
+                "J. Fameyeh\nRank: 27/67\n1.17 Linkups per 90",
+                "J. Fameyeh\nRank: 37/67\n3.62 Long ball receptions per 90",
+                "J. Fameyeh\nRank: 7/67\n5.20 Losses per 90",
+                "J. Fameyeh\nRank: 9/67\n0.77 Pressure resistance %",
+                "J. Fameyeh\nRank: 23/67\n3.82 Under pressure retention per 90"
+            ],
+            [
+                "B. Kártik\nRank: 29/67\n0.36 Aerials won %",
+                "B. Kártik\nRank: 64/67\n0.18 Linkups per 90",
+                "B. Kártik\nRank: 66/67\n1.01 Long ball receptions per 90",
+                "B. Kártik\nRank: 54/67\n8.63 Losses per 90",
+                "B. Kártik\nRank: 22/67\n0.73 Pressure resistance %",
+                "B. Kártik\nRank: 1/67\n7.07 Under pressure retention per 90"
+            ],
+            [
+                "E. Ikoba\nRank: 5/67\n0.51 Aerials won %",
+                "E. Ikoba\nRank: 25/67\n1.26 Linkups per 90",
+                "E. Ikoba\nRank: 9/67\n6.61 Long ball receptions per 90",
+                "E. Ikoba\nRank: 67/67\n13.89 Losses per 90",
+                "E. Ikoba\nRank: 66/67\n0.50 Pressure resistance %",
+                "E. Ikoba\nRank: 13/67\n4.42 Under pressure retention per 90"
+            ],
+            [
+                "B. Varga\nRank: 4/67\n0.51 Aerials won %",
+                "B. Varga\nRank: 29/67\n1.13 Linkups per 90",
+                "B. Varga\nRank: 6/67\n7.01 Long ball receptions per 90",
+                "B. Varga\nRank: 5/67\n4.90 Losses per 90",
+                "B. Varga\nRank: 4/67\n0.79 Pressure resistance %",
+                "B. Varga\nRank: 66/67\n1.52 Under pressure retention per 90"
+            ],
+            [
+                "F. Kovačević\nRank: 18/67\n0.44 Aerials won %",
+                "F. Kovačević\nRank: 56/67\n0.50 Linkups per 90",
+                "F. Kovačević\nRank: 46/67\n3.05 Long ball receptions per 90",
+                "F. Kovačević\nRank: 3/67\n4.50 Losses per 90",
+                "F. Kovačević\nRank: 1/67\n0.88 Pressure resistance %",
+                "F. Kovačević\nRank: 56/67\n2.10 Under pressure retention per 90"
+            ],
+            [
+                "M. Tučić\nRank: 32/67\n0.34 Aerials won %",
+                "M. Tučić\nRank: 45/67\n0.80 Linkups per 90",
+                "M. Tučić\nRank: 48/67\n2.99 Long ball receptions per 90",
+                "M. Tučić\nRank: 12/67\n5.50 Losses per 90",
+                "M. Tučić\nRank: 5/67\n0.78 Pressure resistance %",
+                "M. Tučić\nRank: 50/67\n2.50 Under pressure retention per 90"
+            ],
+            [
+                "D. Bárány\nRank: 50/67\n0.26 Aerials won %",
+                "D. Bárány\nRank: 7/67\n2.05 Linkups per 90",
+                "D. Bárány\nRank: 7/67\n6.80 Long ball receptions per 90",
+                "D. Bárány\nRank: 19/67\n5.87 Losses per 90",
+                "D. Bárány\nRank: 52/67\n0.66 Pressure resistance %",
+                "D. Bárány\nRank: 18/67\n4.20 Under pressure retention per 90"
+            ],
+            [
+                "S. Szuhodovszki\nRank: 67/67\n0.16 Aerials won %",
+                "S. Szuhodovszki\nRank: 4/67\n2.30 Linkups per 90",
+                "S. Szuhodovszki\nRank: 51/67\n2.76 Long ball receptions per 90",
+                "S. Szuhodovszki\nRank: 6/67\n5.20 Losses per 90",
+                "S. Szuhodovszki\nRank: 15/67\n0.75 Pressure resistance %",
+                "S. Szuhodovszki\nRank: 44/67\n2.90 Under pressure retention per 90"
+            ],
+            [
+                "M. Šlogar\nRank: 65/67\n0.17 Aerials won %",
+                "M. Šlogar\nRank: 24/67\n1.30 Linkups per 90",
+                "M. Šlogar\nRank: 55/67\n2.64 Long ball receptions per 90",
+                "M. Šlogar\nRank: 64/67\n9.79 Losses per 90",
+                "M. Šlogar\nRank: 65/67\n0.58 Pressure resistance %",
+                "M. Šlogar\nRank: 32/67\n3.24 Under pressure retention per 90"
+            ],
+            [
+                "A. Németh\nRank: 41/67\n0.30 Aerials won %",
+                "A. Németh\nRank: 17/67\n1.51 Linkups per 90",
+                "A. Németh\nRank: 12/67\n6.01 Long ball receptions per 90",
+                "A. Németh\nRank: 48/67\n8.05 Losses per 90",
+                "A. Németh\nRank: 49/67\n0.67 Pressure resistance %",
+                "A. Németh\nRank: 8/67\n4.86 Under pressure retention per 90"
+            ],
+            [
+                "L. Joseph\nRank: 15/67\n0.45 Aerials won %",
+                "L. Joseph\nRank: 14/67\n1.61 Linkups per 90",
+                "L. Joseph\nRank: 8/67\n6.61 Long ball receptions per 90",
+                "L. Joseph\nRank: 49/67\n8.09 Losses per 90",
+                "L. Joseph\nRank: 28/67\n0.72 Pressure resistance %",
+                "L. Joseph\nRank: 29/67\n3.34 Under pressure retention per 90"
+            ],
+            [
+                "M. Tijani\nRank: 2/67\n0.54 Aerials won %",
+                "M. Tijani\nRank: 39/67\n0.88 Linkups per 90",
+                "M. Tijani\nRank: 14/67\n5.79 Long ball receptions per 90",
+                "M. Tijani\nRank: 50/67\n8.15 Losses per 90",
+                "M. Tijani\nRank: 61/67\n0.59 Pressure resistance %",
+                "M. Tijani\nRank: 30/67\n3.28 Under pressure retention per 90"
+            ],
+            [
+                "Á. Bényei\nRank: 37/67\n0.32 Aerials won %",
+                "Á. Bényei\nRank: 65/67\n0.16 Linkups per 90",
+                "Á. Bényei\nRank: 61/67\n1.91 Long ball receptions per 90",
+                "Á. Bényei\nRank: 58/67\n8.81 Losses per 90",
+                "Á. Bényei\nRank: 46/67\n0.68 Pressure resistance %",
+                "Á. Bényei\nRank: 21/67\n3.85 Under pressure retention per 90"
+            ],
+            [
+                "Z. Kerezsi\nRank: 33/67\n0.34 Aerials won %",
+                "Z. Kerezsi\nRank: 50/67\n0.68 Linkups per 90",
+                "Z. Kerezsi\nRank: 43/67\n3.20 Long ball receptions per 90",
+                "Z. Kerezsi\nRank: 55/67\n8.64 Losses per 90",
+                "Z. Kerezsi\nRank: 62/67\n0.59 Pressure resistance %",
+                "Z. Kerezsi\nRank: 31/67\n3.26 Under pressure retention per 90"
+            ],
+            [
+                "M. Matanović\nRank: 34/67\n0.33 Aerials won %",
+                "M. Matanović\nRank: 8/67\n2.02 Linkups per 90",
+                "M. Matanović\nRank: 22/67\n4.92 Long ball receptions per 90",
+                "M. Matanović\nRank: 56/67\n8.64 Losses per 90",
+                "M. Matanović\nRank: 38/67\n0.71 Pressure resistance %",
+                "M. Matanović\nRank: 28/67\n3.53 Under pressure retention per 90"
+            ],
+            [
+                "Á. Szendrei\nRank: 62/67\n0.21 Aerials won %",
+                "Á. Szendrei\nRank: 36/67\n0.93 Linkups per 90",
+                "Á. Szendrei\nRank: 11/67\n6.19 Long ball receptions per 90",
+                "Á. Szendrei\nRank: 61/67\n8.97 Losses per 90",
+                "Á. Szendrei\nRank: 12/67\n0.75 Pressure resistance %",
+                "Á. Szendrei\nRank: 25/67\n3.74 Under pressure retention per 90"
+            ],
+            [
+                "D. Yusuf\nRank: 48/67\n0.28 Aerials won %",
+                "D. Yusuf\nRank: 48/67\n0.73 Linkups per 90",
+                "D. Yusuf\nRank: 19/67\n5.10 Long ball receptions per 90",
+                "D. Yusuf\nRank: 37/67\n7.28 Losses per 90",
+                "D. Yusuf\nRank: 24/67\n0.73 Pressure resistance %",
+                "D. Yusuf\nRank: 42/67\n2.91 Under pressure retention per 90"
+            ],
+            [
+                "João Victor\nRank: 50/67\n0.26 Aerials won %",
+                "João Victor\nRank: 2/67\n2.54 Linkups per 90",
+                "João Victor\nRank: 49/67\n2.99 Long ball receptions per 90",
+                "João Victor\nRank: 41/67\n7.41 Losses per 90",
+                "João Victor\nRank: 55/67\n0.65 Pressure resistance %",
+                "João Victor\nRank: 39/67\n3.11 Under pressure retention per 90"
+            ],
+            [
+                "M. Ubochioma\nRank: 57/67\n0.24 Aerials won %",
+                "M. Ubochioma\nRank: 34/67\n0.99 Linkups per 90",
+                "M. Ubochioma\nRank: 57/67\n2.51 Long ball receptions per 90",
+                "M. Ubochioma\nRank: 66/67\n10.51 Losses per 90",
+                "M. Ubochioma\nRank: 50/67\n0.66 Pressure resistance %",
+                "M. Ubochioma\nRank: 2/67\n6.02 Under pressure retention per 90"
+            ],
+            [
+                "N. Gradišar\nRank: 28/67\n0.37 Aerials won %",
+                "N. Gradišar\nRank: 3/67\n2.43 Linkups per 90",
+                "N. Gradišar\nRank: 18/67\n5.38 Long ball receptions per 90",
+                "N. Gradišar\nRank: 13/67\n5.51 Losses per 90",
+                "N. Gradišar\nRank: 31/67\n0.71 Pressure resistance %",
+                "N. Gradišar\nRank: 34/67\n3.20 Under pressure retention per 90"
+            ],
+            [
+                "B. Trencsényi\nRank: 56/67\n0.24 Aerials won %",
+                "B. Trencsényi\nRank: 67/67\n0.00 Linkups per 90",
+                "B. Trencsényi\nRank: 52/67\n2.74 Long ball receptions per 90",
+                "B. Trencsényi\nRank: 15/67\n5.53 Losses per 90",
+                "B. Trencsényi\nRank: 60/67\n0.60 Pressure resistance %",
+                "B. Trencsényi\nRank: 27/67\n3.69 Under pressure retention per 90"
+            ],
+            [
+                "M. Mucsányi\nRank: 7/67\n0.50 Aerials won %",
+                "M. Mucsányi\nRank: 57/67\n0.48 Linkups per 90",
+                "M. Mucsányi\nRank: 47/67\n3.02 Long ball receptions per 90",
+                "M. Mucsányi\nRank: 23/67\n6.13 Losses per 90",
+                "M. Mucsányi\nRank: 54/67\n0.66 Pressure resistance %",
+                "M. Mucsányi\nRank: 40/67\n3.06 Under pressure retention per 90"
+            ],
+            [
+                "H. Németh\nRank: 40/67\n0.30 Aerials won %",
+                "H. Németh\nRank: 35/67\n0.97 Linkups per 90",
+                "H. Németh\nRank: 65/67\n1.02 Long ball receptions per 90",
+                "H. Németh\nRank: 35/67\n6.97 Losses per 90",
+                "H. Németh\nRank: 6/67\n0.78 Pressure resistance %",
+                "H. Németh\nRank: 7/67\n5.24 Under pressure retention per 90"
+            ],
+            [
+                "A. Benbouali\nRank: 22/67\n0.43 Aerials won %",
+                "A. Benbouali\nRank: 33/67\n1.00 Linkups per 90",
+                "A. Benbouali\nRank: 5/67\n7.10 Long ball receptions per 90",
+                "A. Benbouali\nRank: 18/67\n5.64 Losses per 90",
+                "A. Benbouali\nRank: 42/67\n0.69 Pressure resistance %",
+                "A. Benbouali\nRank: 52/67\n2.29 Under pressure retention per 90"
+            ],
+            [
+                "O. Pishchur\nRank: 1/67\n0.71 Aerials won %",
+                "O. Pishchur\nRank: 28/67\n1.14 Linkups per 90",
+                "O. Pishchur\nRank: 1/67\n9.11 Long ball receptions per 90",
+                "O. Pishchur\nRank: 11/67\n5.50 Losses per 90",
+                "O. Pishchur\nRank: 63/67\n0.59 Pressure resistance %",
+                "O. Pishchur\nRank: 62/67\n1.90 Under pressure retention per 90"
+            ],
+            [
+                "Daniel Lima\nRank: 36/67\n0.33 Aerials won %",
+                "Daniel Lima\nRank: 1/67\n2.75 Linkups per 90",
+                "Daniel Lima\nRank: 20/67\n5.06 Long ball receptions per 90",
+                "Daniel Lima\nRank: 51/67\n8.16 Losses per 90",
+                "Daniel Lima\nRank: 37/67\n0.71 Pressure resistance %",
+                "Daniel Lima\nRank: 19/67\n4.01 Under pressure retention per 90"
+            ],
+            [
+                "Z. Gruber\nRank: 54/67\n0.25 Aerials won %",
+                "Z. Gruber\nRank: 11/67\n1.87 Linkups per 90",
+                "Z. Gruber\nRank: 54/67\n2.66 Long ball receptions per 90",
+                "Z. Gruber\nRank: 30/67\n6.63 Losses per 90",
+                "Z. Gruber\nRank: 31/67\n0.71 Pressure resistance %",
+                "Z. Gruber\nRank: 47/67\n2.70 Under pressure retention per 90"
+            ],
+            [
+                "M. Klausz\nRank: 27/67\n0.38 Aerials won %",
+                "M. Klausz\nRank: 16/67\n1.56 Linkups per 90",
+                "M. Klausz\nRank: 26/67\n4.36 Long ball receptions per 90",
+                "M. Klausz\nRank: 33/67\n6.83 Losses per 90",
+                "M. Klausz\nRank: 14/67\n0.75 Pressure resistance %",
+                "M. Klausz\nRank: 3/67\n5.87 Under pressure retention per 90"
+            ],
+            [
+                "Alegria\nRank: 63/67\n0.20 Aerials won %",
+                "Alegria\nRank: 9/67\n1.90 Linkups per 90",
+                "Alegria\nRank: 42/67\n3.22 Long ball receptions per 90",
+                "Alegria\nRank: 45/67\n7.78 Losses per 90",
+                "Alegria\nRank: 45/67\n0.68 Pressure resistance %",
+                "Alegria\nRank: 5/67\n5.40 Under pressure retention per 90"
+            ],
+            [
+                "K. Mondovics\nRank: 42/67\n0.30 Aerials won %",
+                "K. Mondovics\nRank: 12/67\n1.82 Linkups per 90",
+                "K. Mondovics\nRank: 56/67\n2.64 Long ball receptions per 90",
+                "K. Mondovics\nRank: 21/67\n6.07 Losses per 90",
+                "K. Mondovics\nRank: 59/67\n0.62 Pressure resistance %",
+                "K. Mondovics\nRank: 58/67\n2.02 Under pressure retention per 90"
+            ],
+            [
+                "D. Gilbert\nRank: 16/67\n0.45 Aerials won %",
+                "D. Gilbert\nRank: 60/67\n0.40 Linkups per 90",
+                "D. Gilbert\nRank: 25/67\n4.44 Long ball receptions per 90",
+                "D. Gilbert\nRank: 17/67\n5.64 Losses per 90",
+                "D. Gilbert\nRank: 24/67\n0.73 Pressure resistance %",
+                "D. Gilbert\nRank: 65/67\n1.61 Under pressure retention per 90"
+            ],
+            [
+                "I. Atrok\nRank: 53/67\n0.26 Aerials won %",
+                "I. Atrok\nRank: 20/67\n1.39 Linkups per 90",
+                "I. Atrok\nRank: 50/67\n2.95 Long ball receptions per 90",
+                "I. Atrok\nRank: 40/67\n7.40 Losses per 90",
+                "I. Atrok\nRank: 30/67\n0.72 Pressure resistance %",
+                "I. Atrok\nRank: 14/67\n4.39 Under pressure retention per 90"
+            ],
+            [
+                "A. Pinter\nRank: 45/67\n0.29 Aerials won %",
+                "A. Pinter\nRank: 23/67\n1.30 Linkups per 90",
+                "A. Pinter\nRank: 34/67\n3.68 Long ball receptions per 90",
+                "A. Pinter\nRank: 47/67\n7.81 Losses per 90",
+                "A. Pinter\nRank: 44/67\n0.68 Pressure resistance %",
+                "A. Pinter\nRank: 9/67\n4.84 Under pressure retention per 90"
+            ],
+            [
+                "N. Njie\nRank: 6/67\n0.51 Aerials won %",
+                "N. Njie\nRank: 37/67\n0.92 Linkups per 90",
+                "N. Njie\nRank: 17/67\n5.50 Long ball receptions per 90",
+                "N. Njie\nRank: 34/67\n6.95 Losses per 90",
+                "N. Njie\nRank: 42/67\n0.69 Pressure resistance %",
+                "N. Njie\nRank: 43/67\n2.90 Under pressure retention per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Strikers",
+            "Zsombor Gruber"
+        ],
+        "minutes_played": 1487,
+        "axis_labels": [
+            "Aerials won % | 0.25",
+            "Linkups per 90 | 1.87",
+            "Long ball receptions per 90 | 2.66",
+            "Losses per 90 | 6.63",
+            "Pressure resistance % | 0.71",
+            "Under pressure retention per 90 | 2.70"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            1.0114087634376148,
+            -0.05802453095074491,
+            -0.00461458442944158,
+            0.5742229609281293,
+            -1.832833881787498,
+            -1.2697457007949355,
+            0.023845253174443453,
+            0.5813197003229218,
+            -0.033228253738496825,
+            -1.6676291916041825,
+            -0.2624831420523237,
+            0.3462608955818208,
+            0.2852376047989631,
+            -0.6221350727992239,
+            0.3524812700741477,
+            0.9632896654231384,
+            2.1873518683356576,
+            0.2586227992511075,
+            -0.5539376888549034,
+            0.4377749106983514,
+            -0.5409972523571395,
+            -0.2920544865121638,
+            0.8949580668252008,
+            2.005401671755171,
+            -0.7307041205892705,
+            -1.5753388597247637,
+            1.0024443294252643,
+            -0.7655347083524924,
+            -0.45148257353875243,
+            -1.2397431177455291,
+            -0.7485000868175138,
+            -1.1409526540918773,
+            1.2761408133353764,
+            0.4221579791332391,
+            -0.6555117770533263,
+            -1.0015221605956361,
+            2.0160353753226907,
+            1.1116519585182465,
+            0.15011530830103365,
+            0.968674429866612,
+            0.2166437917230033,
+            -2.2103859784693602,
+            0.5027975936081889,
+            1.3244488278297595,
+            -0.06705943731940629,
+            -1.5976089146573211,
+            -1.6166872057857369,
+            0.5500326822532678,
+            0.3447082460201936,
+            -0.02175532580803765,
+            -0.3864393330851456,
+            -1.1331925020359108,
+            1.4081972597352053,
+            -1.8752438696654985,
+            -0.5214080765268387,
+            -0.17835799428189414,
+            0.9604594577740804,
+            1.579032656825217,
+            1.1181371879892184,
+            -0.2934778102719854,
+            1.3032313742432122,
+            -0.21099867882401604,
+            -0.9303240691759562,
+            0.07890267382279421,
+            -0.20781352741322281,
+            -0.17008960156504743,
+            0.6118287929423256
+        ]
+    },
+    "player_info": {
+        "id": 753770,
+        "name": "Z. Gruber",
+        "full_name": "Zsombor Gruber",
+        "synthesized_name": "Zsombor Gruber",
+        "birth_date": "2004-09-07",
+        "age": 21,
+        "foot": null,
+        "position": "STRIKER",
+        "detailed_position": "STRIKER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/g-266476_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}

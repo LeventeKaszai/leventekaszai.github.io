@@ -1,0 +1,439 @@
+{
+    "plot_type": "distribution",
+    "title": "Budafoki MTE's overall performance",
+    "subtitle": "Budafoki MTE | Hungarian NB II 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Békéscsaba",
+            "Honvéd",
+            "Vasas",
+            "Kecskeméti TE",
+            "BVSC",
+            "Duna Aszfalt Tiszakécskei",
+            "Soroksár SC",
+            "Ajka",
+            "Karcag SE",
+            "Fehérvár",
+            "Szentlőrinc SE",
+            "Mezőkövesd-Zsóry",
+            "Kozármisleny",
+            "Szeged 2011",
+            "Csákvári TK",
+            "Budafoki MTE"
+        ],
+        "target_identifiers": [
+            10192,
+            10194,
+            10196,
+            10207,
+            10212,
+            10220,
+            10226,
+            10235,
+            10249,
+            10260,
+            10261,
+            10273,
+            10274,
+            10427,
+            10437,
+            39600
+        ],
+        "kpis": [
+            {
+                "name": "Points",
+                "description": "Difference between the number of points and the expected points of a team per match.",
+                "display_name": "Points"
+            },
+            {
+                "name": "xPoints",
+                "description": "Number of points that a team should expect to receive statistically from a match based on their and their opponent's expected goals per match.",
+                "display_name": "xPoints"
+            },
+            {
+                "name": "Points - xPoints",
+                "description": "Difference between the number of points and the expected points of a team per match.",
+                "display_name": "Points - xPoints"
+            },
+            {
+                "name": "Goals",
+                "description": "Number of goals that a team scored per match.",
+                "display_name": "Goals"
+            },
+            {
+                "name": "Opp. Goals",
+                "description": "Number of goals that the opposing team scored per match.",
+                "display_name": "Opp. Goals"
+            },
+            {
+                "name": "xG",
+                "description": "Number of goals that a team should be expected to score statistically considering the quality of their chances per match.",
+                "display_name": "xG"
+            },
+            {
+                "name": "Opp. xG",
+                "description": "Number of goals that the opposing team should be expected to score statistically considering the quality of their chances per match. ",
+                "display_name": "Opp. xG"
+            },
+            {
+                "name": "Field tilt %",
+                "description": "Percentage of possession that a team had in the final third compared to their opponents per match.",
+                "display_name": "Field tilt %"
+            }
+        ],
+        "focal_target_indices": [
+            15
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -1.3770874561397783,
+                -0.970358597767757,
+                -0.9106540106301817,
+                -1.206484338251648,
+                -0.2328250903633356,
+                -1.0989358889235674,
+                -0.25362164929824355,
+                0.02431936991565132
+            ],
+            [
+                1.9127293171722615,
+                1.9326265868730672,
+                0.2010949587697797,
+                1.6646610550440573,
+                1.4509918405093505,
+                1.9338128754007093,
+                1.524517492278463,
+                1.2728557629018868
+            ],
+            [
+                2.117323203087928,
+                2.2292973215605496,
+                0.058993578556100726,
+                2.3770060946845657,
+                1.4380273665958214,
+                2.0413097256032526,
+                1.886426851788059,
+                2.054496716398422
+            ],
+            [
+                0.9756162504335395,
+                1.1211251266557296,
+                -0.14364071942674608,
+                1.173394166268471,
+                -0.1304424684784754,
+                1.3730170560111021,
+                1.0576662997375705,
+                1.7165094941484724
+            ],
+            [
+                0.11106850283732025,
+                -0.474760542084266,
+                1.0793690278457138,
+                -0.15708909216403638,
+                1.4268510959807097,
+                -1.011589681767204,
+                0.6277633006288481,
+                -0.7154557893807032
+            ],
+            [
+                -0.257427258433199,
+                -0.06265877918429702,
+                -0.3862085466003995,
+                -0.3482289405585656,
+                -0.9117835302313541,
+                0.5256166918268561,
+                -0.932101601838982,
+                1.087700608746569
+            ],
+            [
+                -0.9767026386054635,
+                -0.3320051890323817,
+                -1.29383511526403,
+                0.19520788330823327,
+                -1.2243199549325052,
+                -0.5347788990307286,
+                -0.3427657653415001,
+                -0.9678175124411603
+            ],
+            [
+                -0.9643722035167962,
+                -1.4903900178895164,
+                0.8371600721253243,
+                -1.6220448557023421,
+                -0.6492529334823867,
+                -1.2110043896497569,
+                -2.0938830312724748,
+                -0.467095411763141
+            ],
+            [
+                -0.4841938807535192,
+                -0.1959708726193823,
+                -0.5843290315241737,
+                -0.8916657644253645,
+                -0.38370474366734003,
+                -0.11159205359910786,
+                -0.1157677636191319,
+                -1.0572829319521229
+            ],
+            [
+                -0.05192000695540926,
+                0.16229302814591867,
+                -0.3960825437042465,
+                0.08652051853487322,
+                0.8071668056249783,
+                -0.1981090246115815,
+                0.5837673796674296,
+                -0.4341225760916457
+            ],
+            [
+                -0.4401003708579011,
+                -0.8843461397728196,
+                0.753460758520804,
+                -0.2153888280577924,
+                -0.34458779651445004,
+                -0.9988133026613505,
+                -0.3959837589771074,
+                -0.811447048875608
+            ],
+            [
+                0.25634087026127506,
+                -0.26515268036712175,
+                0.9803683834670879,
+                -0.23954157578520627,
+                0.8071668056249783,
+                -0.35728287680294657,
+                0.1417655022943177,
+                -0.03253034675933856
+            ],
+            [
+                0.56460174747796,
+                -0.4714827113208259,
+                1.9546222740017536,
+                -0.13085421101184622,
+                -0.28671068082905155,
+                -0.3687342330757073,
+                -0.5949042933275361,
+                -1.0999202194583662
+            ],
+            [
+                -0.33354105527682504,
+                0.7150586952669771,
+                -1.9487222509339648,
+                -0.666240118969507,
+                0.4656918230811283,
+                0.38943037704229083,
+                0.6893032740230299,
+                0.6516638217327406
+            ],
+            [
+                0.35909449600017024,
+                -0.0754931220845849,
+                0.8350386388802867,
+                0.5212699776283121,
+                0.02582574387209972,
+                0.2691063113170299,
+                -0.5584505302452172,
+                -0.6983279901260591
+            ],
+            [
+                -1.4114295167315578,
+                -0.9377821063792865,
+                -1.036635474083109,
+                -0.5405219705422021,
+                -2.25809428279016,
+                -0.6414526870792856,
+                -1.223731706497531,
+                -0.5235459469956012
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Békéscsaba\nRank: 15/16\n0.90 Points",
+                "Békéscsaba\nRank: 15/16\n1.06 xPoints",
+                "Békéscsaba\nRank: 13/16\n-0.17 Points - xPoints",
+                "Békéscsaba\nRank: 15/16\n0.90 Goals",
+                "Békéscsaba\nRank: 9/16\n1.34 Opp. Goals",
+                "Békéscsaba\nRank: 15/16\n0.99 xG",
+                "Békéscsaba\nRank: 9/16\n1.39 Opp. xG",
+                "Békéscsaba\nRank: 6/16\n50% Field tilt "
+            ],
+            [
+                "Honvéd\nRank: 2/16\n2.04 Points",
+                "Honvéd\nRank: 2/16\n2.01 xPoints",
+                "Honvéd\nRank: 7/16\n0.03 Points - xPoints",
+                "Honvéd\nRank: 2/16\n1.84 Goals",
+                "Honvéd\nRank: 1/16\n0.96 Opp. Goals",
+                "Honvéd\nRank: 2/16\n1.93 xG",
+                "Honvéd\nRank: 2/16\n0.97 Opp. xG",
+                "Honvéd\nRank: 3/16\n59% Field tilt "
+            ],
+            [
+                "Vasas\nRank: 1/16\n2.11 Points",
+                "Vasas\nRank: 1/16\n2.10 xPoints",
+                "Vasas\nRank: 8/16\n0.01 Points - xPoints",
+                "Vasas\nRank: 1/16\n2.07 Goals",
+                "Vasas\nRank: 2/16\n0.96 Opp. Goals",
+                "Vasas\nRank: 1/16\n1.97 xG",
+                "Vasas\nRank: 1/16\n0.88 Opp. xG",
+                "Vasas\nRank: 1/16\n64% Field tilt "
+            ],
+            [
+                "Kecskeméti TE\nRank: 3/16\n1.71 Points",
+                "Kecskeméti TE\nRank: 3/16\n1.74 xPoints",
+                "Kecskeméti TE\nRank: 9/16\n-0.03 Points - xPoints",
+                "Kecskeméti TE\nRank: 3/16\n1.68 Goals",
+                "Kecskeméti TE\nRank: 8/16\n1.32 Opp. Goals",
+                "Kecskeméti TE\nRank: 3/16\n1.76 xG",
+                "Kecskeméti TE\nRank: 3/16\n1.08 Opp. xG",
+                "Kecskeméti TE\nRank: 2/16\n62% Field tilt "
+            ],
+            [
+                "BVSC\nRank: 7/16\n1.41 Points",
+                "BVSC\nRank: 12/16\n1.22 xPoints",
+                "BVSC\nRank: 2/16\n0.19 Points - xPoints",
+                "BVSC\nRank: 8/16\n1.24 Goals",
+                "BVSC\nRank: 3/16\n0.97 Opp. Goals",
+                "BVSC\nRank: 14/16\n1.01 xG",
+                "BVSC\nRank: 5/16\n1.18 Opp. xG",
+                "BVSC\nRank: 12/16\n45% Field tilt "
+            ],
+            [
+                "Duna Aszfalt Tiszakécskei\nRank: 9/16\n1.29 Points",
+                "Duna Aszfalt Tiszakécskei\nRank: 6/16\n1.36 xPoints",
+                "Duna Aszfalt Tiszakécskei\nRank: 10/16\n-0.07 Points - xPoints",
+                "Duna Aszfalt Tiszakécskei\nRank: 11/16\n1.18 Goals",
+                "Duna Aszfalt Tiszakécskei\nRank: 14/16\n1.50 Opp. Goals",
+                "Duna Aszfalt Tiszakécskei\nRank: 4/16\n1.49 xG",
+                "Duna Aszfalt Tiszakécskei\nRank: 14/16\n1.55 Opp. xG",
+                "Duna Aszfalt Tiszakécskei\nRank: 4/16\n57% Field tilt "
+            ],
+            [
+                "Soroksár SC\nRank: 14/16\n1.04 Points",
+                "Soroksár SC\nRank: 10/16\n1.27 xPoints",
+                "Soroksár SC\nRank: 15/16\n-0.23 Points - xPoints",
+                "Soroksár SC\nRank: 5/16\n1.36 Goals",
+                "Soroksár SC\nRank: 15/16\n1.57 Opp. Goals",
+                "Soroksár SC\nRank: 11/16\n1.16 xG",
+                "Soroksár SC\nRank: 10/16\n1.41 Opp. xG",
+                "Soroksár SC\nRank: 14/16\n44% Field tilt "
+            ],
+            [
+                "Ajka\nRank: 13/16\n1.04 Points",
+                "Ajka\nRank: 16/16\n0.89 xPoints",
+                "Ajka\nRank: 4/16\n0.15 Points - xPoints",
+                "Ajka\nRank: 16/16\n0.76 Goals",
+                "Ajka\nRank: 13/16\n1.44 Opp. Goals",
+                "Ajka\nRank: 16/16\n0.95 xG",
+                "Ajka\nRank: 16/16\n1.82 Opp. xG",
+                "Ajka\nRank: 9/16\n47% Field tilt "
+            ],
+            [
+                "Karcag SE\nRank: 12/16\n1.21 Points",
+                "Karcag SE\nRank: 8/16\n1.31 xPoints",
+                "Karcag SE\nRank: 12/16\n-0.11 Points - xPoints",
+                "Karcag SE\nRank: 14/16\n1.00 Goals",
+                "Karcag SE\nRank: 12/16\n1.38 Opp. Goals",
+                "Karcag SE\nRank: 7/16\n1.29 xG",
+                "Karcag SE\nRank: 8/16\n1.35 Opp. xG",
+                "Karcag SE\nRank: 15/16\n43% Field tilt "
+            ],
+            [
+                "Fehérvár\nRank: 8/16\n1.36 Points",
+                "Fehérvár\nRank: 5/16\n1.43 xPoints",
+                "Fehérvár\nRank: 11/16\n-0.07 Points - xPoints",
+                "Fehérvár\nRank: 6/16\n1.32 Goals",
+                "Fehérvár\nRank: 4/16\n1.11 Opp. Goals",
+                "Fehérvár\nRank: 8/16\n1.27 xG",
+                "Fehérvár\nRank: 6/16\n1.19 Opp. xG",
+                "Fehérvár\nRank: 8/16\n47% Field tilt "
+            ],
+            [
+                "Szentlőrinc SE\nRank: 11/16\n1.22 Points",
+                "Szentlőrinc SE\nRank: 13/16\n1.09 xPoints",
+                "Szentlőrinc SE\nRank: 6/16\n0.13 Points - xPoints",
+                "Szentlőrinc SE\nRank: 9/16\n1.22 Goals",
+                "Szentlőrinc SE\nRank: 11/16\n1.37 Opp. Goals",
+                "Szentlőrinc SE\nRank: 13/16\n1.02 xG",
+                "Szentlőrinc SE\nRank: 11/16\n1.42 Opp. xG",
+                "Szentlőrinc SE\nRank: 13/16\n45% Field tilt "
+            ],
+            [
+                "Mezőkövesd-Zsóry\nRank: 6/16\n1.46 Points",
+                "Mezőkövesd-Zsóry\nRank: 9/16\n1.29 xPoints",
+                "Mezőkövesd-Zsóry\nRank: 3/16\n0.17 Points - xPoints",
+                "Mezőkövesd-Zsóry\nRank: 10/16\n1.21 Goals",
+                "Mezőkövesd-Zsóry\nRank: 4/16\n1.11 Opp. Goals",
+                "Mezőkövesd-Zsóry\nRank: 9/16\n1.22 xG",
+                "Mezőkövesd-Zsóry\nRank: 7/16\n1.29 Opp. xG",
+                "Mezőkövesd-Zsóry\nRank: 7/16\n50% Field tilt "
+            ],
+            [
+                "Kozármisleny\nRank: 4/16\n1.57 Points",
+                "Kozármisleny\nRank: 11/16\n1.22 xPoints",
+                "Kozármisleny\nRank: 1/16\n0.35 Points - xPoints",
+                "Kozármisleny\nRank: 7/16\n1.25 Goals",
+                "Kozármisleny\nRank: 10/16\n1.36 Opp. Goals",
+                "Kozármisleny\nRank: 10/16\n1.21 xG",
+                "Kozármisleny\nRank: 13/16\n1.47 Opp. xG",
+                "Kozármisleny\nRank: 16/16\n43% Field tilt "
+            ],
+            [
+                "Szeged 2011\nRank: 10/16\n1.26 Points",
+                "Szeged 2011\nRank: 4/16\n1.61 xPoints",
+                "Szeged 2011\nRank: 16/16\n-0.35 Points - xPoints",
+                "Szeged 2011\nRank: 13/16\n1.07 Goals",
+                "Szeged 2011\nRank: 6/16\n1.19 Opp. Goals",
+                "Szeged 2011\nRank: 5/16\n1.45 xG",
+                "Szeged 2011\nRank: 4/16\n1.17 Opp. xG",
+                "Szeged 2011\nRank: 5/16\n54% Field tilt "
+            ],
+            [
+                "Csákvári TK\nRank: 5/16\n1.50 Points",
+                "Csákvári TK\nRank: 7/16\n1.35 xPoints",
+                "Csákvári TK\nRank: 5/16\n0.15 Points - xPoints",
+                "Csákvári TK\nRank: 4/16\n1.46 Goals",
+                "Csákvári TK\nRank: 7/16\n1.29 Opp. Goals",
+                "Csákvári TK\nRank: 6/16\n1.41 xG",
+                "Csákvári TK\nRank: 12/16\n1.46 Opp. xG",
+                "Csákvári TK\nRank: 11/16\n45% Field tilt "
+            ],
+            [
+                "Budafoki MTE\nRank: 16/16\n0.88 Points",
+                "Budafoki MTE\nRank: 14/16\n1.07 xPoints",
+                "Budafoki MTE\nRank: 14/16\n-0.19 Points - xPoints",
+                "Budafoki MTE\nRank: 12/16\n1.12 Goals",
+                "Budafoki MTE\nRank: 16/16\n1.81 Opp. Goals",
+                "Budafoki MTE\nRank: 12/16\n1.13 xG",
+                "Budafoki MTE\nRank: 15/16\n1.61 Opp. xG",
+                "Budafoki MTE\nRank: 10/16\n47% Field tilt "
+            ]
+        ],
+        "serie_names": [
+            "Other NB II teams",
+            "Budafoki MTE"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Points | 0.88",
+            "xPoints | 1.07",
+            "Points - xPoints | -0.19",
+            "Goals | 1.12",
+            "Opp. Goals | 1.81",
+            "xG | 1.13",
+            "Opp. xG | 1.61",
+            "Field tilt % | 47"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

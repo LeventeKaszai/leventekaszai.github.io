@@ -1,0 +1,232 @@
+---
+title: "Team Analytics – Labdarúgás"
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: ../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <script>
+        (function() {
+          if (sessionStorage.getItem("analytics_auth") !== "ok") {
+            var pwd = prompt("Jelszó:");
+            if (pwd === "magyarsport") {
+              sessionStorage.setItem("analytics_auth", "ok");
+            } else {
+              document.documentElement.innerHTML = "";
+              window.location.replace("../index.html");
+            }
+          }
+        })();
+        </script>
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(htmltools)
+library(crosstalk)
+
+db_path <- file.path(dirname(knitr::current_input(dir = TRUE)), "futball.db")
+con     <- dbConnect(SQLite(), db_path)
+ts      <- dbGetQuery(con, "SELECT team, liga, quality, kpi, value FROM team_stats WHERE liga IN ('NB1','NB2')")
+dbDisconnect(con)
+
+quality_order_tbl <- c(
+  "overallperformance", "attack", "chancecreation", "oppositionchancecreation",
+  "attackingtransition", "defensivetransition", "defence",
+  "styleofplayinattack", "styleofplayinchancecreation",
+  "styleofplayinattackingtransition", "styleofplayindefence",
+  "styleofplayindefensivetransition"
+)
+
+quality_labels <- c(
+  "overallperformance"               = "Összteljesítmény",
+  "attack"                           = "Támadás",
+  "chancecreation"                   = "Gólhelyzet-teremtés",
+  "oppositionchancecreation"         = "Ellenfél helyzet-teremtése",
+  "attackingtransition"              = "Támadó átmenet",
+  "defensivetransition"              = "Védelmi átmenet",
+  "defence"                          = "Védekezés",
+  "styleofplayinattack"              = "Stílus: támadás",
+  "styleofplayinchancecreation"      = "Stílus: helyzet-teremtés",
+  "styleofplayinattackingtransition" = "Stílus: tám. átmenet",
+  "styleofplayindefence"             = "Stílus: védekezés",
+  "styleofplayindefensivetransition" = "Stílus: véd. átmenet"
+)
+
+# KPI-sorrend: quality-csoport szerint, azon belül abc; duplikáltak egyszer szerepelnek
+kpi_order_tbl <- ts |>
+  mutate(quality = factor(quality, levels = quality_order_tbl)) |>
+  arrange(quality, kpi) |>
+  distinct(kpi) |>
+  pull(kpi)
+
+# Deduplicálás (egyes KPI-k több quality-csoportban is szerepelnek)
+ts_dedup <- ts |> distinct(team, liga, kpi, .keep_all = TRUE)
+
+# Percentilis: mindkét liga 28 csapata együtt
+ts_pct <- ts_dedup |>
+  group_by(kpi) |>
+  mutate(pct = rank(value, ties.method = "average") / n()) |>
+  ungroup()
+
+wide <- ts_pct |>
+  select(team, liga, kpi, value) |>
+  pivot_wider(names_from = kpi, values_from = value) |>
+  select(team, liga, all_of(kpi_order_tbl)) |>
+  arrange(liga, team)
+
+wide_pct <- ts_pct |>
+  select(team, liga, kpi, pct) |>
+  pivot_wider(names_from = kpi, values_from = pct, names_prefix = "pct__") |>
+  select(team, liga, all_of(paste0("pct__", kpi_order_tbl))) |>
+  arrange(liga, team)
+
+tbl    <- wide |> left_join(wide_pct, by = c("team", "liga"))
+sd_tbl <- SharedData$new(tbl)
+
+bg_colors <- c(
+  "#F9C8C5","#FBD5C0","#FCE5C0","#FEF2D0","#FEFEE8",
+  "#F0F9D5","#DBEFBD","#C2E2BB","#A5D5A8","#87C893"
+)
+breaks <- seq(0.1, 0.9, by = 0.1)
+
+n_fixed   <- 2L
+n_stat    <- length(kpi_order_tbl)
+stat_end  <- n_fixed + n_stat - 1L
+pct_start <- n_fixed + n_stat
+pct_end   <- n_fixed + 2L * n_stat - 1L
+
+# quality-csoportok fejléce (dedup utáni KPI-k alapján)
+quality_group_cols <- ts |>
+  mutate(quality = factor(quality, levels = quality_order_tbl)) |>
+  arrange(quality, kpi) |>
+  distinct(kpi, .keep_all = TRUE) |>
+  select(quality, kpi)
+
+col_groups_tbl <- quality_group_cols |>
+  group_by(quality) |>
+  summarise(n = n(), .groups = "drop") |>
+  mutate(label = quality_labels[quality])
+
+group_bg <- c(
+  overallperformance               = "#EFF6FF",
+  attack                           = "#DBEAFE",
+  chancecreation                   = "#DBEAFE",
+  oppositionchancecreation         = "#FEF2F2",
+  attackingtransition              = "#F0FDF4",
+  defensivetransition              = "#F0FDF4",
+  defence                          = "#FEF2F2",
+  styleofplayinattack              = "#FFFBEB",
+  styleofplayinchancecreation      = "#FFFBEB",
+  styleofplayinattackingtransition = "#F0FDF4",
+  styleofplayindefence             = "#FFF7ED",
+  styleofplayindefensivetransition = "#FFF7ED"
+)
+group_fg <- c(
+  overallperformance               = "#1E40AF",
+  attack                           = "#1D4ED8",
+  chancecreation                   = "#1D4ED8",
+  oppositionchancecreation         = "#B91C1C",
+  attackingtransition              = "#15803D",
+  defensivetransition              = "#15803D",
+  defence                          = "#B91C1C",
+  styleofplayinattack              = "#B45309",
+  styleofplayinchancecreation      = "#B45309",
+  styleofplayinattackingtransition = "#166534",
+  styleofplayindefence             = "#C2410C",
+  styleofplayindefensivetransition = "#C2410C"
+)
+```
+
+```{r render}
+row1_ths <- c(
+  list(
+    tags$th(rowspan = "2", "Csapat"),
+    tags$th(rowspan = "2", "Liga")
+  ),
+  lapply(seq_len(nrow(col_groups_tbl)), function(i) {
+    q <- col_groups_tbl$quality[i]
+    tags$th(
+      colspan = as.character(col_groups_tbl$n[i]),
+      style   = paste0(
+        "text-align:center;background:", group_bg[q],
+        ";color:", group_fg[q],
+        ";font-size:10px;letter-spacing:.04em;"
+      ),
+      toupper(col_groups_tbl$label[i])
+    )
+  }),
+  lapply(paste0("pct__", kpi_order_tbl), function(p)
+    tags$th(rowspan = "2", style = "display:none;", p))
+)
+
+row2_ths <- lapply(kpi_order_tbl, function(k)
+  tags$th(style = "font-size:10px;white-space:nowrap;", k))
+
+cat_sketch <- tags$table(
+  class = "display",
+  tags$thead(
+    do.call(tags$tr, row1_ths),
+    do.call(tags$tr, row2_ths)
+  )
+)
+
+dt_base <- DT::datatable(
+  sd_tbl,
+  container  = cat_sketch,
+  rownames   = FALSE,
+  escape     = FALSE,
+  selection  = "none",
+  options    = list(
+    dom        = "ft",
+    pageLength = 500,
+    ordering   = TRUE,
+    scrollX    = TRUE,
+    language   = list(search = "Keresés:"),
+    columnDefs = list(
+      list(visible    = FALSE,      targets = seq(pct_start, pct_end)),
+      list(className = "dt-center", targets = seq(1L, stat_end)),
+      list(className = "dt-left",   targets = 0L),
+      list(render = DT::JS(
+        "function(data, type, row) {",
+        "  if(type === 'display' && data !== null && data !== undefined)",
+        "    return parseFloat(data).toFixed(2);",
+        "  return data;",
+        "}"
+      ), targets = seq(n_fixed, stat_end))
+    )
+  )
+)
+
+dt_styled <- Reduce(function(d, kpi_name) {
+  d |> formatStyle(
+    columns         = kpi_name,
+    valueColumns    = paste0("pct__", kpi_name),
+    backgroundColor = styleInterval(breaks, bg_colors)
+  )
+}, kpi_order_tbl, dt_base)
+
+tagList(
+  tags$div(
+    style = "margin-bottom:12px;",
+    filter_select("liga_sel", "Liga", sd_tbl, ~liga, multiple = TRUE)
+  ),
+  dt_styled,
+  tags$p(
+    style = "font-size:11px;color:#9CA3AF;margin-top:8px;font-family:Montserrat,sans-serif;",
+    "Percentilis: mindkét liga összes csapata alapján (28 csapat). 2025\u201326-os szezon."
+  )
+)
+```

@@ -1,0 +1,67 @@
+{
+    "plot_type": "ranking-bar",
+    "title": "Újpest performance in high opportunity shots",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Győri ETO",
+            "Paksi FC",
+            "MTK",
+            "Puskás FC",
+            "Nyíregyháza Spartacus",
+            "Zalaegerszegi TE",
+            "Debrecen",
+            "Diósgyőr",
+            "Újpest",
+            "Kazincbarcika",
+            "Várda SE"
+        ],
+        "target_icons": [
+            "https://cdn5.wyscout.com/photos/team/public/1108_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/352_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/360_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/349_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g22345_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/356_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/354_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/350_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/362_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/351_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/3553_120x120.png",
+            "https://cdn5.wyscout.com/photos/team/public/g11938_120x120.png"
+        ],
+        "focal_target_indices": [
+            9
+        ],
+        "plot_values": [
+            4.545454545454546,
+            4.2727272727272725,
+            4,
+            3.3333333333333335,
+            3.090909090909091,
+            3,
+            2.9393939393939394,
+            2.90625,
+            2.787878787878788,
+            2.757575757575758,
+            2.515151515151515,
+            2.375
+        ],
+        "hover_strings": [
+            "<b>Ferencváros</b><br/>Rank: 1/12<br/>High opportunity shots: 4.55",
+            "<b>Győri ETO</b><br/>Rank: 2/12<br/>High opportunity shots: 4.27",
+            "<b>Paksi FC</b><br/>Rank: 3/12<br/>High opportunity shots: 4.00",
+            "<b>MTK</b><br/>Rank: 4/12<br/>High opportunity shots: 3.33",
+            "<b>Puskás FC</b><br/>Rank: 5/12<br/>High opportunity shots: 3.09",
+            "<b>Nyíregyháza Spartacus</b><br/>Rank: 6/12<br/>High opportunity shots: 3.00",
+            "<b>Zalaegerszegi TE</b><br/>Rank: 7/12<br/>High opportunity shots: 2.94",
+            "<b>Debrecen</b><br/>Rank: 8/12<br/>High opportunity shots: 2.91",
+            "<b>Diósgyőr</b><br/>Rank: 9/12<br/>High opportunity shots: 2.79",
+            "<b>Újpest</b><br/>Rank: 10/12<br/>High opportunity shots: 2.76",
+            "<b>Kazincbarcika</b><br/>Rank: 11/12<br/>High opportunity shots: 2.52",
+            "<b>Várda SE</b><br/>Rank: 12/12<br/>High opportunity shots: 2.38"
+        ]
+    }
+}

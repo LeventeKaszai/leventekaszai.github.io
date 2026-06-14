@@ -1,0 +1,381 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's performance in defensive transition",
+    "subtitle": "Újpest | Hungarian NB I 2025/2026",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Diósgyőr",
+            "Nyíregyháza Spartacus",
+            "Kazincbarcika",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10197,
+            10198,
+            10234,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Turnovers",
+                "description": "Number of times that a team lost the possession of the ball in open play per match.",
+                "display_name": "Turnovers"
+            },
+            {
+                "name": "Turnover line height (m)",
+                "description": "Average height on the pitch that a team lost the possession of the ball in open play per match.",
+                "display_name": "Turnover line height (m)"
+            },
+            {
+                "name": "Recoveries within 5s %",
+                "description": "Percentage of ball recoveries made by a team within 5 seconds after losing the possession of the ball in open play per match.",
+                "display_name": "Recoveries within 5s %"
+            },
+            {
+                "name": "Time to defensive action (s)",
+                "description": "Average time that it took a team to make a defensive action after losing the possession of the ball in open play per match. ",
+                "display_name": "Time to defensive action (s)"
+            },
+            {
+                "name": "Time to recovery (s)",
+                "description": "Average time that it took a team to recover the possession of the ball after losing it in open play per match. ",
+                "display_name": "Time to recovery (s)"
+            },
+            {
+                "name": "Opp. Possessions to final third within 10s after recovery",
+                "description": "Number of possessions of the opposing team that successfully reached the final third within 10 seconds after an open play ball recovery per match.",
+                "display_name": "Opp. Possessions to final third within 10s after recovery"
+            },
+            {
+                "name": "Opp. Possessions to box within 10s after recovery",
+                "description": "Number of possessions of the opposing team that entered the penalty area following an open play ball recovery per matcb.",
+                "display_name": "Opp. Possessions to box within 10s after recovery"
+            },
+            {
+                "name": "Opp. xT within 10s after recovery",
+                "description": "Expected offensive contribution by the opposing team considering the quality of their actions within 10 seconds after an open play ball recovery per match.",
+                "display_name": "Opp. xT within 10s after recovery"
+            },
+            {
+                "name": "Opp. xG within 10s after recovery",
+                "description": "Number of goals that the opposing team should be expected to score statistically considering the quality of their chances from attacks following an open play ball recovery per match.",
+                "display_name": "Opp. xG within 10s after recovery"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                1.4791935614651042,
+                0.8647854359224103,
+                0.8197920546617166,
+                -0.23057160149999217,
+                0.7226499311315494,
+                0.6877989239766413,
+                1.7720591895646292,
+                1.8528231811382139,
+                1.739566797837804
+            ],
+            [
+                -0.5817224101215226,
+                -0.35022377725630677,
+                -0.4226994795200063,
+                0.003749768403671291,
+                -0.3288454160957184,
+                -1.3285703671077655,
+                -0.1850203571465225,
+                -0.3277409834739377,
+                -0.043838290520980615
+            ],
+            [
+                -1.5483467153789683,
+                -0.6877431163150459,
+                -0.8903038203410849,
+                -2.557218423828117,
+                -1.727348483311249,
+                -1.0707118204491732,
+                -0.2533099413296354,
+                -0.7108841595679873,
+                1.0455202099863814
+            ],
+            [
+                0.020138006359527446,
+                -0.68889373408147,
+                0.27826169424416336,
+                0.7311587268600572,
+                0.8743439575999139,
+                -0.8678067345538872,
+                -0.8396010055358691,
+                -0.6724044996699579,
+                0.2401642637059577
+            ],
+            [
+                -0.7641043545097205,
+                -1.3669527838358142,
+                0.9052968484118559,
+                0.19080092099003593,
+                -0.19599279212723544,
+                -0.4619965627633131,
+                -0.8396010055358691,
+                -1.1582102058825778,
+                -0.5782869012131722
+            ],
+            [
+                1.0232387004946115,
+                1.3142167354880767,
+                1.9598559713302501,
+                1.6815204952098688,
+                2.018835474841637,
+                1.4656017532419054,
+                0.279681935221487,
+                0.9822208759453023,
+                0.7705206185735538
+            ],
+            [
+                0.7861421727899551,
+                -0.6587475486011314,
+                -0.7762974286742308,
+                0.8046709627470913,
+                -0.8722629887697727,
+                -0.292908991183909,
+                -0.6797034425705327,
+                -0.7493638194660152,
+                -1.90745159304184
+            ],
+            [
+                0.3849018951359232,
+                0.6726322689294144,
+                -0.29177026409010465,
+                -0.2752873810178648,
+                -0.35023118804635883,
+                0.3496237808178312,
+                0.013185996945926181,
+                0.7032433416845884,
+                -0.13304946749716562
+            ],
+            [
+                -0.9829626877755545,
+                -1.3835216796723349,
+                -1.7453517578424844,
+                -0.7603205004308468,
+                -0.2748069028603373,
+                -0.360544019815671,
+                -1.6923880080176654,
+                -1.2640292706021572,
+                -1.0759052094840036
+            ],
+            [
+                -1.4571557431848672,
+                1.8570781976874668,
+                0.6772840650781502,
+                0.7607148363002897,
+                0.8095158776841916,
+                -0.360544019815671,
+                -0.09341237836429814,
+                -0.2539381982788878,
+                -0.8336436646679413
+            ],
+            [
+                0.47153331872031495,
+                -0.13675901182080008,
+                0.547245524583145,
+                -0.3588885729194391,
+                0.5743724007495815,
+                -0.00334652485417731,
+                0.6394514518934945,
+                0.024438091295916467,
+                -0.34768828549720776
+            ],
+            [
+                1.169144256005169,
+                0.564129013555524,
+                -1.0613134078413649,
+                0.009670769185254334,
+                -1.2502298707962016,
+                2.2434045825071696,
+                1.8786575648748534,
+                1.5738456468775,
+                1.1240915218186178
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\nRank: 1/12\n30.58 Turnovers",
+                "Ferencváros\nRank: 3/12\n64.26 Turnover line height (m)",
+                "Ferencváros\nRank: 3/12\n12% Recoveries within 5s ",
+                "Ferencváros\nRank: 8/12\n6.15 Time to defensive action (s)",
+                "Ferencváros\nRank: 4/12\n9.28 Time to recovery (s)",
+                "Ferencváros\nRank: 3/12\n9.82 Opp. Possessions to final third within 10s after recovery",
+                "Ferencváros\nRank: 2/12\n2.61 Opp. Possessions to box within 10s after recovery",
+                "Ferencváros\nRank: 1/12\n0.51 Opp. xT within 10s after recovery",
+                "Ferencváros\nRank: 1/12\n0.11 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Debrecen\nRank: 8/12\n34.00 Turnovers",
+                "Debrecen\nRank: 7/12\n61.06 Turnover line height (m)",
+                "Debrecen\nRank: 8/12\n10% Recoveries within 5s ",
+                "Debrecen\nRank: 7/12\n6.06 Time to defensive action (s)",
+                "Debrecen\nRank: 8/12\n10.04 Time to recovery (s)",
+                "Debrecen\nRank: 12/12\n11.62 Opp. Possessions to final third within 10s after recovery",
+                "Debrecen\nRank: 7/12\n3.72 Opp. Possessions to box within 10s after recovery",
+                "Debrecen\nRank: 7/12\n0.64 Opp. xT within 10s after recovery",
+                "Debrecen\nRank: 6/12\n0.19 Opp. xG within 10s after recovery"
+            ],
+            [
+                "MTK\nRank: 12/12\n35.61 Turnovers",
+                "MTK\nRank: 9/12\n60.17 Turnover line height (m)",
+                "MTK\nRank: 10/12\n10% Recoveries within 5s ",
+                "MTK\nRank: 12/12\n7.08 Time to defensive action (s)",
+                "MTK\nRank: 12/12\n11.04 Time to recovery (s)",
+                "MTK\nRank: 11/12\n11.39 Opp. Possessions to final third within 10s after recovery",
+                "MTK\nRank: 8/12\n3.76 Opp. Possessions to box within 10s after recovery",
+                "MTK\nRank: 9/12\n0.67 Opp. xT within 10s after recovery",
+                "MTK\nRank: 3/12\n0.14 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Újpest\nRank: 7/12\n33.00 Turnovers",
+                "Újpest\nRank: 10/12\n60.17 Turnover line height (m)",
+                "Újpest\nRank: 6/12\n11% Recoveries within 5s ",
+                "Újpest\nRank: 4/12\n5.77 Time to defensive action (s)",
+                "Újpest\nRank: 2/12\n9.17 Time to recovery (s)",
+                "Újpest\nRank: 10/12\n11.21 Opp. Possessions to final third within 10s after recovery",
+                "Újpest\nRank: 10/12\n4.09 Opp. Possessions to box within 10s after recovery",
+                "Újpest\nRank: 8/12\n0.67 Opp. xT within 10s after recovery",
+                "Újpest\nRank: 5/12\n0.18 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Zalaegerszegi TE\nRank: 9/12\n34.30 Turnovers",
+                "Zalaegerszegi TE\nRank: 11/12\n58.39 Turnover line height (m)",
+                "Zalaegerszegi TE\nRank: 2/12\n12% Recoveries within 5s ",
+                "Zalaegerszegi TE\nRank: 5/12\n5.98 Time to defensive action (s)",
+                "Zalaegerszegi TE\nRank: 6/12\n9.94 Time to recovery (s)",
+                "Zalaegerszegi TE\nRank: 9/12\n10.85 Opp. Possessions to final third within 10s after recovery",
+                "Zalaegerszegi TE\nRank: 10/12\n4.09 Opp. Possessions to box within 10s after recovery",
+                "Zalaegerszegi TE\nRank: 11/12\n0.70 Opp. xT within 10s after recovery",
+                "Zalaegerszegi TE\nRank: 9/12\n0.22 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Győri ETO\nRank: 3/12\n31.33 Turnovers",
+                "Győri ETO\nRank: 2/12\n65.45 Turnover line height (m)",
+                "Győri ETO\nRank: 1/12\n13% Recoveries within 5s ",
+                "Győri ETO\nRank: 1/12\n5.39 Time to defensive action (s)",
+                "Győri ETO\nRank: 1/12\n8.36 Time to recovery (s)",
+                "Győri ETO\nRank: 2/12\n9.12 Opp. Possessions to final third within 10s after recovery",
+                "Győri ETO\nRank: 4/12\n3.45 Opp. Possessions to box within 10s after recovery",
+                "Győri ETO\nRank: 3/12\n0.56 Opp. xT within 10s after recovery",
+                "Győri ETO\nRank: 4/12\n0.16 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Diósgyőr\nRank: 4/12\n31.73 Turnovers",
+                "Diósgyőr\nRank: 8/12\n60.25 Turnover line height (m)",
+                "Diósgyőr\nRank: 9/12\n10% Recoveries within 5s ",
+                "Diósgyőr\nRank: 2/12\n5.74 Time to defensive action (s)",
+                "Diósgyőr\nRank: 10/12\n10.42 Time to recovery (s)",
+                "Diósgyőr\nRank: 6/12\n10.70 Opp. Possessions to final third within 10s after recovery",
+                "Diósgyőr\nRank: 9/12\n4.00 Opp. Possessions to box within 10s after recovery",
+                "Diósgyőr\nRank: 10/12\n0.67 Opp. xT within 10s after recovery",
+                "Diósgyőr\nRank: 12/12\n0.28 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Nyíregyháza Spartacus\nRank: 6/12\n32.39 Turnovers",
+                "Nyíregyháza Spartacus\nRank: 4/12\n63.76 Turnover line height (m)",
+                "Nyíregyháza Spartacus\nRank: 7/12\n11% Recoveries within 5s ",
+                "Nyíregyháza Spartacus\nRank: 9/12\n6.17 Time to defensive action (s)",
+                "Nyíregyháza Spartacus\nRank: 9/12\n10.05 Time to recovery (s)",
+                "Nyíregyháza Spartacus\nRank: 4/12\n10.12 Opp. Possessions to final third within 10s after recovery",
+                "Nyíregyháza Spartacus\nRank: 5/12\n3.61 Opp. Possessions to box within 10s after recovery",
+                "Nyíregyháza Spartacus\nRank: 4/12\n0.58 Opp. xT within 10s after recovery",
+                "Nyíregyháza Spartacus\nRank: 7/12\n0.20 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Kazincbarcika\nRank: 10/12\n34.67 Turnovers",
+                "Kazincbarcika\nRank: 12/12\n58.34 Turnover line height (m)",
+                "Kazincbarcika\nRank: 12/12\n9% Recoveries within 5s ",
+                "Kazincbarcika\nRank: 11/12\n6.36 Time to defensive action (s)",
+                "Kazincbarcika\nRank: 7/12\n10.00 Time to recovery (s)",
+                "Kazincbarcika\nRank: 7/12\n10.76 Opp. Possessions to final third within 10s after recovery",
+                "Kazincbarcika\nRank: 12/12\n4.58 Opp. Possessions to box within 10s after recovery",
+                "Kazincbarcika\nRank: 12/12\n0.70 Opp. xT within 10s after recovery",
+                "Kazincbarcika\nRank: 11/12\n0.24 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Paksi FC\nRank: 11/12\n35.45 Turnovers",
+                "Paksi FC\nRank: 1/12\n66.88 Turnover line height (m)",
+                "Paksi FC\nRank: 4/12\n12% Recoveries within 5s ",
+                "Paksi FC\nRank: 3/12\n5.76 Time to defensive action (s)",
+                "Paksi FC\nRank: 3/12\n9.22 Time to recovery (s)",
+                "Paksi FC\nRank: 7/12\n10.76 Opp. Possessions to final third within 10s after recovery",
+                "Paksi FC\nRank: 6/12\n3.67 Opp. Possessions to box within 10s after recovery",
+                "Paksi FC\nRank: 6/12\n0.64 Opp. xT within 10s after recovery",
+                "Paksi FC\nRank: 10/12\n0.23 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Várda SE\nRank: 5/12\n32.25 Turnovers",
+                "Várda SE\nRank: 6/12\n61.63 Turnover line height (m)",
+                "Várda SE\nRank: 5/12\n11% Recoveries within 5s ",
+                "Várda SE\nRank: 10/12\n6.20 Time to defensive action (s)",
+                "Várda SE\nRank: 5/12\n9.39 Time to recovery (s)",
+                "Várda SE\nRank: 5/12\n10.44 Opp. Possessions to final third within 10s after recovery",
+                "Várda SE\nRank: 3/12\n3.25 Opp. Possessions to box within 10s after recovery",
+                "Várda SE\nRank: 5/12\n0.62 Opp. xT within 10s after recovery",
+                "Várda SE\nRank: 8/12\n0.21 Opp. xG within 10s after recovery"
+            ],
+            [
+                "Puskás FC\nRank: 2/12\n31.09 Turnovers",
+                "Puskás FC\nRank: 5/12\n63.47 Turnover line height (m)",
+                "Puskás FC\nRank: 11/12\n10% Recoveries within 5s ",
+                "Puskás FC\nRank: 6/12\n6.06 Time to defensive action (s)",
+                "Puskás FC\nRank: 11/12\n10.69 Time to recovery (s)",
+                "Puskás FC\nRank: 1/12\n8.42 Opp. Possessions to final third within 10s after recovery",
+                "Puskás FC\nRank: 1/12\n2.55 Opp. Possessions to box within 10s after recovery",
+                "Puskás FC\nRank: 2/12\n0.52 Opp. xT within 10s after recovery",
+                "Puskás FC\nRank: 2/12\n0.14 Opp. xG within 10s after recovery"
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Turnovers | 33.00",
+            "Turnover line height (m) | 60.17",
+            "Recoveries within 5s % | 11",
+            "Time to defensive action (s) | 5.77",
+            "Time to recovery (s) | 9.17",
+            "Opp. Possessions to final third within 10s after recovery | 11.21",
+            "Opp. Possessions to box within 10s after recovery | 4.09",
+            "Opp. xT within 10s after recovery | 0.67",
+            "Opp. xG within 10s after recovery | 0.18"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

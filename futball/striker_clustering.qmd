@@ -17,6 +17,7 @@ execute:
   echo: false
   warning: false
   message: false
+  freeze: true
 ---
 
 ```{r setup}
