@@ -62,7 +62,7 @@ read_profile_meta <- function(filepath) {
 }
 
 player_files <- list.files(
-  "jatekosok",
+  "kosarlabda/jatekosok",
   pattern    = "\\.qmd$",
   full.names = TRUE
 )
