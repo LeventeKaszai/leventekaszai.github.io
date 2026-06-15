@@ -8,9 +8,10 @@ profile:
   besorolas: "strong-buy"
 
   tezis: >
-    Tanoh Dez András az egyike azon kevés játékosnak a magyar bajnokságban,
+    Tanoh Dez András az egyike azon kevés játékosoknak a magyar bajnokságban,
     aki már egészen fiatal kora óta nagy szerepet kap a támadások szervezésében. 
-    A bajnokság egyik legjobb játékosa játszik előtte kettes poszton, ezért kevesebb játékpercet kap, mint amennyire képességei alapján megérdemelne.
+    A bajnokság egyik legjobb játékosa játszik előtte kettes poszton, ezért kevesebb játékpercet kap,
+    mint amennyit képességei alapján megérdemelne.
     Hatékony, magabiztos pontszerző, aki nem fél a felelősségvállalástól.
     Ritka magyar profil, hosszú távon válogatott lesz.
 
@@ -19,28 +20,46 @@ profile:
     a leindítások során. Atletikussága egyértelműen a bajnokság felső harmadába
     sorolható. Remek mozgáskoordináció, egyensúly, jól nyeli el a kontaktokat. 
     Hosszú karjai és laterális sebessége védekezésben is remek fundamentumot biztosítanak számára.
-  
+    
+    Idén a Falcoban is a korábbi Honvédos szezonokhoz hasonló bizalmat kapott támadásban.
+    Pontszerzésben sikerült továbblépnie. Mind 100 labdabirtoklásra vetített volumenben, mind hatékonyságban
+    karriercsúcsot hozott. A dobásválasztás tovább tisztult, a középtávoli dobásokat hármasok váltották fel.
+    A legnagyobb erőssége továbbra is a gyűrű közeli befejezés, de a tripláinak a hatékonyságát is sikerült
+    a ligaátlag felé tornázni. Emellett a büntetők értékesítése is egyre jobban megy, ami a javuló dobómechanikát
+    is jelezheti.
+    
+    Nem a karmester, kiszolgáló típus, nem ez jellemzi a játékát. Sikerült tisztítania a játékát
+    sokkal kevesebb eladott labdája volt, mint 2024/25-ös szezonban.
+    Labdaszerzésben átlag alatti szezont hozott, a korábbi években azonban mindig a ligaátlag körül gravitált.
+    Elit dobásblokkoló, posztját meghazudtoló teljesítményt nyújt ezen a téren évről évre.
+    
+    Összességében eddigi legjobb szezonját zárta, játéka kezd egyre jobban kiteljesedni.
     
 
   bull_case:
     szoveg: >
-      Sikerül úgy izomtömeget magára pakolnia, hogy nem romlik az agilitása.
-      Jelentősen javul a dobása, nagyobb részt vállal kreátorként is.
-      Hosszú távon válogatott alapember, erős európai bajnokságban alapember.
-    meroeszam: "FT% 70 felett, szezon végére 15 MPG felett."
+      A kinti dobás stabilizálódása (35%+) nem egyszeri kiugrás volt, hanem a valós szintje. 
+      A Falco rotációjában (vagy egy erősebb külföldi bajnokságban) a játékpercei 20+ percre emelkednek.
+      Felmerül az erősebb európai bajnokságok kapcsán.
+      Stabil tagja a magyar válogatottnak.
+    meroeszam: "3P% 35 felett."
 
   base_case:
     szoveg: >
-      Amerikai adaptációja normális ütemben halad, először az erőnléti munka
-      kerül fókuszba. Szépen építi magát.
-    meroeszam: "Szezon végére 10 MPG felett. "
+      Megragad a Falco rotációjában. Nem lesz klasszikus első opciós pontgyáros, de a hatékonysága megmarad.
+      A gyűrű támadásában elit szintet hoz, a triplája pedig a ligaátlag körül (33-35%) fluktuál.
+    meroeszam: "16 perc/meccs felett."
 
   bear_case:
     szoveg: >
-      Nehezen illeszkedik be, fejlődése kicsit megreked. Szórványosan játszik, főként garbage time-ban kerül pályára.
-    meroeszam: "5 MPG alatt marad a szezon átlag."
+      A 2025-26-os jó kinti dobóforma csak egy kiugró szezon volt.
+      A hatékonyság visszaesik 33% alá. Az ellenfelek kevésbé félnek a kinti veszélytől, a védelmek igazodnak a gyenge dobóformához.
+      Ez lezárja előtte a festéket, ami rontja a legfőbb fegyverét, a gyűrű közeli befejezéseket.
+      Frusztráltsága ismét eladott labdákhoz vezet.
+      Spacing-problémás cserejátékos.
+    meroeszam: "3P% 33 alatt."
     
-  frissitve: "2026-05-16"
+  frissitve: "2026-06-15"
 
   rating_history:
 

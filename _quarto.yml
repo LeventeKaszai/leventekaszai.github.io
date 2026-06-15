@@ -29,8 +29,6 @@ website:
             text: "Játékosértékelés"
           - href: kosarlabda/jatekosok.qmd
             text: "Játékos profilok"
-          - href: kosarlabda/articles/tanoh-dez-scouting.qmd
-            text: "Tanoh Dez – Scouting report"
       - text: "Labdarúgás"
         menu:
           - href: futball/analytics.qmd

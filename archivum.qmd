@@ -4,7 +4,6 @@ page-layout: full
 toc: false
 listing:
   contents:
-    - kosarlabda/articles/tanoh-dez-scouting.qmd
     - kosarlabda/four_factors_1.qmd
     - kosarlabda/scoring_efficiency.qmd
     - kosarlabda/pace_efficiency.qmd
