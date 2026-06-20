@@ -250,7 +250,7 @@ table.dataTable tbody tr.odd {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.25rem;
-  min-height: 100px;
+  height: 115px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -261,13 +261,11 @@ table.dataTable tbody tr.odd {
   font-weight: 800;
   color: var(--text);
   line-height: 1;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0.5rem 0;
 }
 .pp-metric-bottom {
   width: 100%;
+  margin-top: auto;
 }
 .pp-metric-label {
   font-size: 13px;
