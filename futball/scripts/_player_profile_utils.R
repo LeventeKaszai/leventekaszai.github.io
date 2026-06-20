@@ -102,11 +102,11 @@ load_player_db_stats <- function(nev, db_path = "futball/futball.db") {
 FUTBALL_DEFAULT_KPIS <- c(
   "Defensive actions",
   "Defending 1v1 %",
-  "Defensive line height",
+  "Defensive line height (m)",
   "Ball recoveries",
   "Aerials won %",
   "Touches",
-  "Ball progression",
+  "Ball progression (xT)",
   "Playmaking passes"
 )
 
@@ -122,10 +122,7 @@ pick_key_metrics <- function(stats, position, kpi_list = FUTBALL_DEFAULT_KPIS) {
   rank_pct <- function(r, r_of) 1 - (r - 1) / (r_of - 1)
 
   fmt_kpi_label <- function(kpi) {
-    s <- gsub("\\(xT\\)", "", kpi)
-    s <- gsub("\\(m\\)", "", s)
-    s <- gsub("\\^2", "\u00b2", s)
-    trimws(s)
+    gsub("\\^2", "\u00b2", kpi)
   }
 
   find_row <- function(requested, df) {
@@ -278,42 +275,19 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
       tags$div(
         class = "pp-meta-badges",
         tags$span(class = "pp-badge pp-badge-sport", "Labdar\u00fcg\u00e1s"),
-        if (!is.null(p$klub))    tags$span(class = "pp-badge", p$klub),
-        if (!is.null(p$kor))     tags$span(class = "pp-badge", paste0(p$kor, " \u00e9v")),
-        if (!is.null(p$pozicio)) tags$span(class = "pp-badge", p$pozicio),
-        if (!is.null(p$mag))     tags$span(class = "pp-badge", paste0(p$mag, " m")),
-        if (!is.null(p$lab))     tags$span(class = "pp-badge", p$lab),
+        if (!is.null(p$klub))           tags$span(class = "pp-badge", p$klub),
         if (!is.null(p$allampolgarsag)) tags$span(class = "pp-badge", p$allampolgarsag),
-        if (is_valogatott)       tags$span(class = "pp-badge pp-badge-valogatott", "V\u00e1logatott"),
-        if (!is.null(p$tm_ertek)) tags$span(
-          class = "pp-badge",
-          paste0("TM: ", fmt_ertek(p$tm_ertek))
-        )
+        if (!is.null(p$kor))            tags$span(class = "pp-badge", paste0(p$kor, " \u00e9v")),
+        if (!is.null(p$pozicio))        tags$span(class = "pp-badge", p$pozicio),
+        if (!is.null(p$mag))            tags$span(class = "pp-badge", paste0(p$mag, " m")),
+        if (!is.null(p$lab))            tags$span(class = "pp-badge", p$lab),
+        if (is_valogatott)              tags$span(class = "pp-badge pp-badge-valogatott", "V\u00e1logatott"),
+        if (!is.null(p$tm_ertek))       tags$span(class = "pp-badge", paste0("TM: ", fmt_ertek(p$tm_ertek)))
       )
     ),
 
     # ── Tézis
     tags$div(class = "pp-tezis", p$tezis),
-
-    # ── Modell: értékelés
-    if (!is.null(db) && !is.null(db$model) && nrow(db$model) > 0) {
-      model_rows <- db$model
-      tags$div(
-        class = "pp-section",
-        tags$h3("Modellalapú \u00e9rt\u00e9kel\u00e9s"),
-        tags$div(
-          class = "pp-stats-row",
-          lapply(seq_len(nrow(model_rows)), function(i) {
-            r <- model_rows[i, ]
-            tags$div(class = "pp-stat-item",
-              tags$div(class = "pp-stat-value", fmt_ertek(r$pred_value)),
-              tags$div(class = "pp-stat-label",
-                paste0("Modell becsl\u00e9s (", r$position, ")"))
-            )
-          })
-        )
-      )
-    },
 
     # ── Kulcs mutatók (NB1 rang)
     if (!is.null(mutatok) && length(mutatok) > 0)
@@ -421,7 +395,11 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
           tags$div(class = "pp-footer-item",
             tags$span(class = "pp-footer-label", "Utolj\u00e1ra szerkesztve:"),
             tags$span(as.character(p$frissitve))
-          )
+          ),
+        tags$div(class = "pp-footer-item",
+          tags$span(class = "pp-footer-label", "Adatok forr\u00e1sa:"),
+          tags$span("Twelve Football")
+        )
       )
     }
 

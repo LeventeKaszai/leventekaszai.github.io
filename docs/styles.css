@@ -254,6 +254,7 @@ table.dataTable tbody tr.odd {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 .pp-metric-value {
