@@ -1,0 +1,94 @@
+---
+title: "VITÁLYOS Viktor — Profil"
+profile:
+  nev: "VITÁLYOS Viktor"
+  sport: football
+  valogatott: nem
+
+  besorolas: "buy"
+
+  klub: "MTK Budapest"
+  pozicio: "CB / FB"
+
+  tezis: >
+    Vitályos Viktor rendkívül értékes profil, hiszen a modern futballban nagyon keresett
+    ballábas középhátvéd a legjobb pozíciója. A 18 éves játékos a védelem közepén és bal
+    oldalán egyaránt bevethető, ennek is köszönhetően nagyszerűen illeszkedhet
+    3-védős rendszerbe is. Remek teljesítményt nyújt a légi párharcokban. 
+    Passzjátéka progresszív és kezdeményező, de a magas kockázatvállalása miatt
+    gyakori a saját harmadban eladott labda.Játékolvasásban és klasszikus védekező
+    feladatokban még szükséges a fejlődés. Céltudatos, szorgalmas, remek mentalitású
+    játékos. Korosztályos válogatott múltja jelentős, hosszabb távon felnőtt válogatott
+    potenciállal rendelkezik.A 2026/27-es szezont a Sparta Praha együttesénél kezdi meg.
+
+  elemzes: |
+    Vitályos Viktor az MTK Budapest 18 éves védője, aki a 2025-26-os
+    NB1-es szezonban a védelem bal szélén és közepén is többször bevetésre került.
+    Labdával gyakran a háromemberes, hátsó építkezés bal oldali tagjaként szerepelt.
+    
+    187 centiméteres magassága és egyéb fizikai paraméterei megfelelnek a pozíció
+    tradicionális elvárásainak.  Légi párharcokban kiemelkedő szezont zárt, ez
+    mindenképpen bizakodásra ad okot.
+    
+    Védekező fázisban (fejelést leszámítva) átlag alatti teljesítményt nyújtott.
+    Megelőző szerelésekben, a szabad labdák megszerzésében gyenge teljesítményt
+    nyújtott. Klasszikus, szélen izolált 1v1 szituációkban sebezhető,
+    ugyanakkor ez a tengelyben kevésbé hangsúlyos.
+    
+    Bár hozzá kell tenni, hogy nem volt egyszerű helyzetben.
+    Az MTK Budapestnek komoly gondjai voltak védekezésben. Védekezésben nagyon 
+    passzív volt a csapat. A védelmi vonalat a kapuhoz közel húzták meg,
+    magukra engedték az ellenfelet. Vitályos fejjátéka ilyen szempontból magas
+    hozzáadott értékkel rendelkezett.
+    
+    Bár az MTK inkább a mezőny alsó felébe tartozott a labdakihozatalokban,
+    ez nem Vitályoson múlt. Annak ellenére, hogy nagy nyomás helyeződött rá, passzaival
+    rendre tudta segíteni a csapat előrehaladását. Nem fél vállalni a kockázatosabb
+    játékelemeket sem. A labda progresszióját inkább passzokkal segíti,
+    a labdás megindulások nem tartoznak az erősségei közé. Sok labdavesztése volt,
+    többször a saját harmadban is. Ennek ellenére kifejezetten jól passzoló játékosnak
+    számít.
+    
+    A támadó harmadban játék közben nem jelent veszélyt. Nem a felfutó bekk típus.
+    Pontrúgásoknál remek fejjátékának köszönhetően számításba vétele ajánlott.
+    
+    Jelenlegi profilja alapján olyan labdabiztos bal lábas középhátvéd válhat belőle, aki
+    magasabb intenzitású bajnokságban is átlag feletti teljesítményt nyújthat
+    építkezésben, ugyanakkor játékolvasásban, döntéshozatalban még fejlődés szükséges.
+    
+
+  bull_case:
+    szoveg: >
+      Gyors alkalmazkodás a cseh liga sokkal magasabb intenzitásához, 
+      a kockázatvállaló passzok megtartása mellett csökkenti a saját harmadbeli
+      labdavesztéseket. A stáb bizalmat szavaz neki, és fokozatosan növekvő 
+      szerepkörhöz jut.
+    meroeszam: "Több mint 1200 játékperc a Sparta Praha első csapatában a 2026/27-es
+    szezonban."
+
+  base_case:
+    szoveg: >
+      Lassabb akklimatizáció, de a szezon végére beépül a rotációba. A passzjátéka
+      a Sparta védői között is a jobbak közé tartozik. Az MTK-nál tapasztalt erősségek
+      és fejlesztési területek is megmaradnak a játékában.
+    meroeszam: "500-1200 játékperc között a Sparta Praha első csapatában a 2026/27-es
+    szezonban."
+
+  bear_case:
+    szoveg: >
+      Az egyéni hibák szaporodnak, csökken a magabiztossága és kevesebb kockázatot
+      vállal. A stáb jobbnak látja, ha nem szerepel éles szituációkban. Keresik a
+      kölcsönadás lehetőségét.
+    meroeszam: "Kevesebb mint 500 játékperc a Sparta Praha első csapatában a 2026/27-es
+    szezonban."
+    
+  frissitve: "2026-06-20"
+
+  rating_history:
+
+---
+
+```{r}
+source("futball/scripts/_player_profile_utils.R")
+render_player_profile(rmarkdown::metadata$profile, db_path = "futball/futball.db")
+```
