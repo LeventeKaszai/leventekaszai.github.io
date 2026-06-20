@@ -307,11 +307,14 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
               class = "pp-metric-card",
               style = paste0("border-top: 3px solid ", badge_col, ";"),
               tags$div(class = "pp-metric-value", as.character(m$value)),
-              tags$div(class = "pp-metric-label", m$label),
-              if (!is.null(m$context))
-                tags$div(class = "pp-metric-context",
-                  style = paste0("color:", badge_col, ";font-weight:600;"),
-                  m$context)
+              tags$div(
+                class = "pp-metric-bottom",
+                tags$div(class = "pp-metric-label", m$label),
+                if (!is.null(m$context))
+                  tags$div(class = "pp-metric-context",
+                    style = paste0("color:", badge_col, ";font-weight:600;"),
+                    m$context)
+              )
             )
           })
         )
