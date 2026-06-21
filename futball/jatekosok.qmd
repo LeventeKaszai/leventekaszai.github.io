@@ -7,6 +7,100 @@ format:
     css: ../styles.css
 execute:
   echo: false
+  warning: false
+  message: false
 ---
 
-*Hamarosan.*
+```{r}
+library(yaml)
+library(htmltools)
+
+# ── Rating helper ─────────────────────────────────────────────────────────────
+
+rating_cfg <- function(r) {
+  switch(tolower(as.character(r)),
+    "strong-buy"  = list(bg = "#1a7a4a", label = "Strong Buy"),
+    "buy"         = list(bg = "#4caf50", label = "Buy"),
+    "hold"        = list(bg = "#7A756D", label = "Hold"),
+    "sell"        = list(bg = "#e57373", label = "Sell"),
+    "strong-sell" = list(bg = "#C43A28", label = "Strong Sell"),
+    list(bg = "#7A756D", label = as.character(r))
+  )
+}
+
+# ── Read YAML frontmatter from .qmd files ─────────────────────────────────────
+
+read_profile_meta <- function(filepath) {
+  lines <- readLines(filepath, encoding = "UTF-8", warn = FALSE)
+  delims <- which(lines == "---")
+  if (length(delims) < 2) return(NULL)
+  yaml_text <- paste(lines[(delims[1] + 1):(delims[2] - 1)], collapse = "\n")
+  meta <- tryCatch(yaml::yaml.load(yaml_text), error = function(e) NULL)
+  if (is.null(meta) || is.null(meta$profile)) return(NULL)
+  meta$filename <- basename(filepath)
+  meta
+}
+
+player_files <- list.files(
+  "futball/jatekosok",
+  pattern    = "\\.qmd$",
+  full.names = TRUE
+)
+player_files <- player_files[!grepl("^_", basename(player_files))]
+
+profiles <- Filter(Negate(is.null), lapply(player_files, read_profile_meta))
+
+# ── Render list ───────────────────────────────────────────────────────────────
+
+if (length(profiles) == 0) {
+
+  tags$p(
+    style = "color:var(--text-muted);margin-top:2rem;",
+    "M\u00e9g nincs j\u00e1t\u00e9kos profil."
+  )
+
+} else {
+
+  rating_order <- c("strong-buy" = 1, "buy" = 2, "hold" = 3,
+                    "sell" = 4, "strong-sell" = 5)
+  profiles <- profiles[order(
+    rating_order[tolower(sapply(profiles, function(m) m$profile$besorolas))],
+    sapply(profiles, function(m) m$profile$nev)
+  )]
+
+  cards <- lapply(profiles, function(meta) {
+    p           <- meta$profile
+    klub        <- p$klub
+    pozicio     <- p$pozicio
+    profile_url <- sub("\\.qmd$", ".html", paste0("jatekosok/", meta$filename))
+    cfg         <- rating_cfg(p$besorolas)
+
+    tags$a(
+      href  = profile_url,
+      class = "pp-list-card-link",
+      tags$div(
+        class = "pp-list-card",
+        style = paste0("border-left:4px solid ", cfg$bg, ";"),
+        tags$div(
+          class = "pp-list-card-top",
+          tags$span(class = "pp-list-name", p$nev),
+          tags$span(
+            class = "pp-rating-badge",
+            style = paste0("background:", cfg$bg, ";"),
+            cfg$label
+          )
+        ),
+        tags$div(
+          class = "pp-list-card-meta",
+          tags$span(class = "pp-badge pp-badge-small", "Labdar\u00fcg\u00e1s"),
+          if (!is.null(klub))    tags$span(class = "pp-badge pp-badge-small", klub),
+          if (!is.null(pozicio)) tags$span(class = "pp-badge pp-badge-small", pozicio)
+        ),
+        tags$div(class = "pp-list-tezis", p$tezis)
+      )
+    )
+  })
+
+  tags$div(class = "pp-list-grid", cards)
+}
+```

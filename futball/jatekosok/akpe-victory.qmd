@@ -1,0 +1,88 @@
+---
+title: "AKPE Victory — Profil"
+profile:
+  nev: "AKPE Victory"
+  sport: football
+  valogatott: nem
+
+  besorolas: "Strong Buy"
+
+  klub: "Zalaegerszegi TE FC"
+  pozicio: "CB"
+
+  tezis: >
+    Akpe Victory a Zalaegerszegi TE kivételes fizikai adottságokkal
+    rendelkező, 19 éves nigériai középhátvédje. Rendkívül hosszú alsó végtagjai
+    lehetővé teszik, hogy a kilátástalannak tűnő szituációkban is sikeresen
+    avatkozzon be.
+    Az 1v1-es játékban kiemelkedő, magasságához képest agilis, gyors és robbanékony.
+    Labdás játéka egyelőre inkonzisztens: olykor a legváratlanabb helyzeteket is
+    kiválóan oldja meg, de gyakori az elkapkodott kivitelezés. Fejlődési íve
+    az elmúlt időszakban rendkívül meredek volt.
+
+  elemzes: |
+    Akpe Victory a Zalaegerszegi TE FC 19 éves nigériai középhátvédje, aki a
+    2025-26-os NB I-es szezon egyik legfigyelemreméltóbb felfedezettje volt. 195
+    centiméteres magasságával és kiemelkedő atletikus képességeivel tökéletes
+    fizikális paraméterekkel rendelkezik a belső védő pozícióhoz. Elsődlegesen
+    jobb oldali belső védőként futballozik, de védekező középpályásként is van
+    tapasztalata.
+
+    A párharcokat tekintve az NB I szűk elitjéhez tartozik. Kiemelkedő szerelési
+    hatékonyság jellemzi, 1v1-es szituációkban rendkívül nehéz túl jutni rajta.
+    Agilis, gyors és robbanékony; nagy területeket képes egyedül lefedni. Hatalmas
+    az a zóna, amire hatást tud gyakorolni (impact zone).
+
+    Légi párharcokban szintén jól teljesít, de ezen a téren – a párharcok rutinosabb
+    előkészítésével – még mindig van benne fejlődési potenciál. Bár az NB I egyik
+    legmélyebben védekező együttesében szerepelt, társainál proaktívabb volt.
+    Helyezkedésben és taktikai érettségben további képzésre szorul, ami
+    nem meglepő, hiszen rendkívül rövid idő alatt ugrott több szintet. Kiemelkedő 1v1-es
+    képességei egy magasabban meghúzott védelmi vonalban még jobban érvényesülhetnének.
+
+    A ZTE FC rövid passzos játékában a belső védőknek nem az elsőszámú vonaláttörő
+    passzok kiosztása volt a feladatuk. Ennek megfelelően Victory – bár a labdaérintések
+    száma megvolt – konzervatív passzjátékot mutatott. Kevés labdát veszít globálisan,
+    viszont azok eloszlása a saját harmadra koncentrálódott.
+
+    Kivételes fizikai fundamentumainak köszönhetően sokkal nagyobb hibahatárral játszhat,
+    mint a poszttársai. Egy-egy rosszul felmért szituációt a gyorsaságával, agilitásával
+    és a hosszú lábaival képes hatékonyan korrigálni. Bár sok játékhelyzetben még
+    nyersnek érződik, a fejlődési iránya kifejezetten biztató. Megfelelő szakmai
+    környezetben európai top ligás játékossá fejlődhet.
+
+  bull_case:
+    szoveg: >
+      A következő átigazolási időszakok egyikében egy olyan környezetbe kerül,
+      ahol a játékosfejlesztés kiemelt prioritást élvez. Fizikai dominanciája nemzetközi
+      szinten is megmarad, miközben technikai és taktikai képzettsége rohamosan fejlődik.
+    meroeszam: "A Transfermarkt szerinti piaci értéke eléri vagy meghaladja a 4 millió
+    eurót 2027 nyarán."
+
+  base_case:
+    szoveg: >
+      A Zalaegerszegi TE FC kötelékében marad, ahol stabil kezdőjátékosként, jó
+      teljesítménnyel folytatja a fejlődést. Az NB I-es meccsterhelés mellett fokozatosan
+      javítja a labdabiztonságát, csiszolja a taktikai hiányosságait, és a bajnokság
+      egyik legjobb belső védőjévé válik.
+    meroeszam: "Legalább 2000 játszott perc a ZTE-ben a 2026/27-es szezonban, miközben a
+    Transfermarkt szerinti piaci értéke 2,5 és 3,5 millió euró között mozog 2027 nyarán."
+
+  bear_case:
+    szoveg: >
+      Zalaegerszegen marad, de a fejlődési íve láthatóan megtörik. A ki nem kényszerített
+      hibák és a saját harmadbeli labdavesztések kiküszöbölése nem az elvárt ütemben
+      zajlik, játéka stagnál, az új edzőnél kevesebbet szerepel.
+    meroeszam: "A Transfermarkt szerinti piaci értéke 2 millió euró alá csökken 2027
+    nyarára."
+
+  frissitve: "2026-06-21"
+
+  rating_history:
+
+---
+
+```{r}
+source("futball/scripts/_player_profile_utils.R")
+render_player_profile(rmarkdown::metadata$profile, db_path = "futball/futball.db")
+```
