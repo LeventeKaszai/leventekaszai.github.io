@@ -20,6 +20,7 @@ library(htmltools)
 rating_cfg <- function(r) {
   switch(tolower(as.character(r)),
     "strong-buy"  = list(bg = "#1a7a4a", label = "Strong Buy"),
+    "strong buy"  = list(bg = "#1a7a4a", label = "Strong Buy"),
     "buy"         = list(bg = "#4caf50", label = "Buy"),
     "hold"        = list(bg = "#7A756D", label = "Hold"),
     "sell"        = list(bg = "#e57373", label = "Sell"),
