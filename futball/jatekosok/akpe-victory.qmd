@@ -9,6 +9,7 @@ profile:
 
   klub: "Zalaegerszegi TE FC"
   pozicio: "CB"
+  lab: "jobb"
 
   tezis: >
     Akpe Victory a Zalaegerszegi TE kivételes fizikai adottságokkal

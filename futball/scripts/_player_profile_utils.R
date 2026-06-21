@@ -189,7 +189,10 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
     if (!is.null(db$kor))                        p$kor   <- db$kor
     if (!is.null(db$allampolgarsag))             p$allampolgarsag <- db$allampolgarsag
     if (!is.null(db$mag))                        p$mag   <- db$mag
-    if (!is.null(db$lab))                        p$lab   <- translate_foot(db$lab)
+    if (!is.null(db$lab)) {
+      translated <- translate_foot(db$lab)
+      if (translated %in% c("bal", "jobb", "mindkett\u0151")) p$lab <- translated
+    }
     if (!is.null(db$tm_ertek))                   p$tm_ertek <- db$tm_ertek
     if (!is.null(db$szerzodes_lejarat))          p$szerzodes_lejarat <- db$szerzodes_lejarat
   }
@@ -210,6 +213,7 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
   rating_cfg <- function(r) {
     switch(tolower(as.character(r)),
       "strong-buy"  = list(bg = "#1a7a4a", label = "Strong Buy"),
+      "strong buy"  = list(bg = "#1a7a4a", label = "Strong Buy"),
       "buy"         = list(bg = "#4caf50", label = "Buy"),
       "hold"        = list(bg = "#7A756D", label = "Hold"),
       "sell"        = list(bg = "#e57373", label = "Sell"),
@@ -274,13 +278,13 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
       ),
       tags$div(
         class = "pp-meta-badges",
-        tags$span(class = "pp-badge pp-badge-sport", "Labdar\u00fcg\u00e1s"),
+        tags$span(class = "pp-badge pp-badge-sport", "Labdar\u00fag\u00e1s"),
         if (!is.null(p$klub))           tags$span(class = "pp-badge", p$klub),
         if (!is.null(p$allampolgarsag)) tags$span(class = "pp-badge", p$allampolgarsag),
         if (!is.null(p$kor))            tags$span(class = "pp-badge", paste0(p$kor, " \u00e9v")),
         if (!is.null(p$pozicio))        tags$span(class = "pp-badge", p$pozicio),
         if (!is.null(p$mag))            tags$span(class = "pp-badge", paste0(p$mag, " m")),
-        if (!is.null(p$lab))            tags$span(class = "pp-badge", p$lab),
+        if (!is.null(p$lab) && nzchar(trimws(as.character(p$lab)))) tags$span(class = "pp-badge", p$lab),
         if (is_valogatott)              tags$span(class = "pp-badge pp-badge-valogatott", "V\u00e1logatott"),
         if (!is.null(p$tm_ertek))       tags$span(class = "pp-badge", paste0("TM: ", fmt_ertek(p$tm_ertek)))
       )
