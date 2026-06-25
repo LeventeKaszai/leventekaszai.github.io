@@ -1,0 +1,7 @@
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false

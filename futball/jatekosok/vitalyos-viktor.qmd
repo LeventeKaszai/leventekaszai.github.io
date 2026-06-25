@@ -5,7 +5,7 @@ profile:
   sport: football
   valogatott: nem
 
-  besorolas: "buy"
+  besorolas: "Strong Buy"
 
   klub: "MTK Budapest"
   pozicio: "CB / FB"
@@ -16,7 +16,7 @@ profile:
     oldalán egyaránt bevethető, ennek is köszönhetően nagyszerűen illeszkedhet
     3-védős rendszerbe is. Remek teljesítményt nyújt a légi párharcokban. 
     Passzjátéka progresszív és kezdeményező, de a magas kockázatvállalása miatt
-    gyakori a saját harmadban eladott labda.Játékolvasásban és klasszikus védekező
+    gyakori a saját harmadban eladott labda. Játékolvasásban és klasszikus védekező
     feladatokban még szükséges a fejlődés. Céltudatos, szorgalmas, remek mentalitású
     játékos. Korosztályos válogatott múltja jelentős, hosszabb távon felnőtt válogatott
     potenciállal rendelkezik.A 2026/27-es szezont a Sparta Praha együttesénél kezdi meg.

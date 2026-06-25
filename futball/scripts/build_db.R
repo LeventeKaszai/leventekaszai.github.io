@@ -28,6 +28,7 @@ parse_distribution <- function(filepath) {
     tibble(
       player_id   = f$data$target_identifiers[[i]],
       label       = f$data$target_labels[[i]],
+      liga        = "NB1",
       position    = position,
       szezon      = szezon,
       quality     = quality,
@@ -66,6 +67,47 @@ parse_nb1_file <- function(filepath) {
     tibble(
       player_id   = f$data$target_identifiers[[i]],
       label       = f$data$target_labels[[i]],
+      liga        = "NB1",
+      position    = position,
+      szezon      = szezon,
+      quality     = quality,
+      kpi         = kpis,
+      value_per90 = map_dbl(hovers, ~{
+        str_split(.x, "\n")[[1]][3] |> str_extract("-?[\\d.]+") |> as.numeric()
+      }),
+      rank    = str_extract(hovers, "(?<=Rank: )\\d+") |> as.integer(),
+      rank_of = str_extract(hovers, "(?<=/)\\d+")      |> as.integer()
+    )
+  })
+}
+
+# Parser: nb2_ formátum (pl. nb2_cb_activedefence.json, nb2_fb_involvement)
+parse_nb2_player_file <- function(filepath) {
+  f     <- fromJSON(filepath, simplifyVector = FALSE)
+  fname <- basename(filepath)
+
+  # Kiterjesztés nélküli fájlokat is kezeli (pl. nb2_cb_involvement)
+  name_part <- gsub("^nb2_(.+?)(\\.json)?$", "\\1", fname)
+
+  # Pozíció prefix nélküli fájlok kihagyva (pl. nb2_intelligentdefence.json)
+  if (!grepl("^(cb|fb|m)_", name_part)) {
+    message("Kihagyva (nincs pozíció prefix): ", fname)
+    return(NULL)
+  }
+
+  position <- toupper(str_extract(name_part, "^[^_]+"))
+  quality  <- gsub("^[^_]+_(.+)$", "\\1", name_part)
+  szezon   <- "2025-26"
+
+  kpis <- map_chr(f$data$kpis, "name")
+  n    <- length(f$data$target_identifiers)
+
+  map_dfr(seq_len(n), function(i) {
+    hovers <- f$data$hover_strings[[i]]
+    tibble(
+      player_id   = f$data$target_identifiers[[i]],
+      label       = f$data$target_labels[[i]],
+      liga        = "NB2",
       position    = position,
       szezon      = szezon,
       quality     = quality,
@@ -87,13 +129,17 @@ data_2425  <- map_dfr(files_2425, parse_distribution)
 files_nb1  <- list.files("futball/raw_json/players/2025-26", pattern = "^nb1_.+\\.json$", full.names = TRUE)
 data_2526  <- map_dfr(files_nb1, parse_nb1_file)
 
-all_data <- bind_rows(data_2425, data_2526)
+# 2025-26: nb2_ játékos fájlok (cb és fb, .json és kiterjesztés nélküli is)
+files_nb2_players <- list.files("futball/raw_json/players/2025-26", pattern = "^nb2_(cb|fb|m)_", full.names = TRUE)
+data_nb2          <- map_dfr(files_nb2_players, parse_nb2_player_file)
+
+all_data <- bind_rows(data_2425, data_2526, data_nb2)
 
 # ── Wide formátumok ───────────────────────────────────────────────────────────
 
 players_wide <- all_data |>
   pivot_wider(
-    id_cols     = c(player_id, label, position, szezon),
+    id_cols     = c(player_id, label, liga, position, szezon),
     names_from  = c(quality, kpi),
     values_from = c(value_per90, rank),
     names_glue  = "{.value}_{quality}_{kpi}"
@@ -102,7 +148,7 @@ players_wide <- all_data |>
 # player_stats: pozíció + szezon szerinti wide tábla (backward compat)
 player_stats <- all_data |>
   pivot_wider(
-    id_cols     = c(player_id, label, position, szezon),
+    id_cols     = c(player_id, label, liga, position, szezon),
     names_from  = c(quality, kpi),
     values_from = c(value_per90, rank),
     names_glue  = "{.value}_{quality}_{kpi}"

@@ -1,0 +1,1644 @@
+{
+    "plot_type": "distribution",
+    "title": "Intelligent Defence of Adam Somogyi",
+    "subtitle": "Hungarian NB II 2025/2026 | 1974 Minutes played",
+    "target_type": "player",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ádám Vass",
+            "Asmir Suljić",
+            "Dávid Holman",
+            "Lucas",
+            "József Varga",
+            "Balázs Zamostny",
+            "Roland Varga",
+            "Gergö Nagy",
+            "Patrik Hidi",
+            "Lajos Bertus",
+            "Zsolt Haraszti",
+            "Ádám Viczián",
+            "Zoltan Kenderes",
+            "Levente Vágó",
+            "Gergely Toth",
+            "Attila Lőrinczy",
+            "Zoltán Medgyes",
+            "Márió Németh",
+            "Aurél Farkas",
+            "Andor Bolyki",
+            "Gergő Kocsis",
+            "Krisztián Kirchner",
+            "Donát Zsótér",
+            "Dávid Márkvárt",
+            "Kevin Korozmán",
+            "Máté Vida",
+            "Richárd Zsolnai",
+            "Máté Katona",
+            "Bence Bedi",
+            "Jozef Urblík",
+            "Barnabás Kozics",
+            "Viktor Sejben",
+            "Haris Attila Mihály",
+            "Bálint Szabó",
+            "David Mészáros",
+            "Bence Szabó",
+            "Richárd Nagy",
+            "Benedek Murka",
+            "Bence Pintér",
+            "Keve Tóth",
+            "Martin Palincsár",
+            "Kornél Csernik",
+            "István Harsányi",
+            "Péter Zachán",
+            "Péter Törőcsik",
+            "Félix Sàghy",
+            "Aron Girsik",
+            "Roland Hajdú",
+            "Zoltán Csizmadia",
+            "Dávid Kovács",
+            "Kristóf Szűcs",
+            "Vanja Zvekanov",
+            "Bence Banó-Szabó",
+            "Zoltán Derekas",
+            "Emil Horváth",
+            "Patrik Posztobányi",
+            "Bence Kocsis",
+            "Patrik Nyári",
+            "Péter Beke",
+            "Richárd Rabatin",
+            "Sándor Hidi",
+            "Erik Németh",
+            "Gergő Ominger",
+            "Ákos Zuigéber",
+            "Kevin Kállai",
+            "Ádám Szekér",
+            "Márton Radics",
+            "Dominik Sztojka",
+            "István Pekár",
+            "Köböl Milán",
+            "Donát Dóra",
+            "Zsolt Magyar",
+            "Dávid Székely",
+            "Barnabás Kovács",
+            "Bertalan Bocskay",
+            "Dominik Kocsis",
+            "Bence Pataki",
+            "Bálint Szabó",
+            "Nazar Kovalenko",
+            "Olivér Nagy",
+            "Szabolcs Szilágyi",
+            "Tibor Szabó",
+            "Adam Merenyi",
+            "Zsombor Hös",
+            "Benjámin Gólik",
+            "Ádám Madarász",
+            "Bence Kovács",
+            "Gergő Csatári",
+            "Bence Somfalvi",
+            "Ákos Ésik",
+            "Ádám Bagi",
+            "Botond Herczeg",
+            "Mátyás Vidnyánszky",
+            "Domonkos Miskolczi",
+            "Máté Szolgai",
+            "Ádám Czékus",
+            "Áron Kopácsi",
+            "Adam Szamosi",
+            "Norbert Dencinger",
+            "Barnabas Mohos",
+            "Boldizsár Rab",
+            "Adam Somogyi",
+            "Adám Décsy",
+            "Csongor Lakatos",
+            "Zsolt Krupa",
+            "Sámuel Bakó",
+            "Marcell Herczeg",
+            "Kristof Sarkadi",
+            "Zsombor Csornyei",
+            "Máté Szilágyi",
+            "Aleksandar Rac",
+            "Gabor Stumpf",
+            "Milan Gyorfi",
+            "Krisztian Laszlo",
+            "Marton Zámbó",
+            "Balazs Sain",
+            "Balázs Varga",
+            "Barna Vörös",
+            "Márk Györgye",
+            "Csaba Máté",
+            "Kevin Balla"
+        ],
+        "target_identifiers": [
+            20726,
+            72587,
+            74816,
+            74986,
+            74993,
+            75080,
+            75122,
+            75167,
+            75178,
+            75260,
+            75535,
+            75818,
+            76001,
+            76048,
+            76074,
+            76141,
+            136279,
+            136281,
+            205448,
+            224834,
+            224969,
+            226097,
+            231810,
+            238705,
+            239176,
+            239178,
+            242148,
+            281401,
+            289554,
+            293446,
+            338598,
+            341467,
+            352137,
+            352143,
+            352208,
+            352226,
+            360206,
+            367352,
+            375404,
+            400713,
+            404806,
+            442829,
+            445601,
+            446470,
+            475822,
+            476625,
+            484184,
+            484444,
+            492137,
+            492175,
+            492450,
+            496881,
+            512246,
+            515466,
+            530002,
+            542919,
+            542926,
+            542927,
+            542930,
+            546735,
+            552204,
+            583428,
+            586799,
+            586802,
+            586939,
+            586966,
+            618998,
+            620096,
+            631604,
+            631752,
+            639138,
+            648336,
+            678845,
+            681024,
+            683352,
+            705676,
+            706428,
+            706429,
+            750221,
+            752151,
+            754380,
+            759556,
+            762240,
+            773940,
+            774076,
+            774095,
+            775148,
+            790353,
+            790586,
+            790595,
+            790597,
+            790602,
+            790603,
+            810355,
+            815889,
+            847710,
+            854424,
+            858179,
+            865005,
+            869744,
+            869799,
+            869845,
+            869911,
+            870166,
+            870235,
+            870278,
+            870281,
+            937231,
+            937232,
+            950219,
+            959902,
+            1013191,
+            1014159,
+            1014204,
+            1014265,
+            1014285,
+            1134280,
+            1175078,
+            1212008,
+            1212061,
+            1212433
+        ],
+        "kpis": [
+            {
+                "name": "Ball recoveries",
+                "description": "Number of ball recoveries that do not happen with an active defensive action (tackles, duels, interceptions) adjusted by the opponent's possession.",
+                "display_name": "Ball recoveries"
+            },
+            {
+                "name": "Counterpressing",
+                "description": "Number of recoveries in duels that end a possession of the opposition team with length less than 5 seconds adjusted by the opponent's possession.",
+                "display_name": "Counterpressing"
+            },
+            {
+                "name": "Interceptions",
+                "description": "Number of interceptions adjusted by the opponent's possession.",
+                "display_name": "Interceptions"
+            }
+        ],
+        "focal_target_indices": [
+            101
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.7047589421272278,
+                0.5405781865119934,
+                0.11537475138902664
+            ],
+            [
+                0.5031832456588745,
+                1.705907940864563,
+                -1.0027323961257935
+            ],
+            [
+                0.5559749007225037,
+                0.8883278965950012,
+                -1.149558663368225
+            ],
+            [
+                1.2550820112228394,
+                1.7363440990447998,
+                1.1524648666381836
+            ],
+            [
+                4,
+                0.7019151449203491,
+                1.4561322927474976
+            ],
+            [
+                -0.8666301965713501,
+                -0.3576175570487976,
+                -0.9718931317329407
+            ],
+            [
+                -1.331526756286621,
+                -1.4752424955368042,
+                -1.574023723602295
+            ],
+            [
+                0.62099289894104,
+                1.6028426885604858,
+                0.6371051073074341
+            ],
+            [
+                -0.21050897240638733,
+                -1.0658607482910156,
+                0.6315575242042542
+            ],
+            [
+                -0.4281136989593506,
+                -0.06940039992332458,
+                -0.6651313900947571
+            ],
+            [
+                -1.0885857343673706,
+                0.2974681258201599,
+                -0.3006049394607544
+            ],
+            [
+                2.4553544521331787,
+                -0.2858889698982239,
+                1.6298516988754272
+            ],
+            [
+                2.4037399291992188,
+                1.3928616046905518,
+                1.8597924709320068
+            ],
+            [
+                2.160524845123291,
+                -0.44174015522003174,
+                1.5193588733673096
+            ],
+            [
+                0.8144204020500183,
+                0.1549951732158661,
+                1.5878758430480957
+            ],
+            [
+                -0.8486690521240234,
+                -0.3389028310775757,
+                -0.3495967984199524
+            ],
+            [
+                -0.8692471385002136,
+                -0.8194199800491333,
+                -0.631809413433075
+            ],
+            [
+                -0.42954644560813904,
+                -0.44934019446372986,
+                -0.591420590877533
+            ],
+            [
+                0.4607820212841034,
+                -0.7250205874443054,
+                1.7493072748184204
+            ],
+            [
+                -1.7696516513824463,
+                -0.5916942954063416,
+                -1.574023723602295
+            ],
+            [
+                1.6669352054595947,
+                1.4912105798721313,
+                1.3560165166854858
+            ],
+            [
+                -1.0800373554229736,
+                0.7629137635231018,
+                -1.0381004810333252
+            ],
+            [
+                1.047736406326294,
+                0.050406962633132935,
+                0.5082691311836243
+            ],
+            [
+                -0.3739378750324249,
+                -0.35042014718055725,
+                -0.26100584864616394
+            ],
+            [
+                -0.844260573387146,
+                -0.9998536705970764,
+                -1.2325303554534912
+            ],
+            [
+                -0.5940765142440796,
+                -1.4752424955368042,
+                -1.0706015825271606
+            ],
+            [
+                -0.45336660742759705,
+                0.701956570148468,
+                -0.01004248671233654
+            ],
+            [
+                0.3736285865306854,
+                -0.27027788758277893,
+                0.15713819861412048
+            ],
+            [
+                -0.8340272903442383,
+                -0.3236463963985443,
+                -0.8846538066864014
+            ],
+            [
+                0.7022669315338135,
+                1.3332862854003906,
+                0.14084644615650177
+            ],
+            [
+                0.45217207074165344,
+                1.1755753755569458,
+                0.2349693328142166
+            ],
+            [
+                -0.15631698071956635,
+                0.44656309485435486,
+                0.7268437743186951
+            ],
+            [
+                1.4776707887649536,
+                -0.28847551345825195,
+                0.8769388198852539
+            ],
+            [
+                0.11302735656499863,
+                -1.4752424955368042,
+                -0.6139584183692932
+            ],
+            [
+                0.9495713114738464,
+                3.2774529457092285,
+                0.41752171516418457
+            ],
+            [
+                -1.2836657762527466,
+                -0.2332625389099121,
+                -0.7933743000030518
+            ],
+            [
+                -0.5797686576843262,
+                -1.0586177110671997,
+                -1.1251029968261719
+            ],
+            [
+                0.33342260122299194,
+                0.7275818586349487,
+                0.7995598316192627
+            ],
+            [
+                0.425828754901886,
+                -0.9151697158813477,
+                0.43760496377944946
+            ],
+            [
+                -0.05322280153632164,
+                -0.8201873302459717,
+                -0.16235584020614624
+            ],
+            [
+                -0.46987640857696533,
+                -0.05762412026524544,
+                0.05531999096274376
+            ],
+            [
+                -0.5830143094062805,
+                0.9419745802879333,
+                -0.305118203163147
+            ],
+            [
+                -0.7195153832435608,
+                -0.7276464700698853,
+                -0.9027334451675415
+            ],
+            [
+                1.350596308708191,
+                1.4297523498535156,
+                1.9735194444656372
+            ],
+            [
+                -0.7812644839286804,
+                -1.0730515718460083,
+                -0.562831461429596
+            ],
+            [
+                1.4618505239486694,
+                0.5692670345306396,
+                1.363304853439331
+            ],
+            [
+                -0.4936063289642334,
+                -1.4752424955368042,
+                -0.7045229077339172
+            ],
+            [
+                -1.0104995965957642,
+                -0.5075242519378662,
+                -1.110586404800415
+            ],
+            [
+                0.31591302156448364,
+                0.35237324237823486,
+                -0.4487154483795166
+            ],
+            [
+                -1.4049872159957886,
+                -0.679990291595459,
+                -0.8599415421485901
+            ],
+            [
+                0.03124343603849411,
+                0.33638378977775574,
+                0.5226337909698486
+            ],
+            [
+                0.423690527677536,
+                -0.17940466105937958,
+                0.7531247735023499
+            ],
+            [
+                -0.4220324158668518,
+                -1.0361093282699585,
+                -0.7854003310203552
+            ],
+            [
+                -0.15452530980110168,
+                0.21531401574611664,
+                -0.05601911619305611
+            ],
+            [
+                -0.21212992072105408,
+                -0.035570178180933,
+                0.10652213543653488
+            ],
+            [
+                1.093553066253662,
+                -0.1131458431482315,
+                -0.20418526232242584
+            ],
+            [
+                -0.5586968660354614,
+                -0.5761923789978027,
+                -0.6052808165550232
+            ],
+            [
+                -0.4685589671134949,
+                0.4402582049369812,
+                0.489963561296463
+            ],
+            [
+                -1.2615983486175537,
+                -1.4752424955368042,
+                -1.3928768634796143
+            ],
+            [
+                1.3247772455215454,
+                -0.3662235140800476,
+                0.5503998398780823
+            ],
+            [
+                2.547882318496704,
+                1.761588215827942,
+                2.172072410583496
+            ],
+            [
+                -0.8990424275398254,
+                -0.7010620832443237,
+                1.762750506401062
+            ],
+            [
+                -0.04323079437017441,
+                0.10521919280290604,
+                0.41278204321861267
+            ],
+            [
+                -0.8106566667556763,
+                -0.2152988761663437,
+                0.6886633038520813
+            ],
+            [
+                -0.32273945212364197,
+                0.930956244468689,
+                -0.4937223792076111
+            ],
+            [
+                1.2186975479125977,
+                -0.5351109504699707,
+                0.9584983587265015
+            ],
+            [
+                0.1814671903848648,
+                2.4706575870513916,
+                -0.15676380693912506
+            ],
+            [
+                0.8579946160316467,
+                0.6066296100616455,
+                3.286362886428833
+            ],
+            [
+                1.7954800128936768,
+                -0.14861305058002472,
+                1.6025707721710205
+            ],
+            [
+                -0.32365384697914124,
+                -0.4550083577632904,
+                -0.5663129091262817
+            ],
+            [
+                0.09487677365541458,
+                -0.7687491178512573,
+                1.4710142612457275
+            ],
+            [
+                -0.7784918546676636,
+                -0.1793902963399887,
+                -0.48800933361053467
+            ],
+            [
+                -1.3263808488845825,
+                -1.4752424955368042,
+                -1.574023723602295
+            ],
+            [
+                0.05527488887310028,
+                0.6746364235877991,
+                0.48511746525764465
+            ],
+            [
+                1.1975980997085571,
+                -1.4752424955368042,
+                0.5885109901428223
+            ],
+            [
+                -0.2987266480922699,
+                0.4546796977519989,
+                0.2084275782108307
+            ],
+            [
+                -0.7889736890792847,
+                -1.175607442855835,
+                -0.8206785321235657
+            ],
+            [
+                -0.2626661956310272,
+                -0.9614385962486267,
+                1.5632306337356567
+            ],
+            [
+                -0.1048581451177597,
+                -0.28064030408859253,
+                -0.28681790828704834
+            ],
+            [
+                0.45815208554267883,
+                0.8666320443153381,
+                -0.031938306987285614
+            ],
+            [
+                0.010025231167674065,
+                0.7814996838569641,
+                0.8576571941375732
+            ],
+            [
+                0.3951425552368164,
+                1.5651899576187134,
+                -1.028003454208374
+            ],
+            [
+                -1.1694846153259277,
+                0.12888087332248688,
+                -1.429984450340271
+            ],
+            [
+                -0.304468035697937,
+                0.07328235357999802,
+                -1.0178357362747192
+            ],
+            [
+                -0.8225993514060974,
+                -1.4752424955368042,
+                -1.574023723602295
+            ],
+            [
+                0.32689785957336426,
+                -0.5307475328445435,
+                -0.21707622706890106
+            ],
+            [
+                -0.24891619384288788,
+                0.28601786494255066,
+                -0.7305614352226257
+            ],
+            [
+                0.3805326223373413,
+                0.4740501940250397,
+                0.10629519820213318
+            ],
+            [
+                0.2702888250350952,
+                1.4025737047195435,
+                -0.023573726415634155
+            ],
+            [
+                -1.3399507999420166,
+                -0.6946898698806763,
+                -1.0133172273635864
+            ],
+            [
+                -0.8602170944213867,
+                0.1309104859828949,
+                -0.7086940407752991
+            ],
+            [
+                -0.6771754026412964,
+                -0.1602124720811844,
+                0.3152681887149811
+            ],
+            [
+                -0.7670163512229919,
+                0.1318874955177307,
+                -0.07320670783519745
+            ],
+            [
+                -0.641649603843689,
+                -1.1194407939910889,
+                -0.807258129119873
+            ],
+            [
+                0.9159563183784485,
+                2.054436445236206,
+                0.32762306928634644
+            ],
+            [
+                -1.5800719261169434,
+                -1.4752424955368042,
+                -0.45386970043182373
+            ],
+            [
+                -0.168352410197258,
+                -0.7655483484268188,
+                -0.8093153238296509
+            ],
+            [
+                -0.4998902380466461,
+                -0.22544707357883453,
+                -0.6762387752532959
+            ],
+            [
+                0.9589208960533142,
+                -0.31378787755966187,
+                0.7203722596168518
+            ],
+            [
+                -0.9099094271659851,
+                -1.4752424955368042,
+                -0.418353408575058
+            ],
+            [
+                0.5745715498924255,
+                3.917443037033081,
+                -0.19051960110664368
+            ],
+            [
+                0.6186608672142029,
+                0.1239038035273552,
+                0.5319991707801819
+            ],
+            [
+                0.5170225501060486,
+                -0.6221290826797485,
+                1.7965422868728638
+            ],
+            [
+                1.9674053192138672,
+                1.655977487564087,
+                1.706202745437622
+            ],
+            [
+                0.4233422577381134,
+                0.28313523530960083,
+                -1.574023723602295
+            ],
+            [
+                -0.6623197793960571,
+                -0.14473357796669006,
+                -1.0961412191390991
+            ],
+            [
+                -0.8406690955162048,
+                -0.5213462710380554,
+                -0.8887966871261597
+            ],
+            [
+                -1.2095774412155151,
+                -1.4752424955368042,
+                -1.3464620113372803
+            ],
+            [
+                1.4441195726394653,
+                0.8749849796295166,
+                2.2245960235595703
+            ],
+            [
+                0.6517497897148132,
+                0.024602601304650307,
+                0.04208683222532272
+            ],
+            [
+                -0.688782811164856,
+                0.5292736291885376,
+                -0.31408053636550903
+            ],
+            [
+                0.7305033802986145,
+                0.8429072499275208,
+                1.3996059894561768
+            ],
+            [
+                -0.5026254653930664,
+                -0.45462581515312195,
+                -0.2299053966999054
+            ],
+            [
+                -1.3062477111816406,
+                -0.15612338483333588,
+                -0.38954460620880127
+            ],
+            [
+                -0.5506009459495544,
+                -0.7137078642845154,
+                -1.0269787311553955
+            ],
+            [
+                -0.28129926323890686,
+                -0.09322790801525116,
+                -0.4571641981601715
+            ],
+            [
+                -0.6163395643234253,
+                0.0016345060430467129,
+                -0.5131157040596008
+            ],
+            [
+                -0.9362885355949402,
+                -0.6713629364967346,
+                -0.7078288197517395
+            ],
+            [
+                -0.143342062830925,
+                -0.035807929933071136,
+                0.49399909377098083
+            ],
+            [
+                -1.057734489440918,
+                -1.0577419996261597,
+                -0.6742948293685913
+            ],
+            [
+                -0.8110888600349426,
+                -0.7405568957328796,
+                -0.7823866009712219
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Á. Vass\nRank: 25/121\n2.40 Ball recoveries per 90",
+                "Á. Vass\nRank: 31/121\n0.35 Counterpressing per 90",
+                "Á. Vass\nRank: 48/121\n0.82 Interceptions per 90"
+            ],
+            [
+                "A. Suljić\nRank: 33/121\n2.22 Ball recoveries per 90",
+                "A. Suljić\nRank: 7/121\n0.55 Counterpressing per 90",
+                "A. Suljić\nRank: 102/121\n0.28 Interceptions per 90"
+            ],
+            [
+                "D. Holman\nRank: 31/121\n2.27 Ball recoveries per 90",
+                "D. Holman\nRank: 19/121\n0.41 Counterpressing per 90",
+                "D. Holman\nRank: 112/121\n0.21 Interceptions per 90"
+            ],
+            [
+                "Lucas\nRank: 14/121\n2.90 Ball recoveries per 90",
+                "Lucas\nRank: 6/121\n0.56 Counterpressing per 90",
+                "Lucas\nRank: 20/121\n1.32 Interceptions per 90"
+            ],
+            [
+                "J. Varga\nRank: 1/121\n5.50 Ball recoveries per 90",
+                "J. Varga\nRank: 27/121\n0.38 Counterpressing per 90",
+                "J. Varga\nRank: 16/121\n1.47 Interceptions per 90"
+            ],
+            [
+                "B. Zamostny\nRank: 102/121\n0.97 Ball recoveries per 90",
+                "B. Zamostny\nRank: 76/121\n0.19 Counterpressing per 90",
+                "B. Zamostny\nRank: 101/121\n0.29 Interceptions per 90"
+            ],
+            [
+                "R. Varga\nRank: 117/121\n0.55 Ball recoveries per 90",
+                "R. Varga\nRank: 111/121\n0.00 Counterpressing per 90",
+                "R. Varga\nRank: 117/121\n0.00 Interceptions per 90"
+            ],
+            [
+                "G. Nagy\nRank: 28/121\n2.32 Ball recoveries per 90",
+                "G. Nagy\nRank: 9/121\n0.54 Counterpressing per 90",
+                "G. Nagy\nRank: 29/121\n1.07 Interceptions per 90"
+            ],
+            [
+                "P. Hidi\nRank: 60/121\n1.57 Ball recoveries per 90",
+                "P. Hidi\nRank: 107/121\n0.07 Counterpressing per 90",
+                "P. Hidi\nRank: 30/121\n1.07 Interceptions per 90"
+            ],
+            [
+                "L. Bertus\nRank: 71/121\n1.37 Ball recoveries per 90",
+                "L. Bertus\nRank: 56/121\n0.24 Counterpressing per 90",
+                "L. Bertus\nRank: 84/121\n0.44 Interceptions per 90"
+            ],
+            [
+                "Z. Haraszti\nRank: 110/121\n0.77 Ball recoveries per 90",
+                "Z. Haraszti\nRank: 39/121\n0.31 Counterpressing per 90",
+                "Z. Haraszti\nRank: 66/121\n0.62 Interceptions per 90"
+            ],
+            [
+                "A. Viczián\nRank: 3/121\n3.99 Ball recoveries per 90",
+                "A. Viczián\nRank: 70/121\n0.21 Counterpressing per 90",
+                "A. Viczián\nRank: 10/121\n1.55 Interceptions per 90"
+            ],
+            [
+                "Z. Kenderes\nRank: 4/121\n3.94 Ball recoveries per 90",
+                "Z. Kenderes\nRank: 14/121\n0.50 Counterpressing per 90",
+                "Z. Kenderes\nRank: 5/121\n1.67 Interceptions per 90"
+            ],
+            [
+                "L. Vágó\nRank: 5/121\n3.72 Ball recoveries per 90",
+                "L. Vágó\nRank: 78/121\n0.18 Counterpressing per 90",
+                "L. Vágó\nRank: 14/121\n1.50 Interceptions per 90"
+            ],
+            [
+                "G. Toth\nRank: 23/121\n2.50 Ball recoveries per 90",
+                "G. Toth\nRank: 43/121\n0.28 Counterpressing per 90",
+                "G. Toth\nRank: 12/121\n1.53 Interceptions per 90"
+            ],
+            [
+                "A.  Lőrinczy\nRank: 100/121\n0.99 Ball recoveries per 90",
+                "A.  Lőrinczy\nRank: 74/121\n0.20 Counterpressing per 90",
+                "A.  Lőrinczy\nRank: 69/121\n0.59 Interceptions per 90"
+            ],
+            [
+                "Z. Medgyes\nRank: 103/121\n0.97 Ball recoveries per 90",
+                "Z. Medgyes\nRank: 99/121\n0.11 Counterpressing per 90",
+                "Z. Medgyes\nRank: 83/121\n0.46 Interceptions per 90"
+            ],
+            [
+                "M. Németh\nRank: 72/121\n1.37 Ball recoveries per 90",
+                "M. Németh\nRank: 79/121\n0.18 Counterpressing per 90",
+                "M. Németh\nRank: 80/121\n0.48 Interceptions per 90"
+            ],
+            [
+                "A. Farkas\nRank: 34/121\n2.18 Ball recoveries per 90",
+                "A. Farkas\nRank: 94/121\n0.13 Counterpressing per 90",
+                "A. Farkas\nRank: 8/121\n1.61 Interceptions per 90"
+            ],
+            [
+                "A. Bolyki\nRank: 121/121\n0.15 Ball recoveries per 90",
+                "A. Bolyki\nRank: 87/121\n0.15 Counterpressing per 90",
+                "A. Bolyki\nRank: 117/121\n0.00 Interceptions per 90"
+            ],
+            [
+                "G. Kocsis\nRank: 8/121\n3.27 Ball recoveries per 90",
+                "G. Kocsis\nRank: 11/121\n0.52 Counterpressing per 90",
+                "G. Kocsis\nRank: 19/121\n1.42 Interceptions per 90"
+            ],
+            [
+                "K. Kirchner\nRank: 109/121\n0.78 Ball recoveries per 90",
+                "K. Kirchner\nRank: 24/121\n0.39 Counterpressing per 90",
+                "K. Kirchner\nRank: 107/121\n0.26 Interceptions per 90"
+            ],
+            [
+                "D. Zsótér\nRank: 18/121\n2.71 Ball recoveries per 90",
+                "D. Zsótér\nRank: 50/121\n0.27 Counterpressing per 90",
+                "D. Zsótér\nRank: 35/121\n1.01 Interceptions per 90"
+            ],
+            [
+                "D. Márkvárt\nRank: 69/121\n1.42 Ball recoveries per 90",
+                "D. Márkvárt\nRank: 75/121\n0.20 Counterpressing per 90",
+                "D. Márkvárt\nRank: 64/121\n0.64 Interceptions per 90"
+            ],
+            [
+                "K. Korozmán\nRank: 99/121\n0.99 Ball recoveries per 90",
+                "K. Korozmán\nRank: 103/121\n0.08 Counterpressing per 90",
+                "K. Korozmán\nRank: 113/121\n0.17 Interceptions per 90"
+            ],
+            [
+                "M. Vida\nRank: 83/121\n1.22 Ball recoveries per 90",
+                "M. Vida\nRank: 111/121\n0.00 Counterpressing per 90",
+                "M. Vida\nRank: 108/121\n0.24 Interceptions per 90"
+            ],
+            [
+                "R. Zsolnai\nRank: 73/121\n1.35 Ball recoveries per 90",
+                "R. Zsolnai\nRank: 26/121\n0.38 Counterpressing per 90",
+                "R. Zsolnai\nRank: 53/121\n0.76 Interceptions per 90"
+            ],
+            [
+                "M. Katona\nRank: 42/121\n2.10 Ball recoveries per 90",
+                "M. Katona\nRank: 68/121\n0.21 Counterpressing per 90",
+                "M. Katona\nRank: 46/121\n0.84 Interceptions per 90"
+            ],
+            [
+                "B. Bedi\nRank: 97/121\n1.00 Ball recoveries per 90",
+                "B. Bedi\nRank: 73/121\n0.20 Counterpressing per 90",
+                "B. Bedi\nRank: 98/121\n0.33 Interceptions per 90"
+            ],
+            [
+                "J. Urblík\nRank: 26/121\n2.40 Ball recoveries per 90",
+                "J. Urblík\nRank: 15/121\n0.49 Counterpressing per 90",
+                "J. Urblík\nRank: 47/121\n0.83 Interceptions per 90"
+            ],
+            [
+                "B. Kozics\nRank: 36/121\n2.17 Ball recoveries per 90",
+                "B. Kozics\nRank: 16/121\n0.46 Counterpressing per 90",
+                "B. Kozics\nRank: 44/121\n0.88 Interceptions per 90"
+            ],
+            [
+                "V. Sejben\nRank: 58/121\n1.62 Ball recoveries per 90",
+                "V. Sejben\nRank: 35/121\n0.33 Counterpressing per 90",
+                "V. Sejben\nRank: 26/121\n1.12 Interceptions per 90"
+            ],
+            [
+                "H. Attila Mihály\nRank: 9/121\n3.10 Ball recoveries per 90",
+                "H. Attila Mihály\nRank: 71/121\n0.21 Counterpressing per 90",
+                "H. Attila Mihály\nRank: 22/121\n1.19 Interceptions per 90"
+            ],
+            [
+                "B. Szabó\nRank: 48/121\n1.86 Ball recoveries per 90",
+                "B. Szabó\nRank: 111/121\n0.00 Counterpressing per 90",
+                "B. Szabó\nRank: 82/121\n0.47 Interceptions per 90"
+            ],
+            [
+                "D. Mészáros\nRank: 20/121\n2.62 Ball recoveries per 90",
+                "D. Mészáros\nRank: 2/121\n0.83 Counterpressing per 90",
+                "D. Mészáros\nRank: 40/121\n0.97 Interceptions per 90"
+            ],
+            [
+                "B. Szabó\nRank: 114/121\n0.60 Ball recoveries per 90",
+                "B. Szabó\nRank: 67/121\n0.22 Counterpressing per 90",
+                "B. Szabó\nRank: 93/121\n0.38 Interceptions per 90"
+            ],
+            [
+                "R. Nagy\nRank: 81/121\n1.23 Ball recoveries per 90",
+                "R. Nagy\nRank: 106/121\n0.07 Counterpressing per 90",
+                "R. Nagy\nRank: 111/121\n0.22 Interceptions per 90"
+            ],
+            [
+                "B. Murka\nRank: 43/121\n2.06 Ball recoveries per 90",
+                "B. Murka\nRank: 25/121\n0.38 Counterpressing per 90",
+                "B. Murka\nRank: 24/121\n1.15 Interceptions per 90"
+            ],
+            [
+                "B. Pintér\nRank: 37/121\n2.15 Ball recoveries per 90",
+                "B. Pintér\nRank: 101/121\n0.10 Counterpressing per 90",
+                "B. Pintér\nRank: 39/121\n0.98 Interceptions per 90"
+            ],
+            [
+                "K. Tóth\nRank: 54/121\n1.71 Ball recoveries per 90",
+                "K. Tóth\nRank: 100/121\n0.11 Counterpressing per 90",
+                "K. Tóth\nRank: 59/121\n0.68 Interceptions per 90"
+            ],
+            [
+                "M. Palincsár\nRank: 75/121\n1.33 Ball recoveries per 90",
+                "M. Palincsár\nRank: 55/121\n0.25 Counterpressing per 90",
+                "M. Palincsár\nRank: 51/121\n0.79 Interceptions per 90"
+            ],
+            [
+                "K. Csernik\nRank: 82/121\n1.23 Ball recoveries per 90",
+                "K. Csernik\nRank: 17/121\n0.42 Counterpressing per 90",
+                "K. Csernik\nRank: 67/121\n0.62 Interceptions per 90"
+            ],
+            [
+                "I. Harsányi\nRank: 89/121\n1.11 Ball recoveries per 90",
+                "I. Harsányi\nRank: 95/121\n0.13 Counterpressing per 90",
+                "I. Harsányi\nRank: 100/121\n0.33 Interceptions per 90"
+            ],
+            [
+                "P. Zachán\nRank: 12/121\n2.99 Ball recoveries per 90",
+                "P. Zachán\nRank: 12/121\n0.51 Counterpressing per 90",
+                "P. Zachán\nRank: 4/121\n1.72 Interceptions per 90"
+            ],
+            [
+                "P. Törőcsik\nRank: 92/121\n1.05 Ball recoveries per 90",
+                "P. Törőcsik\nRank: 108/121\n0.07 Counterpressing per 90",
+                "P. Törőcsik\nRank: 78/121\n0.49 Interceptions per 90"
+            ],
+            [
+                "F. Sàghy\nRank: 10/121\n3.09 Ball recoveries per 90",
+                "F. Sàghy\nRank: 30/121\n0.36 Counterpressing per 90",
+                "F. Sàghy\nRank: 18/121\n1.42 Interceptions per 90"
+            ],
+            [
+                "A. Girsik\nRank: 76/121\n1.31 Ball recoveries per 90",
+                "A. Girsik\nRank: 111/121\n0.00 Counterpressing per 90",
+                "A. Girsik\nRank: 87/121\n0.42 Interceptions per 90"
+            ],
+            [
+                "R. Hajdú\nRank: 107/121\n0.84 Ball recoveries per 90",
+                "R. Hajdú\nRank: 82/121\n0.17 Counterpressing per 90",
+                "R. Hajdú\nRank: 110/121\n0.22 Interceptions per 90"
+            ],
+            [
+                "Z. Csizmadia\nRank: 45/121\n2.05 Ball recoveries per 90",
+                "Z. Csizmadia\nRank: 37/121\n0.32 Counterpressing per 90",
+                "Z. Csizmadia\nRank: 72/121\n0.55 Interceptions per 90"
+            ],
+            [
+                "D. Kovács\nRank: 119/121\n0.48 Ball recoveries per 90",
+                "D. Kovács\nRank: 90/121\n0.14 Counterpressing per 90",
+                "D. Kovács\nRank: 97/121\n0.35 Interceptions per 90"
+            ],
+            [
+                "K. Szűcs\nRank: 51/121\n1.79 Ball recoveries per 90",
+                "K. Szűcs\nRank: 38/121\n0.32 Counterpressing per 90",
+                "K. Szűcs\nRank: 34/121\n1.02 Interceptions per 90"
+            ],
+            [
+                "V. Zvekanov\nRank: 38/121\n2.14 Ball recoveries per 90",
+                "V. Zvekanov\nRank: 64/121\n0.23 Counterpressing per 90",
+                "V. Zvekanov\nRank: 25/121\n1.13 Interceptions per 90"
+            ],
+            [
+                "B. Banó-Szabó\nRank: 70/121\n1.38 Ball recoveries per 90",
+                "B. Banó-Szabó\nRank: 104/121\n0.08 Counterpressing per 90",
+                "B. Banó-Szabó\nRank: 92/121\n0.38 Interceptions per 90"
+            ],
+            [
+                "Z. Derekas\nRank: 57/121\n1.62 Ball recoveries per 90",
+                "Z. Derekas\nRank: 42/121\n0.29 Counterpressing per 90",
+                "Z. Derekas\nRank: 56/121\n0.74 Interceptions per 90"
+            ],
+            [
+                "E. Horváth\nRank: 61/121\n1.57 Ball recoveries per 90",
+                "E. Horváth\nRank: 53/121\n0.25 Counterpressing per 90",
+                "E. Horváth\nRank: 49/121\n0.82 Interceptions per 90"
+            ],
+            [
+                "P. Posztobányi\nRank: 17/121\n2.75 Ball recoveries per 90",
+                "P. Posztobányi\nRank: 58/121\n0.24 Counterpressing per 90",
+                "P. Posztobányi\nRank: 61/121\n0.66 Interceptions per 90"
+            ],
+            [
+                "B. Kocsis\nRank: 80/121\n1.25 Ball recoveries per 90",
+                "B. Kocsis\nRank: 86/121\n0.16 Counterpressing per 90",
+                "B. Kocsis\nRank: 81/121\n0.47 Interceptions per 90"
+            ],
+            [
+                "P. Nyári\nRank: 74/121\n1.34 Ball recoveries per 90",
+                "P. Nyári\nRank: 36/121\n0.33 Counterpressing per 90",
+                "P. Nyári\nRank: 37/121\n1.00 Interceptions per 90"
+            ],
+            [
+                "P. Beke\nRank: 113/121\n0.62 Ball recoveries per 90",
+                "P. Beke\nRank: 111/121\n0.00 Counterpressing per 90",
+                "P. Beke\nRank: 115/121\n0.09 Interceptions per 90"
+            ],
+            [
+                "R. Rabatin\nRank: 13/121\n2.96 Ball recoveries per 90",
+                "R. Rabatin\nRank: 77/121\n0.19 Counterpressing per 90",
+                "R. Rabatin\nRank: 32/121\n1.03 Interceptions per 90"
+            ],
+            [
+                "S. Hidi\nRank: 2/121\n4.07 Ball recoveries per 90",
+                "S. Hidi\nRank: 5/121\n0.56 Counterpressing per 90",
+                "S. Hidi\nRank: 3/121\n1.82 Interceptions per 90"
+            ],
+            [
+                "E. Németh\nRank: 104/121\n0.94 Ball recoveries per 90",
+                "E. Németh\nRank: 92/121\n0.13 Counterpressing per 90",
+                "E. Németh\nRank: 7/121\n1.62 Interceptions per 90"
+            ],
+            [
+                "G. Ominger\nRank: 53/121\n1.72 Ball recoveries per 90",
+                "G. Ominger\nRank: 48/121\n0.28 Counterpressing per 90",
+                "G. Ominger\nRank: 41/121\n0.96 Interceptions per 90"
+            ],
+            [
+                "Á. Zuigéber\nRank: 94/121\n1.02 Ball recoveries per 90",
+                "Á. Zuigéber\nRank: 65/121\n0.22 Counterpressing per 90",
+                "Á. Zuigéber\nRank: 28/121\n1.10 Interceptions per 90"
+            ],
+            [
+                "K. Kállai\nRank: 67/121\n1.47 Ball recoveries per 90",
+                "K. Kállai\nRank: 18/121\n0.42 Counterpressing per 90",
+                "K. Kállai\nRank: 76/121\n0.52 Interceptions per 90"
+            ],
+            [
+                "Á. Szekér\nRank: 15/121\n2.87 Ball recoveries per 90",
+                "Á. Szekér\nRank: 85/121\n0.16 Counterpressing per 90",
+                "Á. Szekér\nRank: 21/121\n1.23 Interceptions per 90"
+            ],
+            [
+                "M. Radics\nRank: 47/121\n1.93 Ball recoveries per 90",
+                "M. Radics\nRank: 3/121\n0.69 Counterpressing per 90",
+                "M. Radics\nRank: 58/121\n0.69 Interceptions per 90"
+            ],
+            [
+                "D. Sztojka\nRank: 22/121\n2.54 Ball recoveries per 90",
+                "D. Sztojka\nRank: 29/121\n0.36 Counterpressing per 90",
+                "D. Sztojka\nRank: 1/121\n2.36 Interceptions per 90"
+            ],
+            [
+                "I. Pekár\nRank: 7/121\n3.39 Ball recoveries per 90",
+                "I. Pekár\nRank: 60/121\n0.23 Counterpressing per 90",
+                "I. Pekár\nRank: 11/121\n1.54 Interceptions per 90"
+            ],
+            [
+                "K. Milán\nRank: 68/121\n1.47 Ball recoveries per 90",
+                "K. Milán\nRank: 81/121\n0.18 Counterpressing per 90",
+                "K. Milán\nRank: 79/121\n0.49 Interceptions per 90"
+            ],
+            [
+                "D. Dóra\nRank: 49/121\n1.85 Ball recoveries per 90",
+                "D. Dóra\nRank: 98/121\n0.12 Counterpressing per 90",
+                "D. Dóra\nRank: 15/121\n1.48 Interceptions per 90"
+            ],
+            [
+                "Z. Magyar\nRank: 91/121\n1.05 Ball recoveries per 90",
+                "Z. Magyar\nRank: 63/121\n0.23 Counterpressing per 90",
+                "Z. Magyar\nRank: 75/121\n0.53 Interceptions per 90"
+            ],
+            [
+                "D. Székely\nRank: 116/121\n0.56 Ball recoveries per 90",
+                "D. Székely\nRank: 111/121\n0.00 Counterpressing per 90",
+                "D. Székely\nRank: 117/121\n0.00 Interceptions per 90"
+            ],
+            [
+                "B. Kovács\nRank: 50/121\n1.81 Ball recoveries per 90",
+                "B. Kovács\nRank: 28/121\n0.37 Counterpressing per 90",
+                "B. Kovács\nRank: 38/121\n1.00 Interceptions per 90"
+            ],
+            [
+                "B. Bocskay\nRank: 16/121\n2.85 Ball recoveries per 90",
+                "B. Bocskay\nRank: 111/121\n0.00 Counterpressing per 90",
+                "B. Bocskay\nRank: 31/121\n1.05 Interceptions per 90"
+            ],
+            [
+                "D. Kocsis\nRank: 65/121\n1.49 Ball recoveries per 90",
+                "D. Kocsis\nRank: 34/121\n0.34 Counterpressing per 90",
+                "D. Kocsis\nRank: 45/121\n0.86 Interceptions per 90"
+            ],
+            [
+                "B. Pataki\nRank: 93/121\n1.04 Ball recoveries per 90",
+                "B. Pataki\nRank: 110/121\n0.05 Counterpressing per 90",
+                "B. Pataki\nRank: 96/121\n0.37 Interceptions per 90"
+            ],
+            [
+                "B. Szabó\nRank: 63/121\n1.52 Ball recoveries per 90",
+                "B. Szabó\nRank: 102/121\n0.09 Counterpressing per 90",
+                "B. Szabó\nRank: 13/121\n1.52 Interceptions per 90"
+            ],
+            [
+                "N. Kovalenko\nRank: 55/121\n1.67 Ball recoveries per 90",
+                "N. Kovalenko\nRank: 69/121\n0.21 Counterpressing per 90",
+                "N. Kovalenko\nRank: 65/121\n0.62 Interceptions per 90"
+            ],
+            [
+                "O. Nagy\nRank: 35/121\n2.18 Ball recoveries per 90",
+                "O. Nagy\nRank: 21/121\n0.41 Counterpressing per 90",
+                "O. Nagy\nRank: 55/121\n0.75 Interceptions per 90"
+            ],
+            [
+                "S. Szilágyi\nRank: 52/121\n1.77 Ball recoveries per 90",
+                "S. Szilágyi\nRank: 23/121\n0.39 Counterpressing per 90",
+                "S. Szilágyi\nRank: 23/121\n1.18 Interceptions per 90"
+            ],
+            [
+                "T. Szabó\nRank: 40/121\n2.12 Ball recoveries per 90",
+                "T. Szabó\nRank: 10/121\n0.53 Counterpressing per 90",
+                "T. Szabó\nRank: 106/121\n0.26 Interceptions per 90"
+            ],
+            [
+                "A. Merenyi\nRank: 111/121\n0.70 Ball recoveries per 90",
+                "A. Merenyi\nRank: 46/121\n0.28 Counterpressing per 90",
+                "A. Merenyi\nRank: 116/121\n0.07 Interceptions per 90"
+            ],
+            [
+                "Z. Hös\nRank: 66/121\n1.48 Ball recoveries per 90",
+                "Z. Hös\nRank: 49/121\n0.27 Counterpressing per 90",
+                "Z. Hös\nRank: 104/121\n0.27 Interceptions per 90"
+            ],
+            [
+                "B. Gólik\nRank: 96/121\n1.01 Ball recoveries per 90",
+                "B. Gólik\nRank: 111/121\n0.00 Counterpressing per 90",
+                "B. Gólik\nRank: 117/121\n0.00 Interceptions per 90"
+            ],
+            [
+                "Á. Madarász\nRank: 44/121\n2.06 Ball recoveries per 90",
+                "Á. Madarász\nRank: 84/121\n0.16 Counterpressing per 90",
+                "Á. Madarász\nRank: 62/121\n0.66 Interceptions per 90"
+            ],
+            [
+                "B. Kovács\nRank: 62/121\n1.53 Ball recoveries per 90",
+                "B. Kovács\nRank: 40/121\n0.31 Counterpressing per 90",
+                "B. Kovács\nRank: 90/121\n0.41 Interceptions per 90"
+            ],
+            [
+                "G. Csatári\nRank: 41/121\n2.11 Ball recoveries per 90",
+                "G. Csatári\nRank: 33/121\n0.34 Counterpressing per 90",
+                "G. Csatári\nRank: 50/121\n0.82 Interceptions per 90"
+            ],
+            [
+                "B. Somfalvi\nRank: 46/121\n2.01 Ball recoveries per 90",
+                "B. Somfalvi\nRank: 13/121\n0.50 Counterpressing per 90",
+                "B. Somfalvi\nRank: 54/121\n0.75 Interceptions per 90"
+            ],
+            [
+                "Á. Ésik\nRank: 118/121\n0.54 Ball recoveries per 90",
+                "Á. Ésik\nRank: 91/121\n0.14 Counterpressing per 90",
+                "Á. Ésik\nRank: 103/121\n0.27 Interceptions per 90"
+            ],
+            [
+                "Ádám Bagi\nRank: 101/121\n0.98 Ball recoveries per 90",
+                "Ádám Bagi\nRank: 45/121\n0.28 Counterpressing per 90",
+                "Ádám Bagi\nRank: 89/121\n0.42 Interceptions per 90"
+            ],
+            [
+                "B. Herczeg\nRank: 87/121\n1.15 Ball recoveries per 90",
+                "B. Herczeg\nRank: 62/121\n0.23 Counterpressing per 90",
+                "B. Herczeg\nRank: 43/121\n0.92 Interceptions per 90"
+            ],
+            [
+                "M. Vidnyánszky\nRank: 90/121\n1.06 Ball recoveries per 90",
+                "M. Vidnyánszky\nRank: 44/121\n0.28 Counterpressing per 90",
+                "M. Vidnyánszky\nRank: 57/121\n0.73 Interceptions per 90"
+            ],
+            [
+                "D. Miskolczi\nRank: 85/121\n1.18 Ball recoveries per 90",
+                "D. Miskolczi\nRank: 109/121\n0.06 Counterpressing per 90",
+                "D. Miskolczi\nRank: 94/121\n0.37 Interceptions per 90"
+            ],
+            [
+                "M. Szolgai\nRank: 21/121\n2.59 Ball recoveries per 90",
+                "M. Szolgai\nRank: 4/121\n0.61 Counterpressing per 90",
+                "M. Szolgai\nRank: 42/121\n0.92 Interceptions per 90"
+            ],
+            [
+                "Á. Czékus\nRank: 120/121\n0.33 Ball recoveries per 90",
+                "Á. Czékus\nRank: 111/121\n0.00 Counterpressing per 90",
+                "Á. Czékus\nRank: 73/121\n0.54 Interceptions per 90"
+            ],
+            [
+                "Á. Kopácsi\nRank: 59/121\n1.61 Ball recoveries per 90",
+                "Á. Kopácsi\nRank: 97/121\n0.12 Counterpressing per 90",
+                "Á. Kopácsi\nRank: 95/121\n0.37 Interceptions per 90"
+            ],
+            [
+                "A. Szamosi\nRank: 77/121\n1.31 Ball recoveries per 90",
+                "A. Szamosi\nRank: 66/121\n0.22 Counterpressing per 90",
+                "A. Szamosi\nRank: 86/121\n0.44 Interceptions per 90"
+            ],
+            [
+                "N. Dencinger\nRank: 19/121\n2.63 Ball recoveries per 90",
+                "N. Dencinger\nRank: 72/121\n0.20 Counterpressing per 90",
+                "N. Dencinger\nRank: 27/121\n1.11 Interceptions per 90"
+            ],
+            [
+                "B. Mohos\nRank: 105/121\n0.93 Ball recoveries per 90",
+                "B. Mohos\nRank: 111/121\n0.00 Counterpressing per 90",
+                "B. Mohos\nRank: 71/121\n0.56 Interceptions per 90"
+            ],
+            [
+                "B. Rab\nRank: 30/121\n2.28 Ball recoveries per 90",
+                "B. Rab\nRank: 1/121\n0.94 Counterpressing per 90",
+                "B. Rab\nRank: 60/121\n0.67 Interceptions per 90"
+            ],
+            [
+                "A. Somogyi\nRank: 29/121\n2.32 Ball recoveries per 90",
+                "A. Somogyi\nRank: 47/121\n0.28 Counterpressing per 90",
+                "A. Somogyi\nRank: 33/121\n1.02 Interceptions per 90"
+            ],
+            [
+                "A. Décsy\nRank: 32/121\n2.23 Ball recoveries per 90",
+                "A. Décsy\nRank: 88/121\n0.15 Counterpressing per 90",
+                "A. Décsy\nRank: 6/121\n1.64 Interceptions per 90"
+            ],
+            [
+                "C. Lakatos\nRank: 6/121\n3.55 Ball recoveries per 90",
+                "C. Lakatos\nRank: 8/121\n0.55 Counterpressing per 90",
+                "C. Lakatos\nRank: 9/121\n1.59 Interceptions per 90"
+            ],
+            [
+                "Z. Krupa\nRank: 39/121\n2.14 Ball recoveries per 90",
+                "Z. Krupa\nRank: 41/121\n0.31 Counterpressing per 90",
+                "Z. Krupa\nRank: 117/121\n0.00 Interceptions per 90"
+            ],
+            [
+                "S. Bakó\nRank: 86/121\n1.16 Ball recoveries per 90",
+                "S. Bakó\nRank: 59/121\n0.23 Counterpressing per 90",
+                "S. Bakó\nRank: 109/121\n0.23 Interceptions per 90"
+            ],
+            [
+                "M. Herczeg\nRank: 98/121\n1.00 Ball recoveries per 90",
+                "M. Herczeg\nRank: 83/121\n0.17 Counterpressing per 90",
+                "M. Herczeg\nRank: 99/121\n0.33 Interceptions per 90"
+            ],
+            [
+                "K. Sarkadi\nRank: 112/121\n0.66 Ball recoveries per 90",
+                "K. Sarkadi\nRank: 111/121\n0.00 Counterpressing per 90",
+                "K. Sarkadi\nRank: 114/121\n0.11 Interceptions per 90"
+            ],
+            [
+                "Z. Csornyei\nRank: 11/121\n3.07 Ball recoveries per 90",
+                "Z. Csornyei\nRank: 20/121\n0.41 Counterpressing per 90",
+                "Z. Csornyei\nRank: 2/121\n1.84 Interceptions per 90"
+            ],
+            [
+                "M. Szilágyi\nRank: 27/121\n2.35 Ball recoveries per 90",
+                "M. Szilágyi\nRank: 51/121\n0.26 Counterpressing per 90",
+                "M. Szilágyi\nRank: 52/121\n0.78 Interceptions per 90"
+            ],
+            [
+                "A. Rac\nRank: 88/121\n1.14 Ball recoveries per 90",
+                "A. Rac\nRank: 32/121\n0.35 Counterpressing per 90",
+                "A. Rac\nRank: 68/121\n0.61 Interceptions per 90"
+            ],
+            [
+                "G. Stumpf\nRank: 24/121\n2.42 Ball recoveries per 90",
+                "G. Stumpf\nRank: 22/121\n0.40 Counterpressing per 90",
+                "G. Stumpf\nRank: 17/121\n1.44 Interceptions per 90"
+            ],
+            [
+                "M. Gyorfi\nRank: 78/121\n1.30 Ball recoveries per 90",
+                "M. Gyorfi\nRank: 80/121\n0.18 Counterpressing per 90",
+                "M. Gyorfi\nRank: 63/121\n0.65 Interceptions per 90"
+            ],
+            [
+                "K. Laszlo\nRank: 115/121\n0.57 Ball recoveries per 90",
+                "K. Laszlo\nRank: 61/121\n0.23 Counterpressing per 90",
+                "K. Laszlo\nRank: 70/121\n0.57 Interceptions per 90"
+            ],
+            [
+                "M. Zámbó\nRank: 79/121\n1.26 Ball recoveries per 90",
+                "M. Zámbó\nRank: 93/121\n0.13 Counterpressing per 90",
+                "M. Zámbó\nRank: 105/121\n0.27 Interceptions per 90"
+            ],
+            [
+                "B. Sain\nRank: 64/121\n1.50 Ball recoveries per 90",
+                "B. Sain\nRank: 57/121\n0.24 Counterpressing per 90",
+                "B. Sain\nRank: 74/121\n0.54 Interceptions per 90"
+            ],
+            [
+                "B. Varga\nRank: 84/121\n1.20 Ball recoveries per 90",
+                "B. Varga\nRank: 52/121\n0.26 Counterpressing per 90",
+                "B. Varga\nRank: 77/121\n0.51 Interceptions per 90"
+            ],
+            [
+                "B. Vörös\nRank: 106/121\n0.91 Ball recoveries per 90",
+                "B. Vörös\nRank: 89/121\n0.14 Counterpressing per 90",
+                "B. Vörös\nRank: 88/121\n0.42 Interceptions per 90"
+            ],
+            [
+                "M. Györgye\nRank: 56/121\n1.63 Ball recoveries per 90",
+                "M. Györgye\nRank: 54/121\n0.25 Counterpressing per 90",
+                "M. Györgye\nRank: 36/121\n1.00 Interceptions per 90"
+            ],
+            [
+                "C. Máté\nRank: 108/121\n0.80 Ball recoveries per 90",
+                "C. Máté\nRank: 105/121\n0.07 Counterpressing per 90",
+                "C. Máté\nRank: 85/121\n0.44 Interceptions per 90"
+            ],
+            [
+                "K. Balla\nRank: 95/121\n1.02 Ball recoveries per 90",
+                "K. Balla\nRank: 96/121\n0.13 Counterpressing per 90",
+                "K. Balla\nRank: 91/121\n0.38 Interceptions per 90"
+            ]
+        ],
+        "serie_names": [
+            "Other Midfielders",
+            "Adam Somogyi"
+        ],
+        "minutes_played": 1974,
+        "axis_labels": [
+            "Ball recoveries per 90 | 2.32",
+            "Counterpressing per 90 | 0.28",
+            "Interceptions per 90 | 1.02"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": [
+            0.5767332765274928,
+            0.4966569137326297,
+            0.17351864182901156,
+            1.6490037469849614,
+            2.765668429325205,
+            -0.8981975880815951,
+            -1.7438410388574794,
+            1.1088914368904996,
+            -0.258426736328552,
+            -0.47181246264400084,
+            -0.5257525150592659,
+            1.669070104129787,
+            2.3340829189715095,
+            1.430715040870538,
+            1.022443354917511,
+            -0.6578512879051941,
+            -0.9434533988686225,
+            -0.5831879285812601,
+            0.5922866910902777,
+            -1.635630983394036,
+            1.8324573042625494,
+            -0.6199639413166049,
+            0.7068630896535687,
+            -0.4012076842541752,
+            -1.2137562592665498,
+            -1.2064844549627494,
+            0.0315994326179925,
+            0.13916785529332798,
+            -0.8386744285544822,
+            0.8712594323716955,
+            0.7277484149907582,
+            0.34878886542566856,
+            0.9248264662823447,
+            -0.7006606374770742,
+            1.7931546155257947,
+            -0.9897059555736206,
+            -1.0687013765476754,
+            0.7126632686053238,
+            0.03260484565564874,
+            -0.38078497633247926,
+            -0.22727889407216795,
+            -0.05078162032993889,
+            -0.9360467303136115,
+            1.880984750869713,
+            -0.9677943567314038,
+            1.4030237907369538,
+            -1.0257478091203676,
+            -1.0718451785799634,
+            0.11742454233305283,
+            -1.2337020069811795,
+            0.3255447855195563,
+            0.4115561978009963,
+            -0.861764613843798,
+            -0.016893538731477496,
+            -0.07658587731099227,
+            0.4123148110093721,
+            -0.6962888059535133,
+            0.11041298366459514,
+            -1.6446660049289163,
+            0.7050153883711913,
+            2.6496955286756783,
+            -0.04953057845884706,
+            0.16639494673133762,
+            -0.2195819630707372,
+            0.0024992381745977694,
+            0.7403544182011275,
+            0.9237996039131748,
+            1.8205939323440985,
+            1.3908160356281418,
+            -0.5251291197796495,
+            0.29955399190760307,
+            -0.6164045178952332,
+            -1.7413610877895358,
+            0.44582587009634533,
+            0.25664989265891414,
+            0.0957125038037692,
+            -1.1017755271658711,
+            0.09092890902844976,
+            -0.2556389888457453,
+            0.5224918010745185,
+            0.5972967319558732,
+            0.3845932666881559,
+            -1.033883658448526,
+            -0.4881355818867268,
+            -1.4985752455516637,
+            -0.11275642056320978,
+            -0.28063753201476793,
+            0.39315191867543037,
+            0.6286923010986158,
+            -1.2631092000452198,
+            -0.6233988109952151,
+            -0.2703048962773173,
+            -0.34843591495883003,
+            -1.0056241885283026,
+            1.3024078277950994,
+            -1.4587473905374322,
+            -0.650360404596512,
+            -0.5668205305251727,
+            0.609087696026245,
+            -1.1229408807420256,
+            1.6239798826578042,
+            0.5352222413320111,
+            0.6736530155468325,
+            2.16338924336323,
+            -0.2625653884235226,
+            -0.7676978937682489,
+            -0.9148303789483212,
+            -1.6028193081955282,
+            1.8162885598840535,
+            0.3382003024647263,
+            -0.2541624550956329,
+            1.1625947479672383,
+            -0.48964921856612087,
+            -0.8267449368875247,
+            -0.8945121387571057,
+            -0.33450224393080447,
+            -0.48190300963362337,
+            -0.9497247948067352,
+            0.09653057523503787,
+            -1.1357870058737891,
+            -0.9413460767213951
+        ]
+    },
+    "player_info": {
+        "id": 869845,
+        "name": "A. Somogyi",
+        "full_name": "Adam Somogyi",
+        "synthesized_name": "Adam Somogyi",
+        "birth_date": "2007-11-23",
+        "age": 18,
+        "foot": null,
+        "position": "MIDFIELDER",
+        "detailed_position": "DEFENSIVE_MIDFIELDER",
+        "image_url": "https://cdn5.wyscout.com/photos/players/public/ndplayer_100x130.png",
+        "height": null,
+        "weight": null
+    }
+}
