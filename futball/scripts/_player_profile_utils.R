@@ -97,22 +97,39 @@ load_player_db_stats <- function(nev, db_path = "futball/futball.db") {
   )
 }
 
-# ── Fix KPI lista ───────────────────────────────────────────────────────────────
+# ── Pozíció-specifikus KPI listák ───────────────────────────────────────────────
 
-FUTBALL_DEFAULT_KPIS <- c(
-  "Defensive actions",
-  "Defending 1v1 %",
-  "Defensive line height (m)",
-  "Ball recoveries",
-  "Aerials won %",
-  "Touches",
-  "Ball progression (xT)",
-  "Playmaking passes"
+FUTBALL_KPIS <- list(
+  CB = c(
+    "Defensive actions",
+    "Defending 1v1 %",
+    "Defensive line height (m)",
+    "Ball recoveries",
+    "Aerials won %",
+    "Touches",
+    "Ball progression (xT)",
+    "Playmaking passes"
+  ),
+  W = c(
+    "Touches",
+    "xG",
+    "xA",
+    "xG + xA per 100 touches",
+    "xG per shot",
+    "Carries (xT)",
+    "Deep runs (xT)",
+    "Defensive intensity"
+  )
 )
+
+FUTBALL_DEFAULT_KPIS <- FUTBALL_KPIS[["CB"]]
 
 # ── Fix statisztika kártyák ─────────────────────────────────────────────────────
 
-pick_key_metrics <- function(stats, position, kpi_list = FUTBALL_DEFAULT_KPIS) {
+pick_key_metrics <- function(stats, position, kpi_list = NULL) {
+  if (is.null(kpi_list)) {
+    kpi_list <- if (!is.null(FUTBALL_KPIS[[position]])) FUTBALL_KPIS[[position]] else FUTBALL_DEFAULT_KPIS
+  }
 
   if (nrow(stats) == 0) return(list())
 
