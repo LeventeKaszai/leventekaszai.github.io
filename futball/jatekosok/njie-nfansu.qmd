@@ -1,0 +1,105 @@
+---
+title: "NJIE Nfansu — Profil"
+profile:
+  nev: "Nfansu Njie"
+  sport: football
+  valogatott: nem
+
+  besorolas: "Strong Buy"
+
+  klub: "ETO FC"
+  pozicio: "W / ST"
+
+  tezis: >
+    Nfansu Njie az ETO FC 21 éves gambiai szélsője, aki szélsőn és
+    csatárként egyaránt bevethető. Az NB1 legjobb counterpresszőre —
+    labdavesztés utáni azonnali visszatámadásban nincs párja a ligában.
+    Fizikálisan domináns, 187 centiméteres termetéhez
+    meglepő dinamika és mélységi futási képesség társul.
+    Értékének döntő részét labda nélküli megmozdulásai adják:
+    mélységi futások, tizenhatos körüli jelenlét, agresszív pressing.
+    Technikai repertoárja és labdás játéka messze elmarad a fizikai
+    profiljától — cselezésben, passzban, előkészítésben átlagos vagy
+    gyenge. Direkt, magaslabdás, átmenet-orientált rendszerben
+    a leghatékonyabb.
+
+  elemzes: |
+    Nfansu Njie az ETO FC gambiai születésű, 21 éves szélsője, aki
+    a 2025-26-os NB1-es szezonban pozícióját tekintve rugalmas eszköznek
+    bizonyult: szélsőn és csatárként is rendszeresen bevetette az ETO
+    edzői stáb.
+
+    A legkiemelkedőbb statisztikája a counterpressing — az egész NB1-ben
+    senki nem teljesít jobban ezen a mutatón. 0.55 counterpressing akció
+    per 90 perc az abszolút ligatop, ami azt jelenti, hogy labdavesztés
+    után azonnal, agresszívan visszatámad, és ezt a megmozdulást
+    rendszeresen labdaszerzés követi. Ez modern, magas pressing intenzitású
+    futballban kiemelten értékes képesség.
+
+    Szélsőként a tizenhatos körüli jelenlét és a mélységi futások a
+    másik két kiemelkedő dimenzió. A penalty area receptions mutatójában
+    az NB1 top 3%-ában van — vagyis rendkívül sokat érkezik labdára a
+    tizenhatosba. A Deep runs (xT) mutató top 13%-os szintje azt mutatja,
+    hogy a futásai értékteremtők: olyan területekbe fut be, ahol az
+    ellenfél számára kezelhetetlen a jelenlét.
+
+    187 centiméteres magasságához komoly aerobális képesség társul —
+    a légi párharcokban szélsőként az NB1 top 10%-ában van. Ez ritka
+    és értékes szélsőtípust jelez: aki nem csak cseléssel, hanem
+    fizikai dominanciával is veszélyes.
+
+    Az xG mutató (top 20%) korrekt gólveszélyt jelez, de a befejezés
+    hatékonysága (xG per shot, 28/70) és az assziszttermelés (xA, 31/70)
+    átlagos — nem ő az, akitől a helyzetek teremtését várják, hanem az,
+    aki befut a kész helyzetbe. A touches mutató alacsony (53/70), ami
+    részben az ETO rendszeréből fakad: nem a build-up-ban vesz részt,
+    hanem a befejező fázisban aktiválódik.
+
+    Dribblingben és passzminőségben gyenge — ez a profil legegyértelműbb
+    korlátja. Nem alkalmas arra, hogy labdával lépjen meg egy védőn, vagy
+    hogy kreatív feladatokat vállaljon a középső harmadban.
+
+    Összességében Njie egy ritka profil: fizikailag kész, munkabírásban
+    és presszing agresszivitásban NB1-toplista, de technikai fejlődési
+    pályán még komoly a tartalék. 21 évesen, gambiai háttérrel és
+    NB1-es bizonyítékokkal a külföldi piac számára vonzó jelölt —
+    főként azok a klubok számára, amelyek magas blokkban játszanak
+    és labda nélküli munkát várnak a szélsőktől.
+
+  bull_case:
+    szoveg: >
+      Rendszeres alapember-szerep, 2000+ perc. A jobb szerviz és a
+      növekvő szerepkör emeli az xG és góltermelést. Külföldi csapat
+      szerződteti — a fizikai profil és a pressing statisztikák egyedi
+      és könnyen kommunikálható értékajánlatot jelentenek az európai
+      piacon.
+    meroeszam: "A Transfermarkt szerinti piaci értéke eléri vagy
+    meghaladja az 1 millió eurót 2027 nyarán."
+
+  base_case:
+    szoveg: >
+      NB1-ben marad, teljesítményszintje stabil. A pressing és futási
+      mutatók megmaradnak, de a gólszám és az asszisztszám nem nő
+      számottevően. Lassan beárazódik a magyar piacon.
+    meroeszam: "A Transfermarkt szerinti piaci értéke 600 ezer és
+    900 ezer euró között mozog 2027 nyarán."
+
+  bear_case:
+    szoveg: >
+      Az ETO rendszerváltása vagy edzőváltás esetén a szerepköre
+      szűkül. Percszám csökkens, a fizikai fejlődés megreked,
+      a technikai hiányosságok egyre inkább láthatóvá válnak magasabb
+      intenzitású mérkőzéseken.
+    meroeszam: "A Transfermarkt szerinti piaci értéke 400 000 euró
+    alá csökken 2027 nyarán."
+
+  frissitve: "2026-06-28"
+
+  rating_history:
+
+---
+
+```{r}
+source("futball/scripts/_player_profile_utils.R")
+render_player_profile(rmarkdown::metadata$profile, db_path = "futball/futball.db")
+```
