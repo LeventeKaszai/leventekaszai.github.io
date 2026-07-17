@@ -9,6 +9,7 @@ profile:
 
   klub: "Újpest FC"
   pozicio: "W"
+  varhato_piaci_ertek: 800000
 
   tezis: >
     Krajcsovics Ábel az Újpest FC 21 éves szélsője.
@@ -70,22 +71,16 @@ profile:
       megerősödnek — a góltermelés nő, a ligabeli összehasonlításban stabilan
       top 5 szélső marad. A rendszeres teljesítmény és a növekvő médiafigyelem
       beárazódik a piaci értékébe.
-    meroeszam: "A Transfermarkt szerinti piaci értéke eléri vagy meghaladja az
-    600 ezer eurót eurót 2027 nyarán."
 
   base_case:
     szoveg: >
       A csapaton lévő nagy nyomás miatt a játékpercek száma nem nő számottevően.
-      A teljesítmény továbbra is ezen a szinten marad. 
-    meroeszam: "A Transfermarkt szerinti piaci értéke 400 ezer és 600 ezer euró
-    között mozog 2027 nyarán."
+      A teljesítmény továbbra is ezen a szinten marad.
 
   bear_case:
     szoveg: >
       Újabb turbulens időszak alakul ki a klubnál. Edzőváltás esetén
       bizalomvesztés jöhet.
-    meroeszam: "A Transfermarkt szerinti piaci értéke 400 000 euró alá csökken
-    2027 nyarán."
 
   frissitve: "2026-06-23"
 

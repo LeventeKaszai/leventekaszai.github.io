@@ -1,0 +1,175 @@
+---
+title: "NB2 előszezoni tabella-modell — Módszertani dokumentáció"
+draft: true
+date: 2026-07-17
+description: "Keretérték-alapú előszezoni pontszám-előrejelzés az NB2-ben: adatforrások, korlátok, modell."
+subtitle: "Szezon eleji over/under becslés csapatonként — az NB1-modell módszertana NB2-re alkalmazva"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Tartalom"
+    page-layout: article
+    css: ../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Cél
+
+Ugyanaz a feladat, mint az [NB1 előszezoni modellnél](nb1_preseason_model_metodologia.qmd): a szezon **elején ismert** információból (elsősorban keretérték) becsülni az NB2 csapatainak várható pont/meccs teljesítményét. Ez a dokumentum a lehető legpontosabban ugyanazt a módszertant követi, mint az NB1-es — ugyanazt a modellcsaládot, ugyanazt a validációs logikát (walk-forward, nem leave-one-season-out) —, de két helyen kénytelen eltérni, mert az NB2-re nincs meg ugyanaz az adatmélység. Ezeket a pontokat lentebb, az "Eltérés az NB1-módszertantól" szakaszban külön jelöljük.
+
+## Adatforrások
+
+### 1. Keretérték — Transfermarkt
+
+Az NB1-modell a liga főoldalát (`transfermarkt.com/.../startseite/wettbewerb/UNG1/saison_id/<év>`) használta, ami egy kéréssel megadja az összes csapat keretértékét egy szezonra. NB2-re ugyanez működik, de **más versenykóddal**: a Transfermarkt NB2-t `UN2`-ként azonosítja (`UNG2` egy másik, megszűnt regionális bajnokság — "Nemzeti Bajnokság II - East" —, amivel könnyű összetéveszteni). A helyes URL: `transfermarkt.com/nemzeti-bajnoksag-ii-/startseite/wettbewerb/UN2/saison_id/<év>`.
+
+Egy korábbi scrape-script (`futball/scripts/scrape_tm.R`) megjegyzése szerint "NB2-ben hiányos a marktwerte", ezért csapatlaponkénti scrapinget használt a friss (2025-26) szezonra. Ez a feltételezés **tévesnek bizonyult** minden korábbi szezonra visszamenőleg ellenőrizve (2022-23-tól 2026-27-ig): a liga főoldala mind az öt szezonra tartalmazza a teljes összesítő táblázatot (keretméret, átlagéletkor, légiósok, átlagos és összesített piaci érték), pontosan úgy, mint NB1-nél. Így itt sem kellett csapatonként külön scrape-elni — ez lehetővé tette, hogy a keretérték-adatgyűjtés NB2-re ugyanazzal az egy-kérés/szezon módszerrel történjen (script: `futball/scripts/scrape_tm_historical_nb2.R`).
+
+Öt szezon van begyűjtve: **2022-23, 2023-24, 2024-25, 2025-26, 2026-27** (utóbbi csak a friss előrejelzéshez, végeredmény nélkül).
+
+### 2. Végeredmény (pontszám)
+
+- **2025-26**: már megvolt a `team_stats` táblában (Wyscout-eredetű `Points` KPI, mérkőzésenkénti átlagként) — ugyanaz a forrás, mint NB1-nél.
+- **2022-23, 2023-24, 2024-25**: a Transfermarkt saját tabella-oldaláról (`transfermarkt.com/nemzeti-bajnoksag-ii-/tabelle/wettbewerb/UN2?saison_id=<év>`), ugyanúgy, ahogy az NB1-modell is tette a 2022-23/2023-24 szezonokra.
+
+**Fontos NB2-specifikus jelenség: a liga mérete csökkent.** 20 csapat (2022-23) → 18 (2023-24) → 16 (2024-25, 2025-26, 2026-27). Ez azt jelenti, hogy a mérkőzésszám is változott szezononként (38 → 34 → 30 forduló), ezért a célváltozó kizárólag **pont/meccs** formában értelmezhető konzisztensen, sosem nyers pontszámként.
+
+### 3. Csapatnév-egyeztetés
+
+Az NB2-nél a névvariáns-probléma **jelentősen súlyosabb**, mint NB1-nél — nemcsak szponzornevek változnak (pl. "Aqvital FC Csákvár" → "Csákvári TK", "Tiszakécskei LC" → "Duna Aszfalt Tiszakécskei"), hanem a liga két szomszédos osztály (NB1, NB3) felől is folyamatos csapatcserét kap, így minden szezonban új nevek bukkannak fel. A `futball/data/team_name_mapping.csv` fájlt ~35 új sorral bővítettük NB2-specifikus variánsokkal (keretérték-oldal neve, tabella-oldal rövidített neve, történeti elnevezések). Minden kanonizálást kézzel ellenőriztünk a klub azonosítása alapján (pl. Kisvárda FC / Várda SE ugyanaz a klub, verein ID-vel megerősítve, ahogy az NB1-dokumentum is leírja).
+
+## Az egyesített adatkészlet
+
+`futball.db` → `nb2_model_dataset` tábla, **70 csapat-szezon sor** (20+18+16+16, ld. fent a csökkenő ligaméretet), oszlopok: `szezon`, `team`, `total_market_value_euro`, `avg_age`, `squad_size`, `foreigners`, `pts_per_match`, `promoted`.
+
+**A `promoted` flag jelentése itt kétirányú** (ez fontos eltérés NB1-hez képest, ld. lent): 1, ha a csapat az előző NB2-szezonban nem szerepelt a keretérték-listán — ez lehet NB3-ból feljutó csapat (pl. Kecskeméti TE 2025-26-ban) **vagy** NB1-ből kieső csapat (pl. Fehérvár 2025-26-ban, miután NB1-ből kiesett). A két irány ellentétes minőségi jelzés (NB3-feljutó tipikusan gyengébb, NB1-kieső tipikusan erősebb az NB2-mezőnyhöz képest), de a modellben egyetlen bináris változóként szerepel, mert egyik alcsoport sem elég nagy önálló kalibrációhoz.
+
+```{r setup}
+library(DBI); library(RSQLite); library(dplyr); library(knitr)
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+d  <- dbGetQuery(con, "SELECT * FROM nb2_model_dataset")
+sv <- dbGetQuery(con, "SELECT szezon, team_canonical AS team, avg_market_value_euro FROM nb2_squad_values_historical")
+dbDisconnect(con)
+d <- d |> inner_join(sv, by = c("szezon","team"))
+d$log_value       <- log(d$avg_market_value_euro)
+d$log_total_value <- log(d$total_market_value_euro)
+```
+
+## Modell
+
+$$
+\text{pts\_per\_match} = \beta_0 + \beta_1 \cdot \log(\text{átlagos játékosérték}) + \varepsilon
+$$
+
+Az NB1-modellel megegyező logikával az **átlagos** (nem összesített) keretértéket használjuk elsődleges prediktorként — ezt itt is teszteltük és megerősítettük (ld. lentebb a walk-forward összevetést).
+
+```{r model}
+m1 <- lm(pts_per_match ~ log_value, data = d)
+summary(m1)
+```
+
+**N = 70**, R² = `r round(summary(m1)$r.squared, 3)`. A korreláció `r round(cor(d$pts_per_match, d$log_value), 2)` — ez **erősebb**, mint az NB1-en mért 0.73, valószínűleg azért, mert az NB2 mezőnyében nagyobb a keretérték-szórás (húsz csapat közül a legjobb és a leggyengébb keret közötti különbség arányaiban nagyobb, mint a tizenkét NB1-es csapat között), ami tisztábban kirajzolja az összefüggést.
+
+### Feljutó/kieső dummy
+
+```{r promoted_dummy}
+m_prom <- lm(pts_per_match ~ log_value + promoted, data = d)
+summary(m_prom)$coefficients |> kable(digits = 4, caption = "Keretérték + 'új NB2-ben' dummy")
+```
+
+A dummy (p ≈ `r round(summary(m_prom)$coefficients["promoted","Pr(>|t|)"], 2)`) **nem szignifikáns** — ugyanaz a következtetés, mint NB1-nél: a csapatcsere hatása (akár NB3-ból föl, akár NB1-ből le) már a keretértéken keresztül érvényesül, nincs szükség külön korrekcióra. Ez különösen megnyugtató itt, mert a dummy két ellentétes irányú alcsoportot kever — ha bármelyik irány önmagában erős hatással bírna, azt a zajos átlagolás elfedhetné, de a nagy mintaelemszám (n=`r sum(d$promoted)` "új" csapat-szezon a 70-ből) miatt ez kevésbé valószínű, mint az NB1-es n=4-es mintánál.
+
+**A végleges modell az egyszerű `pts_per_match ~ log(átlagos játékosérték)` (Modell 1)** — pontosan úgy, mint NB1-nél.
+
+### Validáció — walk-forward (expanding window)
+
+Ugyanaz a logika, mint NB1-nél: leave-one-season-out helyett csak a múltból tanulva jósoljuk a következő szezont, mert éles bevetésben sem történhetne másképp.
+
+```{r walkforward}
+season_order <- c("2022-23", "2023-24", "2024-25", "2025-26")
+d$szezon <- factor(d$szezon, levels = season_order, ordered = TRUE)
+
+run_walkforward <- function(formula, label) {
+  lapply(2:length(season_order), function(i) {
+    train <- d[d$szezon %in% season_order[1:(i-1)], ]
+    test  <- d[d$szezon == season_order[i], ]
+    m <- lm(formula, data = train)
+    pred <- predict(m, newdata = test)
+    data.frame(
+      prediktor = label,
+      joslas  = season_order[i],
+      RMSE    = sqrt(mean((test$pts_per_match - pred)^2)),
+      OOS_R2  = 1 - sum((test$pts_per_match - pred)^2) / sum((test$pts_per_match - mean(train$pts_per_match))^2)
+    )
+  }) |> bind_rows()
+}
+
+val_avg   <- run_walkforward(pts_per_match ~ log_value, "atlagos jatekosertek")
+val_total <- run_walkforward(pts_per_match ~ log_total_value, "osszesitett keretertek")
+bind_rows(val_avg, val_total) |> kable(digits = 3, caption = "Walk-forward out-of-sample hiba: átlagos vs. összesített keretérték")
+```
+
+Az **átlagos játékosérték itt is jobb vagy egyenértékű mindhárom kihagyott szezonon** — ugyanaz a mintázat, mint NB1-nél, ezért itt is ez marad az elsődleges prediktor. A walk-forward OOS R² (0.43-0.76 között) hasonló nagyságrendű, mint NB1-nél (0.4-0.6 körül), annak ellenére, hogy az itt jóval nagyobb mintaelemszám (70 vs. 48) stabilabb becslést ad.
+
+## Eltérés az NB1-módszertantól — amit nem lehetett reprodukálni
+
+Az NB1-modell két további réteget épít az alapmodellre, amik NB2-re **jelenleg nem elérhetők**:
+
+1. **xT-diff lag-prediktor és kombinált modell.** Az NB1-dokumentum "Kiegészítő prediktorok" szakasza egy előző szezoni forma-mutatót (végül az xT-diff-et) kombinál a keretértékkel. Ehhez több egymást követő szezon `team_stats` KPI-adata kell. NB2-re a `team_stats` tábla **csak a 2025-26-os szezont tartalmazza** — nincs miből lag-párt képezni. Emiatt az NB2-modell megáll az egyváltozós keretérték-modellnél; ha egy jövőbeli szezon KPI-adata bekerül a `team_stats`-ba, érdemes újra megnézni, ad-e hozzá bármit egy NB2-saját xT-diff-becslés.
+2. **Poisson-szimuláció és Dixon-Coles gólmodell.** Az NB1-es gólmodell és a hozzá tartozó fair odds/ázsiai hendikep számítás meccs-szintű Wyscout-exportra épül (`futball/raw_json/teamlevel/`), ami **kizárólag NB1-re** létezik — NB2-re egyetlen meccs-szintű fájl sincs a repóban. A `matches` tábla is csak NB1-2025-26-ra van feltöltve. Emiatt ehhez a dokumentumhoz nem tartozik gólmodell vagy meccsszintű odds-becslés; ez egy külön, jövőbeli adatgyűjtési feladat lenne (pl. TM meccseredmények scrape-elése a végeredményhez, bár azok Wyscout-szintű KPI-mélység nélkül gyengébb Dixon-Coles-kalibrációt adnának, mint az NB1-es).
+
+Amit **sikerült** pontosan reprodukálni: a keretérték-scraping módszertana (egy kérés/szezon), a tabella-scraping a pontokhoz, a walk-forward validációs logika, az összesített vs. átlagos keretérték-összevetés, és a feljutó/kieső dummy-teszt — mind ugyanazt az eredményt (nem szignifikáns dummy, átlagérték nyer) adta, mint NB1-nél.
+
+## Végleges 2026-27 tábla
+
+```{r final_table}
+sv2627 <- sv |> filter(szezon == "2026-27") |> mutate(log_value = log(avg_market_value_euro))
+sv2627$pred_ppm <- predict(m1, newdata = sv2627)
+
+final_2627 <- sv2627 |>
+  arrange(desc(pred_ppm)) |>
+  mutate(pred_pontszam = round(pred_ppm * 30), helyezes = row_number())
+
+final_2627 |>
+  select(team, `Becsült pont/meccs` = pred_ppm, `Becsült pontszám (30 meccsre)` = pred_pontszam) |>
+  kable(digits = 3, caption = "26/27 végleges előrejelzett tabella — keretérték-modell, egyváltozós (m1)")
+```
+
+```{r save_power_ranking}
+to_save <- final_2627 |>
+  transmute(
+    team, helyezes,
+    pred_pont_per_meccs = pred_ppm,
+    pred_pontszam_30meccsre = pred_pontszam,
+    modell = "keretérték (26-27), egyváltozós NB2-modell",
+    generalva = as.character(Sys.Date())
+  )
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+dbWriteTable(con, "nb2_2627_preseason_forecast", to_save, overwrite = TRUE)
+dbDisconnect(con)
+```
+
+**Amit ez megmutat:** a Diósgyőr és a Kecskeméti TE (mindkettő NB1-es múlttal/kerettel a mezőnyhöz képest) a legmagasabb keretértékkel indul, míg a két NB3-ból feljutó újonc (Gyirmót, Nagykanizsa) a legalacsonyabbal — összhangban azzal, amit a promoted-dummy teszt is jelzett (a keretérték már önmagában tükrözi ezt a különbséget, nincs szükség külön korrekcióra).
+
+## Ismert korlátok
+
+1. **A csökkenő ligaméret (20→18→16 csapat) azt jelenti, hogy a 70 sor nem egyenletesen oszlik el** — a 2022-23-as szezon (20 csapat) felülreprezentált a jelenlegi (16 csapatos) formátumhoz képest, és azok a csapatok, amik időközben kiestek a harmadosztályba (pl. Dorog, Mosonmagyaróvár, Pécs, Siófok, Haladás), nincsenek benne a 2024-25/2025-26-os mintában — a modell extrapolál rájuk, ha valaha visszajutnak.
+2. **A 70 sor itt sem 70 független megfigyelés** — ugyanaz az autokorreláció-probléma, mint NB1-nél (ld. ottani "Ismert korlátok" 1. pont), a gyakorlati indoklás (walk-forward empirikus RMSE, nem OLS-standardhiba) ugyanúgy érvényes.
+3. **Nincs xT-diff/Poisson-réteg** (ld. fent) — az NB2-előrejelzés kizárólag az egyváltozós keretérték-modellre épül, nincs kombinált modell és nincs meccsszintű odds-becslés.
+4. **A `promoted` flag kétirányú keveréke** (NB3-feljutó + NB1-kieső) elfedheti, ha a két alcsoportnak valójában eltérő, önmagában szignifikáns hatása van — ehhez nagyobb minta kellene mindkét alcsoportból külön-külön.
+5. **Nincs edző/taktikai infó, sérülésadat, szezon közbeni átigazolás** — ugyanaz a korlát, mint NB1-nél.
+6. **A keretérték időzítése** ugyanúgy nem egzakt dátumú a historikus szezonokra, mint NB1-nél (ld. ottani dokumentáció).
+
+## Következő lépések
+
+- Ha egy jövőbeli NB2-szezon `team_stats` KPI-adata bekerül az adatbázisba, érdemes újrafuttatni a lag-prediktor screeninget (xT-diff vagy más) NB2-saját adaton, nem feltételezve, hogy az NB1-en talált legjobb mutató NB2-n is a legjobb lesz.
+- Meccsszintű NB2 eredmény-scrape (akár csak győzelmi/gólkülönbség szinten, Wyscout-mélység nélkül) megalapozhatna egy egyszerűbb, saját NB2-rho Dixon-Coles modellt.
+- A szezon előrehaladtával érdemes visszatesztelni ezt az előrejelzést a tényleges 2026-27-es eredmények ellenében.

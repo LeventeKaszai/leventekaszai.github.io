@@ -119,6 +119,16 @@ FUTBALL_KPIS <- list(
     "Carries (xT)",
     "Deep runs (xT)",
     "Defensive intensity"
+  ),
+  ST = c(
+    "Goals",
+    "xG",
+    "Goals - xG",
+    "xG per shot",
+    "xA",
+    "Deep runs (xT)",
+    "Aerials won %",
+    "High recoveries"
   )
 )
 
@@ -303,7 +313,10 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
         if (!is.null(p$mag))            tags$span(class = "pp-badge", paste0(p$mag, " m")),
         if (!is.null(p$lab) && nzchar(trimws(as.character(p$lab)))) tags$span(class = "pp-badge", p$lab),
         if (is_valogatott)              tags$span(class = "pp-badge pp-badge-valogatott", "V\u00e1logatott"),
-        if (!is.null(p$tm_ertek))       tags$span(class = "pp-badge", paste0("TM: ", fmt_ertek(p$tm_ertek)))
+        if (!is.null(p$tm_ertek))       tags$span(class = "pp-badge", paste0("TM: ", fmt_ertek(p$tm_ertek))),
+        if (!is.null(p$varhato_piaci_ertek))
+          tags$span(class = "pp-badge pp-badge-varhato",
+            paste0("V\u00e1rhat\u00f3 piaci \u00e9rt\u00e9k: ", fmt_ertek(p$varhato_piaci_ertek)))
       )
     ),
 
@@ -358,19 +371,22 @@ render_player_profile <- function(profile, db_path = "futball/futball.db") {
           class = "pp-scenario pp-scenario-bull",
           tags$div(class = "pp-scenario-header", "Bull case"),
           tags$p(p$bull_case$szoveg),
-          tags$div(class = "pp-scenario-metric", p$bull_case$meroeszam)
+          if (!is.null(p$bull_case$meroeszam))
+            tags$div(class = "pp-scenario-metric", p$bull_case$meroeszam)
         ),
         tags$div(
           class = "pp-scenario pp-scenario-base",
           tags$div(class = "pp-scenario-header", "Base case"),
           tags$p(p$base_case$szoveg),
-          tags$div(class = "pp-scenario-metric", p$base_case$meroeszam)
+          if (!is.null(p$base_case$meroeszam))
+            tags$div(class = "pp-scenario-metric", p$base_case$meroeszam)
         ),
         tags$div(
           class = "pp-scenario pp-scenario-bear",
           tags$div(class = "pp-scenario-header", "Bear case"),
           tags$p(p$bear_case$szoveg),
-          tags$div(class = "pp-scenario-metric", p$bear_case$meroeszam)
+          if (!is.null(p$bear_case$meroeszam))
+            tags$div(class = "pp-scenario-metric", p$bear_case$meroeszam)
         )
       )
     ),

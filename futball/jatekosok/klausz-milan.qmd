@@ -1,0 +1,99 @@
+---
+title: "KLAUSZ Milán — Profil"
+profile:
+  nev: "KLAUSZ Milán"
+  sport: football
+  valogatott: nem
+
+  besorolas: "Strong Buy"
+
+  klub: "Kazincbarcikai SC"
+  pozicio: "ST"
+  varhato_piaci_ertek: 450000
+
+  tezis: >
+    Klausz Milán az MTK Budapest 21 éves, 188 cm-es középcsatára, aki a
+    2025-26-os NB1-es szezont a Kazincbarcika kölcsönjátékosaként
+    töltötte. Klasszikus tizenhatoson belüli befejező típus: kevés
+    érintésből, ösztönös helyezkedéssel termel gólveszélyt, és
+    változatosan fejez be — a szezonban mindkét lábbal és fejjel is
+    eredményes volt.
+
+    Kazincbarcika juttatta a legkevesebb labdát a támadó harmadba, a
+    csatároknak alig volt lehetőségük gólszerzésre. Jobb kiszolgálás mellett a
+    nyers számok (gólok, helyzetek) tovább nőhetnek. Fiatal kora és
+    a teljesítménye ellenére eddig érdemtelenül kevés figyelmet
+    kapott, ami az elmúlt évek csatárhiányos piacán alulértékelt
+    lehetőséggé teszi.
+
+  elemzes: |
+    Klausz Milán az MTK Budapest 21 éves középcsatára, aki a
+    2025-26-os NBI-es szezonban a szintén NBI-es Kazincbarcika kölcsönjátékosa volt.
+    Sportoló családban nevelkedett, édesapja válogatott labdarúgó.
+    Klausz Milán kiemelkedő gólszerző volt az utánpótlás korosztályokban, ahol a
+    Budapest Honvéd-MFA csapatát erősítette.
+
+    Az előző szezonban Kazincbarcika a liga leggyengébb csapata volt,
+    mind védekezésben mind támadásban. A támadó harmadba juttatott labdákban
+    utolsó helyen végeztek. A támadóknak kevés lehetősége volt gólszerzésre.
+
+    Klausz viszont kevés labdaérintésből is nagyon hatékonyan tud dolgozni.
+    Ösztönös helyezkedésének köszönhetően tud veszélyes, góllövő pozícióba kerülni.
+    Érzi hol kell lennie, kibrusztolja magának a helyzetet, de a lecsorgó
+    labdákra is rávág. Négy gólt szerzett a 2025/26-os szezonban, kettőt bal,
+    egyet jobb lábbal és volt egy fejese is, ahol a védő vakoldaláról érkezve
+    tudta azt megelőzni. Jó helyzetekből próbálkozik, a kapuhoz közel érzi
+    magát otthon.
+
+    Erős, jó testfelépítésű támadó. Felpasszolt labdákat meg tudja tartani nyomás
+    alatt is, jól fedezi a labdát. Fejjátéka nem kiemelkedő, de az NBI-es mezőnyben
+    jónak számít.
+
+    A labda progressziójában mint célpont segít. Nincsenek labdás megindulásai
+    mélységből. A tizenhatos közelében sokkal kiforrottabb a mozgása.
+
+    Bár alapvetően igazi befejező csatár profil és a helyzetteremtésben való
+    részvétele másodlagos, ennek ellenére előkészítésben is a liga erősebbik felébe
+    tartozott.
+
+    Védekező munkája fejlesztésre szorul. Aktivitásban és hatékonyságban is
+    gyengén teljesített.
+
+    Fontos kontextus, hogy mindezt a liga leggyengébb csapatában,
+    minimális hatékonysággal éri el. Egy jobban építkező, minőségi kiszolgálást
+    biztosító csapatban a nyers számok (gólok, helyzetek mennyisége) tovább
+    nőhetnek.
+
+    Összességében Klausz egy fiatal, befejező csatár profil, aki érdemtelenül
+    kevés figyelmet kapott az elmúlt időszakban. Ha számításba vesszük az elmúlt
+    években tapasztalt csatárhiányt és Klausz eddig mutatott teljesítményét,
+    akkor én egy alulértékelt játékost látok benne.
+
+  bull_case:
+    szoveg: >
+      A szezont az MTK-nál kezdi, és kiharcolja magának a rendszeres
+      játéklehetőséget kezdőként. A hatékonysága nyers gólszámban is
+      megmutatkozik, ami felkelti a piac érdeklődését. A megnövekedett
+      médiajelenlét és a gólátlag felfelé mozdítja a piaci értékét.
+
+  base_case:
+    szoveg: >
+      A szezont az MTK-nál kezdi, de nem tudja magát beverekedni a kezdőcsapatba.
+      A hatékonysági mutatói hasonló szinten maradhatnak, de a nyers gólszám
+      és a piaci figyelem a kevés lehetőség miatt csak mérsékelten nő vagy stagnál.
+
+  bear_case:
+    szoveg: >
+      Az MTK-nál nem kap bizalmat az őszi szezonban, télen kölcsönbe
+      kerül. Az alacsony játékperc miatt a piaci megítélése stagnál vagy romlik.
+
+  frissitve: "2026-07-06"
+
+  rating_history:
+
+---
+
+```{r}
+source("futball/scripts/_player_profile_utils.R")
+render_player_profile(rmarkdown::metadata$profile, db_path = "futball/futball.db")
+```

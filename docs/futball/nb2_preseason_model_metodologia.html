@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-07-17">
+<meta name="description" content="Keretérték-alapú előszezoni pontszám-előrejelzés az NB2-ben: adatforrások, korlátok, modell.">
+
+<title>Levente Kaszai - NB2 előszezoni tabella-modell — Módszertani dokumentáció</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Levente Kaszai</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../archivum.html" rel="" target="">
+ <span class="menu-text">Archívum</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-kosárlabda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Kosárlabda</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-kosárlabda">    
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/four_factors_1.html" rel="" target="">
+ <span class="dropdown-text">Four Factors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/scoring_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Scoring Efficiency</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/pace_efficiency.html" rel="" target="">
+ <span class="dropdown-text">Játékritmus &amp; Hatékonyság</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../kosarlabda/jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labdarúgás" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Labdarúgás</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labdarúgás">    
+        <li>
+    <a class="dropdown-item" href="../futball/analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/team_analytics.html" rel="" target="">
+ <span class="dropdown-text">🔒 Team Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/player_ratings.html" rel="" target="">
+ <span class="dropdown-text">Játékosértékelés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/jatekosok.html" rel="" target="">
+ <span class="dropdown-text">Játékos profilok</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../futball/articles/vedekezesi-atmenetek.html" rel="" target="">
+ <span class="dropdown-text">NB1 vs NB2: védelmi átmenetek</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/leventekaszai" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tartalom</h2>
+   
+  <ul>
+  <li><a href="#cél" id="toc-cél" class="nav-link active" data-scroll-target="#cél">Cél</a></li>
+  <li><a href="#adatforrások" id="toc-adatforrások" class="nav-link" data-scroll-target="#adatforrások">Adatforrások</a>
+  <ul class="collapse">
+  <li><a href="#keretérték-transfermarkt" id="toc-keretérték-transfermarkt" class="nav-link" data-scroll-target="#keretérték-transfermarkt">1. Keretérték — Transfermarkt</a></li>
+  <li><a href="#végeredmény-pontszám" id="toc-végeredmény-pontszám" class="nav-link" data-scroll-target="#végeredmény-pontszám">2. Végeredmény (pontszám)</a></li>
+  <li><a href="#csapatnév-egyeztetés" id="toc-csapatnév-egyeztetés" class="nav-link" data-scroll-target="#csapatnév-egyeztetés">3. Csapatnév-egyeztetés</a></li>
+  </ul></li>
+  <li><a href="#az-egyesített-adatkészlet" id="toc-az-egyesített-adatkészlet" class="nav-link" data-scroll-target="#az-egyesített-adatkészlet">Az egyesített adatkészlet</a></li>
+  <li><a href="#modell" id="toc-modell" class="nav-link" data-scroll-target="#modell">Modell</a>
+  <ul class="collapse">
+  <li><a href="#feljutókieső-dummy" id="toc-feljutókieső-dummy" class="nav-link" data-scroll-target="#feljutókieső-dummy">Feljutó/kieső dummy</a></li>
+  <li><a href="#validáció-walk-forward-expanding-window" id="toc-validáció-walk-forward-expanding-window" class="nav-link" data-scroll-target="#validáció-walk-forward-expanding-window">Validáció — walk-forward (expanding window)</a></li>
+  </ul></li>
+  <li><a href="#eltérés-az-nb1-módszertantól-amit-nem-lehetett-reprodukálni" id="toc-eltérés-az-nb1-módszertantól-amit-nem-lehetett-reprodukálni" class="nav-link" data-scroll-target="#eltérés-az-nb1-módszertantól-amit-nem-lehetett-reprodukálni">Eltérés az NB1-módszertantól — amit nem lehetett reprodukálni</a></li>
+  <li><a href="#végleges-2026-27-tábla" id="toc-végleges-2026-27-tábla" class="nav-link" data-scroll-target="#végleges-2026-27-tábla">Végleges 2026-27 tábla</a></li>
+  <li><a href="#ismert-korlátok" id="toc-ismert-korlátok" class="nav-link" data-scroll-target="#ismert-korlátok">Ismert korlátok</a></li>
+  <li><a href="#következő-lépések" id="toc-következő-lépések" class="nav-link" data-scroll-target="#következő-lépések">Következő lépések</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">NB2 előszezoni tabella-modell — Módszertani dokumentáció</h1>
+<p class="subtitle lead">Szezon eleji over/under becslés csapatonként — az NB1-modell módszertana NB2-re alkalmazva</p>
+</div>
+
+<div>
+  <div class="description">
+    Keretérték-alapú előszezoni pontszám-előrejelzés az NB2-ben: adatforrások, korlátok, modell.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 17, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="cél" class="level2">
+<h2 class="anchored" data-anchor-id="cél">Cél</h2>
+<p>Ugyanaz a feladat, mint az <a href="../futball/nb1_preseason_model_metodologia.html">NB1 előszezoni modellnél</a>: a szezon <strong>elején ismert</strong> információból (elsősorban keretérték) becsülni az NB2 csapatainak várható pont/meccs teljesítményét. Ez a dokumentum a lehető legpontosabban ugyanazt a módszertant követi, mint az NB1-es — ugyanazt a modellcsaládot, ugyanazt a validációs logikát (walk-forward, nem leave-one-season-out) —, de két helyen kénytelen eltérni, mert az NB2-re nincs meg ugyanaz az adatmélység. Ezeket a pontokat lentebb, az “Eltérés az NB1-módszertantól” szakaszban külön jelöljük.</p>
+</section>
+<section id="adatforrások" class="level2">
+<h2 class="anchored" data-anchor-id="adatforrások">Adatforrások</h2>
+<section id="keretérték-transfermarkt" class="level3">
+<h3 class="anchored" data-anchor-id="keretérték-transfermarkt">1. Keretérték — Transfermarkt</h3>
+<p>Az NB1-modell a liga főoldalát (<code>transfermarkt.com/.../startseite/wettbewerb/UNG1/saison_id/&lt;év&gt;</code>) használta, ami egy kéréssel megadja az összes csapat keretértékét egy szezonra. NB2-re ugyanez működik, de <strong>más versenykóddal</strong>: a Transfermarkt NB2-t <code>UN2</code>-ként azonosítja (<code>UNG2</code> egy másik, megszűnt regionális bajnokság — “Nemzeti Bajnokság II - East” —, amivel könnyű összetéveszteni). A helyes URL: <code>transfermarkt.com/nemzeti-bajnoksag-ii-/startseite/wettbewerb/UN2/saison_id/&lt;év&gt;</code>.</p>
+<p>Egy korábbi scrape-script (<code>futball/scripts/scrape_tm.R</code>) megjegyzése szerint “NB2-ben hiányos a marktwerte”, ezért csapatlaponkénti scrapinget használt a friss (2025-26) szezonra. Ez a feltételezés <strong>tévesnek bizonyult</strong> minden korábbi szezonra visszamenőleg ellenőrizve (2022-23-tól 2026-27-ig): a liga főoldala mind az öt szezonra tartalmazza a teljes összesítő táblázatot (keretméret, átlagéletkor, légiósok, átlagos és összesített piaci érték), pontosan úgy, mint NB1-nél. Így itt sem kellett csapatonként külön scrape-elni — ez lehetővé tette, hogy a keretérték-adatgyűjtés NB2-re ugyanazzal az egy-kérés/szezon módszerrel történjen (script: <code>futball/scripts/scrape_tm_historical_nb2.R</code>).</p>
+<p>Öt szezon van begyűjtve: <strong>2022-23, 2023-24, 2024-25, 2025-26, 2026-27</strong> (utóbbi csak a friss előrejelzéshez, végeredmény nélkül).</p>
+</section>
+<section id="végeredmény-pontszám" class="level3">
+<h3 class="anchored" data-anchor-id="végeredmény-pontszám">2. Végeredmény (pontszám)</h3>
+<ul>
+<li><strong>2025-26</strong>: már megvolt a <code>team_stats</code> táblában (Wyscout-eredetű <code>Points</code> KPI, mérkőzésenkénti átlagként) — ugyanaz a forrás, mint NB1-nél.</li>
+<li><strong>2022-23, 2023-24, 2024-25</strong>: a Transfermarkt saját tabella-oldaláról (<code>transfermarkt.com/nemzeti-bajnoksag-ii-/tabelle/wettbewerb/UN2?saison_id=&lt;év&gt;</code>), ugyanúgy, ahogy az NB1-modell is tette a 2022-23/2023-24 szezonokra.</li>
+</ul>
+<p><strong>Fontos NB2-specifikus jelenség: a liga mérete csökkent.</strong> 20 csapat (2022-23) → 18 (2023-24) → 16 (2024-25, 2025-26, 2026-27). Ez azt jelenti, hogy a mérkőzésszám is változott szezononként (38 → 34 → 30 forduló), ezért a célváltozó kizárólag <strong>pont/meccs</strong> formában értelmezhető konzisztensen, sosem nyers pontszámként.</p>
+</section>
+<section id="csapatnév-egyeztetés" class="level3">
+<h3 class="anchored" data-anchor-id="csapatnév-egyeztetés">3. Csapatnév-egyeztetés</h3>
+<p>Az NB2-nél a névvariáns-probléma <strong>jelentősen súlyosabb</strong>, mint NB1-nél — nemcsak szponzornevek változnak (pl. “Aqvital FC Csákvár” → “Csákvári TK”, “Tiszakécskei LC” → “Duna Aszfalt Tiszakécskei”), hanem a liga két szomszédos osztály (NB1, NB3) felől is folyamatos csapatcserét kap, így minden szezonban új nevek bukkannak fel. A <code>futball/data/team_name_mapping.csv</code> fájlt ~35 új sorral bővítettük NB2-specifikus variánsokkal (keretérték-oldal neve, tabella-oldal rövidített neve, történeti elnevezések). Minden kanonizálást kézzel ellenőriztünk a klub azonosítása alapján (pl. Kisvárda FC / Várda SE ugyanaz a klub, verein ID-vel megerősítve, ahogy az NB1-dokumentum is leírja).</p>
+</section>
+</section>
+<section id="az-egyesített-adatkészlet" class="level2">
+<h2 class="anchored" data-anchor-id="az-egyesített-adatkészlet">Az egyesített adatkészlet</h2>
+<p><code>futball.db</code> → <code>nb2_model_dataset</code> tábla, <strong>70 csapat-szezon sor</strong> (20+18+16+16, ld. fent a csökkenő ligaméretet), oszlopok: <code>szezon</code>, <code>team</code>, <code>total_market_value_euro</code>, <code>avg_age</code>, <code>squad_size</code>, <code>foreigners</code>, <code>pts_per_match</code>, <code>promoted</code>.</p>
+<p><strong>A <code>promoted</code> flag jelentése itt kétirányú</strong> (ez fontos eltérés NB1-hez képest, ld. lent): 1, ha a csapat az előző NB2-szezonban nem szerepelt a keretérték-listán — ez lehet NB3-ból feljutó csapat (pl. Kecskeméti TE 2025-26-ban) <strong>vagy</strong> NB1-ből kieső csapat (pl. Fehérvár 2025-26-ban, miután NB1-ből kiesett). A két irány ellentétes minőségi jelzés (NB3-feljutó tipikusan gyengébb, NB1-kieső tipikusan erősebb az NB2-mezőnyhöz képest), de a modellben egyetlen bináris változóként szerepel, mert egyik alcsoport sem elég nagy önálló kalibrációhoz.</p>
+</section>
+<section id="modell" class="level2">
+<h2 class="anchored" data-anchor-id="modell">Modell</h2>
+<p><span class="math display">\[
+\text{pts\_per\_match} = \beta_0 + \beta_1 \cdot \log(\text{átlagos játékosérték}) + \varepsilon
+\]</span></p>
+<p>Az NB1-modellel megegyező logikával az <strong>átlagos</strong> (nem összesített) keretértéket használjuk elsődleges prediktorként — ezt itt is teszteltük és megerősítettük (ld. lentebb a walk-forward összevetést).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = pts_per_match ~ log_value, data = d)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.62096 -0.11362 -0.00946  0.11304  0.51847 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -6.80555    0.69518   -9.79 1.29e-14 ***
+log_value    0.72520    0.06166   11.76  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2088 on 68 degrees of freedom
+Multiple R-squared:  0.6704,    Adjusted R-squared:  0.6656 
+F-statistic: 138.3 on 1 and 68 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p><strong>N = 70</strong>, R² = 0.67. A korreláció 0.82 — ez <strong>erősebb</strong>, mint az NB1-en mért 0.73, valószínűleg azért, mert az NB2 mezőnyében nagyobb a keretérték-szórás (húsz csapat közül a legjobb és a leggyengébb keret közötti különbség arányaiban nagyobb, mint a tizenkét NB1-es csapat között), ami tisztábban kirajzolja az összefüggést.</p>
+<section id="feljutókieső-dummy" class="level3">
+<h3 class="anchored" data-anchor-id="feljutókieső-dummy">Feljutó/kieső dummy</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Keretérték + ‘új NB2-ben’ dummy</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">t value</th>
+<th style="text-align: right;">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-6.8126</td>
+<td style="text-align: right;">0.6982</td>
+<td style="text-align: right;">-9.7567</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">log_value</td>
+<td style="text-align: right;">0.7252</td>
+<td style="text-align: right;">0.0619</td>
+<td style="text-align: right;">11.7105</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">promoted</td>
+<td style="text-align: right;">0.0431</td>
+<td style="text-align: right;">0.0665</td>
+<td style="text-align: right;">0.6481</td>
+<td style="text-align: right;">0.5191</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>A dummy (p ≈ 0.52) <strong>nem szignifikáns</strong> — ugyanaz a következtetés, mint NB1-nél: a csapatcsere hatása (akár NB3-ból föl, akár NB1-ből le) már a keretértéken keresztül érvényesül, nincs szükség külön korrekcióra. Ez különösen megnyugtató itt, mert a dummy két ellentétes irányú alcsoportot kever — ha bármelyik irány önmagában erős hatással bírna, azt a zajos átlagolás elfedhetné, de a nagy mintaelemszám (n=12 “új” csapat-szezon a 70-ből) miatt ez kevésbé valószínű, mint az NB1-es n=4-es mintánál.</p>
+<p><strong>A végleges modell az egyszerű <code>pts_per_match ~ log(átlagos játékosérték)</code> (Modell 1)</strong> — pontosan úgy, mint NB1-nél.</p>
+</section>
+<section id="validáció-walk-forward-expanding-window" class="level3">
+<h3 class="anchored" data-anchor-id="validáció-walk-forward-expanding-window">Validáció — walk-forward (expanding window)</h3>
+<p>Ugyanaz a logika, mint NB1-nél: leave-one-season-out helyett csak a múltból tanulva jósoljuk a következő szezont, mert éles bevetésben sem történhetne másképp.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Walk-forward out-of-sample hiba: átlagos vs.&nbsp;összesített keretérték</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">prediktor</th>
+<th style="text-align: left;">joslas</th>
+<th style="text-align: right;">RMSE</th>
+<th style="text-align: right;">OOS_R2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">atlagos jatekosertek</td>
+<td style="text-align: left;">2023-24</td>
+<td style="text-align: right;">0.204</td>
+<td style="text-align: right;">0.756</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">atlagos jatekosertek</td>
+<td style="text-align: left;">2024-25</td>
+<td style="text-align: right;">0.221</td>
+<td style="text-align: right;">0.428</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">atlagos jatekosertek</td>
+<td style="text-align: left;">2025-26</td>
+<td style="text-align: right;">0.229</td>
+<td style="text-align: right;">0.563</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">osszesitett keretertek</td>
+<td style="text-align: left;">2023-24</td>
+<td style="text-align: right;">0.214</td>
+<td style="text-align: right;">0.732</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">osszesitett keretertek</td>
+<td style="text-align: left;">2024-25</td>
+<td style="text-align: right;">0.254</td>
+<td style="text-align: right;">0.247</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">osszesitett keretertek</td>
+<td style="text-align: left;">2025-26</td>
+<td style="text-align: right;">0.229</td>
+<td style="text-align: right;">0.566</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Az <strong>átlagos játékosérték itt is jobb vagy egyenértékű mindhárom kihagyott szezonon</strong> — ugyanaz a mintázat, mint NB1-nél, ezért itt is ez marad az elsődleges prediktor. A walk-forward OOS R² (0.43-0.76 között) hasonló nagyságrendű, mint NB1-nél (0.4-0.6 körül), annak ellenére, hogy az itt jóval nagyobb mintaelemszám (70 vs.&nbsp;48) stabilabb becslést ad.</p>
+</section>
+</section>
+<section id="eltérés-az-nb1-módszertantól-amit-nem-lehetett-reprodukálni" class="level2">
+<h2 class="anchored" data-anchor-id="eltérés-az-nb1-módszertantól-amit-nem-lehetett-reprodukálni">Eltérés az NB1-módszertantól — amit nem lehetett reprodukálni</h2>
+<p>Az NB1-modell két további réteget épít az alapmodellre, amik NB2-re <strong>jelenleg nem elérhetők</strong>:</p>
+<ol type="1">
+<li><strong>xT-diff lag-prediktor és kombinált modell.</strong> Az NB1-dokumentum “Kiegészítő prediktorok” szakasza egy előző szezoni forma-mutatót (végül az xT-diff-et) kombinál a keretértékkel. Ehhez több egymást követő szezon <code>team_stats</code> KPI-adata kell. NB2-re a <code>team_stats</code> tábla <strong>csak a 2025-26-os szezont tartalmazza</strong> — nincs miből lag-párt képezni. Emiatt az NB2-modell megáll az egyváltozós keretérték-modellnél; ha egy jövőbeli szezon KPI-adata bekerül a <code>team_stats</code>-ba, érdemes újra megnézni, ad-e hozzá bármit egy NB2-saját xT-diff-becslés.</li>
+<li><strong>Poisson-szimuláció és Dixon-Coles gólmodell.</strong> Az NB1-es gólmodell és a hozzá tartozó fair odds/ázsiai hendikep számítás meccs-szintű Wyscout-exportra épül (<code>futball/raw_json/teamlevel/</code>), ami <strong>kizárólag NB1-re</strong> létezik — NB2-re egyetlen meccs-szintű fájl sincs a repóban. A <code>matches</code> tábla is csak NB1-2025-26-ra van feltöltve. Emiatt ehhez a dokumentumhoz nem tartozik gólmodell vagy meccsszintű odds-becslés; ez egy külön, jövőbeli adatgyűjtési feladat lenne (pl. TM meccseredmények scrape-elése a végeredményhez, bár azok Wyscout-szintű KPI-mélység nélkül gyengébb Dixon-Coles-kalibrációt adnának, mint az NB1-es).</li>
+</ol>
+<p>Amit <strong>sikerült</strong> pontosan reprodukálni: a keretérték-scraping módszertana (egy kérés/szezon), a tabella-scraping a pontokhoz, a walk-forward validációs logika, az összesített vs.&nbsp;átlagos keretérték-összevetés, és a feljutó/kieső dummy-teszt — mind ugyanazt az eredményt (nem szignifikáns dummy, átlagérték nyer) adta, mint NB1-nél.</p>
+</section>
+<section id="végleges-2026-27-tábla" class="level2">
+<h2 class="anchored" data-anchor-id="végleges-2026-27-tábla">Végleges 2026-27 tábla</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>26/27 végleges előrejelzett tabella — keretérték-modell, egyváltozós (m1)</caption>
+<colgroup>
+<col style="width: 34%">
+<col style="width: 25%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">team</th>
+<th style="text-align: right;">Becsült pont/meccs</th>
+<th style="text-align: right;">Becsült pontszám (30 meccsre)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Diósgyőr</td>
+<td style="text-align: right;">1.723</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kecskeméti TE</td>
+<td style="text-align: right;">1.664</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fehérvár</td>
+<td style="text-align: right;">1.599</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kazincbarcika</td>
+<td style="text-align: right;">1.459</td>
+<td style="text-align: right;">44</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mezőkövesd-Zsóry</td>
+<td style="text-align: right;">1.417</td>
+<td style="text-align: right;">43</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BVSC</td>
+<td style="text-align: right;">1.382</td>
+<td style="text-align: right;">41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ajka</td>
+<td style="text-align: right;">1.325</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Duna Aszfalt Tiszakécskei</td>
+<td style="text-align: right;">1.305</td>
+<td style="text-align: right;">39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Szeged 2011</td>
+<td style="text-align: right;">1.295</td>
+<td style="text-align: right;">39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kozármisleny</td>
+<td style="text-align: right;">1.220</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Szentlőrinc SE</td>
+<td style="text-align: right;">1.097</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Karcag SE</td>
+<td style="text-align: right;">1.055</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soroksár SC</td>
+<td style="text-align: right;">0.915</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Csákvári TK</td>
+<td style="text-align: right;">0.594</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gyirmót</td>
+<td style="text-align: right;">0.538</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nagykanizsa</td>
+<td style="text-align: right;">0.300</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Amit ez megmutat:</strong> a Diósgyőr és a Kecskeméti TE (mindkettő NB1-es múlttal/kerettel a mezőnyhöz képest) a legmagasabb keretértékkel indul, míg a két NB3-ból feljutó újonc (Gyirmót, Nagykanizsa) a legalacsonyabbal — összhangban azzal, amit a promoted-dummy teszt is jelzett (a keretérték már önmagában tükrözi ezt a különbséget, nincs szükség külön korrekcióra).</p>
+</section>
+<section id="ismert-korlátok" class="level2">
+<h2 class="anchored" data-anchor-id="ismert-korlátok">Ismert korlátok</h2>
+<ol type="1">
+<li><strong>A csökkenő ligaméret (20→18→16 csapat) azt jelenti, hogy a 70 sor nem egyenletesen oszlik el</strong> — a 2022-23-as szezon (20 csapat) felülreprezentált a jelenlegi (16 csapatos) formátumhoz képest, és azok a csapatok, amik időközben kiestek a harmadosztályba (pl. Dorog, Mosonmagyaróvár, Pécs, Siófok, Haladás), nincsenek benne a 2024-25/2025-26-os mintában — a modell extrapolál rájuk, ha valaha visszajutnak.</li>
+<li><strong>A 70 sor itt sem 70 független megfigyelés</strong> — ugyanaz az autokorreláció-probléma, mint NB1-nél (ld. ottani “Ismert korlátok” 1. pont), a gyakorlati indoklás (walk-forward empirikus RMSE, nem OLS-standardhiba) ugyanúgy érvényes.</li>
+<li><strong>Nincs xT-diff/Poisson-réteg</strong> (ld. fent) — az NB2-előrejelzés kizárólag az egyváltozós keretérték-modellre épül, nincs kombinált modell és nincs meccsszintű odds-becslés.</li>
+<li><strong>A <code>promoted</code> flag kétirányú keveréke</strong> (NB3-feljutó + NB1-kieső) elfedheti, ha a két alcsoportnak valójában eltérő, önmagában szignifikáns hatása van — ehhez nagyobb minta kellene mindkét alcsoportból külön-külön.</li>
+<li><strong>Nincs edző/taktikai infó, sérülésadat, szezon közbeni átigazolás</strong> — ugyanaz a korlát, mint NB1-nél.</li>
+<li><strong>A keretérték időzítése</strong> ugyanúgy nem egzakt dátumú a historikus szezonokra, mint NB1-nél (ld. ottani dokumentáció).</li>
+</ol>
+</section>
+<section id="következő-lépések" class="level2">
+<h2 class="anchored" data-anchor-id="következő-lépések">Következő lépések</h2>
+<ul>
+<li>Ha egy jövőbeli NB2-szezon <code>team_stats</code> KPI-adata bekerül az adatbázisba, érdemes újrafuttatni a lag-prediktor screeninget (xT-diff vagy más) NB2-saját adaton, nem feltételezve, hogy az NB1-en talált legjobb mutató NB2-n is a legjobb lesz.</li>
+<li>Meccsszintű NB2 eredmény-scrape (akár csak győzelmi/gólkülönbség szinten, Wyscout-mélység nélkül) megalapozhatna egy egyszerűbb, saját NB2-rho Dixon-Coles modellt.</li>
+<li>A szezon előrehaladtával érdemes visszatesztelni ezt az előrejelzést a tényleges 2026-27-es eredmények ellenében.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Levente Kaszai — Hungarian Sports Analytics</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

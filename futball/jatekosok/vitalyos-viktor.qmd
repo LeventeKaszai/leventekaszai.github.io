@@ -9,6 +9,7 @@ profile:
 
   klub: "MTK Budapest"
   pozicio: "CB / FB"
+  varhato_piaci_ertek: 2500000
 
   tezis: >
     Vitályos Viktor rendkívül értékes profil, hiszen a modern futballban nagyon keresett
@@ -63,24 +64,18 @@ profile:
       a kockázatvállaló passzok megtartása mellett csökkenti a saját harmadbeli
       labdavesztéseket. A stáb bizalmat szavaz neki, és fokozatosan növekvő 
       szerepkörhöz jut.
-    meroeszam: "Több mint 1200 játékperc a Sparta Praha első csapatában a 2026/27-es
-    szezonban."
 
   base_case:
     szoveg: >
       Lassabb akklimatizáció, de a szezon végére beépül a rotációba. A passzjátéka
       a Sparta védői között is a jobbak közé tartozik. Az MTK-nál tapasztalt erősségek
       és fejlesztési területek is megmaradnak a játékában.
-    meroeszam: "500-1200 játékperc között a Sparta Praha első csapatában a 2026/27-es
-    szezonban."
 
   bear_case:
     szoveg: >
       Az egyéni hibák szaporodnak, csökken a magabiztossága és kevesebb kockázatot
       vállal. A stáb jobbnak látja, ha nem szerepel éles szituációkban. Keresik a
       kölcsönadás lehetőségét.
-    meroeszam: "Kevesebb mint 500 játékperc a Sparta Praha első csapatában a 2026/27-es
-    szezonban."
     
   frissitve: "2026-06-20"
 

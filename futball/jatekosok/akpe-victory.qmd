@@ -10,6 +10,7 @@ profile:
   klub: "Zalaegerszegi TE FC"
   pozicio: "CB"
   lab: "jobb"
+  varhato_piaci_ertek: 3000000
 
   tezis: >
     Akpe Victory a Zalaegerszegi TE kivételes fizikai adottságokkal
@@ -57,8 +58,6 @@ profile:
       A következő átigazolási időszakok egyikében egy olyan környezetbe kerül,
       ahol a játékosfejlesztés kiemelt prioritást élvez. Fizikai dominanciája nemzetközi
       szinten is megmarad, miközben technikai és taktikai képzettsége rohamosan fejlődik.
-    meroeszam: "A Transfermarkt szerinti piaci értéke eléri vagy meghaladja a 4 millió
-    eurót 2027 nyarán."
 
   base_case:
     szoveg: >
@@ -66,16 +65,12 @@ profile:
       teljesítménnyel folytatja a fejlődést. Az NB I-es meccsterhelés mellett fokozatosan
       javítja a labdabiztonságát, csiszolja a taktikai hiányosságait, és a bajnokság
       egyik legjobb belső védőjévé válik.
-    meroeszam: "Legalább 2000 játszott perc a ZTE-ben a 2026/27-es szezonban, miközben a
-    Transfermarkt szerinti piaci értéke 2,5 és 3,5 millió euró között mozog 2027 nyarán."
 
   bear_case:
     szoveg: >
       Zalaegerszegen marad, de a fejlődési íve láthatóan megtörik. A ki nem kényszerített
       hibák és a saját harmadbeli labdavesztések kiküszöbölése nem az elvárt ütemben
       zajlik, játéka stagnál, az új edzőnél kevesebbet szerepel.
-    meroeszam: "A Transfermarkt szerinti piaci értéke 2 millió euró alá csökken 2027
-    nyarára."
 
   frissitve: "2026-06-21"
 

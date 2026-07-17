@@ -168,6 +168,11 @@ table.dataTable tbody tr.odd {
   border-color: #4a6d8f;
   color: #fff;
 }
+.pp-badge-varhato {
+  background: #1a7a4a;
+  border-color: #145c39;
+  color: #fff;
+}
 .pp-badge-small {
   font-size: 12px;
   padding: 2px 8px;

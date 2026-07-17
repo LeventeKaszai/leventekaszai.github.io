@@ -10,6 +10,7 @@ profile:
   klub: "ETO FC"
   pozicio: "W / ST"
   lab: "jobb"
+  varhato_piaci_ertek: 600000
 
   tezis: >
     Nfansu Njie az ETO FC 21 éves gambiai támadója, aki szélsőként és
@@ -72,24 +73,18 @@ profile:
       A fizikai fölénye megmarad, a kapu előtt továbbra is erős jelenléttel bír.
       A szezon végére akár 8-10 gól is összejöhet neki. A stabil kezdő státusz egy 21-22 éves,
       kiemelkedő atletikus képességekkel bíró támadónál meghozza a külföldi scouting-érdeklődést.
-      
-    meroeszam: "A Transfermarkt szerinti piaci értéke 500 ezer euró fölé megy, akár a 900 eurót is elérheti 2027 nyarán."
 
   base_case:
     szoveg: >
       Megismétli a tavalyi szezonját. Stabil rotáció tag, de nem sikerül az áttörés.
       Öt gól körül zár, átmenetekben továbbra is veszélyt jelent. Csereként hoz
       új lendületet a csapat játékába.
-      
-    meroeszam: "A Transfermarkt szerinti piaci értéke 500 ezer euró 2027 nyarán."
 
   bear_case:
     szoveg: >
       Az ETO edzőváltását megszendvedi. Az új rendszerben több kreativitást,
       játékot vár el a vezetőedző kis területen. A technikai hiányosságokat, nem tudja
       fizikalitásával kompenzálni.
-    meroeszam: "A Transfermarkt szerinti piaci értéke 500 000 euró
-    alá csökken 2027 nyarán, legrosszabb esetben 300 000 euróra is csökkenhet."
 
   frissitve: "2026-06-28"
 
