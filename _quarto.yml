@@ -6,6 +6,7 @@ project:
     - "*.qmd"
     - "**/*.qmd"
     - "!futball/striker_clustering.qmd"
+    - "!futball/articles/vedekezesi-atmenetek.qmd"
 
 website:
   title: "Levente Kaszai"
@@ -41,8 +42,6 @@ website:
             text: "Játékosértékelés"
           - href: futball/jatekosok.qmd
             text: "Játékos profilok"
-          - href: futball/articles/vedekezesi-atmenetek.qmd
-            text: "NB1 vs NB2: védelmi átmenetek"
     right:
       - icon: github
         href: https://github.com/leventekaszai

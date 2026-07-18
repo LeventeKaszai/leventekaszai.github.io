@@ -21,7 +21,7 @@ con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
 rk  <- dbGetQuery(con, "SELECT team, helyezes FROM nb1_2627_preseason_forecast ORDER BY helyezes")
 dbDisconnect(con)
 
-# csapatnév -> logó fájlnév (futball/logos/nb1/<slug>.png)
+# csapatnév -> logó fájlnév (futball/logos/nb1/<slug>.png vagy .svg)
 logo_slug <- c(
   "Ferencváros"           = "ferencvaros",
   "Győri ETO"             = "gyori-eto",
@@ -43,13 +43,19 @@ initials <- function(name) {
   toupper(paste(substr(words, 1, 1), collapse = ""))
 }
 
-row_html <- function(team, rank) {
-  slug      <- logo_slug[[team]]
-  logo_path <- if (!is.null(slug)) file.path("futball", "logos", "nb1", paste0(slug, ".png")) else NA
-  has_logo  <- !is.na(logo_path) && file.exists(logo_path)
+find_logo_ext <- function(slug) {
+  for (ext in c("png", "svg")) {
+    if (file.exists(file.path("futball", "logos", "nb1", paste0(slug, ".", ext)))) return(ext)
+  }
+  NA
+}
 
-  logo_el <- if (has_logo) {
-    tags$img(src = file.path("logos", "nb1", paste0(slug, ".png")), alt = team, class = "pr-logo")
+row_html <- function(team, rank) {
+  slug <- logo_slug[[team]]
+  ext  <- if (!is.null(slug)) find_logo_ext(slug) else NA
+
+  logo_el <- if (!is.na(ext)) {
+    tags$img(src = file.path("logos", "nb1", paste0(slug, ".", ext)), alt = team, class = "pr-logo")
   } else {
     tags$div(class = "pr-logo-fallback", initials(team))
   }

@@ -8,7 +8,6 @@ listing:
     - kosarlabda/scoring_efficiency.qmd
     - kosarlabda/pace_efficiency.qmd
     - articles/velemeny-vagy-tudas.qmd
-    - futball/articles/vedekezesi-atmenetek.qmd
   sort: "date desc"
   type: default
   fields: [date, title, description, categories]
