@@ -53,10 +53,12 @@ goal_est <- goal_est0 |>
 
 fixtures <- read_csv("futball/data/nb1_2627_fixtures.csv", show_col_types = FALSE)
 
-# a bookmaker_odds.csv-t Numbers-ben szerkeszti a felhasznalo, magyar lokaccal
-# exportalva (pontosvesszo elvalaszto, vesszo tizedesjel)
+# a bookmaker_odds.csv-t es a results.csv-t Numbers-ben szerkeszti a felhasznalo,
+# magyar lokaccal exportalva (pontosvesszo elvalaszto, vesszo tizedesjel)
 book <- read_csv2("futball/data/nb1_2627_bookmaker_odds.csv", show_col_types = FALSE,
                    locale = locale(decimal_mark = ",", grouping_mark = "."))
+results <- read_csv2("futball/data/nb1_2627_results.csv", show_col_types = FALSE,
+                      locale = locale(decimal_mark = ",", grouping_mark = "."))
 ```
 
 ```{r poisson-functions}
@@ -140,46 +142,54 @@ value_badge <- function(edge) {
   tags$span(class = cls, label)
 }
 
-market_row <- function(label, book_odds, fair_odds) {
-  edge <- edge_pct(book_odds, fair_odds)
-  tags$div(class = "fc-market-row",
-    tags$div(class = "fc-market-label", label),
-    tags$div(class = "fc-market-odds", tags$span(class = "fc-odds-fair", sprintf("%.2f", fair_odds)),
-             tags$span(class = "fc-odds-sep", "vs"),
-             tags$span(class = "fc-odds-book", if (is.na(book_odds)) "–" else sprintf("%.2f", book_odds))),
-    value_badge(edge)
-  )
-}
-
-fixture_card <- function(fx_row) {
+# Egy meccs osszes piacat egy tidy tablazatta alakitja — ezt hasznalja a
+# kartya-megjelenites (fixture_card) es a value-pick teljesitmeny-kimutatas is,
+# hogy ne kelljen ketszer leirni ugyanazt a piac-listat.
+fixture_markets <- function(fx_row) {
   fo <- fair_odds_for(fx_row$home, fx_row$away)
   bk <- book |> filter(fordulo == fx_row$fordulo, home == fx_row$home, away == fx_row$away)
   if (nrow(bk) == 0) bk <- tibble(odds_1=NA, odds_x=NA, odds_2=NA, odds_over25=NA, odds_btts=NA,
                                     ah_line=NA, ah_odds_home=NA, ah_odds_away=NA)
   bk <- bk[1, ]
-
-  ah_label <- if (is.na(bk$ah_line) || bk$ah_line == fo$ah_line) {
-    sprintf("Ázsiai hendikep (%.2f)", fo$ah_line)
-  } else {
-    sprintf("Ázsiai hendikep (mi: %.2f / könyv: %.2f — csak azonos vonalnál vethető össze)", fo$ah_line, bk$ah_line)
-  }
   ah_comparable <- is.na(bk$ah_line) || bk$ah_line == fo$ah_line
 
+  tibble(
+    fordulo = fx_row$fordulo, home = fx_row$home, away = fx_row$away,
+    market_key = c("home", "draw", "away", "over25", "btts", "ah"),
+    category   = c("1X2", "1X2", "1X2", "Gól", "Gól", "AH"),
+    label = c("Hazai (1)", "Döntetlen (X)", "Vendég (2)", "Több mint 2,5 gól",
+              "Mindkét csapat szerez gólt", sprintf("Ázsiai hendikep (%.2f)", fo$ah_line)),
+    fair_odds = c(fo$odds_1, fo$odds_x, fo$odds_2, fo$odds_over25, fo$odds_btts, fo$ah_odds_home),
+    book_odds = c(bk$odds_1, bk$odds_x, bk$odds_2, bk$odds_over25, bk$odds_btts,
+                   if (ah_comparable) bk$ah_odds_home else NA_real_),
+    ah_line = fo$ah_line,
+    ah_comparable = ah_comparable
+  ) |>
+    mutate(edge = purrr::map2_dbl(book_odds, fair_odds, edge_pct),
+           is_value = !is.na(edge) & edge >= VALUE_THRESHOLD)
+}
+
+market_row <- function(mk) {
+  note <- if (mk$market_key == "ah" && !mk$ah_comparable)
+    sprintf(" (mi: %.2f / könyv: eltérő vonal — nem összevethető)", mk$ah_line) else ""
+  tags$div(class = "fc-market-row",
+    tags$div(class = "fc-market-label", paste0(mk$label, note)),
+    tags$div(class = "fc-market-odds", tags$span(class = "fc-odds-fair", sprintf("%.2f", mk$fair_odds)),
+             tags$span(class = "fc-odds-sep", "vs"),
+             tags$span(class = "fc-odds-book", if (is.na(mk$book_odds)) "–" else sprintf("%.2f", mk$book_odds))),
+    value_badge(mk$edge)
+  )
+}
+
+fixture_card <- function(fx_row) {
+  mks <- fixture_markets(fx_row)
   tags$div(class = "fc-card",
     tags$div(class = "fc-card-header",
       tags$span(class = "fc-team fc-team-home", fx_row$home),
       tags$span(class = "fc-vs", "–"),
       tags$span(class = "fc-team fc-team-away", fx_row$away)
     ),
-    tags$div(class = "fc-markets",
-      market_row("Hazai (1)", bk$odds_1, fo$odds_1),
-      market_row("Döntetlen (X)", bk$odds_x, fo$odds_x),
-      market_row("Vendég (2)", bk$odds_2, fo$odds_2),
-      market_row("Több mint 2,5 gól", bk$odds_over25, fo$odds_over25),
-      market_row("Mindkét csapat szerez gólt", bk$odds_btts, fo$odds_btts),
-      if (ah_comparable) market_row(ah_label, bk$ah_odds_home, fo$ah_odds_home)
-      else tags$div(class = "fc-market-row fc-market-row-note", ah_label)
-    )
+    tags$div(class = "fc-markets", lapply(seq_len(nrow(mks)), function(i) market_row(mks[i, ])))
   )
 }
 ```
@@ -213,4 +223,78 @@ tagList(
     )
   })
 )
+```
+
+## Value pick teljesítmény
+
+Minden `r VALUE_THRESHOLD`%-os vagy nagyobb eltéréssel jelzett value pick 1 egységnyi tétként számolva, a tényleges (`futball/data/nb1_2627_results.csv`-ben rögzített) végeredmény alapján. Ázsiai hendikepnél a negyedes vonalak (pl. -0,25) a szokásos módon, felezett téttel oldódnak fel. Amíg egy forduló eredménye nincs kitöltve, az adott pickek "nyitott" státuszban maradnak, és nem számítanak bele a hozamba.
+
+```{r resolve-picks}
+resolve_pick <- function(market_key, ah_line, home_goals, away_goals, book_odds) {
+  if (is.na(home_goals) || is.na(away_goals)) return(list(status = "nyitott", profit = NA_real_))
+
+  settle <- function(is_win, is_push = FALSE) {
+    if (is_push) return(list(status = "push", profit = 0))
+    if (is_win)  return(list(status = "nyert", profit = book_odds - 1))
+    list(status = "vesztett", profit = -1)
+  }
+
+  if (market_key == "home")   return(settle(home_goals > away_goals))
+  if (market_key == "draw")   return(settle(home_goals == away_goals))
+  if (market_key == "away")   return(settle(away_goals > home_goals))
+  if (market_key == "over25") return(settle(home_goals + away_goals > 2.5))
+  if (market_key == "btts")   return(settle(home_goals > 0 & away_goals > 0))
+
+  if (market_key == "ah") {
+    comps <- decompose_line(ah_line)
+    profit <- 0; statuses <- c()
+    for (c in comps) {
+      margin <- home_goals - away_goals + c$h
+      part <- if (margin > 0) settle(TRUE) else if (margin < 0) settle(FALSE) else settle(FALSE, is_push = TRUE)
+      profit <- profit + c$w * part$profit
+      statuses <- c(statuses, part$status)
+    }
+    status <- if (all(statuses == "push")) "push"
+              else if (all(statuses %in% c("nyert","push"))) "nyert"
+              else if (all(statuses %in% c("vesztett","push"))) "vesztett"
+              else "részleges"
+    return(list(status = status, profit = profit))
+  }
+  list(status = "nyitott", profit = NA_real_)
+}
+
+all_markets <- purrr::map_dfr(seq_len(nrow(fixtures)), ~fixture_markets(fixtures[.x, ]))
+
+value_bets <- all_markets |>
+  filter(is_value) |>
+  left_join(results, by = c("fordulo", "home", "away")) |>
+  rowwise() |>
+  mutate(resolved = list(resolve_pick(market_key, ah_line, home_goals, away_goals, book_odds))) |>
+  ungroup() |>
+  mutate(status = purrr::map_chr(resolved, "status"),
+         profit = purrr::map_dbl(resolved, "profit")) |>
+  select(-resolved)
+
+summarize_category <- function(df, cat_label) {
+  settled <- df |> filter(status %in% c("nyert", "vesztett", "részleges"))
+  tibble(
+    Kategória = cat_label,
+    Tétek = nrow(df),
+    Nyert = sum(df$status == "nyert"),
+    Vesztett = sum(df$status == "vesztett"),
+    Push = sum(df$status == "push"),
+    Nyitott = sum(df$status == "nyitott"),
+    `Hozam (egység)` = round(sum(settled$profit), 2),
+    `ROI%` = if (nrow(settled) > 0) round(sum(settled$profit) / nrow(settled) * 100, 1) else NA_real_
+  )
+}
+
+perf_table <- bind_rows(
+  summarize_category(value_bets |> filter(category == "1X2"), "Csak végeredmény (1X2)"),
+  summarize_category(value_bets |> filter(category == "Gól"), "Csak gól (O2.5 / BTTS)"),
+  summarize_category(value_bets |> filter(category == "AH"), "Csak ázsiai hendikep"),
+  summarize_category(value_bets, "Összesen (kombinált)")
+)
+
+perf_table |> kable()
 ```
