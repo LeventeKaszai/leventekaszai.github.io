@@ -1,0 +1,68 @@
+---
+title: "NB1 Power Ranking"
+subtitle: "2026-27 előszezoni erősorrend"
+format:
+  html:
+    toc: false
+    page-layout: article
+    css: ../styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(htmltools)
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+rk  <- dbGetQuery(con, "SELECT team, helyezes FROM nb1_2627_preseason_forecast ORDER BY helyezes")
+dbDisconnect(con)
+
+# csapatnév -> logó fájlnév (futball/logos/nb1/<slug>.png)
+logo_slug <- c(
+  "Ferencváros"           = "ferencvaros",
+  "Győri ETO"             = "gyori-eto",
+  "Paksi FC"              = "paksi-fc",
+  "Puskás FC"             = "puskas-fc",
+  "Újpest"                = "ujpest",
+  "MTK"                   = "mtk",
+  "Debrecen"              = "debrecen",
+  "Nyíregyháza Spartacus" = "nyiregyhaza-spartacus",
+  "Várda SE"              = "varda-se",
+  "Vasas"                 = "vasas",
+  "Zalaegerszegi TE"      = "zalaegerszegi-te",
+  "Honvéd"                = "honved"
+)
+
+initials <- function(name) {
+  words <- strsplit(name, " ")[[1]]
+  words <- words[!words %in% c("FC", "SE", "TE")]
+  toupper(paste(substr(words, 1, 1), collapse = ""))
+}
+
+row_html <- function(team, rank) {
+  slug      <- logo_slug[[team]]
+  logo_path <- if (!is.null(slug)) file.path("futball", "logos", "nb1", paste0(slug, ".png")) else NA
+  has_logo  <- !is.na(logo_path) && file.exists(logo_path)
+
+  logo_el <- if (has_logo) {
+    tags$img(src = file.path("logos", "nb1", paste0(slug, ".png")), alt = team, class = "pr-logo")
+  } else {
+    tags$div(class = "pr-logo-fallback", initials(team))
+  }
+
+  tags$div(class = "pr-row",
+    tags$div(class = "pr-rank", rank),
+    tags$div(class = "pr-logo-wrap", logo_el),
+    tags$div(class = "pr-team", team),
+    tags$div(class = "pr-trend", title = "Trend: még nincs korábbi ranking, amihez viszonyítani", "–")
+  )
+}
+
+tags$div(class = "pr-list",
+  lapply(seq_len(nrow(rk)), function(i) row_html(rk$team[i], rk$helyezes[i]))
+)
+```
