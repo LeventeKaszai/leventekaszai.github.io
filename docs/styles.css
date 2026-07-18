@@ -513,6 +513,78 @@ table.dataTable tbody tr.odd {
   opacity: 1;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   NB1 POWER RANKING
+   ══════════════════════════════════════════════════════════════ */
+
+.pr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.pr-row {
+  display: grid;
+  grid-template-columns: 36px 48px 1fr 32px;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 1.25rem;
+}
+.pr-rank {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-align: center;
+}
+.pr-logo-wrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pr-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.pr-logo-fallback {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+.pr-team {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.pr-trend {
+  text-align: center;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .pr-row {
+    grid-template-columns: 28px 40px 1fr 24px;
+    gap: 0.6rem;
+    padding: 0.6rem 0.85rem;
+  }
+  .pr-logo-wrap { width: 36px; height: 36px; }
+  .pr-logo, .pr-logo-fallback { width: 32px; height: 32px; }
+  .pr-team { font-size: 0.9rem; }
+}
+
 /* ── Plotly dropdown (ha van) ── */
 .plot-container {
   font-family: 'Montserrat', sans-serif;
