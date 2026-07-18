@@ -72,6 +72,42 @@ tau <- function(x, y, lh, la, rho) {
   )
 }
 
+# ── "Keret"-paraméterek (hazai-előny, ρ) élő, walk-forward frissítése a 2026-27-es
+# szezon addig lejátszott meccseiből — ha van elég belőlük. A csapatminőség
+# (goal_est, fentebb) NEM frissül szezon közben (a korábbi visszatesztek szerint ez
+# nem segít), csak ez a két "alak"-paraméter, ami tisztán módszertani, nem
+# mutató-választási kérdés.
+MIN_HIST_LIVE <- 20
+played <- results |> filter(!is.na(home_goals), !is.na(away_goals))
+
+if (nrow(played) >= MIN_HIST_LIVE) {
+  league_avg_goals <- mean(c(played$home_goals, played$away_goals))
+  home_factor <- mean(played$home_goals) / league_avg_goals
+  away_factor <- mean(played$away_goals) / league_avg_goals
+
+  long_glm <- bind_rows(
+    played |> transmute(meccs_id = row_number(), team = home, opponent = away, goals = home_goals, home_away = "H"),
+    played |> transmute(meccs_id = row_number(), team = away, opponent = home, goals = away_goals, home_away = "A")
+  )
+  m_glm <- tryCatch(glm(goals ~ home_away + team + opponent, data = long_glm, family = poisson()), error = function(e) NULL)
+
+  if (!is.null(m_glm)) {
+    long_glm$lambda_fit <- predict(m_glm, type = "response")
+    hd <- played |> mutate(meccs_id = row_number()) |>
+      inner_join(long_glm |> filter(home_away=="H") |> select(meccs_id, lambda_h=lambda_fit), by="meccs_id") |>
+      inner_join(long_glm |> filter(home_away=="A") |> select(meccs_id, lambda_a=lambda_fit), by="meccs_id")
+    neg_loglik <- function(rho) {
+      tv <- tau(hd$home_goals, hd$away_goals, hd$lambda_h, hd$lambda_a, rho)
+      if (any(tv <= 0)) return(1e10)
+      -sum(dpois(hd$home_goals, hd$lambda_h, log=TRUE) + dpois(hd$away_goals, hd$lambda_a, log=TRUE) + log(tv))
+    }
+    rho_fit <- tryCatch(optimize(neg_loglik, interval = c(-0.3,0.3))$minimum, error = function(e) rho_fit)
+  }
+  parameter_forras <- sprintf("élő, a 2026-27-es szezon addigi %d meccséből", nrow(played))
+} else {
+  parameter_forras <- sprintf("2025-26-os teljes szezonból (a 2026-27-es szezonból még csak %d meccs van, min. %d kell az élő frissítéshez)", nrow(played), MIN_HIST_LIVE)
+}
+
 score_grid <- function(home_team, away_team, max_goals = 10) {
   h <- goal_est |> filter(team == home_team); a <- goal_est |> filter(team == away_team)
   lh <- league_avg_goals * h$attack * a$defense * home_factor
@@ -207,6 +243,8 @@ forecast |>
 ## Forduló-szintű fair odds és value picks
 
 A "mi" oszlop a saját Dixon-Coles Poisson-szimulációnk fair oddsát mutatja, a "könyv" oszlop a kézzel bevitt fogadóirodai odds-ot (`futball/data/nb1_2627_bookmaker_odds.csv`). Zöld jelzés akkor jelenik meg, ha a fogadóiroda odds-a legalább `r VALUE_THRESHOLD`%-kal nagyobb a fair oddsnál (potenciális value), piros ha ugyanennyivel kisebb.
+
+A csapatminőség (támadás/védekezés) a preseason becslésből jön, és nem frissül szezon közben. A hazai pálya-előny és a Dixon-Coles ρ viszont igen: jelenleg **`r parameter_forras`** van használva.
 
 ```{r fixture-cards}
 rounds <- sort(unique(fixtures$fordulo))
