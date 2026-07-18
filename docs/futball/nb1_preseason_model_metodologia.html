@@ -216,6 +216,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#fair-oddsok-az-első-fordulóra" id="toc-fair-oddsok-az-első-fordulóra" class="nav-link" data-scroll-target="#fair-oddsok-az-első-fordulóra">Fair oddsok az első fordulóra</a></li>
   <li><a href="#ázsiai-hendikep-ah-az-első-fordulóra" id="toc-ázsiai-hendikep-ah-az-első-fordulóra" class="nav-link" data-scroll-target="#ázsiai-hendikep-ah-az-első-fordulóra">Ázsiai hendikep (AH) az első fordulóra</a></li>
   </ul></li>
+  <li><a href="#preseason-vs.-in-season-forma-2025-26-os-esettanulmány" id="toc-preseason-vs.-in-season-forma-2025-26-os-esettanulmány" class="nav-link" data-scroll-target="#preseason-vs.-in-season-forma-2025-26-os-esettanulmány">Preseason vs.&nbsp;in-season forma — 2025-26-os esettanulmány</a>
+  <ul class="collapse">
+  <li><a href="#nem-a-végtábla-hanem-a-következő-meccs-meccs-szintű-összevetés" id="toc-nem-a-végtábla-hanem-a-következő-meccs-meccs-szintű-összevetés" class="nav-link" data-scroll-target="#nem-a-végtábla-hanem-a-következő-meccs-meccs-szintű-összevetés">Nem a végtábla, hanem a következő meccs — meccs-szintű összevetés</a></li>
+  <li><a href="#többváltozós-modell-segít-e-a-kombináció" id="toc-többváltozós-modell-segít-e-a-kombináció" class="nav-link" data-scroll-target="#többváltozós-modell-segít-e-a-kombináció">Többváltozós modell — segít-e a kombináció?</a></li>
+  </ul></li>
   <li><a href="#ismert-korlátok" id="toc-ismert-korlátok" class="nav-link" data-scroll-target="#ismert-korlátok">Ismert korlátok</a></li>
   <li><a href="#következő-lépések" id="toc-következő-lépések" class="nav-link" data-scroll-target="#következő-lépések">Következő lépések</a></li>
   </ul>
@@ -1101,24 +1106,25 @@ xt_diff            0.3960213  0.1581425  2.504205 0.01861487</code></pre>
 </table>
 </div>
 </div>
-<p>A legmagasabb screenelt szám (<code>xG within 10s after recovery</code>, átlag OOS R²=0.483) egy szűk, “egzotikus” mutató — 78 kandidánsból screenelve, N=30-on ez gyanús lehet véletlen csúcsra. Ugyanazt a logikát követve, mint a pontmodellnél (<code>Box touches</code> helyett <code>xT</code>-t választottuk, mert konceptuálisan egyszerűbb és nem a legmagasabb egyszeri screenelt szám hajszolása volt a cél): a <strong><code>xT</code>-t választjuk lőtt gólra</strong> (átlag OOS R²=0.361, konceptuálisan megegyezik a pontmodellben már bevált mutatóval), és a <strong>keretértéket kapott gólra</strong> (átlag OOS R²=0.369, egyértelműen a legstabilabb — minden más KPI-jelölt vagy instabil, vagy kifejezetten rossz ezen a célváltozón).</p>
+<p>A legmagasabb screenelt szám (<code>xG within 10s after recovery</code>, átlag OOS R²=0.483) egy szűk, “egzotikus” mutató — 78 kandidánsból screenelve, N=30-on ez gyanús lehet véletlen csúcsra.</p>
+<p><strong>Frissítve (2026-07)</strong>: egy valós, kézzel gyűjtött fogadóirodai odds-szal futtatott visszateszt (a 2025-26-os teljes szezonra, walk-forward, ld. külön elemzés) azt mutatta, hogy a <strong>nettó Box touches</strong> (saját Box touches − ellenfélnek engedett Box touches), <strong>egységesen mindkét oldalon</strong> (lőtt és kapott gólra is), a legjobb valós pénzes hozamot adta a korábban használt xT-alapú (csak támadásra) + keretérték-alapú (csak védekezésre) kevert modellhez képest — ezt három egymástól részben független nézőpont is megerősítette (szezon-szintű R², meccs-szintű R², és a valós-odds ROI). <strong>Fontos korlát</strong>: ez az eredmény egyetlen szezonból származik, és egy Monte Carlo szignifikancia-teszt szerint nem különböztethető meg statisztikailag a véletlentől (p≈0.60-0.79, a kipróbált mutatók/paraméterek számától függően) — tehát nem tekinthető szigorúan bizonyítottnak, inkább a jelenleg legjobb, gyakorlati alapú választásnak. Erre alapozva <strong>a 2026-27-es szezonra a nettó Box touches-t használjuk</strong> mindkét irányban, az xT helyett.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Golmodell (xT alapon), N=30:</code></pre>
+<pre><code>Golmodell (netto Box touches alapon), N=30:</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>              Estimate Std. Error   t value     Pr(&gt;|t|)
-(Intercept) 0.04554581  0.2670458 0.1705543 8.658007e-01
-attack__xT  0.93807730  0.1664942 5.6342948 4.917728e-06</code></pre>
+<pre><code>              Estimate  Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 1.49573936 0.049414130 30.269467 6.160760e-23
+box_net     0.04367214 0.009063245  4.818599 4.554133e-05</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-Kapott golmodell (keretertek alapon), N=30:</code></pre>
+Kapott golmodell (netto Box touches alapon), N=30:</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                    Estimate Std. Error   t value     Pr(&gt;|t|)
-(Intercept)        6.5896911 1.11683678  5.900317 2.393812e-06
-log_value_current -0.4035078 0.08746027 -4.613612 7.971738e-05</code></pre>
+<pre><code>               Estimate  Std. Error   t value     Pr(&gt;|t|)
+(Intercept)  1.46717119 0.049550402 29.609673 1.121445e-22
+box_net     -0.03461972 0.009088239 -3.809288 6.990443e-04</code></pre>
 </div>
 </div>
 </section>
@@ -1147,59 +1153,73 @@ log_value_current -0.4035078 0.08746027 -4.613612 7.971738e-05</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Ferencváros</td>
-<td style="text-align: right;">1.687</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.696</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: right;">2.069</td>
+<td style="text-align: right;">1.013</td>
+<td style="text-align: right;">1.056</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Győri ETO</td>
-<td style="text-align: right;">1.950</td>
-<td style="text-align: right;">1.305</td>
-<td style="text-align: right;">0.644</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: right;">1.983</td>
+<td style="text-align: right;">1.081</td>
+<td style="text-align: right;">0.902</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Paksi FC</td>
-<td style="text-align: right;">1.950</td>
-<td style="text-align: right;">1.545</td>
-<td style="text-align: right;">0.405</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: right;">1.672</td>
+<td style="text-align: right;">1.328</td>
+<td style="text-align: right;">0.344</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">MTK</td>
-<td style="text-align: right;">1.471</td>
-<td style="text-align: right;">1.372</td>
-<td style="text-align: right;">0.100</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: left;">Puskás FC</td>
+<td style="text-align: right;">1.594</td>
+<td style="text-align: right;">1.390</td>
+<td style="text-align: right;">0.204</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Puskás FC</td>
+<td style="text-align: left;">Nyíregyháza Spartacus</td>
+<td style="text-align: right;">1.522</td>
+<td style="text-align: right;">1.446</td>
+<td style="text-align: right;">0.076</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Debrecen</td>
 <td style="text-align: right;">1.490</td>
-<td style="text-align: right;">1.408</td>
-<td style="text-align: right;">0.083</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: right;">1.472</td>
+<td style="text-align: right;">0.018</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Várda SE</td>
+<td style="text-align: right;">1.380</td>
+<td style="text-align: right;">1.559</td>
+<td style="text-align: right;">-0.179</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Újpest</td>
-<td style="text-align: right;">1.349</td>
-<td style="text-align: right;">1.345</td>
-<td style="text-align: right;">0.004</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: right;">1.370</td>
+<td style="text-align: right;">1.567</td>
+<td style="text-align: right;">-0.197</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Debrecen</td>
-<td style="text-align: right;">1.387</td>
-<td style="text-align: right;">1.522</td>
-<td style="text-align: right;">-0.135</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: left;">Zalaegerszegi TE</td>
+<td style="text-align: right;">1.363</td>
+<td style="text-align: right;">1.572</td>
+<td style="text-align: right;">-0.209</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Nyíregyháza Spartacus</td>
-<td style="text-align: right;">1.256</td>
-<td style="text-align: right;">1.579</td>
-<td style="text-align: right;">-0.324</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
+<td style="text-align: left;">MTK</td>
+<td style="text-align: right;">1.330</td>
+<td style="text-align: right;">1.598</td>
+<td style="text-align: right;">-0.268</td>
+<td style="text-align: left;">nettó Box touches (25-26)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Vasas</td>
@@ -1207,20 +1227,6 @@ log_value_current -0.4035078 0.08746027 -4.613612 7.971738e-05</code></pre>
 <td style="text-align: right;">1.639</td>
 <td style="text-align: right;">-0.343</td>
 <td style="text-align: left;">keretérték (26-27) — csak m1-szerű fallback</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Várda SE</td>
-<td style="text-align: right;">1.199</td>
-<td style="text-align: right;">1.583</td>
-<td style="text-align: right;">-0.383</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Zalaegerszegi TE</td>
-<td style="text-align: right;">1.274</td>
-<td style="text-align: right;">1.671</td>
-<td style="text-align: right;">-0.396</td>
-<td style="text-align: left;">xT (25-26) / keretérték (26-27)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Honvéd</td>
@@ -1260,59 +1266,59 @@ log_value_current -0.4035078 0.08746027 -4.613612 7.971738e-05</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Győri ETO</td>
-<td style="text-align: right;">1.293</td>
-<td style="text-align: right;">0.866</td>
+<td style="text-align: left;">Ferencváros</td>
+<td style="text-align: right;">1.372</td>
+<td style="text-align: right;">0.672</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Paksi FC</td>
-<td style="text-align: right;">1.293</td>
-<td style="text-align: right;">1.025</td>
+<td style="text-align: left;">Győri ETO</td>
+<td style="text-align: right;">1.315</td>
+<td style="text-align: right;">0.717</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Ferencváros</td>
-<td style="text-align: right;">1.119</td>
-<td style="text-align: right;">0.658</td>
+<td style="text-align: left;">Paksi FC</td>
+<td style="text-align: right;">1.109</td>
+<td style="text-align: right;">0.881</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Puskás FC</td>
-<td style="text-align: right;">0.988</td>
-<td style="text-align: right;">0.934</td>
+<td style="text-align: right;">1.057</td>
+<td style="text-align: right;">0.922</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">MTK</td>
-<td style="text-align: right;">0.976</td>
-<td style="text-align: right;">0.910</td>
+<td style="text-align: left;">Nyíregyháza Spartacus</td>
+<td style="text-align: right;">1.010</td>
+<td style="text-align: right;">0.959</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Debrecen</td>
-<td style="text-align: right;">0.920</td>
-<td style="text-align: right;">1.009</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Újpest</td>
-<td style="text-align: right;">0.895</td>
-<td style="text-align: right;">0.892</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Vasas</td>
-<td style="text-align: right;">0.860</td>
-<td style="text-align: right;">1.087</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Zalaegerszegi TE</td>
-<td style="text-align: right;">0.845</td>
-<td style="text-align: right;">1.108</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nyíregyháza Spartacus</td>
-<td style="text-align: right;">0.833</td>
-<td style="text-align: right;">1.048</td>
+<td style="text-align: right;">0.988</td>
+<td style="text-align: right;">0.976</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Várda SE</td>
-<td style="text-align: right;">0.796</td>
-<td style="text-align: right;">1.050</td>
+<td style="text-align: right;">0.915</td>
+<td style="text-align: right;">1.034</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Újpest</td>
+<td style="text-align: right;">0.909</td>
+<td style="text-align: right;">1.039</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zalaegerszegi TE</td>
+<td style="text-align: right;">0.904</td>
+<td style="text-align: right;">1.043</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MTK</td>
+<td style="text-align: right;">0.882</td>
+<td style="text-align: right;">1.060</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vasas</td>
+<td style="text-align: right;">0.860</td>
+<td style="text-align: right;">1.087</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Honvéd</td>
@@ -1364,56 +1370,56 @@ log_value_current -0.4035078 0.08746027 -4.613612 7.971738e-05</code></pre>
 <tr class="odd">
 <td style="text-align: left;">Nyíregyháza Spartacus</td>
 <td style="text-align: left;">Újpest</td>
-<td style="text-align: right;">3.17</td>
-<td style="text-align: right;">3.62</td>
-<td style="text-align: right;">2.44</td>
-<td style="text-align: right;">2.16</td>
-<td style="text-align: right;">1.94</td>
+<td style="text-align: right;">2.18</td>
+<td style="text-align: right;">3.98</td>
+<td style="text-align: right;">3.44</td>
+<td style="text-align: right;">1.80</td>
+<td style="text-align: right;">1.72</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Várda SE</td>
 <td style="text-align: left;">Honvéd</td>
-<td style="text-align: right;">2.38</td>
-<td style="text-align: right;">3.72</td>
-<td style="text-align: right;">3.23</td>
-<td style="text-align: right;">2.05</td>
+<td style="text-align: right;">2.08</td>
+<td style="text-align: right;">3.97</td>
+<td style="text-align: right;">3.73</td>
 <td style="text-align: right;">1.87</td>
+<td style="text-align: right;">1.78</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Vasas</td>
 <td style="text-align: left;">Győri ETO</td>
-<td style="text-align: right;">4.78</td>
-<td style="text-align: right;">4.57</td>
-<td style="text-align: right;">1.75</td>
-<td style="text-align: right;">1.61</td>
-<td style="text-align: right;">1.66</td>
+<td style="text-align: right;">6.13</td>
+<td style="text-align: right;">4.76</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">1.71</td>
+<td style="text-align: right;">1.84</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Debrecen</td>
 <td style="text-align: left;">Puskás FC</td>
-<td style="text-align: right;">2.90</td>
-<td style="text-align: right;">3.83</td>
-<td style="text-align: right;">2.54</td>
-<td style="text-align: right;">1.89</td>
-<td style="text-align: right;">1.75</td>
+<td style="text-align: right;">2.81</td>
+<td style="text-align: right;">3.92</td>
+<td style="text-align: right;">2.57</td>
+<td style="text-align: right;">1.79</td>
+<td style="text-align: right;">1.68</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Paksi FC</td>
 <td style="text-align: left;">Ferencváros</td>
-<td style="text-align: right;">3.30</td>
-<td style="text-align: right;">4.03</td>
-<td style="text-align: right;">2.22</td>
-<td style="text-align: right;">1.74</td>
-<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">4.12</td>
+<td style="text-align: right;">1.97</td>
+<td style="text-align: right;">1.79</td>
+<td style="text-align: right;">1.75</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MTK</td>
 <td style="text-align: left;">Zalaegerszegi TE</td>
-<td style="text-align: right;">1.98</td>
-<td style="text-align: right;">4.02</td>
-<td style="text-align: right;">4.05</td>
-<td style="text-align: right;">1.88</td>
-<td style="text-align: right;">1.81</td>
+<td style="text-align: right;">2.62</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.78</td>
+<td style="text-align: right;">1.86</td>
+<td style="text-align: right;">1.73</td>
 </tr>
 </tbody>
 </table>
@@ -1450,50 +1456,50 @@ log_value_current -0.4035078 0.08746027 -4.613612 7.971738e-05</code></pre>
 <tr class="odd">
 <td style="text-align: left;">Nyíregyháza Spartacus</td>
 <td style="text-align: left;">Újpest</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">1.90</td>
-<td style="text-align: right;">2.11</td>
-<td style="text-align: right;">0.525</td>
+<td style="text-align: right;">-0.25</td>
+<td style="text-align: right;">1.91</td>
+<td style="text-align: right;">2.10</td>
+<td style="text-align: right;">0.524</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Várda SE</td>
 <td style="text-align: left;">Honvéd</td>
-<td style="text-align: right;">-0.25</td>
-<td style="text-align: right;">2.05</td>
-<td style="text-align: right;">1.95</td>
-<td style="text-align: right;">0.487</td>
+<td style="text-align: right;">-0.50</td>
+<td style="text-align: right;">2.08</td>
+<td style="text-align: right;">1.92</td>
+<td style="text-align: right;">0.480</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Vasas</td>
 <td style="text-align: left;">Győri ETO</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">2.08</td>
-<td style="text-align: right;">1.93</td>
-<td style="text-align: right;">0.482</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.05</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: right;">0.488</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Debrecen</td>
 <td style="text-align: left;">Puskás FC</td>
 <td style="text-align: right;">0.00</td>
-<td style="text-align: right;">2.14</td>
-<td style="text-align: right;">1.88</td>
-<td style="text-align: right;">0.468</td>
+<td style="text-align: right;">2.09</td>
+<td style="text-align: right;">1.92</td>
+<td style="text-align: right;">0.478</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Paksi FC</td>
 <td style="text-align: left;">Ferencváros</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">2.05</td>
-<td style="text-align: right;">1.95</td>
-<td style="text-align: right;">0.487</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2.03</td>
+<td style="text-align: right;">1.97</td>
+<td style="text-align: right;">0.492</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MTK</td>
 <td style="text-align: left;">Zalaegerszegi TE</td>
-<td style="text-align: right;">-0.50</td>
-<td style="text-align: right;">1.98</td>
-<td style="text-align: right;">2.02</td>
-<td style="text-align: right;">0.504</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1.94</td>
+<td style="text-align: right;">2.06</td>
+<td style="text-align: right;">0.514</td>
 </tr>
 </tbody>
 </table>
@@ -1506,6 +1512,344 @@ log_value_current -0.4035078 0.08746027 -4.613612 7.971738e-05</code></pre>
 <li>Az attack/defense rating maga a már bemutatott xT-/keretérték-alapú gólmodellből jön, tehát annak minden korlátja (N=30, 2 tesztpont) örökeresztül száll ide is.</li>
 <li>Nincs benne szezon közbeni forma, sérülés, átigazolás — ugyanaz a korlát, mint a pontmodellnél.</li>
 </ol>
+</section>
+</section>
+<section id="preseason-vs.-in-season-forma-2025-26-os-esettanulmány" class="level2">
+<h2 class="anchored" data-anchor-id="preseason-vs.-in-season-forma-2025-26-os-esettanulmány">Preseason vs.&nbsp;in-season forma — 2025-26-os esettanulmány</h2>
+<p><strong>A kérdés</strong>: a szezon előrehaladtával mikortól éri meg jobban bízni az <strong>addigi, tényleges idei formában</strong>, mint a preseason (keretérték-alapú) modellben? És melyik “addigi forma”-mutató a legjobb erre — pont, gólkülönbség, xT-diff, xG-diff?</p>
+<p><strong>Fontos módszertani korlát</strong>: ehhez csak a <strong>2025-26-os szezonra</strong> van meccsenkénti bontású adatunk (a <code>matches</code> tábla csak erre a szezonra tartalmaz meccsszintű eredményt, a korábbi három szezonra csak a végtábla van meg). Ez <strong>egyetlen szezonos esettanulmány</strong>, nem egy több szezonon validált, általánosítható szabály — a itt talált “keresztezési pont” simán lehet a 2025-26-os szezon egyedi lefolyásának a terméke, nem stabil mintázat. Ahogy gyűlik a meccsszintű adat a jövőbeli szezonokból, ez bővíthető és igazi walk-forward validációvá alakítható.</p>
+<p><strong>Adatforrás</strong>: a <code>futball/raw_json/teamlevel/</code> alatt minden 2025-26-os NB1-csapatra megvan <strong>~53 mutató meccsenkénti bontásban</strong>, <code>match_id</code>-vel azonosítva (ugyanaz az azonosító, mint a <code>matches</code> táblában) — ez lehetővé teszi, hogy ne csak gólokból, hanem a már bevált advanced mutatókból (xT, xG) is építsünk “eddigi forma” jelzőszámot, nem csak a nyers gólokból.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Beolvasott meccs-sorok: 394 ( 12 csapat )</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Preseason (walk-forward) becslés R² a 2025-26-os végső pont/meccshez képest: 0.552 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>R² a végső pont/meccshez képest, meccsszám-cutoffonként (preseason referencia: 0.552)</caption>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">meccsek</th>
+<th style="text-align: right;">Eddigi pont/meccs</th>
+<th style="text-align: right;">Eddigi gólkülönbség/meccs</th>
+<th style="text-align: right;">Eddigi lőtt gól/meccs</th>
+<th style="text-align: right;">Eddigi kapott gól/meccs</th>
+<th style="text-align: right;">Eddigi xT-diff</th>
+<th style="text-align: right;">Eddigi xG-diff</th>
+<th style="text-align: right;">Eddigi Box touches</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.293</td>
+<td style="text-align: right;">0.351</td>
+<td style="text-align: right;">0.288</td>
+<td style="text-align: right;">0.274</td>
+<td style="text-align: right;">0.573</td>
+<td style="text-align: right;">0.367</td>
+<td style="text-align: right;">0.212</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.473</td>
+<td style="text-align: right;">0.652</td>
+<td style="text-align: right;">0.433</td>
+<td style="text-align: right;">0.528</td>
+<td style="text-align: right;">0.617</td>
+<td style="text-align: right;">0.209</td>
+<td style="text-align: right;">0.362</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.364</td>
+<td style="text-align: right;">0.505</td>
+<td style="text-align: right;">0.219</td>
+<td style="text-align: right;">0.625</td>
+<td style="text-align: right;">0.492</td>
+<td style="text-align: right;">0.207</td>
+<td style="text-align: right;">0.389</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.342</td>
+<td style="text-align: right;">0.476</td>
+<td style="text-align: right;">0.201</td>
+<td style="text-align: right;">0.417</td>
+<td style="text-align: right;">0.488</td>
+<td style="text-align: right;">0.276</td>
+<td style="text-align: right;">0.473</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.519</td>
+<td style="text-align: right;">0.717</td>
+<td style="text-align: right;">0.434</td>
+<td style="text-align: right;">0.768</td>
+<td style="text-align: right;">0.478</td>
+<td style="text-align: right;">0.289</td>
+<td style="text-align: right;">0.634</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.722</td>
+<td style="text-align: right;">0.832</td>
+<td style="text-align: right;">0.495</td>
+<td style="text-align: right;">0.750</td>
+<td style="text-align: right;">0.460</td>
+<td style="text-align: right;">0.237</td>
+<td style="text-align: right;">0.693</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.767</td>
+<td style="text-align: right;">0.792</td>
+<td style="text-align: right;">0.394</td>
+<td style="text-align: right;">0.718</td>
+<td style="text-align: right;">0.462</td>
+<td style="text-align: right;">0.249</td>
+<td style="text-align: right;">0.694</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.820</td>
+<td style="text-align: right;">0.826</td>
+<td style="text-align: right;">0.416</td>
+<td style="text-align: right;">0.705</td>
+<td style="text-align: right;">0.444</td>
+<td style="text-align: right;">0.347</td>
+<td style="text-align: right;">0.652</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.928</td>
+<td style="text-align: right;">0.905</td>
+<td style="text-align: right;">0.494</td>
+<td style="text-align: right;">0.557</td>
+<td style="text-align: right;">0.464</td>
+<td style="text-align: right;">0.347</td>
+<td style="text-align: right;">0.664</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.945</td>
+<td style="text-align: right;">0.948</td>
+<td style="text-align: right;">0.600</td>
+<td style="text-align: right;">0.638</td>
+<td style="text-align: right;">0.454</td>
+<td style="text-align: right;">0.341</td>
+<td style="text-align: right;">0.709</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.978</td>
+<td style="text-align: right;">0.973</td>
+<td style="text-align: right;">0.653</td>
+<td style="text-align: right;">0.765</td>
+<td style="text-align: right;">0.429</td>
+<td style="text-align: right;">0.344</td>
+<td style="text-align: right;">0.731</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">0.996</td>
+<td style="text-align: right;">0.982</td>
+<td style="text-align: right;">0.740</td>
+<td style="text-align: right;">0.881</td>
+<td style="text-align: right;">0.443</td>
+<td style="text-align: right;">0.367</td>
+<td style="text-align: right;">0.785</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="nb1_preseason_model_metodologia_files/figure-html/inseason_plot-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Melyik mutatónál, hányadik meccs után előzte meg az addigi forma a preseason becslést (2025-26)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Mutató</th>
+<th style="text-align: right;">Első meccs, ahol R² &gt; preseason R²</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Eddigi xT-diff</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eddigi gólkülönbség/meccs</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eddigi kapott gól/meccs</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eddigi Box touches</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eddigi pont/meccs</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eddigi lőtt gól/meccs</td>
+<td style="text-align: right;">26</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Amit ez mutat (egyetlen szezonra)</strong>: a legkorábban a <strong>Eddigi xT-diff</strong> előzte meg a preseason modellt, már a <strong>3. meccs</strong> után — ez arra utal, hogy egy folyamatos, zajszegényebb mutató (mint az xT-diff) gyorsabban stabilizálódik, mint a nyers pont/gólkülönbség, ami korai szakaszban még erősen véletlenszerű meccskimenetelektől függ. Későbbi fordulókban (kb. 15-20 meccs után) viszont a pont/meccs és a gólkülönbség veszi át a vezetést, és a szezon vége felé (értelemszerűen) szinte tökéletesen konvergálnak a végeredményhez, hiszen egyre kevesebb hátralévő meccs marad, amiből eltérhetnének tőle. <strong>Ismét hangsúlyozva</strong>: ez egy N=1 szezonos, leíró jellegű megfigyelés — nem statisztikailag validált szabály, inkább egy konkrét, tanulságos kiindulópont, amit érdemes lesz újranézni, ahogy a 2026-27-es szezon (és a jövőbeli szezonok) meccsenkénti adata is gyűlik.</p>
+<section id="nem-a-végtábla-hanem-a-következő-meccs-meccs-szintű-összevetés" class="level3">
+<h3 class="anchored" data-anchor-id="nem-a-végtábla-hanem-a-következő-meccs-meccs-szintű-összevetés">Nem a végtábla, hanem a következő meccs — meccs-szintű összevetés</h3>
+<p>A fenti elemzés a <strong>szezonvégi</strong> pont/meccshez mérte a mutatókat — de fogadáshoz nem a végtábla, hanem <strong>a következő konkrét meccs</strong> kimenetele számít. Ez más kérdés, és sokkal nagyobb mintát is ad: nem 12 csapat × cutoff, hanem minden ténylegesen lejátszott 2025-26-os meccs (~180, miután mindkét csapatnak van már némi meccsmúltja).</p>
+<p>Minden meccsre, <strong>a meccs előtti állapotot</strong> használva (nem utána!), kiszámoljuk a hazai és a vendég csapat “eddigi formájának” különbségét (hazai − vendég), és megnézzük, mennyire magyarázza ez a tényleges meccs-gólkülönbséget — ugyanezt a preseason-becslések különbségére is.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Elemezhető meccsek (mindkét csapatnak van már meccsmúltja): 131 / 197 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Melyik mutató-különbség magyarázza legjobban a tényleges meccs-gólkülönbséget (2025-26, minden elemezhető meccs pool-olva)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Mutató</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">R² (meccs-gólkülönbséghez)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Eddigi Box touches-különbség</td>
+<td style="text-align: right;">191</td>
+<td style="text-align: right;">0.157</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eddigi xT-diff-különbség</td>
+<td style="text-align: right;">191</td>
+<td style="text-align: right;">0.111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eddigi xG-diff-különbség</td>
+<td style="text-align: right;">191</td>
+<td style="text-align: right;">0.107</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Preseason becslés-különbség</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: right;">0.103</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eddigi gólkülönbség-különbség</td>
+<td style="text-align: right;">191</td>
+<td style="text-align: right;">0.065</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eddigi pont/meccs-különbség</td>
+<td style="text-align: right;">191</td>
+<td style="text-align: right;">0.053</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Amit ez mutat</strong>: itt nem azt nézzük, ki lesz a bajnok, hanem konkrétan <strong>a következő meccs</strong> gólkülönbségét — ez a fogadási szempontból releváns kérdés. A minta jóval nagyobb (minden elemezhető meccs, nem csak 12 csapat×cutoff), de <strong>ugyanaz az N=1 szezonos korlát</strong> érvényes: a 2025-26-os szezon egyedi lefolyásának terméke lehet bármelyik találat, nem bizonyítottan általánosítható jövőbeli szezonokra.</p>
+</section>
+<section id="többváltozós-modell-segít-e-a-kombináció" class="level3">
+<h3 class="anchored" data-anchor-id="többváltozós-modell-segít-e-a-kombináció">Többváltozós modell — segít-e a kombináció?</h3>
+<p>N=191-gyel már van tér egy óvatos többváltozós modellhez, de előbb nézzük meg a kollinearitást (a korábbi szezon-szintű screeningnél a Box touches/xT/xG erősen összefüggött egymással — itt valószínűleg ugyanez igaz).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Korreláció a jelölt mutató-különbségek között (N = 191 ):</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               diff_points diff_goal_diff diff_xt_diff diff_xg_diff diff_box
+diff_points           1.00           0.89         0.57         0.46     0.69
+diff_goal_diff        0.89           1.00         0.59         0.56     0.78
+diff_xt_diff          0.57           0.59         1.00         0.51     0.61
+diff_xg_diff          0.46           0.56         0.51         1.00     0.64
+diff_box              0.69           0.78         0.61         0.64     1.00</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Kombinált modell (Box touches + xT-diff + xG-diff), N = 191 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Estimate Std. Error  t value    Pr(&gt;|t|)
+(Intercept)  0.13733213 0.12873006 1.066823 0.287427326
+diff_box     0.06950897 0.02634311 2.638601 0.009026667
+diff_xt_diff 0.20070294 0.13228181 1.517238 0.130895395
+diff_xg_diff 0.15157114 0.13590916 1.115239 0.266179343</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>In-sample R²: 0.176 </code></pre>
+</div>
+</div>
+<p>Az in-sample R² önmagában megtévesztő lehet (túlillesztés kockázata) — a helyes teszt a keresztvalidált (out-of-sample) teljesítmény, ugyanazzal a fegyelemmel, mint a dokumentum többi részében:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>10-fold keresztvalidált OOS R² — önálló vs.&nbsp;kombinált modellek (meccs-szintű gólkülönbség)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">modell</th>
+<th style="text-align: right;">OOS_R2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Csak Box touches</td>
+<td style="text-align: right;">0.134</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Csak xT-diff</td>
+<td style="text-align: right;">0.086</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Box touches + xT-diff</td>
+<td style="text-align: right;">0.138</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Box touches + xT-diff + xG-diff</td>
+<td style="text-align: right;">0.125</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mind az öt (kitchen sink)</td>
+<td style="text-align: right;">0.118</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Amit ez mutat</strong>: a <code>diff_box</code>, <code>diff_xt_diff</code> és <code>diff_xg_diff</code> egymással is közepesen-erősen korrelál (várható volt), ezért a kombinációjuk <strong>nem feltétlenül ad annyi pluszt, amennyit az in-sample R² sugallna</strong> — a keresztvalidált szám adja a becsületes választ arra, hogy tényleg jobb-e a kombináció, mint az önálló legjobb (Box touches), vagy csak zajt ad hozzá. A “kitchen sink” (mind az öt mutató együtt) itt is jó eséllyel rosszabbul teljesít OOS-ban, mint egy szűkebb modell — ugyanaz a minta, mint amit a dokumentum korábbi, szezon-szintű screeningjénél már láttunk N=10-zel, csak itt N=191-gyel kevésbé súlyos a kockázat.</p>
 </section>
 </section>
 <section id="ismert-korlátok" class="level2">

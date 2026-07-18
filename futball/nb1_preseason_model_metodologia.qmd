@@ -608,16 +608,22 @@ res_goals |> kable(caption = "Walk-forward OOS R² — lőtt gól jelöltek")
 res_opp   |> kable(caption = "Walk-forward OOS R² — kapott gól jelöltek")
 ```
 
-A legmagasabb screenelt szám (`xG within 10s after recovery`, átlag OOS R²=0.483) egy szűk, "egzotikus" mutató — 78 kandidánsból screenelve, N=30-on ez gyanús lehet véletlen csúcsra. Ugyanazt a logikát követve, mint a pontmodellnél (`Box touches` helyett `xT`-t választottuk, mert konceptuálisan egyszerűbb és nem a legmagasabb egyszeri screenelt szám hajszolása volt a cél): a **`xT`-t választjuk lőtt gólra** (átlag OOS R²=0.361, konceptuálisan megegyezik a pontmodellben már bevált mutatóval), és a **keretértéket kapott gólra** (átlag OOS R²=0.369, egyértelműen a legstabilabb — minden más KPI-jelölt vagy instabil, vagy kifejezetten rossz ezen a célváltozón).
+A legmagasabb screenelt szám (`xG within 10s after recovery`, átlag OOS R²=0.483) egy szűk, "egzotikus" mutató — 78 kandidánsból screenelve, N=30-on ez gyanús lehet véletlen csúcsra.
+
+**Frissítve (2026-07)**: egy valós, kézzel gyűjtött fogadóirodai odds-szal futtatott visszateszt (a 2025-26-os teljes szezonra, walk-forward, ld. külön elemzés) azt mutatta, hogy a **nettó Box touches** (saját Box touches − ellenfélnek engedett Box touches), **egységesen mindkét oldalon** (lőtt és kapott gólra is), a legjobb valós pénzes hozamot adta a korábban használt xT-alapú (csak támadásra) + keretérték-alapú (csak védekezésre) kevert modellhez képest — ezt három egymástól részben független nézőpont is megerősítette (szezon-szintű R², meccs-szintű R², és a valós-odds ROI). **Fontos korlát**: ez az eredmény egyetlen szezonból származik, és egy Monte Carlo szignifikancia-teszt szerint nem különböztethető meg statisztikailag a véletlentől (p≈0.60-0.79, a kipróbált mutatók/paraméterek számától függően) — tehát nem tekinthető szigorúan bizonyítottnak, inkább a jelenleg legjobb, gyakorlati alapú választásnak. Erre alapozva **a 2026-27-es szezonra a nettó Box touches-t használjuk** mindkét irányban, az xT helyett.
 
 ```{r goals_final_models}
-m_goals    <- lm(goals_next ~ `attack__xT`, data = lag_data_g)
-m_opp_goals <- lm(opp_goals_next ~ log_value_current, data = lag_data_g)
-m_goals_value_fallback <- lm(goals_next ~ log_value_current, data = lag_data_g)  # feljutokra, nincs NB1 xT-juk
+lag_data_g <- lag_data_g |>
+  mutate(box_net = `chancecreation__Box touches` - `oppositionchancecreation__Opp. Box touches`)
 
-cat("Golmodell (xT alapon), N=", nrow(lag_data_g), ":\n", sep="")
+m_goals     <- lm(goals_next ~ box_net, data = lag_data_g)
+m_opp_goals <- lm(opp_goals_next ~ box_net, data = lag_data_g)
+m_goals_value_fallback     <- lm(goals_next ~ log_value_current, data = lag_data_g)  # feljutokra, nincs NB1 Box touches-uk
+m_opp_goals_value_fallback <- lm(opp_goals_next ~ log_value_current, data = lag_data_g)
+
+cat("Golmodell (netto Box touches alapon), N=", nrow(lag_data_g), ":\n", sep="")
 print(summary(m_goals)$coefficients)
-cat("\nKapott golmodell (keretertek alapon), N=", nrow(lag_data_g), ":\n", sep="")
+cat("\nKapott golmodell (netto Box touches alapon), N=", nrow(lag_data_g), ":\n", sep="")
 print(summary(m_opp_goals)$coefficients)
 ```
 
@@ -626,25 +632,28 @@ print(summary(m_opp_goals)$coefficients)
 ```{r goals_2627}
 con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
 sv2627_g <- dbGetQuery(con, "SELECT team_canonical AS team, avg_market_value_euro FROM nb1_squad_values_historical WHERE szezon='2026-27'")
-xt2526_g <- dbGetQuery(con, "SELECT team, quality, kpi, value FROM team_stats WHERE liga='NB1' AND szezon='2025-26' AND quality='attack' AND kpi='xT'") |>
-  transmute(team, xT = value)
+box2526_g <- dbGetQuery(con, "SELECT team, quality, kpi, value FROM team_stats WHERE liga='NB1' AND szezon='2025-26' AND kpi IN ('Box touches','Opp. Box touches')") |>
+  mutate(colname = if_else(kpi == "Box touches", "box_for", "box_against")) |>
+  select(team, colname, value) |>
+  tidyr::pivot_wider(names_from = colname, values_from = value) |>
+  mutate(box_net = box_for - box_against)
 dbDisconnect(con)
 
 returning_g <- sv2627_g |>
   filter(!team %in% PROMOTED_2627) |>
   mutate(log_value_current = log(avg_market_value_euro)) |>
-  inner_join(xt2526_g, by = "team")
-returning_g$exp_goals   <- predict(m_goals, newdata = returning_g |> rename(`attack__xT` = xT))
+  inner_join(box2526_g |> select(team, box_net), by = "team")
+returning_g$exp_goals     <- predict(m_goals, newdata = returning_g)
 returning_g$exp_opp_goals <- predict(m_opp_goals, newdata = returning_g)
 
 promoted_g <- sv2627_g |>
   filter(team %in% PROMOTED_2627) |>
   mutate(log_value_current = log(avg_market_value_euro))
 promoted_g$exp_goals     <- predict(m_goals_value_fallback, newdata = promoted_g)
-promoted_g$exp_opp_goals <- predict(m_opp_goals, newdata = promoted_g)
+promoted_g$exp_opp_goals <- predict(m_opp_goals_value_fallback, newdata = promoted_g)
 
 goals_2627 <- bind_rows(
-  returning_g |> transmute(team, exp_goals, exp_opp_goals, forras = "xT (25-26) / keretérték (26-27)"),
+  returning_g |> transmute(team, exp_goals, exp_opp_goals, forras = "nettó Box touches (25-26)"),
   promoted_g  |> transmute(team, exp_goals, exp_opp_goals, forras = "keretérték (26-27) — csak m1-szerű fallback")
 ) |>
   mutate(gd = exp_goals - exp_opp_goals) |>
@@ -856,6 +865,258 @@ dbDisconnect(con)
 2. A hazai pálya előny egységes minden csapatra (ld. korábbi megbeszélés — csapat-specifikus hazai előnyt nem tudtunk stabilan megbecsülni).
 3. Az attack/defense rating maga a már bemutatott xT-/keretérték-alapú gólmodellből jön, tehát annak minden korlátja (N=30, 2 tesztpont) örökeresztül száll ide is.
 4. Nincs benne szezon közbeni forma, sérülés, átigazolás — ugyanaz a korlát, mint a pontmodellnél.
+
+## Preseason vs. in-season forma — 2025-26-os esettanulmány
+
+**A kérdés**: a szezon előrehaladtával mikortól éri meg jobban bízni az **addigi, tényleges idei formában**, mint a preseason (keretérték-alapú) modellben? És melyik "addigi forma"-mutató a legjobb erre — pont, gólkülönbség, xT-diff, xG-diff?
+
+**Fontos módszertani korlát**: ehhez csak a **2025-26-os szezonra** van meccsenkénti bontású adatunk (a `matches` tábla csak erre a szezonra tartalmaz meccsszintű eredményt, a korábbi három szezonra csak a végtábla van meg). Ez **egyetlen szezonos esettanulmány**, nem egy több szezonon validált, általánosítható szabály — a itt talált "keresztezési pont" simán lehet a 2025-26-os szezon egyedi lefolyásának a terméke, nem stabil mintázat. Ahogy gyűlik a meccsszintű adat a jövőbeli szezonokból, ez bővíthető és igazi walk-forward validációvá alakítható.
+
+**Adatforrás**: a `futball/raw_json/teamlevel/` alatt minden 2025-26-os NB1-csapatra megvan **~53 mutató meccsenkénti bontásban**, `match_id`-vel azonosítva (ugyanaz az azonosító, mint a `matches` táblában) — ez lehetővé teszi, hogy ne csak gólokból, hanem a már bevált advanced mutatókból (xT, xG) is építsünk "eddigi forma" jelzőszámot, nem csak a nyers gólokból.
+
+```{r inseason_setup}
+library(jsonlite)
+
+teamlevel_map <- c(
+  DVSC = "Debrecen", DVTK = "Diósgyőr", "Ferencváros" = "Ferencváros",
+  "Győr" = "Győri ETO", KBSC = "Kazincbarcika", MTK = "MTK",
+  Paks = "Paksi FC", "Puskás" = "Puskás FC", Szpari = "Nyíregyháza Spartacus",
+  UTE = "Újpest", "Várda" = "Várda SE", ZTE = "Zalaegerszegi TE"
+)
+
+read_teamlevel_kpi <- function(prefix, kpi) {
+  path <- file.path("futball/raw_json/teamlevel", paste0(prefix, "_", kpi, ".json"))
+  if (!file.exists(path)) return(NULL)
+  d <- fromJSON(path)
+  match_series <- which(d$data$series$name == "Match")
+  vals <- d$data$series$values[[match_series]]
+  ids  <- d$data$series$target_identifiers[[match_series]]
+  tibble(match_id = as.integer(ids), value = as.numeric(vals))
+}
+
+kpi_files <- c(xT = "xT", opp_xT = "oppxT", xG = "xG", opp_xG = "oppxG",
+               goals = "goals", opp_goals = "oppgoals", box_touches = "boxtouches")
+
+inseason_raw <- purrr::map_dfr(names(teamlevel_map), function(prefix) {
+  team <- teamlevel_map[[prefix]]
+  purrr::map_dfr(names(kpi_files), function(metric) {
+    df <- read_teamlevel_kpi(prefix, kpi_files[[metric]])
+    if (is.null(df)) return(NULL)
+    df$team <- team; df$metric <- metric
+    df
+  })
+})
+
+inseason_wide <- inseason_raw |>
+  distinct(team, match_id, metric, .keep_all = TRUE) |>
+  tidyr::pivot_wider(id_cols = c(team, match_id), names_from = metric, values_from = value)
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+matches25_full <- dbGetQuery(con, "SELECT match_id, date, home_team, away_team, home_goals, away_goals FROM matches WHERE liga='NB1' AND szezon='2025-26'")
+dbDisconnect(con)
+
+team_matches <- bind_rows(
+  matches25_full |> transmute(match_id, date, team = home_team, gf = home_goals, ga = away_goals),
+  matches25_full |> transmute(match_id, date, team = away_team, gf = away_goals, ga = home_goals)
+) |>
+  mutate(points = case_when(gf > ga ~ 3, gf == ga ~ 1, TRUE ~ 0)) |>
+  arrange(team, date) |>
+  group_by(team) |>
+  mutate(match_num = row_number()) |>
+  ungroup() |>
+  left_join(inseason_wide, by = c("team", "match_id")) |>
+  mutate(xt_diff_match = xT - opp_xT, xg_diff_match = xG - opp_xG, goal_diff = gf - ga)
+
+cum_metrics <- c("points", "goal_diff", "gf", "ga", "xt_diff_match", "xg_diff_match", "box_touches")
+
+team_matches <- team_matches |>
+  group_by(team) |>
+  arrange(match_num, .by_group = TRUE) |>
+  mutate(across(all_of(cum_metrics), ~cummean(.x), .names = "cum_{.col}")) |>
+  ungroup()
+
+cat("Beolvasott meccs-sorok:", nrow(team_matches), "(", n_distinct(team_matches$team), "csapat )\n")
+```
+
+```{r inseason_preseason_benchmark}
+# Az "oszinte" preseason becsles 2025-26-ra: csak a korabbi ket lag-parbol (22-23->23-24,
+# 23-24->24-25) tanult modellel josolva — ugyanaz a walk-forward logika, mint fentebb,
+# csak most a 2025-26-os sor per-csapat predikciojat is megtartjuk, nem csak az OOS R2-t.
+train_ps <- d_final |> filter(lag_pair %in% pairs_order_final[1:2])
+test_ps  <- d_final |> filter(lag_pair == pairs_order_final[3])
+m_preseason_2526 <- lm(points_next ~ log_value_current + xt_diff, data = train_ps)
+test_ps$preseason_pred <- predict(m_preseason_2526, newdata = test_ps)
+
+preseason_r2 <- cor(test_ps$preseason_pred, test_ps$points_next)^2
+cat("Preseason (walk-forward) becslés R² a 2025-26-os végső pont/meccshez képest:", round(preseason_r2, 3), "\n")
+```
+
+```{r inseason_crossover}
+cutoffs <- c(3, 5, 8, 10, 12, 15, 18, 20, 23, 26, 29, 32)
+metric_labels <- c(cum_points = "Eddigi pont/meccs", cum_goal_diff = "Eddigi gólkülönbség/meccs",
+                    cum_gf = "Eddigi lőtt gól/meccs", cum_ga = "Eddigi kapott gól/meccs",
+                    cum_xt_diff_match = "Eddigi xT-diff", cum_xg_diff_match = "Eddigi xG-diff",
+                    cum_box_touches = "Eddigi Box touches")
+
+eval_metric <- function(colname, k) {
+  df <- team_matches |> filter(match_num == k) |>
+    select(team, value = all_of(colname)) |>
+    inner_join(test_ps |> select(team, actual = points_next), by = "team")
+  if (nrow(df) < 10 || any(is.na(df$value))) return(NULL)
+  tibble(mutato = metric_labels[[colname]], meccsek = k, r2 = cor(df$value, df$actual)^2)
+}
+
+crossover_grid <- purrr::map_dfr(names(metric_labels), function(m) purrr::map_dfr(cutoffs, ~eval_metric(m, .x)))
+
+crossover_wide <- crossover_grid |>
+  tidyr::pivot_wider(names_from = mutato, values_from = r2) |>
+  arrange(meccsek)
+
+crossover_wide |>
+  mutate(across(where(is.numeric) & !meccsek, ~round(., 3))) |>
+  kable(caption = sprintf("R² a végső pont/meccshez képest, meccsszám-cutoffonként (preseason referencia: %.3f)", preseason_r2))
+```
+
+```{r inseason_plot, fig.width=8, fig.height=5}
+library(ggplot2)
+
+ggplot(crossover_grid, aes(x = meccsek, y = r2, color = mutato)) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  geom_hline(yintercept = preseason_r2, linetype = "dashed", color = "black") +
+  annotate("text", x = min(cutoffs), y = preseason_r2, label = "preseason", vjust = -0.6, hjust = 0, size = 3.3) +
+  labs(x = "Lejátszott meccsek száma", y = "R² (a végső pont/meccshez képest)",
+       title = "Melyik in-season mutató éri utol/előzi meg a preseason modellt — 2025-26",
+       color = "Mutató") +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "bottom")
+```
+
+```{r inseason_crossover_summary}
+first_crossover <- crossover_grid |>
+  filter(r2 > preseason_r2) |>
+  group_by(mutato) |>
+  summarize(elso_kereszt = min(meccsek), .groups = "drop") |>
+  arrange(elso_kereszt)
+
+first_crossover |>
+  rename(Mutató = mutato, `Első meccs, ahol R² > preseason R²` = elso_kereszt) |>
+  kable(caption = "Melyik mutatónál, hányadik meccs után előzte meg az addigi forma a preseason becslést (2025-26)")
+
+leggyorsabb <- first_crossover |> slice(1)
+```
+
+**Amit ez mutat (egyetlen szezonra)**: a legkorábban a **`r leggyorsabb$mutato`** előzte meg a preseason modellt, már a **`r leggyorsabb$elso_kereszt`. meccs** után — ez arra utal, hogy egy folyamatos, zajszegényebb mutató (mint az xT-diff) gyorsabban stabilizálódik, mint a nyers pont/gólkülönbség, ami korai szakaszban még erősen véletlenszerű meccskimenetelektől függ. Későbbi fordulókban (kb. 15-20 meccs után) viszont a pont/meccs és a gólkülönbség veszi át a vezetést, és a szezon vége felé (értelemszerűen) szinte tökéletesen konvergálnak a végeredményhez, hiszen egyre kevesebb hátralévő meccs marad, amiből eltérhetnének tőle. **Ismét hangsúlyozva**: ez egy N=1 szezonos, leíró jellegű megfigyelés — nem statisztikailag validált szabály, inkább egy konkrét, tanulságos kiindulópont, amit érdemes lesz újranézni, ahogy a 2026-27-es szezon (és a jövőbeli szezonok) meccsenkénti adata is gyűlik.
+
+### Nem a végtábla, hanem a következő meccs — meccs-szintű összevetés
+
+A fenti elemzés a **szezonvégi** pont/meccshez mérte a mutatókat — de fogadáshoz nem a végtábla, hanem **a következő konkrét meccs** kimenetele számít. Ez más kérdés, és sokkal nagyobb mintát is ad: nem 12 csapat × cutoff, hanem minden ténylegesen lejátszott 2025-26-os meccs (~180, miután mindkét csapatnak van már némi meccsmúltja).
+
+Minden meccsre, **a meccs előtti állapotot** használva (nem utána!), kiszámoljuk a hazai és a vendég csapat "eddigi formájának" különbségét (hazai − vendég), és megnézzük, mennyire magyarázza ez a tényleges meccs-gólkülönbséget — ugyanezt a preseason-becslések különbségére is.
+
+```{r match_level_setup}
+team_matches_lag <- team_matches |>
+  group_by(team) |>
+  arrange(match_num, .by_group = TRUE) |>
+  mutate(across(starts_with("cum_"), ~lag(.x), .names = "pre_{.col}")) |>
+  ungroup() |>
+  left_join(test_ps |> select(team, preseason_pred), by = "team")
+
+match_pred_cols <- c("preseason_pred", "pre_cum_points", "pre_cum_goal_diff",
+                      "pre_cum_xt_diff_match", "pre_cum_xg_diff_match", "pre_cum_box_touches")
+
+home_side <- team_matches_lag |>
+  inner_join(matches25_full |> select(match_id, home_team), by = "match_id") |>
+  filter(team == home_team) |>
+  select(match_id, all_of(match_pred_cols)) |>
+  rename_with(~paste0("home_", .x), all_of(match_pred_cols))
+
+away_side <- team_matches_lag |>
+  inner_join(matches25_full |> select(match_id, away_team), by = "match_id") |>
+  filter(team == away_team) |>
+  select(match_id, all_of(match_pred_cols)) |>
+  rename_with(~paste0("away_", .x), all_of(match_pred_cols))
+
+match_level <- matches25_full |>
+  transmute(match_id, actual_gd = home_goals - away_goals) |>
+  inner_join(home_side, by = "match_id") |>
+  inner_join(away_side, by = "match_id") |>
+  mutate(
+    diff_preseason = home_preseason_pred - away_preseason_pred,
+    diff_points     = home_pre_cum_points - away_pre_cum_points,
+    diff_goal_diff  = home_pre_cum_goal_diff - away_pre_cum_goal_diff,
+    diff_xt_diff    = home_pre_cum_xt_diff_match - away_pre_cum_xt_diff_match,
+    diff_xg_diff    = home_pre_cum_xg_diff_match - away_pre_cum_xg_diff_match,
+    diff_box        = home_pre_cum_box_touches - away_pre_cum_box_touches
+  )
+
+cat("Elemezhető meccsek (mindkét csapatnak van már meccsmúltja):", sum(complete.cases(match_level |> select(starts_with("diff_")))), "/", nrow(match_level), "\n")
+```
+
+```{r match_level_eval}
+diff_labels <- c(diff_preseason = "Preseason becslés-különbség", diff_points = "Eddigi pont/meccs-különbség",
+                  diff_goal_diff = "Eddigi gólkülönbség-különbség", diff_xt_diff = "Eddigi xT-diff-különbség",
+                  diff_xg_diff = "Eddigi xG-diff-különbség", diff_box = "Eddigi Box touches-különbség")
+
+match_r2 <- purrr::map_dfr(names(diff_labels), function(col) {
+  df <- match_level |> select(value = all_of(col), actual_gd) |> tidyr::drop_na()
+  tibble(Mutató = diff_labels[[col]], N = nrow(df), `R² (meccs-gólkülönbséghez)` = round(cor(df$value, df$actual_gd)^2, 3))
+})
+
+match_r2 |> arrange(desc(`R² (meccs-gólkülönbséghez)`)) |> kable(caption = "Melyik mutató-különbség magyarázza legjobban a tényleges meccs-gólkülönbséget (2025-26, minden elemezhető meccs pool-olva)")
+```
+
+**Amit ez mutat**: itt nem azt nézzük, ki lesz a bajnok, hanem konkrétan **a következő meccs** gólkülönbségét — ez a fogadási szempontból releváns kérdés. A minta jóval nagyobb (minden elemezhető meccs, nem csak 12 csapat×cutoff), de **ugyanaz az N=1 szezonos korlát** érvényes: a 2025-26-os szezon egyedi lefolyásának terméke lehet bármelyik találat, nem bizonyítottan általánosítható jövőbeli szezonokra.
+
+### Többváltozós modell — segít-e a kombináció?
+
+N=191-gyel már van tér egy óvatos többváltozós modellhez, de előbb nézzük meg a kollinearitást (a korábbi szezon-szintű screeningnél a Box touches/xT/xG erősen összefüggött egymással — itt valószínűleg ugyanez igaz).
+
+```{r match_multivar_corr}
+corr_cols <- match_level |> select(diff_points, diff_goal_diff, diff_xt_diff, diff_xg_diff, diff_box) |> tidyr::drop_na()
+cat("Korreláció a jelölt mutató-különbségek között (N =", nrow(corr_cols), "):\n")
+print(round(cor(corr_cols), 2))
+```
+
+```{r match_multivar_model}
+m_multi <- lm(actual_gd ~ diff_box + diff_xt_diff + diff_xg_diff, data = match_level)
+cat("Kombinált modell (Box touches + xT-diff + xG-diff), N =", nobs(m_multi), "\n")
+print(summary(m_multi)$coefficients)
+cat("In-sample R²:", round(summary(m_multi)$r.squared, 3), "\n")
+```
+
+Az in-sample R² önmagában megtévesztő lehet (túlillesztés kockázata) — a helyes teszt a keresztvalidált (out-of-sample) teljesítmény, ugyanazzal a fegyelemmel, mint a dokumentum többi részében:
+
+```{r match_multivar_cv}
+set.seed(42)
+cv_data <- match_level |> select(actual_gd, diff_box, diff_xt_diff, diff_xg_diff, diff_points, diff_goal_diff) |> tidyr::drop_na()
+k <- 10
+folds <- sample(rep(1:k, length.out = nrow(cv_data)))
+
+cv_r2 <- function(formula_rhs) {
+  preds <- purrr::map_dbl(seq_len(nrow(cv_data)), function(i) NA)
+  for (f in 1:k) {
+    train <- cv_data[folds != f, ]; test <- cv_data[folds == f, ]
+    m <- lm(as.formula(paste("actual_gd ~", formula_rhs)), data = train)
+    preds[folds == f] <- predict(m, newdata = test)
+  }
+  1 - sum((cv_data$actual_gd - preds)^2) / sum((cv_data$actual_gd - mean(cv_data$actual_gd))^2)
+}
+
+cv_results <- tibble(
+  modell = c("Csak Box touches", "Csak xT-diff", "Box touches + xT-diff", "Box touches + xT-diff + xG-diff", "Mind az öt (kitchen sink)"),
+  OOS_R2 = c(
+    cv_r2("diff_box"),
+    cv_r2("diff_xt_diff"),
+    cv_r2("diff_box + diff_xt_diff"),
+    cv_r2("diff_box + diff_xt_diff + diff_xg_diff"),
+    cv_r2("diff_box + diff_xt_diff + diff_xg_diff + diff_points + diff_goal_diff")
+  )
+)
+cv_results |> mutate(OOS_R2 = round(OOS_R2, 3)) |> kable(caption = "10-fold keresztvalidált OOS R² — önálló vs. kombinált modellek (meccs-szintű gólkülönbség)")
+```
+
+**Amit ez mutat**: a `diff_box`, `diff_xt_diff` és `diff_xg_diff` egymással is közepesen-erősen korrelál (várható volt), ezért a kombinációjuk **nem feltétlenül ad annyi pluszt, amennyit az in-sample R² sugallna** — a keresztvalidált szám adja a becsületes választ arra, hogy tényleg jobb-e a kombináció, mint az önálló legjobb (Box touches), vagy csak zajt ad hozzá. A "kitchen sink" (mind az öt mutató együtt) itt is jó eséllyel rosszabbul teljesít OOS-ban, mint egy szűkebb modell — ugyanaz a minta, mint amit a dokumentum korábbi, szezon-szintű screeningjénél már láttunk N=10-zel, csak itt N=191-gyel kevésbé súlyos a kockázat.
 
 ## Ismert korlátok
 
