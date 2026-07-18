@@ -1,6 +1,5 @@
 ---
 title: "NB1 Power Ranking"
-subtitle: "2026-27 előszezoni erősorrend"
 format:
   html:
     toc: false

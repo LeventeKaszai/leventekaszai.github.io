@@ -1,0 +1,212 @@
+---
+title: "🔒 Előrejelzések – NB1"
+format:
+  html:
+    toc: false
+    page-layout: full
+    css: ../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <script>
+        (function() {
+          if (sessionStorage.getItem("analytics_auth") !== "ok") {
+            var pwd = prompt("Jelszó:");
+            if (pwd === "magyarsport") {
+              sessionStorage.setItem("analytics_auth", "ok");
+            } else {
+              document.documentElement.innerHTML = "";
+              window.location.replace("../index.html");
+            }
+          }
+        })();
+        </script>
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: false
+---
+
+```{r setup}
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(htmltools)
+library(knitr)
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+forecast   <- dbGetQuery(con, "SELECT * FROM nb1_2627_preseason_forecast ORDER BY helyezes")
+goal_est0  <- dbGetQuery(con, "SELECT * FROM nb1_2627_goal_estimates")
+params     <- dbGetQuery(con, "SELECT * FROM nb1_2627_poisson_params")
+dbDisconnect(con)
+
+league_avg_goals <- params$league_avg_goals[1]
+home_factor      <- params$home_factor[1]
+away_factor      <- params$away_factor[1]
+rho_fit          <- params$rho_fit[1]
+
+goal_est <- goal_est0 |>
+  mutate(attack = exp_goals / league_avg_goals, defense = exp_opp_goals / league_avg_goals)
+
+fixtures <- read_csv("futball/data/nb1_2627_fixtures.csv", show_col_types = FALSE)
+book     <- read_csv("futball/data/nb1_2627_bookmaker_odds.csv", show_col_types = FALSE)
+```
+
+```{r poisson-functions}
+tau <- function(x, y, lh, la, rho) {
+  case_when(
+    x == 0 & y == 0 ~ 1 - lh * la * rho,
+    x == 0 & y == 1 ~ 1 + lh * rho,
+    x == 1 & y == 0 ~ 1 + la * rho,
+    x == 1 & y == 1 ~ 1 - rho,
+    TRUE ~ 1
+  )
+}
+
+score_grid <- function(home_team, away_team, max_goals = 10) {
+  h <- goal_est |> filter(team == home_team); a <- goal_est |> filter(team == away_team)
+  lh <- league_avg_goals * h$attack * a$defense * home_factor
+  la <- league_avg_goals * a$attack * h$defense * away_factor
+  grid <- expand.grid(x = 0:max_goals, y = 0:max_goals)
+  grid$p <- dpois(grid$x, lh) * dpois(grid$y, la) * tau(grid$x, grid$y, lh, la, rho_fit)
+  grid$p <- grid$p / sum(grid$p)
+  attr(grid, "lambda_h") <- lh
+  attr(grid, "lambda_a") <- la
+  grid
+}
+
+match_probs_dc <- function(home_team, away_team) {
+  grid <- score_grid(home_team, away_team)
+  tibble(
+    p_home = sum(grid$p[grid$x > grid$y]), p_draw = sum(grid$p[grid$x == grid$y]), p_away = sum(grid$p[grid$x < grid$y]),
+    p_over25 = sum(grid$p[grid$x + grid$y > 2.5]), p_btts = sum(grid$p[grid$x > 0 & grid$y > 0])
+  ) |>
+    mutate(odds_1 = round(1/p_home,2), odds_x = round(1/p_draw,2), odds_2 = round(1/p_away,2),
+           odds_over25 = round(1/p_over25,2), odds_btts = round(1/p_btts,2))
+}
+
+decompose_line <- function(h) {
+  if (abs(h*2 - round(h*2)) < 1e-9) return(list(list(h=h, w=1)))
+  lower <- floor(h*2)/2; upper <- ceiling(h*2)/2
+  list(list(h=lower, w=0.5), list(h=upper, w=0.5))
+}
+
+ah_odds <- function(grid, h) {
+  comps <- decompose_line(h)
+  win <- 0; loss <- 0
+  for (c in comps) {
+    margin <- grid$x - grid$y + c$h
+    win  <- win  + c$w * sum(grid$p[margin > 0])
+    loss <- loss + c$w * sum(grid$p[margin < 0])
+  }
+  tibble(line = h, odds_home = round(1 + loss/win, 2), odds_away = round(1 + win/loss, 2),
+         p_home_cover = round(win/(win+loss), 3))
+}
+
+find_main_line <- function(grid) {
+  candidates <- seq(-3, 3, by = 0.25)
+  res <- purrr::map_dfr(candidates, ~ah_odds(grid, .x))
+  res$dist <- abs(res$p_home_cover - 0.5)
+  res |> arrange(dist) |> slice(1)
+}
+
+fair_odds_for <- function(home_team, away_team) {
+  main <- match_probs_dc(home_team, away_team)
+  grid <- score_grid(home_team, away_team)
+  ah   <- find_main_line(grid)
+  bind_cols(main, ah |> select(ah_line = line, ah_odds_home = odds_home, ah_odds_away = odds_away))
+}
+```
+
+```{r value-calc}
+edge_pct <- function(book_odds, fair_odds) {
+  if (is.na(book_odds) || is.na(fair_odds)) return(NA_real_)
+  round((book_odds / fair_odds - 1) * 100, 1)
+}
+
+VALUE_THRESHOLD <- 3  # % — ekkora vagy nagyobb elony eseten jelezzuk value-kent
+
+value_badge <- function(edge) {
+  if (is.na(edge)) return(tags$span(class = "fc-edge fc-edge-na", "–"))
+  cls <- if (edge >= VALUE_THRESHOLD) "fc-edge fc-edge-value" else if (edge <= -VALUE_THRESHOLD) "fc-edge fc-edge-bad" else "fc-edge"
+  label <- if (edge > 0) paste0("+", edge, "%") else paste0(edge, "%")
+  tags$span(class = cls, label)
+}
+
+market_row <- function(label, book_odds, fair_odds) {
+  edge <- edge_pct(book_odds, fair_odds)
+  tags$div(class = "fc-market-row",
+    tags$div(class = "fc-market-label", label),
+    tags$div(class = "fc-market-odds", tags$span(class = "fc-odds-fair", sprintf("%.2f", fair_odds)),
+             tags$span(class = "fc-odds-sep", "vs"),
+             tags$span(class = "fc-odds-book", if (is.na(book_odds)) "–" else sprintf("%.2f", book_odds))),
+    value_badge(edge)
+  )
+}
+
+fixture_card <- function(fx_row) {
+  fo <- fair_odds_for(fx_row$home, fx_row$away)
+  bk <- book |> filter(fordulo == fx_row$fordulo, home == fx_row$home, away == fx_row$away)
+  if (nrow(bk) == 0) bk <- tibble(odds_1=NA, odds_x=NA, odds_2=NA, odds_over25=NA, odds_btts=NA,
+                                    ah_line=NA, ah_odds_home=NA, ah_odds_away=NA)
+  bk <- bk[1, ]
+
+  ah_label <- if (is.na(bk$ah_line) || bk$ah_line == fo$ah_line) {
+    sprintf("Ázsiai hendikep (%.2f)", fo$ah_line)
+  } else {
+    sprintf("Ázsiai hendikep (mi: %.2f / könyv: %.2f — csak azonos vonalnál vethető össze)", fo$ah_line, bk$ah_line)
+  }
+  ah_comparable <- is.na(bk$ah_line) || bk$ah_line == fo$ah_line
+
+  tags$div(class = "fc-card",
+    tags$div(class = "fc-card-header",
+      tags$span(class = "fc-team fc-team-home", fx_row$home),
+      tags$span(class = "fc-vs", "–"),
+      tags$span(class = "fc-team fc-team-away", fx_row$away)
+    ),
+    tags$div(class = "fc-markets",
+      market_row("Hazai (1)", bk$odds_1, fo$odds_1),
+      market_row("Döntetlen (X)", bk$odds_x, fo$odds_x),
+      market_row("Vendég (2)", bk$odds_2, fo$odds_2),
+      market_row("Több mint 2,5 gól", bk$odds_over25, fo$odds_over25),
+      market_row("Mindkét csapat szerez gólt", bk$odds_btts, fo$odds_btts),
+      if (ah_comparable) market_row(ah_label, bk$ah_odds_home, fo$ah_odds_home)
+      else tags$div(class = "fc-market-row fc-market-row-note", ah_label)
+    )
+  )
+}
+```
+
+## Szezon-előrejelzés
+
+```{r forecast-table}
+forecast |>
+  transmute(Helyezés = helyezes, Csapat = team,
+            `Pont/meccs` = round(pred_pont_per_meccs, 2),
+            `Becsült pontszám` = pred_pontszam_33meccsre) |>
+  kable()
+```
+
+## Forduló-szintű fair odds és value picks
+
+A "mi" oszlop a saját Dixon-Coles Poisson-szimulációnk fair oddsát mutatja, a "könyv" oszlop a kézzel bevitt fogadóirodai odds-ot (`futball/data/nb1_2627_bookmaker_odds.csv`). Zöld jelzés akkor jelenik meg, ha a fogadóiroda odds-a legalább `r VALUE_THRESHOLD`%-kal nagyobb a fair oddsnál (potenciális value), piros ha ugyanennyivel kisebb.
+
+```{r fixture-cards}
+rounds <- sort(unique(fixtures$fordulo))
+
+tagList(
+  lapply(rounds, function(r) {
+    tagList(
+      tags$h3(class = "fc-round-title", paste(r, ". forduló")),
+      tags$div(class = "fc-grid",
+        lapply(seq_len(nrow(fixtures[fixtures$fordulo == r, ])), function(i) {
+          fixture_card(fixtures[fixtures$fordulo == r, ][i, ])
+        })
+      )
+    )
+  })
+)
+```

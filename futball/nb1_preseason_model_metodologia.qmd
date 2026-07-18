@@ -1,0 +1,876 @@
+---
+title: "NB1 előszezoni tabella-modell — Módszertani dokumentáció"
+draft: true
+date: 2026-07-03
+description: "Keretérték-alapú előszezoni pontszám-előrejelzés az NB1-ben: adatforrások, korlátok, modell."
+subtitle: "Szezon eleji over/under becslés csapatonként"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Tartalom"
+    page-layout: article
+    css: ../styles.css
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Cél
+
+Előszezoni (vagy szezon eleji) becslés az NB1 csapatainak várható teljesítményére — pontszám/mérkőzés formában —, hasonlóan ahhoz, ahogy a fogadóirodák preseason over/under vonalai működnek. **Nem** meccsenkénti kimenet-predikcióról van szó (ehhez nincs meccsszintű historikus adatunk), hanem arról, hogy a szezon **elején ismert** információból (elsősorban keretérték) milyen végső tabellahelyet/pontszámot várunk.
+
+## Miért a keretérték?
+
+A keretérték → tabellahely összefüggés az egyik legjobban dokumentált jelenség a futballelemzésben (nagy ligákban jellemzően 0.6-0.8 körüli korrelációval). Ez azért jó kiindulópont, mert:
+
+- **Szezon előtt is ismert** — nem igényel in-season adatot.
+- **Nem igényel meccsszintű historikus adatot**, csak a keret összetételét, amit a Transfermarkt archívumban visszamenőleg is meg lehet találni.
+- Az NB1-re szabott saját kalibrációt igényel (a nagy ligás összefüggés nem vehető át változtatás nélkül), ehhez viszont kell egy historikus minta a mi ligánkból.
+
+## Adatforrások
+
+### 1. Keretérték — Transfermarkt
+
+A liga főoldala (`transfermarkt.com/.../startseite/wettbewerb/UNG1/saison_id/<év>`) csapatonként tartalmaz egy összesítő táblázatot: keretméret, átlagéletkor, légiósok száma, átlagos és **összesített piaci érték**. Ez egyetlen kéréssel megadja mind a 12 csapat adatát egy szezonra — nem kellett csapatonként külön scrape-elni.
+
+**Fontos korlát a keretérték időzítéséről:** a Transfermarkt archív szezon-oldala nem jelöl pontos naptári dátumot ("ez az érték ekkor és ekkor volt érvényes"). A piaci értéket egy szezon alatt jellemzően 3-6 alkalommal frissítik (kb. a válogatott szünetek környékén), és az archivált oldal a **szezon alatti legutolsó frissítést** mutatja — nagyjából "szezon vége felé" jellegű pillanatkép, nem egzakt dátum. Ellenőriztük egy konkrét játékoson (Dénes Dibusz, 2019/20: €950k), hogy ez valódi, akkori historikus érték, nem a mai piaci ár visszavetítése.
+
+Ez a bizonytalanság a **historikus visszateszteléshez nem probléma** (konzisztens minden csapatra ugyanabból a szezonból), de a **friss 2026-27-es predikcióhoz igen** — ott a scrape időzítése (minél közelebb a szezonkezdéshez, az átigazolási ablak zárása előtt/után) számít. Ezt a következő lépésben véglegesítjük.
+
+Négy szezon van begyűjtve: **2022-23, 2023-24, 2024-25, 2025-26** (script: `futball/scripts/scrape_tm_historical.R`).
+
+### 2. Végeredmény (pontszám)
+
+- **2024-25 és 2025-26**: már megvolt a `team_stats` táblában (Wyscout-eredetű `Points` KPI, mérkőzésenkénti átlagként).
+- **2022-23 és 2023-24**: a modell megírásakor még nem volt sehol a repóban. Az FBref-es lekérdezés (worldfootballR `fb_league_stats`) **403 Forbidden**-nel elutasított minden kérést (Cloudflare-szintű bot-védelem, nem csomag- vagy fejléc-probléma — plain `curl` is 403-at kapott). Megoldás: a Transfermarkt **saját tabella-oldala** (`transfermarkt.com/.../tabelle/wettbewerb/UNG1?saison_id=<év>`), ami ugyanazon domainen elérhető, és tartalmazza a Pl/W/D/L/GF:GA/Pts oszlopokat.
+  - *Frissítés*: a 2023-24-es szezon teljes Wyscout-KPI-készlete (a `Points`-szal együtt) azóta bekerült a `team_stats` táblába is. A két forrás (TM tabella-oldal vs. Wyscout `team_stats`) pont/meccs értékei kerekítési pontossággal megegyeznek — ez keresztellenőrzi mindkettőt. A `nb1_model_dataset.pts_per_match` (a fő keretérték-modellhez) továbbra is a TM-forrásból származik, változtatás nélkül; a 2023-24-es `team_stats`-adat újdonsága, hogy lehetővé teszi a lenti KPI-screening kiterjesztését egy második lag-párra (ld. "Előző szezoni forma-mutatók").
+
+Minden szezon 33 fordulóból áll (alapszakasz + felső-/alsóházi rájátszás), ezért a `pts_per_match` (pont/meccs) mint célváltozó közvetlenül összevethető a `team_stats`-beli, már eleve mérkőzésenkénti átlagként tárolt `Points` értékkel.
+
+### 3. Csapatnév-egyeztetés
+
+A Transfermarkt három különböző névformátumot használ ugyanarra a csapatra a különböző oldaltípusokon (pl. "Puskás Akadémia FC" a keretérték-táblán, "Puskás AFC" a tabella-oldalon), és időben is változik (pl. "Fehérvár FC" → "Videoton FC Fehérvár"; "Kisvárda FC" → a Wyscout-oldalon már "Várda SE"). A `futball/data/team_name_mapping.csv` fájl tartalmazza az összes eddig előkerült variánst → a `team_stats`-ban használt kanonikus névre képezve. Verein ID-alapon (pl. Kisvárda: `verein/30613`) ellenőriztük, hogy azonos klubról van szó a névváltozások mögött.
+
+## Az egyesített adatkészlet
+
+`futball.db` → `nb1_model_dataset` tábla, 48 csapat-szezon sor (12 csapat × 4 szezon), oszlopok: `szezon`, `team`, `total_market_value_euro`, `avg_age`, `squad_size`, `foreigners`, `pts_per_match`, `promoted` (bináris: az adott csapat nem volt bent NB1-ben az előző szezonban).
+
+## Modell
+
+```{r setup}
+library(DBI); library(RSQLite); library(dplyr); library(knitr)
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+d  <- dbGetQuery(con, "SELECT * FROM nb1_model_dataset WHERE pts_per_match IS NOT NULL")
+sv <- dbGetQuery(con, "SELECT szezon, team_canonical AS team, avg_market_value_euro FROM nb1_squad_values_historical")
+dbDisconnect(con)
+d <- d |> inner_join(sv, by = c("szezon","team"))
+d$log_value       <- log(d$avg_market_value_euro)   # elsodleges prediktor: atlagos jatekosertek
+d$log_total_value <- log(d$total_market_value_euro) # osszehasonlitasi alternativa
+d$promoted[is.na(d$promoted)] <- 0
+```
+
+### Alapmodell
+
+$$
+\text{pts\_per\_match} = \beta_0 + \beta_1 \cdot \log(\text{átlagos játékosérték}) + \varepsilon
+$$
+
+**Miért az átlagos játékosérték, és nem az összesített keretérték?** Mindkettőt teszteltük — az átlagérték minden mérésben jobbnak bizonyult: magasabb önálló R² (0.535 vs 0.465), és a walk-forward validáció mindhárom kihagyott szezonon konzisztensen alacsonyabb hibát adott (ld. lejjebb). Ennek valószínű oka, hogy az összesített keretméret torzulhat a kerethossztól — egy nagyobb, átlagos játékosokkal feltöltött keret felfújja az összeget anélkül, hogy a kezdőcsapat minősége nőne, míg az átlagérték inkább a "minőségi koncentrációt" ragadja meg.
+
+```{r model}
+m1 <- lm(pts_per_match ~ log_value, data = d)
+summary(m1)
+```
+
+**N = 48**, R² = 0.535, a `log_value` (átlagos játékosérték) együttható erősen szignifikáns (p < 0.0001). A korreláció **0.73** — ez az NB1-re jellemző, a más ligákra dokumentált 0.6-0.8-as sávba illeszkedik.
+
+### Feljutó csapat dummy
+
+A feljutó csapatokra (n=4 a mintában: Diósgyőr 23/24, Győri ETO és Nyíregyháza 24/25, Kazincbarcika 25/26, Várda SE 25/26) hozzáadott bináris változó **nem szignifikáns** (p = 0.94), és nem javítja az illeszkedést. Ez azt jelzi, hogy a feljutók historikusan gyengébb teljesítménye ebben a mintában már teljesen a (jellemzően alacsonyabb) keretértéken keresztül érvényesül — külön "feljutó-büntetés" nem szükséges, **de a mintaelemszám (n=4) miatt ez a következtetés bizonytalan**, később több szezonnal érdemes újranézni.
+
+**A végleges modell egyelőre az egyszerű `pts_per_match ~ log(átlagos játékosérték)` (Modell 1).**
+
+### Validáció — walk-forward (expanding window), nem leave-one-season-out
+
+**Miért nem leave-one-season-out (LOSO)?** Első nekifutásra LOSO-val validáltunk (minden szezont kihagyva, a maradék hármon tanítva). Ez feature-szivárgás értelmében nem hibás — minden sor önmagában áll, egy adott szezon keretértéke csak az adott szezon pontszámát jósolja, nincs jövőbeli oszlop egy múltbeli sorban. **De éles bevetési realizmus szempontjából mégis hibás volt**: LOSO megengedte, hogy pl. a 2023-24, 2024-25 és 2025-26 szezonokból tanulva jósoljuk meg a 2022-23-at — ez a valóságban soha nem történhetne meg, hiszen a 2022-23-as predikció idején a későbbi szezonok adata még nem létezett. A szezonok időben egymásra épülnek, nem cserélhető fel a sorrendjük.
+
+A helyes teszt: **csak a múltból tanulva jósold a következő szezont** (expanding window / walk-forward).
+
+```{r walkforward}
+season_order <- c("2022-23", "2023-24", "2024-25", "2025-26")
+d$szezon <- factor(d$szezon, levels = season_order, ordered = TRUE)
+
+run_walkforward <- function(formula, label) {
+  lapply(2:length(season_order), function(i) {
+    train <- d[d$szezon %in% season_order[1:(i-1)], ]
+    test  <- d[d$szezon == season_order[i], ]
+    m <- lm(formula, data = train)
+    pred <- predict(m, newdata = test)
+    data.frame(
+      prediktor = label,
+      joslas  = season_order[i],
+      RMSE    = sqrt(mean((test$pts_per_match - pred)^2)),
+      OOS_R2  = 1 - sum((test$pts_per_match - pred)^2) / sum((test$pts_per_match - mean(train$pts_per_match))^2)
+    )
+  }) |> bind_rows()
+}
+
+val_avg   <- run_walkforward(pts_per_match ~ log_value, "atlagos jatekosertek")
+val_total <- run_walkforward(pts_per_match ~ log_total_value, "osszesitett keretertek")
+bind_rows(val_avg, val_total) |> kable(digits = 3, caption = "Walk-forward out-of-sample hiba: átlagos vs. összesített keretérték")
+```
+
+Csak **3 tesztpont** van szezononként (nem 4, mert az első szezon előtt nincs múlt, amiből tanulni lehetne) — ez a valódi ára annak, hogy csak 4 szezonunk van. Az **átlagos játékosérték mindhárom kihagyott szezonon jobb** (alacsonyabb RMSE, magasabb OOS-R²), mint az összesített keretérték — ez nem véletlen egyszeri csúcs, hanem konzisztens előny, ezért lett ez a végleges elsődleges prediktor.
+
+**Feltűnő kiugrások**: Győri ETO 2025-26-ban jócskán felülteljesítette a keretérték alapján várt pontszámot (+0.57 pont/meccs), Fehérvár 2024-25-ben jelentősen alulteljesített (-0.55). Ezek jelzik, hogy a keretérték önmagában nem magyaráz mindent — edzőváltás, szezon közbeni forma, sérülések stb. nincsenek a modellben.
+
+## Kiegészítő prediktorok — szisztematikus átvizsgálás
+
+Mielőtt lezárnánk az alapmodellt, végigmentünk azon, mi másból lehetne még prediktív erőt nyerni. (Az átlagos vs. összesített keretérték összevetése már a fenti "Alapmodell" szakaszban megtörtént — ott dőlt el, hogy az átlagérték a jobb választás.)
+
+### Előző szezoni forma-mutatók (lag), és a többszörös összehasonlítás csapdája
+
+**Frissítve a 2022-23-as szezon `team_stats` adatainak bekerülésével.** Korábban ez a screening két lépcsőben bővült: eleinte csak a 2024-25 → 2025-26 eltolást tudta használni (N=10), majd a 2023-24-es KPI-k bekerülésével N=20-ra nőtt (2023-24 → 2024-25 és 2024-25 → 2025-26 pool-olva). Most, hogy a 2022-23-as csapat-KPI-k is bekerültek az adatbázisba, **három lag-párt tudunk pool-olni**: 2022-23 → 2023-24, 2023-24 → 2024-25 és 2024-25 → 2025-26, egyenként N=10 csapattal, összesen **N=30**. Ez azért fontos, mert most már **két valódi, időrendi walk-forward tesztpontunk** van (nem csak egy), így a lenti "Igazi walk-forward teszt" szakasz eredménye jóval megbízhatóbb, mint korábban.
+
+```{r lag_setup}
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+ts  <- dbGetQuery(con, "SELECT team, szezon, quality, kpi, value FROM team_stats WHERE liga='NB1'")
+dbDisconnect(con)
+
+pts_tbl <- ts |> filter(kpi == "Points") |> select(team, szezon, points = value)
+
+kpi_wide <- ts |>
+  filter(kpi != "Points") |>
+  mutate(colname = paste(quality, kpi, sep = "__")) |>
+  select(team, szezon, colname, value) |>
+  distinct(team, szezon, colname, .keep_all = TRUE) |>
+  tidyr::pivot_wider(id_cols = c(team, szezon), names_from = colname, values_from = value)
+
+season_pairs <- list(c("2022-23","2023-24"), c("2023-24","2024-25"), c("2024-25","2025-26"))
+
+kpi_lag_data <- purrr::map_dfr(season_pairs, function(p) {
+  prev <- kpi_wide |> filter(szezon == p[1])
+  nxt  <- pts_tbl |> filter(szezon == p[2]) |> select(team, points_next = points)
+  prev |> inner_join(nxt, by = "team") |> mutate(lag_pair = paste(p, collapse = " -> "))
+})
+
+kpi_cols <- setdiff(names(kpi_lag_data), c("team","szezon","points_next","lag_pair"))
+cat("Tesztelt KPI-k száma:", length(kpi_cols), "| pool-olt N:", nrow(kpi_lag_data),
+    "(", paste(table(kpi_lag_data$lag_pair), collapse = " + "), ")\n")
+```
+
+```{r lag_screen}
+lag_results <- purrr::map_dfr(kpi_cols, function(col) {
+  x <- kpi_lag_data[[col]]; y <- kpi_lag_data$points_next
+  ok <- complete.cases(x, y)
+  if (sum(ok) < 15) return(NULL)
+  m <- lm(y[ok] ~ x[ok]); s <- summary(m)
+  tibble(kpi = col, n = sum(ok), r2 = s$r.squared, cor = cor(x[ok], y[ok]), p = s$coefficients[2,4])
+}) |> arrange(desc(r2))
+
+lag_results |> mutate(across(c(r2,cor,p), ~round(.,3))) |> head(10) |> kable()
+```
+
+**Fontos módszertani figyelmeztetés (frissítve)**: `r length(kpi_cols)` mutatót teszteltünk, most már N=30-on (nem N=20-on, nem N=10-en). Az |r|>0.3 küszöböt `r sum(abs(lag_results$cor) > 0.3)` a `r nrow(lag_results)`-ből lépte át, p<0.05 szinten `r sum(lag_results$p < 0.05)` maradt szignifikáns — a többszörös összehasonlítás csapdája N=30-on is fennáll, csak kevésbé súlyosan, mint N=20-on vagy N=10-en.
+
+**A rangsor korábban (N=10→N=20) érdemben átrendeződött, N=20→N=30 között viszont már stabil maradt** — a `Box touches` (chancecreation) mindkét bővítés után a top helyen maradt, ami önmagában megerősíti, hogy ez nem véletlen egyszeri csúcs volt. Az `Opp. Possessions to final third %` és az `Opp. xT` továbbra is lejjebb csúszott N=30-on — ez megerősíti a korábbi gyanút, hogy ezek nagyrészt a keretérték zajos újrafogalmazásai voltak, nem önálló jelzések.
+
+```{r lag_stability}
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+sv <- dbGetQuery(con, "SELECT szezon, team_canonical AS team, avg_market_value_euro FROM nb1_squad_values_historical")
+dbDisconnect(con)
+d_lag <- kpi_lag_data |> inner_join(sv, by = c("team","szezon")) |> mutate(log_value = log(avg_market_value_euro))
+
+check_stability <- function(col_name) {
+  x <- d_lag[[col_name]]; y <- d_lag$points_next
+  ok <- complete.cases(x, y); x <- x[ok]; y <- y[ok]; n <- length(y)
+  loo <- sapply(seq_len(n), function(i) summary(lm(y[-i] ~ x[-i]))$r.squared)
+  tibble(kpi = col_name, n = n, full_r2 = summary(lm(y~x))$r.squared,
+         loo_min = min(loo), loo_max = max(loo),
+         cor_value = cor(x, d_lag$log_value[ok]))
+}
+
+purrr::map_dfr(c("chancecreation__Box touches", "chancecreation__np Shots",
+                  "defence__Opp. Possessions to final third %", "defence__Opp. xT"),
+               check_stability) |>
+  mutate(across(where(is.numeric), ~round(.,3))) |> kable()
+```
+
+- **`Box touches` (chancecreation, előző szezon)**: a legerősebb pool-olt jelölt, és **stabil maradt mindhárom N-en** (N=10 → N=20 → N=30), miközben a mezőny többi tagja átrendeződött körülötte — ez önmagában erős jel, hogy nem véletlen csúcs. N=30-on: R²=0.522, leave-one-out tartomány 0.457-0.591 — tovább szűkült N=20-hoz (0.50-0.62) képest, azaz még stabilabb.
+- **`Opp. xT`**: R²-je tovább esett, 0.551 (N=10) → 0.399 (N=20) → 0.352 (N=30). A monoton csökkenés minden bővítésnél megerősíti a korábbi gyanút, hogy nagyrészt a keretérték zajos újrafogalmazása volt (kollinearitás a keretértékkel: -0.68).
+- **`Opp. Possessions to final third %`**: R²=0.411 (N=30) — nagyjából a korábbi N=20-as szinten (0.447) stabilizálódott, továbbra is középmezőnyben marad, egyik bővítés sem söpörte le, de a `Box touches`-t sosem érte utol.
+
+**Ad hozzá önálló prediktív erőt a keretértékhez képest?** Ugyanezen a pool-olt N=30 mintán a keretérték önmagában R²=0.318 (alacsonyabb, mint a teljes 48 soros mintán mért 0.535 — a lag-minta csak azokra a csapatokra szűkít, amik két egymást követő szezonban is bent maradtak NB1-ben, ami leszűkíti a keretérték-szórást). A `Box touches` hozzáadva a keretértékhez:
+
+```{r lag_multivar}
+d_lag$box <- d_lag[["chancecreation__Box touches"]]
+m_val   <- lm(points_next ~ log_value, data = d_lag)
+m_combo <- lm(points_next ~ log_value + box, data = d_lag)
+cat("Csak keretérték          R²:", round(summary(m_val)$r.squared, 3), "\n")
+cat("Keretérték + Box touches R²:", round(summary(m_combo)$r.squared, 3),
+    "| Box touches p-érték:", round(summary(m_combo)$coefficients["box","Pr(>|t|)"], 4), "\n")
+cat("log_value együttható a kombinált modellben:", round(coef(m_combo)["log_value"], 3),
+    "(p =", round(summary(m_combo)$coefficients["log_value","Pr(>|t|)"], 3), ") — nem szignifikáns\n")
+```
+
+A `Box touches` szignifikáns marad a keretérték mellett is (p≈0.002), de a kombinált modell R²-je (0.523) gyakorlatilag **nem magasabb**, mint a `Box touches` önmagában (0.522) — a keretérték saját együtthatója N=30-on már szinte teljesen eltűnik (p≈0.95, a koefficiens ≈0.01-re zsugorodik). N=20-on ez még "csak" nem-szignifikáns volt (p≈0.37); N=30-on már gyakorlatilag nulla a hozzáadott értéke. Ez a két mutató közötti erős kollinearitásra utal (r=0.77 a `Box touches` és log(keretérték) között), és arra, hogy **a `Box touches` a nagyobb mintán önmagában lefedi mindazt, amit a keretérték a jövő szezon pontszámáról elárul** — nem azért, mert a keretértéknek nincs hatása, hanem mert a `Box touches` már tartalmazza ugyanazt az információt, méghozzá frissebb, közvetlenebb formában.
+
+**Vajon a `Box touches` tényleg jobb, mint az olyan "szofisztikáltabb" mutatók, mint az xG-differencia vagy az xT-differencia?** Első ránézésre meglepő lenne, ha egy egyszerű érintésszám-mutató verné a minőség-korrigált várható gól- és fenyegetettségi mutatókat. Két dolgot érdemes szétválasztani: (1) ugyanazt az alapjelenséget mérik-e, és (2) melyik **jósolja be ténylegesen jobban** a következő szezont — ez utóbbi kérdésre a helyes válasz csak közvetlen walk-forward teszttel adható meg, nem a mutató önmagával vett év-évi stabilitásából (ld. lentebb, a "Következtetés" felülvizsgálva).
+
+```{r box_vs_xg_xt}
+kpi_wide$xg_diff <- kpi_wide[["overallperformance__xG"]] - kpi_wide[["overallperformance__Opp. xG"]]
+kpi_wide$xt_diff <- kpi_wide[["attack__xT"]] - kpi_wide[["defence__Opp. xT"]]
+kpi_wide$box     <- kpi_wide[["chancecreation__Box touches"]]
+
+cat("Korreláció a három jelölt között (azonos szezoni, N=48):\n")
+print(round(cor(kpi_wide |> select(box, xg_diff, xt_diff) |> na.omit()), 3))
+
+stability <- function(col) {
+  pooled <- purrr::map_dfr(season_pairs, function(p) {
+    a <- kpi_wide |> filter(szezon == p[1]) |> select(team, val_prev = all_of(col))
+    b <- kpi_wide |> filter(szezon == p[2]) |> select(team, val_next = all_of(col))
+    inner_join(a, b, by = "team")
+  })
+  ok <- complete.cases(pooled$val_prev, pooled$val_next)
+  tibble(kpi = col, n = sum(ok), ev_rol_evre_r = cor(pooled$val_prev[ok], pooled$val_next[ok]))
+}
+
+cat("\nÉvről évre stabilitás (saját mutató t szezonban -> saját mutató t+1 szezonban):\n")
+print(bind_rows(stability("box"), stability("xg_diff"), stability("xt_diff")) |>
+  mutate(ev_rol_evre_r = round(ev_rol_evre_r, 3)))
+```
+
+Két megállapítás:
+
+1. **A három mutató erősen kollineáris egymással** (r=0.87-0.92, azonos szezoni összevetésben) — vagyis nem arról van szó, hogy a `Box touches` valami teljesen más, addig rejtett jelenséget ragadna meg, mint az xG-diff vagy xT-diff. Mindhárom lényegében ugyanazt az alapjelenséget méri (a csapat területi/támadási dominanciáját), csak eltérő kifinomultsággal.
+2. **A `Box touches` évről évre stabilabb** (year-over-year r=0.77) **, mint az xG-diff (r=0.68) vagy az xT-diff (r=0.75)** — de ez a saját-magával-vett stabilitás **nem ugyanaz**, mint a *következő szezon pontszámának* előrejelzési képessége. Ezt a különbséget korábban ez a dokumentum összemosta — helyesen csak egy közvetlen walk-forward teszt tudja eldönteni, melyik mutató jósol jobban, ld. lent.
+
+```{r box_vs_xg_xt_walkforward}
+d_lag$xt_diff <- d_lag[["attack__xT"]] - d_lag[["defence__Opp. xT"]]
+d_lag$xg_diff <- d_lag[["overallperformance__xG"]] - d_lag[["overallperformance__Opp. xG"]]
+
+pairs_order <- c("2022-23 -> 2023-24", "2023-24 -> 2024-25", "2024-25 -> 2025-26")
+
+wf_expanding <- function(formula_rhs, label) {
+  purrr::map_dfr(2:3, function(i) {
+    train <- d_lag |> filter(lag_pair %in% pairs_order[1:(i-1)])
+    test  <- d_lag |> filter(lag_pair == pairs_order[i])
+    m <- lm(as.formula(paste("points_next ~", formula_rhs)), data = train)
+    pred <- predict(m, newdata = test)
+    tibble(modell = label, teszt_par = pairs_order[i],
+           OOS_R2 = 1 - sum((test$points_next - pred)^2) / sum((test$points_next - mean(train$points_next))^2))
+  })
+}
+
+wf_table <- bind_rows(
+  wf_expanding("box",     "Box touches (lag)"),
+  wf_expanding("xt_diff", "xT-diff (lag)"),
+  wf_expanding("xg_diff", "xG-diff (lag)")
+) |> mutate(OOS_R2 = round(OOS_R2, 3))
+
+wf_table |> tidyr::pivot_wider(names_from = teszt_par, values_from = OOS_R2) |>
+  mutate(atlag = round(rowMeans(across(-modell)), 3)) |>
+  kable(caption = "Walk-forward OOS R² — Box touches vs. xT-diff vs. xG-diff, mint önálló lag-prediktor")
+```
+
+**Ez megváltoztatja a korábbi következtetést.** Amikor a három jelöltet közvetlenül, azonos walk-forward protokollal összevetjük (nem csak a saját-magukkal vett stabilitásukat nézzük), az **xT-diff nyer**: átlagos OOS R²=0.531, és a két tesztponton is szorosan együtt (0.557 és 0.504) — sokkal stabilabb előrejelzési teljesítmény, mint a `Box touches`-é (0.298 és 0.613 között ingadozik, átlag 0.455). Az xG-diff a leggyengébb (átlag 0.429), valószínűleg mert az xG mint mutató két külön becslés (lövés + minőség-súlyozás) szorzata, ami extra zajréteget ad hozzá.
+
+**Következtetés (felülvizsgálva)**: a korábbi verzió tévesen azonosította a "évről évre önmagával vett stabilitást" a "jövőbeli pontszám-előrejelzési képességgel". Amikor ezt közvetlenül teszteljük, az **xT-diff a legjobb önálló lag-prediktor** a visszatérő csapatokra, nem a `Box touches`. A teljes minta (N=48, azonos szezoni) `log(keretérték)`-modellje továbbra is az elsődleges, amikor a kérdés a jelen szezonra vonatkozik — a jövő szezon becslésénél pedig (ld. lentebb, végleges modell) a kontemporán keretértéket és az xT-diffet **kombináljuk**, mert két, egymástól részben független infoforrást ragadnak meg (idei keretminőség vs. tavalyi tényleges játékstílus), és a kombinált modell konceptuálisan erősebb, gyakorlatilag pedig nem gyengébb, mint bármelyik önmagában (ld. "Végleges modell" szakasz).
+
+### Pénzügyi mutatók: bevétel és személyi jellegű ráfordítás
+
+A `team_finances` tábla (forrás: beszámoló-kigyűjtés, `futball/scripts/build_finances.R`) NB1-es klubok "Összesen" bevétel- és "Személyi jellegű ráfordítás" sorait is tartalmazza. Mivel a legtöbb nagy NB1-es klub naptári év szerint (nem szezon szerint) jelent, a `team_finances_season` tábla szezon-szintű nézetet épít: ahol van közvetlen szezon-formátumú beszámoló (pl. "22/23"), azt használja; ahol nincs, ott a szezont lefedő két naptári év (pl. 2024 és 2025 → "2024-25") átlagával közelíti.
+
+```{r fin_setup}
+con3 <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+fin  <- dbGetQuery(con3, "SELECT team, szezon, osszesen, szemelyi_jellegu_raforditas FROM team_finances_season")
+dbDisconnect(con3)
+
+# a d$szezon idokozben ordered factor lett a fenti walk-forward szakaszban — vissza karakterre,
+# hogy a join biztonságosan működjön
+d_char <- d |> mutate(szezon = as.character(szezon))
+
+d_fin <- d_char |> inner_join(fin, by = c("team","szezon"))
+d_fin$log_revenue   <- log(d_fin$osszesen)
+d_fin$log_personnel <- log(d_fin$szemelyi_jellegu_raforditas)
+cat("N:", nrow(d_fin), "| szezonok:\n"); print(table(d_fin$szezon))
+```
+
+**Azonos szezoni (kortárs) modellek:**
+
+```{r fin_contemporaneous}
+for (v in c("log_value","log_revenue","log_personnel")) {
+  m <- lm(as.formula(paste("pts_per_match ~", v)), data = d_fin)
+  cat(sprintf("%-15s R2=%.3f  cor=%.3f  p=%.4f\n", v,
+      summary(m)$r.squared, cor(d_fin$pts_per_match, d_fin[[v]]), summary(m)$coefficients[2,4]))
+}
+cat("\nKollináció a prediktorok között:\n")
+print(cor(d_fin[,c("log_value","log_revenue","log_personnel")]))
+```
+
+Mindkét pénzügyi mutató önmagában is szignifikáns, de a keretértéknél (R²≈0.52-0.56) gyengébb: a bevétel R²≈0.29-0.35, a személyi ráfordítás R²≈0.25-0.33 (a pontos érték attól függ, 2 vagy 3 szezonos mintán számoljuk). Mindkettő erősen kollineáris a keretértékkel (r≈0.81-0.83) és egymással (r≈0.96) — logikus, hiszen a bérköltség a bevétel nagy részét felemészti.
+
+```{r fin_multivar}
+m2 <- lm(pts_per_match ~ log_value + log_revenue, data = d_fin)
+m3 <- lm(pts_per_match ~ log_value + log_personnel, data = d_fin)
+cat("keretérték + bevétel — log_revenue p-érték:", summary(m2)$coefficients["log_revenue","Pr(>|t|)"], "\n")
+cat("keretérték + szem. ráfordítás — log_personnel p-érték:", summary(m3)$coefficients["log_personnel","Pr(>|t|)"], "\n")
+```
+
+Kétváltozós modellben (keretérték + bevétel, ill. + személyi ráfordítás) egyik pénzügyi mutató együtthatója sem szignifikáns a keretérték mellett (p>0.9, ill. p>0.6) — **önálló prediktív erőt nem adnak hozzá**.
+
+**Lag-teszt — az egyetlen módszertanilag tiszta kérdés**: a fentiek kortárs (azonos szezoni) összevetések, ahol a bérköltség/bevétel részben már a szezon közbeni teljesítményt (sikerbónuszok, formától függő erősítés) is tükrözi — ez nem előrejelzés, hanem együttmozgás. A helyes preseason-teszt: az **N. szezon lezárt beszámolójából** jósoljuk az **N+1. szezon** pontszámát.
+
+```{r fin_lag}
+season_pairs <- list(c("2022-23","2023-24"), c("2023-24","2024-25"))
+lag_data <- lapply(season_pairs, function(p) {
+  f_prev <- fin |> filter(szezon == p[1]) |>
+    transmute(team, szemelyi_prev = szemelyi_jellegu_raforditas, bevetel_prev = osszesen)
+  pts_next <- d_char |> filter(szezon == p[2]) |> select(team, pts_per_match)
+  f_prev |> inner_join(pts_next, by = "team") |> mutate(elozo = p[1], kovetkezo = p[2])
+}) |> bind_rows()
+lag_data$log_szemelyi_prev <- log(lag_data$szemelyi_prev)
+lag_data$log_bevetel_prev  <- log(lag_data$bevetel_prev)
+
+m_lag <- lm(pts_per_match ~ log_szemelyi_prev, data = lag_data)
+cat("N:", nrow(lag_data),
+    "| log(szemelyi_prev) R2:", summary(m_lag)$r.squared,
+    "| cor:", cor(lag_data$pts_per_match, lag_data$log_szemelyi_prev),
+    "| p:", summary(m_lag)$coefficients[2,4], "\n")
+
+train <- lag_data[lag_data$kovetkezo == "2023-24", ]
+test  <- lag_data[lag_data$kovetkezo == "2024-25", ]
+m_wf  <- lm(pts_per_match ~ log_szemelyi_prev, data = train)
+pred  <- predict(m_wf, newdata = test)
+cat("Walk-forward (train 22/23→23/24, test 23/24→24/25) OOS R²:",
+    1 - sum((test$pts_per_match - pred)^2) / sum((test$pts_per_match - mean(train$pts_per_match))^2), "\n")
+```
+
+N=24: az előző szezoni személyi ráfordítás R²=0.462 (cor=0.68, p<0.001), walk-forward OOS R²=0.37. Ez érdemben **gyengébb, mint az azonos szezoni** összefüggés (R²≈0.57) — vagyis a bérköltség egy jelentős része valóban együtt mozog a szezon közbeni sikerrel, nem pusztán előre jelzi azt. Ugyanakkor a lag-verzióban is marad valódi (nem visszamenőleges) prediktív erő, csak a keretértéknél gyengébb.
+
+**Következtetés**: sem a bevétel, sem a személyi jellegű ráfordítás nem versenyképes helyettesítője vagy kiegészítője a keretértéknek — inkább a klub gazdasági méretének indikátorai, mint a versenyképességéé, és a kortárs (nem lag) verziójuk prediktív ereje jelentős részben a szezon közbeni teljesítménnyel való együttmozgásból, nem valódi előrejelzésből ered.
+
+### Miért nincs (még) többváltozós modell
+
+```{r kitchensink}
+con2 <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+pts2526 <- dbGetQuery(con2, "SELECT team, value AS points FROM team_stats WHERE kpi='Points' AND liga='NB1' AND szezon='2025-26'")
+oppf3   <- dbGetQuery(con2, "SELECT team, value AS oppf3_prev FROM team_stats WHERE kpi='Opp. Possessions to final third %' AND liga='NB1' AND szezon='2024-25'") |> unique()
+sv2425  <- dbGetQuery(con2, "SELECT team_canonical AS team, avg_market_value_euro FROM nb1_squad_values_historical WHERE szezon='2024-25'")
+dbDisconnect(con2)
+d10 <- pts2526 |> inner_join(oppf3, by = "team") |> inner_join(sv2425, by = "team")
+d10$log_avg_value_prev <- log(d10$avg_market_value_euro)
+
+m_kitchen <- lm(points ~ log_avg_value_prev + oppf3_prev, data = d10)
+cat("N:", nrow(d10), "\n")
+cat("Ket-valtozos modell R²:", summary(m_kitchen)$r.squared,
+    "| log_avg_value (elozo szezon) p-erteke:", summary(m_kitchen)$coefficients["log_avg_value_prev","Pr(>|t|)"], "\n")
+cat("(Onmagaban az elozo szezoni keretertek erre a 10 csapatra R² =",
+    summary(lm(points ~ log_avg_value_prev, data = d10))$r.squared, ")\n")
+```
+
+Amikor a keretértéket és az `Opp. Possessions to final third %`-ot **együtt** tesszük egy modellbe (N=10), a keretérték együtthatója **elveszti a szignifikanciáját** — a két mutató nagyrészt ugyanazt az információt hordozza ezen a kis mintán, és nem tisztességes összevetni őket, mert nem is ugyanazon a mintán lettek mérve (a keretérték-modell N=48-on, a KPI-alapú N=10-en). Egy három-változós "mindent bele" modellen (keretérték + két KPI, N=10, df=6) az R² látszólag 0.94-re ugrik — de eközben a **keretérték együtthatója előjelet vált negatívra**, ami a klasszikus túlillesztés tünete. Ez a szám nem valódi.
+
+**Következtetés**: N=10-zel egynél több paramétert becsülni statisztikailag megbízhatatlan. **A ténylegesen vállalható modell egyelőre az egyváltozós `pts_per_match ~ log(átlagos játékosérték)`** (N=48). Az `Opp. Possessions to final third %` és az xT-különbség ígéretes jelöltek egy jövőbeli, több szezonra kiterjedő bővítéshez, de egyelőre nem építhetők be felelősen.
+
+## Végleges modell és 2026-27 előrejelzés
+
+### Miért nem a naiv többmodell-átlag, és miért nem külön feljutó-modell
+
+Ez a szakasz korábban két külön, egymástól függetlenül illesztett modell egyenlő súlyú átlagát használta a visszatérő csapatokra (keretérték + `Box touches`), és egy bespoke NB2-kalibrációt a feljutókra. Mindkettőt felülvizsgáltuk, mert konkrét teszttel jobb megoldás igazolható:
+
+1. **A visszatérőknél nem a `Box touches`, hanem az xT-diff a legjobb önálló lag-prediktor** (ld. fenti "Kiegészítő prediktorok" szakasz felülvizsgált következtetése) — a korábbi "Box touches nyer" állítás a mutató önmagával vett stabilitását keverte össze a tényleges előrejelző erővel. Emellett most már **megvan a friss, kontemporán 2026-27-es keretérték** is (korábban ez hiányzott, ezért kellett lag-proxykra hagyatkozni) — ezt nem szabad kihagyni, hiszen ez a legerősebb egyváltozós prediktorunk (R²=0.535, N=48).
+2. **A feljutókra épített külön NB2-kalibráció (N=6) rosszabb, mint a sima, nagy mintás keretérték-modell.** Visszateszteltük: a kontemporán keretérték-modell (`m1`, N=48-on illesztve) a hat történelmi feljutóra RMSE=0.187-et ad, míg a saját N=6-os NB2-kalibrációnk RMSE=0.267-et (ami ráadásul in-sample szám, a valós hibája még nagyobb lenne). Amikor az NB2-pontszámot hozzáadtuk a keretértékhez egy kombinált N=6-os modellben, az együtthatója **negatívvá és nem szignifikánssá** vált — klasszikus túlillesztés ekkora mintán. **A feljutó-dummy korábbi (nem szignifikáns) eredménye pontosan ezt jósolta előre**: nincs szükség külön feljutó-modellre, a keretérték-modell magától is jól általánosít rájuk.
+
+```{r final_model_comparison}
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+ts_all <- dbGetQuery(con, "SELECT team, szezon, quality, kpi, value FROM team_stats WHERE liga='NB1'")
+sv_all <- dbGetQuery(con, "SELECT szezon, team_canonical AS team, avg_market_value_euro FROM nb1_squad_values_historical")
+dbDisconnect(con)
+
+kpi_wide_f <- ts_all |> filter(kpi != "Points") |>
+  mutate(colname = paste(quality, kpi, sep = "__")) |>
+  select(team, szezon, colname, value) |>
+  distinct(team, szezon, colname, .keep_all = TRUE) |>
+  tidyr::pivot_wider(id_cols = c(team, szezon), names_from = colname, values_from = value) |>
+  mutate(xt_diff = `attack__xT` - `defence__Opp. xT`)
+
+pts_all <- ts_all |> filter(kpi == "Points") |> select(team, szezon, points = value)
+
+# lokalisan ujradefinialva (nem a globalis season_pairs/pairs_order-re tamaszkodva),
+# mert a "fin_lag" chunk fentebb csak 2 elemure irja at a season_pairs-t a sajat celjara
+season_pairs_final <- list(c("2022-23","2023-24"), c("2023-24","2024-25"), c("2024-25","2025-26"))
+pairs_order_final  <- c("2022-23 -> 2023-24", "2023-24 -> 2024-25", "2024-25 -> 2025-26")
+
+d_final <- purrr::map_dfr(season_pairs_final, function(p) {
+  prev_xt  <- kpi_wide_f |> filter(szezon == p[1]) |> select(team, xt_diff)
+  next_pts <- pts_all |> filter(szezon == p[2]) |> select(team, points_next = points)
+  next_val <- sv_all  |> filter(szezon == p[2]) |> select(team, avg_market_value_euro)
+  prev_xt |> inner_join(next_pts, by = "team") |> inner_join(next_val, by = "team") |>
+    mutate(log_value_current = log(avg_market_value_euro), lag_pair = paste(p, collapse = " -> "))
+})
+
+wf2 <- function(rhs, label) {
+  purrr::map_dfr(2:3, function(i) {
+    train <- d_final |> filter(lag_pair %in% pairs_order_final[1:(i-1)])
+    test  <- d_final |> filter(lag_pair == pairs_order_final[i])
+    m <- lm(as.formula(paste("points_next ~", rhs)), data = train)
+    pred <- predict(m, newdata = test)
+    tibble(modell = label, teszt_par = pairs_order[i],
+           OOS_R2 = round(1 - sum((test$points_next-pred)^2)/sum((test$points_next-mean(train$points_next))^2), 3))
+  })
+}
+
+bind_rows(
+  wf2("log_value_current", "keretérték (kontemp.)"),
+  wf2("xt_diff", "xT-diff (lag)"),
+  wf2("log_value_current + xt_diff", "keretérték + xT-diff (végleges)")
+) |> tidyr::pivot_wider(names_from = teszt_par, values_from = OOS_R2) |>
+  mutate(atlag = round(rowMeans(across(-modell)), 3)) |>
+  kable(caption = "Végső jelölt modellek walk-forward OOS R²-je")
+
+m_final <- lm(points_next ~ log_value_current + xt_diff, data = d_final)
+cat("\nVégleges modell (N=", nrow(d_final), ", teljes mintán illesztve):\n", sep = "")
+print(summary(m_final)$coefficients)
+cat("In-sample R²:", round(summary(m_final)$r.squared, 3), "\n")
+```
+
+A kombinált modell (0.514 átlagos OOS R²) gyakorlatilag megegyezik az önálló xT-diff (0.531) teljesítményével — ekkora mintán (N=30) ez a különbség zajszinten belül van, statisztikailag nem választható szét. A kombinált modellt választjuk **nem azért, mert bizonyítottan jobb**, hanem mert két, egymástól részben független infoforrást ragad meg (idei keretminőség + tavalyi tényleges játékstílus), és mindkét együttható szignifikáns marad a másik mellett (p<0.02) — ez konceptuálisan robusztusabbá teszi, mint egy egyváltozós modellt, anélkül, hogy a "mindent bele" (3+ prediktoros) verzió túlillesztési kockázatát futná.
+
+### A feljutók: keretérték-modell + NB2 mint leíró kontextus
+
+A **Vasas** és a **Kispest-Honvéd** NB2-es búcsúszezonja (`futball/data/nb2_promoted_teams_history.csv`) nem hajt önálló számot, de fontos kontextus:
+
+```{r feljuto_context}
+feljutok <- read.csv("futball/data/nb2_promoted_teams_history.csv", fileEncoding = "UTF-8") |>
+  mutate(nb2_ppm = nb2_pts / nb2_matches)
+
+feljutok |>
+  select(team_canonical, nb2_szezon, nb1_szezon_next, nb2_rank, nb2_ppm) |>
+  arrange(nb2_szezon, nb2_rank) |>
+  kable(digits = 3,
+        col.names = c("Csapat", "NB2 szezon", "NB1 szezon (köv.)", "NB2 helyezés", "NB2 pont/meccs"),
+        caption = "Feljutó csapatok NB2-es búcsúszezonja (2022-23 óta, mind a hat)")
+```
+
+A hat feljutóból **egy esett ki egyből** (Kazincbarcika, egyetlen NB1-szezon után vissza NB2-be) — ő volt egyúttal a leggyengébb NB2-es pont/meccsel (1.77) a hat közül is. Vasas (2.13 pont/meccs, NB2-bajnok) és Honvéd (1.97, NB2 2. helyezett) ennél jóval erősebb NB2-es búcsúszezonnal jött fel, tehát a Kazincbarcika-féle azonnali-kiesés veszélyzónájába nem sorolhatók egyértelműen — de ez csak leíró jelzés, nem a végső becslés bemenete (ld. fent, miért nem önálló modell).
+
+### Végleges egyesített 2026-27 tábla
+
+Mind a 12 csapatra ugyanazt a modellcsaládot alkalmazzuk: a 10 visszatérőre a fenti kombinált (`m_final`) modellt (friss 2026-27 keretérték + 2025-26-os xT-diff), a 2 feljutóra pedig ugyanennek a keretérték-tagját (`m1`, hiszen nincs NB1-es xT-diff-előzményük).
+
+```{r final_table_2627}
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+sv2627 <- dbGetQuery(con, "SELECT team_canonical AS team, avg_market_value_euro FROM nb1_squad_values_historical WHERE szezon='2026-27'")
+ts2526 <- dbGetQuery(con, "SELECT team, quality, kpi, value FROM team_stats WHERE liga='NB1' AND szezon='2025-26'")
+dbDisconnect(con)
+
+PROMOTED_2627 <- c("Vasas", "Honvéd")
+
+xt2526 <- ts2526 |> filter(quality %in% c("attack","defence"), kpi %in% c("xT","Opp. xT")) |>
+  mutate(col = if_else(kpi == "xT", "xt", "opp_xt")) |>
+  select(team, col, value) |>
+  tidyr::pivot_wider(names_from = col, values_from = value) |>
+  mutate(xt_diff = xt - opp_xt) |>
+  select(team, xt_diff)
+
+returning <- sv2627 |>
+  filter(!team %in% PROMOTED_2627) |>
+  mutate(log_value_current = log(avg_market_value_euro)) |>
+  inner_join(xt2526, by = "team")
+returning$pred_ppm <- predict(m_final, newdata = returning)
+
+promoted <- sv2627 |>
+  filter(team %in% PROMOTED_2627) |>
+  mutate(log_value = log(avg_market_value_euro))
+promoted$pred_ppm <- predict(m1, newdata = promoted)
+
+final_2627 <- bind_rows(
+  returning |> transmute(team, pred_ppm, forras = "keretérték (26-27) + xT-diff (25-26)"),
+  promoted  |> transmute(team, pred_ppm, forras = "keretérték (26-27) — csak m1, nincs NB1 xT-diff")
+) |>
+  arrange(desc(pred_ppm)) |>
+  mutate(pred_pontszam = round(pred_ppm * 33), helyezes = row_number())
+
+final_2627 |>
+  select(team, `Becsült pont/meccs` = pred_ppm, `Becsült pontszám (33 meccsre)` = pred_pontszam, Forrás = forras) |>
+  kable(digits = 3, caption = "26/27 végleges előrejelzett tabella — egységes modellcsalád mind a 12 csapatra")
+```
+
+```{r save_power_ranking}
+# A vegleges power ranking mentese a db-be (nb1_2627_preseason_forecast), hogy a
+# szezon elorehaladtaval visszamerheto legyen a tenyleges eredmenyek ellen.
+to_save <- final_2627 |>
+  transmute(
+    team, helyezes,
+    pred_pont_per_meccs = pred_ppm,
+    pred_pontszam_33meccsre = pred_pontszam,
+    modell = forras,
+    generalva = as.character(Sys.Date())
+  )
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+dbWriteTable(con, "nb1_2627_preseason_forecast", to_save, overwrite = TRUE)
+dbDisconnect(con)
+```
+
+**Amit ez megmutat:** egyetlen konzisztens modellcsalád fedi le mind a 12 csapatot — a visszatérőknél a kombinált (keretérték + xT-diff) modell, a feljutóknál ugyanennek a keretérték-tagja. Nincs többé patchwork (négy külön KPI-modell átlaga a visszatérőknek, bespoke kis mintás kalibráció a feljutóknak) — ez egyszerűbb, és minden eleme walk-forwarddal (vagy legalább nagy mintás visszateszteléssel) alátámasztott.
+
+**Ez továbbra sem egy tökéletesen validált pontbecslés** — N=30 (visszatérők) és N=48 (feljutók, az általános modellen keresztül) még mindig kis minta a futballelemzés léptékéhez képest, és a szezon közbeni tényezők (edzőváltás, sérülés, átigazolás) nincsenek benne. Inkább **sáv-becslésként**, mint éles pontrangsorként érdemes kezelni — a relatív sorrend (ki van elöl, ki hátul) megbízhatóbb, mint a pontos pontszám.
+
+## Gólmodell a Poisson-szimulációhoz
+
+A fair oddsok (meccs-szintű 1X2, gólszám-alapú piacok) becsléséhez a pont/meccs-szintű power rankingnél finomabb bemenet kell: csapatonkénti **támadóerő** (várható lőtt gól/meccs) és **védekező gyengeség** (várható kapott gól/meccs) egy Poisson-alapú szimulációhoz. Ezeket ugyanolyan szisztematikus screeninggel és walk-forward validációval választottuk ki, mint a pontmodell prediktorait — nem magától értetődő, hogy ugyanaz a mutató (xT-diff) a legjobb erre is, hiszen a lőtt és a kapott gól két külön célváltozó, más-más mögöttes mechanizmussal.
+
+### Screening: mi jósolja legjobban a következő szezon lőtt/kapott gólját
+
+```{r goals_screen_setup}
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+ts_goals <- dbGetQuery(con, "SELECT team, szezon, quality, kpi, value FROM team_stats WHERE liga='NB1'")
+dbDisconnect(con)
+
+kpi_wide_g <- ts_goals |> filter(!kpi %in% c("Goals","Opp. Goals")) |>
+  mutate(colname = paste(quality, kpi, sep = "__")) |>
+  select(team, szezon, colname, value) |>
+  distinct(team, szezon, colname, .keep_all = TRUE) |>
+  tidyr::pivot_wider(id_cols = c(team, szezon), names_from = colname, values_from = value)
+
+goals_tbl     <- ts_goals |> filter(kpi == "Goals") |> select(team, szezon, goals = value)
+opp_goals_tbl <- ts_goals |> filter(kpi == "Opp. Goals") |> select(team, szezon, opp_goals = value)
+
+lag_data_g <- purrr::map_dfr(season_pairs_final, function(p) {
+  prev    <- kpi_wide_g |> filter(szezon == p[1])
+  nxt_g   <- goals_tbl     |> filter(szezon == p[2]) |> select(team, goals_next = goals)
+  nxt_og  <- opp_goals_tbl |> filter(szezon == p[2]) |> select(team, opp_goals_next = opp_goals)
+  nxt_val <- sv_all |> filter(szezon == p[2]) |> select(team, avg_market_value_euro)
+  prev |> inner_join(nxt_g, by="team") |> inner_join(nxt_og, by="team") |> inner_join(nxt_val, by="team") |>
+    mutate(log_value_current = log(avg_market_value_euro), lag_pair = paste(p, collapse=" -> "))
+})
+
+cand_cols_g <- setdiff(names(lag_data_g), c("team","szezon","goals_next","opp_goals_next","lag_pair","avg_market_value_euro"))
+
+screen_goals <- function(target) {
+  purrr::map_dfr(cand_cols_g, function(col) {
+    x <- lag_data_g[[col]]; y <- lag_data_g[[target]]
+    ok <- complete.cases(x,y)
+    if (sum(ok) < 20 || sd(x[ok]) == 0) return(NULL)
+    m <- lm(y[ok] ~ x[ok])
+    tibble(kpi=col, n=sum(ok), r2=summary(m)$r.squared, cor=cor(x[ok],y[ok]))
+  }) |> arrange(desc(r2)) |> mutate(rang = row_number())
+}
+
+scr_goals <- screen_goals("goals_next")
+scr_opp   <- screen_goals("opp_goals_next")
+
+cat("Kandidansok szama:", nrow(scr_goals), "\n\n")
+cat("=== TOP 6: lott gol (goals_next) ===\n")
+print(scr_goals |> mutate(across(c(r2,cor), ~round(.,3))) |> head(6))
+cat("\n=== TOP 6: kapott gol (opp_goals_next) ===\n")
+print(scr_opp |> mutate(across(c(r2,cor), ~round(.,3))) |> head(6))
+```
+
+Az `npxG` is szerepelt a screeningben, de nem az élen végzett: lőtt gólra a 78-ból a **11.** (R²=0.39), kapott gólra a **8.** (R²=0.275) — ugyanaz a mintázat, mint a pontmodellnél: az xG-alapú mutatók rendre gyengébben teljesítenek előrejelzésnél, mint a volumen-alapú (`Box touches`) vagy geometriai (`xT`) mutatók, valószínűleg mert az xG maga is zajos, modell-becsült mennyiség.
+
+### Walk-forward validáció és a végleges választás
+
+```{r goals_walkforward}
+wf_g <- function(target, col, label) {
+  purrr::map_dfr(2:3, function(i) {
+    train <- lag_data_g |> filter(lag_pair %in% pairs_order_final[1:(i-1)])
+    test  <- lag_data_g |> filter(lag_pair == pairs_order_final[i])
+    f <- as.formula(paste(target, "~ `", col, "`", sep=""))
+    m <- lm(f, data = train)
+    pred <- predict(m, newdata = test)
+    y <- test[[target]]
+    tibble(prediktor = label, teszt = pairs_order_final[i],
+           OOS_R2 = round(1 - sum((y-pred)^2)/sum((y-mean(train[[target]]))^2), 3))
+  })
+}
+
+goals_candidates <- c("attackingtransition__xG within 10s after recovery", "attack__xT",
+                       "chancecreation__Box touches", "log_value_current")
+opp_candidates   <- c("log_value_current", "chancecreation__Box touches",
+                       "chancecreation__np Goals", "attackingtransition__xT within 10s after recovery")
+
+res_goals <- purrr::map_dfr(goals_candidates, ~wf_g("goals_next", .x, .x)) |>
+  tidyr::pivot_wider(names_from = teszt, values_from = OOS_R2) |>
+  mutate(atlag = round(rowMeans(across(where(is.numeric))), 3))
+res_opp <- purrr::map_dfr(opp_candidates, ~wf_g("opp_goals_next", .x, .x)) |>
+  tidyr::pivot_wider(names_from = teszt, values_from = OOS_R2) |>
+  mutate(atlag = round(rowMeans(across(where(is.numeric))), 3))
+
+res_goals |> kable(caption = "Walk-forward OOS R² — lőtt gól jelöltek")
+res_opp   |> kable(caption = "Walk-forward OOS R² — kapott gól jelöltek")
+```
+
+A legmagasabb screenelt szám (`xG within 10s after recovery`, átlag OOS R²=0.483) egy szűk, "egzotikus" mutató — 78 kandidánsból screenelve, N=30-on ez gyanús lehet véletlen csúcsra. Ugyanazt a logikát követve, mint a pontmodellnél (`Box touches` helyett `xT`-t választottuk, mert konceptuálisan egyszerűbb és nem a legmagasabb egyszeri screenelt szám hajszolása volt a cél): a **`xT`-t választjuk lőtt gólra** (átlag OOS R²=0.361, konceptuálisan megegyezik a pontmodellben már bevált mutatóval), és a **keretértéket kapott gólra** (átlag OOS R²=0.369, egyértelműen a legstabilabb — minden más KPI-jelölt vagy instabil, vagy kifejezetten rossz ezen a célváltozón).
+
+```{r goals_final_models}
+m_goals    <- lm(goals_next ~ `attack__xT`, data = lag_data_g)
+m_opp_goals <- lm(opp_goals_next ~ log_value_current, data = lag_data_g)
+m_goals_value_fallback <- lm(goals_next ~ log_value_current, data = lag_data_g)  # feljutokra, nincs NB1 xT-juk
+
+cat("Golmodell (xT alapon), N=", nrow(lag_data_g), ":\n", sep="")
+print(summary(m_goals)$coefficients)
+cat("\nKapott golmodell (keretertek alapon), N=", nrow(lag_data_g), ":\n", sep="")
+print(summary(m_opp_goals)$coefficients)
+```
+
+### 2026-27 várható lőtt/kapott gól csapatonként
+
+```{r goals_2627}
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+sv2627_g <- dbGetQuery(con, "SELECT team_canonical AS team, avg_market_value_euro FROM nb1_squad_values_historical WHERE szezon='2026-27'")
+xt2526_g <- dbGetQuery(con, "SELECT team, quality, kpi, value FROM team_stats WHERE liga='NB1' AND szezon='2025-26' AND quality='attack' AND kpi='xT'") |>
+  transmute(team, xT = value)
+dbDisconnect(con)
+
+returning_g <- sv2627_g |>
+  filter(!team %in% PROMOTED_2627) |>
+  mutate(log_value_current = log(avg_market_value_euro)) |>
+  inner_join(xt2526_g, by = "team")
+returning_g$exp_goals   <- predict(m_goals, newdata = returning_g |> rename(`attack__xT` = xT))
+returning_g$exp_opp_goals <- predict(m_opp_goals, newdata = returning_g)
+
+promoted_g <- sv2627_g |>
+  filter(team %in% PROMOTED_2627) |>
+  mutate(log_value_current = log(avg_market_value_euro))
+promoted_g$exp_goals     <- predict(m_goals_value_fallback, newdata = promoted_g)
+promoted_g$exp_opp_goals <- predict(m_opp_goals, newdata = promoted_g)
+
+goals_2627 <- bind_rows(
+  returning_g |> transmute(team, exp_goals, exp_opp_goals, forras = "xT (25-26) / keretérték (26-27)"),
+  promoted_g  |> transmute(team, exp_goals, exp_opp_goals, forras = "keretérték (26-27) — csak m1-szerű fallback")
+) |>
+  mutate(gd = exp_goals - exp_opp_goals) |>
+  arrange(desc(gd))
+
+goals_2627 |>
+  select(team, `Várható lőtt gól/meccs` = exp_goals, `Várható kapott gól/meccs` = exp_opp_goals,
+         `Gólkülönbség/meccs` = gd, Forrás = forras) |>
+  kable(digits = 3, caption = "26/27 várható lőtt/kapott gól csapatonként — Poisson-szimuláció alapja")
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+dbWriteTable(con, "nb1_2627_goal_estimates", goals_2627 |> mutate(generalva = as.character(Sys.Date())), overwrite = TRUE)
+dbDisconnect(con)
+```
+
+Ez a táblázat adja a Poisson-szimuláció bemenetét: minden csapatnak van egy várható lőtt és kapott gól/meccs értéke.
+
+**Korlát**: ugyanaz az N=30, 2 tesztpontos walk-forward érvényes itt is, mint a pontmodellnél — ez egy első, védhető közelítés, nem egy véglegesen kalibrált gólmodell.
+
+### Attack/defense rating és a mérkőzés-szintű lambda
+
+A csapatonkénti várható lőtt/kapott gólt (átlagos ellenféllel szemben) **relatív attack/defense ratinggé** alakítjuk (1,0 = liga-átlag), majd egy adott párosításra a klasszikus (Maher/Dixon-Coles-stílusú) szorzatos formával kombináljuk, a hazai pálya előnnyel (ld. fent, +0,112 gól/meccs a nyers adatból számolva) együtt:
+
+$$
+\lambda_{\text{hazai}} = \bar{g} \cdot \text{attack}_{\text{hazai}} \cdot \text{defense}_{\text{vendég}} \cdot f_{\text{hazai}}, \quad
+\lambda_{\text{vendég}} = \bar{g} \cdot \text{attack}_{\text{vendég}} \cdot \text{defense}_{\text{hazai}} \cdot f_{\text{vendég}}
+$$
+
+ahol $\bar{g}$ a liga-átlag gól/meccs, $f_{\text{hazai}}$/$f_{\text{vendég}}$ pedig a 2025-26-os tényleges hazai/vendég gólátlagból számolt szorzó.
+
+```{r poisson_setup}
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+matches25 <- dbGetQuery(con, "SELECT * FROM matches WHERE szezon='2025-26'")
+dbDisconnect(con)
+
+league_avg_goals <- mean(c(matches25$home_goals, matches25$away_goals))
+home_factor <- mean(matches25$home_goals) / league_avg_goals
+away_factor <- mean(matches25$away_goals) / league_avg_goals
+
+goal_est <- goals_2627 |>
+  mutate(attack = exp_goals / league_avg_goals, defense = exp_opp_goals / league_avg_goals)
+
+cat("Liga-atlag gol/meccs:", round(league_avg_goals, 3),
+    "| Hazai szorzo:", round(home_factor, 3), "| Vendeg szorzo:", round(away_factor, 3), "\n\n")
+
+goal_est |> select(team, attack, defense) |> arrange(desc(attack)) |>
+  kable(digits = 3, caption = "26/27 attack/defense rating (1,0 = liga-átlag)")
+```
+
+### Dixon-Coles alacsony-gólszámú korrekció, saját adatból illesztve
+
+A tiszta függetlenségi feltevés (Poisson(λ_hazai) × Poisson(λ_vendég)) alábecsüli a döntetlenek gyakoriságát alacsony gólszámoknál — ez jól dokumentált jelenség (Dixon-Coles, 1997). A korrekciós paramétert (ρ) **nem külföldi ligából vett irodalmi értékkel** vesszük át, hanem a saját 2025-26-os, 197 tényleges NB1-meccsünkre illesztjük: egy in-season Poisson-GLM-mel (`goals ~ hazai/vendég + csapat + ellenfél`) minden meccsre kiszámoljuk a tényleges λ-kat, majd ρ-t maximum likelihood-dal illesztjük az alacsony-gólszámú korrekciós függvényre.
+
+```{r dixon_coles_fit}
+long_glm <- bind_rows(
+  matches25 |> transmute(match_id, team = home_team, opponent = away_team, goals = home_goals, home_away = "H"),
+  matches25 |> transmute(match_id, team = away_team, opponent = home_team, goals = away_goals, home_away = "A")
+)
+m_glm <- glm(goals ~ home_away + team + opponent, data = long_glm, family = poisson())
+long_glm$lambda_fit <- predict(m_glm, type = "response")
+
+match_data <- matches25 |>
+  inner_join(long_glm |> filter(home_away == "H") |> select(match_id, lambda_h = lambda_fit), by = "match_id") |>
+  inner_join(long_glm |> filter(home_away == "A") |> select(match_id, lambda_a = lambda_fit), by = "match_id")
+
+tau <- function(x, y, lh, la, rho) {
+  case_when(
+    x == 0 & y == 0 ~ 1 - lh * la * rho,
+    x == 0 & y == 1 ~ 1 + lh * rho,
+    x == 1 & y == 0 ~ 1 + la * rho,
+    x == 1 & y == 1 ~ 1 - rho,
+    TRUE ~ 1
+  )
+}
+neg_loglik <- function(rho) {
+  tau_vals <- tau(match_data$home_goals, match_data$away_goals, match_data$lambda_h, match_data$lambda_a, rho)
+  if (any(tau_vals <= 0)) return(1e10)
+  ll <- dpois(match_data$home_goals, match_data$lambda_h, log = TRUE) +
+        dpois(match_data$away_goals, match_data$lambda_a, log = TRUE) +
+        log(tau_vals)
+  -sum(ll)
+}
+rho_fit <- optimize(neg_loglik, interval = c(-0.3, 0.3))$minimum
+cat("Illesztett Dixon-Coles rho:", round(rho_fit, 4),
+    "\n(az irodalomban jellemzően -0.1 és -0.2 között — a miénk gyengébb, valószínűleg a kis mintánk miatt)\n")
+```
+
+```{r poisson_params_save}
+# A parametereket kulon tabla menti, hogy a zart "Elorejelzesek" oldal ne
+# kelljen ujra illesztenie a Dixon-Coles modellt a nyers meccsadatbol.
+poisson_params <- tibble::tibble(
+  league_avg_goals = league_avg_goals,
+  home_factor      = home_factor,
+  away_factor      = away_factor,
+  rho_fit          = rho_fit,
+  generalva        = as.character(Sys.Date())
+)
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+dbWriteTable(con, "nb1_2627_poisson_params", poisson_params, overwrite = TRUE)
+dbDisconnect(con)
+```
+
+### Fair oddsok az első fordulóra
+
+```{r poisson_round1}
+match_probs_dc <- function(home_team, away_team, max_goals = 8, rho_val = rho_fit) {
+  h <- goal_est |> filter(team == home_team); a <- goal_est |> filter(team == away_team)
+  lh <- league_avg_goals * h$attack * a$defense * home_factor
+  la <- league_avg_goals * a$attack * h$defense * away_factor
+
+  grid <- expand.grid(x = 0:max_goals, y = 0:max_goals)
+  grid$p <- dpois(grid$x, lh) * dpois(grid$y, la) * tau(grid$x, grid$y, lh, la, rho_val)
+  grid$p <- grid$p / sum(grid$p)
+
+  tibble(
+    home = home_team, away = away_team, lambda_h = round(lh, 2), lambda_a = round(la, 2),
+    p_home = round(sum(grid$p[grid$x > grid$y]), 3),
+    p_draw = round(sum(grid$p[grid$x == grid$y]), 3),
+    p_away = round(sum(grid$p[grid$x < grid$y]), 3),
+    p_over25 = round(sum(grid$p[grid$x + grid$y > 2.5]), 3),
+    p_btts   = round(sum(grid$p[grid$x > 0 & grid$y > 0]), 3)
+  ) |>
+  mutate(odds_1 = round(1/p_home,2), odds_x = round(1/p_draw,2), odds_2 = round(1/p_away,2),
+         odds_over25 = round(1/p_over25,2), odds_btts = round(1/p_btts,2))
+}
+
+fixtures_r1 <- tribble(
+  ~home_raw, ~away_raw,
+  "Nyíregyháza Spartacus", "Újpest",
+  "Várda SE", "Honvéd",
+  "Vasas", "Győri ETO",
+  "Debrecen", "Puskás FC",
+  "Paksi FC", "Ferencváros",
+  "MTK", "Zalaegerszegi TE"
+)
+
+round1_odds <- purrr::pmap_dfr(fixtures_r1, ~match_probs_dc(..1, ..2))
+
+round1_odds |>
+  select(home, away, `1` = odds_1, X = odds_x, `2` = odds_2, `Over 2.5` = odds_over25, BTTS = odds_btts) |>
+  kable(caption = "Első forduló — Dixon-Coles Poisson fair oddsok (1X2, Over 2.5, mindkét csapat szerez gólt)")
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+dbWriteTable(con, "nb1_2627_round1_poisson_odds", round1_odds |> mutate(generalva = as.character(Sys.Date())), overwrite = TRUE)
+dbDisconnect(con)
+```
+
+**Összevetés a korábbi, egyszerűbb multinomiális logit-modellel**: a két megközelítés a legtöbb meccsen közel áll egymáshoz (pl. Nyíregyháza–Újpest: 3,16 vs. 3,17 hazai odds), de két helyen érdemben eltér — a **Vasas–Győri ETO** és a **Paksi FC–Ferencváros** meccseken a Poisson-modell **jóval kisebb esélytelenséget** ad a gyengébb hazai csapatnak (pl. Paksi FC–Ferencváros: multinomiális 4,92 vs. Poisson 3,30 a hazai győzelemre). Ennek oka, hogy a két modell más-más adatforrásból építkezik: a multinomiális logit a pont/meccs-különbségre van kalibrálva, a Poisson-modell viszont külön becsli a támadást és a védekezést — ha egy csapat (mint Paksi FC) jó támadó, de gyengébb védekező ratinggel rendelkezik, a Poisson-modell ezt finomabban tudja kezelni, mint az egydimenziós "erősségkülönbség".
+
+### Ázsiai hendikep (AH) az első fordulóra
+
+A teljes eredmény-valószínűségi mátrixból (a fenti Dixon-Coles-korrigált Poisson-rács) bármilyen hendikep-vonalra levezethető a fair odds — nem csak a szokásos 1X2-re. A negyedes vonalakat (pl. ±0,25, ±0,75) a két szomszédos fél/egész vonal (pl. 0 és -0,5) 50-50%-os feltétes tétjeként kezeljük, ahogy a valódi ázsiai hendikep-fogadóirodák is teszik: a becsült profit/veszteség várható értékét nullázó (fair) odds-ot számoljuk ki minden vonalra, majd kiválasztjuk a **fő vonalat** (ahol a hazai csapat "cover" valószínűsége a legközelebb esik 50%-hoz).
+
+```{r ah_setup}
+decompose_line <- function(h) {
+  if (abs(h*2 - round(h*2)) < 1e-9) return(list(list(h=h, w=1)))
+  lower <- floor(h*2)/2; upper <- ceiling(h*2)/2
+  list(list(h=lower, w=0.5), list(h=upper, w=0.5))
+}
+
+ah_odds <- function(grid, h) {
+  comps <- decompose_line(h)
+  win <- 0; loss <- 0
+  for (c in comps) {
+    margin <- grid$x - grid$y + c$h
+    win  <- win  + c$w * sum(grid$p[margin > 0])
+    loss <- loss + c$w * sum(grid$p[margin < 0])
+  }
+  tibble(line = h, odds_home = round(1 + loss/win, 2), odds_away = round(1 + win/loss, 2),
+         p_home_cover = round(win/(win+loss), 3))
+}
+
+score_grid <- function(home_team, away_team, max_goals = 10) {
+  h <- goal_est |> filter(team == home_team); a <- goal_est |> filter(team == away_team)
+  lh <- league_avg_goals * h$attack * a$defense * home_factor
+  la <- league_avg_goals * a$attack * h$defense * away_factor
+  grid <- expand.grid(x = 0:max_goals, y = 0:max_goals)
+  grid$p <- dpois(grid$x, lh) * dpois(grid$y, la) * tau(grid$x, grid$y, lh, la, rho_fit)
+  grid$p <- grid$p / sum(grid$p)
+  grid
+}
+
+find_main_line <- function(grid) {
+  candidates <- seq(-3, 3, by = 0.25)
+  res <- purrr::map_dfr(candidates, ~ah_odds(grid, .x))
+  res$dist <- abs(res$p_home_cover - 0.5)
+  res |> arrange(dist) |> slice(1) |> pull(line)
+}
+
+ah_result <- purrr::pmap_dfr(fixtures_r1, function(home_raw, away_raw) {
+  grid <- score_grid(home_raw, away_raw)
+  main <- find_main_line(grid)
+  ah_odds(grid, main) |> mutate(home = home_raw, away = away_raw, .before = 1)
+})
+
+ah_result |>
+  select(home, away, `Fő vonal (hazai)` = line, `Odds (hazai)` = odds_home,
+         `Odds (vendég)` = odds_away, `Hazai cover-valószínűség` = p_home_cover) |>
+  kable(digits = 3, caption = "Első forduló — ázsiai hendikep fő vonal és fair odds")
+
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+dbWriteTable(con, "nb1_2627_round1_ah_odds", ah_result |> mutate(generalva = as.character(Sys.Date())), overwrite = TRUE)
+dbDisconnect(con)
+```
+
+**Korlátok, amik a Poisson-modellre specifikusan vonatkoznak:**
+
+1. A ρ paraméter egyetlen szezon 197 meccsén lett illesztve — ez a legkisebb, legbizonytalanabb becslésünk az egész dokumentumban.
+2. A hazai pálya előny egységes minden csapatra (ld. korábbi megbeszélés — csapat-specifikus hazai előnyt nem tudtunk stabilan megbecsülni).
+3. Az attack/defense rating maga a már bemutatott xT-/keretérték-alapú gólmodellből jön, tehát annak minden korlátja (N=30, 2 tesztpont) örökeresztül száll ide is.
+4. Nincs benne szezon közbeni forma, sérülés, átigazolás — ugyanaz a korlát, mint a pontmodellnél.
+
+## Ismert korlátok
+
+1. **A 48 sor nem 48 független megfigyelés** — ugyanazok a csapatok évről évre visszatérnek, a keretértékük/erejük autokorrelált. Ez a modell OLS p-értékét (p < 0.0001) technikailag túl magabiztossá teszi (a standard hiba klaszterezés nélkül alábecsült), **de ez a gyakorlatban nem érinti az over/under sávot**: azt már amúgy is a walk-forward empirikus RMSE-ből építjük, nem az OLS-standardhibából — és mivel 2026-27-ben is túlnyomórészt ugyanezek a csapatok játszanak, a walk-forward validáció pontosan a releváns helyzetet méri (visszatérő csapat jövőbeli szezonjának jóslása). Ahol ez a nem-függetlenség ténylegesen számít: egy **teljesen új, korábban sosem látott feljutó csapatnál**, ahol a modellnek a populációs szintű összefüggésre kell hagyatkoznia, nincs mit "megismételni" a csapat korábbi szezonjaiból.
+2. **Nincs edző/taktikai infó, sérülésadat, szezon közbeni átigazolás** — ezek mind a reziduálisban landolnak.
+3. **A keretérték időzítése** a historikus szezonokra nem egzakt dátumú (ld. fent) — ez rendben van a visszatesztelésnél, de a friss predikciónál a scrape időzítését gondosan kell megválasztani.
+4. **A feljutó-hatás (n=4-6) nem megbízhatóan becsülhető külön modellként** ebből a mintából — ezért is döntöttünk úgy, hogy a feljutókra nem bespoke kalibrációt, hanem a nagy mintás (N=48) általános keretérték-modellt (`m1`) használjuk, ld. "Végleges modell" szakasz.
+5. **NB2-es keretérték hiánya** — jelenleg csak az NB1-ben töltött szezonokra van adatunk; ha egy csapat NB2-ben van, nincs "előző NB1-es szezon" adata a modellhez. A feljutók NB2-es búcsúszezonja (végeredmény szintjén) megvan (`futball/data/nb2_promoted_teams_history.csv`), de ez csak leíró kontextusként szerepel, nem hajt önálló számot (ld. fent, miért).
+6. **A visszatérőkre használt kombinált modell (keretérték + xT-diff) és az önálló xT-diff-modell teljesítménye N=30-on statisztikailag nem különíthető el** — a választás konceptuális indoklású (két független infoforrás), nem bizonyítottan jobb teljesítményű.
+
+## Következő lépések
+
+- ~~Friss 2026-27-es keretérték-scrape a szezonkezdéshez időzítve~~ — **kész**, ld. "Végleges egyesített 2026-27 tábla".
+- ~~A négy szezon predikciójának összevetése a modellel — konkrét over/under táblázat a 2026-27-es szezonra~~ — **kész**.
+- ~~Feljutók kezelése~~ — **kész**: a bespoke N=6-os NB2-kalibráció helyett a nagy mintás keretérték-modellt (`m1`) alkalmazzuk rájuk is, az NB2-es végeredmény leíró kontextusként marad.
+- ~~Box touches vs. xT-diff vs. xG-diff valódi walk-forward összevetése~~ — **kész**, kiderült, hogy a korábbi "Box touches nyer" következtetés téves volt (stabilitást kevert össze előrejelző erővel); az xT-diff a jobb prediktor.
+- Opcionális, jövőbeli bővítés: NB2-es KPI-adatok (pl. xT-diff) bevonása a feljutók becslésébe, ha több NB2-szezonra visszamenőleg összegyűlik a `team_stats` — ekkor érdemes újra megnézni, ad-e hozzá bármit a keretérték-modellhez.
+- A szezon előrehaladtával érdemes frissíteni/visszatesztelni az előrejelzést a tényleges eredmények ellenében — ez adja majd a 3. valódi walk-forward tesztpontot is.

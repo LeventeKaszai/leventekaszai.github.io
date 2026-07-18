@@ -34,6 +34,8 @@ website:
         menu:
           - href: futball/nb1_power_ranking.qmd
             text: "NB1 Power Ranking"
+          - href: futball/nb1_elorejelzesek.qmd
+            text: "🔒 Előrejelzések"
           - href: futball/analytics.qmd
             text: "🔒 Analytics"
           - href: futball/team_analytics.qmd
