@@ -1,9 +1,9 @@
 ---
-title: "Játékritmus & Hatékonyság"
+title: "Tempó & Hatékonyság"
 date: 2026-04-08
-description: "Miért nem elég a pontozás? A per-100 labdabirtok logikája és a tempó szerepe."
+description: "Tempó és hatékonyság vizsgálata a magyar kosárlabdában"
 categories: [kosárlabda, tempó, csapatelemzés]
-subtitle: "Miért nem elég a pontozás? A per-100 labdabirtok logikája, 2022–2025"
+subtitle: "Miért nem elég a nyers statisztika? A labdabirtoklásra vetített mutatók mögötti logika."
 format:
   html:
     toc: true
@@ -33,7 +33,19 @@ MUTED <- "#7A756D"
 DARK  <- "#2E2B26"
 HUN   <- "#C43A28"
 NBA   <- "#3A7EC4"
-SZ    <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A")
+SZ    <- c("2022-23" = "#D94F35", "2023-24" = "#3A7EC4", "2024-25" = "#D4902A", "2025-26" = "#2A8A4A")
+
+# Szponzornév-váltások miatt ugyanaz a klub több néven szerepel a nyers adatban.
+# Csak olyan párokat vonunk össze, amik sosem szerepeltek egyszerre ugyanabban a szezonban
+# (a Pécs két csapata pl. valóban két külön klub, azok nem kerülnek összevonásra).
+CSAPAT_ALIAS <- c(
+  "Arconic-Alba Fehérvár"      = "Alba Fehérvár",
+  "Endo Plus Service-Honvéd"   = "Budapesti Honvéd SE",
+  "Szolnoki Olajbányász"       = "NHSZ-Szolnoki Olajbányász",
+  "Naturtex-SZTE-Szedeák"      = "SZTE-Szedeák",
+  "Kometa Kaposvári KK"        = "Kometa-KVGY Kaposvári KK"
+)
+harmonize_csapat <- function(x) recode(x, !!!CSAPAT_ALIAS, .default = x)
 
 con   <- dbConnect(RSQLite::SQLite(), "kosarlabda/data/bball_10_tables.db")
 games <- dbGetQuery(con, "SELECT * FROM detailed_match_stats WHERE Szakasz = 'alapszakasz'")
@@ -41,12 +53,13 @@ dbDisconnect(con)
 
 games <- games |>
   mutate(
-    Gy   = ifelse(`Kimen.` == "Gy", 1L, 0L),
-    ORTG = as.numeric(ORTG),
-    DRTG = as.numeric(DRTG),
-    Pace = as.numeric(Pace),
-    POSS = as.numeric(POSS),
-    PTS  = as.numeric(PTS)
+    Gy     = ifelse(`Kimen.` == "Gy", 1L, 0L),
+    ORTG   = as.numeric(ORTG),
+    DRTG   = as.numeric(DRTG),
+    Pace   = as.numeric(Pace),
+    POSS   = as.numeric(POSS),
+    PTS    = as.numeric(PTS),
+    Csapat = harmonize_csapat(Csapat)
   )
 
 team_sz <- games |>
@@ -72,22 +85,19 @@ liga_avg <- team_sz |>
             avg_Pace = mean(Pace), .groups = "drop")
 ```
 
-A kosárlabda-statisztika legnagyobb tévhite: a jobb csapat több pontot szerez mérkőzésenként.
-Ez igaz — de csak akkor, ha a csapatok ugyanolyan tempóban játszanak. Egy lassú, kontrollált kosárlabdát játszó csapat 78 pontja és egy gyors transíciós csapat 78 pontja teljesen eltérő hatékonyságot takar.
-
-**Dean Oliver** felismerése: a kosárlabda valójában **labdabirtok-alapú** játék. Az egyetlen értelmes hatékonysági mérőszám a **100 labdabirtokra vetített pontszám** — ez a tempótól független, csapatok és korszakok között összehasonlítható.
+Kosárlabdában a nyers statisztikák összehasonlítása gyakran félrevezető.
+**Dean Oliver** felismerése: a kosárlabda valójában **labdabirtoklás-alapú** játék. A nyers adatoknál sokkal mélyebb értelmezési keretet nyújt a hatékonyság elemzésére a **100 labdabirtoklásra vetített pontszám** — ez a tempótól független, csapatok és korszakok közötti összehasonlítható platformra helyezi a mutatókat.
 
 ---
 
-## A rangsor csapdája
+## A box score csapda
 
-Melyik csapat hatékonyabb — amelyik többet pontoz, vagy amelyik 100 labdabirtokból többet csinál belőle?
 
 ```{r ranking-shift}
 #| fig-height: 8
-# 2024-25 rangsorcsere pts_pg vs ORtg
+# 2025-26 rangsorcsere pts_pg vs ORtg
 rk <- team_sz |>
-  filter(Szezon == "2024-25") |>
+  filter(Szezon == "2025-26") |>
   arrange(desc(PTS_pg)) |>
   mutate(rk_pts = row_number()) |>
   arrange(desc(ORtg)) |>
@@ -126,7 +136,7 @@ for (i in seq_len(n_teams)) {
         " (", round(r$PTS_pg, 1), " pt)<br>",
         "ORtg rang: ", r$rk_ortg,
         " (", round(r$ORtg, 1), ")<br>",
-        "Tempó: ", round(r$POSS, 1), " labdabirtok/meccs<br>",
+        "Tempó: ", round(r$POSS, 1), " labdabirtoklás/meccs<br>",
         if (r$shift > 0) paste0("+", r$shift, " helyet javít ORtg-ben")
         else if (r$shift < 0) paste0(abs(r$shift), " helyet veszít ORtg-ben")
         else "Azonos helyen áll",
@@ -162,7 +172,7 @@ fig |>
   ) |>
   layout(
     title = list(
-      text = "Rangsorcsere: Pont/meccs vs. Támadóhatékonyság (ORtg)<br><sup>Magyar bajnokság, 2024–25 alapszakasz · Zöld = ORtg-ben felfelé lép, piros = lefelé</sup>",
+      text = "Rangsorcsere: Pont/meccs vs. Támadóhatékonyság (ORtg)<br><sup>Magyar bajnokság, 2025–26 alapszakasz · Zöld = ORtg-ben felfelé lép, piros = lefelé</sup>",
       font = list(size = 16, color = DARK, family = "Montserrat"),
       x = 0, xref = "paper"
     ),
@@ -184,31 +194,12 @@ fig |>
 
 A **<span style="color:#1a7a4a">zöld vonalak</span>** olyan csapatokat jelölnek, amelyek pontszám alapján hátrébb állnak, de hatékonysági szempontból előrébb. A **<span style="color:#C43A28">piros vonalak</span>** a fordítottját jelzik.
 
-```{r illusztracio-szoveg, results='asis'}
-ex <- team_sz |>
-  filter(Szezon == "2024-25") |>
-  arrange(desc(PTS_pg)) |>
-  mutate(rk_pts = row_number()) |>
-  arrange(desc(ORtg)) |>
-  mutate(rk_ortg = row_number()) |>
-  mutate(shift = rk_pts - rk_ortg) |>
-  filter(shift == max(shift, na.rm = TRUE)) |>
-  slice(1)
-
-cat(paste0(
-  "> **Legszembetűnőbb eltérés: ", ex$Csapat, "** — pontszám alapján a ",
-  ex$rk_pts, ". helyen áll (", round(ex$PTS_pg, 1), " pt/meccs), ",
-  "de ORtg szerint a ", ex$rk_ortg, ". legjobb csapat (", round(ex$ORtg, 1), "). ",
-  "Oka: meccsenként átlag ", round(ex$POSS, 1), " labdabirtokot játszanak — ",
-  "a liga leglassabb tempóinak egyike. Kevesebbet pontoz, de amit dob, azt hatékonyabban csinálja."
-))
-```
-
 ---
 
 ## A liga tempója
 
-Hány labdabirtokot játszik egy csapat 40 percenként? Ez határozza meg azt az "ütemet", amellyel az adatok értelmezhetők.
+Hány labdabirtoklást játszik egy csapat 40 percenként?
+Ennek ismeretével tudjuk a különböző tempójú meccsek adatait közös nevezőre hozni.
 
 ```{r pace-chart}
 #| fig-height: 8
@@ -229,14 +220,15 @@ for (sz in names(SZ)) {
       orientation   = "h",
       name          = sz,
       marker        = list(color = SZ[sz], opacity = 0.85, line = list(width = 0)),
-      hovertemplate = paste0("<b>%{y}</b> (", sz, ")<br>Tempó: %{x:.1f} labdabirtok/40 perc<extra></extra>")
+      hovertemplate = paste0("<b>%{y}</b> (", sz, ")<br>Tempó: %{x:.1f} labdabirtoklás/40 perc<extra></extra>")
     )
 }
 
 # NBA referenciavonal szezonként – shapes + közvetlen felirat
 nba_pace_sz <- c("2022-23" = round(99.1 * 40/48, 1),
                  "2023-24" = round(98.5 * 40/48, 1),
-                 "2024-25" = round(98.8 * 40/48, 1))
+                 "2024-25" = round(98.8 * 40/48, 1),
+                 "2025-26" = round(99.4 * 40/48, 1))
 
 nba_shapes <- lapply(names(SZ), function(sz) {
   list(type = "line",
@@ -266,12 +258,12 @@ for (sz in names(SZ)) {
 fig_pace |>
   layout(
     title = list(
-      text = "Tempó csapatonként és szezonként<br><sup>Labdabirtok száma 40 percenként · NBA referenciával</sup>",
+      text = "Tempó csapatonként és szezononként<br><sup>Labdabirtoklások száma 40 perces mintán · NBA referenciával</sup>",
       font = list(size = 16, color = DARK, family = "Montserrat"),
       x = 0, xref = "paper"
     ),
     xaxis = list(
-      title     = "Labdabirtok / 40 perc",
+      title     = "Labdabirtoklás / 40 perc",
       titlefont = list(size = 12, family = "Montserrat", color = MUTED),
       tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
       range     = c(65, 88), gridcolor = GRID, zeroline = FALSE
@@ -298,7 +290,19 @@ fig_pace |>
   )
 ```
 
-Az NBA-val összevetve (~82 labdabirtok/40 perc) a magyar bajnokság körülbelül **8–10 labdabirtokkal lassabb** meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között 4–6 labdabirtok-különbség lehet, ami szezon végén akár 100+ labdabirtok-eltérést jelent a statisztikák mögött.
+```{r pace-spread-stats}
+nba_gap_sz    <- nba_pace_sz[names(SZ)] - liga_avg$avg_Pace[match(names(SZ), liga_avg$Szezon)]
+nba_gap_lo    <- round(min(nba_gap_sz), 1)
+nba_gap_hi    <- round(max(nba_gap_sz), 1)
+
+pace_spread_sz    <- team_sz |> group_by(Szezon) |> summarise(spread = max(Pace) - min(Pace), .groups = "drop")
+pace_spread_lo    <- round(min(pace_spread_sz$spread), 1)
+pace_spread_hi    <- round(max(pace_spread_sz$spread), 1)
+pace_szn_diff_lo  <- round(pace_spread_lo * 26)
+pace_szn_diff_hi  <- round(pace_spread_hi * 26)
+```
+
+Az NBA-val összevetve (~82 labdabirtoklás/40 perc) a magyar bajnokság körülbelül **`r nba_gap_lo`–`r nba_gap_hi` labdabirtokkal lassabb** meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között szezononként `r pace_spread_lo`–`r pace_spread_hi` labdabirtok-különbség figyelhető meg (a 2025-26-os szezonban a legnagyobb, egy újonc csapat szokatlanul gyors játéka miatt), ami szezon végén, 26 meccsre vetítve `r pace_szn_diff_lo`–`r pace_szn_diff_hi`+ labdabirtok-eltérést jelenthet a statisztikák mögött.
 
 ---
 
@@ -316,7 +320,7 @@ tt_quad <- paste0(
   "<b>", team_sz$Csapat, " (", team_sz$Szezon, ")</b>",
   "<br>ORtg: ", team_sz$ORtg,
   "<br>DRtg: ", team_sz$DRtg,
-  "<br>Net: ", ifelse(team_sz$Net >= 0, "+", ""), team_sz$Net,
+  "<br>NetRtg: ", ifelse(team_sz$Net >= 0, "+", ""), team_sz$Net,
   "<br>Győzelmek: ", round(team_sz$Win_pct * team_sz$G), "/", team_sz$G,
   "<extra></extra>"
 )
@@ -374,7 +378,7 @@ fig_quad |>
     font = list(size = 11, color = HUN, family = "Montserrat")) |>
   layout(
     title = list(
-      text = "Csapatok hatékonysági térképe<br><sup>ORtg = 100 labdabirtokra szerzett pont · DRtg = 100 labdabirtokra kapott pont · Jobb fent = erős támadás, jobb védekezés</sup>",
+      text = "Csapatok hatékonysági térképe<br><sup>ORtg = 100 labdabirtoklásra vetítve · Jobb fent = erős támadás, jó védekezés</sup>",
       font = list(size = 16, color = DARK, family = "Montserrat"),
       x = 0, xref = "paper"
     ),
@@ -403,13 +407,13 @@ fig_quad |>
   )
 ```
 
-A jobb felső sarokba — magas ORtg és alacsony DRtg — jutni a liga élcsapatainak feladata. A **Falco KC** mindhárom vizsgált szezonban ebben a negyedben tűnik fel, egyre jobbodó értékekkel. Az Y-tengely fordított: feljebb = jobb védekezés.
+A jobb felső sarokban — magas ORtg és alacsony DRtg — a liga élcsapatai tartózkodnak.
 
 ---
 
 ## Net Rating és győzelmek
 
-A videóban elhangzik Dean Oliver állítása: a **Net Rating** (ORtg − DRtg) jobb előrejelzője a jövőbeli sikereknek, mint az aktuális győzelmi arány. A magyar adaton tesztelhetjük, mennyire szoros ez a kapcsolat.
+Dean Oliver szerint a **Net Rating** (ORtg − DRtg) jobb előrejelzője a jövőbeli sikereknek, mint az aktuális győzelmi arány. A magyar bajnokság adatain tesztelhető, mennyire szoros ez a kapcsolat.
 
 ```{r net-rating-wins}
 #| fig-height: 8
@@ -466,7 +470,7 @@ fig_nr |>
   ) |>
   layout(
     title = list(
-      text = "Net Rating és győzelmi arány összefüggése<br><sup>Magyar bajnokság, 2022–2025 · Minden pont egy csapat egy szezonja (n=42)</sup>",
+      text = paste0("Net Rating és győzelmi arány összefüggése<br><sup>Magyar bajnokság, 2022–2026 · Minden pont egy csapat egy szezonja (n=", nrow(team_sz), ")</sup>"),
       font = list(size = 16, color = DARK, family = "Montserrat"),
       x = 0, xref = "paper"
     ),
@@ -500,8 +504,8 @@ fig_nr |>
 ```{r net-vs-pts-text, results='asis'}
 cat(paste0(
   "A Net Rating korrelációja a győzelmi aránnyal: **r = ", cor_net, "**. ",
-  "Összehasonlításképpen a nyers pontegyenleg (PTS − Opp. PTS) korrelációja: **r = ", cor_pts, "**. ",
-  "A különbség kis, de szisztematikus — a per-100-labdabirtok normalizálás ",
+  "Összehasonlításképpen a nyers pontkülönbség (PTS − Opp. PTS) korrelációja: **r = ", cor_pts, "**. ",
+  "A különbség alacsony, de szisztematikus — a per-100-labdabirtok normalizálás ",
   if (abs(cor_net) > abs(cor_pts)) "javít a prediktív erőn" else "hasonló prediktív erőt ad",
   " a magyar bajnokságban is."
 ))
@@ -513,7 +517,7 @@ A Net Rating szinte tökéletesen lineárisan magyarázza a győzelmeket — nin
 
 ## Tempó és siker
 
-Összekapcsolódik-e a játékritmus és a hatékonyság? Gyorsabban játszani egyben hatékonyabbat is jelent?
+Összekapcsolódik a tempó és a hatékonyság? A gyorsabb játék hatékonyabb játékot is eredményez?
 
 ```{r pace-vs-net}
 #| fig-height: 8
@@ -523,7 +527,7 @@ cor_pace_drtg <- round(cor(team_sz$Pace, team_sz$DRtg), 3)
 
 tt_pn <- paste0(
   "<b>", team_sz$Csapat, " (", team_sz$Szezon, ")</b>",
-  "<br>Tempó: ", team_sz$Pace, " labdabirtok/40 perc",
+  "<br>Tempó: ", team_sz$Pace, " labdabirtoklás/40 perc",
   "<br>Net Rating: ", ifelse(team_sz$Net >= 0, "+", ""), team_sz$Net,
   "<extra></extra>"
 )
@@ -564,12 +568,12 @@ fig_pn |>
   ) |>
   layout(
     title = list(
-      text = "Tempó és Net Rating kapcsolata<br><sup>Magyar bajnokság, 2022–2025 — van-e összefüggés a játékritmus és a siker között?</sup>",
+      text = "Tempó és Net Rating kapcsolata<br><sup>Magyar bajnokság, 2022–2026 — van-e összefüggés a játékritmus és a siker között?</sup>",
       font = list(size = 16, color = DARK, family = "Montserrat"),
       x = 0, xref = "paper"
     ),
     xaxis = list(
-      title     = "Tempó (labdabirtok / 40 perc)",
+      title     = "Tempó (labdabirtoklás / 40 perc)",
       titlefont = list(size = 12, family = "Montserrat", color = MUTED),
       tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
       gridcolor = GRID, zeroline = FALSE
@@ -599,7 +603,7 @@ interpretation <- if (abs(cor_pace_net) < 0.2) {
     "A korreláció **r = ", cor_pace_net, "** — gyakorlatilag nulla. ",
     "A tempó **nem jósolja meg** a csapat sikerét az NB1-ben. ",
     "Ez egybeesik az NBA tanulságával: gyorsan és lassan is lehet jól vagy rosszul játszani. ",
-    "A tempó stílusbeli döntés, nem hatékonysági eszköz."
+    "A tempó stílusbeli döntés, nincs hatással a hatékonyságra."
   )
 } else if (cor_pace_net > 0.2) {
   paste0(
@@ -623,7 +627,8 @@ cat(interpretation)
 
 ## Egyéni hatékonyság
 
-A csapatszintű minták mögött egyéni játékosok állnak. Az alábbi ábrák az NB1 játékosait páros hatékonysági mutatókon helyezik el — **U23-as hazai fiatalok kiemelve**.
+A csapatszintű minták mögött egyéni játékosok állnak. Az alábbi ábra az NB1 játékosait vizsgálja
+a volumen és hatékonyság szemüvegén keresztül — **U23-as hazai fiatalok kiemelve**.
 
 ```{r player-data}
 con2 <- dbConnect(RSQLite::SQLite(), "kosarlabda/data/bball_10_tables.db")
@@ -637,7 +642,7 @@ player_info <- player_info |>
   rename(Szul_ev = `Szül. év.`, Statusz = Státusz) |>
   mutate(Szul_ev = as.integer(Szul_ev)) |>
   # Névhasonló játékosoknál (pl. két BALOGH Zoltán) a legfiatalabbat tartjuk meg,
-  # mivel az NB1 2022-25 aktív játékosai a fiatalabbak
+  # mivel az NB1 2022-26 aktív játékosai a fiatalabbak
   group_by(Játékos) |>
   slice_max(Szul_ev, n = 1, with_ties = FALSE) |>
   ungroup() |>
@@ -713,12 +718,12 @@ for (kat in KAT_ORDER) {
 fig |>
   layout(
     title = list(
-      text = "Pontozás mennyisége vs. hatékonysága<br><sup>NB1 alapszakasz, 2022–2025 · min. 400 perc · <span style='color:#C43A28'>● Hazai U23</span></sup>",
+      text = "Pontszerzés mennyisége vs. hatékonysága<br><sup>NB1 alapszakasz, 2022–2026 · min. 400 perc · <span style='color:#C43A28'>● Hazai U23</span></sup>",
       font = list(size = 16, color = DARK, family = "Montserrat"),
       x = 0, xref = "paper"
     ),
     xaxis = list(
-      title     = "PTS / 100 labdabirtok",
+      title     = "PTS / 100 labdabirtoklás",
       titlefont = list(size = 12, family = "Montserrat", color = MUTED),
       tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
       gridcolor = GRID, zeroline = FALSE
@@ -740,132 +745,15 @@ fig |>
   )
 ```
 
-```{r player-reb}
-#| fig-height: 8
-fig <- plot_ly()
-for (kat in KAT_ORDER) {
-  d <- reb_data[reb_data$Kategoria == kat, ]
-  if (nrow(d) == 0) next
-  fig <- fig |> add_trace(
-    x    = d$ORB,
-    y    = d$DRB,
-    type = "scatter", mode = "markers",
-    name = kat,
-    marker = list(
-      color   = KAT_COLORS[kat],
-      opacity = KAT_ALPHA[kat],
-      size    = KAT_SIZE[kat]
-    ),
-    hovertemplate = paste0(
-      "<b>", d$Játékos, "</b> (", d$Csapat, ", ", d$Szezon, ")<br>",
-      "ORB%: ", round(d$ORB, 1), "%",
-      "<br>DRB%: ", round(d$DRB, 1), "%",
-      "<extra>", kat, "</extra>"
-    )
-  )
-}
-fig |>
-  layout(
-    title = list(
-      text = "Támadó vs. védekező pattanás-részesedés<br><sup>NB1 alapszakasz, 2022–2025 · min. 400 perc · <span style='color:#C43A28'>● Hazai U23</span></sup>",
-      font = list(size = 16, color = DARK, family = "Montserrat"),
-      x = 0, xref = "paper"
-    ),
-    xaxis = list(
-      title     = "Támadó pattanás% (ORB%)",
-      titlefont = list(size = 12, family = "Montserrat", color = MUTED),
-      tickfont  = list(size = 11, family = "Montserrat", color = MUTED),
-      ticksuffix = "%",
-      gridcolor = GRID, zeroline = FALSE
-    ),
-    yaxis = list(
-      title      = "Védekező pattanás% (DRB%)",
-      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
-      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
-      ticksuffix = "%",
-      gridcolor  = GRID, zeroline = FALSE
-    ),
-    paper_bgcolor = BG, plot_bgcolor = BG2,
-    font   = list(family = "Montserrat", color = DARK),
-    legend = list(orientation = "h", x = 0.5, xanchor = "center",
-                  y = -0.12, yanchor = "top",
-                  font = list(size = 12, family = "Montserrat")),
-    margin = list(l = 70, r = 40, t = 90, b = 70),
-    height = 700
-  )
-```
-
-```{r player-stl-blk}
-#| fig-height: 8
-fig <- plot_ly()
-for (kat in KAT_ORDER) {
-  d <- reb_data[reb_data$Kategoria == kat, ]
-  if (nrow(d) == 0) next
-  fig <- fig |> add_trace(
-    x    = d$STL,
-    y    = d$BLK,
-    type = "scatter", mode = "markers",
-    name = kat,
-    marker = list(
-      color   = KAT_COLORS[kat],
-      opacity = KAT_ALPHA[kat],
-      size    = KAT_SIZE[kat]
-    ),
-    hovertemplate = paste0(
-      "<b>", d$Játékos, "</b> (", d$Csapat, ", ", d$Szezon, ")<br>",
-      "STL%: ", round(d$STL, 1), "%",
-      "<br>BLK%: ", round(d$BLK, 1), "%",
-      "<extra>", kat, "</extra>"
-    )
-  )
-}
-fig |>
-  layout(
-    title = list(
-      text = "Védekezési aktivitás — szerzések és blokkok<br><sup>NB1 alapszakasz, 2022–2025 · min. 400 perc · <span style='color:#C43A28'>● Hazai U23</span></sup>",
-      font = list(size = 16, color = DARK, family = "Montserrat"),
-      x = 0, xref = "paper"
-    ),
-    xaxis = list(
-      title      = "Szerzés% (STL%)",
-      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
-      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
-      ticksuffix = "%",
-      gridcolor  = GRID, zeroline = FALSE
-    ),
-    yaxis = list(
-      title      = "Blokk% (BLK%)",
-      titlefont  = list(size = 12, family = "Montserrat", color = MUTED),
-      tickfont   = list(size = 11, family = "Montserrat", color = MUTED),
-      ticksuffix = "%",
-      gridcolor  = GRID, zeroline = FALSE
-    ),
-    paper_bgcolor = BG, plot_bgcolor = BG2,
-    font   = list(family = "Montserrat", color = DARK),
-    legend = list(orientation = "h", x = 0.5, xanchor = "center",
-                  y = -0.12, yanchor = "top",
-                  font = list(size = 12, family = "Montserrat")),
-    margin = list(l = 70, r = 40, t = 90, b = 70),
-    height = 700
-  )
-```
 
 ---
 
 ::: {.callout-note collapse="true"}
 ## Módszertan
 
-**Adatok:** Magyar NB1, 2022–2025, alapszakasz. Összesen `r nrow(games)` mérkőzés-bejegyzés, `r nrow(team_sz)` csapat-szezon aggregátum.
+**Adatok:** Magyar NBI/A, 2022–2026, alapszakasz.
 
-**Tempó (Pace):** Labdabirtok száma 40 percenként. A labdabirtok (possession) becsült értéke meccsstatisztikákból: FGA − ORB + TOV + 0.44×FTA.
+**Adatok forrása:** kosarstat.hu
 
-**ORtg / DRtg:** 100 labdabirtokra vetített szerzett / kapott pontok meccsenként, majd szezonátlag.
-
-**Net Rating:** ORtg − DRtg. Pozitív = a csapat nettó labdabirtok-előnnyel rendelkezik.
-
-**Egyéni mutatók:** PTS/100 = pontok per 100 csapat-labdabirtok. TRB% = megszerzett pattanások aránya a lehetséges pattanásokból (mindkét vége). BLK% = blokkolt dobások aránya az ellenfél kísérleteiből. STL% = szerzett labdák aránya az ellenfél labdabirtokai közül. Küszöb: min. 400 perc.
-
-**U23:** Hazai játékos, akinek születési éve ≥ szezon kezdő éve − 22.
-
-**NBA referencia:** Basketball Reference ligaátlagok, 2022–25 szezonok.
+**NBA referencia:** Basketball Reference ligaátlagok, 2022–26 szezonok.
 :::
