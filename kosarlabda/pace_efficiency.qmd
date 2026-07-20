@@ -167,7 +167,7 @@ fig |>
   ) |>
   add_annotations(
     x = 1, y = -0.9, xref = "x", yref = "y",
-    text = "<b>ORtg (per 100 labdabirtok)</b>", showarrow = FALSE,
+    text = "<b>ORtg (per 100 labdabirtoklás)</b>", showarrow = FALSE,
     font = list(size = 12, family = "Montserrat", color = DARK)
   ) |>
   layout(
@@ -302,7 +302,7 @@ pace_szn_diff_lo  <- round(pace_spread_lo * 26)
 pace_szn_diff_hi  <- round(pace_spread_hi * 26)
 ```
 
-Az NBA-val összevetve (~82 labdabirtoklás/40 perc) a magyar bajnokság körülbelül **`r nba_gap_lo`–`r nba_gap_hi` labdabirtokkal lassabb** meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között szezononként `r pace_spread_lo`–`r pace_spread_hi` labdabirtok-különbség figyelhető meg (a 2025-26-os szezonban a legnagyobb, egy újonc csapat szokatlanul gyors játéka miatt), ami szezon végén, 26 meccsre vetítve `r pace_szn_diff_lo`–`r pace_szn_diff_hi`+ labdabirtok-eltérést jelenthet a statisztikák mögött.
+Az NBA-val összevetve (~82 labdabirtoklás/40 perc) a magyar bajnokság körülbelül **`r nba_gap_lo`–`r nba_gap_hi` labdabirtoklással lassabb** meccsenként — ez alapvetően más játékképet jelent. Az NB1-en belül is van szórás: a leglassabb és leggyorsabb csapat között szezononként `r pace_spread_lo`–`r pace_spread_hi` labdabirtok-különbség figyelhető meg (a 2025-26-os szezonban a legnagyobb, egy újonc csapat szokatlanul gyors játéka miatt), ami szezon végén, 26 meccsre vetítve `r pace_szn_diff_lo`–`r pace_szn_diff_hi`+ labdabirtok-eltérést jelenthet a statisztikák mögött.
 
 ---
 
@@ -505,13 +505,11 @@ fig_nr |>
 cat(paste0(
   "A Net Rating korrelációja a győzelmi aránnyal: **r = ", cor_net, "**. ",
   "Összehasonlításképpen a nyers pontkülönbség (PTS − Opp. PTS) korrelációja: **r = ", cor_pts, "**. ",
-  "A különbség alacsony, de szisztematikus — a per-100-labdabirtok normalizálás ",
-  if (abs(cor_net) > abs(cor_pts)) "javít a prediktív erőn" else "hasonló prediktív erőt ad",
-  " a magyar bajnokságban is."
+  "A Net Rating előnye nem jön ki a vizsgált mintán."
 ))
 ```
 
-A Net Rating szinte tökéletesen lineárisan magyarázza a győzelmeket — nincsenek meglepetések, kivételek csak a szélső értékeknél jelennek meg (ahol a szerencse, sérülések vagy a rövid minta torzít).
+A Net Rating szinte tökéletesen lineárisan magyarázza a győzelmeket.
 
 ---
 
