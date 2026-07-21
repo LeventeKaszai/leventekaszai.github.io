@@ -133,8 +133,12 @@ match_probs_dc <- function(home_team, away_team) {
     p_home = sum(grid$p[grid$x > grid$y]), p_draw = sum(grid$p[grid$x == grid$y]), p_away = sum(grid$p[grid$x < grid$y]),
     p_over25 = sum(grid$p[grid$x + grid$y > 2.5]), p_btts = sum(grid$p[grid$x > 0 & grid$y > 0])
   ) |>
+    # a ket oldal (over/under, btts igen/nem) mindig kiegesziti egymast 100%-ra —
+    # ez NEM azt jelenti, hogy az odds-ok osszege 4 lenne, csak a valoszinusegeke 1.
+    mutate(p_under25 = 1 - p_over25, p_no_btts = 1 - p_btts) |>
     mutate(odds_1 = round(1/p_home,2), odds_x = round(1/p_draw,2), odds_2 = round(1/p_away,2),
-           odds_over25 = round(1/p_over25,2), odds_btts = round(1/p_btts,2))
+           odds_over25 = round(1/p_over25,2), odds_under25 = round(1/p_under25,2),
+           odds_btts = round(1/p_btts,2), odds_no_btts = round(1/p_no_btts,2))
 }
 
 decompose_line <- function(h) {
@@ -282,20 +286,28 @@ value_badge <- function(edge) {
 fixture_markets <- function(fx_row) {
   fo <- fair_odds_for(fx_row$home, fx_row$away)
   bk <- book |> filter(fordulo == fx_row$fordulo, home == fx_row$home, away == fx_row$away)
-  if (nrow(bk) == 0) bk <- tibble(odds_1=NA, odds_x=NA, odds_2=NA, odds_over25=NA, odds_btts=NA,
+  if (nrow(bk) == 0) bk <- tibble(odds_1=NA, odds_x=NA, odds_2=NA, odds_over25=NA, odds_under25=NA,
+                                    odds_btts=NA, odds_no_btts=NA,
                                     ah_line=NA, ah_odds_home=NA, ah_odds_away=NA)
   bk <- bk[1, ]
+  # a bookmaker_odds.csv-ben meg nem mindig van odds_under25/odds_no_btts oszlop
+  # (fokozatosan toltjuk fel) — ha hianyzik, NA-kent kezeljuk, nem hibaval.
+  if (is.null(bk$odds_under25)) bk$odds_under25 <- NA_real_
+  if (is.null(bk$odds_no_btts)) bk$odds_no_btts <- NA_real_
   ah_comparable <- is.na(bk$ah_line) || bk$ah_line == fo$ah_line
 
   tibble(
     fordulo = fx_row$fordulo, home = fx_row$home, away = fx_row$away,
-    market_key = c("home", "draw", "away", "over25", "btts", "ah"),
-    category   = c("1X2", "1X2", "1X2", "Gól", "Gól", "AH"),
+    market_key = c("home", "draw", "away", "over25", "under25", "btts", "no_btts", "ah"),
+    category   = c("1X2", "1X2", "1X2", "Gól", "Gól", "Gól", "Gól", "AH"),
     label = c("Hazai (1)", "Döntetlen (X)", "Vendég (2)", "Több mint 2,5 gól",
-              "Mindkét csapat szerez gólt", sprintf("Ázsiai hendikep (%.2f)", fo$ah_line)),
-    fair_odds = c(fo$odds_1, fo$odds_x, fo$odds_2, fo$odds_over25, fo$odds_btts, fo$ah_odds_home),
-    book_odds = c(bk$odds_1, bk$odds_x, bk$odds_2, bk$odds_over25, bk$odds_btts,
-                   if (ah_comparable) bk$ah_odds_home else NA_real_),
+              "Kevesebb mint 2,5 gól", "Mindkét csapat szerez gólt",
+              "Legalább az egyik csapat nem szerez gólt", sprintf("Ázsiai hendikep (%.2f)", fo$ah_line)),
+    fair_odds = c(fo$odds_1, fo$odds_x, fo$odds_2, fo$odds_over25, fo$odds_under25,
+                  fo$odds_btts, fo$odds_no_btts, fo$ah_odds_home),
+    book_odds = c(bk$odds_1, bk$odds_x, bk$odds_2, bk$odds_over25, bk$odds_under25,
+                  bk$odds_btts, bk$odds_no_btts,
+                  if (ah_comparable) bk$ah_odds_home else NA_real_),
     ah_line = fo$ah_line,
     ah_comparable = ah_comparable
   ) |>
@@ -469,11 +481,13 @@ resolve_pick <- function(market_key, ah_line, home_goals, away_goals, book_odds)
     list(status = "vesztett", profit = -1)
   }
 
-  if (market_key == "home")   return(settle(home_goals > away_goals))
-  if (market_key == "draw")   return(settle(home_goals == away_goals))
-  if (market_key == "away")   return(settle(away_goals > home_goals))
-  if (market_key == "over25") return(settle(home_goals + away_goals > 2.5))
-  if (market_key == "btts")   return(settle(home_goals > 0 & away_goals > 0))
+  if (market_key == "home")    return(settle(home_goals > away_goals))
+  if (market_key == "draw")    return(settle(home_goals == away_goals))
+  if (market_key == "away")    return(settle(away_goals > home_goals))
+  if (market_key == "over25")  return(settle(home_goals + away_goals > 2.5))
+  if (market_key == "under25") return(settle(home_goals + away_goals < 2.5))
+  if (market_key == "btts")    return(settle(home_goals > 0 & away_goals > 0))
+  if (market_key == "no_btts") return(settle(home_goals == 0 | away_goals == 0))
 
   if (market_key == "ah") {
     comps <- decompose_line(ah_line)

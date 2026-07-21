@@ -1,7 +1,7 @@
-fordulo;home;away;odds_1;odds_x;odds_2;odds_over25;odds_btts;ah_line;ah_odds_home;ah_odds_away
-1;Nyíregyháza Spartacus;Újpest;2,17;3,60;3,05;1,66;1,57;-0,25;1,84;1,88
-1;Várda SE;Honvéd;2,30;3,20;3,10;1,82;1,64;-0,25;1,91;1,81
-1;Vasas;Győri ETO;4,15;3,40;1,88;1,65;1,58;0,5;1,90;1,83
-1;Debrecen;Puskás FC;2,12;3,45;3,25;1,77;1,64;-0,25;1,79;1,93
-1;Paksi FC;Ferencváros;4,00;4,00;1,77;1,51;1,50;0,75;1,81;1,91
-1;MTK;Zalaegerszegi TE;2,17;3,55;3,10;1,73;1,60;-0,25;1,86;1,87
+fordulo;home;away;odds_1;odds_x;odds_2;odds_over25;odds_under25;odds_btts;odds_no_btts;ah_line;ah_odds_home;ah_odds_away
+1;Nyíregyháza Spartacus;Újpest;2,17;3,60;3,05;1,66;;1,57;;-0,25;1,84;1,88
+1;Várda SE;Honvéd;2,30;3,20;3,10;1,82;;1,64;;-0,25;1,91;1,81
+1;Vasas;Győri ETO;4,15;3,40;1,88;1,65;;1,58;;0,5;1,90;1,83
+1;Debrecen;Puskás FC;2,12;3,45;3,25;1,77;;1,64;;-0,25;1,79;1,93
+1;Paksi FC;Ferencváros;4,00;4,00;1,77;1,51;;1,50;;0,75;1,81;1,91
+1;MTK;Zalaegerszegi TE;2,17;3,55;3,10;1,73;;1,60;;-0,25;1,86;1,87
