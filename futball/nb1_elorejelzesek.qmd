@@ -239,13 +239,16 @@ weekly_tips <- purrr::map_dfr(seq_len(nrow(active_fixtures)), function(i) {
   t_own <- best_tip(own_grid, tippelde_points)
   p_own <- best_tip(own_grid, pontosan_points)
 
+  # a konyv oszlop NEM EP-optimalizalt tipp — a piaci odds-bol implikalt nyers
+  # varhato golszam (ugyanaz a logika, mint a sajat xG-nel), hogy azt mutassa,
+  # a konyv szerint ténylegesen mennyi golt varunk, ne egy pontozas-optimalizalt tippet.
   bk <- book |> filter(fordulo == fx$fordulo, home == fx$home, away == fx$away)
-  book_tip_h <- NA_integer_; book_tip_a <- NA_integer_
+  book_xg_h <- NA_real_; book_xg_a <- NA_real_
   if (nrow(bk) == 1 && !is.na(bk$odds_1[1]) && !is.na(bk$odds_x[1]) && !is.na(bk$odds_2[1])) {
     pr <- devig_1x2(bk$odds_1[1], bk$odds_x[1], bk$odds_2[1])
     book_grid <- implied_grid(pr[1], pr[2], rho_fit)
-    t_book <- best_tip(book_grid, tippelde_points)
-    book_tip_h <- t_book$th; book_tip_a <- t_book$ta
+    book_xg_h <- round(attr(book_grid, "lambda_h"), 1)
+    book_xg_a <- round(attr(book_grid, "lambda_a"), 1)
   }
 
   tibble(
@@ -253,7 +256,7 @@ weekly_tips <- purrr::map_dfr(seq_len(nrow(active_fixtures)), function(i) {
     tippelde_h = t_own$th, tippelde_a = t_own$ta,
     pontosan_h = p_own$th, pontosan_a = p_own$ta,
     xg_h = round(attr(own_grid, "lambda_h"), 1), xg_a = round(attr(own_grid, "lambda_a"), 1),
-    konyv_h = book_tip_h, konyv_a = book_tip_a
+    konyv_xg_h = book_xg_h, konyv_xg_a = book_xg_a
   )
 })
 ```
@@ -438,7 +441,7 @@ tagList(
 
 ## Heti tippek (Tippelde / Pontosan / Könyv)
 
-Három tipp mérkőzésenként: a **Tippelde tipp** és a **Pontosan tipp** a saját Dixon-Coles gólrácsunkból az adott játék pontozási szabálya szerint a várható pontszámot (EP) maximalizáló végeredmény — ez nem feltétlenül a legvalószínűbb eredmény, hanem az, ami a lépcsőzetes pontozás (pontos eredmény / gólkülönbség / győztes / egy gólszám) mellett hosszú távon a legtöbb pontot hozza. A **Pontosan xG** a saját modell várható gólszáma csapatonként (ezt írd be az xG-tippnek). A **Könyv tipp** a fogadóiroda 1X2 odds-ából (de-vigelve) implikált gólrácsból, a Tippelde-szabály szerint EP-optimalizálva — csak akkor jelenik meg, ha van rögzített könyv-odds az adott meccsre.
+Két EP-optimalizált tipp és egy nyers gólszám-becslés mérkőzésenként. A **Tippelde tipp** és a **Pontosan tipp** a saját Dixon-Coles gólrácsunkból az adott játék pontozási szabálya szerint a várható pontszámot (EP) maximalizáló végeredmény — ez nem feltétlenül a legvalószínűbb eredmény, hanem az, ami a lépcsőzetes pontozás (pontos eredmény / gólkülönbség / győztes / egy gólszám) mellett hosszú távon a legtöbb pontot hozza. A **Pontosan xG** a saját modell nyers várható gólszáma csapatonként (ezt írd be az xG-tippnek). A **Könyv xG** ugyanez, csak a fogadóiroda 1X2 odds-ából (de-vigelve) implikált gólrácsból — ez sincs pontozás szerint optimalizálva, egyszerűen azt mutatja, a piac szerint ténylegesen hány gólt várunk csapatonként; csak akkor jelenik meg, ha van rögzített könyv-odds az adott meccsre.
 
 ```{r weekly-tips-table}
 weekly_tips |>
@@ -447,7 +450,7 @@ weekly_tips |>
     `Tippelde tipp` = paste0(tippelde_h, "–", tippelde_a),
     `Pontosan tipp` = paste0(pontosan_h, "–", pontosan_a),
     `Pontosan xG` = paste0(xg_h, " / ", xg_a),
-    `Könyv tipp` = ifelse(is.na(konyv_h), "–", paste0(konyv_h, "–", konyv_a))
+    `Könyv xG` = ifelse(is.na(konyv_xg_h), "–", paste0(konyv_xg_h, " / ", konyv_xg_a))
   ) |>
   kable(caption = "Heti tippek forduló szerint")
 ```
