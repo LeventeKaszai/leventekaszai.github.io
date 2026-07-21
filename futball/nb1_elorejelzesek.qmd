@@ -59,6 +59,13 @@ book <- read_csv2("futball/data/nb1_2627_bookmaker_odds.csv", show_col_types = F
                    locale = locale(decimal_mark = ",", grouping_mark = "."))
 results <- read_csv2("futball/data/nb1_2627_results.csv", show_col_types = FALSE,
                       locale = locale(decimal_mark = ",", grouping_mark = "."))
+
+# a `fixtures` a teljes 33-fordulos szezon-menetrendet tartalmazza (a jovobeli
+# tabellaszimulaciohoz kell) — a forduló-kártyák/heti tippek/value-teljesítmény
+# viszont csak azokra a fordulókra vonatkozzanak, amelyekhez már van rögzített
+# fogadóirodai odds (`book`), különben minden renderelés mind a 33 fordulót
+# (198 meccset) végigszámolná és kirajzolná.
+active_fixtures <- fixtures |> filter(fordulo %in% unique(book$fordulo))
 ```
 
 ```{r poisson-functions}
@@ -163,6 +170,94 @@ fair_odds_for <- function(home_team, away_team) {
 }
 ```
 
+```{r tipp-functions}
+# Tippelde pontozás: pontos eredmény (5) > helyes győztes+gólkülönbség (4) >
+# csak helyes győztes / csak helyes döntetlen (3) > egyik csapat gólszáma
+# stimmel (1) > egyéb (0). A legjobban illő sáv számít, nem összegződnek.
+tippelde_points <- function(th, ta, ah, av) {
+  if (th == ah && ta == av) return(5)
+  tdiff <- th - ta; adiff <- ah - av
+  if (tdiff == 0 && adiff == 0) return(3)
+  if (sign(tdiff) == sign(adiff) && tdiff != 0) {
+    if (tdiff == adiff) return(4)
+    return(3)
+  }
+  if (th == ah || ta == av) return(1)
+  0
+}
+
+# Pontosan pontozás: pontos eredmény (4) > helyes gólkülönbség (2), plusz
+# a hazai/vendég gólszám külön-külön (1+1) — ez utóbbi kettő a gyakorlatban
+# kizárja egymást a pontos-eredmény esettel, ezért összegzésük biztonságos.
+pontosan_points <- function(th, ta, ah, av) {
+  if (th == ah && ta == av) return(4)
+  if ((th - ta) == (ah - av)) return(2)
+  (th == ah) + (ta == av)
+}
+
+# Az adott gólrácshoz (grid: x=hazai, y=vendég gólok valószínűséggel) megkeresi
+# az elvárt pontszámot (EP) maximalizáló tippet a megadott pontozási szabály
+# szerint — ez NEM feltétlenül a legvalószínűbb (módusz) eredmény, mert a
+# lépcsőzetes pontozásban a szomszédos kimenetelekkel való átfedés is számít.
+best_tip <- function(grid, score_fn, max_tip_goals = 6) {
+  cand <- expand.grid(th = 0:max_tip_goals, ta = 0:max_tip_goals)
+  cand$ep <- sapply(seq_len(nrow(cand)), function(i) {
+    sum(grid$p * mapply(score_fn, cand$th[i], cand$ta[i], grid$x, grid$y))
+  })
+  cand[which.max(cand$ep), ]
+}
+
+devig_1x2 <- function(o1, ox, o2) {
+  raw <- c(1 / o1, 1 / ox, 1 / o2)
+  raw / sum(raw)
+}
+
+# Piaci (könyv) implikált gólrács: a de-vigelt 1X2-höz illesztett lambda-pár,
+# a saját modellünk rho-jával (a könyv nem ad se rho-t, se pontoseredmeny-piacot,
+# ezért csak a hazai/döntetlen/vendég valószínűséget tudjuk visszaadni vele).
+implied_grid <- function(p_home, p_draw, rho, max_goals = 10) {
+  obj <- function(par) {
+    lh <- exp(par[1]); la <- exp(par[2])
+    g <- expand.grid(x = 0:max_goals, y = 0:max_goals)
+    g$p <- dpois(g$x, lh) * dpois(g$y, la) * tau(g$x, g$y, lh, la, rho)
+    g$p <- g$p / sum(g$p)
+    (sum(g$p[g$x > g$y]) - p_home)^2 + (sum(g$p[g$x == g$y]) - p_draw)^2
+  }
+  opt <- optim(c(log(1.3), log(1.1)), obj, method = "Nelder-Mead")
+  lh <- exp(opt$par[1]); la <- exp(opt$par[2])
+  g <- expand.grid(x = 0:max_goals, y = 0:max_goals)
+  g$p <- dpois(g$x, lh) * dpois(g$y, la) * tau(g$x, g$y, lh, la, rho)
+  g$p <- g$p / sum(g$p)
+  attr(g, "lambda_h") <- lh; attr(g, "lambda_a") <- la
+  g
+}
+
+weekly_tips <- purrr::map_dfr(seq_len(nrow(active_fixtures)), function(i) {
+  fx <- active_fixtures[i, ]
+  own_grid <- score_grid(fx$home, fx$away)
+
+  t_own <- best_tip(own_grid, tippelde_points)
+  p_own <- best_tip(own_grid, pontosan_points)
+
+  bk <- book |> filter(fordulo == fx$fordulo, home == fx$home, away == fx$away)
+  book_tip_h <- NA_integer_; book_tip_a <- NA_integer_
+  if (nrow(bk) == 1 && !is.na(bk$odds_1[1]) && !is.na(bk$odds_x[1]) && !is.na(bk$odds_2[1])) {
+    pr <- devig_1x2(bk$odds_1[1], bk$odds_x[1], bk$odds_2[1])
+    book_grid <- implied_grid(pr[1], pr[2], rho_fit)
+    t_book <- best_tip(book_grid, tippelde_points)
+    book_tip_h <- t_book$th; book_tip_a <- t_book$ta
+  }
+
+  tibble(
+    fordulo = fx$fordulo, home = fx$home, away = fx$away,
+    tippelde_h = t_own$th, tippelde_a = t_own$ta,
+    pontosan_h = p_own$th, pontosan_a = p_own$ta,
+    xg_h = round(attr(own_grid, "lambda_h"), 1), xg_a = round(attr(own_grid, "lambda_a"), 1),
+    konyv_h = book_tip_h, konyv_a = book_tip_a
+  )
+})
+```
+
 ```{r value-calc}
 edge_pct <- function(book_odds, fair_odds) {
   if (is.na(book_odds) || is.na(fair_odds)) return(NA_real_)
@@ -240,6 +335,84 @@ forecast |>
   kable()
 ```
 
+## Élő tabella-szimuláció és bajnoki esélyek
+
+A fenti előszezoni tábla statikus (egyszer generált) becslés. Ez a szimuláció minden renderelésnél újrafut: a ténylegesen már lejátszott meccsek (`futball/data/nb1_2627_results.csv`) rögzített pontjaiból indulva, a hátralévő mind a 33 forduló összes meccsét (`futball/data/nb1_2627_fixtures.csv` — teljes szezon-menetrend) sokezerszer lejátszatja a saját Dixon-Coles gólrácsunkból mintavételezve, és ebből számol várható végpontszámot, várható helyezést és bajnoki esélyt csapatonként. Forduló után forduló, ahogy a `results.csv` bővül a valós eredményekkel, ez a tábla magától frissül.
+
+A „Piaci bajnoki esély” a kézzel megadott fogadóirodai outright (bajnok) odds-okból jön (`futball/data/nb1_2627_outright_odds.csv`), de-vigelve. Mivel csak győztes-piac van megadva, a könyv-oldali összevetés csak a bajnoki eséllyel lehetséges — a többi helyezésre nincs piaci referenciánk.
+
+```{r season-sim}
+outright <- read_csv2("futball/data/nb1_2627_outright_odds.csv", show_col_types = FALSE,
+                       locale = locale(decimal_mark = ",", grouping_mark = "."))
+outright$p_market <- (1 / outright$odds_bajnok) / sum(1 / outright$odds_bajnok)
+
+teams <- unique(c(fixtures$home, fixtures$away))
+played_matches <- results |> filter(!is.na(home_goals), !is.na(away_goals))
+to_simulate <- fixtures |> anti_join(played_matches, by = c("fordulo", "home", "away"))
+
+N_SIM <- 10000
+set.seed(2026)
+
+pts <- matrix(0, N_SIM, length(teams), dimnames = list(NULL, teams))
+gd  <- matrix(0, N_SIM, length(teams), dimnames = list(NULL, teams))
+
+add_result <- function(home, away, hg, ag) {
+  hp <- ifelse(hg > ag, 3, ifelse(hg == ag, 1, 0))
+  ap <- ifelse(ag > hg, 3, ifelse(hg == ag, 1, 0))
+  pts[, home] <<- pts[, home] + hp; pts[, away] <<- pts[, away] + ap
+  gd[, home]  <<- gd[, home]  + (hg - ag); gd[, away] <<- gd[, away] + (ag - hg)
+}
+
+# mar lejatszott meccsek: fix eredmeny minden szimulacioban
+if (nrow(played_matches) > 0) {
+  for (i in seq_len(nrow(played_matches))) {
+    m <- played_matches[i, ]
+    add_result(m$home, m$away, rep(m$home_goals, N_SIM), rep(m$away_goals, N_SIM))
+  }
+}
+
+# hatralevo meccsek: a sajat Dixon-Coles racsbol mintavetelezve, meccsenkent N_SIM huzas
+for (i in seq_len(nrow(to_simulate))) {
+  fx <- to_simulate[i, ]
+  grid <- score_grid(fx$home, fx$away)
+  idx <- sample.int(nrow(grid), N_SIM, replace = TRUE, prob = grid$p)
+  add_result(fx$home, fx$away, grid$x[idx], grid$y[idx])
+}
+
+# helyezes szimulacionkent: pont szerint csokkeno, dontetlen eseten gd szerint
+rank_m <- matrix(NA_integer_, N_SIM, length(teams), dimnames = list(NULL, teams))
+for (i in seq_len(N_SIM)) {
+  ord <- order(-pts[i, ], -gd[i, ])
+  rank_m[i, ord] <- seq_along(teams)
+}
+
+sim_table <- tibble(
+  team = teams,
+  own_title_prob = colMeans(rank_m == 1),
+  exp_points = colMeans(pts),
+  exp_rank = colMeans(rank_m)
+) |>
+  left_join(outright |> select(team, odds_bajnok, p_market), by = "team") |>
+  mutate(edge_pp = round((own_title_prob - p_market) * 100, 1)) |>
+  arrange(exp_rank)
+```
+
+```{r season-sim-table}
+sim_table |>
+  transmute(
+    Csapat = team,
+    `Várható pontszám` = round(exp_points, 1),
+    `Várható helyezés` = round(exp_rank, 2),
+    `Saját bajnoki esély` = paste0(round(own_title_prob * 100, 1), "%"),
+    `Piaci bajnoki esély` = paste0(round(p_market * 100, 1), "%"),
+    `Eltérés (pp)` = edge_pp
+  ) |>
+  kable(caption = sprintf(
+    "%s szimuláció — %d lejátszott meccs rögzített eredménnyel + %d hátralévő meccs a modellből mintavételezve",
+    format(N_SIM, big.mark = " "), nrow(played_matches), nrow(to_simulate)
+  ))
+```
+
 ## Forduló-szintű fair odds és value picks
 
 A "mi" oszlop a saját Dixon-Coles Poisson-szimulációnk fair oddsát mutatja, a "könyv" oszlop a kézzel bevitt fogadóirodai odds-ot (`futball/data/nb1_2627_bookmaker_odds.csv`). Zöld jelzés akkor jelenik meg, ha a fogadóiroda odds-a legalább `r VALUE_THRESHOLD`%-kal nagyobb a fair oddsnál (potenciális value), piros ha ugyanennyivel kisebb.
@@ -247,20 +420,36 @@ A "mi" oszlop a saját Dixon-Coles Poisson-szimulációnk fair oddsát mutatja, 
 A csapatminőség (támadás/védekezés) a preseason becslésből jön, és nem frissül szezon közben. A hazai pálya-előny és a Dixon-Coles ρ viszont igen: jelenleg **`r parameter_forras`** van használva.
 
 ```{r fixture-cards}
-rounds <- sort(unique(fixtures$fordulo))
+rounds <- sort(unique(active_fixtures$fordulo))
 
 tagList(
   lapply(rounds, function(r) {
     tagList(
       tags$h3(class = "fc-round-title", paste(r, ". forduló")),
       tags$div(class = "fc-grid",
-        lapply(seq_len(nrow(fixtures[fixtures$fordulo == r, ])), function(i) {
-          fixture_card(fixtures[fixtures$fordulo == r, ][i, ])
+        lapply(seq_len(nrow(active_fixtures[active_fixtures$fordulo == r, ])), function(i) {
+          fixture_card(active_fixtures[active_fixtures$fordulo == r, ][i, ])
         })
       )
     )
   })
 )
+```
+
+## Heti tippek (Tippelde / Pontosan / Könyv)
+
+Három tipp mérkőzésenként: a **Tippelde tipp** és a **Pontosan tipp** a saját Dixon-Coles gólrácsunkból az adott játék pontozási szabálya szerint a várható pontszámot (EP) maximalizáló végeredmény — ez nem feltétlenül a legvalószínűbb eredmény, hanem az, ami a lépcsőzetes pontozás (pontos eredmény / gólkülönbség / győztes / egy gólszám) mellett hosszú távon a legtöbb pontot hozza. A **Pontosan xG** a saját modell várható gólszáma csapatonként (ezt írd be az xG-tippnek). A **Könyv tipp** a fogadóiroda 1X2 odds-ából (de-vigelve) implikált gólrácsból, a Tippelde-szabály szerint EP-optimalizálva — csak akkor jelenik meg, ha van rögzített könyv-odds az adott meccsre.
+
+```{r weekly-tips-table}
+weekly_tips |>
+  transmute(
+    Forduló = fordulo, Hazai = home, Vendég = away,
+    `Tippelde tipp` = paste0(tippelde_h, "–", tippelde_a),
+    `Pontosan tipp` = paste0(pontosan_h, "–", pontosan_a),
+    `Pontosan xG` = paste0(xg_h, " / ", xg_a),
+    `Könyv tipp` = ifelse(is.na(konyv_h), "–", paste0(konyv_h, "–", konyv_a))
+  ) |>
+  kable(caption = "Heti tippek forduló szerint")
 ```
 
 ## Value pick teljesítmény
@@ -301,7 +490,7 @@ resolve_pick <- function(market_key, ah_line, home_goals, away_goals, book_odds)
   list(status = "nyitott", profit = NA_real_)
 }
 
-all_markets <- purrr::map_dfr(seq_len(nrow(fixtures)), ~fixture_markets(fixtures[.x, ]))
+all_markets <- purrr::map_dfr(seq_len(nrow(active_fixtures)), ~fixture_markets(active_fixtures[.x, ]))
 
 value_bets <- all_markets |>
   filter(is_value) |>

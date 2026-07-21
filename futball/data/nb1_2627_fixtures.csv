@@ -5,3 +5,195 @@ fordulo,home,away
 1,Debrecen,Puskás FC
 1,Paksi FC,Ferencváros
 1,MTK,Zalaegerszegi TE
+2,Puskás FC,Várda SE
+2,Honvéd,MTK
+2,Újpest,Debrecen
+2,Győri ETO,Nyíregyháza Spartacus
+2,Ferencváros,Vasas
+2,Zalaegerszegi TE,Paksi FC
+3,Debrecen,Nyíregyháza Spartacus
+3,Győri ETO,Ferencváros
+3,Várda SE,Újpest
+3,MTK,Puskás FC
+3,Paksi FC,Honvéd
+3,Vasas,Zalaegerszegi TE
+4,Debrecen,Győri ETO
+4,Honvéd,Vasas
+4,Nyíregyháza Spartacus,Várda SE
+4,Puskás FC,Paksi FC
+4,Újpest,MTK
+4,Zalaegerszegi TE,Ferencváros
+5,Ferencváros,Honvéd
+5,Győri ETO,Zalaegerszegi TE
+5,Várda SE,Debrecen
+5,MTK,Nyíregyháza Spartacus
+5,Paksi FC,Újpest
+5,Vasas,Puskás FC
+6,Debrecen,MTK
+6,Honvéd,Zalaegerszegi TE
+6,Várda SE,Győri ETO
+6,Nyíregyháza Spartacus,Paksi FC
+6,Puskás FC,Ferencváros
+6,Újpest,Vasas
+7,Ferencváros,Újpest
+7,Győri ETO,Honvéd
+7,MTK,Várda SE
+7,Paksi FC,Debrecen
+7,Vasas,Nyíregyháza Spartacus
+7,Zalaegerszegi TE,Puskás FC
+8,Debrecen,Vasas
+8,Várda SE,Paksi FC
+8,MTK,Győri ETO
+8,Nyíregyháza Spartacus,Ferencváros
+8,Puskás FC,Honvéd
+8,Újpest,Zalaegerszegi TE
+9,Ferencváros,Debrecen
+9,Győri ETO,Puskás FC
+9,Honvéd,Újpest
+9,Paksi FC,MTK
+9,Vasas,Várda SE
+9,Zalaegerszegi TE,Nyíregyháza Spartacus
+10,Debrecen,Zalaegerszegi TE
+10,Várda SE,Ferencváros
+10,MTK,Vasas
+10,Nyíregyháza Spartacus,Honvéd
+10,Paksi FC,Győri ETO
+10,Újpest,Puskás FC
+11,Ferencváros,MTK
+11,Győri ETO,Újpest
+11,Honvéd,Debrecen
+11,Puskás FC,Nyíregyháza Spartacus
+11,Vasas,Paksi FC
+11,Zalaegerszegi TE,Várda SE
+12,Ferencváros,Paksi FC
+12,Győri ETO,Vasas
+12,Honvéd,Várda SE
+12,Puskás FC,Debrecen
+12,Újpest,Nyíregyháza Spartacus
+12,Zalaegerszegi TE,MTK
+13,Debrecen,Újpest
+13,Várda SE,Puskás FC
+13,MTK,Honvéd
+13,Nyíregyháza Spartacus,Győri ETO
+13,Paksi FC,Zalaegerszegi TE
+13,Vasas,Ferencváros
+14,Ferencváros,Győri ETO
+14,Honvéd,Paksi FC
+14,Nyíregyháza Spartacus,Debrecen
+14,Puskás FC,MTK
+14,Újpest,Várda SE
+14,Zalaegerszegi TE,Vasas
+15,Ferencváros,Zalaegerszegi TE
+15,Győri ETO,Debrecen
+15,Várda SE,Nyíregyháza Spartacus
+15,MTK,Újpest
+15,Paksi FC,Puskás FC
+15,Vasas,Honvéd
+16,Debrecen,Várda SE
+16,Honvéd,Ferencváros
+16,Nyíregyháza Spartacus,MTK
+16,Puskás FC,Vasas
+16,Újpest,Paksi FC
+16,Zalaegerszegi TE,Győri ETO
+17,Ferencváros,Puskás FC
+17,Győri ETO,Várda SE
+17,MTK,Debrecen
+17,Paksi FC,Nyíregyháza Spartacus
+17,Vasas,Újpest
+17,Zalaegerszegi TE,Honvéd
+18,Debrecen,Paksi FC
+18,Honvéd,Győri ETO
+18,Várda SE,MTK
+18,Nyíregyháza Spartacus,Vasas
+18,Puskás FC,Zalaegerszegi TE
+18,Újpest,Ferencváros
+19,Ferencváros,Nyíregyháza Spartacus
+19,Győri ETO,MTK
+19,Honvéd,Puskás FC
+19,Paksi FC,Várda SE
+19,Vasas,Debrecen
+19,Zalaegerszegi TE,Újpest
+20,Debrecen,Ferencváros
+20,Várda SE,Vasas
+20,MTK,Paksi FC
+20,Nyíregyháza Spartacus,Zalaegerszegi TE
+20,Puskás FC,Győri ETO
+20,Újpest,Honvéd
+21,Ferencváros,Várda SE
+21,Győri ETO,Paksi FC
+21,Honvéd,Nyíregyháza Spartacus
+21,Puskás FC,Újpest
+21,Vasas,MTK
+21,Zalaegerszegi TE,Debrecen
+22,Debrecen,Honvéd
+22,Várda SE,Zalaegerszegi TE
+22,MTK,Ferencváros
+22,Nyíregyháza Spartacus,Puskás FC
+22,Paksi FC,Vasas
+22,Újpest,Győri ETO
+23,Debrecen,Puskás FC
+23,Várda SE,Honvéd
+23,MTK,Zalaegerszegi TE
+23,Nyíregyháza Spartacus,Újpest
+23,Paksi FC,Ferencváros
+23,Vasas,Győri ETO
+24,Ferencváros,Vasas
+24,Győri ETO,Nyíregyháza Spartacus
+24,Honvéd,MTK
+24,Puskás FC,Várda SE
+24,Újpest,Debrecen
+24,Zalaegerszegi TE,Paksi FC
+25,Debrecen,Nyíregyháza Spartacus
+25,Győri ETO,Ferencváros
+25,Várda SE,Újpest
+25,MTK,Puskás FC
+25,Paksi FC,Honvéd
+25,Vasas,Zalaegerszegi TE
+26,Debrecen,Győri ETO
+26,Honvéd,Vasas
+26,Nyíregyháza Spartacus,Várda SE
+26,Puskás FC,Paksi FC
+26,Újpest,MTK
+26,Zalaegerszegi TE,Ferencváros
+27,Ferencváros,Honvéd
+27,Győri ETO,Zalaegerszegi TE
+27,Várda SE,Debrecen
+27,MTK,Nyíregyháza Spartacus
+27,Paksi FC,Újpest
+27,Vasas,Puskás FC
+28,Debrecen,MTK
+28,Honvéd,Zalaegerszegi TE
+28,Várda SE,Győri ETO
+28,Nyíregyháza Spartacus,Paksi FC
+28,Puskás FC,Ferencváros
+28,Újpest,Vasas
+29,Ferencváros,Újpest
+29,Győri ETO,Honvéd
+29,MTK,Várda SE
+29,Paksi FC,Debrecen
+29,Vasas,Nyíregyháza Spartacus
+29,Zalaegerszegi TE,Puskás FC
+30,Debrecen,Vasas
+30,Várda SE,Paksi FC
+30,MTK,Győri ETO
+30,Nyíregyháza Spartacus,Ferencváros
+30,Puskás FC,Honvéd
+30,Újpest,Zalaegerszegi TE
+31,Ferencváros,Debrecen
+31,Győri ETO,Puskás FC
+31,Honvéd,Újpest
+31,Paksi FC,MTK
+31,Vasas,Várda SE
+31,Zalaegerszegi TE,Nyíregyháza Spartacus
+32,Debrecen,Zalaegerszegi TE
+32,Várda SE,Ferencváros
+32,MTK,Vasas
+32,Nyíregyháza Spartacus,Honvéd
+32,Paksi FC,Győri ETO
+32,Újpest,Puskás FC
+33,Ferencváros,MTK
+33,Győri ETO,Újpest
+33,Honvéd,Debrecen
+33,Puskás FC,Nyíregyháza Spartacus
+33,Vasas,Paksi FC
+33,Zalaegerszegi TE,Várda SE

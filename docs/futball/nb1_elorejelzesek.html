@@ -227,8 +227,8 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Győri ETO</td>
-<td style="text-align: right;">1.84</td>
-<td style="text-align: right;">61</td>
+<td style="text-align: right;">1.87</td>
+<td style="text-align: right;">62</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
@@ -239,8 +239,8 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">Puskás FC</td>
-<td style="text-align: right;">1.46</td>
-<td style="text-align: right;">48</td>
+<td style="text-align: right;">1.43</td>
+<td style="text-align: right;">47</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
@@ -251,31 +251,31 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">MTK</td>
-<td style="text-align: right;">1.34</td>
+<td style="text-align: right;">1.32</td>
 <td style="text-align: right;">44</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
 <td style="text-align: left;">Debrecen</td>
-<td style="text-align: right;">1.28</td>
+<td style="text-align: right;">1.27</td>
 <td style="text-align: right;">42</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Nyíregyháza Spartacus</td>
-<td style="text-align: right;">1.23</td>
-<td style="text-align: right;">41</td>
+<td style="text-align: right;">1.22</td>
+<td style="text-align: right;">40</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">Várda SE</td>
-<td style="text-align: right;">1.20</td>
-<td style="text-align: right;">40</td>
+<td style="text-align: right;">1.17</td>
+<td style="text-align: right;">39</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Vasas</td>
-<td style="text-align: right;">1.15</td>
+<td style="text-align: right;">1.16</td>
 <td style="text-align: right;">38</td>
 </tr>
 <tr class="odd">
@@ -287,8 +287,136 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: right;">12</td>
 <td style="text-align: left;">Honvéd</td>
-<td style="text-align: right;">1.02</td>
-<td style="text-align: right;">34</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">35</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="élő-tabella-szimuláció-és-bajnoki-esélyek" class="level2">
+<h2 class="anchored" data-anchor-id="élő-tabella-szimuláció-és-bajnoki-esélyek">Élő tabella-szimuláció és bajnoki esélyek</h2>
+<p>A fenti előszezoni tábla statikus (egyszer generált) becslés. Ez a szimuláció minden renderelésnél újrafut: a ténylegesen már lejátszott meccsek (<code>futball/data/nb1_2627_results.csv</code>) rögzített pontjaiból indulva, a hátralévő mind a 33 forduló összes meccsét (<code>futball/data/nb1_2627_fixtures.csv</code> — teljes szezon-menetrend) sokezerszer lejátszatja a saját Dixon-Coles gólrácsunkból mintavételezve, és ebből számol várható végpontszámot, várható helyezést és bajnoki esélyt csapatonként. Forduló után forduló, ahogy a <code>results.csv</code> bővül a valós eredményekkel, ez a tábla magától frissül.</p>
+<p>A „Piaci bajnoki esély” a kézzel megadott fogadóirodai outright (bajnok) odds-okból jön (<code>futball/data/nb1_2627_outright_odds.csv</code>), de-vigelve. Mivel csak győztes-piac van megadva, a könyv-oldali összevetés csak a bajnoki eséllyel lehetséges — a többi helyezésre nincs piaci referenciánk.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>10 000 szimuláció — 0 lejátszott meccs rögzített eredménnyel + 198 hátralévő meccs a modellből mintavételezve</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Csapat</th>
+<th style="text-align: right;">Várható pontszám</th>
+<th style="text-align: right;">Várható helyezés</th>
+<th style="text-align: left;">Saját bajnoki esély</th>
+<th style="text-align: left;">Piaci bajnoki esély</th>
+<th style="text-align: right;">Eltérés (pp)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ferencváros</td>
+<td style="text-align: right;">67.3</td>
+<td style="text-align: right;">1.53</td>
+<td style="text-align: left;">59.7%</td>
+<td style="text-align: left;">51.3%</td>
+<td style="text-align: right;">8.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Győri ETO</td>
+<td style="text-align: right;">64.2</td>
+<td style="text-align: right;">1.92</td>
+<td style="text-align: left;">35.7%</td>
+<td style="text-align: left;">15.4%</td>
+<td style="text-align: right;">20.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Paksi FC</td>
+<td style="text-align: right;">51.8</td>
+<td style="text-align: right;">4.28</td>
+<td style="text-align: left;">2.5%</td>
+<td style="text-align: left;">5.9%</td>
+<td style="text-align: right;">-3.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puskás FC</td>
+<td style="text-align: right;">48.4</td>
+<td style="text-align: right;">5.22</td>
+<td style="text-align: left;">1%</td>
+<td style="text-align: left;">1.5%</td>
+<td style="text-align: right;">-0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nyíregyháza Spartacus</td>
+<td style="text-align: right;">45.6</td>
+<td style="text-align: right;">6.08</td>
+<td style="text-align: left;">0.4%</td>
+<td style="text-align: left;">0.8%</td>
+<td style="text-align: right;">-0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Debrecen</td>
+<td style="text-align: right;">44.4</td>
+<td style="text-align: right;">6.48</td>
+<td style="text-align: left;">0.4%</td>
+<td style="text-align: left;">7.7%</td>
+<td style="text-align: right;">-7.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Várda SE</td>
+<td style="text-align: right;">39.8</td>
+<td style="text-align: right;">7.99</td>
+<td style="text-align: left;">0%</td>
+<td style="text-align: left;">0.5%</td>
+<td style="text-align: right;">-0.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Újpest</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">8.18</td>
+<td style="text-align: left;">0%</td>
+<td style="text-align: left;">7.7%</td>
+<td style="text-align: right;">-7.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zalaegerszegi TE</td>
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">8.29</td>
+<td style="text-align: left;">0.1%</td>
+<td style="text-align: left;">2.6%</td>
+<td style="text-align: right;">-2.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MTK</td>
+<td style="text-align: right;">37.8</td>
+<td style="text-align: right;">8.67</td>
+<td style="text-align: left;">0.1%</td>
+<td style="text-align: left;">3.8%</td>
+<td style="text-align: right;">-3.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vasas</td>
+<td style="text-align: right;">36.5</td>
+<td style="text-align: right;">9.10</td>
+<td style="text-align: left;">0%</td>
+<td style="text-align: left;">1.5%</td>
+<td style="text-align: right;">-1.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Honvéd</td>
+<td style="text-align: right;">32.5</td>
+<td style="text-align: right;">10.26</td>
+<td style="text-align: left;">0%</td>
+<td style="text-align: left;">1.3%</td>
+<td style="text-align: right;">-1.3</td>
 </tr>
 </tbody>
 </table>
@@ -315,54 +443,54 @@ ul.task-list li input[type="checkbox"] {
 <div class="fc-market-odds">
 <span class="fc-odds-fair">2.18</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.75</span>
+<span class="fc-odds-book">2.17</span>
 </div>
-<span class="fc-edge fc-edge-value">+26.1%</span>
+<span class="fc-edge">-0.5%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Döntetlen (X)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">3.99</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.40</span>
+<span class="fc-odds-book">3.60</span>
 </div>
-<span class="fc-edge fc-edge-bad">-14.8%</span>
+<span class="fc-edge fc-edge-bad">-9.8%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Vendég (2)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">3.43</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.46</span>
+<span class="fc-odds-book">3.05</span>
 </div>
-<span class="fc-edge fc-edge-bad">-28.3%</span>
+<span class="fc-edge fc-edge-bad">-11.1%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Több mint 2,5 gól</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.80</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.66</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-7.8%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Mindkét csapat szerez gólt</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.72</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.57</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-8.7%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Ázsiai hendikep (-0.25)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.91</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.84</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-3.7%</span>
 </div>
 </div>
 </div>
@@ -376,52 +504,52 @@ ul.task-list li input[type="checkbox"] {
 <div class="fc-market-row">
 <div class="fc-market-label">Hazai (1)</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">2.08</span>
+<span class="fc-odds-fair">2.13</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.40</span>
+<span class="fc-odds-book">2.30</span>
 </div>
-<span class="fc-edge fc-edge-value">+15.4%</span>
+<span class="fc-edge fc-edge-value">+8%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Döntetlen (X)</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">3.97</span>
+<span class="fc-odds-fair">3.95</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.40</span>
+<span class="fc-odds-book">3.20</span>
 </div>
-<span class="fc-edge fc-edge-bad">-14.4%</span>
+<span class="fc-edge fc-edge-bad">-19%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Vendég (2)</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">3.73</span>
+<span class="fc-odds-fair">3.60</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.80</span>
+<span class="fc-odds-book">3.10</span>
 </div>
-<span class="fc-edge fc-edge-bad">-24.9%</span>
+<span class="fc-edge fc-edge-bad">-13.9%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Több mint 2,5 gól</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.86</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.82</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge">-2.2%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Mindkét csapat szerez gólt</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">1.78</span>
+<span class="fc-odds-fair">1.77</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.64</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-7.3%</span>
 </div>
 <div class="fc-market-row">
-<div class="fc-market-label">Ázsiai hendikep (-0.50)</div>
+<div class="fc-market-label">Ázsiai hendikep (-0.50) (mi: -0.50 / könyv: eltérő vonal — nem összevethető)</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">2.08</span>
+<span class="fc-odds-fair">2.13</span>
 <span class="fc-odds-sep">vs</span>
 <span class="fc-odds-book">–</span>
 </div>
@@ -439,52 +567,52 @@ ul.task-list li input[type="checkbox"] {
 <div class="fc-market-row">
 <div class="fc-market-label">Hazai (1)</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">6.14</span>
+<span class="fc-odds-fair">6.07</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.05</span>
+<span class="fc-odds-book">4.15</span>
 </div>
-<span class="fc-edge fc-edge-bad">-50.3%</span>
+<span class="fc-edge fc-edge-bad">-31.6%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Döntetlen (X)</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">4.75</span>
+<span class="fc-odds-fair">4.73</span>
 <span class="fc-odds-sep">vs</span>
 <span class="fc-odds-book">3.40</span>
 </div>
-<span class="fc-edge fc-edge-bad">-28.4%</span>
+<span class="fc-edge fc-edge-bad">-28.1%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Vendég (2)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.60</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.24</span>
+<span class="fc-odds-book">1.88</span>
 </div>
-<span class="fc-edge fc-edge-value">+40%</span>
+<span class="fc-edge fc-edge-value">+17.5%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Több mint 2,5 gól</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.71</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.65</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-3.5%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Mindkét csapat szerez gólt</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">1.84</span>
+<span class="fc-odds-fair">1.83</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.58</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-13.7%</span>
 </div>
 <div class="fc-market-row">
-<div class="fc-market-label">Ázsiai hendikep (1.00)</div>
+<div class="fc-market-label">Ázsiai hendikep (1.00) (mi: 1.00 / könyv: eltérő vonal — nem összevethető)</div>
 <div class="fc-market-odds">
-<span class="fc-odds-fair">2.05</span>
+<span class="fc-odds-fair">2.04</span>
 <span class="fc-odds-sep">vs</span>
 <span class="fc-odds-book">–</span>
 </div>
@@ -504,48 +632,48 @@ ul.task-list li input[type="checkbox"] {
 <div class="fc-market-odds">
 <span class="fc-odds-fair">2.81</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.09</span>
+<span class="fc-odds-book">2.12</span>
 </div>
-<span class="fc-edge fc-edge-bad">-25.6%</span>
+<span class="fc-edge fc-edge-bad">-24.6%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Döntetlen (X)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">3.93</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.50</span>
+<span class="fc-odds-book">3.45</span>
 </div>
-<span class="fc-edge fc-edge-bad">-10.9%</span>
+<span class="fc-edge fc-edge-bad">-12.2%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Vendég (2)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">2.57</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.35</span>
+<span class="fc-odds-book">3.25</span>
 </div>
-<span class="fc-edge fc-edge-value">+30.4%</span>
+<span class="fc-edge fc-edge-value">+26.5%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Több mint 2,5 gól</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.79</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.77</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge">-1.1%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Mindkét csapat szerez gólt</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.68</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.64</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge">-2.4%</span>
 </div>
 <div class="fc-market-row">
-<div class="fc-market-label">Ázsiai hendikep (0.00)</div>
+<div class="fc-market-label">Ázsiai hendikep (0.00) (mi: 0.00 / könyv: eltérő vonal — nem összevethető)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">2.09</span>
 <span class="fc-odds-sep">vs</span>
@@ -567,48 +695,48 @@ ul.task-list li input[type="checkbox"] {
 <div class="fc-market-odds">
 <span class="fc-odds-fair">4.02</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.75</span>
+<span class="fc-odds-book">4.00</span>
 </div>
-<span class="fc-edge fc-edge-bad">-6.7%</span>
+<span class="fc-edge">-0.5%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Döntetlen (X)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">4.11</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.60</span>
+<span class="fc-odds-book">4.00</span>
 </div>
-<span class="fc-edge fc-edge-bad">-12.4%</span>
+<span class="fc-edge">-2.7%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Vendég (2)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.97</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">1.93</span>
+<span class="fc-odds-book">1.77</span>
 </div>
-<span class="fc-edge">-2%</span>
+<span class="fc-edge fc-edge-bad">-10.2%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Több mint 2,5 gól</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.79</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.51</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-15.6%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Mindkét csapat szerez gólt</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.75</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.50</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-14.3%</span>
 </div>
 <div class="fc-market-row">
-<div class="fc-market-label">Ázsiai hendikep (0.50)</div>
+<div class="fc-market-label">Ázsiai hendikep (0.50) (mi: 0.50 / könyv: eltérő vonal — nem összevethető)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">2.03</span>
 <span class="fc-odds-sep">vs</span>
@@ -630,48 +758,48 @@ ul.task-list li input[type="checkbox"] {
 <div class="fc-market-odds">
 <span class="fc-odds-fair">2.63</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.29</span>
+<span class="fc-odds-book">2.17</span>
 </div>
-<span class="fc-edge fc-edge-bad">-12.9%</span>
+<span class="fc-edge fc-edge-bad">-17.5%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Döntetlen (X)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">3.85</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">3.40</span>
+<span class="fc-odds-book">3.55</span>
 </div>
-<span class="fc-edge fc-edge-bad">-11.7%</span>
+<span class="fc-edge fc-edge-bad">-7.8%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Vendég (2)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">2.78</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">2.95</span>
+<span class="fc-odds-book">3.10</span>
 </div>
-<span class="fc-edge fc-edge-value">+6.1%</span>
+<span class="fc-edge fc-edge-value">+11.5%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Több mint 2,5 gól</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.86</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.73</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-7%</span>
 </div>
 <div class="fc-market-row">
 <div class="fc-market-label">Mindkét csapat szerez gólt</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.73</span>
 <span class="fc-odds-sep">vs</span>
-<span class="fc-odds-book">–</span>
+<span class="fc-odds-book">1.60</span>
 </div>
-<span class="fc-edge fc-edge-na">–</span>
+<span class="fc-edge fc-edge-bad">-7.5%</span>
 </div>
 <div class="fc-market-row">
-<div class="fc-market-label">Ázsiai hendikep (0.00)</div>
+<div class="fc-market-label">Ázsiai hendikep (0.00) (mi: 0.00 / könyv: eltérő vonal — nem összevethető)</div>
 <div class="fc-market-odds">
 <span class="fc-odds-fair">1.94</span>
 <span class="fc-odds-sep">vs</span>
@@ -682,6 +810,93 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="heti-tippek-tippelde-pontosan-könyv" class="level2">
+<h2 class="anchored" data-anchor-id="heti-tippek-tippelde-pontosan-könyv">Heti tippek (Tippelde / Pontosan / Könyv)</h2>
+<p>Három tipp mérkőzésenként: a <strong>Tippelde tipp</strong> és a <strong>Pontosan tipp</strong> a saját Dixon-Coles gólrácsunkból az adott játék pontozási szabálya szerint a várható pontszámot (EP) maximalizáló végeredmény — ez nem feltétlenül a legvalószínűbb eredmény, hanem az, ami a lépcsőzetes pontozás (pontos eredmény / gólkülönbség / győztes / egy gólszám) mellett hosszú távon a legtöbb pontot hozza. A <strong>Pontosan xG</strong> a saját modell várható gólszáma csapatonként (ezt írd be az xG-tippnek). A <strong>Könyv tipp</strong> a fogadóiroda 1X2 odds-ából (de-vigelve) implikált gólrácsból, a Tippelde-szabály szerint EP-optimalizálva — csak akkor jelenik meg, ha van rögzített könyv-odds az adott meccsre.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Heti tippek forduló szerint</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 22%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Forduló</th>
+<th style="text-align: left;">Hazai</th>
+<th style="text-align: left;">Vendég</th>
+<th style="text-align: left;">Tippelde tipp</th>
+<th style="text-align: left;">Pontosan tipp</th>
+<th style="text-align: left;">Pontosan xG</th>
+<th style="text-align: left;">Könyv tipp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Nyíregyháza Spartacus</td>
+<td style="text-align: left;">Újpest</td>
+<td style="text-align: left;">1–0</td>
+<td style="text-align: left;">1–1</td>
+<td style="text-align: left;">1.6 / 1.3</td>
+<td style="text-align: left;">1–0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Várda SE</td>
+<td style="text-align: left;">Honvéd</td>
+<td style="text-align: left;">1–0</td>
+<td style="text-align: left;">1–1</td>
+<td style="text-align: left;">1.6 / 1.2</td>
+<td style="text-align: left;">1–0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Vasas</td>
+<td style="text-align: left;">Győri ETO</td>
+<td style="text-align: left;">0–1</td>
+<td style="text-align: left;">0–1</td>
+<td style="text-align: left;">1 / 2.1</td>
+<td style="text-align: left;">0–1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Debrecen</td>
+<td style="text-align: left;">Puskás FC</td>
+<td style="text-align: left;">0–1</td>
+<td style="text-align: left;">1–1</td>
+<td style="text-align: left;">1.4 / 1.5</td>
+<td style="text-align: left;">1–0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Paksi FC</td>
+<td style="text-align: left;">Ferencváros</td>
+<td style="text-align: left;">0–1</td>
+<td style="text-align: left;">1–1</td>
+<td style="text-align: left;">1.2 / 1.8</td>
+<td style="text-align: left;">1–2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">MTK</td>
+<td style="text-align: left;">Zalaegerszegi TE</td>
+<td style="text-align: left;">1–0</td>
+<td style="text-align: left;">1–1</td>
+<td style="text-align: left;">1.4 / 1.4</td>
+<td style="text-align: left;">1–0</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
@@ -716,11 +931,11 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Csak végeredmény (1X2)</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">NA</td>
 </tr>
@@ -746,11 +961,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">Összesen (kombinált)</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">NA</td>
 </tr>
