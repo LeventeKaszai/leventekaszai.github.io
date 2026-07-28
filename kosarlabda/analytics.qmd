@@ -8,19 +8,6 @@ format:
     include-in-header:
       text: |
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-        <script>
-        (function() {
-          if (sessionStorage.getItem("analytics_auth") !== "ok") {
-            var pwd = prompt("Jelszó:");
-            if (pwd === "magyarsport") {
-              sessionStorage.setItem("analytics_auth", "ok");
-            } else {
-              document.documentElement.innerHTML = "";
-              window.location.replace("index.html");
-            }
-          }
-        })();
-        </script>
 execute:
   echo: false
   warning: false
