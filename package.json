@@ -1,0 +1,9 @@
+{
+  "name": "leventekaszai-github-io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Build tooling for the leventekaszai.github.io Quarto site (staticrypt post-render encryption of locked pages).",
+  "devDependencies": {
+    "staticrypt": "^3.5.4"
+  }
+}

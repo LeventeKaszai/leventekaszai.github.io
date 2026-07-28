@@ -11,3 +11,4 @@ basketball_database/
 --allowedTools
 Rplots.pdf
 futball/striker_clustering_cache/
+node_modules/
