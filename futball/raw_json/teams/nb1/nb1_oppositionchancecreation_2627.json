@@ -1,0 +1,321 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's performance in opposition chance creation",
+    "subtitle": "Újpest | Hungarian NB I 2026/2027",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Honvéd",
+            "Vasas",
+            "Nyíregyháza Spartacus",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10194,
+            10196,
+            10198,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Opp. Box touches",
+                "description": "Number of touches by the opponent inside the team's box per match.",
+                "display_name": "Opp. Box touches"
+            },
+            {
+                "name": "Opp. Box to shot %",
+                "description": "Percentage of possessions by the opponent inside the team's box that led to a shot per match.",
+                "display_name": "Opp. Box to shot %"
+            },
+            {
+                "name": "Opp. np Shots",
+                "description": "Number of non-penalty shots by the opponent per match.",
+                "display_name": "Opp. np Shots"
+            },
+            {
+                "name": "Opp. High opportunity shots",
+                "description": "Number of non-penalty shots by the opponent with expected goals higher than 0.15 per match.",
+                "display_name": "Opp. High opportunity shots"
+            },
+            {
+                "name": "Opp. np xG",
+                "description": "Number of goals that the opponent should be expected to score statistically considering the quality of their chances, excluding penalties per match.",
+                "display_name": "Opp. np xG"
+            },
+            {
+                "name": "Opp. np Goals",
+                "description": "Number of non-penalty goals by the opponent (including own-goals by the team) per match.",
+                "display_name": "Opp. np Goals"
+            },
+            {
+                "name": "Opp. np xG per shot",
+                "description": "Mean expected goals of the non-penalty shots of the opponent per match.",
+                "display_name": "Opp. np xG per shot"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -1.0460845109121075,
+                -0.13342816860688922,
+                -0.6541009870546157,
+                -1.65615734242165,
+                -1.228848752152485,
+                -2.167561768980614,
+                -0.7571784575096386
+            ],
+            [
+                -0.6475761258027333,
+                -0.13342816860688922,
+                1.4591483557372202,
+                -0.4140393356054125,
+                -0.5635163678861684,
+                -0.37371754637596794,
+                -1.8730203948922635
+            ],
+            [
+                0.5479490295253897,
+                2.0776671968787084,
+                1.1572555924812438,
+                0.828078671210825,
+                1.1905417360886665,
+                1.420126676228678,
+                0.836881453036969
+            ],
+            [
+                0.5479490295253897,
+                0.8577525124728616,
+                0.25157730271331397,
+                1.2421180068162376,
+                0.8639240201761111,
+                -0.37371754637596794,
+                0.836881453036969
+            ],
+            [
+                -0.04981354813867179,
+                -0.28591750415762024,
+                -0.35220822379863914,
+                -1.65615734242165,
+                -1.3861091338881597,
+                -1.2706396576782908,
+                -1.07599043961896
+            ],
+            [
+                1.145711607189451,
+                -0.6671408430344478,
+                -0.05031546054266258,
+                1.2421180068162376,
+                0.9486026872645513,
+                -0.37371754637596794,
+                0.99628744409163
+            ],
+            [
+                -0.04981354813867179,
+                -0.4384068397083512,
+                -0.35220822379863914,
+                0.4140393356054125,
+                0.5856941140283787,
+                0.5232045649263549,
+                0.6774754619823083
+            ],
+            [
+                -0.4483219332480461,
+                -0.13342816860688922,
+                -0.9559937503105923,
+                0,
+                -1.5917573253886579,
+                0.5232045649263549,
+                -0.916584448564299
+            ],
+            [
+                1.3449657997441382,
+                0.0190611669438418,
+                1.4591483557372202,
+                1.2421180068162376,
+                1.3961899275891645,
+                0.5232045649263549,
+                0.99628744409163
+            ],
+            [
+                0.5479490295253897,
+                -2.192034198541756,
+                0.8553628292252672,
+                -0.828078671210825,
+                -0.5514194154449624,
+                -0.37371754637596794,
+                -1.07599043961896
+            ],
+            [
+                -2.4408638587949176,
+                1.1627311835743226,
+                -1.2578865135665689,
+                0,
+                0.18649468346858863,
+                0.5232045649263549,
+                0.6774754619823083
+            ],
+            [
+                0.5479490295253897,
+                -0.13342816860688922,
+                -1.5597792768225454,
+                -0.4140393356054125,
+                0.15020382614497133,
+                1.420126676228678,
+                0.6774754619823083
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\nRank: 11/12\n24.00 Opp. Box touches",
+                "Ferencváros\nRank: 5/12\n73% Opp. Box to shot ",
+                "Ferencváros\nRank: 9/12\n16.00 Opp. np Shots",
+                "Ferencváros\nRank: 11/12\n8.00 Opp. High opportunity shots",
+                "Ferencváros\nRank: 10/12\n2.69 Opp. np xG",
+                "Ferencváros\nRank: 12/12\n4.00 Opp. np Goals",
+                "Ferencváros\nRank: 8/12\n0.17 Opp. np xG per shot"
+            ],
+            [
+                "Debrecen\nRank: 10/12\n22.00 Opp. Box touches",
+                "Debrecen\nRank: 5/12\n73% Opp. Box to shot ",
+                "Debrecen\nRank: 1/12\n9.00 Opp. np Shots",
+                "Debrecen\nRank: 8/12\n5.00 Opp. High opportunity shots",
+                "Debrecen\nRank: 9/12\n2.14 Opp. np xG",
+                "Debrecen\nRank: 7/12\n2.00 Opp. np Goals",
+                "Debrecen\nRank: 12/12\n0.24 Opp. np xG per shot"
+            ],
+            [
+                "MTK\nRank: 3/12\n16.00 Opp. Box touches",
+                "MTK\nRank: 1/12\n44% Opp. Box to shot ",
+                "MTK\nRank: 3/12\n10.00 Opp. np Shots",
+                "MTK\nRank: 4/12\n2.00 Opp. High opportunity shots",
+                "MTK\nRank: 2/12\n0.69 Opp. np xG",
+                "MTK\nRank: 1/12\n0.00 Opp. np Goals",
+                "MTK\nRank: 3/12\n0.07 Opp. np xG per shot"
+            ],
+            [
+                "Újpest\nRank: 3/12\n16.00 Opp. Box touches",
+                "Újpest\nRank: 3/12\n60% Opp. Box to shot ",
+                "Újpest\nRank: 5/12\n13.00 Opp. np Shots",
+                "Újpest\nRank: 1/12\n1.00 Opp. High opportunity shots",
+                "Újpest\nRank: 4/12\n0.96 Opp. np xG",
+                "Újpest\nRank: 7/12\n2.00 Opp. np Goals",
+                "Újpest\nRank: 3/12\n0.07 Opp. np xG per shot"
+            ],
+            [
+                "Zalaegerszegi TE\nRank: 7/12\n19.00 Opp. Box touches",
+                "Zalaegerszegi TE\nRank: 9/12\n75% Opp. Box to shot ",
+                "Zalaegerszegi TE\nRank: 7/12\n15.00 Opp. np Shots",
+                "Zalaegerszegi TE\nRank: 11/12\n8.00 Opp. High opportunity shots",
+                "Zalaegerszegi TE\nRank: 11/12\n2.82 Opp. np xG",
+                "Zalaegerszegi TE\nRank: 11/12\n3.00 Opp. np Goals",
+                "Zalaegerszegi TE\nRank: 10/12\n0.19 Opp. np xG per shot"
+            ],
+            [
+                "Győri ETO\nRank: 2/12\n13.00 Opp. Box touches",
+                "Győri ETO\nRank: 11/12\n80% Opp. Box to shot ",
+                "Győri ETO\nRank: 6/12\n14.00 Opp. np Shots",
+                "Győri ETO\nRank: 1/12\n1.00 Opp. High opportunity shots",
+                "Győri ETO\nRank: 3/12\n0.89 Opp. np xG",
+                "Győri ETO\nRank: 7/12\n2.00 Opp. np Goals",
+                "Győri ETO\nRank: 1/12\n0.06 Opp. np xG per shot"
+            ],
+            [
+                "Honvéd\nRank: 7/12\n19.00 Opp. Box touches",
+                "Honvéd\nRank: 10/12\n77% Opp. Box to shot ",
+                "Honvéd\nRank: 7/12\n15.00 Opp. np Shots",
+                "Honvéd\nRank: 5/12\n3.00 Opp. High opportunity shots",
+                "Honvéd\nRank: 5/12\n1.19 Opp. np xG",
+                "Honvéd\nRank: 3/12\n1.00 Opp. np Goals",
+                "Honvéd\nRank: 5/12\n0.08 Opp. np xG per shot"
+            ],
+            [
+                "Vasas\nRank: 9/12\n21.00 Opp. Box touches",
+                "Vasas\nRank: 5/12\n73% Opp. Box to shot ",
+                "Vasas\nRank: 10/12\n17.00 Opp. np Shots",
+                "Vasas\nRank: 6/12\n4.00 Opp. High opportunity shots",
+                "Vasas\nRank: 12/12\n2.99 Opp. np xG",
+                "Vasas\nRank: 3/12\n1.00 Opp. np Goals",
+                "Vasas\nRank: 9/12\n0.18 Opp. np xG per shot"
+            ],
+            [
+                "Nyíregyháza Spartacus\nRank: 1/12\n12.00 Opp. Box touches",
+                "Nyíregyháza Spartacus\nRank: 4/12\n71% Opp. Box to shot ",
+                "Nyíregyháza Spartacus\nRank: 1/12\n9.00 Opp. np Shots",
+                "Nyíregyháza Spartacus\nRank: 1/12\n1.00 Opp. High opportunity shots",
+                "Nyíregyháza Spartacus\nRank: 1/12\n0.52 Opp. np xG",
+                "Nyíregyháza Spartacus\nRank: 3/12\n1.00 Opp. np Goals",
+                "Nyíregyháza Spartacus\nRank: 1/12\n0.06 Opp. np xG per shot"
+            ],
+            [
+                "Paksi FC\nRank: 3/12\n16.00 Opp. Box touches",
+                "Paksi FC\nRank: 12/12\n100% Opp. Box to shot ",
+                "Paksi FC\nRank: 4/12\n11.00 Opp. np Shots",
+                "Paksi FC\nRank: 10/12\n6.00 Opp. High opportunity shots",
+                "Paksi FC\nRank: 8/12\n2.13 Opp. np xG",
+                "Paksi FC\nRank: 7/12\n2.00 Opp. np Goals",
+                "Paksi FC\nRank: 10/12\n0.19 Opp. np xG per shot"
+            ],
+            [
+                "Várda SE\nRank: 12/12\n31.00 Opp. Box touches",
+                "Várda SE\nRank: 2/12\n56% Opp. Box to shot ",
+                "Várda SE\nRank: 11/12\n18.00 Opp. np Shots",
+                "Várda SE\nRank: 6/12\n4.00 Opp. High opportunity shots",
+                "Várda SE\nRank: 6/12\n1.52 Opp. np xG",
+                "Várda SE\nRank: 3/12\n1.00 Opp. np Goals",
+                "Várda SE\nRank: 5/12\n0.08 Opp. np xG per shot"
+            ],
+            [
+                "Puskás FC\nRank: 3/12\n16.00 Opp. Box touches",
+                "Puskás FC\nRank: 5/12\n73% Opp. Box to shot ",
+                "Puskás FC\nRank: 12/12\n19.00 Opp. np Shots",
+                "Puskás FC\nRank: 8/12\n5.00 Opp. High opportunity shots",
+                "Puskás FC\nRank: 7/12\n1.55 Opp. np xG",
+                "Puskás FC\nRank: 1/12\n0.00 Opp. np Goals",
+                "Puskás FC\nRank: 5/12\n0.08 Opp. np xG per shot"
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Opp. Box touches | 16.00",
+            "Opp. Box to shot % | 60",
+            "Opp. np Shots | 13.00",
+            "Opp. High opportunity shots | 1.00",
+            "Opp. np xG | 0.96",
+            "Opp. np Goals | 2.00",
+            "Opp. np xG per shot | 0.07"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

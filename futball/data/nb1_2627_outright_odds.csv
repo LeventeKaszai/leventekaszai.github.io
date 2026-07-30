@@ -1,13 +1,25 @@
-team;odds_bajnok
-Ferencváros;1,50
-Győri ETO;5,00
-Debrecen;10,00
-Újpest;10,00
-Paksi FC;13,00
-MTK;20,00
-Zalaegerszegi TE;30,00
-Vasas;50,00
-Puskás FC;50,00
-Honvéd;60,00
-Nyíregyháza Spartacus;100,00
-Várda SE;150,00
+team;fordulo;odds_bajnok
+Ferencváros;1;1,50
+Győri ETO;1;5,00
+Debrecen;1;10,00
+Újpest;1;10,00
+Paksi FC;1;13,00
+MTK;1;20,00
+Zalaegerszegi TE;1;30,00
+Vasas;1;50,00
+Puskás FC;1;50,00
+Honvéd;1;60,00
+Nyíregyháza Spartacus;1;100,00
+Várda SE;1;150,00
+Ferencváros;2;1,50
+Győri ETO;2;6,00
+Debrecen;2;12,00
+Újpest;2;20,00
+Paksi FC;2;8,00
+MTK;2;15,00
+Zalaegerszegi TE;2;80,00
+Vasas;2;50,00
+Puskás FC;2;20,00
+Honvéd;2;50,00
+Nyíregyháza Spartacus;2;40,00
+Várda SE;2;80,00

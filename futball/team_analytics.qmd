@@ -26,7 +26,7 @@ library(crosstalk)
 
 db_path <- file.path(dirname(knitr::current_input(dir = TRUE)), "futball.db")
 con     <- dbConnect(SQLite(), db_path)
-ts      <- dbGetQuery(con, "SELECT team, liga, quality, kpi, value FROM team_stats WHERE liga IN ('NB1','NB2')")
+ts      <- dbGetQuery(con, "SELECT team, liga, szezon, quality, kpi, value FROM team_stats WHERE liga IN ('NB1','NB2')")
 dbDisconnect(con)
 
 quality_order_tbl <- c(
@@ -59,28 +59,32 @@ kpi_order_tbl <- ts |>
   distinct(kpi) |>
   pull(kpi)
 
-# Deduplicálás (egyes KPI-k több quality-csoportban is szerepelnek)
-ts_dedup <- ts |> distinct(team, liga, kpi, .keep_all = TRUE)
+# Deduplicálás (egyes KPI-k több quality-csoportban is szerepelnek) — a szezont
+# NEM dedupláljuk el, különben a `team_stats` tábla tobb szezonja (2022-23 .. jelen)
+# összemosódna egyetlen (ábécé szerint elsőként feldolgozott fájlból származó)
+# szezonra. Csapat-szezononként egy sor marad a táblázatban, a szezon külön szűrhető.
+ts_dedup <- ts |> distinct(team, liga, szezon, kpi, .keep_all = TRUE)
 
-# Percentilis: mindkét liga 28 csapata együtt
+# Percentilis: kpi-nkent ES szezononkent kulon (nem all a kulonbozo szezonok
+# ertekei ossze, azok nem osszehasonlithatoak egymassal)
 ts_pct <- ts_dedup |>
-  group_by(kpi) |>
+  group_by(kpi, szezon) |>
   mutate(pct = rank(value, ties.method = "average") / n()) |>
   ungroup()
 
 wide <- ts_pct |>
-  select(team, liga, kpi, value) |>
+  select(team, liga, szezon, kpi, value) |>
   pivot_wider(names_from = kpi, values_from = value) |>
-  select(team, liga, all_of(kpi_order_tbl)) |>
-  arrange(liga, team)
+  select(team, liga, szezon, all_of(kpi_order_tbl)) |>
+  arrange(liga, team, desc(szezon))
 
 wide_pct <- ts_pct |>
-  select(team, liga, kpi, pct) |>
+  select(team, liga, szezon, kpi, pct) |>
   pivot_wider(names_from = kpi, values_from = pct, names_prefix = "pct__") |>
-  select(team, liga, all_of(paste0("pct__", kpi_order_tbl))) |>
-  arrange(liga, team)
+  select(team, liga, szezon, all_of(paste0("pct__", kpi_order_tbl))) |>
+  arrange(liga, team, desc(szezon))
 
-tbl    <- wide |> left_join(wide_pct, by = c("team", "liga"))
+tbl    <- wide |> left_join(wide_pct, by = c("team", "liga", "szezon"))
 sd_tbl <- SharedData$new(tbl)
 
 bg_colors <- c(
@@ -89,7 +93,7 @@ bg_colors <- c(
 )
 breaks <- seq(0.1, 0.9, by = 0.1)
 
-n_fixed   <- 2L
+n_fixed   <- 3L
 n_stat    <- length(kpi_order_tbl)
 stat_end  <- n_fixed + n_stat - 1L
 pct_start <- n_fixed + n_stat
@@ -141,7 +145,8 @@ group_fg <- c(
 row1_ths <- c(
   list(
     tags$th(rowspan = "2", "Csapat"),
-    tags$th(rowspan = "2", "Liga")
+    tags$th(rowspan = "2", "Liga"),
+    tags$th(rowspan = "2", "Szezon")
   ),
   lapply(seq_len(nrow(col_groups_tbl)), function(i) {
     q <- col_groups_tbl$quality[i]
@@ -207,13 +212,14 @@ dt_styled <- Reduce(function(d, kpi_name) {
 
 tagList(
   tags$div(
-    style = "margin-bottom:12px;",
-    filter_select("liga_sel", "Liga", sd_tbl, ~liga, multiple = TRUE)
+    style = "margin-bottom:12px;display:flex;gap:16px;flex-wrap:wrap;",
+    filter_select("liga_sel", "Liga", sd_tbl, ~liga, multiple = TRUE),
+    filter_select("szezon_sel", "Szezon", sd_tbl, ~szezon, multiple = TRUE)
   ),
   dt_styled,
   tags$p(
     style = "font-size:11px;color:#9CA3AF;margin-top:8px;font-family:Montserrat,sans-serif;",
-    "Percentilis: mindkét liga összes csapata alapján (28 csapat). 2025\u201326-os szezon."
+    "Percentilis: az adott KPI-n és szezonon belül, az összes csapat alapján (szezononként külön számolva)."
   )
 )
 ```

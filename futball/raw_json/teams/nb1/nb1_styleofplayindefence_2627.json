@@ -1,0 +1,265 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's style of play in defence",
+    "subtitle": "Újpest | Hungarian NB I 2026/2027",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Honvéd",
+            "Vasas",
+            "Nyíregyháza Spartacus",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10194,
+            10196,
+            10198,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Defensive action height (m)",
+                "description": "Mean height on the pitch in meters of defensive actions by the team in possessions that do not start with set-pieces in the final third per match.",
+                "display_name": "Defensive action height (m)"
+            },
+            {
+                "name": "Final-third recoveries %",
+                "description": "Percentage of recoveries by the team that are in the final third per match.",
+                "display_name": "Final-third recoveries %"
+            },
+            {
+                "name": "PPDA",
+                "description": "Number of passes by the opponent in their defensive 60% of the field compared to the number of defensive actions by the team in the same region per match.",
+                "display_name": "PPDA"
+            },
+            {
+                "name": "Fouls in attacking half %",
+                "description": "Percentage of fouls by the team in the attacking half per match.",
+                "display_name": "Fouls in attacking half %"
+            },
+            {
+                "name": "Defensive intensity",
+                "description": "Number of defensive actions that the team had per minute out of possession per match.",
+                "display_name": "Defensive intensity"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -0.9074326795723592,
+                -1.1654250089893394,
+                -1.0431353823438694,
+                -1.4686332101402009,
+                1.6451451098523417
+            ],
+            [
+                1.0877388814340148,
+                0.07376107651831286,
+                -1.0884070806734405,
+                0.9706191804040766,
+                1.1010434588865425
+            ],
+            [
+                0.8362056246608732,
+                0.07376107651831286,
+                0.47912547398796146,
+                1.3974883487493255,
+                -1.3353763233142912
+            ],
+            [
+                -1.0539569068188497,
+                -1.1654250089893394,
+                -0.42347901145786393,
+                0.8486565608768626,
+                0.8843658102718438
+            ],
+            [
+                -0.409250306934293,
+                0.07376107651831286,
+                2.4456148701787104,
+                -0.9807827320313456,
+                -1.426862441618275
+            ],
+            [
+                -0.17969568424812574,
+                -1.6965047599211904,
+                -0.3187882090707305,
+                -1.0417640417949523,
+                0.051360627819780326
+            ],
+            [
+                0.264761138399561,
+                0.6048408274501638,
+                -0.8111179284048172,
+                0.8486565608768626,
+                1.07696816459602
+            ],
+            [
+                -0.3481985455815888,
+                0.4278142438062133,
+                0.7507556639653888,
+                0.11688084371357928,
+                -0.9020210260848939
+            ],
+            [
+                1.0633181768929327,
+                1.4899737456699151,
+                -0.6102247670673451,
+                1.0925817999312906,
+                0.4991611016234907
+            ],
+            [
+                1.9058324835602498,
+                1.3129471620259652,
+                -0.7799936358032369,
+                0.23884346324079328,
+                -0.01605019619368175
+            ],
+            [
+                -1.618075181717837,
+                -0.9883984253453891,
+                0.8639349097893169,
+                -1.2856892808493803,
+                -0.8586854963619542
+            ],
+            [
+                -0.6412470000745697,
+                0.9588939947380642,
+                0.5357150968999258,
+                -0.7368574929769176,
+                -0.7190487894769262
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\n36.67 Defensive action height (m)",
+                "Ferencváros\n3% Final-third recoveries ",
+                "Ferencváros\n3.74 PPDA",
+                "Ferencváros\n33% Fouls in attacking half ",
+                "Ferencváros\n9.38 Defensive intensity"
+            ],
+            [
+                "Debrecen\n44.84 Defensive action height (m)",
+                "Debrecen\n10% Final-third recoveries ",
+                "Debrecen\n3.58 PPDA",
+                "Debrecen\n73% Fouls in attacking half ",
+                "Debrecen\n8.25 Defensive intensity"
+            ],
+            [
+                "MTK\n43.81 Defensive action height (m)",
+                "MTK\n10% Final-third recoveries ",
+                "MTK\n9.12 PPDA",
+                "MTK\n80% Fouls in attacking half ",
+                "MTK\n3.19 Defensive intensity"
+            ],
+            [
+                "Újpest\n36.07 Defensive action height (m)",
+                "Újpest\n3% Final-third recoveries ",
+                "Újpest\n5.93 PPDA",
+                "Újpest\n71% Fouls in attacking half ",
+                "Újpest\n7.80 Defensive intensity"
+            ],
+            [
+                "Zalaegerszegi TE\n38.71 Defensive action height (m)",
+                "Zalaegerszegi TE\n10% Final-third recoveries ",
+                "Zalaegerszegi TE\n16.07 PPDA",
+                "Zalaegerszegi TE\n41% Fouls in attacking half ",
+                "Zalaegerszegi TE\n3.00 Defensive intensity"
+            ],
+            [
+                "Győri ETO\n39.65 Defensive action height (m)",
+                "Győri ETO\n0% Final-third recoveries ",
+                "Győri ETO\n6.30 PPDA",
+                "Győri ETO\n40% Fouls in attacking half ",
+                "Győri ETO\n6.07 Defensive intensity"
+            ],
+            [
+                "Honvéd\n41.47 Defensive action height (m)",
+                "Honvéd\n13% Final-third recoveries ",
+                "Honvéd\n4.56 PPDA",
+                "Honvéd\n71% Fouls in attacking half ",
+                "Honvéd\n8.20 Defensive intensity"
+            ],
+            [
+                "Vasas\n38.96 Defensive action height (m)",
+                "Vasas\n12% Final-third recoveries ",
+                "Vasas\n10.08 PPDA",
+                "Vasas\n59% Fouls in attacking half ",
+                "Vasas\n4.09 Defensive intensity"
+            ],
+            [
+                "Nyíregyháza Spartacus\n44.74 Defensive action height (m)",
+                "Nyíregyháza Spartacus\n18% Final-third recoveries ",
+                "Nyíregyháza Spartacus\n5.27 PPDA",
+                "Nyíregyháza Spartacus\n75% Fouls in attacking half ",
+                "Nyíregyháza Spartacus\n7.00 Defensive intensity"
+            ],
+            [
+                "Paksi FC\n48.19 Defensive action height (m)",
+                "Paksi FC\n17% Final-third recoveries ",
+                "Paksi FC\n4.67 PPDA",
+                "Paksi FC\n61% Fouls in attacking half ",
+                "Paksi FC\n5.93 Defensive intensity"
+            ],
+            [
+                "Várda SE\n33.76 Defensive action height (m)",
+                "Várda SE\n4% Final-third recoveries ",
+                "Várda SE\n10.48 PPDA",
+                "Várda SE\n36% Fouls in attacking half ",
+                "Várda SE\n4.18 Defensive intensity"
+            ],
+            [
+                "Puskás FC\n37.76 Defensive action height (m)",
+                "Puskás FC\n15% Final-third recoveries ",
+                "Puskás FC\n9.32 PPDA",
+                "Puskás FC\n45% Fouls in attacking half ",
+                "Puskás FC\n4.47 Defensive intensity"
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Defensive action height (m) | 36.07",
+            "Final-third recoveries % | 3",
+            "PPDA | 5.93",
+            "Fouls in attacking half % | 71",
+            "Defensive intensity | 7.80"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

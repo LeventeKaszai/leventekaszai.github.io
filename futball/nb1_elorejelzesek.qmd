@@ -161,6 +161,190 @@ fair_odds_for <- function(home_team, away_team) {
 }
 ```
 
+## Kísérleti v2 modell: folytonos shrinkage a kemény vágás helyett
+
+A fenti (v1) modell a csapatminőséget (`goal_est`) fixen tartja egész szezonban, a hazai-előnyt/ρ-t pedig egy kemény vágással (`MIN_HIST_LIVE`) frissíti: 20 meccs alatt 100% preseason, 20 fölött 100% élő adat. Ez a szakasz egy **folytonos Bayes-i shrinkage-keveréket** épít fel párhuzamosan (a fenti v1-et NEM írja felül — a value-pick nyilvántartás továbbra is a v1-en fut), hogy forduló-fordulóra megnézhessük, hova mozdulna a becslés, ha a csapatminőség is élőben frissülne, fokozatosan.
+
+A keverési súly `w(k) = n0 / (n0 + k)`, ahol `k` a lejátszott meccsek száma (csapatminőségnél csapatonként külön-külön, hiszen egy csapat annyi meccsből kap élő jelet, ahányat eddig lejátszott). A keverés log-skálán (mértani átlagként) történik, mert a modell maga is szorzatos (Poisson-ráta = liga-átlag × attack × defense × hazai-faktor).
+
+**`n0` levezetése** (nem a korábbi, más kérdésre — szezon-pontszám becslésre — validált 15-20-as keresztezési pontból kölcsönözve, hanem erre a konkrét metrikára, a nettó Box touches-ra újraszámolva, a 2025-26-os NB1 meccs-szintű adatból):
+a preseason `goal_est` maga is egy 33-meccses (tavalyi) átlag ugyanabból a mutatóból, tehát a helyes keverés két, azonos mennyiséget mérő, zajos átlag inverz-variancia-súlyozása. Ha a csapat valódi minősége évről évre nem változna, ez pontosan `n0 = 33`-at adna. De változik (átigazolások, edzőváltás) — ezt a `nb1_2627_goal_estimates`-nél korábban tárgyalt problémát a bennmaradó csapatok tényleges szezonról-szezonra mért nettó Box touches-változásának varianciájából (`N=30` csapat-szezonpár, 2022-23 → 2025-26) mértük meg, és ezt az extra "sodródási" varianciát hozzáadtuk a mintavételi zajhoz. Eredmény: **`n0 ≈ 13`** (durva 95%-os bizonytalansági sáv: 6-26, mert a sodródás-variancia becslése csak N=30 megfigyelésen alapul) — jóval a naiv 33 alatt, mert a keret tényleg érdemben változik nyáron, de a korábban kölcsönzött 20-hoz közel esik.
+
+**Az élő csapatminőség-jel forrása javítva**: eredetileg egy csapatonkénti (team+opponent hatású) Poisson-GLM-mel próbáltuk a gólokból kinyerni az élő attack/defense jelet — ez kevés meccsnél (pl. 6 meccs / 12 csapat, 24 paraméter) rangdeficites/kvázi-szeparált volt, irreális együtthatókat adott, ezért kellett hozzá mesterséges védelem (adatmennyiség-kapu, együttható-sapka). Kiderült, hogy erre semmi szükség: a **`team_stats` tábla már tartalmazza a felhasználó által fordulónként frissített, idei szezon-szintű nettó Box touches-t** — ugyanazt a mutatót, amiből a preseason becslés is született —, ami csapatonként mindig jól definiált (akár 1 meccsnél is, nincs rangdeficit-probléma, mert nem illesztünk hozzá saját modellt). Az idei nyers nettó Box touches-t egy log-lineáris kalibrációs görbével (a 12 csapat preseason attack/defense-e vs. tavalyi nettó Box touches-e alapján illesztve, R²≈0,996-0,997) hozzuk ugyanarra a skálára, mint az attack/defense. Emiatt a 24-meccses várakozási kapu és az együttható-sapka is elhagyható — a csapatminőség már az 1. forduló után elkezd (kis súllyal) élő jelet kapni.
+
+```{r shrinkage-v2-setup}
+# n0 levezetese (ld. fenti szoveg): a 2025-26-os NB1 meccs-szintu netto Box touches
+# adatabol (match_team_stats_long) szamolt egyutthato-hatas ANOVA-val:
+#   sigma^2_within (meccsenkenti zaj)          = 152.73
+#   n_prior (a preseason becsles ennyi meccsbol atlagolt) = 33
+#   sigma^2_drift (szezonrol-szezonra valodi minoseg-valtozas, N=30 csapat-szezonpar,
+#                  2022-23 -> 2025-26 bennmaradokra, a tiszta mintavetelezesi zaj
+#                  levonasa utan)               = 7.43
+#   sigma^2_prior_eff = sigma^2_within/n_prior + sigma^2_drift = 12.06
+#   n0 = sigma^2_within / sigma^2_prior_eff     = 12.66  (durva 95% CI: 6-26)
+N0_SHRINK <- 12.66
+shrink_w  <- function(k) N0_SHRINK / (N0_SHRINK + k)
+
+league_avg_goals_pre <- params$league_avg_goals[1]
+home_factor_pre      <- params$home_factor[1]
+away_factor_pre      <- params$away_factor[1]
+rho_fit_pre          <- params$rho_fit[1]
+
+k_total <- nrow(played)
+teams_all <- goal_est$team
+team_k <- sapply(teams_all, function(tm) sum(played$home == tm) + sum(played$away == tm))
+
+m_glm_v2 <- NULL
+if (k_total > 0) {
+  league_avg_goals_in <- mean(c(played$home_goals, played$away_goals))
+  home_factor_in <- mean(played$home_goals) / league_avg_goals_in
+  away_factor_in <- mean(played$away_goals) / league_avg_goals_in
+
+  long_glm_v2 <- bind_rows(
+    played |> transmute(meccs_id = row_number(), team = home, opponent = away, goals = home_goals, home_away = "H"),
+    played |> transmute(meccs_id = row_number(), team = away, opponent = home, goals = away_goals, home_away = "A")
+  )
+  m_glm_v2 <- tryCatch(glm(goals ~ home_away + team + opponent, data = long_glm_v2, family = poisson()), error = function(e) NULL)
+
+  rho_fit_in <- rho_fit_pre
+  if (!is.null(m_glm_v2)) {
+    long_glm_v2$lambda_fit <- predict(m_glm_v2, type = "response")
+    hd_v2 <- played |> mutate(meccs_id = row_number()) |>
+      inner_join(long_glm_v2 |> filter(home_away=="H") |> select(meccs_id, lambda_h=lambda_fit), by="meccs_id") |>
+      inner_join(long_glm_v2 |> filter(home_away=="A") |> select(meccs_id, lambda_a=lambda_fit), by="meccs_id")
+    neg_loglik_v2 <- function(rho) {
+      tv <- tau(hd_v2$home_goals, hd_v2$away_goals, hd_v2$lambda_h, hd_v2$lambda_a, rho)
+      if (any(tv <= 0)) return(1e10)
+      -sum(dpois(hd_v2$home_goals, hd_v2$lambda_h, log=TRUE) + dpois(hd_v2$away_goals, hd_v2$lambda_a, log=TRUE) + log(tv))
+    }
+    rho_fit_in <- tryCatch(optimize(neg_loglik_v2, interval = c(-0.3,0.3))$minimum, error = function(e) rho_fit_pre)
+  }
+} else {
+  league_avg_goals_in <- league_avg_goals_pre
+  home_factor_in <- home_factor_pre
+  away_factor_in <- away_factor_pre
+  rho_fit_in <- rho_fit_pre
+}
+
+# hazai-elony/rho/liga-atlag: egy kozos (liga-szintu) sulyt hasznalnak, a teljes
+# addigi meccsszam alapjan — ugyanaz a logika, mint eddig a MIN_HIST_LIVE-nal,
+# csak folytonosan, nem 0/100-as vagassal
+w_shape <- shrink_w(k_total)
+league_avg_goals_v2 <- exp(w_shape * log(league_avg_goals_pre) + (1 - w_shape) * log(league_avg_goals_in))
+home_factor_v2       <- exp(w_shape * log(home_factor_pre)      + (1 - w_shape) * log(home_factor_in))
+away_factor_v2        <- exp(w_shape * log(away_factor_pre)      + (1 - w_shape) * log(away_factor_in))
+rho_fit_v2           <- w_shape * rho_fit_pre + (1 - w_shape) * rho_fit_in  # rho lehet negativ, nem szorzatos, ezert lin. keveres
+
+# csapatonkenti attack/defense in-season becsles: NEM a goloket illeszto GLM-bol
+# (azt kiprobaltuk — kevés meccsnel rangdeficites/kvazi-szeparalt, ertelmetlenul
+# nagy egyutthatokat adott, ld. korabbi teszt), hanem a `team_stats` tablaban
+# mar elerheto, a felhasznalo altal fordulonkent frissitett szezon-szintu nettó
+# Box touches-bol (ugyanaz a metrika, amibol a preseason `goal_est` is szuletett
+# — nem kell hozza sajat GLM-et illeszteni, mindig jol definialt mar 1 meccsnel is).
+#
+# A nyers netto Box touches-t ugyanarra a skalara kell hozni, mint az attack/
+# defense (1,0=liga-atlag): erre a preseason 12 csapat sajat (tavalyi netto ->
+# idei preseason attack/defense) parjait hasznaljuk kalibracios pontkent —
+# log-linearis illesztes, R^2~0.996/0.997 (majdnem egzakt, hiszen a preseason
+# is pontosan ebbol a mutatobol szuletett), majd ugyanezt a gorbet alkalmazzuk
+# az idei, addigi netto Box touches-re.
+con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
+netto_2526 <- dbGetQuery(con, "
+  SELECT team, bt.value - obt.value AS netto
+  FROM (SELECT team, value FROM team_stats WHERE liga='NB1' AND szezon='2025-26' AND kpi='Box touches') bt
+  JOIN (SELECT team, value FROM team_stats WHERE liga='NB1' AND szezon='2025-26' AND kpi='Opp. Box touches') obt USING(team)
+")
+netto_2627 <- dbGetQuery(con, "
+  SELECT team, bt.value - obt.value AS netto
+  FROM (SELECT team, value FROM team_stats WHERE liga='NB1' AND szezon='2026-27' AND kpi='Box touches') bt
+  JOIN (SELECT team, value FROM team_stats WHERE liga='NB1' AND szezon='2026-27' AND kpi='Opp. Box touches') obt USING(team)
+")
+dbDisconnect(con)
+
+cal <- goal_est |> select(team, attack, defense) |> inner_join(netto_2526, by = "team")
+m_att <- lm(log(attack)  ~ netto, data = cal)
+m_def <- lm(log(defense) ~ netto, data = cal)
+
+attack_in_season  <- setNames(rep(NA_real_, length(teams_all)), teams_all)
+defense_in_season <- setNames(rep(NA_real_, length(teams_all)), teams_all)
+for (tm in teams_all) {
+  row <- netto_2627 |> filter(team == tm)
+  if (nrow(row) == 1) {
+    attack_in_season[tm]  <- exp(predict(m_att, newdata = row))
+    defense_in_season[tm] <- exp(predict(m_def, newdata = row))
+  }
+}
+
+goal_est_v2 <- goal_est |>
+  select(team, attack_pre = attack, defense_pre = defense) |>
+  rowwise() |>
+  mutate(
+    k = team_k[[team]],
+    w = shrink_w(k),
+    attack_in  = attack_in_season[[team]],
+    defense_in = defense_in_season[[team]],
+    attack  = if (is.na(attack_in))  attack_pre  else exp(w * log(attack_pre)  + (1 - w) * log(attack_in)),
+    defense = if (is.na(defense_in)) defense_pre else exp(w * log(defense_pre) + (1 - w) * log(defense_in))
+  ) |>
+  ungroup()
+
+score_grid_v2 <- function(home_team, away_team, max_goals = 10) {
+  h <- goal_est_v2 |> filter(team == home_team); a <- goal_est_v2 |> filter(team == away_team)
+  lh <- league_avg_goals_v2 * h$attack * a$defense * home_factor_v2
+  la <- league_avg_goals_v2 * a$attack * h$defense * away_factor_v2
+  grid <- expand.grid(x = 0:max_goals, y = 0:max_goals)
+  grid$p <- dpois(grid$x, lh) * dpois(grid$y, la) * tau(grid$x, grid$y, lh, la, rho_fit_v2)
+  grid$p <- grid$p / sum(grid$p)
+  attr(grid, "lambda_h") <- lh
+  attr(grid, "lambda_a") <- la
+  grid
+}
+
+match_probs_dc_v2 <- function(home_team, away_team) {
+  grid <- score_grid_v2(home_team, away_team)
+  tibble(
+    p_home = sum(grid$p[grid$x > grid$y]), p_draw = sum(grid$p[grid$x == grid$y]), p_away = sum(grid$p[grid$x < grid$y])
+  ) |>
+    mutate(odds_1 = round(1/p_home,2), odds_x = round(1/p_draw,2), odds_2 = round(1/p_away,2))
+}
+```
+
+```{r shrinkage-v2-ratings-table}
+goal_est_v2 |>
+  transmute(
+    Csapat = team,
+    `Attack (v1, statikus)` = round(attack_pre, 3), `Attack (v2, shrinkage)` = round(attack, 3),
+    `Defense (v1, statikus)` = round(defense_pre, 3), `Defense (v2, shrinkage)` = round(defense, 3),
+    `Meccs (k)` = k, `Súly (preseason %)` = round(w * 100, 1)
+  ) |>
+  arrange(desc(`Attack (v2, shrinkage)`)) |>
+  kable(caption = sprintf(
+    "Csapatminőség v1 (statikus preseason) vs. v2 (folytonos shrinkage) — jelenleg %d meccs, n0=%.1f. Alak-paraméterek (hazai-előny/ρ) preseason súlya: %.1f%%.",
+    k_total, N0_SHRINK, w_shape * 100
+  ))
+```
+
+A hátralévő legközelebbi forduló fair odds-a a két modell szerint:
+
+```{r shrinkage-v2-fixtures-table}
+upcoming_round <- fixtures |> anti_join(played, by = c("fordulo", "home", "away")) |> pull(fordulo) |> min()
+upcoming <- fixtures |> filter(fordulo == upcoming_round)
+
+purrr::map_dfr(seq_len(nrow(upcoming)), function(i) {
+  fx <- upcoming[i, ]
+  g1 <- score_grid(fx$home, fx$away);    g2 <- score_grid_v2(fx$home, fx$away)
+  m1 <- match_probs_dc(fx$home, fx$away); m2 <- match_probs_dc_v2(fx$home, fx$away)
+  tibble(
+    Hazai = fx$home, Vendég = fx$away,
+    `xG v1` = paste0(round(attr(g1, "lambda_h"), 2), " – ", round(attr(g1, "lambda_a"), 2)),
+    `xG v2` = paste0(round(attr(g2, "lambda_h"), 2), " – ", round(attr(g2, "lambda_a"), 2)),
+    `1X2 v1 (fair odds)` = paste0(m1$odds_1, " / ", m1$odds_x, " / ", m1$odds_2),
+    `1X2 v2 (fair odds)` = paste0(m2$odds_1, " / ", m2$odds_x, " / ", m2$odds_2)
+  )
+}) |>
+  kable(caption = sprintf("%d. forduló — v1 vs v2 fair odds összevetés", upcoming_round))
+```
+
 ```{r tipp-functions}
 # Tippelde pontozás: pontos eredmény (5) > helyes győztes+gólkülönbség (4) >
 # csak helyes győztes / csak helyes döntetlen (3) > egyik csapat gólszáma
@@ -346,6 +530,10 @@ A „Piaci bajnoki esély” a kézzel megadott fogadóirodai outright (bajnok) 
 ```{r season-sim}
 outright <- read_csv2("futball/data/nb1_2627_outright_odds.csv", show_col_types = FALSE,
                        locale = locale(decimal_mark = ",", grouping_mark = "."))
+# csapatonkent csak a legfrissebb fordulohoz tartozo bajnoki oddsot tartjuk meg —
+# kulonben tobb fordulo oddsa (pl. 1. es 2. forduloe egyszerre) duplikalna a
+# csapatokat a lenti join-nal, es rossz p_market-et adna
+outright <- outright |> filter(fordulo == max(fordulo))
 outright$p_market <- (1 / outright$odds_bajnok) / sum(1 / outright$odds_bajnok)
 
 teams <- unique(c(fixtures$home, fixtures$away))

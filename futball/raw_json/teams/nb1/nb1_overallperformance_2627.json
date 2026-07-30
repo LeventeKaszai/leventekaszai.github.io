@@ -1,0 +1,351 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's overall performance",
+    "subtitle": "Újpest | Hungarian NB I 2026/2027",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Honvéd",
+            "Vasas",
+            "Nyíregyháza Spartacus",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10194,
+            10196,
+            10198,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Points",
+                "description": "Number of points that the team received per match.",
+                "display_name": "Points"
+            },
+            {
+                "name": "xPoints",
+                "description": "Number of points that the team should expect to receive statistically from a match based on their and their opponent's expected goals per match.",
+                "display_name": "xPoints"
+            },
+            {
+                "name": "Points - xPoints",
+                "description": "Difference between the number of points and the expected points of the team per match.",
+                "display_name": "Points - xPoints"
+            },
+            {
+                "name": "Goals",
+                "description": "Number of goals that the team scored (including the own goals from the opposition) per match.",
+                "display_name": "Goals"
+            },
+            {
+                "name": "Opp. Goals",
+                "description": "Number of goals that the opponent scored per match.",
+                "display_name": "Opp. Goals"
+            },
+            {
+                "name": "xG",
+                "description": "Number of goals that the team should be expected to score statistically considering the quality of their chances per match.",
+                "display_name": "xG"
+            },
+            {
+                "name": "Opp. xG",
+                "description": "Number of goals that the opponent should be expected to score statistically considering the quality of their chances per match.",
+                "display_name": "Opp. xG"
+            },
+            {
+                "name": "Field tilt %",
+                "description": "Percentage of possession that the team had in the final third compared to the opponent per match.",
+                "display_name": "Field tilt %"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                -1.0690449676496976,
+                -0.43121082305832426,
+                -0.9846057129580625,
+                0.3015113445777636,
+                -2.1105794120443453,
+                0.4150820612222544,
+                -1.0073010530298026,
+                -0.4343722427630693
+            ],
+            [
+                -1.0690449676496976,
+                -0.5687762799472887,
+                -0.8733090156637467,
+                -1.5075567228888183,
+                -0.3015113445777636,
+                -0.19828760886413435,
+                -0.4256574003616754,
+                0.7818700369735246
+            ],
+            [
+                1.336306209562122,
+                1.5820763923140677,
+                0.38687195081421516,
+                1.2060453783110545,
+                1.5075567228888183,
+                1.1447804618422688,
+                1.107766774854297,
+                -0.9556189340787525
+            ],
+            [
+                -1.0690449676496976,
+                -0.6028464174419891,
+                -0.8457447283399022,
+                -0.6030226891555274,
+                -0.3015113445777636,
+                -1.2875475402244456,
+                0.8222326180899436,
+                -1.0424933826313665
+            ],
+            [
+                -1.0690449676496976,
+                -1.4583963299323583,
+                -0.15356602458671087,
+                -1.5075567228888183,
+                -1.2060453783110545,
+                -1.1077667748542972,
+                -1.144780461842269,
+                0.9556189340787525
+            ],
+            [
+                -0.26726124191242434,
+                1.7738245821530843,
+                -1.7684732917370396,
+                0.3015113445777636,
+                -0.3015113445777636,
+                2.1282870018083755,
+                0.896259992065887,
+                0.8687444855261386
+            ],
+            [
+                -0.26726124191242434,
+                0.2597762905231538,
+                -0.54353951683944,
+                -0.6030226891555274,
+                0.6030226891555274,
+                -0.23001362628239586,
+                0.5789998178832721,
+                1.5637400739470502
+            ],
+            [
+                -0.26726124191242434,
+                -1.5903645304086564,
+                0.9533083660219369,
+                0.3015113445777636,
+                -0.3015113445777636,
+                -0.8962599920658872,
+                -2.1282870018083755,
+                -0.8687444855261386
+            ],
+            [
+                1.336306209562122,
+                0.41503909500701636,
+                1.3310580840700181,
+                0.3015113445777636,
+                0.6030226891555274,
+                -0.8222326180899439,
+                1.2875475402244454,
+                1.0424933826313665
+            ],
+            [
+                1.336306209562122,
+                0.4268795156963703,
+                1.3214786464182824,
+                2.1105794120443453,
+                -0.3015113445777636,
+                1.0073010530298023,
+                -0.41508206122225466,
+                0.4343722427630698
+            ],
+            [
+                -0.26726124191242434,
+                -0.3393168082965976,
+                -0.05884601326409367,
+                -0.6030226891555274,
+                0.6030226891555274,
+                -0.5789998178832724,
+                0.23001362628239563,
+                -1.5637400739470497
+            ],
+            [
+                1.336306209562122,
+                0.5333153133915207,
+                1.2353672560645426,
+                0.3015113445777636,
+                1.5075567228888183,
+                0.42565740036167515,
+                0.1982876088641341,
+                -0.7818700369735251
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\nRank: 9/12\n0.00 Points",
+                "Ferencváros\nRank: 8/12\n1.05 xPoints",
+                "Ferencváros\nRank: 11/12\n-1.05 Points - xPoints",
+                "Ferencváros\nRank: 3/12\n2.00 Goals",
+                "Ferencváros\nRank: 12/12\n4.00 Opp. Goals",
+                "Ferencváros\nRank: 5/12\n2.13 xG",
+                "Ferencváros\nRank: 10/12\n2.69 Opp. xG",
+                "Ferencváros\nRank: 7/12\n45% Field tilt "
+            ],
+            [
+                "Debrecen\nRank: 9/12\n0.00 Points",
+                "Debrecen\nRank: 9/12\n0.94 xPoints",
+                "Debrecen\nRank: 10/12\n-0.94 Points - xPoints",
+                "Debrecen\nRank: 11/12\n0.00 Goals",
+                "Debrecen\nRank: 6/12\n2.00 Opp. Goals",
+                "Debrecen\nRank: 6/12\n1.55 xG",
+                "Debrecen\nRank: 9/12\n2.14 Opp. xG",
+                "Debrecen\nRank: 5/12\n59% Field tilt "
+            ],
+            [
+                "MTK\nRank: 1/12\n3.00 Points",
+                "MTK\nRank: 2/12\n2.68 xPoints",
+                "MTK\nRank: 5/12\n0.32 Points - xPoints",
+                "MTK\nRank: 2/12\n3.00 Goals",
+                "MTK\nRank: 1/12\n0.00 Opp. Goals",
+                "MTK\nRank: 2/12\n2.82 xG",
+                "MTK\nRank: 2/12\n0.69 Opp. xG",
+                "MTK\nRank: 10/12\n39% Field tilt "
+            ],
+            [
+                "Újpest\nRank: 9/12\n0.00 Points",
+                "Újpest\nRank: 10/12\n0.91 xPoints",
+                "Újpest\nRank: 9/12\n-0.91 Points - xPoints",
+                "Újpest\nRank: 8/12\n1.00 Goals",
+                "Újpest\nRank: 6/12\n2.00 Opp. Goals",
+                "Újpest\nRank: 12/12\n0.52 xG",
+                "Újpest\nRank: 4/12\n0.96 Opp. xG",
+                "Újpest\nRank: 11/12\n38% Field tilt "
+            ],
+            [
+                "Zalaegerszegi TE\nRank: 9/12\n0.00 Points",
+                "Zalaegerszegi TE\nRank: 11/12\n0.22 xPoints",
+                "Zalaegerszegi TE\nRank: 7/12\n-0.22 Points - xPoints",
+                "Zalaegerszegi TE\nRank: 11/12\n0.00 Goals",
+                "Zalaegerszegi TE\nRank: 11/12\n3.00 Opp. Goals",
+                "Zalaegerszegi TE\nRank: 11/12\n0.69 xG",
+                "Zalaegerszegi TE\nRank: 11/12\n2.82 Opp. xG",
+                "Zalaegerszegi TE\nRank: 3/12\n61% Field tilt "
+            ],
+            [
+                "Győri ETO\nRank: 5/12\n1.00 Points",
+                "Győri ETO\nRank: 1/12\n2.83 xPoints",
+                "Győri ETO\nRank: 12/12\n-1.83 Points - xPoints",
+                "Győri ETO\nRank: 3/12\n2.00 Goals",
+                "Győri ETO\nRank: 6/12\n2.00 Opp. Goals",
+                "Győri ETO\nRank: 1/12\n3.75 xG",
+                "Győri ETO\nRank: 3/12\n0.89 Opp. xG",
+                "Győri ETO\nRank: 4/12\n60% Field tilt "
+            ],
+            [
+                "Honvéd\nRank: 5/12\n1.00 Points",
+                "Honvéd\nRank: 6/12\n1.61 xPoints",
+                "Honvéd\nRank: 8/12\n-0.61 Points - xPoints",
+                "Honvéd\nRank: 8/12\n1.00 Goals",
+                "Honvéd\nRank: 3/12\n1.00 Opp. Goals",
+                "Honvéd\nRank: 7/12\n1.52 xG",
+                "Honvéd\nRank: 5/12\n1.19 Opp. xG",
+                "Honvéd\nRank: 1/12\n68% Field tilt "
+            ],
+            [
+                "Vasas\nRank: 5/12\n1.00 Points",
+                "Vasas\nRank: 12/12\n0.11 xPoints",
+                "Vasas\nRank: 4/12\n0.89 Points - xPoints",
+                "Vasas\nRank: 3/12\n2.00 Goals",
+                "Vasas\nRank: 6/12\n2.00 Opp. Goals",
+                "Vasas\nRank: 10/12\n0.89 xG",
+                "Vasas\nRank: 12/12\n3.75 Opp. xG",
+                "Vasas\nRank: 9/12\n40% Field tilt "
+            ],
+            [
+                "Nyíregyháza Spartacus\nRank: 1/12\n3.00 Points",
+                "Nyíregyháza Spartacus\nRank: 5/12\n1.73 xPoints",
+                "Nyíregyháza Spartacus\nRank: 1/12\n1.27 Points - xPoints",
+                "Nyíregyháza Spartacus\nRank: 3/12\n2.00 Goals",
+                "Nyíregyháza Spartacus\nRank: 3/12\n1.00 Opp. Goals",
+                "Nyíregyháza Spartacus\nRank: 9/12\n0.96 xG",
+                "Nyíregyháza Spartacus\nRank: 1/12\n0.52 Opp. xG",
+                "Nyíregyháza Spartacus\nRank: 2/12\n62% Field tilt "
+            ],
+            [
+                "Paksi FC\nRank: 1/12\n3.00 Points",
+                "Paksi FC\nRank: 4/12\n1.74 xPoints",
+                "Paksi FC\nRank: 2/12\n1.26 Points - xPoints",
+                "Paksi FC\nRank: 1/12\n4.00 Goals",
+                "Paksi FC\nRank: 6/12\n2.00 Opp. Goals",
+                "Paksi FC\nRank: 3/12\n2.69 xG",
+                "Paksi FC\nRank: 8/12\n2.13 Opp. xG",
+                "Paksi FC\nRank: 6/12\n55% Field tilt "
+            ],
+            [
+                "Várda SE\nRank: 5/12\n1.00 Points",
+                "Várda SE\nRank: 7/12\n1.12 xPoints",
+                "Várda SE\nRank: 6/12\n-0.12 Points - xPoints",
+                "Várda SE\nRank: 8/12\n1.00 Goals",
+                "Várda SE\nRank: 3/12\n1.00 Opp. Goals",
+                "Várda SE\nRank: 8/12\n1.19 xG",
+                "Várda SE\nRank: 6/12\n1.52 Opp. xG",
+                "Várda SE\nRank: 12/12\n32% Field tilt "
+            ],
+            [
+                "Puskás FC\nRank: 1/12\n3.00 Points",
+                "Puskás FC\nRank: 3/12\n1.83 xPoints",
+                "Puskás FC\nRank: 3/12\n1.17 Points - xPoints",
+                "Puskás FC\nRank: 3/12\n2.00 Goals",
+                "Puskás FC\nRank: 1/12\n0.00 Opp. Goals",
+                "Puskás FC\nRank: 4/12\n2.14 xG",
+                "Puskás FC\nRank: 7/12\n1.55 Opp. xG",
+                "Puskás FC\nRank: 8/12\n41% Field tilt "
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Points | 0.00",
+            "xPoints | 0.91",
+            "Points - xPoints | -0.91",
+            "Goals | 1.00",
+            "Opp. Goals | 2.00",
+            "xG | 0.52",
+            "Opp. xG | 0.96",
+            "Field tilt % | 38"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

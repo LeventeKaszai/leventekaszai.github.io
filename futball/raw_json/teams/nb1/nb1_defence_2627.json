@@ -1,0 +1,351 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's performance in defence",
+    "subtitle": "Újpest | Hungarian NB I 2026/2027",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Honvéd",
+            "Vasas",
+            "Nyíregyháza Spartacus",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10194,
+            10196,
+            10198,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "PPDA",
+                "description": "Number of passes by the opponent in their defensive 60% of the field compared to the number of defensive actions by the team in the same region per match.",
+                "display_name": "PPDA"
+            },
+            {
+                "name": "Defensive intensity",
+                "description": "Number of defensive actions that the team had per minute out of possession per match.",
+                "display_name": "Defensive intensity"
+            },
+            {
+                "name": "Defensive duels won %",
+                "description": "Percentage of defensive duels won by the team per match.",
+                "display_name": "Defensive duels won %"
+            },
+            {
+                "name": "Defensive action height (m)",
+                "description": "Mean height on the pitch in meters of defensive actions by the team in possessions that do not start with set-pieces in the final third per match.",
+                "display_name": "Defensive action height (m)"
+            },
+            {
+                "name": "Opp. Pass tempo",
+                "description": "Number of passes that the opponent made per minute in possession per match.",
+                "display_name": "Opp. Pass tempo"
+            },
+            {
+                "name": "Opp. Possessions to final third %",
+                "description": "Percentage of possessions by the opponent with a final third entry per match.",
+                "display_name": "Opp. Possessions to final third %"
+            },
+            {
+                "name": "Opp. Final third to box %",
+                "description": "Percentage of possessions by the opponent in the final third with a box entry per match.",
+                "display_name": "Opp. Final third to box %"
+            },
+            {
+                "name": "Opp. xT",
+                "description": "Expected offensive contribution by the opponent considering the quality of their passes and ball carries per match.",
+                "display_name": "Opp. xT"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                1.0431353823438694,
+                1.6451451098523417,
+                0.270500890400228,
+                -0.9074326795723592,
+                -0.06767278951005173,
+                0.25512498387349275,
+                -1.2249270573161963,
+                -1.3575332761414267
+            ],
+            [
+                1.0884070806734405,
+                1.1010434588865425,
+                1.352504452001148,
+                1.0877388814340148,
+                -0.40603673706030136,
+                1.2292385586631907,
+                -1.5834422936038628,
+                -0.1422637003416419
+            ],
+            [
+                -0.47912547398796146,
+                -1.3353763233142912,
+                0.6311687442672014,
+                0.8362056246608732,
+                0.9897145465844822,
+                -0.579829508803391,
+                -0.3883915059783066,
+                0.2628261582582868
+            ],
+            [
+                0.42347901145786393,
+                0.8843658102718438,
+                -2.2541740866685824,
+                -1.0539569068188497,
+                0.12688648033134287,
+                0.3942840659863069,
+                1.523689754222584,
+                1.0151358956581538
+            ],
+            [
+                -2.4456148701787104,
+                -1.426862441618275,
+                -1.7131723058681223,
+                -0.409250306934293,
+                -1.7848698233275728,
+                -0.16235226246494952,
+                -0.5078965847408623,
+                0.2628261582582868
+            ],
+            [
+                0.3187882090707305,
+                0.051360627819780326,
+                -0.6311687442672034,
+                -0.17969568424812574,
+                0.9474190531407032,
+                -0.44067042669057693,
+                0.44814404535958313,
+                0.20495617845829697
+            ],
+            [
+                0.8111179284048172,
+                1.07696816459602,
+                0.45083481733371467,
+                0.264761138399561,
+                -0.9220417570744335,
+                0.533443148099121,
+                -1.1054219785536405,
+                1.2466158148581123
+            ],
+            [
+                -0.7507556639653888,
+                -0.9020210260848939,
+                0.09016696346674334,
+                -0.3481985455815888,
+                -0.46525042788159554,
+                -1.8322612478187172,
+                0.44814404535958313,
+                -0.5762885488415649
+            ],
+            [
+                0.6102247670673451,
+                0.4991611016234907,
+                0.45083481733371467,
+                1.0633181768929327,
+                -0.7190233885442843,
+                1.2292385586631907,
+                0.9261643604098059,
+                1.7385106431580255
+            ],
+            [
+                0.7799936358032369,
+                -0.01605019619368175,
+                0.45083481733371467,
+                1.9058324835602498,
+                -0.31298665148398286,
+                1.5075567228888185,
+                0.08962880907191616,
+                0.060281228958322455
+            ],
+            [
+                -0.8639349097893169,
+                -0.8586854963619542,
+                0.09016696346674334,
+                -1.618075181717837,
+                0.3975776383715438,
+                -1.1364658372546466,
+                -0.2688864272157508,
+                -1.7626231347413548
+            ],
+            [
+                -0.5357150968999258,
+                -0.7190487894769262,
+                0.811502671200688,
+                -0.6412470000745697,
+                2.216283856454144,
+                -0.9973067551418333,
+                1.6431948329851398,
+                -0.9524434175414986
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\nRank: 2/12\n3.74 PPDA",
+                "Ferencváros\nRank: 1/12\n9.38 Defensive intensity",
+                "Ferencváros\nRank: 7/12\n57% Defensive duels won ",
+                "Ferencváros\nRank: 10/12\n36.67 Defensive action height (m)",
+                "Ferencváros\nRank: 6/12\n19.69 Opp. Pass tempo",
+                "Ferencváros\nRank: 6/12\n31% Opp. Possessions to final third ",
+                "Ferencváros\nRank: 11/12\n33% Opp. Final third to box ",
+                "Ferencváros\nRank: 11/12\n1.95 Opp. xT"
+            ],
+            [
+                "Debrecen\nRank: 1/12\n3.58 PPDA",
+                "Debrecen\nRank: 2/12\n8.25 Defensive intensity",
+                "Debrecen\nRank: 1/12\n63% Defensive duels won ",
+                "Debrecen\nRank: 2/12\n44.84 Defensive action height (m)",
+                "Debrecen\nRank: 8/12\n20.09 Opp. Pass tempo",
+                "Debrecen\nRank: 2/12\n24% Opp. Possessions to final third ",
+                "Debrecen\nRank: 12/12\n36% Opp. Final third to box ",
+                "Debrecen\nRank: 8/12\n1.53 Opp. xT"
+            ],
+            [
+                "MTK\nRank: 8/12\n9.12 PPDA",
+                "MTK\nRank: 11/12\n3.19 Defensive intensity",
+                "MTK\nRank: 3/12\n59% Defensive duels won ",
+                "MTK\nRank: 4/12\n43.81 Defensive action height (m)",
+                "MTK\nRank: 2/12\n18.44 Opp. Pass tempo",
+                "MTK\nRank: 9/12\n37% Opp. Possessions to final third ",
+                "MTK\nRank: 8/12\n26% Opp. Final third to box ",
+                "MTK\nRank: 4/12\n1.39 Opp. xT"
+            ],
+            [
+                "Újpest\nRank: 6/12\n5.93 PPDA",
+                "Újpest\nRank: 4/12\n7.80 Defensive intensity",
+                "Újpest\nRank: 12/12\n43% Defensive duels won ",
+                "Újpest\nRank: 11/12\n36.07 Defensive action height (m)",
+                "Újpest\nRank: 5/12\n19.46 Opp. Pass tempo",
+                "Újpest\nRank: 5/12\n30% Opp. Possessions to final third ",
+                "Újpest\nRank: 2/12\n10% Opp. Final third to box ",
+                "Újpest\nRank: 3/12\n1.13 Opp. xT"
+            ],
+            [
+                "Zalaegerszegi TE\nRank: 12/12\n16.07 PPDA",
+                "Zalaegerszegi TE\nRank: 12/12\n3.00 Defensive intensity",
+                "Zalaegerszegi TE\nRank: 11/12\n46% Defensive duels won ",
+                "Zalaegerszegi TE\nRank: 8/12\n38.71 Defensive action height (m)",
+                "Zalaegerszegi TE\nRank: 12/12\n21.72 Opp. Pass tempo",
+                "Zalaegerszegi TE\nRank: 7/12\n34% Opp. Possessions to final third ",
+                "Zalaegerszegi TE\nRank: 9/12\n27% Opp. Final third to box ",
+                "Zalaegerszegi TE\nRank: 4/12\n1.39 Opp. xT"
+            ],
+            [
+                "Győri ETO\nRank: 7/12\n6.30 PPDA",
+                "Győri ETO\nRank: 6/12\n6.07 Defensive intensity",
+                "Győri ETO\nRank: 10/12\n52% Defensive duels won ",
+                "Győri ETO\nRank: 6/12\n39.65 Defensive action height (m)",
+                "Győri ETO\nRank: 3/12\n18.49 Opp. Pass tempo",
+                "Győri ETO\nRank: 8/12\n36% Opp. Possessions to final third ",
+                "Győri ETO\nRank: 4/12\n19% Opp. Final third to box ",
+                "Győri ETO\nRank: 6/12\n1.41 Opp. xT"
+            ],
+            [
+                "Honvéd\nRank: 3/12\n4.56 PPDA",
+                "Honvéd\nRank: 3/12\n8.20 Defensive intensity",
+                "Honvéd\nRank: 4/12\n58% Defensive duels won ",
+                "Honvéd\nRank: 5/12\n41.47 Defensive action height (m)",
+                "Honvéd\nRank: 11/12\n20.70 Opp. Pass tempo",
+                "Honvéd\nRank: 4/12\n29% Opp. Possessions to final third ",
+                "Honvéd\nRank: 10/12\n32% Opp. Final third to box ",
+                "Honvéd\nRank: 2/12\n1.05 Opp. xT"
+            ],
+            [
+                "Vasas\nRank: 10/12\n10.08 PPDA",
+                "Vasas\nRank: 10/12\n4.09 Defensive intensity",
+                "Vasas\nRank: 8/12\n56% Defensive duels won ",
+                "Vasas\nRank: 7/12\n38.96 Defensive action height (m)",
+                "Vasas\nRank: 9/12\n20.16 Opp. Pass tempo",
+                "Vasas\nRank: 12/12\n46% Opp. Possessions to final third ",
+                "Vasas\nRank: 4/12\n19% Opp. Final third to box ",
+                "Vasas\nRank: 9/12\n1.68 Opp. xT"
+            ],
+            [
+                "Nyíregyháza Spartacus\nRank: 5/12\n5.27 PPDA",
+                "Nyíregyháza Spartacus\nRank: 5/12\n7.00 Defensive intensity",
+                "Nyíregyháza Spartacus\nRank: 4/12\n58% Defensive duels won ",
+                "Nyíregyháza Spartacus\nRank: 3/12\n44.74 Defensive action height (m)",
+                "Nyíregyháza Spartacus\nRank: 10/12\n20.46 Opp. Pass tempo",
+                "Nyíregyháza Spartacus\nRank: 2/12\n24% Opp. Possessions to final third ",
+                "Nyíregyháza Spartacus\nRank: 3/12\n15% Opp. Final third to box ",
+                "Nyíregyháza Spartacus\nRank: 1/12\n0.88 Opp. xT"
+            ],
+            [
+                "Paksi FC\nRank: 4/12\n4.67 PPDA",
+                "Paksi FC\nRank: 7/12\n5.93 Defensive intensity",
+                "Paksi FC\nRank: 4/12\n58% Defensive duels won ",
+                "Paksi FC\nRank: 1/12\n48.19 Defensive action height (m)",
+                "Paksi FC\nRank: 7/12\n19.98 Opp. Pass tempo",
+                "Paksi FC\nRank: 1/12\n22% Opp. Possessions to final third ",
+                "Paksi FC\nRank: 6/12\n22% Opp. Final third to box ",
+                "Paksi FC\nRank: 7/12\n1.46 Opp. xT"
+            ],
+            [
+                "Várda SE\nRank: 11/12\n10.48 PPDA",
+                "Várda SE\nRank: 9/12\n4.18 Defensive intensity",
+                "Várda SE\nRank: 8/12\n56% Defensive duels won ",
+                "Várda SE\nRank: 12/12\n33.76 Defensive action height (m)",
+                "Várda SE\nRank: 4/12\n19.14 Opp. Pass tempo",
+                "Várda SE\nRank: 11/12\n41% Opp. Possessions to final third ",
+                "Várda SE\nRank: 7/12\n25% Opp. Final third to box ",
+                "Várda SE\nRank: 12/12\n2.09 Opp. xT"
+            ],
+            [
+                "Puskás FC\nRank: 9/12\n9.32 PPDA",
+                "Puskás FC\nRank: 8/12\n4.47 Defensive intensity",
+                "Puskás FC\nRank: 2/12\n60% Defensive duels won ",
+                "Puskás FC\nRank: 9/12\n37.76 Defensive action height (m)",
+                "Puskás FC\nRank: 1/12\n16.99 Opp. Pass tempo",
+                "Puskás FC\nRank: 10/12\n40% Opp. Possessions to final third ",
+                "Puskás FC\nRank: 1/12\n9% Opp. Final third to box ",
+                "Puskás FC\nRank: 10/12\n1.81 Opp. xT"
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "PPDA | 5.93",
+            "Defensive intensity | 7.80",
+            "Defensive duels won % | 43",
+            "Defensive action height (m) | 36.07",
+            "Opp. Pass tempo | 19.46",
+            "Opp. Possessions to final third % | 30",
+            "Opp. Final third to box % | 10",
+            "Opp. xT | 1.13"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

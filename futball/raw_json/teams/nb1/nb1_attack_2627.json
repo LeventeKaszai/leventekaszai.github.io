@@ -1,0 +1,321 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's performance in attack",
+    "subtitle": "Újpest | Hungarian NB I 2026/2027",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Honvéd",
+            "Vasas",
+            "Nyíregyháza Spartacus",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10194,
+            10196,
+            10198,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Ball possession %",
+                "description": "Percentage of possession by the team per match.",
+                "display_name": "Ball possession %"
+            },
+            {
+                "name": "Field tilt %",
+                "description": "Percentage of possession that the team had in the final third compared to the opponent per match.",
+                "display_name": "Field tilt %"
+            },
+            {
+                "name": "Long ball %",
+                "description": "Percentage of passes by the team longer than 32 meters in the defensive half per match.",
+                "display_name": "Long ball %"
+            },
+            {
+                "name": "Pass tempo",
+                "description": "Number of passes that the team made per minute in possession per match.",
+                "display_name": "Pass tempo"
+            },
+            {
+                "name": "Possessions to final third %",
+                "description": "Percentage of possessions by the team with a final third entry per match.",
+                "display_name": "Possessions to final third %"
+            },
+            {
+                "name": "Final third to box %",
+                "description": "Percentage of possessions by the team in the final third with a box entry per match.",
+                "display_name": "Final third to box %"
+            },
+            {
+                "name": "xT",
+                "description": "Expected offensive contribution by the team considering the quality of their passess and ball carries per match. ",
+                "display_name": "xT"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.9690031662230182,
+                -0.4343722427630693,
+                -0.4365216845728999,
+                0.31298665148398286,
+                -1.5075567228888185,
+                -0.08962880907191682,
+                -0.060281228958322455
+            ],
+            [
+                0.8721028496007163,
+                0.7818700369735246,
+                0.7539920006259173,
+                -2.216283856454144,
+                0.9973067551418333,
+                -1.6431948329851405,
+                0.9524434175414986
+            ],
+            [
+                -0.3876012664892072,
+                -0.9556189340787525,
+                0.992094737665681,
+                1.7848698233275728,
+                0.16235226246494952,
+                0.5078965847408616,
+                -0.2628261582582868
+            ],
+            [
+                0.2907009498669058,
+                -1.0424933826313665,
+                0.03968378950662685,
+                0.7190233885442843,
+                -1.2292385586631907,
+                -0.9261643604098065,
+                -1.7385106431580255
+            ],
+            [
+                0.38760126648920773,
+                0.9556189340787525,
+                1.7064029487849715,
+                -0.9897145465844822,
+                0.579829508803391,
+                0.3883915059783059,
+                -0.2628261582582868
+            ],
+            [
+                1.1628037994676221,
+                0.8687444855261386,
+                1.4683002117452078,
+                0.46525042788159554,
+                1.8322612478187172,
+                -0.4481440453595838,
+                0.5762885488415649
+            ],
+            [
+                1.6473053825791317,
+                1.5637400739470502,
+                -0.19841894753313688,
+                -0.3975776383715438,
+                1.1364658372546466,
+                0.2688864272157501,
+                1.7626231347413548
+            ],
+            [
+                -1.1628037994676221,
+                -0.8687444855261386,
+                -0.4365216845728999,
+                -0.9474190531407032,
+                0.44067042669057693,
+                -0.4481440453595838,
+                -0.20495617845829697
+            ],
+            [
+                -0.2907009498669058,
+                1.0424933826313665,
+                -0.4365216845728999,
+                -0.12688648033134287,
+                -0.3942840659863069,
+                -1.5236897542225847,
+                -1.0151358956581538
+            ],
+            [
+                -0.9690031662230182,
+                0.4343722427630698,
+                -1.3889326327319542,
+                0.06767278951005173,
+                -0.25512498387349275,
+                1.2249270573161957,
+                1.3575332761414267
+            ],
+            [
+                -1.647305382579131,
+                -1.5637400739470497,
+                -1.627035369771718,
+                0.9220417570744335,
+                -0.533443148099121,
+                1.1054219785536399,
+                -1.2466158148581123
+            ],
+            [
+                -0.8721028496007168,
+                -0.7818700369735251,
+                -0.4365216845728999,
+                0.40603673706030136,
+                -1.2292385586631907,
+                1.5834422936038621,
+                0.1422637003416419
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\nRank: 3/12\n60% Ball possession ",
+                "Ferencváros\nRank: 7/12\n45% Field tilt ",
+                "Ferencváros\nRank: 7/12\n18% Long ball ",
+                "Ferencváros\nRank: 6/12\n19.98 Pass tempo",
+                "Ferencváros\nRank: 12/12\n22% Possessions to final third ",
+                "Ferencváros\nRank: 7/12\n22% Final third to box ",
+                "Ferencváros\nRank: 6/12\n1.46 xT"
+            ],
+            [
+                "Debrecen\nRank: 4/12\n59% Ball possession ",
+                "Debrecen\nRank: 5/12\n59% Field tilt ",
+                "Debrecen\nRank: 4/12\n13% Long ball ",
+                "Debrecen\nRank: 12/12\n16.99 Pass tempo",
+                "Debrecen\nRank: 3/12\n40% Possessions to final third ",
+                "Debrecen\nRank: 12/12\n9% Final third to box ",
+                "Debrecen\nRank: 3/12\n1.81 xT"
+            ],
+            [
+                "MTK\nRank: 8/12\n46% Ball possession ",
+                "MTK\nRank: 10/12\n39% Field tilt ",
+                "MTK\nRank: 3/12\n12% Long ball ",
+                "MTK\nRank: 1/12\n21.72 Pass tempo",
+                "MTK\nRank: 6/12\n34% Possessions to final third ",
+                "MTK\nRank: 4/12\n27% Final third to box ",
+                "MTK\nRank: 8/12\n1.39 xT"
+            ],
+            [
+                "Újpest\nRank: 6/12\n53% Ball possession ",
+                "Újpest\nRank: 11/12\n38% Field tilt ",
+                "Újpest\nRank: 5/12\n16% Long ball ",
+                "Újpest\nRank: 3/12\n20.46 Pass tempo",
+                "Újpest\nRank: 10/12\n24% Possessions to final third ",
+                "Újpest\nRank: 10/12\n15% Final third to box ",
+                "Újpest\nRank: 12/12\n0.88 xT"
+            ],
+            [
+                "Zalaegerszegi TE\nRank: 5/12\n54% Ball possession ",
+                "Zalaegerszegi TE\nRank: 3/12\n61% Field tilt ",
+                "Zalaegerszegi TE\nRank: 1/12\n9% Long ball ",
+                "Zalaegerszegi TE\nRank: 11/12\n18.44 Pass tempo",
+                "Zalaegerszegi TE\nRank: 4/12\n37% Possessions to final third ",
+                "Zalaegerszegi TE\nRank: 5/12\n26% Final third to box ",
+                "Zalaegerszegi TE\nRank: 8/12\n1.39 xT"
+            ],
+            [
+                "Győri ETO\nRank: 2/12\n62% Ball possession ",
+                "Győri ETO\nRank: 4/12\n60% Field tilt ",
+                "Győri ETO\nRank: 2/12\n10% Long ball ",
+                "Győri ETO\nRank: 4/12\n20.16 Pass tempo",
+                "Győri ETO\nRank: 1/12\n46% Possessions to final third ",
+                "Győri ETO\nRank: 8/12\n19% Final third to box ",
+                "Győri ETO\nRank: 4/12\n1.68 xT"
+            ],
+            [
+                "Honvéd\nRank: 1/12\n67% Ball possession ",
+                "Honvéd\nRank: 1/12\n68% Field tilt ",
+                "Honvéd\nRank: 6/12\n17% Long ball ",
+                "Honvéd\nRank: 9/12\n19.14 Pass tempo",
+                "Honvéd\nRank: 2/12\n41% Possessions to final third ",
+                "Honvéd\nRank: 6/12\n25% Final third to box ",
+                "Honvéd\nRank: 1/12\n2.09 xT"
+            ],
+            [
+                "Vasas\nRank: 11/12\n38% Ball possession ",
+                "Vasas\nRank: 9/12\n40% Field tilt ",
+                "Vasas\nRank: 7/12\n18% Long ball ",
+                "Vasas\nRank: 10/12\n18.49 Pass tempo",
+                "Vasas\nRank: 5/12\n36% Possessions to final third ",
+                "Vasas\nRank: 8/12\n19% Final third to box ",
+                "Vasas\nRank: 7/12\n1.41 xT"
+            ],
+            [
+                "Nyíregyháza Spartacus\nRank: 7/12\n47% Ball possession ",
+                "Nyíregyháza Spartacus\nRank: 2/12\n62% Field tilt ",
+                "Nyíregyháza Spartacus\nRank: 7/12\n18% Long ball ",
+                "Nyíregyháza Spartacus\nRank: 8/12\n19.46 Pass tempo",
+                "Nyíregyháza Spartacus\nRank: 8/12\n30% Possessions to final third ",
+                "Nyíregyháza Spartacus\nRank: 11/12\n10% Final third to box ",
+                "Nyíregyháza Spartacus\nRank: 10/12\n1.13 xT"
+            ],
+            [
+                "Paksi FC\nRank: 10/12\n40% Ball possession ",
+                "Paksi FC\nRank: 6/12\n55% Field tilt ",
+                "Paksi FC\nRank: 11/12\n22% Long ball ",
+                "Paksi FC\nRank: 7/12\n19.69 Pass tempo",
+                "Paksi FC\nRank: 7/12\n31% Possessions to final third ",
+                "Paksi FC\nRank: 2/12\n33% Final third to box ",
+                "Paksi FC\nRank: 2/12\n1.95 xT"
+            ],
+            [
+                "Várda SE\nRank: 12/12\n33% Ball possession ",
+                "Várda SE\nRank: 12/12\n32% Field tilt ",
+                "Várda SE\nRank: 12/12\n23% Long ball ",
+                "Várda SE\nRank: 2/12\n20.70 Pass tempo",
+                "Várda SE\nRank: 9/12\n29% Possessions to final third ",
+                "Várda SE\nRank: 3/12\n32% Final third to box ",
+                "Várda SE\nRank: 11/12\n1.05 xT"
+            ],
+            [
+                "Puskás FC\nRank: 9/12\n41% Ball possession ",
+                "Puskás FC\nRank: 8/12\n41% Field tilt ",
+                "Puskás FC\nRank: 7/12\n18% Long ball ",
+                "Puskás FC\nRank: 5/12\n20.09 Pass tempo",
+                "Puskás FC\nRank: 10/12\n24% Possessions to final third ",
+                "Puskás FC\nRank: 1/12\n36% Final third to box ",
+                "Puskás FC\nRank: 5/12\n1.53 xT"
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Ball possession % | 53",
+            "Field tilt % | 38",
+            "Long ball % | 16",
+            "Pass tempo | 20.46",
+            "Possessions to final third % | 24",
+            "Final third to box % | 15",
+            "xT | 0.88"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

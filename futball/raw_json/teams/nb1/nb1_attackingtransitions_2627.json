@@ -1,0 +1,351 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's performance in attacking transition",
+    "subtitle": "Újpest | Hungarian NB I 2026/2027",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Honvéd",
+            "Vasas",
+            "Nyíregyháza Spartacus",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10194,
+            10196,
+            10198,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Recoveries",
+                "description": "Number of recoveries by the team per match.",
+                "display_name": "Recoveries"
+            },
+            {
+                "name": "Recovery line height (m)",
+                "description": "Mean height on the pitch in meters of the team's recoveries per match.",
+                "display_name": "Recovery line height (m)"
+            },
+            {
+                "name": "Possessions retained after 5s",
+                "description": "Number of possessions by the team that lasted longer than 5 seconds after a recovery per match.",
+                "display_name": "Possessions retained after 5s"
+            },
+            {
+                "name": "Possessions retained after 5s %",
+                "description": "Percentage of possessions by the team that lasted longer than 5 seconds after a recovery per match.",
+                "display_name": "Possessions retained after 5s %"
+            },
+            {
+                "name": "Possessions to final third within 10s after recovery",
+                "description": "Number of possessions by the team with a final third entry within 10 seconds after a recovery from outside of the final third per match.",
+                "display_name": "Possessions to final third within 10s after recovery"
+            },
+            {
+                "name": "Possessions to box within 10s after recovery",
+                "description": "Number of possessions by the team with a box entry within 10 seconds after a recovery from outside of the box per match.",
+                "display_name": "Possessions to box within 10s after recovery"
+            },
+            {
+                "name": "xG within 10s after recovery",
+                "description": "Accumulated expected goals of the team within 10 seconds after a recovery per match.",
+                "display_name": "xG within 10s after recovery"
+            },
+            {
+                "name": "xT within 10s after recovery",
+                "description": "Accumulated position-based expected threat of the team within 10 seconds after a recovery per match.",
+                "display_name": "xT within 10s after recovery"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                1.4985271030172371,
+                -1.1599744516009522,
+                1.7145222790821355,
+                0.2297818108703275,
+                1.147994004866865,
+                0.18569533817705194,
+                -0.4446433811378339,
+                -0.45029362920222693
+            ],
+            [
+                1.4985271030172371,
+                0.6129017638803685,
+                1.4752866122334654,
+                -0.009990513516101428,
+                -0.133487674984519,
+                -0.37139067635410367,
+                -0.13532624643325397,
+                0.4771768309456441
+            ],
+            [
+                -0.015773969505444376,
+                0.45599410289677295,
+                0.03987261114144529,
+                -0.009990513516101428,
+                0.8276235849040191,
+                0.18569533817705194,
+                0.251320171947471,
+                0.4368520283305192
+            ],
+            [
+                -0.3943492376361148,
+                -2.164544189162596,
+                -1.6347770567992448,
+                -2.1679414329939606,
+                -1.7353397747987491,
+                -2.0426487199475702,
+                -0.8312897995185589,
+                -0.8132168527383508
+            ],
+            [
+                -0.3943492376361148,
+                0.11512573593240898,
+                -0.19936305570722473,
+                0.2297818108703275,
+                -1.7353397747987491,
+                -0.9284766908852592,
+                -0.25132017194747147,
+                -0.49061843181735176
+            ],
+            [
+                -1.3407874079627908,
+                0.22333791592109617,
+                -0.6778343894045648,
+                1.3087572706092565,
+                0.18688274497832705,
+                -0.9284766908852592,
+                -0.908619083194704,
+                -1.7003625102710969
+            ],
+            [
+                -0.20506160357077957,
+                0.8185049058588738,
+                0.7575796116874554,
+                1.5485295949956854,
+                0.5072531649411731,
+                1.2998673672393632,
+                -0.057996962757109013,
+                0.6384760414061431
+            ],
+            [
+                -0.9622121398321204,
+                -1.1617779879340966,
+                -0.6778343894045648,
+                0.46955413525675643,
+                -0.453858094947365,
+                -0.37139067635410367,
+                -0.9859483668708489,
+                -0.9745160631988498
+            ],
+            [
+                1.309239468951902,
+                1.6842023457683701,
+                0.03987261114144529,
+                -1.6883967842211027,
+                1.4683644248297112,
+                1.2998673672393632,
+                0.3286494556236161,
+                1.9288697250901379
+            ],
+            [
+                0.9306642008212316,
+                0.5263320198894196,
+                0.9968152785361254,
+                0.10989564867711304,
+                0.8276235849040191,
+                0.7427813527082076,
+                1.9912290546607332,
+                1.001399264942267
+            ],
+            [
+                -0.9622121398321204,
+                -0.28165225735944366,
+                -0.9170700562532348,
+                -0.009990513516101428,
+                -0.133487674984519,
+                -0.37139067635410367,
+                -0.9859483668708489,
+                -0.8938664579686004
+            ],
+            [
+                -0.9622121398321204,
+                0.33155009590978335,
+                -0.9170700562532348,
+                -0.009990513516101428,
+                -0.774228514910211,
+                1.2998673672393632,
+                2.0298936964988057,
+                0.8401000544817674
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\nRank: 1/12\n39.00 Recoveries",
+                "Ferencváros\nRank: 10/12\n32.36 Recovery line height (m)",
+                "Ferencváros\nRank: 1/12\n31.00 Possessions retained after 5s",
+                "Ferencváros\nRank: 4/12\n79% Possessions retained after 5s ",
+                "Ferencváros\nRank: 2/12\n13.00 Possessions to final third within 10s after recovery",
+                "Ferencváros\nRank: 5/12\n4.00 Possessions to box within 10s after recovery",
+                "Ferencváros\nRank: 8/12\n0.14 xG within 10s after recovery",
+                "Ferencváros\nRank: 7/12\n0.68 xT within 10s after recovery"
+            ],
+            [
+                "Debrecen\nRank: 1/12\n39.00 Recoveries",
+                "Debrecen\nRank: 3/12\n42.19 Recovery line height (m)",
+                "Debrecen\nRank: 2/12\n30.00 Possessions retained after 5s",
+                "Debrecen\nRank: 7/12\n77% Possessions retained after 5s ",
+                "Debrecen\nRank: 7/12\n9.00 Possessions to final third within 10s after recovery",
+                "Debrecen\nRank: 7/12\n3.00 Possessions to box within 10s after recovery",
+                "Debrecen\nRank: 6/12\n0.22 xG within 10s after recovery",
+                "Debrecen\nRank: 5/12\n0.91 xT within 10s after recovery"
+            ],
+            [
+                "MTK\nRank: 5/12\n31.00 Recoveries",
+                "MTK\nRank: 5/12\n41.32 Recovery line height (m)",
+                "MTK\nRank: 5/12\n24.00 Possessions retained after 5s",
+                "MTK\nRank: 7/12\n77% Possessions retained after 5s ",
+                "MTK\nRank: 3/12\n12.00 Possessions to final third within 10s after recovery",
+                "MTK\nRank: 5/12\n4.00 Possessions to box within 10s after recovery",
+                "MTK\nRank: 4/12\n0.32 xG within 10s after recovery",
+                "MTK\nRank: 6/12\n0.90 xT within 10s after recovery"
+            ],
+            [
+                "Újpest\nRank: 7/12\n29.00 Recoveries",
+                "Újpest\nRank: 12/12\n26.79 Recovery line height (m)",
+                "Újpest\nRank: 12/12\n17.00 Possessions retained after 5s",
+                "Újpest\nRank: 12/12\n59% Possessions retained after 5s ",
+                "Újpest\nRank: 11/12\n4.00 Possessions to final third within 10s after recovery",
+                "Újpest\nRank: 12/12\n0.00 Possessions to box within 10s after recovery",
+                "Újpest\nRank: 9/12\n0.04 xG within 10s after recovery",
+                "Újpest\nRank: 9/12\n0.59 xT within 10s after recovery"
+            ],
+            [
+                "Zalaegerszegi TE\nRank: 7/12\n29.00 Recoveries",
+                "Zalaegerszegi TE\nRank: 8/12\n39.43 Recovery line height (m)",
+                "Zalaegerszegi TE\nRank: 7/12\n23.00 Possessions retained after 5s",
+                "Zalaegerszegi TE\nRank: 4/12\n79% Possessions retained after 5s ",
+                "Zalaegerszegi TE\nRank: 11/12\n4.00 Possessions to final third within 10s after recovery",
+                "Zalaegerszegi TE\nRank: 10/12\n2.00 Possessions to box within 10s after recovery",
+                "Zalaegerszegi TE\nRank: 7/12\n0.19 xG within 10s after recovery",
+                "Zalaegerszegi TE\nRank: 8/12\n0.67 xT within 10s after recovery"
+            ],
+            [
+                "Győri ETO\nRank: 12/12\n24.00 Recoveries",
+                "Győri ETO\nRank: 7/12\n40.03 Recovery line height (m)",
+                "Győri ETO\nRank: 8/12\n21.00 Possessions retained after 5s",
+                "Győri ETO\nRank: 2/12\n88% Possessions retained after 5s ",
+                "Győri ETO\nRank: 6/12\n10.00 Possessions to final third within 10s after recovery",
+                "Győri ETO\nRank: 10/12\n2.00 Possessions to box within 10s after recovery",
+                "Győri ETO\nRank: 10/12\n0.02 xG within 10s after recovery",
+                "Győri ETO\nRank: 12/12\n0.37 xT within 10s after recovery"
+            ],
+            [
+                "Honvéd\nRank: 6/12\n30.00 Recoveries",
+                "Honvéd\nRank: 2/12\n43.33 Recovery line height (m)",
+                "Honvéd\nRank: 4/12\n27.00 Possessions retained after 5s",
+                "Honvéd\nRank: 1/12\n90% Possessions retained after 5s ",
+                "Honvéd\nRank: 5/12\n11.00 Possessions to final third within 10s after recovery",
+                "Honvéd\nRank: 1/12\n6.00 Possessions to box within 10s after recovery",
+                "Honvéd\nRank: 5/12\n0.24 xG within 10s after recovery",
+                "Honvéd\nRank: 4/12\n0.95 xT within 10s after recovery"
+            ],
+            [
+                "Vasas\nRank: 9/12\n26.00 Recoveries",
+                "Vasas\nRank: 11/12\n32.35 Recovery line height (m)",
+                "Vasas\nRank: 8/12\n21.00 Possessions retained after 5s",
+                "Vasas\nRank: 3/12\n81% Possessions retained after 5s ",
+                "Vasas\nRank: 9/12\n8.00 Possessions to final third within 10s after recovery",
+                "Vasas\nRank: 7/12\n3.00 Possessions to box within 10s after recovery",
+                "Vasas\nRank: 11/12\n0.00 xG within 10s after recovery",
+                "Vasas\nRank: 11/12\n0.55 xT within 10s after recovery"
+            ],
+            [
+                "Nyíregyháza Spartacus\nRank: 3/12\n38.00 Recoveries",
+                "Nyíregyháza Spartacus\nRank: 1/12\n48.13 Recovery line height (m)",
+                "Nyíregyháza Spartacus\nRank: 5/12\n24.00 Possessions retained after 5s",
+                "Nyíregyháza Spartacus\nRank: 11/12\n63% Possessions retained after 5s ",
+                "Nyíregyháza Spartacus\nRank: 1/12\n14.00 Possessions to final third within 10s after recovery",
+                "Nyíregyháza Spartacus\nRank: 1/12\n6.00 Possessions to box within 10s after recovery",
+                "Nyíregyháza Spartacus\nRank: 3/12\n0.34 xG within 10s after recovery",
+                "Nyíregyháza Spartacus\nRank: 1/12\n1.27 xT within 10s after recovery"
+            ],
+            [
+                "Paksi FC\nRank: 4/12\n36.00 Recoveries",
+                "Paksi FC\nRank: 4/12\n41.71 Recovery line height (m)",
+                "Paksi FC\nRank: 3/12\n28.00 Possessions retained after 5s",
+                "Paksi FC\nRank: 6/12\n78% Possessions retained after 5s ",
+                "Paksi FC\nRank: 3/12\n12.00 Possessions to final third within 10s after recovery",
+                "Paksi FC\nRank: 4/12\n5.00 Possessions to box within 10s after recovery",
+                "Paksi FC\nRank: 2/12\n0.77 xG within 10s after recovery",
+                "Paksi FC\nRank: 2/12\n1.04 xT within 10s after recovery"
+            ],
+            [
+                "Várda SE\nRank: 9/12\n26.00 Recoveries",
+                "Várda SE\nRank: 9/12\n37.23 Recovery line height (m)",
+                "Várda SE\nRank: 10/12\n20.00 Possessions retained after 5s",
+                "Várda SE\nRank: 7/12\n77% Possessions retained after 5s ",
+                "Várda SE\nRank: 7/12\n9.00 Possessions to final third within 10s after recovery",
+                "Várda SE\nRank: 7/12\n3.00 Possessions to box within 10s after recovery",
+                "Várda SE\nRank: 11/12\n0.00 xG within 10s after recovery",
+                "Várda SE\nRank: 10/12\n0.57 xT within 10s after recovery"
+            ],
+            [
+                "Puskás FC\nRank: 9/12\n26.00 Recoveries",
+                "Puskás FC\nRank: 6/12\n40.63 Recovery line height (m)",
+                "Puskás FC\nRank: 10/12\n20.00 Possessions retained after 5s",
+                "Puskás FC\nRank: 7/12\n77% Possessions retained after 5s ",
+                "Puskás FC\nRank: 10/12\n7.00 Possessions to final third within 10s after recovery",
+                "Puskás FC\nRank: 1/12\n6.00 Possessions to box within 10s after recovery",
+                "Puskás FC\nRank: 1/12\n0.78 xG within 10s after recovery",
+                "Puskás FC\nRank: 3/12\n1.00 xT within 10s after recovery"
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Recoveries | 29.00",
+            "Recovery line height (m) | 26.79",
+            "Possessions retained after 5s | 17.00",
+            "Possessions retained after 5s % | 59",
+            "Possessions to final third within 10s after recovery | 4.00",
+            "Possessions to box within 10s after recovery | 0.00",
+            "xG within 10s after recovery | 0.04",
+            "xT within 10s after recovery | 0.59"
+        ],
+        "left_axis_labels": null,
+        "right_axis_labels": null,
+        "labels": null,
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}

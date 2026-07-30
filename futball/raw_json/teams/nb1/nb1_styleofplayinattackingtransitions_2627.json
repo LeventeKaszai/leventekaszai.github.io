@@ -1,0 +1,265 @@
+{
+    "plot_type": "distribution",
+    "title": "Újpest's style of play in attacking transition",
+    "subtitle": "Újpest | Hungarian NB I 2026/2027",
+    "target_type": "team",
+    "kpi_type": "metric",
+    "data": {
+        "target_labels": [
+            "Ferencváros",
+            "Debrecen",
+            "MTK",
+            "Újpest",
+            "Zalaegerszegi TE",
+            "Győri ETO",
+            "Honvéd",
+            "Vasas",
+            "Nyíregyháza Spartacus",
+            "Paksi FC",
+            "Várda SE",
+            "Puskás FC"
+        ],
+        "target_identifiers": [
+            10183,
+            10185,
+            10186,
+            10187,
+            10190,
+            10191,
+            10194,
+            10196,
+            10198,
+            10250,
+            10374,
+            22989
+        ],
+        "kpis": [
+            {
+                "name": "Time to forward pass after own-half recovery (s)",
+                "description": "Median time that it takes the team to make a forward pass after recovering the ball in their own half per match.",
+                "display_name": "Time to forward pass after own-half recovery (s)"
+            },
+            {
+                "name": "First pass forward %",
+                "description": "Percentage of first passes the team played forward after a recovery in their own-half per match.",
+                "display_name": "First pass forward %"
+            },
+            {
+                "name": "Possessions to final third within 10s after own-half recovery %",
+                "description": "Percentage of possessions by the team that begin with a recovery in their own half and result in the team entering the final third within 10 seconds per match.",
+                "display_name": "Possessions to final third within 10s after own-half recovery %"
+            },
+            {
+                "name": "Possessions to box within 10s after att. half recovery %",
+                "description": "Percentage of possessions by the team that begin with a recovery in the attacking half and result in the team entering the box within 10 seconds per match.",
+                "display_name": "Possessions to box within 10s after att. half recovery %"
+            },
+            {
+                "name": "Possessions retained after 5s %",
+                "description": "Percentage of possessions by the team that lasted longer than 5 seconds after a recovery per match.",
+                "display_name": "Possessions retained after 5s %"
+            }
+        ],
+        "focal_target_indices": [
+            3
+        ],
+        "value_range": [
+            -4,
+            4
+        ],
+        "plot_values": [
+            [
+                0.12656957732403848,
+                -0.7681558385242725,
+                0.8699951566481452,
+                -0.3474606875388434,
+                0.2297818108703275
+            ],
+            [
+                0.12656957732403848,
+                -1.0266007935417842,
+                -0.7016089972968923,
+                0.04589103420324345,
+                -0.009990513516101428
+            ],
+            [
+                -0.12656962522330656,
+                -0.5097108835067599,
+                0.7577377170806424,
+                0.36057241159691283,
+                -0.009990513516101428
+            ],
+            [
+                -0.9703667994003511,
+                0.3517722998849479,
+                -1.9364408325394216,
+                -1.9208675745071913,
+                -2.1679414329939606
+            ],
+            [
+                0.48819688636498443,
+                -1.5434907035768095,
+                -1.8241833929719187,
+                0.6752537889905826,
+                0.2297818108703275
+            ],
+            [
+                0.8980414190209182,
+                0.007179026528265356,
+                1.3190249149181557,
+                -1.9208675745071913,
+                1.3087572706092565
+            ],
+            [
+                0.9100956530757627,
+                -0.6820075201851017,
+                0.6454802775131396,
+                1.383286888126339,
+                1.5485295949956854
+            ],
+            [
+                1.3681568345554649,
+                -0.07896929181090552,
+                0.308707958810632,
+                0.6752537889905826,
+                0.46955413525675643
+            ],
+            [
+                -1.982923394043024,
+                1.9024420299900227,
+                0.19645051924312923,
+                -0.03277931014517402,
+                -1.6883967842211027
+            ],
+            [
+                0.8377699613510858,
+                0.09332734486743527,
+                0.42096539837813474,
+                0.04589103420324345,
+                0.10989564867711304
+            ],
+            [
+                -0.05424407719643449,
+                1.8162937116508517,
+                -0.5893515577293895,
+                -0.19011999884200873,
+                -0.009990513516101428
+            ],
+            [
+                -1.6212960131531757,
+                0.43792061822411876,
+                0.5332228379456369,
+                1.2259461994295044,
+                -0.009990513516101428
+            ]
+        ],
+        "hover_strings": [
+            [
+                "Ferencváros\n1.75 Time to forward pass after own-half recovery (s)",
+                "Ferencváros\n59% First pass forward ",
+                "Ferencváros\n32% Possessions to final third within 10s after own-half recovery ",
+                "Ferencváros\n20% Possessions to box within 10s after att. half recovery ",
+                "Ferencváros\n79% Possessions retained after 5s "
+            ],
+            [
+                "Debrecen\n1.75 Time to forward pass after own-half recovery (s)",
+                "Debrecen\n56% First pass forward ",
+                "Debrecen\n18% Possessions to final third within 10s after own-half recovery ",
+                "Debrecen\n25% Possessions to box within 10s after att. half recovery ",
+                "Debrecen\n77% Possessions retained after 5s "
+            ],
+            [
+                "MTK\n1.54 Time to forward pass after own-half recovery (s)",
+                "MTK\n62% First pass forward ",
+                "MTK\n31% Possessions to final third within 10s after own-half recovery ",
+                "MTK\n29% Possessions to box within 10s after att. half recovery ",
+                "MTK\n77% Possessions retained after 5s "
+            ],
+            [
+                "Újpest\n0.84 Time to forward pass after own-half recovery (s)",
+                "Újpest\n72% First pass forward ",
+                "Újpest\n7% Possessions to final third within 10s after own-half recovery ",
+                "Újpest\n0% Possessions to box within 10s after att. half recovery ",
+                "Újpest\n59% Possessions retained after 5s "
+            ],
+            [
+                "Zalaegerszegi TE\n2.05 Time to forward pass after own-half recovery (s)",
+                "Zalaegerszegi TE\n50% First pass forward ",
+                "Zalaegerszegi TE\n8% Possessions to final third within 10s after own-half recovery ",
+                "Zalaegerszegi TE\n33% Possessions to box within 10s after att. half recovery ",
+                "Zalaegerszegi TE\n79% Possessions retained after 5s "
+            ],
+            [
+                "Győri ETO\n2.39 Time to forward pass after own-half recovery (s)",
+                "Győri ETO\n68% First pass forward ",
+                "Győri ETO\n36% Possessions to final third within 10s after own-half recovery ",
+                "Győri ETO\n0% Possessions to box within 10s after att. half recovery ",
+                "Győri ETO\n88% Possessions retained after 5s "
+            ],
+            [
+                "Honvéd\n2.40 Time to forward pass after own-half recovery (s)",
+                "Honvéd\n60% First pass forward ",
+                "Honvéd\n30% Possessions to final third within 10s after own-half recovery ",
+                "Honvéd\n42% Possessions to box within 10s after att. half recovery ",
+                "Honvéd\n90% Possessions retained after 5s "
+            ],
+            [
+                "Vasas\n2.78 Time to forward pass after own-half recovery (s)",
+                "Vasas\n67% First pass forward ",
+                "Vasas\n27% Possessions to final third within 10s after own-half recovery ",
+                "Vasas\n33% Possessions to box within 10s after att. half recovery ",
+                "Vasas\n81% Possessions retained after 5s "
+            ],
+            [
+                "Nyíregyháza Spartacus\n0.00 Time to forward pass after own-half recovery (s)",
+                "Nyíregyháza Spartacus\n90% First pass forward ",
+                "Nyíregyháza Spartacus\n26% Possessions to final third within 10s after own-half recovery ",
+                "Nyíregyháza Spartacus\n24% Possessions to box within 10s after att. half recovery ",
+                "Nyíregyháza Spartacus\n63% Possessions retained after 5s "
+            ],
+            [
+                "Paksi FC\n2.34 Time to forward pass after own-half recovery (s)",
+                "Paksi FC\n69% First pass forward ",
+                "Paksi FC\n28% Possessions to final third within 10s after own-half recovery ",
+                "Paksi FC\n25% Possessions to box within 10s after att. half recovery ",
+                "Paksi FC\n78% Possessions retained after 5s "
+            ],
+            [
+                "Várda SE\n1.60 Time to forward pass after own-half recovery (s)",
+                "Várda SE\n89% First pass forward ",
+                "Várda SE\n19% Possessions to final third within 10s after own-half recovery ",
+                "Várda SE\n22% Possessions to box within 10s after att. half recovery ",
+                "Várda SE\n77% Possessions retained after 5s "
+            ],
+            [
+                "Puskás FC\n0.30 Time to forward pass after own-half recovery (s)",
+                "Puskás FC\n73% First pass forward ",
+                "Puskás FC\n29% Possessions to final third within 10s after own-half recovery ",
+                "Puskás FC\n40% Possessions to box within 10s after att. half recovery ",
+                "Puskás FC\n77% Possessions retained after 5s "
+            ]
+        ],
+        "serie_names": [
+            "Other NB I teams",
+            "Újpest"
+        ],
+        "minutes_played": 0,
+        "axis_labels": [
+            "Time to forward pass after own-half recovery (s) | 0.84",
+            "First pass forward % | 72",
+            "Possessions to final third within 10s after own-half recovery % | 7",
+            "Possessions to box within 10s after att. half recovery % | 0",
+            "Possessions retained after 5s % | 59"
+        ],
+        "left_axis_labels": [],
+        "right_axis_labels": [],
+        "labels": [
+            "Smaller",
+            "Average",
+            "Greater"
+        ],
+        "focal_names": null,
+        "quality_avg_z_scores": null
+    },
+    "player_info": null
+}
