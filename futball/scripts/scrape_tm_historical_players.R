@@ -12,7 +12,7 @@ library(RSQLite)
 # szezononkent DELETE + append, hogy a jelenlegi (2025-26, NB1+NB2) sorok
 # erintetlenek maradjanak.
 
-SEASONS <- c(2022, 2023, 2024)
+SEASONS <- c(2022, 2023, 2024, 2025)
 
 con <- dbConnect(RSQLite::SQLite(), "futball/futball.db")
 
