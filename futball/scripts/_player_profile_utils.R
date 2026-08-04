@@ -52,12 +52,15 @@ load_player_db_stats <- function(nev, db_path = "futball/futball.db") {
   pid      <- pm$player_id[1]
   tm_name  <- pm$player_name[1]   # TM-kompatibilis név a további lekérdezésekhez
 
-  # TransferMarkt adatok
+  # TransferMarkt adatok -- a tm_rosters tobb szezont is tartalmaz (2022-tol),
+  # ezert a legfrissebb szezon sorat kell venni, kulonben egy regi piaci
+  # ertek/klub keruljon be egy jelenleg is aktiv jatekosnal.
   tm <- dbGetQuery(con,
     "SELECT squad, player_dob, player_age, player_nationality,
             player_height_mtrs, player_foot, player_market_value_euro,
             contract_expiry, player_url, player_position
-     FROM tm_rosters WHERE player_name = ? LIMIT 1",
+     FROM tm_rosters WHERE player_name = ?
+     ORDER BY season_start_year DESC LIMIT 1",
     params = list(tm_name)
   )
 
