@@ -120,6 +120,22 @@ player_profiles <- identity_map |>
 
 player_uid_by_twelve_id <- identity_map |> distinct(player_id, player_uid)
 
+# A Twelve nyers exportjai (raw_json fájlnevek/title-ök) több quality-kategóriát
+# is elgépelve vagy szinonimaként adnak vissza -- ugyanazokkal a KPI-kkel,
+# ugyanarra a pozícióra, csak más szezon/export-batch-ben más néven (ellenőrizve
+# a player_stats_long-ban: azonos KPI-halmaz, azonos pozíció). Ez nélkül minden
+# ilyen mutató 2-3x jelent volna meg külön szűrő-opcióként a Next.js oldalon.
+# A defensiveheading TUDATOSAN kimarad -- valódi eltérő mutató (védekező
+# fejes-párbajok), más KPI-halmazzal, nem duplikátum.
+QUALITY_ALIASES <- c(
+  "intelligentdefece"    = "intelligentdefence",
+  "inveolvement"         = "involvement",
+  "territoraldefence"    = "territorialdefence",
+  "territorialdominance" = "territorialdefence",
+  "aerials"              = "aerialthreat",
+  "offensiveaerials"     = "aerialthreat"
+)
+
 # FONTOS: a position mezőt is meg kell tartani -- egy játékosnak több pozícióján
 # is lehet Twelve-adata ugyanabban a szezonban (pl. CB-ként ÉS FB-ként mérve),
 # és a rank/rank_of pozíció-relatív rangsor. Korábban a position nélküli
@@ -130,6 +146,10 @@ player_season_stats <- dbGetQuery(sq, "
 ") |>
   inner_join(player_uid_by_twelve_id, by = "player_id") |>
   filter(!is.na(quality) & !is.na(kpi) & !is.na(position)) |>
+  mutate(
+    quality = dplyr::recode(quality, !!!QUALITY_ALIASES),
+    kpi     = if_else(kpi == "Defensive actions won", "Defensive actions", kpi)
+  ) |>
   transmute(player_uid, season = szezon, league = liga, position, quality, kpi, value_per90, rank, rank_of) |>
   distinct(player_uid, season, league, position, quality, kpi, .keep_all = TRUE)
 
