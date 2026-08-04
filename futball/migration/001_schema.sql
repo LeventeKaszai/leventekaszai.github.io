@@ -60,12 +60,14 @@ CREATE TABLE football.player_season_stats (
   player_uid  UUID NOT NULL REFERENCES identity.player_identity(player_uid),
   season      TEXT NOT NULL,
   league      TEXT NOT NULL,
+  position    TEXT NOT NULL,  -- 2026-08-04: pótolva -- egy játékosnak több pozícióján is lehet
+                               -- Twelve-adata ugyanabban a szezonban, a rank/rank_of pozíció-relatív
   quality     TEXT NOT NULL,
   kpi         TEXT NOT NULL,
   value_per90 REAL,
   rank        INTEGER,
   rank_of     INTEGER,
-  PRIMARY KEY (player_uid, season, league, quality, kpi)
+  PRIMARY KEY (player_uid, season, league, position, quality, kpi)
 );
 
 CREATE TABLE football.team_season_stats (
