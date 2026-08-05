@@ -206,7 +206,7 @@ nb2_squad_values_historical_raw_out <- dbGetQuery(sq, "SELECT * FROM nb2_squad_v
 nb1_final_tables_historical_out <- dbGetQuery(sq, "SELECT * FROM nb1_final_tables_historical") |>
   rename_with(tolower)
 
-nb2_tables_historical_raw_out <- dbGetQuery(sq, "SELECT * FROM nb2_tables_historical_raw")
+nb2_final_tables_historical_out <- dbGetQuery(sq, "SELECT * FROM nb2_final_tables_historical")
 
 nb1_2627_goal_estimates_out      <- dbGetQuery(sq, "SELECT * FROM nb1_2627_goal_estimates") |> mutate(generalva = as.Date(generalva))
 nb1_2627_poisson_params_out      <- dbGetQuery(sq, "SELECT * FROM nb1_2627_poisson_params") |> mutate(generalva = as.Date(generalva))
@@ -249,7 +249,7 @@ targets <- list(
   `football_lab.nb2_squad_values_historical` = nb2_squad_values_historical_out,
   `football_lab.nb2_squad_values_historical_raw` = nb2_squad_values_historical_raw_out,
   `football_lab.nb1_final_tables_historical` = nb1_final_tables_historical_out,
-  `football_lab.nb2_tables_historical_raw` = nb2_tables_historical_raw_out,
+  `football_lab.nb2_final_tables_historical` = nb2_final_tables_historical_out,
   `football_lab.nb1_2627_goal_estimates` = nb1_2627_goal_estimates_out,
   `football_lab.nb1_2627_poisson_params` = nb1_2627_poisson_params_out,
   `football_lab.nb1_2627_preseason_forecast` = nb1_2627_preseason_forecast_out,
@@ -343,7 +343,7 @@ tryCatch({
   truncate_reload(pg, "football_lab", "nb2_squad_values_historical", nb2_squad_values_historical_out)
   truncate_reload(pg, "football_lab", "nb2_squad_values_historical_raw", nb2_squad_values_historical_raw_out)
   truncate_reload(pg, "football_lab", "nb1_final_tables_historical", nb1_final_tables_historical_out)
-  truncate_reload(pg, "football_lab", "nb2_tables_historical_raw", nb2_tables_historical_raw_out)
+  truncate_reload(pg, "football_lab", "nb2_final_tables_historical", nb2_final_tables_historical_out)
   truncate_reload(pg, "football_lab", "nb1_2627_goal_estimates", nb1_2627_goal_estimates_out)
   truncate_reload(pg, "football_lab", "nb1_2627_poisson_params", nb1_2627_poisson_params_out)
   truncate_reload(pg, "football_lab", "nb1_2627_preseason_forecast", nb1_2627_preseason_forecast_out)
